@@ -4,8 +4,7 @@ url: >-
 apis:
   - aid: label-studio:label-studio
     name: Label Studio
-    tags:
-      - API
+    tags: []
     humanURL: ' https://labelstud.io/'
     properties:
       - url: ' https://labelstud.io/'
@@ -15,8 +14,8 @@ apis:
       data or validate AI models.
 name: Label Studio
 tags:
-  - Artificial Intelligence
   - AI
+  - Artificial Intelligence
   - LLM
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
