@@ -1,0 +1,13 @@
+{
+  "repo": "label-studio",
+  "feeds": [
+    {
+      "source": "https://labelstud.io/blog",
+      "feed_url": "https://labelstud.io/rss.xml",
+      "saved": 10,
+      "title": "Human Signal"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:31:06Z"
+}
