@@ -66,6 +66,19 @@ common:
     type: Terms of Service
   - url: https://labelstud.io/community
     type: Community
+  - type: Integrations
+    url: https://labelstud.io/integrations/
+integrations:
+  - name: Cloud Storage
+  - name: Foundation Model APIs
+  - name: Computer Vision
+  - name: NLP & Text Processing
+  - name: OCR & Document Processing
+  - name: Speech & Audio
+  - name: AI Evaluation & Observability
+  - name: ML Frameworks
+  - name: Infrastructure
+  - name: Submit an integration
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
