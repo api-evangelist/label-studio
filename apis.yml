@@ -44,7 +44,7 @@ apis:
       - url: https://labelstud.io/
         type: Documentation
       - url: https://api.labelstud.io/
-        type: API Reference
+        type: APIReference
       - url: openapi/label-studio-openapi.yml
         type: OpenAPI
       - url: https://github.com/HumanSignal/label-studio
@@ -61,9 +61,9 @@ common:
   - url: https://labelstud.io/blog
     type: Blog
   - url: https://humansignal.com/privacy/
-    type: Privacy Policy
+    type: PrivacyPolicy
   - url: https://humansignal.com/terms/
-    type: Terms of Service
+    type: TermsOfService
   - url: https://labelstud.io/community
     type: Community
   - type: Integrations
