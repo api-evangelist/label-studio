@@ -1,0 +1,505 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_projects.subpackage_projects/exports
+  description: 'API Reference — subpackage_projects.subpackage_projects/exports. 8 operations. Lead operation: [Deprecated]
+    Easy export of tasks and annotations. Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_projects.subpackage_projects/exports
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-projects-subpackage-projects-exports
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_projects.subpackage_projects/exports business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: api-projects-id-export
+      path: /api/projects/{id}/export
+      operations:
+      - name: downloadsync
+        method: GET
+        description: '[Deprecated] Easy export of tasks and annotations'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this project.
+          required: true
+        - name: download_all_tasks
+          in: query
+          type: boolean
+          description: If true, download all tasks regardless of status. If false, download only annotated tasks.
+        - name: download_resources
+          in: query
+          type: boolean
+          description: If true, download all resource files such as images, audio, and others relevant to the tasks.
+        - name: export_type
+          in: query
+          type: string
+          description: Selected export format (JSON by default)
+        - name: ids
+          in: query
+          type: array
+          description: Specify a list of task IDs to retrieve only the details for those tasks.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-projects-id-export-formats
+      path: /api/projects/{id}/export/formats
+      operations:
+      - name: listformats
+        method: GET
+        description: '[Deprecated] Get export formats'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this project.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-projects-id-exports
+      path: /api/projects/{id}/exports/
+      operations:
+      - name: list
+        method: GET
+        description: List all export snapshots
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this project.
+          required: true
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: Create new export snapshot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this project.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-projects-id-exports-export_pk
+      path: /api/projects/{id}/exports/{export_pk}
+      operations:
+      - name: get
+        method: GET
+        description: Get export snapshot by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: export_pk
+          in: path
+          type: integer
+          description: Primary key identifying the export file.
+          required: true
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this project.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: delete
+        method: DELETE
+        description: Delete export snapshot
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: export_pk
+          in: path
+          type: integer
+          description: Primary key identifying the export file.
+          required: true
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this project.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-projects-id-exports-export_pk-convert
+      path: /api/projects/{id}/exports/{export_pk}/convert
+      operations:
+      - name: convert
+        method: POST
+        description: Export conversion
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: export_pk
+          in: path
+          type: integer
+          description: Primary key identifying the export file.
+          required: true
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this project.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-projects-id-exports-export_pk-download
+      path: /api/projects/{id}/exports/{export_pk}/download
+      operations:
+      - name: download
+        method: GET
+        description: Download export snapshot as file in specified format
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: export_pk
+          in: path
+          type: integer
+          description: Primary key identifying the export file.
+          required: true
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this project.
+          required: true
+        - name: exportType
+          in: query
+          type: string
+          description: Selected export format
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-projects-subpackage-projects-exports-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_projects.subpackage_projects/exports. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/projects/{id}/export
+      name: api-projects-id-export
+      description: REST surface for api-projects-id-export.
+      operations:
+      - method: GET
+        name: downloadsync
+        description: '[Deprecated] Easy export of tasks and annotations'
+        call: label-studio-subpackage-projects-subpackage-projects-exports.downloadsync
+        with:
+          id: rest.id
+          download_all_tasks: rest.download_all_tasks
+          download_resources: rest.download_resources
+          export_type: rest.export_type
+          ids: rest.ids
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{id}/export/formats
+      name: api-projects-id-export-formats
+      description: REST surface for api-projects-id-export-formats.
+      operations:
+      - method: GET
+        name: listformats
+        description: '[Deprecated] Get export formats'
+        call: label-studio-subpackage-projects-subpackage-projects-exports.listformats
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{id}/exports
+      name: api-projects-id-exports
+      description: REST surface for api-projects-id-exports.
+      operations:
+      - method: GET
+        name: list
+        description: List all export snapshots
+        call: label-studio-subpackage-projects-subpackage-projects-exports.list
+        with:
+          id: rest.id
+          ordering: rest.ordering
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: Create new export snapshot
+        call: label-studio-subpackage-projects-subpackage-projects-exports.create
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{id}/exports/{export-pk}
+      name: api-projects-id-exports-export-pk
+      description: REST surface for api-projects-id-exports-export_pk.
+      operations:
+      - method: GET
+        name: get
+        description: Get export snapshot by ID
+        call: label-studio-subpackage-projects-subpackage-projects-exports.get
+        with:
+          export_pk: rest.export_pk
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Delete export snapshot
+        call: label-studio-subpackage-projects-subpackage-projects-exports.delete
+        with:
+          export_pk: rest.export_pk
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{id}/exports/{export-pk}/convert
+      name: api-projects-id-exports-export-pk-convert
+      description: REST surface for api-projects-id-exports-export_pk-convert.
+      operations:
+      - method: POST
+        name: convert
+        description: Export conversion
+        call: label-studio-subpackage-projects-subpackage-projects-exports.convert
+        with:
+          export_pk: rest.export_pk
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{id}/exports/{export-pk}/download
+      name: api-projects-id-exports-export-pk-download
+      description: REST surface for api-projects-id-exports-export_pk-download.
+      operations:
+      - method: GET
+        name: download
+        description: Download export snapshot as file in specified format
+        call: label-studio-subpackage-projects-subpackage-projects-exports.download
+        with:
+          export_pk: rest.export_pk
+          id: rest.id
+          exportType: rest.exportType
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-projects-subpackage-projects-exports-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_projects.subpackage_projects/exports. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: deprecated-easy-export-tasks-and
+      description: '[Deprecated] Easy export of tasks and annotations'
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-exports.downloadsync
+      with:
+        id: tools.id
+        download_all_tasks: tools.download_all_tasks
+        download_resources: tools.download_resources
+        export_type: tools.export_type
+        ids: tools.ids
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deprecated-get-export-formats
+      description: '[Deprecated] Get export formats'
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-exports.listformats
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-all-export-snapshots
+      description: List all export snapshots
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-exports.list
+      with:
+        id: tools.id
+        ordering: tools.ordering
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-new-export-snapshot
+      description: Create new export snapshot
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-projects-subpackage-projects-exports.create
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-export-snapshot-id
+      description: Get export snapshot by ID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-exports.get
+      with:
+        export_pk: tools.export_pk
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-export-snapshot
+      description: Delete export snapshot
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-exports.delete
+      with:
+        export_pk: tools.export_pk
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: export-conversion
+      description: Export conversion
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-projects-subpackage-projects-exports.convert
+      with:
+        export_pk: tools.export_pk
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: download-export-snapshot-file-specified
+      description: Download export snapshot as file in specified format
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-exports.download
+      with:
+        export_pk: tools.export_pk
+        id: tools.id
+        exportType: tools.exportType
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

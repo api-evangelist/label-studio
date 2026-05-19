@@ -1,0 +1,615 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_prompts
+  description: 'API Reference — subpackage_prompts. 10 operations. Lead operation: ✨ Create batch of failed predictions. Self-contained
+    Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_prompts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-prompts
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_prompts business capability. Self-contained, no shared references.
+    resources:
+    - name: api-model-run-batch-failed-predictions
+      path: /api/model-run/batch-failed-predictions
+      operations:
+      - name: batchfailedpredictions
+        method: POST
+        description: ✨ Create batch of failed predictions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: num_failed_predictions
+          in: query
+          type: integer
+          description: Number of failed predictions being sent (for telemetry only, has no effect)
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-model-run-batch-predictions
+      path: /api/model-run/batch-predictions
+      operations:
+      - name: batchpredictions
+        method: POST
+        description: ✨ Create batch predictions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: num_predictions
+          in: query
+          type: integer
+          description: Number of predictions being sent (for telemetry only, has no effect)
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-projects-project_pk-subset-tasks
+      path: /api/projects/{project_pk}/subset-tasks
+      operations:
+      - name: subsettasks
+        method: GET
+        description: ✨ Get Project Subset Task List with Predictions and Accuracy details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_pk
+          in: path
+          type: integer
+          required: true
+        - name: include_total
+          in: query
+          type: boolean
+          description: If true (default), includes task_count in response; if false, omits it.
+        - name: model_run
+          in: query
+          type: integer
+          description: A unique ID of a ModelRun
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: page
+          in: query
+          type: integer
+          description: A page number within the paginated result set.
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of results to return per page.
+        - name: parent_model
+          in: query
+          type: integer
+          description: The ID of the parent model (ModelInterface) for this Inference Run
+        - name: project_subset
+          in: query
+          type: string
+          description: The project subset to retrieve tasks for
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-projects-project_pk-subsets
+      path: /api/projects/{project_pk}/subsets
+      operations:
+      - name: subsets
+        method: GET
+        description: ✨ Get available subsets of a project (for prompts usage)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_pk
+          in: path
+          type: integer
+          required: true
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-prompts
+      path: /api/prompts/
+      operations:
+      - name: list
+        method: GET
+        description: ✨ List prompts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: page
+          in: query
+          type: integer
+          description: A page number within the paginated result set.
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of results to return per page.
+        - name: search
+          in: query
+          type: string
+          description: A search term.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: ✨ Create prompt
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-prompts-compatible-projects
+      path: /api/prompts/compatible-projects
+      operations:
+      - name: compatibleprojects
+        method: GET
+        description: ✨ List projects compatible with prompt
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: page
+          in: query
+          type: integer
+          description: A page number within the paginated result set.
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of results to return per page.
+        - name: project_type
+          in: query
+          type: string
+          description: Skill to filter by
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-prompts-id
+      path: /api/prompts/{id}/
+      operations:
+      - name: get
+        method: GET
+        description: ✨ Get prompt
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: delete
+        method: DELETE
+        description: ✨ Delete prompt
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: update
+        method: PATCH
+        description: ✨ Update prompt
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-prompts-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_prompts. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/model-run/batch-failed-predictions
+      name: api-model-run-batch-failed-predictions
+      description: REST surface for api-model-run-batch-failed-predictions.
+      operations:
+      - method: POST
+        name: batchfailedpredictions
+        description: ✨ Create batch of failed predictions
+        call: label-studio-subpackage-prompts.batchfailedpredictions
+        with:
+          num_failed_predictions: rest.num_failed_predictions
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/model-run/batch-predictions
+      name: api-model-run-batch-predictions
+      description: REST surface for api-model-run-batch-predictions.
+      operations:
+      - method: POST
+        name: batchpredictions
+        description: ✨ Create batch predictions
+        call: label-studio-subpackage-prompts.batchpredictions
+        with:
+          num_predictions: rest.num_predictions
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{project-pk}/subset-tasks
+      name: api-projects-project-pk-subset-tasks
+      description: REST surface for api-projects-project_pk-subset-tasks.
+      operations:
+      - method: GET
+        name: subsettasks
+        description: ✨ Get Project Subset Task List with Predictions and Accuracy details
+        call: label-studio-subpackage-prompts.subsettasks
+        with:
+          project_pk: rest.project_pk
+          include_total: rest.include_total
+          model_run: rest.model_run
+          ordering: rest.ordering
+          page: rest.page
+          page_size: rest.page_size
+          parent_model: rest.parent_model
+          project_subset: rest.project_subset
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{project-pk}/subsets
+      name: api-projects-project-pk-subsets
+      description: REST surface for api-projects-project_pk-subsets.
+      operations:
+      - method: GET
+        name: subsets
+        description: ✨ Get available subsets of a project (for prompts usage)
+        call: label-studio-subpackage-prompts.subsets
+        with:
+          project_pk: rest.project_pk
+          ordering: rest.ordering
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/prompts
+      name: api-prompts
+      description: REST surface for api-prompts.
+      operations:
+      - method: GET
+        name: list
+        description: ✨ List prompts
+        call: label-studio-subpackage-prompts.list
+        with:
+          ordering: rest.ordering
+          page: rest.page
+          page_size: rest.page_size
+          search: rest.search
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: ✨ Create prompt
+        call: label-studio-subpackage-prompts.create
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/prompts/compatible-projects
+      name: api-prompts-compatible-projects
+      description: REST surface for api-prompts-compatible-projects.
+      operations:
+      - method: GET
+        name: compatibleprojects
+        description: ✨ List projects compatible with prompt
+        call: label-studio-subpackage-prompts.compatibleprojects
+        with:
+          ordering: rest.ordering
+          page: rest.page
+          page_size: rest.page_size
+          project_type: rest.project_type
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/prompts/{id}
+      name: api-prompts-id
+      description: REST surface for api-prompts-id.
+      operations:
+      - method: GET
+        name: get
+        description: ✨ Get prompt
+        call: label-studio-subpackage-prompts.get
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: ✨ Delete prompt
+        call: label-studio-subpackage-prompts.delete
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: update
+        description: ✨ Update prompt
+        call: label-studio-subpackage-prompts.update
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-prompts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_prompts. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: create-batch-failed-predictions
+      description: ✨ Create batch of failed predictions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-prompts.batchfailedpredictions
+      with:
+        num_failed_predictions: tools.num_failed_predictions
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-batch-predictions
+      description: ✨ Create batch predictions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-prompts.batchpredictions
+      with:
+        num_predictions: tools.num_predictions
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-project-subset-task-list
+      description: ✨ Get Project Subset Task List with Predictions and Accuracy details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-prompts.subsettasks
+      with:
+        project_pk: tools.project_pk
+        include_total: tools.include_total
+        model_run: tools.model_run
+        ordering: tools.ordering
+        page: tools.page
+        page_size: tools.page_size
+        parent_model: tools.parent_model
+        project_subset: tools.project_subset
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-available-subsets-project-prompts
+      description: ✨ Get available subsets of a project (for prompts usage)
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-prompts.subsets
+      with:
+        project_pk: tools.project_pk
+        ordering: tools.ordering
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-prompts
+      description: ✨ List prompts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-prompts.list
+      with:
+        ordering: tools.ordering
+        page: tools.page
+        page_size: tools.page_size
+        search: tools.search
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-prompt
+      description: ✨ Create prompt
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-prompts.create
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-projects-compatible-prompt
+      description: ✨ List projects compatible with prompt
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-prompts.compatibleprojects
+      with:
+        ordering: tools.ordering
+        page: tools.page
+        page_size: tools.page_size
+        project_type: tools.project_type
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-prompt
+      description: ✨ Get prompt
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-prompts.get
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-prompt
+      description: ✨ Delete prompt
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-prompts.delete
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-prompt
+      description: ✨ Update prompt
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-prompts.update
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,291 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_workspaces
+  description: 'API Reference — subpackage_workspaces. 5 operations. Lead operation: ✨ List workspaces. Self-contained Naftiko
+    capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_workspaces
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-workspaces
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_workspaces business capability. Self-contained, no shared references.
+    resources:
+    - name: api-workspaces
+      path: /api/workspaces/
+      operations:
+      - name: list
+        method: GET
+        description: ✨ List workspaces
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: include_all_workspaces
+          in: query
+          type: boolean
+          description: Include all workspaces in the organization, including other users' personal workspaces. Only effective
+            for users with Administrator or Owner role. When enabled,
+        - name: is_archived
+          in: query
+          type: boolean
+          description: Filter by archived status. Set to false to exclude archived workspaces.
+        - name: is_personal
+          in: query
+          type: boolean
+          description: Workspace is a personal user workspace.
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: ✨ Create workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-workspaces-id
+      path: /api/workspaces/{id}/
+      operations:
+      - name: get
+        method: GET
+        description: ✨ Get workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: delete
+        method: DELETE
+        description: ✨ Delete workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: update
+        method: PATCH
+        description: ✨ Update workspace
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-workspaces-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_workspaces. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/workspaces
+      name: api-workspaces
+      description: REST surface for api-workspaces.
+      operations:
+      - method: GET
+        name: list
+        description: ✨ List workspaces
+        call: label-studio-subpackage-workspaces.list
+        with:
+          include_all_workspaces: rest.include_all_workspaces
+          is_archived: rest.is_archived
+          is_personal: rest.is_personal
+          ordering: rest.ordering
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: ✨ Create workspace
+        call: label-studio-subpackage-workspaces.create
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/workspaces/{id}
+      name: api-workspaces-id
+      description: REST surface for api-workspaces-id.
+      operations:
+      - method: GET
+        name: get
+        description: ✨ Get workspace
+        call: label-studio-subpackage-workspaces.get
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: ✨ Delete workspace
+        call: label-studio-subpackage-workspaces.delete
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: update
+        description: ✨ Update workspace
+        call: label-studio-subpackage-workspaces.update
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-workspaces-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_workspaces. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-workspaces
+      description: ✨ List workspaces
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-workspaces.list
+      with:
+        include_all_workspaces: tools.include_all_workspaces
+        is_archived: tools.is_archived
+        is_personal: tools.is_personal
+        ordering: tools.ordering
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-workspace
+      description: ✨ Create workspace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-workspaces.create
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-workspace
+      description: ✨ Get workspace
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-workspaces.get
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-workspace
+      description: ✨ Delete workspace
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-workspaces.delete
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-workspace
+      description: ✨ Update workspace
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-workspaces.update
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

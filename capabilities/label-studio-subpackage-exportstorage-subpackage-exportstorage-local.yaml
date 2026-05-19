@@ -1,0 +1,379 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_exportStorage.subpackage_exportStorage/local
+  description: 'API Reference — subpackage_exportStorage.subpackage_exportStorage/local. 7 operations. Lead operation: Get
+    all export storage. Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_exportStorage.subpackage_exportStorage/local
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-exportstorage-subpackage-exportstorage-local
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_exportStorage.subpackage_exportStorage/local business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: api-storages-export-localfiles
+      path: /api/storages/export/localfiles
+      operations:
+      - name: list
+        method: GET
+        description: Get all export storage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: project
+          in: query
+          type: integer
+          description: Project ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: Create export storage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-storages-export-localfiles-validate
+      path: /api/storages/export/localfiles/validate
+      operations:
+      - name: validate
+        method: POST
+        description: Validate export storage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-storages-export-localfiles-id
+      path: /api/storages/export/localfiles/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Get export storage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: delete
+        method: DELETE
+        description: Delete export storage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: update
+        method: PATCH
+        description: Update export storage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-storages-export-localfiles-id-sync
+      path: /api/storages/export/localfiles/{id}/sync
+      operations:
+      - name: sync
+        method: POST
+        description: Sync export storage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-exportstorage-subpackage-exportstorage-local-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_exportStorage.subpackage_exportStorage/local. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/storages/export/localfiles
+      name: api-storages-export-localfiles
+      description: REST surface for api-storages-export-localfiles.
+      operations:
+      - method: GET
+        name: list
+        description: Get all export storage
+        call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.list
+        with:
+          ordering: rest.ordering
+          project: rest.project
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: Create export storage
+        call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.create
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/storages/export/localfiles/validate
+      name: api-storages-export-localfiles-validate
+      description: REST surface for api-storages-export-localfiles-validate.
+      operations:
+      - method: POST
+        name: validate
+        description: Validate export storage
+        call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.validate
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/storages/export/localfiles/{id}
+      name: api-storages-export-localfiles-id
+      description: REST surface for api-storages-export-localfiles-id.
+      operations:
+      - method: GET
+        name: get
+        description: Get export storage
+        call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.get
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Delete export storage
+        call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.delete
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: update
+        description: Update export storage
+        call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.update
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/storages/export/localfiles/{id}/sync
+      name: api-storages-export-localfiles-id-sync
+      description: REST surface for api-storages-export-localfiles-id-sync.
+      operations:
+      - method: POST
+        name: sync
+        description: Sync export storage
+        call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.sync
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-exportstorage-subpackage-exportstorage-local-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_exportStorage.subpackage_exportStorage/local. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-all-export-storage
+      description: Get all export storage
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.list
+      with:
+        ordering: tools.ordering
+        project: tools.project
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-export-storage
+      description: Create export storage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.create
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: validate-export-storage
+      description: Validate export storage
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.validate
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-export-storage
+      description: Get export storage
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.get
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-export-storage
+      description: Delete export storage
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.delete
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-export-storage
+      description: Update export storage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.update
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sync-export-storage
+      description: Sync export storage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-exportstorage-subpackage-exportstorage-local.sync
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

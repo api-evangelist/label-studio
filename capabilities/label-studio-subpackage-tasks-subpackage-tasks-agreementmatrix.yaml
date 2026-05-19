@@ -1,0 +1,111 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_tasks.subpackage_tasks/agreementMatrix
+  description: 'API Reference — subpackage_tasks.subpackage_tasks/agreementMatrix. 1 operations. Lead operation: ✨ Get task
+    agreement matrix. Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_tasks.subpackage_tasks/agreementMatrix
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-tasks-subpackage-tasks-agreementmatrix
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_tasks.subpackage_tasks/agreementMatrix business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: api-projects-project_pk-tasks-task_pk-agreement-matrix
+      path: /api/projects/{project_pk}/tasks/{task_pk}/agreement-matrix
+      operations:
+      - name: get
+        method: GET
+        description: ✨ Get task agreement matrix
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_pk
+          in: path
+          type: integer
+          description: Project ID
+          required: true
+        - name: task_pk
+          in: path
+          type: integer
+          description: Task ID
+          required: true
+        - name: dimension
+          in: query
+          type: integer
+          description: Dimension ID to compute agreement for. If not provided, averages across all active dimensions.
+        - name: selection
+          in: query
+          type: string
+          description: JSON object specifying which participants to include in the agreement matrix
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-tasks-subpackage-tasks-agreementmatrix-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_tasks.subpackage_tasks/agreementMatrix. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/projects/{project-pk}/tasks/{task-pk}/agreement-matrix
+      name: api-projects-project-pk-tasks-task-pk-agreement-matrix
+      description: REST surface for api-projects-project_pk-tasks-task_pk-agreement-matrix.
+      operations:
+      - method: GET
+        name: get
+        description: ✨ Get task agreement matrix
+        call: label-studio-subpackage-tasks-subpackage-tasks-agreementmatrix.get
+        with:
+          project_pk: rest.project_pk
+          task_pk: rest.task_pk
+          dimension: rest.dimension
+          selection: rest.selection
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-tasks-subpackage-tasks-agreementmatrix-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_tasks.subpackage_tasks/agreementMatrix. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-task-agreement-matrix
+      description: ✨ Get task agreement matrix
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-tasks-subpackage-tasks-agreementmatrix.get
+      with:
+        project_pk: tools.project_pk
+        task_pk: tools.task_pk
+        dimension: tools.dimension
+        selection: tools.selection
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

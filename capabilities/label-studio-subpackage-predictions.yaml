@@ -1,0 +1,281 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_predictions
+  description: 'API Reference — subpackage_predictions. 5 operations. Lead operation: List predictions. Self-contained Naftiko
+    capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_predictions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-predictions
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_predictions business capability. Self-contained, no shared references.
+    resources:
+    - name: api-predictions
+      path: /api/predictions/
+      operations:
+      - name: list
+        method: GET
+        description: List predictions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: query
+          type: integer
+          description: Filter predictions by project ID
+        - name: task
+          in: query
+          type: integer
+          description: Filter predictions by task ID
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: Create prediction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-predictions-id
+      path: /api/predictions/{id}/
+      operations:
+      - name: get
+        method: GET
+        description: Get prediction details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: Prediction ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: delete
+        method: DELETE
+        description: Delete prediction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: Prediction ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: update
+        method: PATCH
+        description: Update prediction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: Prediction ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-predictions-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_predictions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/predictions
+      name: api-predictions
+      description: REST surface for api-predictions.
+      operations:
+      - method: GET
+        name: list
+        description: List predictions
+        call: label-studio-subpackage-predictions.list
+        with:
+          project: rest.project
+          task: rest.task
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: Create prediction
+        call: label-studio-subpackage-predictions.create
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/predictions/{id}
+      name: api-predictions-id
+      description: REST surface for api-predictions-id.
+      operations:
+      - method: GET
+        name: get
+        description: Get prediction details
+        call: label-studio-subpackage-predictions.get
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Delete prediction
+        call: label-studio-subpackage-predictions.delete
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: update
+        description: Update prediction
+        call: label-studio-subpackage-predictions.update
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-predictions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_predictions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-predictions
+      description: List predictions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-predictions.list
+      with:
+        project: tools.project
+        task: tools.task
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-prediction
+      description: Create prediction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-predictions.create
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-prediction-details
+      description: Get prediction details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-predictions.get
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-prediction
+      description: Delete prediction
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-predictions.delete
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-prediction
+      description: Update prediction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-predictions.update
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

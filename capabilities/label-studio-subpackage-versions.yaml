@@ -1,0 +1,83 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_versions
+  description: 'API Reference — subpackage_versions. 1 operations. Lead operation: Get version information. Self-contained
+    Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_versions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-versions
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_versions business capability. Self-contained, no shared references.
+    resources:
+    - name: api-version
+      path: /api/version/
+      operations:
+      - name: get
+        method: GET
+        description: Get version information
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-versions-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_versions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/version
+      name: api-version
+      description: REST surface for api-version.
+      operations:
+      - method: GET
+        name: get
+        description: Get version information
+        call: label-studio-subpackage-versions.get
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-versions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_versions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-version-information
+      description: Get version information
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-versions.get
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

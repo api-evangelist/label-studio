@@ -1,0 +1,548 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_organizations.subpackage_organizations/memberTags
+  description: 'API Reference — subpackage_organizations.subpackage_organizations/memberTags. 8 operations. Lead operation:
+    ✨ List organization member tags. Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_organizations.subpackage_organizations/memberTags
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-organizations-subpackage-organizations-membertags
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_organizations.subpackage_organizations/memberTags business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: api-organizations-id-member-tags
+      path: /api/organizations/{id}/member-tags
+      operations:
+      - name: list
+        method: GET
+        description: ✨ List organization member tags
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this organization.
+          required: true
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: page
+          in: query
+          type: integer
+          description: A page number within the paginated result set.
+        - name: page_size
+          in: query
+          type: integer
+          description: 'Number of results per page (default: 30, max: 100).'
+        - name: search
+          in: query
+          type: string
+          description: Search tags by label (case-insensitive).
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: ✨ Create organization member tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this organization.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-organizations-id-member-tags-assignments
+      path: /api/organizations/{id}/member-tags/assignments
+      operations:
+      - name: assign
+        method: POST
+        description: ✨ Bulk assign tags to organization members
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this organization.
+          required: true
+        - name: exclude_project_id
+          in: query
+          type: number
+          description: Filter exclude_project_id by exact match
+        - name: exclude_workspace_id
+          in: query
+          type: number
+          description: Filter exclude_workspace_id by exact match
+        - name: is_deleted
+          in: query
+          type: boolean
+          description: Filter is_deleted by exact match
+        - name: role
+          in: query
+          type: string
+          description: Multiple values may be separated by commas. (comma-separated values)
+        - name: tags
+          in: query
+          type: string
+          description: Multiple values may be separated by commas. (comma-separated values)
+        - name: user__last_activity__gte
+          in: query
+          type: string
+          description: Filter user__last_activity by greater than or equal to
+        - name: user__last_activity__lte
+          in: query
+          type: string
+          description: Filter user__last_activity by less than or equal to
+        - name: user_type
+          in: query
+          type: string
+          description: Multiple values may be separated by commas. (comma-separated values)
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-organizations-id-member-tags-imports
+      path: /api/organizations/{id}/member-tags/imports
+      operations:
+      - name: import
+        method: POST
+        description: ✨ Import member tags from CSV
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this organization.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-organizations-id-member-tags-imports-import_pk
+      path: /api/organizations/{id}/member-tags/imports/{import_pk}
+      operations:
+      - name: getimport
+        method: GET
+        description: ✨ Get member tag import status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this organization.
+          required: true
+        - name: import_pk
+          in: path
+          type: integer
+          description: A unique integer value identifying this import job.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-organizations-id-member-tags-tag_pk
+      path: /api/organizations/{id}/member-tags/{tag_pk}
+      operations:
+      - name: get
+        method: GET
+        description: ✨ Get organization member tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this organization.
+          required: true
+        - name: tag_pk
+          in: path
+          type: integer
+          description: A unique integer value identifying this member tag.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: delete
+        method: DELETE
+        description: ✨ Delete organization member tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this organization.
+          required: true
+        - name: tag_pk
+          in: path
+          type: integer
+          description: A unique integer value identifying this member tag.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: update
+        method: PATCH
+        description: ✨ Update organization member tag
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this organization.
+          required: true
+        - name: tag_pk
+          in: path
+          type: integer
+          description: A unique integer value identifying this member tag.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-organizations-subpackage-organizations-membertags-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_organizations.subpackage_organizations/memberTags. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/organizations/{id}/member-tags
+      name: api-organizations-id-member-tags
+      description: REST surface for api-organizations-id-member-tags.
+      operations:
+      - method: GET
+        name: list
+        description: ✨ List organization member tags
+        call: label-studio-subpackage-organizations-subpackage-organizations-membertags.list
+        with:
+          id: rest.id
+          ordering: rest.ordering
+          page: rest.page
+          page_size: rest.page_size
+          search: rest.search
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: ✨ Create organization member tag
+        call: label-studio-subpackage-organizations-subpackage-organizations-membertags.create
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/organizations/{id}/member-tags/assignments
+      name: api-organizations-id-member-tags-assignments
+      description: REST surface for api-organizations-id-member-tags-assignments.
+      operations:
+      - method: POST
+        name: assign
+        description: ✨ Bulk assign tags to organization members
+        call: label-studio-subpackage-organizations-subpackage-organizations-membertags.assign
+        with:
+          id: rest.id
+          exclude_project_id: rest.exclude_project_id
+          exclude_workspace_id: rest.exclude_workspace_id
+          is_deleted: rest.is_deleted
+          role: rest.role
+          tags: rest.tags
+          user__last_activity__gte: rest.user__last_activity__gte
+          user__last_activity__lte: rest.user__last_activity__lte
+          user_type: rest.user_type
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/organizations/{id}/member-tags/imports
+      name: api-organizations-id-member-tags-imports
+      description: REST surface for api-organizations-id-member-tags-imports.
+      operations:
+      - method: POST
+        name: import
+        description: ✨ Import member tags from CSV
+        call: label-studio-subpackage-organizations-subpackage-organizations-membertags.import
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/organizations/{id}/member-tags/imports/{import-pk}
+      name: api-organizations-id-member-tags-imports-import-pk
+      description: REST surface for api-organizations-id-member-tags-imports-import_pk.
+      operations:
+      - method: GET
+        name: getimport
+        description: ✨ Get member tag import status
+        call: label-studio-subpackage-organizations-subpackage-organizations-membertags.getimport
+        with:
+          id: rest.id
+          import_pk: rest.import_pk
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/organizations/{id}/member-tags/{tag-pk}
+      name: api-organizations-id-member-tags-tag-pk
+      description: REST surface for api-organizations-id-member-tags-tag_pk.
+      operations:
+      - method: GET
+        name: get
+        description: ✨ Get organization member tag
+        call: label-studio-subpackage-organizations-subpackage-organizations-membertags.get
+        with:
+          id: rest.id
+          tag_pk: rest.tag_pk
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: ✨ Delete organization member tag
+        call: label-studio-subpackage-organizations-subpackage-organizations-membertags.delete
+        with:
+          id: rest.id
+          tag_pk: rest.tag_pk
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: update
+        description: ✨ Update organization member tag
+        call: label-studio-subpackage-organizations-subpackage-organizations-membertags.update
+        with:
+          id: rest.id
+          tag_pk: rest.tag_pk
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-organizations-subpackage-organizations-membertags-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_organizations.subpackage_organizations/memberTags. One tool per
+      consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: list-organization-member-tags
+      description: ✨ List organization member tags
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-organizations-subpackage-organizations-membertags.list
+      with:
+        id: tools.id
+        ordering: tools.ordering
+        page: tools.page
+        page_size: tools.page_size
+        search: tools.search
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-organization-member-tag
+      description: ✨ Create organization member tag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-organizations-subpackage-organizations-membertags.create
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: bulk-assign-tags-organization-members
+      description: ✨ Bulk assign tags to organization members
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-organizations-subpackage-organizations-membertags.assign
+      with:
+        id: tools.id
+        exclude_project_id: tools.exclude_project_id
+        exclude_workspace_id: tools.exclude_workspace_id
+        is_deleted: tools.is_deleted
+        role: tools.role
+        tags: tools.tags
+        user__last_activity__gte: tools.user__last_activity__gte
+        user__last_activity__lte: tools.user__last_activity__lte
+        user_type: tools.user_type
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: import-member-tags-csv
+      description: ✨ Import member tags from CSV
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-organizations-subpackage-organizations-membertags.import
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-member-tag-import-status
+      description: ✨ Get member tag import status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-organizations-subpackage-organizations-membertags.getimport
+      with:
+        id: tools.id
+        import_pk: tools.import_pk
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-organization-member-tag
+      description: ✨ Get organization member tag
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-organizations-subpackage-organizations-membertags.get
+      with:
+        id: tools.id
+        tag_pk: tools.tag_pk
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-organization-member-tag
+      description: ✨ Delete organization member tag
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-organizations-subpackage-organizations-membertags.delete
+      with:
+        id: tools.id
+        tag_pk: tools.tag_pk
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-organization-member-tag
+      description: ✨ Update organization member tag
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-organizations-subpackage-organizations-membertags.update
+      with:
+        id: tools.id
+        tag_pk: tools.tag_pk
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

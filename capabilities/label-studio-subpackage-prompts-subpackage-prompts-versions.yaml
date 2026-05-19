@@ -1,0 +1,529 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_prompts.subpackage_prompts/versions
+  description: 'API Reference — subpackage_prompts.subpackage_prompts/versions. 9 operations. Lead operation: ✨ Get default
+    prompt version name. Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_prompts.subpackage_prompts/versions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-prompts-subpackage-prompts-versions
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_prompts.subpackage_prompts/versions business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: api-prompts-id-get-default-version-name
+      path: /api/prompts/{id}/get-default-version-name
+      operations:
+      - name: getdefaultversionname
+        method: GET
+        description: ✨ Get default prompt version name
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-prompts-prompt_id-versions
+      path: /api/prompts/{prompt_id}/versions
+      operations:
+      - name: list
+        method: GET
+        description: ✨ List prompt versions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: prompt_id
+          in: path
+          type: integer
+          required: true
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: ✨ Create prompt version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: prompt_id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-prompts-prompt_id-versions-version_id
+      path: /api/prompts/{prompt_id}/versions/{version_id}
+      operations:
+      - name: get
+        method: GET
+        description: ✨ Get prompt version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: prompt_id
+          in: path
+          type: integer
+          required: true
+        - name: version_id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: delete
+        method: DELETE
+        description: ✨ Delete prompt version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: prompt_id
+          in: path
+          type: integer
+          required: true
+        - name: version_id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: update
+        method: PATCH
+        description: ✨ Update prompt version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: prompt_id
+          in: path
+          type: integer
+          required: true
+        - name: version_id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-prompts-prompt_id-versions-version_id-cost-estimate
+      path: /api/prompts/{prompt_id}/versions/{version_id}/cost-estimate
+      operations:
+      - name: costestimate
+        method: GET
+        description: ✨ Get cost estimate for running a prompt version on a particular project/subset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: prompt_id
+          in: path
+          type: integer
+          required: true
+        - name: version_id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-prompts-prompt_id-versions-version_id-refine
+      path: /api/prompts/{prompt_id}/versions/{version_id}/refine
+      operations:
+      - name: getrefinedprompt
+        method: GET
+        description: ✨ Get refined prompt
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: prompt_id
+          in: path
+          type: integer
+          required: true
+        - name: version_id
+          in: path
+          type: integer
+          required: true
+        - name: refinement_job_id
+          in: query
+          type: string
+          description: Refinement Job ID acquired from the `POST /api/prompts/{prompt_id}/versions/{version_id}/refine` endpoint
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: refineprompt
+        method: POST
+        description: ✨ Refine a prompt version
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: prompt_id
+          in: path
+          type: integer
+          required: true
+        - name: version_id
+          in: path
+          type: integer
+          required: true
+        - name: async
+          in: query
+          type: boolean
+          description: Whether to run the refinement asynchronously
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-prompts-subpackage-prompts-versions-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_prompts.subpackage_prompts/versions. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/prompts/{id}/get-default-version-name
+      name: api-prompts-id-get-default-version-name
+      description: REST surface for api-prompts-id-get-default-version-name.
+      operations:
+      - method: GET
+        name: getdefaultversionname
+        description: ✨ Get default prompt version name
+        call: label-studio-subpackage-prompts-subpackage-prompts-versions.getdefaultversionname
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/prompts/{prompt-id}/versions
+      name: api-prompts-prompt-id-versions
+      description: REST surface for api-prompts-prompt_id-versions.
+      operations:
+      - method: GET
+        name: list
+        description: ✨ List prompt versions
+        call: label-studio-subpackage-prompts-subpackage-prompts-versions.list
+        with:
+          prompt_id: rest.prompt_id
+          ordering: rest.ordering
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: ✨ Create prompt version
+        call: label-studio-subpackage-prompts-subpackage-prompts-versions.create
+        with:
+          prompt_id: rest.prompt_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/prompts/{prompt-id}/versions/{version-id}
+      name: api-prompts-prompt-id-versions-version-id
+      description: REST surface for api-prompts-prompt_id-versions-version_id.
+      operations:
+      - method: GET
+        name: get
+        description: ✨ Get prompt version
+        call: label-studio-subpackage-prompts-subpackage-prompts-versions.get
+        with:
+          prompt_id: rest.prompt_id
+          version_id: rest.version_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: ✨ Delete prompt version
+        call: label-studio-subpackage-prompts-subpackage-prompts-versions.delete
+        with:
+          prompt_id: rest.prompt_id
+          version_id: rest.version_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: update
+        description: ✨ Update prompt version
+        call: label-studio-subpackage-prompts-subpackage-prompts-versions.update
+        with:
+          prompt_id: rest.prompt_id
+          version_id: rest.version_id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/prompts/{prompt-id}/versions/{version-id}/cost-estimate
+      name: api-prompts-prompt-id-versions-version-id-cost-estimate
+      description: REST surface for api-prompts-prompt_id-versions-version_id-cost-estimate.
+      operations:
+      - method: GET
+        name: costestimate
+        description: ✨ Get cost estimate for running a prompt version on a particular project/subset
+        call: label-studio-subpackage-prompts-subpackage-prompts-versions.costestimate
+        with:
+          prompt_id: rest.prompt_id
+          version_id: rest.version_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/prompts/{prompt-id}/versions/{version-id}/refine
+      name: api-prompts-prompt-id-versions-version-id-refine
+      description: REST surface for api-prompts-prompt_id-versions-version_id-refine.
+      operations:
+      - method: GET
+        name: getrefinedprompt
+        description: ✨ Get refined prompt
+        call: label-studio-subpackage-prompts-subpackage-prompts-versions.getrefinedprompt
+        with:
+          prompt_id: rest.prompt_id
+          version_id: rest.version_id
+          refinement_job_id: rest.refinement_job_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: refineprompt
+        description: ✨ Refine a prompt version
+        call: label-studio-subpackage-prompts-subpackage-prompts-versions.refineprompt
+        with:
+          prompt_id: rest.prompt_id
+          version_id: rest.version_id
+          async: rest.async
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-prompts-subpackage-prompts-versions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_prompts.subpackage_prompts/versions. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: get-default-prompt-version-name
+      description: ✨ Get default prompt version name
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-prompts-subpackage-prompts-versions.getdefaultversionname
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-prompt-versions
+      description: ✨ List prompt versions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-prompts-subpackage-prompts-versions.list
+      with:
+        prompt_id: tools.prompt_id
+        ordering: tools.ordering
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-prompt-version
+      description: ✨ Create prompt version
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-prompts-subpackage-prompts-versions.create
+      with:
+        prompt_id: tools.prompt_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-prompt-version
+      description: ✨ Get prompt version
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-prompts-subpackage-prompts-versions.get
+      with:
+        prompt_id: tools.prompt_id
+        version_id: tools.version_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-prompt-version
+      description: ✨ Delete prompt version
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-prompts-subpackage-prompts-versions.delete
+      with:
+        prompt_id: tools.prompt_id
+        version_id: tools.version_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-prompt-version
+      description: ✨ Update prompt version
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-prompts-subpackage-prompts-versions.update
+      with:
+        prompt_id: tools.prompt_id
+        version_id: tools.version_id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-cost-estimate-running-prompt
+      description: ✨ Get cost estimate for running a prompt version on a particular project/subset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-prompts-subpackage-prompts-versions.costestimate
+      with:
+        prompt_id: tools.prompt_id
+        version_id: tools.version_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-refined-prompt
+      description: ✨ Get refined prompt
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-prompts-subpackage-prompts-versions.getrefinedprompt
+      with:
+        prompt_id: tools.prompt_id
+        version_id: tools.version_id
+        refinement_job_id: tools.refinement_job_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: refine-prompt-version
+      description: ✨ Refine a prompt version
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-prompts-subpackage-prompts-versions.refineprompt
+      with:
+        prompt_id: tools.prompt_id
+        version_id: tools.version_id
+        async: tools.async
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

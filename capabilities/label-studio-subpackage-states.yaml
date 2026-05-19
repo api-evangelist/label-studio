@@ -1,0 +1,407 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_states
+  description: 'API Reference — subpackage_states. 6 operations. Lead operation: ✨ Trigger state backfill for organization.
+    Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_states
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-states
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_states business capability. Self-contained, no shared references.
+    resources:
+    - name: api-fsm-backfill
+      path: /api/fsm/backfill/
+      operations:
+      - name: triggerbackfill
+        method: POST
+        description: ✨ Trigger state backfill for organization
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_id
+          in: query
+          type: integer
+          description: Optional project ID to trigger backfill for a single project
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: cancelbackfill
+        method: DELETE
+        description: ✨ Cancel state backfill jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: job_id
+          in: query
+          type: integer
+          description: Optional specific job ID to cancel
+        - name: project_id
+          in: query
+          type: integer
+          description: Optional project ID to cancel its active jobs
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-fsm-backfill-jobs
+      path: /api/fsm/backfill/jobs/
+      operations:
+      - name: listbackfills
+        method: GET
+        description: ✨ List state backfill jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-fsm-backfill-status
+      path: /api/fsm/backfill/status/
+      operations:
+      - name: getbackfillstatus
+        method: GET
+        description: ✨ Get state backfill status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: job_id
+          in: query
+          type: integer
+          description: Optional job ID to retrieve specific job status
+        - name: project_id
+          in: query
+          type: integer
+          description: Optional project ID to retrieve the latest job status for a project. If omitted, returns aggregated
+            org status.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-fsm-entities-entity_name-entity_id-history
+      path: /api/fsm/entities/{entity_name}/{entity_id}/history
+      operations:
+      - name: statehistory
+        method: GET
+        description: ✨ Get entity state history
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: entity_id
+          in: path
+          type: integer
+          required: true
+        - name: entity_name
+          in: path
+          type: string
+          required: true
+        - name: created_at_from
+          in: query
+          type: string
+          description: Filter for state history items created at or after the ISO 8601 formatted date (YYYY-MM-DDTHH:MM:SS)
+        - name: created_at_to
+          in: query
+          type: string
+          description: Filter for state history items created at or before the ISO 8601 formatted date (YYYY-MM-DDTHH:MM:SS)
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: page
+          in: query
+          type: integer
+          description: A page number within the paginated result set.
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of results to return per page.
+        - name: previous_state
+          in: query
+          type: string
+          description: Filter previous_state by exact match (case-insensitive)
+        - name: state
+          in: query
+          type: string
+          description: Filter state by exact match (case-insensitive)
+        - name: transition_name
+          in: query
+          type: string
+          description: Filter transition_name by exact match (case-insensitive)
+        - name: triggered_by
+          in: query
+          type: number
+          description: Filter triggered_by by exact match
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-fsm-entities-entity_name-entity_id-transition
+      path: /api/fsm/entities/{entity_name}/{entity_id}/transition/
+      operations:
+      - name: executetransition
+        method: POST
+        description: ✨ Execute manual state transition
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: entity_id
+          in: path
+          type: integer
+          required: true
+        - name: entity_name
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-states-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_states. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/fsm/backfill
+      name: api-fsm-backfill
+      description: REST surface for api-fsm-backfill.
+      operations:
+      - method: POST
+        name: triggerbackfill
+        description: ✨ Trigger state backfill for organization
+        call: label-studio-subpackage-states.triggerbackfill
+        with:
+          project_id: rest.project_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: cancelbackfill
+        description: ✨ Cancel state backfill jobs
+        call: label-studio-subpackage-states.cancelbackfill
+        with:
+          job_id: rest.job_id
+          project_id: rest.project_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/fsm/backfill/jobs
+      name: api-fsm-backfill-jobs
+      description: REST surface for api-fsm-backfill-jobs.
+      operations:
+      - method: GET
+        name: listbackfills
+        description: ✨ List state backfill jobs
+        call: label-studio-subpackage-states.listbackfills
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/fsm/backfill/status
+      name: api-fsm-backfill-status
+      description: REST surface for api-fsm-backfill-status.
+      operations:
+      - method: GET
+        name: getbackfillstatus
+        description: ✨ Get state backfill status
+        call: label-studio-subpackage-states.getbackfillstatus
+        with:
+          job_id: rest.job_id
+          project_id: rest.project_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/fsm/entities/{entity-name}/{entity-id}/history
+      name: api-fsm-entities-entity-name-entity-id-history
+      description: REST surface for api-fsm-entities-entity_name-entity_id-history.
+      operations:
+      - method: GET
+        name: statehistory
+        description: ✨ Get entity state history
+        call: label-studio-subpackage-states.statehistory
+        with:
+          entity_id: rest.entity_id
+          entity_name: rest.entity_name
+          created_at_from: rest.created_at_from
+          created_at_to: rest.created_at_to
+          ordering: rest.ordering
+          page: rest.page
+          page_size: rest.page_size
+          previous_state: rest.previous_state
+          state: rest.state
+          transition_name: rest.transition_name
+          triggered_by: rest.triggered_by
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/fsm/entities/{entity-name}/{entity-id}/transition
+      name: api-fsm-entities-entity-name-entity-id-transition
+      description: REST surface for api-fsm-entities-entity_name-entity_id-transition.
+      operations:
+      - method: POST
+        name: executetransition
+        description: ✨ Execute manual state transition
+        call: label-studio-subpackage-states.executetransition
+        with:
+          entity_id: rest.entity_id
+          entity_name: rest.entity_name
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-states-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_states. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: trigger-state-backfill-organization
+      description: ✨ Trigger state backfill for organization
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-states.triggerbackfill
+      with:
+        project_id: tools.project_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cancel-state-backfill-jobs
+      description: ✨ Cancel state backfill jobs
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-states.cancelbackfill
+      with:
+        job_id: tools.job_id
+        project_id: tools.project_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-state-backfill-jobs
+      description: ✨ List state backfill jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-states.listbackfills
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-state-backfill-status
+      description: ✨ Get state backfill status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-states.getbackfillstatus
+      with:
+        job_id: tools.job_id
+        project_id: tools.project_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-entity-state-history
+      description: ✨ Get entity state history
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-states.statehistory
+      with:
+        entity_id: tools.entity_id
+        entity_name: tools.entity_name
+        created_at_from: tools.created_at_from
+        created_at_to: tools.created_at_to
+        ordering: tools.ordering
+        page: tools.page
+        page_size: tools.page_size
+        previous_state: tools.previous_state
+        state: tools.state
+        transition_name: tools.transition_name
+        triggered_by: tools.triggered_by
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: execute-manual-state-transition
+      description: ✨ Execute manual state transition
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-states.executetransition
+      with:
+        entity_id: tools.entity_id
+        entity_name: tools.entity_name
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

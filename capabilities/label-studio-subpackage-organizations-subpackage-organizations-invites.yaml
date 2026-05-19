@@ -1,0 +1,184 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_organizations.subpackage_organizations/invites
+  description: 'API Reference — subpackage_organizations.subpackage_organizations/invites. 3 operations. Lead operation: Get
+    invite link. Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_organizations.subpackage_organizations/invites
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-organizations-subpackage-organizations-invites
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_organizations.subpackage_organizations/invites business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: api-invite
+      path: /api/invite
+      operations:
+      - name: getinvitelink
+        method: GET
+        description: Get invite link
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-invite-revoke
+      path: /api/invite/revoke
+      operations:
+      - name: revokeinvite
+        method: POST
+        description: ✨ Revoke invite
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-invite-send-email
+      path: /api/invite/send-email
+      operations:
+      - name: sendemail
+        method: POST
+        description: ✨ Send email with invite
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-organizations-subpackage-organizations-invites-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_organizations.subpackage_organizations/invites. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/invite
+      name: api-invite
+      description: REST surface for api-invite.
+      operations:
+      - method: GET
+        name: getinvitelink
+        description: Get invite link
+        call: label-studio-subpackage-organizations-subpackage-organizations-invites.getinvitelink
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/invite/revoke
+      name: api-invite-revoke
+      description: REST surface for api-invite-revoke.
+      operations:
+      - method: POST
+        name: revokeinvite
+        description: ✨ Revoke invite
+        call: label-studio-subpackage-organizations-subpackage-organizations-invites.revokeinvite
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/invite/send-email
+      name: api-invite-send-email
+      description: REST surface for api-invite-send-email.
+      operations:
+      - method: POST
+        name: sendemail
+        description: ✨ Send email with invite
+        call: label-studio-subpackage-organizations-subpackage-organizations-invites.sendemail
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-organizations-subpackage-organizations-invites-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_organizations.subpackage_organizations/invites. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-invite-link
+      description: Get invite link
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-organizations-subpackage-organizations-invites.getinvitelink
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: revoke-invite
+      description: ✨ Revoke invite
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-organizations-subpackage-organizations-invites.revokeinvite
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: send-email-invite
+      description: ✨ Send email with invite
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-organizations-subpackage-organizations-invites.sendemail
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

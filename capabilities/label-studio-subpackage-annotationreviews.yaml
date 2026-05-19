@@ -1,0 +1,291 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_annotationReviews
+  description: 'API Reference — subpackage_annotationReviews. 5 operations. Lead operation: ✨ List reviews. Self-contained
+    Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_annotationReviews
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-annotationreviews
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_annotationReviews business capability. Self-contained, no shared references.
+    resources:
+    - name: api-annotation-reviews
+      path: /api/annotation-reviews/
+      operations:
+      - name: list
+        method: GET
+        description: ✨ List reviews
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: annotation
+          in: query
+          type: integer
+        - name: annotation__task__project
+          in: query
+          type: integer
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: ✨ Create review
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: async_postprocess
+          in: query
+          type: boolean
+          description: Whether to postprocess the review asynchronously.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-annotation-reviews-id
+      path: /api/annotation-reviews/{id}/
+      operations:
+      - name: get
+        method: GET
+        description: ✨ Get review
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this annotation review.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: delete
+        method: DELETE
+        description: ✨ Delete review
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this annotation review.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: update
+        method: PATCH
+        description: ✨ Update review
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this annotation review.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-annotationreviews-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_annotationReviews. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/annotation-reviews
+      name: api-annotation-reviews
+      description: REST surface for api-annotation-reviews.
+      operations:
+      - method: GET
+        name: list
+        description: ✨ List reviews
+        call: label-studio-subpackage-annotationreviews.list
+        with:
+          annotation: rest.annotation
+          annotation__task__project: rest.annotation__task__project
+          ordering: rest.ordering
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: ✨ Create review
+        call: label-studio-subpackage-annotationreviews.create
+        with:
+          async_postprocess: rest.async_postprocess
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/annotation-reviews/{id}
+      name: api-annotation-reviews-id
+      description: REST surface for api-annotation-reviews-id.
+      operations:
+      - method: GET
+        name: get
+        description: ✨ Get review
+        call: label-studio-subpackage-annotationreviews.get
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: ✨ Delete review
+        call: label-studio-subpackage-annotationreviews.delete
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: update
+        description: ✨ Update review
+        call: label-studio-subpackage-annotationreviews.update
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-annotationreviews-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_annotationReviews. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-reviews
+      description: ✨ List reviews
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-annotationreviews.list
+      with:
+        annotation: tools.annotation
+        annotation__task__project: tools.annotation__task__project
+        ordering: tools.ordering
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-review
+      description: ✨ Create review
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-annotationreviews.create
+      with:
+        async_postprocess: tools.async_postprocess
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-review
+      description: ✨ Get review
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-annotationreviews.get
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-review
+      description: ✨ Delete review
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-annotationreviews.delete
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-review
+      description: ✨ Update review
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-annotationreviews.update
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

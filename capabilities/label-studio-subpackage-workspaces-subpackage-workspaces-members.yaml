@@ -1,0 +1,187 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_workspaces.subpackage_workspaces/members
+  description: 'API Reference — subpackage_workspaces.subpackage_workspaces/members. 3 operations. Lead operation: ✨ List
+    workspace memberships. Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_workspaces.subpackage_workspaces/members
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-workspaces-subpackage-workspaces-members
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_workspaces.subpackage_workspaces/members business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: api-workspaces-id-memberships
+      path: /api/workspaces/{id}/memberships/
+      operations:
+      - name: list
+        method: GET
+        description: ✨ List workspace memberships
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: ✨ Create workspace membership
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: delete
+        method: DELETE
+        description: ✨ Delete workspace membership
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: user_id
+          in: query
+          type: integer
+          description: User ID to remove from the workspace.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-workspaces-subpackage-workspaces-members-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_workspaces.subpackage_workspaces/members. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/workspaces/{id}/memberships
+      name: api-workspaces-id-memberships
+      description: REST surface for api-workspaces-id-memberships.
+      operations:
+      - method: GET
+        name: list
+        description: ✨ List workspace memberships
+        call: label-studio-subpackage-workspaces-subpackage-workspaces-members.list
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: ✨ Create workspace membership
+        call: label-studio-subpackage-workspaces-subpackage-workspaces-members.create
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: ✨ Delete workspace membership
+        call: label-studio-subpackage-workspaces-subpackage-workspaces-members.delete
+        with:
+          id: rest.id
+          user_id: rest.user_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-workspaces-subpackage-workspaces-members-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_workspaces.subpackage_workspaces/members. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: list-workspace-memberships
+      description: ✨ List workspace memberships
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-workspaces-subpackage-workspaces-members.list
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-workspace-membership
+      description: ✨ Create workspace membership
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-workspaces-subpackage-workspaces-members.create
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-workspace-membership
+      description: ✨ Delete workspace membership
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-workspaces-subpackage-workspaces-members.delete
+      with:
+        id: tools.id
+        user_id: tools.user_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

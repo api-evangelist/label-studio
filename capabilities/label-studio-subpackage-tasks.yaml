@@ -1,0 +1,499 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_tasks
+  description: 'API Reference — subpackage_tasks. 8 operations. Lead operation: Get project import status. Self-contained
+    Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_tasks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-tasks
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_tasks business capability. Self-contained, no shared references.
+    resources:
+    - name: api-projects-id-imports-import_pk
+      path: /api/projects/{id}/imports/{import_pk}/
+      operations:
+      - name: createmanystatus
+        method: GET
+        description: Get project import status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this project import.
+          required: true
+        - name: import_pk
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-projects-id-tasks
+      path: /api/projects/{id}/tasks/
+      operations:
+      - name: deletealltasks
+        method: DELETE
+        description: Delete all tasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this project.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-tasks
+      path: /api/tasks/
+      operations:
+      - name: list
+        method: GET
+        description: List tasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: fields
+          in: query
+          type: string
+          description: Set to "all" if you want to include annotations and predictions in the response. Defaults to task_only
+        - name: include
+          in: query
+          type: string
+          description: Specify which fields to include in the response
+        - name: only_annotated
+          in: query
+          type: boolean
+          description: Filter to show only tasks that have annotations
+        - name: page
+          in: query
+          type: integer
+          description: A page number within the paginated result set.
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of results to return per page.
+        - name: project
+          in: query
+          type: integer
+          description: Project ID
+        - name: query
+          in: query
+          type: string
+          description: 'Additional query to filter tasks. It must be JSON encoded string of dict containing one of the following
+            parameters: {"filters": ..., "selectedItems": ..., "ord'
+        - name: resolve_uri
+          in: query
+          type: boolean
+          description: Resolve task data URIs using Cloud Storage
+        - name: review
+          in: query
+          type: boolean
+          description: Get tasks for review
+        - name: selectedItems
+          in: query
+          type: string
+          description: JSON string of selected task IDs for review workflow
+        - name: view
+          in: query
+          type: integer
+          description: View ID
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: Create a new task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-tasks-id
+      path: /api/tasks/{id}/
+      operations:
+      - name: get
+        method: GET
+        description: Get task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Task ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: delete
+        method: DELETE
+        description: Delete task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Task ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: update
+        method: PATCH
+        description: Update task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Task ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-tasks-id-events
+      path: /api/tasks/{id}/events/
+      operations:
+      - name: createevent
+        method: POST
+        description: Create task event
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: Task ID to associate the event with
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-tasks-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_tasks. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/projects/{id}/imports/{import-pk}
+      name: api-projects-id-imports-import-pk
+      description: REST surface for api-projects-id-imports-import_pk.
+      operations:
+      - method: GET
+        name: createmanystatus
+        description: Get project import status
+        call: label-studio-subpackage-tasks.createmanystatus
+        with:
+          id: rest.id
+          import_pk: rest.import_pk
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{id}/tasks
+      name: api-projects-id-tasks
+      description: REST surface for api-projects-id-tasks.
+      operations:
+      - method: DELETE
+        name: deletealltasks
+        description: Delete all tasks
+        call: label-studio-subpackage-tasks.deletealltasks
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/tasks
+      name: api-tasks
+      description: REST surface for api-tasks.
+      operations:
+      - method: GET
+        name: list
+        description: List tasks
+        call: label-studio-subpackage-tasks.list
+        with:
+          fields: rest.fields
+          include: rest.include
+          only_annotated: rest.only_annotated
+          page: rest.page
+          page_size: rest.page_size
+          project: rest.project
+          query: rest.query
+          resolve_uri: rest.resolve_uri
+          review: rest.review
+          selectedItems: rest.selectedItems
+          view: rest.view
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: Create a new task
+        call: label-studio-subpackage-tasks.create
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/tasks/{id}
+      name: api-tasks-id
+      description: REST surface for api-tasks-id.
+      operations:
+      - method: GET
+        name: get
+        description: Get task
+        call: label-studio-subpackage-tasks.get
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Delete task
+        call: label-studio-subpackage-tasks.delete
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: update
+        description: Update task
+        call: label-studio-subpackage-tasks.update
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/tasks/{id}/events
+      name: api-tasks-id-events
+      description: REST surface for api-tasks-id-events.
+      operations:
+      - method: POST
+        name: createevent
+        description: Create task event
+        call: label-studio-subpackage-tasks.createevent
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-tasks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_tasks. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-project-import-status
+      description: Get project import status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-tasks.createmanystatus
+      with:
+        id: tools.id
+        import_pk: tools.import_pk
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-all-tasks
+      description: Delete all tasks
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-tasks.deletealltasks
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-tasks
+      description: List tasks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-tasks.list
+      with:
+        fields: tools.fields
+        include: tools.include
+        only_annotated: tools.only_annotated
+        page: tools.page
+        page_size: tools.page_size
+        project: tools.project
+        query: tools.query
+        resolve_uri: tools.resolve_uri
+        review: tools.review
+        selectedItems: tools.selectedItems
+        view: tools.view
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-new-task
+      description: Create a new task
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-tasks.create
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-task
+      description: Get task
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-tasks.get
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-task
+      description: Delete task
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-tasks.delete
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-task
+      description: Update task
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-tasks.update
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-task-event
+      description: Create task event
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-tasks.createevent
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

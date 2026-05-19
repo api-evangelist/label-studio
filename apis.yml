@@ -3,82 +3,227 @@ url: https://raw.githubusercontent.com/api-evangelist/label-studio/refs/heads/ma
 name: Label Studio
 type: Index
 tags:
+- AI
+- Annotation
+- Artificial Intelligence
+- Data Labeling
+- LLM
+- Machine Learning
+- Open Source
+created: '2025-02-08'
+modified: '2026-05-19'
+position: Consumer
+access: 3rd-Party
+specificationVersion: '0.19'
+description: Label Studio is the most flexible open-source data labeling platform from HumanSignal, used to fine-tune LLMs,
+  prepare training data, and validate AI models. The Label Studio REST API exposes projects, tasks, annotations, predictions,
+  storage, webhooks, prompts, and review workflows.
+apis:
+- aid: label-studio:label-studio
+  name: Label Studio
+  tags:
   - AI
   - Annotation
-  - Artificial Intelligence
   - Data Labeling
   - LLM
   - Machine Learning
   - Open Source
-created: '2025-02-08'
-modified: '2026-04-28'
-position: Consumer
-access: 3rd-Party
-specificationVersion: '0.19'
-description: >-
-  Label Studio is the most flexible open-source data labeling platform from
-  HumanSignal, used to fine-tune LLMs, prepare training data, and validate AI
-  models. The Label Studio REST API exposes projects, tasks, annotations,
-  predictions, storage, webhooks, prompts, and review workflows.
-apis:
-  - aid: label-studio:label-studio
-    name: Label Studio
-    tags:
-      - AI
-      - Annotation
-      - Data Labeling
-      - LLM
-      - Machine Learning
-      - Open Source
-      - REST
-    image: https://raw.githubusercontent.com/api-evangelist/label-studio/refs/heads/main/image.png
-    humanURL: https://labelstud.io/
-    baseURL: https://app.humansignal.com/api
-    description: >-
-      The Label Studio REST API supports the full data labeling lifecycle: managing
-      projects, tasks, annotations, annotation reviews, comments, predictions,
-      ML backends, prompts, storage (S3 / Azure / GCS), webhooks, users,
-      organizations, and analytics. The OpenAPI 3.1 specification is published by
-      HumanSignal at https://api.labelstud.io/openapi.yaml.
-    properties:
-      - url: https://labelstud.io/
-        type: Documentation
-      - url: https://api.labelstud.io/
-        type: APIReference
-      - url: openapi/label-studio-openapi.yml
-        type: OpenAPI
-      - url: https://github.com/HumanSignal/label-studio
-        type: SourceCode
-      - url: https://labelstud.io/community
-        type: Community
-common:
+  - REST
+  image: https://raw.githubusercontent.com/api-evangelist/label-studio/refs/heads/main/image.png
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  description: 'The Label Studio REST API supports the full data labeling lifecycle: managing projects, tasks, annotations,
+    annotation reviews, comments, predictions, ML backends, prompts, storage (S3 / Azure / GCS), webhooks, users, organizations,
+    and analytics. The OpenAPI 3.1 specification is published by HumanSignal at https://api.labelstud.io/openapi.yaml.'
+  properties:
   - url: https://labelstud.io/
-    type: Website
-  - url: https://api.labelstud.io/
     type: Documentation
+  - url: https://api.labelstud.io/
+    type: APIReference
+  - url: openapi/label-studio-openapi.yml
+    type: OpenAPI
   - url: https://github.com/HumanSignal/label-studio
     type: SourceCode
-  - url: https://labelstud.io/blog
-    type: Blog
-  - url: https://humansignal.com/privacy/
-    type: PrivacyPolicy
-  - url: https://humansignal.com/terms/
-    type: TermsOfService
   - url: https://labelstud.io/community
     type: Community
-  - type: Integrations
-    url: https://labelstud.io/integrations/
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-actions.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-activitylogs.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-annotationhistory.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-annotationreviews.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-annotations.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-billing.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-comments.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-dimensions.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-exportstorage.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-exportstorage-subpackage-exportstorage-azure.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-exportstorage-subpackage-exportstorage-azurespi.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-exportstorage-subpackage-exportstorage-databricks.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-exportstorage-subpackage-exportstorage-gcs.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-exportstorage-subpackage-exportstorage-gcssa.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-exportstorage-subpackage-exportstorage-gcswif.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-exportstorage-subpackage-exportstorage-local.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-exportstorage-subpackage-exportstorage-redis.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-exportstorage-subpackage-exportstorage-s3.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-exportstorage-subpackage-exportstorage-s3s.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-files.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-importstorage.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-importstorage-subpackage-importstorage-azure.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-importstorage-subpackage-importstorage-azurespi.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-importstorage-subpackage-importstorage-databricks.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-importstorage-subpackage-importstorage-gcs.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-importstorage-subpackage-importstorage-gcssa.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-importstorage-subpackage-importstorage-gcswif.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-importstorage-subpackage-importstorage-local.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-importstorage-subpackage-importstorage-redis.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-importstorage-subpackage-importstorage-s3.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-importstorage-subpackage-importstorage-s3s.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-jwtsettings.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-ml.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-modelproviders.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-organizations.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-organizations-subpackage-organizations-invites.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-organizations-subpackage-organizations-membertags.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-organizations-subpackage-organizations-membertags-subpackage-organizations-membertags-bulk.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-organizations-subpackage-organizations-members.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-organizations-subpackage-organizations-permissions.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-predictions.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projecttemplates.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projects.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projects-subpackage-projects-assignments.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projects-subpackage-projects-exports.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projects-subpackage-projects-members.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projects-subpackage-projects-members-subpackage-projects-members-bulk.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projects-subpackage-projects-members-subpackage-projects-members-paginated.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projects-subpackage-projects-metrics.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projects-subpackage-projects-pauses.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projects-subpackage-projects-reviewroutingrules.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projects-subpackage-projects-roles.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-projects-subpackage-projects-stats.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-prompts.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-prompts-subpackage-prompts-indicators.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-prompts-subpackage-prompts-runs.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-prompts-subpackage-prompts-versions.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-sessionpolicy.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-sso-subpackage-sso-saml.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-sso-subpackage-sso-scim.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-states.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-tasks.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-tasks-subpackage-tasks-agreementmatrix.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-tokens.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-users.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-versions.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-views.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-webhooks.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-workspaces.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-workspaces-subpackage-workspaces-members.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-workspaces-subpackage-workspaces-members-subpackage-workspaces-members-bulk.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-workspaces-subpackage-workspaces-members-subpackage-workspaces-members-paginated.yaml
+  - type: NaftikoCapability
+    url: capabilities/label-studio-subpackage-workspaces-subpackage-workspaces-projects.yaml
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/heartex
+- url: https://labelstud.io/
+  type: Website
+- url: https://api.labelstud.io/
+  type: Documentation
+- url: https://github.com/HumanSignal/label-studio
+  type: SourceCode
+- url: https://labelstud.io/blog
+  type: Blog
+- url: https://humansignal.com/privacy/
+  type: PrivacyPolicy
+- url: https://humansignal.com/terms/
+  type: TermsOfService
+- url: https://labelstud.io/community
+  type: Community
+- type: Integrations
+  url: https://labelstud.io/integrations/
 integrations:
-  - name: Cloud Storage
-  - name: Foundation Model APIs
-  - name: Computer Vision
-  - name: NLP & Text Processing
-  - name: OCR & Document Processing
-  - name: Speech & Audio
-  - name: AI Evaluation & Observability
-  - name: ML Frameworks
-  - name: Infrastructure
-  - name: Submit an integration
+- name: Cloud Storage
+- name: Foundation Model APIs
+- name: Computer Vision
+- name: NLP & Text Processing
+- name: OCR & Document Processing
+- name: Speech & Audio
+- name: AI Evaluation & Observability
+- name: ML Frameworks
+- name: Infrastructure
+- name: Submit an integration
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

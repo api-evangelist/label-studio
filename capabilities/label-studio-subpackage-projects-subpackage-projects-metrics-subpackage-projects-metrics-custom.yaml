@@ -1,0 +1,525 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
+  description: 'API Reference — subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom. 9 operations.
+    Lead operation: ✨ Get AWS custom metric code. Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom business
+      capability. Self-contained, no shared references.
+    resources:
+    - name: api-projects-id-aws-custom-function
+      path: /api/projects/{id}/aws-custom-function
+      operations:
+      - name: getlambda
+        method: GET
+        description: ✨ Get AWS custom metric code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: updatelambda
+        method: POST
+        description: ✨ Update AWS custom metric Lambda
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-projects-id-aws-custom-function-logs
+      path: /api/projects/{id}/aws-custom-function-logs
+      operations:
+      - name: logs
+        method: GET
+        description: ✨ Get AWS lambda logs for project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: end_date
+          in: query
+          type: string
+          description: End date for AWS logs filtering in format %Y-%m-%d
+        - name: limit
+          in: query
+          type: integer
+          description: Limit the number of logs to return
+        - name: start_date
+          in: query
+          type: string
+          description: Start date for AWS logs filtering in format %Y-%m-%d
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-projects-id-check-function
+      path: /api/projects/{id}/check-function
+      operations:
+      - name: checkfunction
+        method: POST
+        description: ✨ Check custom matching function code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-projects-id-custom-function
+      path: /api/projects/{id}/custom-function
+      operations:
+      - name: getfunction
+        method: GET
+        description: ✨ Get custom metric code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: deployfunction
+        method: POST
+        description: ✨ Deploy custom metric function
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-projects-id-custom-function-logs
+      path: /api/projects/{id}/custom-function-logs
+      operations:
+      - name: getfunctionlogs
+        method: GET
+        description: ✨ Get custom metric function logs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: end_date
+          in: query
+          type: string
+          description: End date for log filtering in format %Y-%m-%d
+        - name: limit
+          in: query
+          type: integer
+          description: Limit the number of logs to return
+        - name: start_date
+          in: query
+          type: string
+          description: Start date for log filtering in format %Y-%m-%d
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-projects-id-gcp-custom-function
+      path: /api/projects/{id}/gcp-custom-function
+      operations:
+      - name: getgcpfunction
+        method: GET
+        description: ✨ Get GCP custom metric code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: updategcpfunction
+        method: POST
+        description: ✨ Update GCP custom metric Cloud Function
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom.
+      One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/projects/{id}/aws-custom-function
+      name: api-projects-id-aws-custom-function
+      description: REST surface for api-projects-id-aws-custom-function.
+      operations:
+      - method: GET
+        name: getlambda
+        description: ✨ Get AWS custom metric code
+        call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.getlambda
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: updatelambda
+        description: ✨ Update AWS custom metric Lambda
+        call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.updatelambda
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{id}/aws-custom-function-logs
+      name: api-projects-id-aws-custom-function-logs
+      description: REST surface for api-projects-id-aws-custom-function-logs.
+      operations:
+      - method: GET
+        name: logs
+        description: ✨ Get AWS lambda logs for project
+        call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.logs
+        with:
+          id: rest.id
+          end_date: rest.end_date
+          limit: rest.limit
+          start_date: rest.start_date
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{id}/check-function
+      name: api-projects-id-check-function
+      description: REST surface for api-projects-id-check-function.
+      operations:
+      - method: POST
+        name: checkfunction
+        description: ✨ Check custom matching function code
+        call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.checkfunction
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{id}/custom-function
+      name: api-projects-id-custom-function
+      description: REST surface for api-projects-id-custom-function.
+      operations:
+      - method: GET
+        name: getfunction
+        description: ✨ Get custom metric code
+        call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.getfunction
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: deployfunction
+        description: ✨ Deploy custom metric function
+        call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.deployfunction
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{id}/custom-function-logs
+      name: api-projects-id-custom-function-logs
+      description: REST surface for api-projects-id-custom-function-logs.
+      operations:
+      - method: GET
+        name: getfunctionlogs
+        description: ✨ Get custom metric function logs
+        call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.getfunctionlogs
+        with:
+          id: rest.id
+          end_date: rest.end_date
+          limit: rest.limit
+          start_date: rest.start_date
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{id}/gcp-custom-function
+      name: api-projects-id-gcp-custom-function
+      description: REST surface for api-projects-id-gcp-custom-function.
+      operations:
+      - method: GET
+        name: getgcpfunction
+        description: ✨ Get GCP custom metric code
+        call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.getgcpfunction
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: updategcpfunction
+        description: ✨ Update GCP custom metric Cloud Function
+        call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.updategcpfunction
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom.
+      One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-aws-custom-metric-code
+      description: ✨ Get AWS custom metric code
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.getlambda
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-aws-custom-metric-lambda
+      description: ✨ Update AWS custom metric Lambda
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.updatelambda
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-aws-lambda-logs-project
+      description: ✨ Get AWS lambda logs for project
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.logs
+      with:
+        id: tools.id
+        end_date: tools.end_date
+        limit: tools.limit
+        start_date: tools.start_date
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: check-custom-matching-function-code
+      description: ✨ Check custom matching function code
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.checkfunction
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-custom-metric-code
+      description: ✨ Get custom metric code
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.getfunction
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deploy-custom-metric-function
+      description: ✨ Deploy custom metric function
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.deployfunction
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-custom-metric-function-logs
+      description: ✨ Get custom metric function logs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.getfunctionlogs
+      with:
+        id: tools.id
+        end_date: tools.end_date
+        limit: tools.limit
+        start_date: tools.start_date
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-gcp-custom-metric-code
+      description: ✨ Get GCP custom metric code
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.getgcpfunction
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-gcp-custom-metric-cloud
+      description: ✨ Update GCP custom metric Cloud Function
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom.updategcpfunction
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

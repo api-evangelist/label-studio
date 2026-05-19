@@ -1,0 +1,154 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_actions
+  description: 'API Reference — subpackage_actions. 2 operations. Lead operation: Get actions. Self-contained Naftiko capability
+    covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_actions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-actions
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_actions business capability. Self-contained, no shared references.
+    resources:
+    - name: api-dm-actions
+      path: /api/dm/actions/
+      operations:
+      - name: list
+        method: GET
+        description: Get actions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: query
+          type: integer
+          description: Project ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: Post actions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: query
+          type: string
+          description: Action name ID, see the full list of actions in the `GET api/actions` request
+          required: true
+        - name: project
+          in: query
+          type: integer
+          description: Project ID
+          required: true
+        - name: view
+          in: query
+          type: integer
+          description: View ID (optional, it has higher priority than filters, selectedItems and ordering from the request
+            body payload)
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-actions-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_actions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/dm/actions
+      name: api-dm-actions
+      description: REST surface for api-dm-actions.
+      operations:
+      - method: GET
+        name: list
+        description: Get actions
+        call: label-studio-subpackage-actions.list
+        with:
+          project: rest.project
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: Post actions
+        call: label-studio-subpackage-actions.create
+        with:
+          id: rest.id
+          project: rest.project
+          view: rest.view
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-actions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_actions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-actions
+      description: Get actions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-actions.list
+      with:
+        project: tools.project
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: post-actions
+      description: Post actions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-actions.create
+      with:
+        id: tools.id
+        project: tools.project
+        view: tools.view
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

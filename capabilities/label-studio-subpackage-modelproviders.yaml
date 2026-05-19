@@ -1,0 +1,315 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_modelProviders
+  description: 'API Reference — subpackage_modelProviders. 6 operations. Lead operation: ✨ List model provider connections.
+    Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_modelProviders
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-modelproviders
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_modelProviders business capability. Self-contained, no shared references.
+    resources:
+    - name: api-model-provider-connections
+      path: /api/model-provider-connections/
+      operations:
+      - name: list
+        method: GET
+        description: ✨ List model provider connections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: ✨ Create model provider connection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-model-provider-connections-provider-choices
+      path: /api/model-provider-connections/provider-choices
+      operations:
+      - name: listmodelproviderchoices
+        method: GET
+        description: ✨ List model provider choices
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-model-provider-connections-id
+      path: /api/model-provider-connections/{id}/
+      operations:
+      - name: get
+        method: GET
+        description: ✨ Get model provider connection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: delete
+        method: DELETE
+        description: ✨ Delete model provider connection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: update
+        method: PATCH
+        description: ✨ Update model provider connection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-modelproviders-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_modelProviders. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/model-provider-connections
+      name: api-model-provider-connections
+      description: REST surface for api-model-provider-connections.
+      operations:
+      - method: GET
+        name: list
+        description: ✨ List model provider connections
+        call: label-studio-subpackage-modelproviders.list
+        with:
+          ordering: rest.ordering
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: ✨ Create model provider connection
+        call: label-studio-subpackage-modelproviders.create
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/model-provider-connections/provider-choices
+      name: api-model-provider-connections-provider-choices
+      description: REST surface for api-model-provider-connections-provider-choices.
+      operations:
+      - method: GET
+        name: listmodelproviderchoices
+        description: ✨ List model provider choices
+        call: label-studio-subpackage-modelproviders.listmodelproviderchoices
+        with:
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/model-provider-connections/{id}
+      name: api-model-provider-connections-id
+      description: REST surface for api-model-provider-connections-id.
+      operations:
+      - method: GET
+        name: get
+        description: ✨ Get model provider connection
+        call: label-studio-subpackage-modelproviders.get
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: ✨ Delete model provider connection
+        call: label-studio-subpackage-modelproviders.delete
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: update
+        description: ✨ Update model provider connection
+        call: label-studio-subpackage-modelproviders.update
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-modelproviders-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_modelProviders. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-model-provider-connections
+      description: ✨ List model provider connections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-modelproviders.list
+      with:
+        ordering: tools.ordering
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-model-provider-connection
+      description: ✨ Create model provider connection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-modelproviders.create
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-model-provider-choices
+      description: ✨ List model provider choices
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-modelproviders.listmodelproviderchoices
+      with:
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-model-provider-connection
+      description: ✨ Get model provider connection
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-modelproviders.get
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-model-provider-connection
+      description: ✨ Delete model provider connection
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-modelproviders.delete
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-model-provider-connection
+      description: ✨ Update model provider connection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-modelproviders.update
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

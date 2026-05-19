@@ -1,0 +1,237 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_projects.subpackage_projects/roles
+  description: 'API Reference — subpackage_projects.subpackage_projects/roles. 4 operations. Lead operation: ✨ List project
+    roles for current user. Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_projects.subpackage_projects/roles
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-projects-subpackage-projects-roles
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_projects.subpackage_projects/roles business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: api-projects-roles
+      path: /api/projects/roles/
+      operations:
+      - name: list
+        method: GET
+        description: ✨ List project roles for current user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ids
+          in: query
+          type: integer
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: add
+        method: POST
+        description: ✨ Create project role for user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-projects-roles-id
+      path: /api/projects/roles/{id}/
+      operations:
+      - name: remove
+        method: DELETE
+        description: ✨ Remove project role for user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this project role.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-projects-id-roles
+      path: /api/projects/{id}/roles
+      operations:
+      - name: get
+        method: GET
+        description: ✨ List project roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-projects-subpackage-projects-roles-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_projects.subpackage_projects/roles. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/projects/roles
+      name: api-projects-roles
+      description: REST surface for api-projects-roles.
+      operations:
+      - method: GET
+        name: list
+        description: ✨ List project roles for current user
+        call: label-studio-subpackage-projects-subpackage-projects-roles.list
+        with:
+          ids: rest.ids
+          ordering: rest.ordering
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: add
+        description: ✨ Create project role for user
+        call: label-studio-subpackage-projects-subpackage-projects-roles.add
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/roles/{id}
+      name: api-projects-roles-id
+      description: REST surface for api-projects-roles-id.
+      operations:
+      - method: DELETE
+        name: remove
+        description: ✨ Remove project role for user
+        call: label-studio-subpackage-projects-subpackage-projects-roles.remove
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{id}/roles
+      name: api-projects-id-roles
+      description: REST surface for api-projects-id-roles.
+      operations:
+      - method: GET
+        name: get
+        description: ✨ List project roles
+        call: label-studio-subpackage-projects-subpackage-projects-roles.get
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-projects-subpackage-projects-roles-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_projects.subpackage_projects/roles. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: list-project-roles-current-user
+      description: ✨ List project roles for current user
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-roles.list
+      with:
+        ids: tools.ids
+        ordering: tools.ordering
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-project-role-user
+      description: ✨ Create project role for user
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-projects-subpackage-projects-roles.add
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-project-role-user
+      description: ✨ Remove project role for user
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-roles.remove
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-project-roles
+      description: ✨ List project roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-projects-subpackage-projects-roles.get
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

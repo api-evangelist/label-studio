@@ -1,0 +1,143 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_activityLogs
+  description: 'API Reference — subpackage_activityLogs. 1 operations. Lead operation: ✨ Get activity logs. Self-contained
+    Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_activityLogs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-activitylogs
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_activityLogs business capability. Self-contained, no shared references.
+    resources:
+    - name: api-activity-logs
+      path: /api/activity-logs/
+      operations:
+      - name: list
+        method: GET
+        description: ✨ Get activity logs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: end_date
+          in: query
+          type: string
+          description: End date/time (ISO-8601) for log filtering.
+        - name: method
+          in: query
+          type: string
+          description: HTTP request method used in the log.
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: page
+          in: query
+          type: integer
+          description: '[or "start"] Current page index.'
+        - name: page_size
+          in: query
+          type: integer
+          description: '[or "length"] Logs per page, use -1 to obtain all logs (might be slow).'
+        - name: project
+          in: query
+          type: integer
+          description: Project ID to filter logs.
+        - name: search
+          in: query
+          type: string
+          description: Search expression using "AND"/"OR" to filter by request URL.
+        - name: start_date
+          in: query
+          type: string
+          description: Start date/time (ISO-8601) for log filtering.
+        - name: user
+          in: query
+          type: integer
+          description: User ID to filter logs.
+        - name: workspace
+          in: query
+          type: integer
+          description: Workspace owner ID to filter logs.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-activitylogs-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_activityLogs. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/activity-logs
+      name: api-activity-logs
+      description: REST surface for api-activity-logs.
+      operations:
+      - method: GET
+        name: list
+        description: ✨ Get activity logs
+        call: label-studio-subpackage-activitylogs.list
+        with:
+          end_date: rest.end_date
+          method: rest.method
+          ordering: rest.ordering
+          page: rest.page
+          page_size: rest.page_size
+          project: rest.project
+          search: rest.search
+          start_date: rest.start_date
+          user: rest.user
+          workspace: rest.workspace
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-activitylogs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_activityLogs. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-activity-logs
+      description: ✨ Get activity logs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-activitylogs.list
+      with:
+        end_date: tools.end_date
+        method: tools.method
+        ordering: tools.ordering
+        page: tools.page
+        page_size: tools.page_size
+        project: tools.project
+        search: tools.search
+        start_date: tools.start_date
+        user: tools.user
+        workspace: tools.workspace
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

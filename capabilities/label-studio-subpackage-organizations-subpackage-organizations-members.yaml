@@ -1,0 +1,315 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_organizations.subpackage_organizations/members
+  description: 'API Reference — subpackage_organizations.subpackage_organizations/members. 4 operations. Lead operation: ✨
+    Get organization members/roles. Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_organizations.subpackage_organizations/members
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-organizations-subpackage-organizations-members
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_organizations.subpackage_organizations/members business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: api-organizations-id-memberships
+      path: /api/organizations/{id}/memberships
+      operations:
+      - name: list
+        method: GET
+        description: ✨ Get organization members/roles
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this organization.
+          required: true
+        - name: contributed_to_projects
+          in: query
+          type: boolean
+          description: Whether to include projects created and contributed to by the members.
+        - name: exclude_project_id
+          in: query
+          type: integer
+          description: Project ID to exclude users who are already associated with this project (direct members, workspace
+            members, or implicit admin/owner access).
+        - name: exclude_workspace_id
+          in: query
+          type: integer
+          description: Workspace ID to exclude users who are already associated with this workspace (direct workspace members
+            or implicit admin/owner access).
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: page
+          in: query
+          type: integer
+          description: A page number within the paginated result set.
+        - name: page_size
+          in: query
+          type: integer
+          description: Number of results to return per page.
+        - name: role
+          in: query
+          type: string
+          description: Filter members by organization role. Accepts single role or comma-separated list of roles.
+        - name: scope
+          in: query
+          type: string
+          description: Member visibility scope. `accessible` (default) limits Managers to members in their projects/workspaces.
+            `all` returns all organization members. Only affects Ma
+        - name: search
+          in: query
+          type: string
+          description: A search term.
+        - name: tags
+          in: query
+          type: string
+          description: Filter members by tags. Use a comma-separated list of tag IDs.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: update
+        method: PATCH
+        description: ✨ Update organization member/role
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this organization.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-organizations-id-memberships-user_pk
+      path: /api/organizations/{id}/memberships/{user_pk}/
+      operations:
+      - name: get
+        method: GET
+        description: Get organization member details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: user_pk
+          in: path
+          type: integer
+          description: A unique integer value identifying the user to get organization details for.
+          required: true
+        - name: contributed_to_projects
+          in: query
+          type: boolean
+          description: Whether to include projects created and contributed to by the member.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: delete
+        method: DELETE
+        description: Soft delete an organization member
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: user_pk
+          in: path
+          type: integer
+          description: A unique integer value identifying the user to be deleted from the organization.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-organizations-subpackage-organizations-members-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_organizations.subpackage_organizations/members. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/organizations/{id}/memberships
+      name: api-organizations-id-memberships
+      description: REST surface for api-organizations-id-memberships.
+      operations:
+      - method: GET
+        name: list
+        description: ✨ Get organization members/roles
+        call: label-studio-subpackage-organizations-subpackage-organizations-members.list
+        with:
+          id: rest.id
+          contributed_to_projects: rest.contributed_to_projects
+          exclude_project_id: rest.exclude_project_id
+          exclude_workspace_id: rest.exclude_workspace_id
+          ordering: rest.ordering
+          page: rest.page
+          page_size: rest.page_size
+          role: rest.role
+          scope: rest.scope
+          search: rest.search
+          tags: rest.tags
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: update
+        description: ✨ Update organization member/role
+        call: label-studio-subpackage-organizations-subpackage-organizations-members.update
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/organizations/{id}/memberships/{user-pk}
+      name: api-organizations-id-memberships-user-pk
+      description: REST surface for api-organizations-id-memberships-user_pk.
+      operations:
+      - method: GET
+        name: get
+        description: Get organization member details
+        call: label-studio-subpackage-organizations-subpackage-organizations-members.get
+        with:
+          id: rest.id
+          user_pk: rest.user_pk
+          contributed_to_projects: rest.contributed_to_projects
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Soft delete an organization member
+        call: label-studio-subpackage-organizations-subpackage-organizations-members.delete
+        with:
+          id: rest.id
+          user_pk: rest.user_pk
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-organizations-subpackage-organizations-members-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_organizations.subpackage_organizations/members. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-organization-members-roles
+      description: ✨ Get organization members/roles
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-organizations-subpackage-organizations-members.list
+      with:
+        id: tools.id
+        contributed_to_projects: tools.contributed_to_projects
+        exclude_project_id: tools.exclude_project_id
+        exclude_workspace_id: tools.exclude_workspace_id
+        ordering: tools.ordering
+        page: tools.page
+        page_size: tools.page_size
+        role: tools.role
+        scope: tools.scope
+        search: tools.search
+        tags: tools.tags
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-organization-member-role
+      description: ✨ Update organization member/role
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-organizations-subpackage-organizations-members.update
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-organization-member-details
+      description: Get organization member details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-organizations-subpackage-organizations-members.get
+      with:
+        id: tools.id
+        user_pk: tools.user_pk
+        contributed_to_projects: tools.contributed_to_projects
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: soft-delete-organization-member
+      description: Soft delete an organization member
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-organizations-subpackage-organizations-members.delete
+      with:
+        id: tools.id
+        user_pk: tools.user_pk
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

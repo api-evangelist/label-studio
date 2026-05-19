@@ -1,0 +1,187 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_workspaces.subpackage_workspaces/projects
+  description: 'API Reference — subpackage_workspaces.subpackage_workspaces/projects. 3 operations. Lead operation: ✨ List
+    workspace projects. Self-contained Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_workspaces.subpackage_workspaces/projects
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-workspaces-subpackage-workspaces-projects
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_workspaces.subpackage_workspaces/projects business capability. Self-contained,
+      no shared references.
+    resources:
+    - name: api-workspaces-id-projects
+      path: /api/workspaces/{id}/projects/
+      operations:
+      - name: list
+        method: GET
+        description: ✨ List workspace projects
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: add
+        method: POST
+        description: ✨ Add workspace project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: remove
+        method: DELETE
+        description: ✨ Remove workspace project
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: project
+          in: query
+          type: integer
+          description: Project ID to remove from the workspace.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-workspaces-subpackage-workspaces-projects-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_workspaces.subpackage_workspaces/projects. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/workspaces/{id}/projects
+      name: api-workspaces-id-projects
+      description: REST surface for api-workspaces-id-projects.
+      operations:
+      - method: GET
+        name: list
+        description: ✨ List workspace projects
+        call: label-studio-subpackage-workspaces-subpackage-workspaces-projects.list
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: add
+        description: ✨ Add workspace project
+        call: label-studio-subpackage-workspaces-subpackage-workspaces-projects.add
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: remove
+        description: ✨ Remove workspace project
+        call: label-studio-subpackage-workspaces-subpackage-workspaces-projects.remove
+        with:
+          id: rest.id
+          project: rest.project
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-workspaces-subpackage-workspaces-projects-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_workspaces.subpackage_workspaces/projects. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: list-workspace-projects
+      description: ✨ List workspace projects
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-workspaces-subpackage-workspaces-projects.list
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-workspace-project
+      description: ✨ Add workspace project
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-workspaces-subpackage-workspaces-projects.add
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-workspace-project
+      description: ✨ Remove workspace project
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-workspaces-subpackage-workspaces-projects.remove
+      with:
+        id: tools.id
+        project: tools.project
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

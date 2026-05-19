@@ -1,0 +1,491 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_ml
+  description: 'API Reference — subpackage_ml. 9 operations. Lead operation: List ML backends. Self-contained Naftiko capability
+    covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_ml
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-ml
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_ml business capability. Self-contained, no shared references.
+    resources:
+    - name: api-ml
+      path: /api/ml/
+      operations:
+      - name: list
+        method: GET
+        description: List ML backends
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project
+          in: query
+          type: integer
+          description: Project ID
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: create
+        method: POST
+        description: Add ML Backend
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-ml-id
+      path: /api/ml/{id}
+      operations:
+      - name: get
+        method: GET
+        description: Get ML Backend
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: delete
+        method: DELETE
+        description: Remove ML Backend
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+      - name: update
+        method: PATCH
+        description: Update ML Backend
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-ml-id-interactive-annotating
+      path: /api/ml/{id}/interactive-annotating
+      operations:
+      - name: predictinteractive
+        method: POST
+        description: Request Interactive Annotation
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this ML backend.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-ml-id-predict
+      path: /api/ml/{id}/predict
+      operations:
+      - name: predictalltasks
+        method: POST
+        description: ✨ Create predictions for all tasks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this ML backend.
+          required: true
+        - name: batch_size
+          in: query
+          type: integer
+          description: Computed number of tasks without predictions that the ML backend needs to predict.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-ml-id-train
+      path: /api/ml/{id}/train
+      operations:
+      - name: train
+        method: POST
+        description: Train
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: A unique integer value identifying this ML backend.
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: api-ml-id-versions
+      path: /api/ml/{id}/versions
+      operations:
+      - name: listmodelversions
+        method: GET
+        description: Get model versions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-ml-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_ml. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/api/ml
+      name: api-ml
+      description: REST surface for api-ml.
+      operations:
+      - method: GET
+        name: list
+        description: List ML backends
+        call: label-studio-subpackage-ml.list
+        with:
+          project: rest.project
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: create
+        description: Add ML Backend
+        call: label-studio-subpackage-ml.create
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/ml/{id}
+      name: api-ml-id
+      description: REST surface for api-ml-id.
+      operations:
+      - method: GET
+        name: get
+        description: Get ML Backend
+        call: label-studio-subpackage-ml.get
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: delete
+        description: Remove ML Backend
+        call: label-studio-subpackage-ml.delete
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: update
+        description: Update ML Backend
+        call: label-studio-subpackage-ml.update
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/ml/{id}/interactive-annotating
+      name: api-ml-id-interactive-annotating
+      description: REST surface for api-ml-id-interactive-annotating.
+      operations:
+      - method: POST
+        name: predictinteractive
+        description: Request Interactive Annotation
+        call: label-studio-subpackage-ml.predictinteractive
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/ml/{id}/predict
+      name: api-ml-id-predict
+      description: REST surface for api-ml-id-predict.
+      operations:
+      - method: POST
+        name: predictalltasks
+        description: ✨ Create predictions for all tasks
+        call: label-studio-subpackage-ml.predictalltasks
+        with:
+          id: rest.id
+          batch_size: rest.batch_size
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/ml/{id}/train
+      name: api-ml-id-train
+      description: REST surface for api-ml-id-train.
+      operations:
+      - method: POST
+        name: train
+        description: Train
+        call: label-studio-subpackage-ml.train
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/ml/{id}/versions
+      name: api-ml-id-versions
+      description: REST surface for api-ml-id-versions.
+      operations:
+      - method: GET
+        name: listmodelversions
+        description: Get model versions
+        call: label-studio-subpackage-ml.listmodelversions
+        with:
+          id: rest.id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-ml-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_ml. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-ml-backends
+      description: List ML backends
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-ml.list
+      with:
+        project: tools.project
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-ml-backend
+      description: Add ML Backend
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-ml.create
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-ml-backend
+      description: Get ML Backend
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-ml.get
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-ml-backend
+      description: Remove ML Backend
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-ml.delete
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-ml-backend
+      description: Update ML Backend
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-ml.update
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: request-interactive-annotation
+      description: Request Interactive Annotation
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-ml.predictinteractive
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-predictions-all-tasks
+      description: ✨ Create predictions for all tasks
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-ml.predictalltasks
+      with:
+        id: tools.id
+        batch_size: tools.batch_size
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: train
+      description: Train
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-ml.train
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-model-versions
+      description: Get model versions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-ml.listmodelversions
+      with:
+        id: tools.id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.

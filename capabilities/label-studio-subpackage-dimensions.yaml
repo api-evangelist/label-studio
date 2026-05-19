@@ -1,0 +1,369 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: API Reference — subpackage_dimensions
+  description: 'API Reference — subpackage_dimensions. 6 operations. Lead operation: ✨ Trigger Agreement V2 backfill. Self-contained
+    Naftiko capability covering one Label Studio business surface.'
+  tags:
+  - Label Studio
+  - subpackage_dimensions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    LABEL_STUDIO_API_KEY: LABEL_STUDIO_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: label-studio-subpackage-dimensions
+    baseUri: http://localhost:8000
+    description: API Reference — subpackage_dimensions business capability. Self-contained, no shared references.
+    resources:
+    - name: api-dimensions-backfill
+      path: /api/dimensions/backfill/
+      operations:
+      - name: triggerbackfill
+        method: POST
+        description: ✨ Trigger Agreement V2 backfill
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: cancelbackfill
+        method: DELETE
+        description: ✨ Cancel Agreement V2 backfill jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: job_id
+          in: query
+          type: integer
+          description: Optional specific job ID to cancel
+        - name: project_id
+          in: query
+          type: integer
+          description: Optional project ID to cancel its active backfill jobs
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-dimensions-backfill-jobs
+      path: /api/dimensions/backfill/jobs/
+      operations:
+      - name: listbackfills
+        method: GET
+        description: ✨ List Agreement V2 backfill jobs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: status
+          in: query
+          type: string
+          description: 'Filter by job status: PENDING, QUEUED, RUNNING, COMPLETED, or FAILED.'
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-dimensions-backfill-status
+      path: /api/dimensions/backfill/status/
+      operations:
+      - name: getbackfillstatus
+        method: GET
+        description: ✨ Get Agreement V2 backfill status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: job_id
+          in: query
+          type: integer
+          description: Optional job ID to retrieve specific job status
+        - name: project_id
+          in: query
+          type: integer
+          description: Optional project ID to retrieve the latest backfill status for that project. If omitted, returns aggregated
+            organization status.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-projects-project_pk-dimensions
+      path: /api/projects/{project_pk}/dimensions/
+      operations:
+      - name: list
+        method: GET
+        description: ✨ List dimensions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: project_pk
+          in: path
+          type: integer
+          description: Project ID
+          required: true
+        - name: agreement_methodology
+          in: query
+          type: string
+          description: 'Agreement methodology to use for computing allowed_metrics_with_params. If not provided, uses the
+            methodology stored in the project settings. Valid values: "pai'
+        - name: is_active
+          in: query
+          type: boolean
+          description: Filter by active status
+        - name: ordering
+          in: query
+          type: string
+          description: Which field to use when ordering the results.
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    - name: api-projects-project_pk-dimensions-id
+      path: /api/projects/{project_pk}/dimensions/{id}/
+      operations:
+      - name: get
+        method: GET
+        description: ✨ Get dimension
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: integer
+          description: Dimension ID
+          required: true
+        - name: project_pk
+          in: path
+          type: integer
+          description: Project ID
+          required: true
+        - name: Authorization
+          in: header
+          type: string
+          description: 'The token (or API key) must be passed as a request header. You can find your user token on the User
+            Account page in Label Studio. Example: <br><pre><code class='
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.LABEL_STUDIO_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: label-studio-subpackage-dimensions-rest
+    port: 8080
+    description: REST adapter for API Reference — subpackage_dimensions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/dimensions/backfill
+      name: api-dimensions-backfill
+      description: REST surface for api-dimensions-backfill.
+      operations:
+      - method: POST
+        name: triggerbackfill
+        description: ✨ Trigger Agreement V2 backfill
+        call: label-studio-subpackage-dimensions.triggerbackfill
+        with:
+          Authorization: rest.Authorization
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: cancelbackfill
+        description: ✨ Cancel Agreement V2 backfill jobs
+        call: label-studio-subpackage-dimensions.cancelbackfill
+        with:
+          job_id: rest.job_id
+          project_id: rest.project_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/dimensions/backfill/jobs
+      name: api-dimensions-backfill-jobs
+      description: REST surface for api-dimensions-backfill-jobs.
+      operations:
+      - method: GET
+        name: listbackfills
+        description: ✨ List Agreement V2 backfill jobs
+        call: label-studio-subpackage-dimensions.listbackfills
+        with:
+          status: rest.status
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/dimensions/backfill/status
+      name: api-dimensions-backfill-status
+      description: REST surface for api-dimensions-backfill-status.
+      operations:
+      - method: GET
+        name: getbackfillstatus
+        description: ✨ Get Agreement V2 backfill status
+        call: label-studio-subpackage-dimensions.getbackfillstatus
+        with:
+          job_id: rest.job_id
+          project_id: rest.project_id
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{project-pk}/dimensions
+      name: api-projects-project-pk-dimensions
+      description: REST surface for api-projects-project_pk-dimensions.
+      operations:
+      - method: GET
+        name: list
+        description: ✨ List dimensions
+        call: label-studio-subpackage-dimensions.list
+        with:
+          project_pk: rest.project_pk
+          agreement_methodology: rest.agreement_methodology
+          is_active: rest.is_active
+          ordering: rest.ordering
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/projects/{project-pk}/dimensions/{id}
+      name: api-projects-project-pk-dimensions-id
+      description: REST surface for api-projects-project_pk-dimensions-id.
+      operations:
+      - method: GET
+        name: get
+        description: ✨ Get dimension
+        call: label-studio-subpackage-dimensions.get
+        with:
+          id: rest.id
+          project_pk: rest.project_pk
+          Authorization: rest.Authorization
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: label-studio-subpackage-dimensions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for API Reference — subpackage_dimensions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: trigger-agreement-v2-backfill
+      description: ✨ Trigger Agreement V2 backfill
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: label-studio-subpackage-dimensions.triggerbackfill
+      with:
+        Authorization: tools.Authorization
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: cancel-agreement-v2-backfill-jobs
+      description: ✨ Cancel Agreement V2 backfill jobs
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: label-studio-subpackage-dimensions.cancelbackfill
+      with:
+        job_id: tools.job_id
+        project_id: tools.project_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-agreement-v2-backfill-jobs
+      description: ✨ List Agreement V2 backfill jobs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-dimensions.listbackfills
+      with:
+        status: tools.status
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-agreement-v2-backfill-status
+      description: ✨ Get Agreement V2 backfill status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-dimensions.getbackfillstatus
+      with:
+        job_id: tools.job_id
+        project_id: tools.project_id
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-dimensions
+      description: ✨ List dimensions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-dimensions.list
+      with:
+        project_pk: tools.project_pk
+        agreement_methodology: tools.agreement_methodology
+        is_active: tools.is_active
+        ordering: tools.ordering
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-dimension
+      description: ✨ Get dimension
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: label-studio-subpackage-dimensions.get
+      with:
+        id: tools.id
+        project_pk: tools.project_pk
+        Authorization: tools.Authorization
+      outputParameters:
+      - type: object
+        mapping: $.
