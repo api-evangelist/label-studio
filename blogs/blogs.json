@@ -5,9 +5,10 @@
       "source": "https://labelstud.io/blog",
       "feed_url": "https://labelstud.io/rss.xml",
       "title": "Human Signal",
-      "saved": 0
+      "saved": 0,
+      "last_error": "parse_error"
     }
   ],
   "post_count": 10,
-  "fetched": "2026-05-09T20:17:51Z"
+  "fetched": "2026-05-17T20:20:35Z"
 }
