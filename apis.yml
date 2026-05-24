@@ -213,6 +213,8 @@ common:
   type: Community
 - type: Integrations
   url: https://labelstud.io/integrations/
+- type: LLMsTxt
+  url: https://api.labelstud.io/llms.txt
 integrations:
 - name: Cloud Storage
 - name: Foundation Model APIs
