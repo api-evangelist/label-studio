@@ -1,8 +1,8 @@
 # Label Studio (label-studio)
 
-The most flexible open-source data labeling platform from HumanSignal, used to fine-tune LLMs, prepare training data, and validate AI models.
+Label Studio is the most flexible open-source data labeling platform from HumanSignal, used to fine-tune LLMs, prepare training data, and validate AI models. The Label Studio REST API exposes projects, tasks, annotations, predictions, storage, webhooks, prompts, and review workflows.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/label-studio/refs/heads/main/apis.yml)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/label-studio/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/label-studio/refs/heads/main/apis.yml)
 
 ## Scope
 
@@ -23,17 +23,16 @@ The most flexible open-source data labeling platform from HumanSignal, used to f
 ## Timestamps
 
 - **Created:** 2025-02-08
-- **Modified:** 2026-04-28
+- **Modified:** 2026-05-19
 
 ## APIs
 
 ### Label Studio
 
-The Label Studio REST API supports the full data labeling lifecycle: managing projects, tasks, annotations, annotation reviews, comments, predictions, ML backends, prompts, storage (S3 / Azure / GCS), webhooks, users, organizations, and analytics. The OpenAPI 3.1 specification is published by HumanSignal at [api.labelstud.io/openapi.yaml](https://api.labelstud.io/openapi.yaml) and mirrored in this repository.
+The Label Studio REST API supports the full data labeling lifecycle: managing projects, tasks, annotations, annotation reviews, comments, predictions, ML backends, prompts, storage (S3 / Azure / GCS), webhooks, users, organizations, and analytics. The OpenAPI 3.1 specification is published by HumanSignal at https://api.labelstud.io/openapi.yaml.
 
-**Human URL:** [https://labelstud.io/](https://labelstud.io/)
-
-**Base URL:** `https://app.humansignal.com/api`
+- **Human URL:** [https://labelstud.io/](https://labelstud.io/)
+- **Base URL:** `https://app.humansignal.com/api`
 
 #### Tags
 
@@ -49,12 +48,15 @@ The Label Studio REST API supports the full data labeling lifecycle: managing pr
 
 - [Documentation](https://labelstud.io/)
 - [API Reference](https://api.labelstud.io/)
-- [OpenAPI](openapi/label-studio-openapi.yml)
+- [OpenAPI](openapi/label-studio-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/label-studio.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/label-studio.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 - [Source Code](https://github.com/HumanSignal/label-studio)
 - [Community](https://labelstud.io/community)
 
 ## Common Properties
 
+- [LinkedIn](https://www.linkedin.com/company/heartex)
 - [Website](https://labelstud.io/)
 - [Documentation](https://api.labelstud.io/)
 - [Source Code](https://github.com/HumanSignal/label-studio)
@@ -62,9 +64,10 @@ The Label Studio REST API supports the full data labeling lifecycle: managing pr
 - [Privacy Policy](https://humansignal.com/privacy/)
 - [Terms of Service](https://humansignal.com/terms/)
 - [Community](https://labelstud.io/community)
+- [Integrations](https://labelstud.io/integrations/)
+- [L L Ms Txt](https://api.labelstud.io/llms.txt)
 
 ## Maintainers
 
 **FN:** Kin Lane
-
 **Email:** kin@apievangelist.com
