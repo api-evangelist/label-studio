@@ -50,6 +50,10 @@ apis:
       - url: https://labelstud.io/community
         type: Community
 common:
+  - type: DomainSecurity
+    url: security/label-studio-domain-security.yml
+  - type: Authentication
+    url: authentication/label-studio-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/heartex
   - url: https://labelstud.io/
