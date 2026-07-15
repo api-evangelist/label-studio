@@ -50,6 +50,8 @@ apis:
       - url: https://labelstud.io/community
         type: Community
 common:
+  - type: AgenticAccess
+    url: agentic-access/label-studio-agentic-access.yml
   - type: DomainSecurity
     url: security/label-studio-domain-security.yml
   - type: Authentication
