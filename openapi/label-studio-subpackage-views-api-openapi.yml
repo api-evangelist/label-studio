@@ -1,0 +1,649 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_views API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_views
+paths:
+  /api/dm/views/:
+    get:
+      operationId: list
+      summary: List views
+      description: List all views for a specific project.
+      tags:
+      - subpackage_views
+      parameters:
+      - name: project
+        in: query
+        description: Project ID
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/View'
+    post:
+      operationId: create
+      summary: Create view
+      description: Create a view for a specific project.
+      tags:
+      - subpackage_views
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/View'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  $ref: '#/components/schemas/ApiDmViewsPostRequestBodyContentApplicationJsonSchemaData'
+                  description: Custom view data
+                project:
+                  type: integer
+                  description: Project ID
+  /api/dm/views/order/:
+    post:
+      operationId: update-order
+      summary: Update order of views
+      description: Update the order field of views based on the provided list of view IDs
+      tags:
+      - subpackage_views
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: View order updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/views_update_order_Response_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ViewOrderRequest'
+  /api/dm/views/reset/:
+    delete:
+      operationId: delete-all
+      summary: Delete all project views
+      description: Delete all views for a specific project.
+      tags:
+      - subpackage_views
+      parameters:
+      - name: project
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+  /api/dm/views/{id}/:
+    get:
+      operationId: get
+      summary: Get view details
+      description: Get the details about a specific view in the data manager
+      tags:
+      - subpackage_views
+      parameters:
+      - name: id
+        in: path
+        description: View ID
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/View'
+    delete:
+      operationId: delete
+      summary: Delete view
+      description: Delete a specific view by ID.
+      tags:
+      - subpackage_views
+      parameters:
+      - name: id
+        in: path
+        description: View ID
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: Update view
+      description: Update view data with additional filters and other information for a specific project.
+      tags:
+      - subpackage_views
+      parameters:
+      - name: id
+        in: path
+        description: View ID
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/View'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  $ref: '#/components/schemas/ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaData'
+                  description: Custom view data
+                project:
+                  type: integer
+                  description: Project ID
+components:
+  schemas:
+    ApiDmViewsPostRequestBodyContentApplicationJsonSchemaData:
+      type: object
+      properties:
+        filters:
+          $ref: '#/components/schemas/ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFilters'
+          description: 'Filters to apply on tasks. You can use [the helper class `Filters` from this page](https://labelstud.io/sdk/data_manager.html) to create Data Manager Filters.<br>Example: `{"conjunction": "or", "items": [{"filter": "filter:tasks:completed_at", "operator": "greater", "type": "Datetime", "value": "2021-01-01T00:00:00.000Z"}]}`'
+        ordering:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataOrderingItems'
+          description: List of fields to order by. Fields are similar to filters but without the `filter:` prefix. To reverse the order, add a minus sign before the field name, e.g. `-tasks:created_at`.
+      description: Custom view data
+      title: ApiDmViewsPostRequestBodyContentApplicationJsonSchemaData
+    ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFilters:
+      type: object
+      properties:
+        conjunction:
+          $ref: '#/components/schemas/ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersConjunction'
+          description: Logical conjunction for the filters. This conjunction (either "or" or "and") will be applied to all items in the filters list. It is not possible to combine "or" and "and" within one list of filters. All filters will be either combined with "or" or with "and", but not a mix of both.
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersItemsItems'
+          description: List of filter items
+      required:
+      - conjunction
+      - items
+      description: 'Filters to apply on tasks. You can use [the helper class `Filters` from this page](https://labelstud.io/sdk/data_manager.html) to create Data Manager Filters.<br>Example: `{"conjunction": "or", "items": [{"filter": "filter:tasks:completed_at", "operator": "greater", "type": "Datetime", "value": "2021-01-01T00:00:00.000Z"}]}`'
+      title: ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFilters
+    ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataOrderingItems:
+      type: string
+      enum:
+      - tasks:agreement
+      - tasks:annotations_results
+      - tasks:annotators
+      - tasks:cancelled_annotations
+      - tasks:comments
+      - tasks:completed_at
+      - tasks:created_at
+      - tasks:file_upload
+      - tasks:ground_truth
+      - tasks:id
+      - tasks:inner_id
+      - tasks:predictions_model_versions
+      - tasks:predictions_results
+      - tasks:predictions_score
+      - tasks:reviewed
+      - tasks:reviewers
+      - tasks:reviews_accepted
+      - tasks:reviews_rejected
+      - tasks:total_annotations
+      - tasks:total_predictions
+      - tasks:unresolved_comment_count
+      - tasks:updated_at
+      title: ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataOrderingItems
+    ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersConjunction:
+      type: string
+      enum:
+      - or
+      - and
+      description: Logical conjunction for the filters. This conjunction (either "or" or "and") will be applied to all items in the filters list. It is not possible to combine "or" and "and" within one list of filters. All filters will be either combined with "or" or with "and", but not a mix of both.
+      title: ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersConjunction
+    Filter:
+      type: object
+      properties:
+        child_filter:
+          $ref: '#/components/schemas/ChildFilter'
+        column:
+          type: string
+          description: Field name
+        id:
+          type: integer
+        index:
+          type:
+          - integer
+          - 'null'
+          description: Display order among root filters only
+        operator:
+          type: string
+          description: Filter operator
+        parent:
+          type:
+          - integer
+          - 'null'
+          description: Optional parent filter to create one-level hierarchy (child filters are AND-merged with parent)
+        type:
+          type: string
+          description: Field type
+        value:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Filter value
+      required:
+      - column
+      - id
+      - operator
+      - type
+      title: Filter
+    ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFilters:
+      type: object
+      properties:
+        conjunction:
+          $ref: '#/components/schemas/ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersConjunction'
+          description: Logical conjunction for the filters. This conjunction (either "or" or "and") will be applied to all items in the filters list. It is not possible to combine "or" and "and" within one list of filters. All filters will be either combined with "or" or with "and", but not a mix of both.
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersItemsItems'
+          description: List of filter items
+      required:
+      - conjunction
+      - items
+      description: 'Filters to apply on tasks. You can use [the helper class `Filters` from this page](https://labelstud.io/sdk/data_manager.html) to create Data Manager Filters.<br>Example: `{"conjunction": "or", "items": [{"filter": "filter:tasks:completed_at", "operator": "greater", "type": "Datetime", "value": "2021-01-01T00:00:00.000Z"}]}`'
+      title: ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFilters
+    ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsOperator:
+      type: string
+      enum:
+      - contains
+      - ends_with
+      - equal
+      - exists
+      - greater
+      - greater_or_equal
+      - in
+      - less
+      - less_or_equal
+      - not_contains
+      - not_equal
+      - not_exists
+      - not_in
+      - starts_with
+      description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`starts_with`<br> Starts with</li>'
+      title: ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsOperator
+    ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsFilter:
+      type: string
+      enum:
+      - filter:tasks:agreement
+      - filter:tasks:annotations_results
+      - filter:tasks:annotators
+      - filter:tasks:cancelled_annotations
+      - filter:tasks:comments
+      - filter:tasks:completed_at
+      - filter:tasks:created_at
+      - filter:tasks:file_upload
+      - filter:tasks:ground_truth
+      - filter:tasks:id
+      - filter:tasks:inner_id
+      - filter:tasks:predictions_model_versions
+      - filter:tasks:predictions_results
+      - filter:tasks:predictions_score
+      - filter:tasks:reviewed
+      - filter:tasks:reviewers
+      - filter:tasks:reviews_accepted
+      - filter:tasks:reviews_rejected
+      - filter:tasks:total_annotations
+      - filter:tasks:total_predictions
+      - filter:tasks:unresolved_comment_count
+      - filter:tasks:updated_at
+      description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](#tag/Data-Manager/operation/api_dm_columns_list) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
+      title: ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsFilter
+    ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsValue:
+      oneOf:
+      - type: string
+      - type: integer
+      - type: number
+        format: double
+      - type: boolean
+      - type: object
+        additionalProperties:
+          description: Any type
+      - type: object
+        additionalProperties:
+          description: Any type
+      description: Value to filter by
+      title: ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsValue
+    ChildFilter:
+      type: object
+      properties:
+        column:
+          type: string
+          description: Field name
+        id:
+          type: integer
+        index:
+          type:
+          - integer
+          - 'null'
+          description: Display order among root filters only
+        operator:
+          type: string
+          description: Filter operator
+        parent:
+          type:
+          - integer
+          - 'null'
+          description: Optional parent filter to create one-level hierarchy (child filters are AND-merged with parent)
+        type:
+          type: string
+          description: Field type
+        value:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Filter value
+      required:
+      - column
+      - id
+      - operator
+      - type
+      title: ChildFilter
+    ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsValue:
+      oneOf:
+      - type: string
+      - type: integer
+      - type: number
+        format: double
+      - type: boolean
+      - type: object
+        additionalProperties:
+          description: Any type
+      - type: object
+        additionalProperties:
+          description: Any type
+      description: Value to filter by
+      title: ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsValue
+    views_update_order_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: views_update_order_Response_200
+    View:
+      type: object
+      properties:
+        data:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Custom view data
+        filter_group:
+          $ref: '#/components/schemas/FilterGroup'
+        id:
+          type: integer
+        order:
+          type:
+          - integer
+          - 'null'
+          description: Position of the tab, starting at the left in data manager and increasing as the tabs go left to right
+        ordering:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Ordering parameters
+        project:
+          type: integer
+          description: Project ID
+        selected_items:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Selected items
+        user:
+          type:
+          - integer
+          - 'null'
+          description: User who made this view
+      required:
+      - id
+      - project
+      title: View
+    ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaData:
+      type: object
+      properties:
+        filters:
+          $ref: '#/components/schemas/ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFilters'
+          description: 'Filters to apply on tasks. You can use [the helper class `Filters` from this page](https://labelstud.io/sdk/data_manager.html) to create Data Manager Filters.<br>Example: `{"conjunction": "or", "items": [{"filter": "filter:tasks:completed_at", "operator": "greater", "type": "Datetime", "value": "2021-01-01T00:00:00.000Z"}]}`'
+        ordering:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataOrderingItems'
+          description: List of fields to order by. Fields are similar to filters but without the `filter:` prefix. To reverse the order, add a minus sign before the field name, e.g. `-tasks:created_at`.
+      description: Custom view data
+      title: ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaData
+    FilterGroup:
+      type: object
+      properties:
+        conjunction:
+          type: string
+          description: Type of conjunction
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+        id:
+          type: integer
+      required:
+      - conjunction
+      - filters
+      - id
+      title: FilterGroup
+    ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersConjunction:
+      type: string
+      enum:
+      - or
+      - and
+      description: Logical conjunction for the filters. This conjunction (either "or" or "and") will be applied to all items in the filters list. It is not possible to combine "or" and "and" within one list of filters. All filters will be either combined with "or" or with "and", but not a mix of both.
+      title: ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersConjunction
+    ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsOperator:
+      type: string
+      enum:
+      - contains
+      - ends_with
+      - equal
+      - exists
+      - greater
+      - greater_or_equal
+      - in
+      - less
+      - less_or_equal
+      - not_contains
+      - not_equal
+      - not_exists
+      - not_in
+      - starts_with
+      description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`starts_with`<br> Starts with</li>'
+      title: ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsOperator
+    ViewOrderRequest:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: integer
+          description: A list of view IDs in the desired order.
+        project:
+          type: integer
+      required:
+      - ids
+      - project
+      title: ViewOrderRequest
+    ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersItemsItems:
+      type: object
+      properties:
+        filter:
+          $ref: '#/components/schemas/ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsFilter'
+          description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](#tag/Data-Manager/operation/api_dm_columns_list) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
+        operator:
+          $ref: '#/components/schemas/ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsOperator'
+          description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`starts_with`<br> Starts with</li>'
+        type:
+          type: string
+          description: Type of the filter value. Possible values:<br><li>`Boolean`<br> Boolean</li><br><li>`Datetime`<br> Datetime string in `strftime('%Y-%m-%dT%H:%M:%S.%fZ')` format</li><br><li>`List`<br> List of items</li><br><li>`Number`<br> Float or Integer</li><br><li>`String`<br> String</li><br><li>`Unknown`<br> Unknown is explicitly converted to string format</li>
+        value:
+          $ref: '#/components/schemas/ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsValue'
+          description: Value to filter by
+      required:
+      - filter
+      - operator
+      - type
+      - value
+      title: ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataFiltersItemsItems
+    ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataOrderingItems:
+      type: string
+      enum:
+      - tasks:agreement
+      - tasks:annotations_results
+      - tasks:annotators
+      - tasks:cancelled_annotations
+      - tasks:comments
+      - tasks:completed_at
+      - tasks:created_at
+      - tasks:file_upload
+      - tasks:ground_truth
+      - tasks:id
+      - tasks:inner_id
+      - tasks:predictions_model_versions
+      - tasks:predictions_results
+      - tasks:predictions_score
+      - tasks:reviewed
+      - tasks:reviewers
+      - tasks:reviews_accepted
+      - tasks:reviews_rejected
+      - tasks:total_annotations
+      - tasks:total_predictions
+      - tasks:unresolved_comment_count
+      - tasks:updated_at
+      title: ApiDmViewsIdPatchRequestBodyContentApplicationJsonSchemaDataOrderingItems
+    ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersItemsItems:
+      type: object
+      properties:
+        filter:
+          $ref: '#/components/schemas/ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsFilter'
+          description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](#tag/Data-Manager/operation/api_dm_columns_list) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
+        operator:
+          $ref: '#/components/schemas/ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsOperator'
+          description: 'Filter operator. Possible values:<br><li>`contains`<br> Contains</li><br><li>`ends_with`<br> Ends with</li><br><li>`equal`<br> Equal to</li><br><li>`exists`<br> Exists</li><br><li>`greater`<br> Greater than</li><br><li>`greater_or_equal`<br> Greater than or equal to</li><br><li>`in`<br> Is between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`less`<br> Less than</li><br><li>`less_or_equal`<br> Less than or equal to</li><br><li>`not_contains`<br> Does not contain</li><br><li>`not_equal`<br> Not equal to</li><br><li>`not_exists`<br> Does not exist</li><br><li>`not_in`<br> Is not between min and max values, so the filter `value` should be e.g. `{"min": 1, "max": 7}`</li><br><li>`starts_with`<br> Starts with</li>'
+        type:
+          type: string
+          description: Type of the filter value. Possible values:<br><li>`Boolean`<br> Boolean</li><br><li>`Datetime`<br> Datetime string in `strftime('%Y-%m-%dT%H:%M:%S.%fZ')` format</li><br><li>`List`<br> List of items</li><br><li>`Number`<br> Float or Integer</li><br><li>`String`<br> String</li><br><li>`Unknown`<br> Unknown is explicitly converted to string format</li>
+        value:
+          $ref: '#/components/schemas/ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsValue'
+          description: Value to filter by
+      required:
+      - filter
+      - operator
+      - type
+      - value
+      title: ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersItemsItems
+    ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsFilter:
+      type: string
+      enum:
+      - filter:tasks:agreement
+      - filter:tasks:annotations_results
+      - filter:tasks:annotators
+      - filter:tasks:cancelled_annotations
+      - filter:tasks:comments
+      - filter:tasks:completed_at
+      - filter:tasks:created_at
+      - filter:tasks:file_upload
+      - filter:tasks:ground_truth
+      - filter:tasks:id
+      - filter:tasks:inner_id
+      - filter:tasks:predictions_model_versions
+      - filter:tasks:predictions_results
+      - filter:tasks:predictions_score
+      - filter:tasks:reviewed
+      - filter:tasks:reviewers
+      - filter:tasks:reviews_accepted
+      - filter:tasks:reviews_rejected
+      - filter:tasks:total_annotations
+      - filter:tasks:total_predictions
+      - filter:tasks:unresolved_comment_count
+      - filter:tasks:updated_at
+      description: 'Filter identifier, it should start with `filter:tasks:` prefix, e.g. `filter:tasks:agreement`. For `task.data` fields it may look like `filter:tasks:data.field_name`. If you need more info about columns, check the [Get data manager columns](#tag/Data-Manager/operation/api_dm_columns_list) API endpoint. Possible values:<br><li>`filter:tasks:agreement`<br> (Number) Agreement for annotation results for a specific task (Enterprise only)</li><br><li>`filter:tasks:annotations_results`<br> (String) Annotation results for the tasks</li><br><li>`filter:tasks:annotators`<br> (List) Annotators that completed the task (Community). Can include assigned annotators (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:cancelled_annotations`<br> (Number) Number of cancelled or skipped annotations for the task</li><br><li>`filter:tasks:comments`<br> (Number) Number of comments in a task</li><br><li>`filter:tasks:completed_at`<br> (Datetime) Time when a task was fully annotated</li><br><li>`filter:tasks:created_at`<br> (Datetime) Time the task was created at</li><br><li>`filter:tasks:file_upload`<br> (String) Name of the file uploaded to create the tasks</li><br><li>`filter:tasks:ground_truth`<br> (Boolean) Ground truth status of the tasks</li><br><li>`filter:tasks:id`<br> (Number) Task ID</li><br><li>`filter:tasks:inner_id`<br> (Number) Task Inner ID, it starts from 1 for all projects</li><br><li>`filter:tasks:predictions_model_versions`<br> (String) Model version used for the predictions</li><br><li>`filter:tasks:predictions_results`<br> (String) Prediction results for the tasks</li><br><li>`filter:tasks:predictions_score`<br> (Number) Prediction score for the task</li><br><li>`filter:tasks:reviewed`<br> (Boolean) Whether the tasks have been reviewed (Enterprise only)</li><br><li>`filter:tasks:reviewers`<br> (String) Reviewers that reviewed the task, or assigned reviewers (Enterprise only). Important note: the filter `type` should be List, but the filter `value` is integer</li><br><li>`filter:tasks:reviews_accepted`<br> (Number) Number of annotations accepted for a task in review (Enterprise only)</li><br><li>`filter:tasks:reviews_rejected`<br> (Number) Number of annotations rejected for a task in review (Enterprise only)</li><br><li>`filter:tasks:total_annotations`<br> (Number) Total number of annotations on a task</li><br><li>`filter:tasks:total_predictions`<br> (Number) Total number of predictions for the task</li><br><li>`filter:tasks:unresolved_comment_count`<br> (Number) Number of unresolved comments in a task</li><br><li>`filter:tasks:updated_at`<br> (Datetime) Time the task was updated at (e.g. new annotation was created, review added, etc)</li>'
+      title: ApiDmViewsPostRequestBodyContentApplicationJsonSchemaDataFiltersItemsItemsFilter
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

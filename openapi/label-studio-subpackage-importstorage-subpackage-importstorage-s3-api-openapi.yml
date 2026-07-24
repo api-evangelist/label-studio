@@ -1,0 +1,511 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_importStorage.subpackage_importStorage/s3 API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_importStorage.subpackage_importStorage/s3
+paths:
+  /api/storages/s3/:
+    get:
+      operationId: list
+      summary: List S3 import storage
+      description: Get a list of all S3 import storage connections.
+      tags:
+      - subpackage_importStorage.subpackage_importStorage/s3
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: project
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/S3ImportStorage'
+    post:
+      operationId: create
+      summary: Create new S3 storage
+      description: Create new S3 import storage
+      tags:
+      - subpackage_importStorage.subpackage_importStorage/s3
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/S3ImportStorage'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                aws_access_key_id:
+                  type: string
+                  description: AWS_ACCESS_KEY_ID
+                aws_secret_access_key:
+                  type: string
+                  description: AWS_SECRET_ACCESS_KEY
+                aws_session_token:
+                  type: string
+                  description: AWS_SESSION_TOKEN
+                aws_sse_kms_key_id:
+                  type: string
+                  description: AWS SSE KMS Key ID
+                bucket:
+                  type: string
+                  description: S3 bucket name
+                description:
+                  type: string
+                  description: Storage description
+                prefix:
+                  type: string
+                  description: S3 bucket prefix
+                presign:
+                  type: boolean
+                  default: true
+                  description: Presign URLs for download
+                presign_ttl:
+                  type: integer
+                  default: 1
+                  description: Presign TTL in minutes
+                project:
+                  type: integer
+                  description: Project ID
+                recursive_scan:
+                  type: boolean
+                  description: Scan recursively
+                regex_filter:
+                  type: string
+                  description: Cloud storage regex for filtering objects. You must specify it otherwise no objects will be imported.
+                region_name:
+                  type: string
+                  description: AWS Region
+                s3_endpoint:
+                  type: string
+                  description: S3 Endpoint
+                title:
+                  type: string
+                  description: Storage title
+                use_blob_urls:
+                  type: boolean
+                  default: false
+                  description: Interpret objects as BLOBs and generate URLs. For example, if your bucket contains images, you can use this option to generate URLs for these images. If set to False, it will read the content of the file and load it into Label Studio.
+  /api/storages/s3/validate:
+    post:
+      operationId: validate
+      summary: Validate import storage
+      description: Validate a specific S3 import storage connection.
+      tags:
+      - subpackage_importStorage.subpackage_importStorage/s3
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Validation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/import_storage_s3_validate_Response_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                aws_access_key_id:
+                  type: string
+                  description: AWS_ACCESS_KEY_ID
+                aws_secret_access_key:
+                  type: string
+                  description: AWS_SECRET_ACCESS_KEY
+                aws_session_token:
+                  type: string
+                  description: AWS_SESSION_TOKEN
+                aws_sse_kms_key_id:
+                  type: string
+                  description: AWS SSE KMS Key ID
+                bucket:
+                  type: string
+                  description: S3 bucket name
+                description:
+                  type: string
+                  description: Storage description
+                id:
+                  type: integer
+                  description: Storage ID. If set, storage with specified ID will be updated
+                prefix:
+                  type: string
+                  description: S3 bucket prefix
+                presign:
+                  type: boolean
+                  default: true
+                  description: Presign URLs for download
+                presign_ttl:
+                  type: integer
+                  default: 1
+                  description: Presign TTL in minutes
+                project:
+                  type: integer
+                  description: Project ID
+                recursive_scan:
+                  type: boolean
+                  description: Scan recursively
+                regex_filter:
+                  type: string
+                  description: Cloud storage regex for filtering objects. You must specify it otherwise no objects will be imported.
+                region_name:
+                  type: string
+                  description: AWS Region
+                s3_endpoint:
+                  type: string
+                  description: S3 Endpoint
+                title:
+                  type: string
+                  description: Storage title
+                use_blob_urls:
+                  type: boolean
+                  default: false
+                  description: Interpret objects as BLOBs and generate URLs. For example, if your bucket contains images, you can use this option to generate URLs for these images. If set to False, it will read the content of the file and load it into Label Studio.
+  /api/storages/s3/{id}:
+    get:
+      operationId: get
+      summary: Get import storage
+      description: Get a specific S3 import storage connection.
+      tags:
+      - subpackage_importStorage.subpackage_importStorage/s3
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/S3ImportStorage'
+    delete:
+      operationId: delete
+      summary: Delete import storage
+      description: Delete a specific S3 import storage connection.
+      tags:
+      - subpackage_importStorage.subpackage_importStorage/s3
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: Update import storage
+      description: Update a specific S3 import storage connection.
+      tags:
+      - subpackage_importStorage.subpackage_importStorage/s3
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/S3ImportStorage'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                aws_access_key_id:
+                  type: string
+                  description: AWS_ACCESS_KEY_ID
+                aws_secret_access_key:
+                  type: string
+                  description: AWS_SECRET_ACCESS_KEY
+                aws_session_token:
+                  type: string
+                  description: AWS_SESSION_TOKEN
+                aws_sse_kms_key_id:
+                  type: string
+                  description: AWS SSE KMS Key ID
+                bucket:
+                  type: string
+                  description: S3 bucket name
+                description:
+                  type: string
+                  description: Storage description
+                prefix:
+                  type: string
+                  description: S3 bucket prefix
+                presign:
+                  type: boolean
+                  default: true
+                  description: Presign URLs for download
+                presign_ttl:
+                  type: integer
+                  default: 1
+                  description: Presign TTL in minutes
+                project:
+                  type: integer
+                  description: Project ID
+                recursive_scan:
+                  type: boolean
+                  description: Scan recursively
+                regex_filter:
+                  type: string
+                  description: Cloud storage regex for filtering objects. You must specify it otherwise no objects will be imported.
+                region_name:
+                  type: string
+                  description: AWS Region
+                s3_endpoint:
+                  type: string
+                  description: S3 Endpoint
+                title:
+                  type: string
+                  description: Storage title
+                use_blob_urls:
+                  type: boolean
+                  default: false
+                  description: Interpret objects as BLOBs and generate URLs. For example, if your bucket contains images, you can use this option to generate URLs for these images. If set to False, it will read the content of the file and load it into Label Studio.
+  /api/storages/s3/{id}/sync:
+    post:
+      operationId: sync
+      summary: Sync import storage
+      description: Sync tasks from an S3 import storage connection.
+      tags:
+      - subpackage_importStorage.subpackage_importStorage/s3
+      parameters:
+      - name: id
+        in: path
+        description: Storage ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/S3ImportStorage'
+components:
+  schemas:
+    import_storage_s3_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: import_storage_s3_validate_Response_200
+    S3ImportStorage:
+      type: object
+      properties:
+        aws_access_key_id:
+          type:
+          - string
+          - 'null'
+          description: AWS_ACCESS_KEY_ID
+        aws_secret_access_key:
+          type:
+          - string
+          - 'null'
+          description: AWS_SECRET_ACCESS_KEY
+        aws_session_token:
+          type:
+          - string
+          - 'null'
+          description: AWS_SESSION_TOKEN
+        aws_sse_kms_key_id:
+          type:
+          - string
+          - 'null'
+          description: AWS SSE KMS Key ID
+        bucket:
+          type:
+          - string
+          - 'null'
+          description: S3 bucket name
+        created_at:
+          type: string
+          format: date-time
+          description: Creation time
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        id:
+          type: integer
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: S3 bucket prefix
+        presign:
+          type: boolean
+          default: true
+        presign_ttl:
+          type: integer
+          description: Presigned URLs TTL (in minutes)
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        recursive_scan:
+          type: boolean
+          description: Perform recursive scan over the bucket content
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage regex for filtering objects
+        region_name:
+          type:
+          - string
+          - 'null'
+          description: AWS Region
+        s3_endpoint:
+          type:
+          - string
+          - 'null'
+          description: S3 Endpoint
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          type: boolean
+          default: true
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        type:
+          type: string
+          default: s3
+        use_blob_urls:
+          type: boolean
+          description: Interpret objects as BLOBs and generate URLs
+      required:
+      - created_at
+      - id
+      - project
+      - type
+      title: S3ImportStorage
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

@@ -1,0 +1,3006 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_projects API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_projects
+paths:
+  /api/projects/:
+    get:
+      operationId: list
+      summary: List projects
+      description: Retrieve a list of projects.
+      tags:
+      - subpackage_projects
+      parameters:
+      - name: archived
+        in: query
+        description: Filter by projects that belong to archived workspaces
+        required: false
+        schema:
+          type: boolean
+      - name: filter
+        in: query
+        description: Filter projects by pinned status. Use 'pinned_only' to return only pinned projects, 'exclude_pinned' to return only non-pinned projects, or 'all' to return all projects.
+        required: false
+        schema:
+          type: string
+          default: all
+      - name: ids
+        in: query
+        description: Filter id by in list
+        required: false
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'Comma-separated list of count fields to include in the response to optimize performance. Available fields: task_number, finished_task_number, total_predictions_number, total_annotations_number, num_tasks_with_annotations, useful_annotation_number, ground_truth_number, skipped_annotations_number. If not specified, all count fields are included.'
+        required: false
+        schema:
+          type: string
+      - name: members_limit
+        in: query
+        description: Maximum number of members to return
+        required: false
+        schema:
+          type: integer
+          default: 10
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Search term for project title and description
+        required: false
+        schema:
+          type: string
+      - name: state
+        in: query
+        description: Filter current_state by exact match
+        required: false
+        schema:
+          type: string
+      - name: title
+        in: query
+        description: Filter title by contains (case-insensitive)
+        required: false
+        schema:
+          type: string
+      - name: workspaces
+        in: query
+        description: Filter workspaces by exact match
+        required: false
+        schema:
+          type: number
+          format: double
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAllRolesProjectListList'
+    post:
+      operationId: create
+      summary: Create a project
+      description: Create a project for a specific organization.
+      tags:
+      - subpackage_projects
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LseProjectCreate'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LseProjectCreateRequest'
+  /api/projects/counts/:
+    get:
+      operationId: list-counts
+      summary: List projects' counts
+      description: Returns a list of projects with their counts. For example, task_number which is the total task number in project
+      tags:
+      - subpackage_projects
+      parameters:
+      - name: archived
+        in: query
+        description: Filter by projects that belong to archived workspaces
+        required: false
+        schema:
+          type: boolean
+      - name: filter
+        in: query
+        description: Filter projects by pinned status. Use 'pinned_only' to return only pinned projects, 'exclude_pinned' to return only non-pinned projects, or 'all' to return all projects.
+        required: false
+        schema:
+          type: string
+          default: all
+      - name: ids
+        in: query
+        description: Filter id by in list
+        required: false
+        schema:
+          type: string
+      - name: include
+        in: query
+        description: 'Comma-separated list of count fields to include in the response to optimize performance. Available fields: task_number, finished_task_number, total_predictions_number, total_annotations_number, num_tasks_with_annotations, useful_annotation_number, ground_truth_number, skipped_annotations_number. If not specified, all count fields are included.'
+        required: false
+        schema:
+          type: string
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Search term for project title and description
+        required: false
+        schema:
+          type: string
+      - name: state
+        in: query
+        description: Filter current_state by exact match
+        required: false
+        schema:
+          type: string
+      - name: title
+        in: query
+        description: Filter title by contains (case-insensitive)
+        required: false
+        schema:
+          type: string
+      - name: workspaces
+        in: query
+        description: Filter workspaces by exact match
+        required: false
+        schema:
+          type: number
+          format: double
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLseProjectCountsList'
+  /api/projects/{id}/:
+    get:
+      operationId: get
+      summary: Get project by ID
+      description: Retrieve information about a project by project ID.
+      tags:
+      - subpackage_projects
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: members_limit
+        in: query
+        description: Maximum number of members to return
+        required: false
+        schema:
+          type: integer
+          default: 10
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Project information. Not all fields are available for all roles.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LseProjectResponse'
+    delete:
+      operationId: delete
+      summary: Delete project
+      description: Delete a project by specified project ID.
+      tags:
+      - subpackage_projects
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: Update project details
+      description: Update the details of a specific project.
+      tags:
+      - subpackage_projects
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: members_limit
+        in: query
+        description: Maximum number of members to return
+        required: false
+        schema:
+          type: integer
+          default: 10
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LseProjectUpdate'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLseProjectUpdateRequest'
+  /api/projects/{id}/annotators/:
+    get:
+      operationId: list-unique-annotators
+      summary: List unique annotators for project
+      description: Return unique users who have submitted annotations in the specified project.
+      tags:
+      - subpackage_projects
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of annotator users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserSimple'
+  /api/projects/{id}/duplicate/:
+    post:
+      operationId: duplicate
+      summary: ✨ Duplicate project
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nMake a copy of project."
+      tags:
+      - subpackage_projects
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Project duplicated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_duplicate_Response_201'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectDuplicateRequest'
+  /api/projects/{id}/import:
+    post:
+      operationId: import-tasks
+      summary: Import tasks
+      description: "\n            Import data as labeling tasks in bulk using this API endpoint. You can use this API endpoint to import multiple tasks.\n            One POST request is limited at 250K tasks and 200 MB.\n\n            **Note:** Imported data is verified against a project *label_config* and must\n            include all variables that were used in the *label_config*. For example,\n            if the label configuration has a *$text* variable, then each item in a data object\n            must include a \"text\" field.\n            <br>\n\n            ## Async Import Behavior\n            <hr style=\"opacity:0.3\">\n\n            **For non-Community editions, this endpoint processes imports asynchronously.**\n            \n            - The POST request **can fail** for invalid parameters, malformed request body, or other request-level validation errors.\n            - However, **data validation errors** that occur during import processing are handled asynchronously and will not cause the POST request to fail.\n            - Upon successful request validation, a response is returned: `{\"import\": <import_id>}`\n            - Use the returned `import_id` to poll the GET `/api/projects/{project_id}/imports/{import_id}` endpoint to check the import status and see any data validation errors.\n            - Data-level errors and import failures will only be visible in the GET request response.\n\n            For Community edition, imports are processed synchronously and return task counts immediately.\n            <br>\n\n            ## POST requests\n            <hr style=\"opacity:0.3\">\n\n            There are three possible ways to import tasks with this endpoint:\n\n            ### 1. **POST with data**\n            Send JSON tasks as POST data. Only JSON is supported for POSTing files directly.\n            Update this example to specify your authorization token and Label Studio instance host, then run the following from\n            the command line.\n\n            ```bash\n            curl -H 'Content-Type: application/json' -H 'Authorization: Token abc123' \\\n            -X POST 'http://localhost:8000/api/projects/1/import' --data '[{\"text\": \"Some text 1\"}, {\"text\": \"Some text 2\"}]'\n            ```\n\n            ### 2. **POST with files**\n            Send tasks as files. You can attach multiple files with different names.\n\n            - **JSON**: text files in JavaScript object notation format\n            - **CSV**: text files with tables in Comma Separated Values format\n            - **TSV**: text files with tables in Tab Separated Value format\n            - **TXT**: simple text files are similar to CSV with one column and no header, supported for projects with one source only\n\n            Update this example to specify your authorization token, Label Studio instance host, and file name and path,\n            then run the following from the command line:\n\n            ```bash\n            curl -H 'Authorization: Token abc123' \\\n            -X POST 'http://localhost:8000/api/projects/1/import' -F 'file=@path/to/my_file.csv'\n            ```\n\n            ### 3. **POST with URL**\n            You can also provide a URL to a file with labeling tasks. Supported file formats are the same as in option 2.\n\n            ```bash\n            curl -H 'Content-Type: application/json' -H 'Authorization: Token abc123' \\\n            -X POST 'http://localhost:8000/api/projects/1/import' \\\n            --data '[{\"url\": \"http://example.com/test1.csv\"}, {\"url\": \"http://example.com/test2.csv\"}]'\n            ```\n\n            <br>\n        "
+      tags:
+      - subpackage_projects
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        schema:
+          type: integer
+      - name: commit_to_project
+        in: query
+        description: Set to "true" to immediately commit tasks to the project.
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: preannotated_from_fields
+        in: query
+        description: 'List of fields to preannotate from the task data. For example, if you provide a list of `{"text": "text", "prediction": "label"}` items in the request, the system will create a task with the `text` field and a prediction with the `label` field when `preannoted_from_fields=["prediction"]`.'
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: return_task_ids
+        in: query
+        description: Set to "true" to return task IDs in the response.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: 'Tasks successfully imported or import queued. **For non-Community editions**, the response will be `{"import": <import_id>}` which you can use to poll the import status. **For Community edition**, the response contains task counts and is processed synchronously.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_import_tasks_Response_201'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ImportApiRequest'
+  /api/projects/{id}/import/predictions:
+    post:
+      operationId: import-predictions
+      summary: Import predictions
+      description: Import model predictions for tasks in the specified project.
+      tags:
+      - subpackage_projects
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Predictions successfully imported
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_import_predictions_Response_201'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PredictionRequest'
+  /api/projects/{id}/validate/:
+    post:
+      operationId: validate-label-config
+      summary: Validate project label config
+      description: Determine whether the label configuration for a specific project is valid.
+      tags:
+      - subpackage_projects
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectLabelConfig'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectLabelConfigRequest'
+components:
+  schemas:
+    AnnotationRequest:
+      type: object
+      properties:
+        bulk_created:
+          type:
+          - boolean
+          - 'null'
+          description: Annotation was created in bulk mode
+        completed_by:
+          type: integer
+        draft_created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Draft creation time
+        ground_truth:
+          type: boolean
+          description: This annotation is a Ground Truth (ground_truth)
+        import_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          description: Original annotation ID that was at the import step or NULL if this annotation wasn't imported
+        last_action:
+          oneOf:
+          - $ref: '#/components/schemas/LastActionEnum'
+          - type: 'null'
+          description: 'Action which was performed in the last annotation history item
+
+
+            * `prediction` - Created from prediction
+
+            * `propagated_annotation` - Created from another annotation
+
+            * `imported` - Imported
+
+            * `submitted` - Submitted
+
+            * `updated` - Updated
+
+            * `skipped` - Skipped
+
+            * `accepted` - Accepted
+
+            * `rejected` - Rejected
+
+            * `fixed_and_accepted` - Fixed and accepted
+
+            * `deleted_review` - Deleted review'
+        last_created_by:
+          type:
+          - integer
+          - 'null'
+          description: User who created the last annotation history item
+        lead_time:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: How much time it took to annotate the task
+        parent_annotation:
+          type:
+          - integer
+          - 'null'
+          description: Points to the parent annotation from which this annotation was created
+        parent_prediction:
+          type:
+          - integer
+          - 'null'
+          description: Points to the prediction from which this annotation was created
+        project:
+          type:
+          - integer
+          - 'null'
+          description: Project ID for this annotation
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationRequestResultItems'
+          description: List of annotation results for the task
+        task:
+          type:
+          - integer
+          - 'null'
+          description: Corresponding task for this annotation
+        unique_id:
+          type: string
+        updated_by:
+          type:
+          - integer
+          - 'null'
+          description: Last user who updated this annotation
+        was_cancelled:
+          type: boolean
+          description: User skipped the task
+      description: 'Annotation Serializer with FSM state support.
+
+
+        Note: The ''state'' field will be populated from the queryset annotation
+
+        if present, preventing N+1 queries. Use .with_state() on your queryset.'
+      title: AnnotationRequest
+    AssignmentSettingsRequest:
+      type: object
+      properties:
+        label_stream_task_distribution:
+          oneOf:
+          - $ref: '#/components/schemas/LabelStreamTaskDistributionEnum'
+          - type: 'null'
+          description: 'Automatic / Manual
+
+
+            * `auto_distribution` - Label Stream distributes tasks automatically to annotators
+
+            * `assigned_only` - Label Stream shows tasks only to assigned users'
+        project:
+          type:
+          - integer
+          - 'null'
+      title: AssignmentSettingsRequest
+    ProjectDuplicateRequest:
+      type: object
+      properties:
+        description:
+          type: string
+          default: ''
+          description: Project Description
+        mode:
+          $ref: '#/components/schemas/ProjectDuplicateModeEnum'
+          description: 'What to Duplicate (Project configuration only / Project configuration and tasks)
+
+
+            * `settings` - Only settings
+
+            * `settings,data` - Settings and tasks'
+        title:
+          type: string
+          description: Project Name
+        workspace:
+          type: integer
+          description: Destination Workspace
+      required:
+      - mode
+      - title
+      - workspace
+      title: ProjectDuplicateRequest
+    projects_duplicate_Response_201:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of the duplicated project.
+      required:
+      - id
+      title: projects_duplicate_Response_201
+    ImportApiRequest:
+      type: object
+      properties:
+        allow_skip:
+          type:
+          - boolean
+          - 'null'
+          description: Whether this task can be skipped. Set to False to make task unskippable.
+        annotations:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationRequest'
+        cancelled_annotations:
+          type: integer
+          description: Number of total cancelled annotations for the current task
+        comment_authors:
+          type: array
+          items:
+            type: integer
+          description: Users who wrote comments
+        comment_count:
+          type: integer
+          description: Number of comments in the task including all annotations
+        data:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
+        file_upload:
+          type:
+          - integer
+          - 'null'
+          description: Uploaded file used as data source for this task
+        inner_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          description: Internal task ID in the project, starts with 1
+        last_comment_updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: When the last comment was updated
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta is user imported (uploaded) data and can be useful as input for an ML Backend for embeddings, advanced vectors, and other info. It is passed to ML during training/predicting steps.
+        overlap:
+          type: integer
+          description: Number of distinct annotators that processed the current task
+        precomputed_agreement:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Average agreement score for the task
+        predictions:
+          type: array
+          items:
+            $ref: '#/components/schemas/PredictionRequest'
+        total_annotations:
+          type: integer
+          description: Number of total annotations for the current task except cancelled annotations
+        total_predictions:
+          type: integer
+          description: Number of total predictions for the current task
+        unresolved_comment_count:
+          type: integer
+          description: Number of unresolved comments in the task including all annotations
+        updated_by:
+          type:
+          - integer
+          - 'null'
+          description: Last annotator or reviewer who updated this task
+      required:
+      - data
+      description: Tasks serializer for Import API (TaskBulkCreateAPI)
+      title: ImportApiRequest
+    ReviewSettingsRequest:
+      type: object
+      properties:
+        anonymize_annotations:
+          type: boolean
+          description: Hide annotator names from annotations while review
+        instruction:
+          type:
+          - string
+          - 'null'
+          description: Instructions
+        only_finished_tasks:
+          type: boolean
+          description: Show only finished tasks in the review stream
+        project:
+          type:
+          - integer
+          - 'null'
+        requeue_rejected_tasks_mode:
+          oneOf:
+          - $ref: '#/components/schemas/RequeueRejectedTasksModeEnum'
+          - type: 'null'
+          description: 'Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue
+
+
+            * `requeue` - Requeue
+
+            * `remove` - Remove
+
+            * `flexible` - Flexible'
+        require_comment_on_reject:
+          type: boolean
+          description: Reviewers must leave a comment on reject
+        review_criteria:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewCriteriaEnum'
+          - type: 'null'
+          description: 'Task is reviewed after at least one accepted annotation / Task is reviewed when all annotations are reviewed
+
+
+            * `all` - Task is reviewed if all annotations are reviewed
+
+            * `one` - Task is reviewed if at least one annotation is reviewed'
+        review_only_manual_assignments:
+          type: boolean
+          description: Show only manually assigned tasks in the review stream
+        review_task_limit_percent:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Task limit (%)
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewSettingsSamplingEnum'
+          - type: 'null'
+          description: 'By Task ID / Random
+
+
+            * `task_id` - By Task ID
+
+            * `random` - Random'
+        show_agreement_to_reviewers:
+          type: boolean
+          description: Show agreement to reviewers in the Data Manager
+        show_data_manager_to_reviewers:
+          type: boolean
+          description: Show the Data Manager to reviewers
+        show_instruction:
+          type: boolean
+          description: Show before reviewing
+        show_unused_data_columns_to_reviewers:
+          type:
+          - boolean
+          - 'null'
+          description: Show unused task data columns to reviewers in the Data Manager
+      title: ReviewSettingsRequest
+    PredictionRequest:
+      type: object
+      properties:
+        cluster:
+          type:
+          - integer
+          - 'null'
+          description: Cluster for the current prediction
+        mislabeling:
+          type: number
+          format: double
+          description: Related task mislabeling score
+        model:
+          type:
+          - integer
+          - 'null'
+          description: An ML Backend instance that created the prediction.
+        model_run:
+          type:
+          - integer
+          - 'null'
+          description: A run of a ModelVersion that created the prediction.
+        model_version:
+          type: string
+          description: Model version - tag for predictions that can be used to filter tasks in Data Manager, as well as select specific model version for showing preannotations in the labeling interface
+        neighbors:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Array of task IDs of the closest neighbors
+        project:
+          type:
+          - integer
+          - 'null'
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/PredictionRequestResultItems'
+          description: List of prediction results for the task
+        score:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Prediction score
+        task:
+          type: integer
+      required:
+      - result
+      - task
+      title: PredictionRequest
+    ProjectLabelConfig:
+      type: object
+      properties:
+        label_config:
+          type: string
+          description: Label config in XML format. See more about it in documentation
+      required:
+      - label_config
+      title: ProjectLabelConfig
+    AnnotationRequestResultItems:
+      type: object
+      properties: {}
+      description: List of annotated regions for the task
+      title: AnnotationRequestResultItems
+    RequeueRejectedTasksModeEnum:
+      type: string
+      enum:
+      - requeue
+      - remove
+      - flexible
+      description: '* `requeue` - Requeue
+
+        * `remove` - Remove
+
+        * `flexible` - Flexible'
+      title: RequeueRejectedTasksModeEnum
+    LastActionEnum:
+      type: string
+      enum:
+      - prediction
+      - propagated_annotation
+      - imported
+      - submitted
+      - updated
+      - skipped
+      - accepted
+      - rejected
+      - fixed_and_accepted
+      - deleted_review
+      description: '* `prediction` - Created from prediction
+
+        * `propagated_annotation` - Created from another annotation
+
+        * `imported` - Imported
+
+        * `submitted` - Submitted
+
+        * `updated` - Updated
+
+        * `skipped` - Skipped
+
+        * `accepted` - Accepted
+
+        * `rejected` - Rejected
+
+        * `fixed_and_accepted` - Fixed and accepted
+
+        * `deleted_review` - Deleted review'
+      title: LastActionEnum
+    PaginatedAllRolesProjectListList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AllRolesProjectList'
+      required:
+      - count
+      - results
+      title: PaginatedAllRolesProjectListList
+    ControlTagWeight:
+      type: object
+      properties:
+        labels:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+          description: Per-label weights (0.0 to 1.0). Zero excludes the label from agreement.
+        overall:
+          type: number
+          format: double
+          description: Overall weight for this control tag (0.0 to 1.0). Zero excludes the tag from agreement.
+        type:
+          type: string
+          description: Control tag type from the labeling config (e.g. Choices, Labels, TextArea).
+      required:
+      - overall
+      - type
+      description: 'Weights configuration for a single control tag.
+
+
+        Structure: {"overall": 0.5, "type": "Choices", "labels": {"cat": 1.0, "dog": 0.0}}'
+      title: ControlTagWeight
+    projects_import_predictions_Response_201:
+      type: object
+      properties:
+        created:
+          type: integer
+          description: Number of predictions created
+      description: Import result
+      title: projects_import_predictions_Response_201
+    BlueprintList:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        description:
+          type:
+          - string
+          - 'null'
+          description: Project description
+        id:
+          type: integer
+        share_id:
+          type: string
+        short_url:
+          type: string
+        task_count:
+          type: string
+        title:
+          type:
+          - string
+          - 'null'
+          description: Blueprint name. Must be between 3 and 50 characters long.
+      required:
+      - created_at
+      - id
+      - share_id
+      - short_url
+      - task_count
+      title: BlueprintList
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    AllRolesProjectList:
+      type: object
+      properties:
+        agreement_methodology:
+          $ref: '#/components/schemas/AgreementMethodologyEnum'
+          description: 'Methodology (Consensus / Pairwise Averaging)
+
+
+            * `consensus` - Consensus
+
+            * `pairwise` - Pairwise Averaging'
+        agreement_threshold:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Agreement threshold
+        allow_stream:
+          type: boolean
+        annotation_limit_count:
+          type:
+          - integer
+          - 'null'
+          description: Limit by number of tasks
+        annotation_limit_percent:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Limit by percentage of tasks
+        annotator_evaluation_continuous_tasks:
+          type: integer
+          default: 0
+          description: 'Continuous Evaluation: Required tasks'
+        annotator_evaluation_enabled:
+          type: boolean
+          description: Evaluate all annotators against ground truth
+        annotator_evaluation_minimum_score:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          default: '95.00'
+          description: Score required to pass evaluation
+        annotator_evaluation_minimum_tasks:
+          type:
+          - integer
+          - 'null'
+          default: 10
+          description: Number of tasks for evaluation
+        annotator_evaluation_onboarding_tasks:
+          type: integer
+          default: 0
+          description: 'Onboarding Evaluation: Required tasks'
+        assignment_settings:
+          $ref: '#/components/schemas/AssignmentSettings'
+        blueprints:
+          type: array
+          items:
+            $ref: '#/components/schemas/BlueprintList'
+        color:
+          type:
+          - string
+          - 'null'
+          description: Color
+        comment_classification_config:
+          type: string
+        config_has_control_tags:
+          type: boolean
+          description: Flag to detect is project ready for labeling
+        config_suitable_for_bulk_annotation:
+          type: boolean
+          description: Flag to detect is project ready for bulk annotation
+        control_weights:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            $ref: '#/components/schemas/ControlTagWeight'
+          description: Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+          description: Project owner
+        custom_interface_code:
+          type:
+          - string
+          - 'null'
+        custom_interface_compiled:
+          type:
+          - string
+          - 'null'
+        custom_interface_params:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        custom_script:
+          type: string
+          description: Plugins
+        custom_task_lock_ttl:
+          type:
+          - integer
+          - 'null'
+          description: Task reservation time. TTL in seconds (UI displays and edits this value in minutes).
+        data_types:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            description: Any type
+        description:
+          type:
+          - string
+          - 'null'
+          description: Description
+        description_short:
+          type: string
+        duplication_done:
+          type: boolean
+          default: false
+        duplication_status:
+          type: string
+        enable_empty_annotation:
+          type: boolean
+          description: Allow empty annotations
+        evaluate_predictions_automatically:
+          type: boolean
+          description: Retrieve and display predictions when loading a task
+        expert_instruction:
+          type:
+          - string
+          - 'null'
+          description: Instructions
+        finished_task_number:
+          type: integer
+        ground_truth_number:
+          type: integer
+          description: Honeypot annotation number in project
+        id:
+          type: integer
+        input_schema:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        is_dimensions_enabled:
+          type: string
+        is_draft:
+          type: boolean
+          description: Whether or not the project is in the middle of being created
+        is_published:
+          type: boolean
+          description: Whether or not the project is published to annotators
+        label_config:
+          type:
+          - string
+          - 'null'
+          description: Labeling Configuration
+        max_additional_annotators_assignable:
+          type:
+          - integer
+          - 'null'
+          description: Maximum additional annotators
+        maximum_annotations:
+          type: integer
+          description: Annotations per task
+        members:
+          type: string
+        members_count:
+          type: integer
+        min_annotations_to_start_training:
+          type: integer
+          description: Minimum number of completed tasks after which model training is started
+        model_version:
+          type:
+          - string
+          - 'null'
+          description: Machine learning model version
+        num_tasks_with_annotations:
+          type:
+          - integer
+          - 'null'
+        organization:
+          type:
+          - integer
+          - 'null'
+        overlap_cohort_percentage:
+          type: integer
+          description: Annotations per task coverage
+        parsed_label_config:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: JSON-formatted labeling configuration
+        pause_on_failed_annotator_evaluation:
+          type:
+          - boolean
+          - 'null'
+          default: false
+          description: Pause annotator on failed evaluation
+        pinned_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Pinned date and time
+        prompts:
+          type: string
+        queue_done:
+          type: integer
+        queue_left:
+          type: integer
+        queue_total:
+          type: string
+        ready:
+          type: boolean
+        rejected:
+          type: integer
+        require_comment_on_skip:
+          type: boolean
+          default: false
+          description: Require comment to skip
+        reveal_preannotations_interactively:
+          type: boolean
+          description: Reveal pre-annotations interactively
+        review_settings:
+          $ref: '#/components/schemas/ReviewSettings'
+        review_total_tasks:
+          type: integer
+        reviewed_number:
+          type: integer
+        reviewer_queue_total:
+          type: integer
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/SamplingDe5Enum'
+          - type: 'null'
+        show_annotation_history:
+          type: boolean
+          description: Show Data Manager to Annotators
+        show_collab_predictions:
+          type: boolean
+          description: Use predictions to pre-label Tasks
+        show_ground_truth_first:
+          type: boolean
+          description: 'Onboarding mode (true): show ground truth tasks first in the labeling stream'
+        show_instruction:
+          type: boolean
+          description: Show instructions before labeling
+        show_overlap_first:
+          type: boolean
+          description: Show tasks with overlap first
+        show_skip_button:
+          type: boolean
+          description: Allow skipping tasks
+        show_unused_data_columns_to_annotators:
+          type:
+          - boolean
+          - 'null'
+          description: 'Show only columns used in labeling configuration to Annotators. API uses inverse field semantics here: set false to show only used columns, set true to show all task.data columns.'
+        skip_queue:
+          oneOf:
+          - $ref: '#/components/schemas/SkipQueueEnum'
+          - type: 'null'
+        skipped_annotations_number:
+          type: string
+        source_interface_id:
+          type:
+          - integer
+          - 'null'
+        source_interface_version:
+          type:
+          - integer
+          - 'null'
+        start_training_on_annotation_update:
+          type: boolean
+          description: Start model training after any annotations are submitted or updated
+        state:
+          type: string
+        strict_task_overlap:
+          type: boolean
+          default: true
+          description: Enforce strict overlap limit
+        task_number:
+          type: integer
+          description: Total task number in project
+        title:
+          type:
+          - string
+          - 'null'
+          description: Project Name
+        total_annotations_number:
+          type: string
+        total_predictions_number:
+          type: integer
+        use_custom_interface:
+          type: boolean
+          default: false
+        useful_annotation_number:
+          type:
+          - integer
+          - 'null'
+        workspace:
+          type: string
+        workspace_title:
+          type: string
+      required:
+      - allow_stream
+      - assignment_settings
+      - blueprints
+      - config_has_control_tags
+      - config_suitable_for_bulk_annotation
+      - created_at
+      - data_types
+      - description_short
+      - finished_task_number
+      - ground_truth_number
+      - id
+      - is_dimensions_enabled
+      - members
+      - members_count
+      - num_tasks_with_annotations
+      - parsed_label_config
+      - prompts
+      - queue_done
+      - queue_left
+      - queue_total
+      - ready
+      - rejected
+      - review_settings
+      - review_total_tasks
+      - reviewed_number
+      - reviewer_queue_total
+      - skipped_annotations_number
+      - start_training_on_annotation_update
+      - state
+      - task_number
+      - total_annotations_number
+      - total_predictions_number
+      - useful_annotation_number
+      - workspace
+      - workspace_title
+      description: 'Serializer get numbers from project queryset annotation,
+
+        make sure, that you use correct one(Project.objects.with_counts())'
+      title: AllRolesProjectList
+    LseProjectResponse:
+      type: object
+      properties:
+        agreement_methodology:
+          $ref: '#/components/schemas/AgreementMethodologyEnum'
+          description: 'Methodology (Consensus / Pairwise Averaging)
+
+
+            * `consensus` - Consensus
+
+            * `pairwise` - Pairwise Averaging'
+        agreement_threshold:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Agreement threshold
+        allow_stream:
+          type: boolean
+        annotation_limit_count:
+          type:
+          - integer
+          - 'null'
+          description: Limit by number of tasks
+        annotation_limit_percent:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Limit by percentage of tasks
+        annotator_evaluation_continuous_tasks:
+          type: integer
+          default: 0
+          description: 'Continuous Evaluation: Required tasks'
+        annotator_evaluation_enabled:
+          type: boolean
+          description: Evaluate all annotators against ground truth
+        annotator_evaluation_minimum_score:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          default: '95.00'
+          description: Score required to pass evaluation
+        annotator_evaluation_minimum_tasks:
+          type:
+          - integer
+          - 'null'
+          default: 10
+          description: Number of tasks for evaluation
+        annotator_evaluation_onboarding_tasks:
+          type: integer
+          default: 0
+          description: 'Onboarding Evaluation: Required tasks'
+        assignment_settings:
+          $ref: '#/components/schemas/AssignmentSettings'
+        color:
+          type:
+          - string
+          - 'null'
+          description: Color
+        comment_classification_config:
+          type: string
+        config_has_control_tags:
+          type: boolean
+          description: Flag to detect is project ready for labeling
+        config_suitable_for_bulk_annotation:
+          type: boolean
+          description: Flag to detect is project ready for bulk annotation
+        control_weights:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            $ref: '#/components/schemas/ControlTagWeight'
+          description: Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+          description: Project owner
+        custom_interface_code:
+          type:
+          - string
+          - 'null'
+        custom_interface_compiled:
+          type:
+          - string
+          - 'null'
+        custom_interface_params:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        custom_script:
+          type: string
+          description: Plugins
+        custom_task_lock_ttl:
+          type:
+          - integer
+          - 'null'
+          description: Task reservation time. TTL in seconds (UI displays and edits this value in minutes).
+        data_types:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            description: Any type
+        description:
+          type:
+          - string
+          - 'null'
+          description: Description
+        duplication_done:
+          type: boolean
+          default: false
+        duplication_status:
+          type: string
+        enable_empty_annotation:
+          type: boolean
+          description: Allow empty annotations
+        evaluate_predictions_automatically:
+          type: boolean
+          description: Retrieve and display predictions when loading a task
+        expert_instruction:
+          type:
+          - string
+          - 'null'
+          description: Instructions
+        finished_task_number:
+          type: integer
+          description: Finished tasks
+        ground_truth_number:
+          type: integer
+          description: Honeypot annotation number in project
+        id:
+          type: integer
+        input_schema:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        is_dimensions_enabled:
+          type: string
+        is_draft:
+          type: boolean
+          description: Whether or not the project is in the middle of being created
+        is_published:
+          type: boolean
+          description: Whether or not the project is published to annotators
+        label_config:
+          type:
+          - string
+          - 'null'
+          description: Labeling Configuration
+        max_additional_annotators_assignable:
+          type:
+          - integer
+          - 'null'
+          description: Maximum additional annotators
+        maximum_annotations:
+          type: integer
+          description: Annotations per task
+        members:
+          type: string
+        members_count:
+          type: integer
+        min_annotations_to_start_training:
+          type: integer
+          description: Minimum number of completed tasks after which model training is started
+        model_version:
+          type:
+          - string
+          - 'null'
+          description: Machine learning model version
+        num_tasks_with_annotations:
+          type: integer
+        organization:
+          type:
+          - integer
+          - 'null'
+        overlap_cohort_percentage:
+          type: integer
+          description: Annotations per task coverage
+        parsed_label_config:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: JSON-formatted labeling configuration
+        pause_on_failed_annotator_evaluation:
+          type:
+          - boolean
+          - 'null'
+          default: false
+          description: Pause annotator on failed evaluation
+        pinned_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Pinned date and time
+        prompts:
+          type: string
+        queue_done:
+          type: integer
+        queue_left:
+          type: integer
+        queue_total:
+          type: integer
+        ready:
+          type: boolean
+        rejected:
+          type: integer
+        require_comment_on_skip:
+          type: boolean
+          default: false
+          description: Require comment to skip
+        reveal_preannotations_interactively:
+          type: boolean
+          description: Reveal pre-annotations interactively
+        review_settings:
+          $ref: '#/components/schemas/ReviewSettings'
+        review_total_tasks:
+          type: integer
+        reviewed_number:
+          type: integer
+        reviewer_queue_total:
+          type: integer
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/SamplingDe5Enum'
+          - type: 'null'
+        show_annotation_history:
+          type: boolean
+          description: Show Data Manager to Annotators
+        show_collab_predictions:
+          type: boolean
+          description: Use predictions to pre-label Tasks
+        show_ground_truth_first:
+          type: boolean
+          description: 'Onboarding mode (true): show ground truth tasks first in the labeling stream'
+        show_instruction:
+          type: boolean
+          description: Show instructions before labeling
+        show_overlap_first:
+          type: boolean
+          description: Show tasks with overlap first
+        show_skip_button:
+          type: boolean
+          description: Allow skipping tasks
+        show_unused_data_columns_to_annotators:
+          type:
+          - boolean
+          - 'null'
+          description: 'Show only columns used in labeling configuration to Annotators. API uses inverse field semantics here: set false to show only used columns, set true to show all task.data columns.'
+        skip_queue:
+          oneOf:
+          - $ref: '#/components/schemas/SkipQueueEnum'
+          - type: 'null'
+        skipped_annotations_number:
+          type: integer
+        source_interface_id:
+          type:
+          - integer
+          - 'null'
+        source_interface_version:
+          type:
+          - integer
+          - 'null'
+        start_training_on_annotation_update:
+          type: boolean
+          description: Start model training after any annotations are submitted or updated
+        state:
+          type: string
+        strict_task_overlap:
+          type: boolean
+          default: true
+          description: Enforce strict overlap limit
+        task_data_login:
+          type:
+          - string
+          - 'null'
+          description: Login
+        task_data_password:
+          type:
+          - string
+          - 'null'
+          description: Password
+        task_number:
+          type: integer
+          description: Total task number in project
+        title:
+          type:
+          - string
+          - 'null'
+          description: Project Name
+        total_annotations_number:
+          type: integer
+        total_predictions_number:
+          type:
+          - integer
+          - 'null'
+        use_custom_interface:
+          type: boolean
+          default: false
+        useful_annotation_number:
+          type:
+          - integer
+          - 'null'
+        workspace:
+          type: string
+        workspace_title:
+          type: string
+      required:
+      - allow_stream
+      - assignment_settings
+      - config_has_control_tags
+      - config_suitable_for_bulk_annotation
+      - created_at
+      - data_types
+      - finished_task_number
+      - ground_truth_number
+      - id
+      - is_dimensions_enabled
+      - members
+      - members_count
+      - num_tasks_with_annotations
+      - parsed_label_config
+      - prompts
+      - queue_done
+      - queue_left
+      - queue_total
+      - ready
+      - rejected
+      - review_settings
+      - review_total_tasks
+      - reviewed_number
+      - reviewer_queue_total
+      - skipped_annotations_number
+      - start_training_on_annotation_update
+      - state
+      - task_number
+      - total_annotations_number
+      - total_predictions_number
+      - useful_annotation_number
+      - workspace
+      - workspace_title
+      description: Serializer for project response, combining all the serializers for different roles. Don't use it except for Spectacular/Fern definitions.
+      title: LseProjectResponse
+    LseProjectCreate:
+      type: object
+      properties:
+        annotator_evaluation_enabled:
+          type: boolean
+          description: Enable annotator evaluation for the project
+        color:
+          type:
+          - string
+          - 'null'
+        config_has_control_tags:
+          type: boolean
+          description: Flag to detect is project ready for labeling
+        config_suitable_for_bulk_annotation:
+          type: boolean
+          description: Flag to detect is project ready for bulk annotation
+        control_weights:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            $ref: '#/components/schemas/ControlTagWeight'
+          description: Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+          description: Project owner
+        custom_interface_code:
+          type:
+          - string
+          - 'null'
+        custom_interface_compiled:
+          type:
+          - string
+          - 'null'
+        custom_interface_params:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        description:
+          type:
+          - string
+          - 'null'
+          description: Project Description
+        enable_empty_annotation:
+          type: boolean
+          description: Allow annotators to submit empty annotations
+        evaluate_predictions_automatically:
+          type: boolean
+          description: Retrieve and display predictions when loading a task
+        expert_instruction:
+          type:
+          - string
+          - 'null'
+          description: Labeling instructions in HTML format
+        finished_task_number:
+          type: integer
+          description: Finished tasks
+        ground_truth_number:
+          type: integer
+          description: Honeypot annotation number in project
+        id:
+          type: integer
+        input_schema:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        is_draft:
+          type: boolean
+          description: Whether or not the project is in the middle of being created
+        is_published:
+          type: boolean
+          description: Whether or not the project is published to annotators
+        label_config:
+          type:
+          - string
+          - 'null'
+          description: Label config in XML format. See more about it in documentation
+        maximum_annotations:
+          type: integer
+          description: Maximum number of annotations for one task. If the number of annotations per task is equal or greater to this value, the task is completed (is_labeled=True)
+        min_annotations_to_start_training:
+          type: integer
+          description: Minimum number of completed tasks after which model training is started
+        model_version:
+          type:
+          - string
+          - 'null'
+          description: Machine learning model version
+        num_tasks_with_annotations:
+          type: integer
+          description: Tasks with annotations count
+        organization:
+          type:
+          - integer
+          - 'null'
+        overlap_cohort_percentage:
+          type: integer
+        parsed_label_config:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: JSON-formatted labeling configuration
+        pinned_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Pinned date and time
+        queue_done:
+          type: integer
+        queue_total:
+          type: integer
+        reveal_preannotations_interactively:
+          type: boolean
+          description: Reveal pre-annotations interactively
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/SamplingDe5Enum'
+          - type: 'null'
+        show_annotation_history:
+          type: boolean
+          description: Show annotation history to annotator
+        show_collab_predictions:
+          type: boolean
+          description: If set, the annotator can view model predictions
+        show_ground_truth_first:
+          type: boolean
+          description: 'Onboarding mode (true): show ground truth tasks first in the labeling stream'
+        show_instruction:
+          type: boolean
+          description: Show instructions to the annotator before they start
+        show_overlap_first:
+          type: boolean
+        show_skip_button:
+          type: boolean
+          description: Show a skip button in interface and allow annotators to skip the task
+        skip_queue:
+          oneOf:
+          - $ref: '#/components/schemas/SkipQueueEnum'
+          - type: 'null'
+        skipped_annotations_number:
+          type: integer
+          description: Skipped by collaborators annotation number in project
+        source_interface_id:
+          type:
+          - integer
+          - 'null'
+        source_interface_version:
+          type:
+          - integer
+          - 'null'
+        start_training_on_annotation_update:
+          type: boolean
+          description: Start model training after any annotations are submitted or updated
+        state:
+          type: string
+        task_data_login:
+          type:
+          - string
+          - 'null'
+          description: 'Task data credentials: login'
+        task_data_password:
+          type:
+          - string
+          - 'null'
+          description: 'Task data credentials: password'
+        task_number:
+          type: integer
+          description: Total task number in project
+        title:
+          type:
+          - string
+          - 'null'
+          description: Project Title
+        total_annotations_number:
+          type: integer
+          description: Total annotations number in project including skipped_annotations_number and ground_truth_number.
+        total_predictions_number:
+          type: integer
+          description: Total predictions number in project including skipped_annotations_number, ground_truth_number, and useful_annotation_number.
+        use_custom_interface:
+          type: boolean
+          default: false
+        useful_annotation_number:
+          type: integer
+          description: Useful annotation number in project not including skipped_annotations_number and ground_truth_number. Total annotations = annotation_number + skipped_annotations_number + ground_truth_number
+        workspace:
+          type: integer
+          description: In Workspace
+      required:
+      - config_has_control_tags
+      - config_suitable_for_bulk_annotation
+      - created_at
+      - finished_task_number
+      - ground_truth_number
+      - id
+      - num_tasks_with_annotations
+      - parsed_label_config
+      - queue_done
+      - queue_total
+      - skipped_annotations_number
+      - start_training_on_annotation_update
+      - state
+      - task_number
+      - total_annotations_number
+      - total_predictions_number
+      - useful_annotation_number
+      description: 'Serializer get numbers from project queryset annotation,
+
+        make sure, that you use correct one(Project.objects.with_counts())'
+      title: LseProjectCreate
+    ReviewSettings:
+      type: object
+      properties:
+        anonymize_annotations:
+          type: boolean
+          description: Hide annotator names from annotations while review
+        id:
+          type: integer
+        instruction:
+          type:
+          - string
+          - 'null'
+          description: Instructions
+        only_finished_tasks:
+          type: boolean
+          description: Show only finished tasks in the review stream
+        project:
+          type:
+          - integer
+          - 'null'
+        requeue_rejected_tasks_mode:
+          oneOf:
+          - $ref: '#/components/schemas/RequeueRejectedTasksModeEnum'
+          - type: 'null'
+          description: 'Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue
+
+
+            * `requeue` - Requeue
+
+            * `remove` - Remove
+
+            * `flexible` - Flexible'
+        requeue_rejected_tasks_to_annotator:
+          type: boolean
+        require_comment_on_reject:
+          type: boolean
+          description: Reviewers must leave a comment on reject
+        review_criteria:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewCriteriaEnum'
+          - type: 'null'
+          description: 'Task is reviewed after at least one accepted annotation / Task is reviewed when all annotations are reviewed
+
+
+            * `all` - Task is reviewed if all annotations are reviewed
+
+            * `one` - Task is reviewed if at least one annotation is reviewed'
+        review_only_manual_assignments:
+          type: boolean
+          description: Show only manually assigned tasks in the review stream
+        review_task_limit_percent:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Task limit (%)
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewSettingsSamplingEnum'
+          - type: 'null'
+          description: 'By Task ID / Random
+
+
+            * `task_id` - By Task ID
+
+            * `random` - Random'
+        show_agreement_to_reviewers:
+          type: boolean
+          description: Show agreement to reviewers in the Data Manager
+        show_data_manager_to_reviewers:
+          type: boolean
+          description: Show the Data Manager to reviewers
+        show_instruction:
+          type: boolean
+          description: Show before reviewing
+        show_unused_data_columns_to_reviewers:
+          type:
+          - boolean
+          - 'null'
+          description: Show unused task data columns to reviewers in the Data Manager
+      required:
+      - id
+      - requeue_rejected_tasks_to_annotator
+      title: ReviewSettings
+    ProjectDuplicateModeEnum:
+      type: string
+      enum:
+      - settings
+      - settings,data
+      description: '* `settings` - Only settings
+
+        * `settings,data` - Settings and tasks'
+      title: ProjectDuplicateModeEnum
+    ReviewCriteriaEnum:
+      type: string
+      enum:
+      - all
+      - one
+      description: '* `all` - Task is reviewed if all annotations are reviewed
+
+        * `one` - Task is reviewed if at least one annotation is reviewed'
+      title: ReviewCriteriaEnum
+    ControlTagWeightRequest:
+      type: object
+      properties:
+        labels:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+          description: Per-label weights (0.0 to 1.0). Zero excludes the label from agreement.
+        overall:
+          type: number
+          format: double
+          description: Overall weight for this control tag (0.0 to 1.0). Zero excludes the tag from agreement.
+        type:
+          type: string
+          description: Control tag type from the labeling config (e.g. Choices, Labels, TextArea).
+      required:
+      - overall
+      - type
+      description: 'Weights configuration for a single control tag.
+
+
+        Structure: {"overall": 0.5, "type": "Choices", "labels": {"cat": 1.0, "dog": 0.0}}'
+      title: ControlTagWeightRequest
+    PaginatedLseProjectCountsList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LseProjectCounts'
+      required:
+      - count
+      - results
+      title: PaginatedLseProjectCountsList
+    PatchedLseProjectUpdateRequest:
+      type: object
+      properties:
+        agreement_methodology:
+          $ref: '#/components/schemas/AgreementMethodologyEnum'
+          description: 'Methodology (Consensus / Pairwise Averaging)
+
+
+            * `consensus` - Consensus
+
+            * `pairwise` - Pairwise Averaging'
+        agreement_threshold:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Agreement threshold
+        annotation_limit_count:
+          type:
+          - integer
+          - 'null'
+          description: Limit by number of tasks
+        annotation_limit_percent:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Limit by percentage of tasks
+        annotator_evaluation_continuous_tasks:
+          type: integer
+          default: 0
+          description: 'Continuous Evaluation: Required tasks'
+        annotator_evaluation_enabled:
+          type: boolean
+          description: Evaluate all annotators against ground truth
+        annotator_evaluation_minimum_score:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          default: '95.00'
+          description: Score required to pass evaluation
+        annotator_evaluation_minimum_tasks:
+          type:
+          - integer
+          - 'null'
+          default: 10
+          description: Number of tasks for evaluation
+        annotator_evaluation_onboarding_tasks:
+          type: integer
+          default: 0
+          description: 'Onboarding Evaluation: Required tasks'
+        assignment_settings:
+          $ref: '#/components/schemas/AssignmentSettingsRequest'
+        color:
+          type:
+          - string
+          - 'null'
+          description: Color
+        comment_classification_config:
+          type: string
+        control_weights:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            $ref: '#/components/schemas/ControlTagWeightRequest'
+          description: Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
+        created_by:
+          $ref: '#/components/schemas/UserSimpleRequest'
+          description: Project owner
+        custom_interface_code:
+          type:
+          - string
+          - 'null'
+        custom_interface_compiled:
+          type:
+          - string
+          - 'null'
+        custom_interface_params:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        custom_script:
+          type: string
+          description: Plugins
+        custom_task_lock_ttl:
+          type:
+          - integer
+          - 'null'
+          description: Task reservation time. TTL in seconds (UI displays and edits this value in minutes).
+        description:
+          type:
+          - string
+          - 'null'
+          description: Description
+        enable_empty_annotation:
+          type: boolean
+          description: Allow empty annotations
+        evaluate_predictions_automatically:
+          type: boolean
+          description: Retrieve and display predictions when loading a task
+        expert_instruction:
+          type:
+          - string
+          - 'null'
+          description: Instructions
+        input_schema:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        is_draft:
+          type: boolean
+          description: Whether or not the project is in the middle of being created
+        is_published:
+          type: boolean
+          description: Whether or not the project is published to annotators
+        label_config:
+          type:
+          - string
+          - 'null'
+          description: Labeling Configuration
+        max_additional_annotators_assignable:
+          type:
+          - integer
+          - 'null'
+          description: Maximum additional annotators
+        maximum_annotations:
+          type: integer
+          description: Annotations per task
+        min_annotations_to_start_training:
+          type: integer
+          description: Minimum number of completed tasks after which model training is started
+        model_version:
+          type:
+          - string
+          - 'null'
+          description: Machine learning model version
+        organization:
+          type:
+          - integer
+          - 'null'
+        overlap_cohort_percentage:
+          type: integer
+          description: Annotations per task coverage
+        pause_on_failed_annotator_evaluation:
+          type:
+          - boolean
+          - 'null'
+          default: false
+          description: Pause annotator on failed evaluation
+        pinned_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Pinned date and time
+        require_comment_on_skip:
+          type: boolean
+          default: false
+          description: Require comment to skip
+        reveal_preannotations_interactively:
+          type: boolean
+          description: Reveal pre-annotations interactively
+        review_settings:
+          $ref: '#/components/schemas/ReviewSettingsRequest'
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/SamplingDe5Enum'
+          - type: 'null'
+        show_annotation_history:
+          type: boolean
+          description: Show Data Manager to Annotators
+        show_collab_predictions:
+          type: boolean
+          description: Use predictions to pre-label Tasks
+        show_ground_truth_first:
+          type: boolean
+          description: 'Onboarding mode (true): show ground truth tasks first in the labeling stream'
+        show_instruction:
+          type: boolean
+          description: Show instructions before labeling
+        show_overlap_first:
+          type: boolean
+          description: Show tasks with overlap first
+        show_skip_button:
+          type: boolean
+          description: Allow skipping tasks
+        show_unused_data_columns_to_annotators:
+          type:
+          - boolean
+          - 'null'
+          description: 'Show only columns used in labeling configuration to Annotators. API uses inverse field semantics here: set false to show only used columns, set true to show all task.data columns.'
+        skip_queue:
+          oneOf:
+          - $ref: '#/components/schemas/SkipQueueEnum'
+          - type: 'null'
+        source_interface_id:
+          type:
+          - integer
+          - 'null'
+        source_interface_version:
+          type:
+          - integer
+          - 'null'
+        strict_task_overlap:
+          type: boolean
+          default: true
+          description: Enforce strict overlap limit
+        task_data_login:
+          type:
+          - string
+          - 'null'
+          description: Login
+        task_data_password:
+          type:
+          - string
+          - 'null'
+          description: Password
+        title:
+          type:
+          - string
+          - 'null'
+          description: Project Name
+        use_custom_interface:
+          type: boolean
+          default: false
+        workspace:
+          type: integer
+          description: Workspace
+      description: 'Serializer get numbers from project queryset annotation,
+
+        make sure, that you use correct one(Project.objects.with_counts())'
+      title: PatchedLseProjectUpdateRequest
+    AgreementMethodologyEnum:
+      type: string
+      enum:
+      - consensus
+      - pairwise
+      description: '* `consensus` - Consensus
+
+        * `pairwise` - Pairwise Averaging'
+      title: AgreementMethodologyEnum
+    LabelStreamTaskDistributionEnum:
+      type: string
+      enum:
+      - auto_distribution
+      - assigned_only
+      description: '* `auto_distribution` - Label Stream distributes tasks automatically to annotators
+
+        * `assigned_only` - Label Stream shows tasks only to assigned users'
+      title: LabelStreamTaskDistributionEnum
+    SamplingDe5Enum:
+      type: string
+      enum:
+      - Sequential sampling
+      - Uniform sampling
+      - Uncertainty sampling
+      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
+
+        * `Uniform sampling` - Tasks are chosen randomly
+
+        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
+      title: SamplingDe5Enum
+    LseProjectCounts:
+      type: object
+      properties:
+        finished_task_number:
+          type: integer
+        ground_truth_number:
+          type: integer
+          description: Honeypot annotation number in project
+        id:
+          type: integer
+        num_tasks_with_annotations:
+          type:
+          - integer
+          - 'null'
+        queue_done:
+          type: integer
+        queue_left:
+          type: integer
+        queue_total:
+          type: string
+        rejected:
+          type: integer
+        review_total_tasks:
+          type: integer
+        reviewed_number:
+          type: integer
+        skipped_annotations_number:
+          type: string
+        task_number:
+          type: integer
+          description: Total task number in project
+        total_annotations_number:
+          type: string
+        total_predictions_number:
+          type: integer
+        useful_annotation_number:
+          type:
+          - integer
+          - 'null'
+      required:
+      - finished_task_number
+      - ground_truth_number
+      - id
+      - num_tasks_with_annotations
+      - queue_done
+      - queue_left
+      - queue_total
+      - rejected
+      - review_total_tasks
+      - reviewed_number
+      - skipped_annotations_number
+      - task_number
+      - total_annotations_number
+      - total_predictions_number
+      - useful_annotation_number
+      description: 'Serializer get numbers from project queryset annotation,
+
+        make sure, that you use correct one(Project.objects.with_counts())'
+      title: LseProjectCounts
+    projects_import_tasks_Response_201:
+      type: object
+      properties:
+        annotation_count:
+          type: integer
+          description: Number of annotations added (Community edition sync import only)
+        could_be_tasks_list:
+          type: boolean
+          description: Whether uploaded files can contain lists of tasks, like CSV/TSV files (Community edition sync import only)
+        data_columns:
+          type: array
+          items:
+            type: string
+          description: The list of found data columns (Community edition sync import only)
+        duration:
+          type: number
+          format: double
+          description: Time in seconds to create (Community edition sync import only)
+        file_upload_ids:
+          type: array
+          items:
+            type: integer
+          description: Database IDs of uploaded files (Community edition sync import only)
+        found_formats:
+          type: array
+          items:
+            type: string
+          description: The list of found file formats (Community edition sync import only)
+        import:
+          type: integer
+          description: Import ID for async operations (non-Community editions only). Use this ID to poll `/api/projects/{project_id}/imports/{import_id}` for status.
+        predictions_count:
+          type: integer
+          description: Number of predictions added (Community edition sync import only)
+        task_count:
+          type: integer
+          description: Number of tasks added (Community edition sync import only)
+      description: 'Response format varies by edition. Non-Community editions return `{"import": <import_id>}` for async processing. Community edition returns the detailed response below with task counts.'
+      title: projects_import_tasks_Response_201
+    SkipQueueEnum:
+      type: string
+      enum:
+      - REQUEUE_FOR_ME
+      - REQUEUE_FOR_OTHERS
+      - IGNORE_SKIPPED
+      description: '* `REQUEUE_FOR_ME` - Requeue for me
+
+        * `REQUEUE_FOR_OTHERS` - Requeue for others
+
+        * `IGNORE_SKIPPED` - Ignore skipped'
+      title: SkipQueueEnum
+    AssignmentSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+        label_stream_task_distribution:
+          oneOf:
+          - $ref: '#/components/schemas/LabelStreamTaskDistributionEnum'
+          - type: 'null'
+          description: 'Automatic / Manual
+
+
+            * `auto_distribution` - Label Stream distributes tasks automatically to annotators
+
+            * `assigned_only` - Label Stream shows tasks only to assigned users'
+        project:
+          type:
+          - integer
+          - 'null'
+      required:
+      - id
+      title: AssignmentSettings
+    UserSimpleRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimpleRequest
+    LseProjectUpdate:
+      type: object
+      properties:
+        agreement_methodology:
+          $ref: '#/components/schemas/AgreementMethodologyEnum'
+          description: 'Methodology (Consensus / Pairwise Averaging)
+
+
+            * `consensus` - Consensus
+
+            * `pairwise` - Pairwise Averaging'
+        agreement_threshold:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Agreement threshold
+        annotation_limit_count:
+          type:
+          - integer
+          - 'null'
+          description: Limit by number of tasks
+        annotation_limit_percent:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Limit by percentage of tasks
+        annotator_evaluation_continuous_tasks:
+          type: integer
+          default: 0
+          description: 'Continuous Evaluation: Required tasks'
+        annotator_evaluation_enabled:
+          type: boolean
+          description: Evaluate all annotators against ground truth
+        annotator_evaluation_minimum_score:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          default: '95.00'
+          description: Score required to pass evaluation
+        annotator_evaluation_minimum_tasks:
+          type:
+          - integer
+          - 'null'
+          default: 10
+          description: Number of tasks for evaluation
+        annotator_evaluation_onboarding_tasks:
+          type: integer
+          default: 0
+          description: 'Onboarding Evaluation: Required tasks'
+        assignment_settings:
+          $ref: '#/components/schemas/AssignmentSettings'
+        color:
+          type:
+          - string
+          - 'null'
+          description: Color
+        comment_classification_config:
+          type: string
+        config_has_control_tags:
+          type: boolean
+          description: Flag to detect is project ready for labeling
+        config_suitable_for_bulk_annotation:
+          type: boolean
+          description: Flag to detect is project ready for bulk annotation
+        control_weights:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            $ref: '#/components/schemas/ControlTagWeight'
+          description: Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+          description: Project owner
+        custom_interface_code:
+          type:
+          - string
+          - 'null'
+        custom_interface_compiled:
+          type:
+          - string
+          - 'null'
+        custom_interface_params:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        custom_script:
+          type: string
+          description: Plugins
+        custom_task_lock_ttl:
+          type:
+          - integer
+          - 'null'
+          description: Task reservation time. TTL in seconds (UI displays and edits this value in minutes).
+        description:
+          type:
+          - string
+          - 'null'
+          description: Description
+        enable_empty_annotation:
+          type: boolean
+          description: Allow empty annotations
+        evaluate_predictions_automatically:
+          type: boolean
+          description: Retrieve and display predictions when loading a task
+        expert_instruction:
+          type:
+          - string
+          - 'null'
+          description: Instructions
+        finished_task_number:
+          type: integer
+          description: Finished tasks
+        ground_truth_number:
+          type: integer
+          description: Honeypot annotation number in project
+        id:
+          type: integer
+        input_schema:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        is_draft:
+          type: boolean
+          description: Whether or not the project is in the middle of being created
+        is_published:
+          type: boolean
+          description: Whether or not the project is published to annotators
+        label_config:
+          type:
+          - string
+          - 'null'
+          description: Labeling Configuration
+        max_additional_annotators_assignable:
+          type:
+          - integer
+          - 'null'
+          description: Maximum additional annotators
+        maximum_annotations:
+          type: integer
+          description: Annotations per task
+        min_annotations_to_start_training:
+          type: integer
+          description: Minimum number of completed tasks after which model training is started
+        model_version:
+          type:
+          - string
+          - 'null'
+          description: Machine learning model version
+        num_tasks_with_annotations:
+          type: integer
+          description: Tasks with annotations count
+        organization:
+          type:
+          - integer
+          - 'null'
+        overlap_cohort_percentage:
+          type: integer
+          description: Annotations per task coverage
+        parsed_label_config:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: JSON-formatted labeling configuration
+        pause_on_failed_annotator_evaluation:
+          type:
+          - boolean
+          - 'null'
+          default: false
+          description: Pause annotator on failed evaluation
+        pinned_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Pinned date and time
+        prompts:
+          type: string
+        queue_done:
+          type: integer
+        queue_total:
+          type: integer
+        require_comment_on_skip:
+          type: boolean
+          default: false
+          description: Require comment to skip
+        reveal_preannotations_interactively:
+          type: boolean
+          description: Reveal pre-annotations interactively
+        review_settings:
+          $ref: '#/components/schemas/ReviewSettings'
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/SamplingDe5Enum'
+          - type: 'null'
+        show_annotation_history:
+          type: boolean
+          description: Show Data Manager to Annotators
+        show_collab_predictions:
+          type: boolean
+          description: Use predictions to pre-label Tasks
+        show_ground_truth_first:
+          type: boolean
+          description: 'Onboarding mode (true): show ground truth tasks first in the labeling stream'
+        show_instruction:
+          type: boolean
+          description: Show instructions before labeling
+        show_overlap_first:
+          type: boolean
+          description: Show tasks with overlap first
+        show_skip_button:
+          type: boolean
+          description: Allow skipping tasks
+        show_unused_data_columns_to_annotators:
+          type:
+          - boolean
+          - 'null'
+          description: 'Show only columns used in labeling configuration to Annotators. API uses inverse field semantics here: set false to show only used columns, set true to show all task.data columns.'
+        skip_queue:
+          oneOf:
+          - $ref: '#/components/schemas/SkipQueueEnum'
+          - type: 'null'
+        skipped_annotations_number:
+          type: integer
+          description: Skipped by collaborators annotation number in project
+        source_interface_id:
+          type:
+          - integer
+          - 'null'
+        source_interface_version:
+          type:
+          - integer
+          - 'null'
+        start_training_on_annotation_update:
+          type: boolean
+          description: Start model training after any annotations are submitted or updated
+        state:
+          type: string
+        strict_task_overlap:
+          type: boolean
+          default: true
+          description: Enforce strict overlap limit
+        task_data_login:
+          type:
+          - string
+          - 'null'
+          description: Login
+        task_data_password:
+          type:
+          - string
+          - 'null'
+          description: Password
+        task_number:
+          type: integer
+          description: Total task number in project
+        title:
+          type:
+          - string
+          - 'null'
+          description: Project Name
+        total_annotations_number:
+          type: integer
+          description: Total annotations number in project including skipped_annotations_number and ground_truth_number.
+        total_predictions_number:
+          type: integer
+          description: Total predictions number in project including skipped_annotations_number, ground_truth_number, and useful_annotation_number.
+        use_custom_interface:
+          type: boolean
+          default: false
+        useful_annotation_number:
+          type: integer
+          description: Useful annotation number in project not including skipped_annotations_number and ground_truth_number. Total annotations = annotation_number + skipped_annotations_number + ground_truth_number
+        workspace:
+          type: integer
+          description: Workspace
+        workspace_title:
+          type: string
+      required:
+      - assignment_settings
+      - config_has_control_tags
+      - config_suitable_for_bulk_annotation
+      - created_at
+      - finished_task_number
+      - ground_truth_number
+      - id
+      - num_tasks_with_annotations
+      - parsed_label_config
+      - prompts
+      - queue_done
+      - queue_total
+      - review_settings
+      - skipped_annotations_number
+      - start_training_on_annotation_update
+      - state
+      - task_number
+      - total_annotations_number
+      - total_predictions_number
+      - useful_annotation_number
+      - workspace
+      - workspace_title
+      description: 'Serializer get numbers from project queryset annotation,
+
+        make sure, that you use correct one(Project.objects.with_counts())'
+      title: LseProjectUpdate
+    LseProjectCreateRequest:
+      type: object
+      properties:
+        annotator_evaluation_enabled:
+          type: boolean
+          description: Enable annotator evaluation for the project
+        color:
+          type:
+          - string
+          - 'null'
+        control_weights:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            $ref: '#/components/schemas/ControlTagWeightRequest'
+          description: Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
+        created_by:
+          $ref: '#/components/schemas/UserSimpleRequest'
+          description: Project owner
+        custom_interface_code:
+          type:
+          - string
+          - 'null'
+        custom_interface_compiled:
+          type:
+          - string
+          - 'null'
+        custom_interface_params:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        description:
+          type:
+          - string
+          - 'null'
+          description: Project Description
+        enable_empty_annotation:
+          type: boolean
+          description: Allow annotators to submit empty annotations
+        evaluate_predictions_automatically:
+          type: boolean
+          description: Retrieve and display predictions when loading a task
+        expert_instruction:
+          type:
+          - string
+          - 'null'
+          description: Labeling instructions in HTML format
+        input_schema:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        is_draft:
+          type: boolean
+          description: Whether or not the project is in the middle of being created
+        is_published:
+          type: boolean
+          description: Whether or not the project is published to annotators
+        label_config:
+          type:
+          - string
+          - 'null'
+          description: Label config in XML format. See more about it in documentation
+        maximum_annotations:
+          type: integer
+          description: Maximum number of annotations for one task. If the number of annotations per task is equal or greater to this value, the task is completed (is_labeled=True)
+        min_annotations_to_start_training:
+          type: integer
+          description: Minimum number of completed tasks after which model training is started
+        model_version:
+          type:
+          - string
+          - 'null'
+          description: Machine learning model version
+        organization:
+          type:
+          - integer
+          - 'null'
+        overlap_cohort_percentage:
+          type: integer
+        pinned_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Pinned date and time
+        reveal_preannotations_interactively:
+          type: boolean
+          description: Reveal pre-annotations interactively
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/SamplingDe5Enum'
+          - type: 'null'
+        show_annotation_history:
+          type: boolean
+          description: Show annotation history to annotator
+        show_collab_predictions:
+          type: boolean
+          description: If set, the annotator can view model predictions
+        show_ground_truth_first:
+          type: boolean
+          description: 'Onboarding mode (true): show ground truth tasks first in the labeling stream'
+        show_instruction:
+          type: boolean
+          description: Show instructions to the annotator before they start
+        show_overlap_first:
+          type: boolean
+        show_skip_button:
+          type: boolean
+          description: Show a skip button in interface and allow annotators to skip the task
+        skip_queue:
+          oneOf:
+          - $ref: '#/components/schemas/SkipQueueEnum'
+          - type: 'null'
+        source_interface_id:
+          type:
+          - integer
+          - 'null'
+        source_interface_version:
+          type:
+          - integer
+          - 'null'
+        task_data_login:
+          type:
+          - string
+          - 'null'
+          description: 'Task data credentials: login'
+        task_data_password:
+          type:
+          - string
+          - 'null'
+          description: 'Task data credentials: password'
+        title:
+          type:
+          - string
+          - 'null'
+          description: Project Title
+        use_custom_interface:
+          type: boolean
+          default: false
+        workspace:
+          type: integer
+          description: In Workspace
+      description: 'Serializer get numbers from project queryset annotation,
+
+        make sure, that you use correct one(Project.objects.with_counts())'
+      title: LseProjectCreateRequest
+    ProjectLabelConfigRequest:
+      type: object
+      properties:
+        label_config:
+          type: string
+          description: Label config in XML format. See more about it in documentation
+      required:
+      - label_config
+      title: ProjectLabelConfigRequest
+    PredictionRequestResultItems:
+      type: object
+      properties: {}
+      description: List of predicted regions for the task
+      title: PredictionRequestResultItems
+    ReviewSettingsSamplingEnum:
+      type: string
+      enum:
+      - task_id
+      - random
+      description: '* `task_id` - By Task ID
+
+        * `random` - Random'
+      title: ReviewSettingsSamplingEnum
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

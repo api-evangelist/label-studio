@@ -1,0 +1,618 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_organizations.subpackage_organizations/memberTags API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_organizations.subpackage_organizations/memberTags
+paths:
+  /api/organizations/{id}/member-tags:
+    get:
+      operationId: list
+      summary: ✨ List organization member tags
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a list of all member tags for a specific organization."
+      tags:
+      - subpackage_organizations.subpackage_organizations/memberTags
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: 'Number of results per page (default: 30, max: 100).'
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: Search tags by label (case-insensitive).
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedOrganizationMemberTagList'
+    post:
+      operationId: create
+      summary: ✨ Create organization member tag
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new member tag for a specific organization."
+      tags:
+      - subpackage_organizations.subpackage_organizations/memberTags
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationMemberTag'
+        '400':
+          description: Bad Request - A tag with this label already exists
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationMemberTagRequest'
+  /api/organizations/{id}/member-tags/assignments:
+    post:
+      operationId: assign
+      summary: ✨ Bulk assign tags to organization members
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAssign tags to multiple organization members in bulk."
+      tags:
+      - subpackage_organizations.subpackage_organizations/memberTags
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: exclude_project_id
+        in: query
+        description: Filter exclude_project_id by exact match
+        required: false
+        schema:
+          type: number
+          format: double
+      - name: exclude_workspace_id
+        in: query
+        description: Filter exclude_workspace_id by exact match
+        required: false
+        schema:
+          type: number
+          format: double
+      - name: is_deleted
+        in: query
+        description: Filter is_deleted by exact match
+        required: false
+        schema:
+          type: boolean
+      - name: role
+        in: query
+        description: Multiple values may be separated by commas. (comma-separated values)
+        required: false
+        schema:
+          type: string
+      - name: tags
+        in: query
+        description: Multiple values may be separated by commas. (comma-separated values)
+        required: false
+        schema:
+          type: string
+      - name: user__last_activity__gte
+        in: query
+        description: Filter user__last_activity by greater than or equal to
+        required: false
+        schema:
+          type: string
+      - name: user__last_activity__lte
+        in: query
+        description: Filter user__last_activity by less than or equal to
+        required: false
+        schema:
+          type: string
+      - name: user_type
+        in: query
+        description: Multiple values may be separated by commas. (comma-separated values)
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Number of tag assignments created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/organizations_member_tags_assign_Response_200'
+        '400':
+          description: Bad Request - Invalid input
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkOrganizationMemberTagAssignmentRequest'
+  /api/organizations/{id}/member-tags/imports:
+    post:
+      operationId: import
+      summary: ✨ Import member tags from CSV
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpload a CSV file to bulk import member tags and assign them to organization members.\n\nThe CSV file must contain `email` and `tags` columns. The `tags` column should contain comma-separated tag labels (quoted if they contain commas). Tags that do not exist will be created.\n\nOptionally, you can specify `bulk_tags` as a comma-separated list of tags to apply to all users in the CSV file.\n\nThe import runs asynchronously. Use the returned import job ID to check the status."
+      tags:
+      - subpackage_organizations.subpackage_organizations/memberTags
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Import job created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/organizations_member_tags_import_Response_201'
+        '400':
+          description: Bad Request - Invalid CSV file or missing required columns
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationMemberTagImportCreateRequest'
+  /api/organizations/{id}/member-tags/imports/{import_pk}:
+    get:
+      operationId: get-import
+      summary: ✨ Get member tag import status
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the status and results of a member tag import job.\n\nThe response includes the current status (created, in_progress, completed, failed), timestamps, and counts of tags created, assignments made, and users skipped."
+      tags:
+      - subpackage_organizations.subpackage_organizations/memberTags
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: import_pk
+        in: path
+        description: A unique integer value identifying this import job.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationMemberTagImportStatus'
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: Import job not found
+          content:
+            application/json:
+              schema:
+                description: Any type
+  /api/organizations/{id}/member-tags/{tag_pk}:
+    get:
+      operationId: get
+      summary: ✨ Get organization member tag
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve details of a specific member tag."
+      tags:
+      - subpackage_organizations.subpackage_organizations/memberTags
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: tag_pk
+        in: path
+        description: A unique integer value identifying this member tag.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationMemberTag'
+        '404':
+          description: Member tag not found
+          content:
+            application/json:
+              schema:
+                description: Any type
+    delete:
+      operationId: delete
+      summary: ✨ Delete organization member tag
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a member tag from the organization."
+      tags:
+      - subpackage_organizations.subpackage_organizations/memberTags
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: tag_pk
+        in: path
+        description: A unique integer value identifying this member tag.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: Member tag not found
+          content:
+            application/json:
+              schema:
+                description: Any type
+    patch:
+      operationId: update
+      summary: ✨ Update organization member tag
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nPartially update an existing member tag."
+      tags:
+      - subpackage_organizations.subpackage_organizations/memberTags
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: tag_pk
+        in: path
+        description: A unique integer value identifying this member tag.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationMemberTag'
+        '400':
+          description: Bad Request - A tag with this label already exists
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: Member tag not found
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedOrganizationMemberTagRequest'
+components:
+  schemas:
+    OrganizationMemberTag:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+        id:
+          type: integer
+        label:
+          type: string
+          description: Label
+        member_count:
+          type: integer
+        organization:
+          type: integer
+        updated_at:
+          type: string
+          format: date-time
+      required:
+      - created_at
+      - created_by
+      - id
+      - label
+      - member_count
+      - organization
+      - updated_at
+      title: OrganizationMemberTag
+    PatchedOrganizationMemberTagRequest:
+      type: object
+      properties:
+        label:
+          type: string
+          description: Label
+      title: PatchedOrganizationMemberTagRequest
+    organizations_member_tags_import_Response_201:
+      type: object
+      properties:
+        import:
+          type: integer
+          description: The ID of the created import job
+      title: organizations_member_tags_import_Response_201
+    organizations_member_tags_assign_Response_200:
+      type: object
+      properties:
+        assigned:
+          type: integer
+      title: organizations_member_tags_assign_Response_200
+    PaginatedOrganizationMemberTagList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationMemberTag'
+      required:
+      - count
+      - results
+      title: PaginatedOrganizationMemberTagList
+    OrganizationMemberTagRequest:
+      type: object
+      properties:
+        label:
+          type: string
+          description: Label
+      required:
+      - label
+      title: OrganizationMemberTagRequest
+    BulkOrganizationMemberTagAssignmentRequest:
+      type: object
+      properties:
+        all:
+          type: boolean
+          description: If true, assign tags to all organization members. If false, assign tags to the provided users.
+        excluded:
+          type: array
+          items:
+            type: integer
+          description: List of user IDs to exclude from the assignment.
+        included:
+          type: array
+          items:
+            type: integer
+          description: List of user IDs to include in the assignment.
+        overwrite:
+          type: boolean
+          default: false
+          description: If true, replace all existing tag assignments for each user with the provided ones. If false, only add new assignments.
+        tags:
+          type: array
+          items:
+            type: integer
+          description: List of tag IDs to assign.
+      required:
+      - all
+      title: BulkOrganizationMemberTagAssignmentRequest
+    OrganizationMemberTagImportCreateRequest:
+      type: object
+      properties:
+        bulk_tags:
+          type: string
+        file:
+          type: string
+          format: binary
+      required:
+      - bulk_tags
+      - file
+      title: OrganizationMemberTagImportCreateRequest
+    OrganizationMemberTagImportStatusStatusEnum:
+      type: string
+      enum:
+      - created
+      - in_progress
+      - completed
+      - failed
+      description: '* `created` - Created
+
+        * `in_progress` - In Progress
+
+        * `completed` - Completed
+
+        * `failed` - Failed'
+      title: OrganizationMemberTagImportStatusStatusEnum
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    OrganizationMemberTagImportStatus:
+      type: object
+      properties:
+        assignments_created:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        finished_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        id:
+          type: integer
+        status:
+          $ref: '#/components/schemas/OrganizationMemberTagImportStatusStatusEnum'
+        tags_created:
+          type: integer
+        users_skipped:
+          description: Any type
+      required:
+      - created_at
+      - id
+      description: Serializer for the status of a member tag import job.
+      title: OrganizationMemberTagImportStatus
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

@@ -1,0 +1,376 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_workspaces.subpackage_workspaces/projects API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_workspaces.subpackage_workspaces/projects
+paths:
+  /api/workspaces/{id}/projects/:
+    get:
+      operationId: list
+      summary: ✨ List workspace projects
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a list of all projects in a specific workspace."
+      tags:
+      - subpackage_workspaces.subpackage_workspaces/projects
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Projects list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+    post:
+      operationId: add
+      summary: ✨ Add workspace project
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAdd a project to a specific workspace."
+      tags:
+      - subpackage_workspaces.subpackage_workspaces/projects
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Project added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/workspaces_projects_add_Response_201'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkspaceProjectsRequest'
+    delete:
+      operationId: remove
+      summary: ✨ Remove workspace project
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRemove a project from a specific workspace. Pass the project ID via the `project` query parameter. For backward compatibility, a JSON body with `project` is still accepted."
+      tags:
+      - subpackage_workspaces.subpackage_workspaces/projects
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: project
+        in: query
+        description: Project ID to remove from the workspace.
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+components:
+  schemas:
+    SamplingDe5Enum:
+      type: string
+      enum:
+      - Sequential sampling
+      - Uniform sampling
+      - Uncertainty sampling
+      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
+
+        * `Uniform sampling` - Tasks are chosen randomly
+
+        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
+      title: SamplingDe5Enum
+    Project:
+      type: object
+      properties:
+        annotator_evaluation_enabled:
+          type: boolean
+          description: Enable annotator evaluation for the project
+        color:
+          type:
+          - string
+          - 'null'
+        config_has_control_tags:
+          type: boolean
+          description: Flag to detect is project ready for labeling
+        config_suitable_for_bulk_annotation:
+          type: boolean
+          description: Flag to detect is project ready for bulk annotation
+        control_weights:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            $ref: '#/components/schemas/ControlTagWeight'
+          description: Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+          description: Project owner
+        description:
+          type:
+          - string
+          - 'null'
+          description: Project description
+        enable_empty_annotation:
+          type: boolean
+          description: Allow annotators to submit empty annotations
+        evaluate_predictions_automatically:
+          type: boolean
+          description: Retrieve and display predictions when loading a task
+        expert_instruction:
+          type:
+          - string
+          - 'null'
+          description: Labeling instructions in HTML format
+        finished_task_number:
+          type: integer
+          description: Finished tasks
+        ground_truth_number:
+          type: integer
+          description: Honeypot annotation number in project
+        id:
+          type: integer
+        is_draft:
+          type: boolean
+          description: Whether or not the project is in the middle of being created
+        is_published:
+          type: boolean
+          description: Whether or not the project is published to annotators
+        label_config:
+          type:
+          - string
+          - 'null'
+          description: Label config in XML format. See more about it in documentation
+        maximum_annotations:
+          type: integer
+          description: Maximum number of annotations for one task. If the number of annotations per task is equal or greater to this value, the task is completed (is_labeled=True)
+        min_annotations_to_start_training:
+          type: integer
+          description: Minimum number of completed tasks after which model training is started
+        model_version:
+          type:
+          - string
+          - 'null'
+          description: Machine learning model version
+        num_tasks_with_annotations:
+          type: integer
+          description: Tasks with annotations count
+        organization:
+          type:
+          - integer
+          - 'null'
+        overlap_cohort_percentage:
+          type: integer
+        parsed_label_config:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: JSON-formatted labeling configuration
+        pinned_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Pinned date and time
+        queue_done:
+          type: integer
+        queue_total:
+          type: integer
+        reveal_preannotations_interactively:
+          type: boolean
+          description: Reveal pre-annotations interactively
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/SamplingDe5Enum'
+          - type: 'null'
+        show_annotation_history:
+          type: boolean
+          description: Show annotation history to annotator
+        show_collab_predictions:
+          type: boolean
+          description: If set, the annotator can view model predictions
+        show_ground_truth_first:
+          type: boolean
+          description: 'Onboarding mode (true): show ground truth tasks first in the labeling stream'
+        show_instruction:
+          type: boolean
+          description: Show instructions to the annotator before they start
+        show_overlap_first:
+          type: boolean
+        show_skip_button:
+          type: boolean
+          description: Show a skip button in interface and allow annotators to skip the task
+        skip_queue:
+          oneOf:
+          - $ref: '#/components/schemas/SkipQueueEnum'
+          - type: 'null'
+        skipped_annotations_number:
+          type: integer
+          description: Skipped by collaborators annotation number in project
+        start_training_on_annotation_update:
+          type: boolean
+          description: Start model training after any annotations are submitted or updated
+        state:
+          type: string
+        task_data_login:
+          type:
+          - string
+          - 'null'
+          description: 'Task data credentials: login'
+        task_data_password:
+          type:
+          - string
+          - 'null'
+          description: 'Task data credentials: password'
+        task_number:
+          type: integer
+          description: Total task number in project
+        title:
+          type:
+          - string
+          - 'null'
+          description: Project name. Must be between 3 and 50 characters long.
+        total_annotations_number:
+          type: integer
+          description: Total annotations number in project including skipped_annotations_number and ground_truth_number.
+        total_predictions_number:
+          type: integer
+          description: Total predictions number in project including skipped_annotations_number, ground_truth_number, and useful_annotation_number.
+        useful_annotation_number:
+          type: integer
+          description: Useful annotation number in project not including skipped_annotations_number and ground_truth_number. Total annotations = annotation_number + skipped_annotations_number + ground_truth_number
+      required:
+      - config_has_control_tags
+      - config_suitable_for_bulk_annotation
+      - created_at
+      - finished_task_number
+      - ground_truth_number
+      - id
+      - num_tasks_with_annotations
+      - parsed_label_config
+      - queue_done
+      - queue_total
+      - skipped_annotations_number
+      - start_training_on_annotation_update
+      - state
+      - task_number
+      - total_annotations_number
+      - total_predictions_number
+      - useful_annotation_number
+      description: 'Serializer get numbers from project queryset annotation,
+
+        make sure, that you use correct one(Project.objects.with_counts())'
+      title: Project
+    ControlTagWeight:
+      type: object
+      properties:
+        labels:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+          description: Per-label weights (0.0 to 1.0). Zero excludes the label from agreement.
+        overall:
+          type: number
+          format: double
+          description: Overall weight for this control tag (0.0 to 1.0). Zero excludes the tag from agreement.
+        type:
+          type: string
+          description: Control tag type from the labeling config (e.g. Choices, Labels, TextArea).
+      required:
+      - overall
+      - type
+      description: 'Weights configuration for a single control tag.
+
+
+        Structure: {"overall": 0.5, "type": "Choices", "labels": {"cat": 1.0, "dog": 0.0}}'
+      title: ControlTagWeight
+    SkipQueueEnum:
+      type: string
+      enum:
+      - REQUEUE_FOR_ME
+      - REQUEUE_FOR_OTHERS
+      - IGNORE_SKIPPED
+      description: '* `REQUEUE_FOR_ME` - Requeue for me
+
+        * `REQUEUE_FOR_OTHERS` - Requeue for others
+
+        * `IGNORE_SKIPPED` - Ignore skipped'
+      title: SkipQueueEnum
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    workspaces_projects_add_Response_201:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: workspaces_projects_add_Response_201
+    WorkspaceProjectsRequest:
+      type: object
+      properties:
+        project:
+          type: integer
+          description: Project ID
+      required:
+      - project
+      title: WorkspaceProjectsRequest
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

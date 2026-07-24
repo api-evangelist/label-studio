@@ -1,0 +1,870 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_users API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_users
+paths:
+  /api/current-user:
+    get:
+      operationId: get-current-user
+      summary: ✨ Get current user info
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet info about the currently authenticated user."
+      tags:
+      - subpackage_users
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LseUserAPI'
+    patch:
+      operationId: update-current-user
+      summary: ✨ Update current user
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate details for the currently authenticated user."
+      tags:
+      - subpackage_users
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LseUserAPI'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLseUserSerializerUpdateRequest'
+  /api/current-user/hotkeys/:
+    get:
+      operationId: get-hotkeys
+      summary: Get user hotkeys
+      description: Retrieve the custom hotkeys configuration for the current user.
+      tags:
+      - subpackage_users
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotkeys'
+    patch:
+      operationId: update-hotkeys
+      summary: Update user hotkeys
+      description: Update the custom hotkeys configuration for the current user.
+      tags:
+      - subpackage_users
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotkeys'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedHotkeysRequest'
+  /api/current-user/reset-token/:
+    post:
+      operationId: reset-token
+      summary: Reset user token
+      description: Reset the user token for the current user.
+      tags:
+      - subpackage_users
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: User token response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users_reset_token_Response_201'
+  /api/current-user/token:
+    get:
+      operationId: get-token
+      summary: Get user token
+      description: Get a user token to authenticate to the API as the current user.
+      tags:
+      - subpackage_users
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User token response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users_get_token_Response_200'
+  /api/current-user/whoami:
+    get:
+      operationId: whoami
+      summary: Retrieve my user
+      description: Retrieve details of the account that you are using to access the API.
+      tags:
+      - subpackage_users
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhoAmIUser'
+  /api/users/:
+    get:
+      operationId: list
+      summary: List users
+      description: List the users that exist on the Label Studio server.
+      tags:
+      - subpackage_users
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LseUserAPI'
+    post:
+      operationId: create
+      summary: Create new user
+      description: Create a user in Label Studio.
+      tags:
+      - subpackage_users
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LseUser'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                allow_newsletters:
+                  type: boolean
+                  description: Whether the user allows newsletters
+                avatar:
+                  type: string
+                  description: Avatar URL of the user
+                email:
+                  type: string
+                  description: Email of the user
+                first_name:
+                  type: string
+                  description: First name of the user
+                id:
+                  type: integer
+                  description: User ID
+                initials:
+                  type: string
+                  description: Initials of the user
+                last_name:
+                  type: string
+                  description: Last name of the user
+                phone:
+                  type: string
+                  description: Phone number of the user
+                username:
+                  type: string
+                  description: Username of the user
+  /api/users/{id}/:
+    get:
+      operationId: get
+      summary: Get user info
+      description: Get info about a specific Label Studio user, based on the user ID.
+      tags:
+      - subpackage_users
+      parameters:
+      - name: id
+        in: path
+        description: User ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LseUser'
+    delete:
+      operationId: delete
+      summary: Delete user
+      description: 'Delete a specific Label Studio user. Only available in community edition.
+
+
+        <Warning>Use caution when deleting a user, as this can cause issues such as breaking the "Annotated by" filter or leaving orphaned records.</Warning>'
+      tags:
+      - subpackage_users
+      parameters:
+      - name: id
+        in: path
+        description: User ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: Update user details
+      description: "\n        Update details for a specific user, such as their name or contact information, in Label Studio.\n        "
+      tags:
+      - subpackage_users
+      parameters:
+      - name: id
+        in: path
+        description: User ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LseUser'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                allow_newsletters:
+                  type: boolean
+                  description: Whether the user allows newsletters
+                avatar:
+                  type: string
+                  description: Avatar URL of the user
+                email:
+                  type: string
+                  description: Email of the user
+                first_name:
+                  type: string
+                  description: First name of the user
+                id:
+                  type: integer
+                  description: User ID
+                initials:
+                  type: string
+                  description: Initials of the user
+                last_name:
+                  type: string
+                  description: Last name of the user
+                phone:
+                  type: string
+                  description: Phone number of the user
+                username:
+                  type: string
+                  description: Username of the user
+components:
+  schemas:
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
+    OnboardingStateEnum:
+      type: string
+      enum:
+      - not_started
+      - signup
+      - trial_signup
+      - first_tutorial
+      - in_app_guidance
+      - complete
+      description: '* `not_started` - Not Started
+
+        * `signup` - Signup
+
+        * `trial_signup` - Trial Signup
+
+        * `first_tutorial` - First Tutorial
+
+        * `in_app_guidance` - In App Guidance
+
+        * `complete` - Complete'
+      title: OnboardingStateEnum
+    users_reset_token_Response_201:
+      type: object
+      properties:
+        token:
+          type: string
+      title: users_reset_token_Response_201
+    PatchedHotkeysRequest:
+      type: object
+      properties:
+        custom_hotkeys:
+          type: object
+          additionalProperties:
+            description: Any type
+      title: PatchedHotkeysRequest
+    LseUser:
+      type: object
+      properties:
+        active_organization:
+          type:
+          - integer
+          - 'null'
+        active_organization_meta:
+          type: string
+        allow_newsletters:
+          type:
+          - boolean
+          - 'null'
+          description: Allow sending newsletters to user
+        avatar:
+          type: string
+        custom_hotkeys:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Custom keyboard shortcuts configuration for the user interface
+        date_joined:
+          type: string
+          format: date-time
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        initials:
+          type: string
+          default: '?'
+        last_activity:
+          type: string
+          format: date-time
+        last_name:
+          type: string
+        lse_fields:
+          $ref: '#/components/schemas/LseFields'
+        org_membership:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationMembership'
+        organization_membership:
+          $ref: '#/components/schemas/OrganizationMembership'
+        pause:
+          type: string
+        phone:
+          type: string
+        username:
+          type: string
+      required:
+      - active_organization_meta
+      - avatar
+      - id
+      - initials
+      - last_activity
+      - lse_fields
+      - org_membership
+      - organization_membership
+      - pause
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: LseUser
+    OrganizationMembership:
+      type: object
+      properties:
+        active:
+          type: string
+        organization_id:
+          type: integer
+          description: Organization ID
+        role:
+          type: string
+      required:
+      - active
+      - organization_id
+      - role
+      title: OrganizationMembership
+    WhoAmILseFields:
+      type: object
+      properties:
+        active_organization_external_id:
+          type:
+          - string
+          - 'null'
+        email_notification_settings:
+          type: string
+        invite_activated:
+          type:
+          - boolean
+          - 'null'
+        invite_expired:
+          type: string
+        invite_expired_at:
+          type: string
+        invited_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        invited_by:
+          type:
+          - integer
+          - 'null'
+        onboarding_state:
+          oneOf:
+          - $ref: '#/components/schemas/OnboardingStateEnum'
+          - type: 'null'
+          description: 'The current stage of user onboarding
+
+
+            * `not_started` - Not Started
+
+            * `signup` - Signup
+
+            * `trial_signup` - Trial Signup
+
+            * `first_tutorial` - First Tutorial
+
+            * `in_app_guidance` - In App Guidance
+
+            * `complete` - Complete'
+        social_auth_finished:
+          type:
+          - boolean
+          - 'null'
+          description: Is user finished social authentication
+        trial_company:
+          type:
+          - string
+          - 'null'
+        trial_experience_labeling:
+          type:
+          - string
+          - 'null'
+        trial_license_enterprise:
+          type:
+          - boolean
+          - 'null'
+        trial_models_in_production:
+          type:
+          - string
+          - 'null'
+        trial_role:
+          oneOf:
+          - $ref: '#/components/schemas/TrialRoleEnum'
+          - type: 'null'
+      required:
+      - active_organization_external_id
+      - email_notification_settings
+      - invite_expired
+      - invite_expired_at
+      title: WhoAmILseFields
+    LseUserAPI:
+      type: object
+      properties:
+        active_organization:
+          type:
+          - integer
+          - 'null'
+        active_organization_meta:
+          type: string
+        allow_newsletters:
+          type:
+          - boolean
+          - 'null'
+          description: Allow sending newsletters to user
+        avatar:
+          type: string
+        custom_hotkeys:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Custom keyboard shortcuts configuration for the user interface
+        date_joined:
+          type: string
+          format: date-time
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        initials:
+          type: string
+          default: '?'
+        last_activity:
+          type: string
+          format: date-time
+        last_name:
+          type: string
+        org_membership:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationMembership'
+        organization_membership:
+          $ref: '#/components/schemas/OrganizationMembership'
+        phone:
+          type: string
+        username:
+          type: string
+      required:
+      - active_organization_meta
+      - avatar
+      - id
+      - initials
+      - last_activity
+      - org_membership
+      - organization_membership
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: LseUserAPI
+    LseFields:
+      type: object
+      properties:
+        email_notification_settings:
+          type: string
+        invite_activated:
+          type:
+          - boolean
+          - 'null'
+        invite_expired:
+          type: string
+        invite_expired_at:
+          type: string
+        invited_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        invited_by:
+          type:
+          - integer
+          - 'null'
+        onboarding_state:
+          oneOf:
+          - $ref: '#/components/schemas/OnboardingStateEnum'
+          - type: 'null'
+          description: 'The current stage of user onboarding
+
+
+            * `not_started` - Not Started
+
+            * `signup` - Signup
+
+            * `trial_signup` - Trial Signup
+
+            * `first_tutorial` - First Tutorial
+
+            * `in_app_guidance` - In App Guidance
+
+            * `complete` - Complete'
+        social_auth_finished:
+          type:
+          - boolean
+          - 'null'
+          description: Is user finished social authentication
+        trial_company:
+          type:
+          - string
+          - 'null'
+        trial_experience_labeling:
+          type:
+          - string
+          - 'null'
+        trial_license_enterprise:
+          type:
+          - boolean
+          - 'null'
+        trial_models_in_production:
+          type:
+          - string
+          - 'null'
+        trial_role:
+          oneOf:
+          - $ref: '#/components/schemas/TrialRoleEnum'
+          - type: 'null'
+      required:
+      - email_notification_settings
+      - invite_expired
+      - invite_expired_at
+      title: LseFields
+    Hotkeys:
+      type: object
+      properties:
+        custom_hotkeys:
+          type: object
+          additionalProperties:
+            description: Any type
+      required:
+      - custom_hotkeys
+      title: Hotkeys
+    users_get_token_Response_200:
+      type: object
+      properties:
+        detail:
+          type: string
+      title: users_get_token_Response_200
+    PatchedLseUserSerializerUpdateRequest:
+      type: object
+      properties:
+        active_organization:
+          type:
+          - integer
+          - 'null'
+        allow_newsletters:
+          type:
+          - boolean
+          - 'null'
+          description: Allow sending newsletters to user
+        custom_hotkeys:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Custom keyboard shortcuts configuration for the user interface
+        date_joined:
+          type: string
+          format: date-time
+        email_notification_settings:
+          description: Any type
+        first_name:
+          type: string
+        is_email_verified:
+          type:
+          - boolean
+          - 'null'
+        last_name:
+          type: string
+        onboarding_state:
+          type:
+          - string
+          - 'null'
+        password:
+          type: string
+        phone:
+          type: string
+        username:
+          type: string
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: PatchedLseUserSerializerUpdateRequest
+    WhoAmIUser:
+      type: object
+      properties:
+        active_organization:
+          type:
+          - integer
+          - 'null'
+        active_organization_meta:
+          type: string
+        allow_newsletters:
+          type:
+          - boolean
+          - 'null'
+          description: Allow sending newsletters to user
+        avatar:
+          type: string
+        custom_hotkeys:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Custom keyboard shortcuts configuration for the user interface
+        date_joined:
+          type: string
+          format: date-time
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        initials:
+          type: string
+          default: '?'
+        last_activity:
+          type: string
+          format: date-time
+        last_name:
+          type: string
+        lse_fields:
+          $ref: '#/components/schemas/WhoAmILseFields'
+        org_membership:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationMembership'
+        organization_membership:
+          $ref: '#/components/schemas/OrganizationMembership'
+        pause:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+        phone:
+          type: string
+        social_accounts:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Any type
+        username:
+          type: string
+      required:
+      - active_organization_meta
+      - avatar
+      - id
+      - initials
+      - last_activity
+      - lse_fields
+      - org_membership
+      - organization_membership
+      - pause
+      - permissions
+      - social_accounts
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: WhoAmIUser
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

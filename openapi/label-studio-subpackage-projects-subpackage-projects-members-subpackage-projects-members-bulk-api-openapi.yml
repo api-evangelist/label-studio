@@ -1,0 +1,251 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk
+paths:
+  /api/projects/{id}/members/bulk/:
+    post:
+      operationId: post
+      summary: ✨ Bulk assign project members
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAssign project members in bulk."
+      tags:
+      - subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: last_activity__gte
+        in: query
+        description: Filter by last activity (ISO 8601 formatted date). Only when all=True.
+        required: false
+        schema:
+          type: string
+      - name: last_activity__lte
+        in: query
+        description: Filter by last activity upper bound (ISO 8601 formatted date). Only when all=True.
+        required: false
+        schema:
+          type: string
+      - name: role
+        in: query
+        description: Filter by role, project roles take precedence over organization roles. Only when all=True. (comma-separated values)
+        required: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Search term for filtering members by name, email, or username. Only when all=True.
+        required: false
+        schema:
+          type: string
+      - name: tags
+        in: query
+        description: Multiple values may be separated by commas. (comma-separated values)
+        required: false
+        schema:
+          type: string
+      - name: user_type
+        in: query
+        description: Multiple values may be separated by commas. (comma-separated values)
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_members_bulk_post_Response_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectMemberBulkAssignRequest'
+    delete:
+      operationId: delete
+      summary: ✨ Bulk unassign project members
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUnassign project members in bulk. Pass selector fields via query parameters (`all`, `included`, `excluded`) and optional member filters (`search`, `role`, `tags`, `last_activity__gte`, `last_activity__lte`). For backward compatibility, a JSON body with bulk fields is still accepted."
+      tags:
+      - subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: all
+        in: query
+        description: Apply unassignment to all currently matched project members.
+        required: false
+        schema:
+          type: boolean
+      - name: excluded
+        in: query
+        description: Comma-separated list of user IDs to keep assigned when `all=true`.
+        required: false
+        schema:
+          type: string
+      - name: included
+        in: query
+        description: Comma-separated list of user IDs to unassign when `all=false`.
+        required: false
+        schema:
+          type: string
+      - name: last_activity__gte
+        in: query
+        description: Filter by last activity (ISO 8601 formatted date). Only when all=True.
+        required: false
+        schema:
+          type: string
+      - name: last_activity__lte
+        in: query
+        description: Filter by last activity upper bound (ISO 8601 formatted date). Only when all=True.
+        required: false
+        schema:
+          type: string
+      - name: role
+        in: query
+        description: Filter by role, project roles take precedence over organization roles. Only when all=True. (comma-separated values)
+        required: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Search term for filtering members by name, email, or username. Only when all=True.
+        required: false
+        schema:
+          type: string
+      - name: tags
+        in: query
+        description: Multiple values may be separated by commas. (comma-separated values)
+        required: false
+        schema:
+          type: string
+      - name: user_type
+        in: query
+        description: Multiple values may be separated by commas. (comma-separated values)
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_members_bulk_delete_Response_200'
+components:
+  schemas:
+    projects_members_bulk_delete_Response_200:
+      type: object
+      properties:
+        unassignments:
+          type: integer
+      title: projects_members_bulk_delete_Response_200
+    projects_members_bulk_post_Response_200:
+      type: object
+      properties:
+        assignments:
+          type: integer
+      title: projects_members_bulk_post_Response_200
+    ProjectMemberBulkAssignRolesRequest:
+      type: object
+      properties:
+        role:
+          $ref: '#/components/schemas/Role9e7Enum'
+          description: 'Role
+
+
+            * `OW` - Owner
+
+            * `AD` - Administrator
+
+            * `MA` - Manager
+
+            * `RE` - Reviewer
+
+            * `AN` - Annotator
+
+            * `DI` - Deactivated
+
+            * `NO` - Not Activated'
+        user_id:
+          type: integer
+          description: User ID
+      required:
+      - role
+      - user_id
+      title: ProjectMemberBulkAssignRolesRequest
+    ProjectMemberBulkAssignRequest:
+      type: object
+      properties:
+        all:
+          type: boolean
+          description: Apply to all project members
+        excluded:
+          type: array
+          items:
+            type: integer
+          description: Excluded user IDs
+        included:
+          type: array
+          items:
+            type: integer
+          description: Included user IDs
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectMemberBulkAssignRolesRequest'
+          description: Member roles
+      required:
+      - all
+      title: ProjectMemberBulkAssignRequest
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

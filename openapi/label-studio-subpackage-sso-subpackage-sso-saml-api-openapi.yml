@@ -1,0 +1,408 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_sso.subpackage_sso/saml API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_sso.subpackage_sso/saml
+paths:
+  /api/saml/settings:
+    get:
+      operationId: get
+      summary: ✨ Retrieve SAML2 Settings
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve SAML2 settings for the currently active organization."
+      tags:
+      - subpackage_sso.subpackage_sso/saml
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SamlSettings'
+    post:
+      operationId: update
+      summary: ✨ Update SAML2 Settings
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate SAML2 settings for the currently active organization."
+      tags:
+      - subpackage_sso.subpackage_sso/saml
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SamlSettingsUpdate'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SamlSettingsUpdateRequest'
+    delete:
+      operationId: reset
+      summary: ✨ Reset SAML2 Settings
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nReset SAML2 settings for the currently active organization. This clears all configured fields (domain, metadata, attribute mappings, group mappings) back to their defaults without deleting the underlying settings record."
+      tags:
+      - subpackage_sso.subpackage_sso/saml
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+  /api/saml/settings/validate-metadata-url:
+    post:
+      operationId: validate-metadata-url
+      summary: ✨ Validate SAML Metadata URL
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nValidate a SAML metadata URL by fetching it and checking for valid XML, without saving."
+      tags:
+      - subpackage_sso.subpackage_sso/saml
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidateSamlMetadataUrlResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateSamlMetadataUrlRequestRequest'
+components:
+  schemas:
+    ProjectGroupRoleEnum:
+      type: string
+      enum:
+      - Inherit
+      - Annotator
+      - Reviewer
+      description: '* `Inherit` - Inherit
+
+        * `Annotator` - Annotator
+
+        * `Reviewer` - Reviewer'
+      title: ProjectGroupRoleEnum
+    ProjectGroupRequest:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group name
+        project_id:
+          type: integer
+          description: Project ID
+        role:
+          $ref: '#/components/schemas/ProjectGroupRoleEnum'
+          description: 'Project role (Inherit, Annotator, Reviewer)
+
+
+            * `Inherit` - Inherit
+
+            * `Annotator` - Annotator
+
+            * `Reviewer` - Reviewer'
+      required:
+      - group
+      - project_id
+      - role
+      title: ProjectGroupRequest
+    SamlSettings:
+      type: object
+      properties:
+        acs_url:
+          type:
+          - string
+          - 'null'
+        domain:
+          type: string
+          description: 'Organization web domain or domains; use comma separated list with no spaces for multiple. Example:<br><br>labelstud.io,humansignal.com<br><br>IMPORTANT: DO NOT PUT COMMON DOMAINS LIKE GMAIL.COM, YAHOO.COM, ETC. IN THIS FIELD'
+        idp_provider:
+          type:
+          - string
+          - 'null'
+          description: Identity Provider preset key (e.g. okta, azure, google, custom)
+        login_url:
+          type:
+          - string
+          - 'null'
+        logout_url:
+          type:
+          - string
+          - 'null'
+        manual_role_management:
+          type:
+          - boolean
+          - 'null'
+          description: Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
+        mapping_email:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: user email from SAML request'
+        mapping_first_name:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: user first name from SAML request'
+        mapping_groups:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: groups attribute for user mapping to workspaces and roles'
+        mapping_last_name:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: user last name from SAML request'
+        metadata_url:
+          type: string
+          description: URL SAML metadata from IdP
+        metadata_xml:
+          type: string
+          description: Metadata XML file
+        metadata_xml_url:
+          type:
+          - string
+          - 'null'
+        nameid_format:
+          type: string
+        projects_groups:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ProjectGroup'
+          description: Projects to Groups Mapping. List of objects with project_id, group, role.
+        roles_groups:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              type: string
+          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
+        token:
+          type: string
+        workspaces_groups:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              type: string
+          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
+      required:
+      - acs_url
+      - login_url
+      - logout_url
+      - metadata_xml_url
+      - nameid_format
+      description: 'Serializer for reading SAML settings (GET requests).
+
+
+        Includes all model fields plus computed read-only fields for SP URLs
+
+        that are needed for IdP configuration.'
+      title: SamlSettings
+    ValidateSamlMetadataUrlResponse:
+      type: object
+      properties:
+        valid:
+          type: boolean
+      required:
+      - valid
+      title: ValidateSamlMetadataUrlResponse
+    SamlSettingsUpdate:
+      type: object
+      properties:
+        domain:
+          type: string
+          description: 'Organization web domain or domains; use comma separated list with no spaces for multiple. Example:<br><br>labelstud.io,humansignal.com<br><br>IMPORTANT: DO NOT PUT COMMON DOMAINS LIKE GMAIL.COM, YAHOO.COM, ETC. IN THIS FIELD'
+        idp_provider:
+          type:
+          - string
+          - 'null'
+          description: Identity Provider preset key (e.g. okta, azure, google, custom)
+        manual_role_management:
+          type:
+          - boolean
+          - 'null'
+          description: Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
+        mapping_email:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: user email from SAML request'
+        mapping_first_name:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: user first name from SAML request'
+        mapping_groups:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: groups attribute for user mapping to workspaces and roles'
+        mapping_last_name:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: user last name from SAML request'
+        metadata_url:
+          type: string
+          description: URL SAML metadata from IdP
+        metadata_xml:
+          type: string
+          description: Metadata XML file
+        projects_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectGroup'
+          description: Projects to Groups Mapping. List of objects with project_id, group, role.
+        roles_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
+        workspaces_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
+      description: Serializer for updating SAML settings (POST requests).
+      title: SamlSettingsUpdate
+    ProjectGroup:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group name
+        project_id:
+          type: integer
+          description: Project ID
+        role:
+          $ref: '#/components/schemas/ProjectGroupRoleEnum'
+          description: 'Project role (Inherit, Annotator, Reviewer)
+
+
+            * `Inherit` - Inherit
+
+            * `Annotator` - Annotator
+
+            * `Reviewer` - Reviewer'
+      required:
+      - group
+      - project_id
+      - role
+      title: ProjectGroup
+    ValidateSamlMetadataUrlRequestRequest:
+      type: object
+      properties:
+        metadata_url:
+          type: string
+          format: uri
+      required:
+      - metadata_url
+      title: ValidateSamlMetadataUrlRequestRequest
+    SamlSettingsUpdateRequest:
+      type: object
+      properties:
+        domain:
+          type: string
+          description: 'Organization web domain or domains; use comma separated list with no spaces for multiple. Example:<br><br>labelstud.io,humansignal.com<br><br>IMPORTANT: DO NOT PUT COMMON DOMAINS LIKE GMAIL.COM, YAHOO.COM, ETC. IN THIS FIELD'
+        idp_provider:
+          type:
+          - string
+          - 'null'
+          description: Identity Provider preset key (e.g. okta, azure, google, custom)
+        manual_role_management:
+          type:
+          - boolean
+          - 'null'
+          description: Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
+        mapping_email:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: user email from SAML request'
+        mapping_first_name:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: user first name from SAML request'
+        mapping_groups:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: groups attribute for user mapping to workspaces and roles'
+        mapping_last_name:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: user last name from SAML request'
+        metadata_url:
+          type: string
+          description: URL SAML metadata from IdP
+        metadata_xml:
+          type: string
+          description: Metadata XML file
+        projects_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectGroupRequest'
+          description: Projects to Groups Mapping. List of objects with project_id, group, role.
+        roles_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
+        workspaces_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
+      description: Serializer for updating SAML settings (POST requests).
+      title: SamlSettingsUpdateRequest
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

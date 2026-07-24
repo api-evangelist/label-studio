@@ -1,0 +1,385 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/pauses API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_projects.subpackage_projects/pauses
+paths:
+  /api/projects/{project_pk}/members/{user_pk}/pauses/:
+    get:
+      operationId: list
+      summary: ✨ List pauses
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a list of all pauses."
+      tags:
+      - subpackage_projects.subpackage_projects/pauses
+      parameters:
+      - name: project_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: user_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: include_deleted
+        in: query
+        description: Include deleted pauses.
+        required: false
+        schema:
+          type: boolean
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pause'
+    post:
+      operationId: create
+      summary: ✨ Create pause
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new pause entry."
+      tags:
+      - subpackage_projects.subpackage_projects/pauses
+      parameters:
+      - name: project_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: user_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pause'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PauseRequest'
+  /api/projects/{project_pk}/members/{user_pk}/pauses/{id}/:
+    get:
+      operationId: get
+      summary: ✨ Get pause
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a specific pause by ID."
+      tags:
+      - subpackage_projects.subpackage_projects/pauses
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: project_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: user_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pause'
+    delete:
+      operationId: delete
+      summary: ✨ Delete pause
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific pause by ID."
+      tags:
+      - subpackage_projects.subpackage_projects/pauses
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: project_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: user_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: ✨ Update pause
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nPartially update a pause entry by ID."
+      tags:
+      - subpackage_projects.subpackage_projects/pauses
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: project_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: user_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pause'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPauseRequest'
+components:
+  schemas:
+    Pause:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when this pause record was created
+        deleted_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Timestamp when this pause record was soft-deleted
+        deleted_by:
+          type:
+          - integer
+          - 'null'
+          description: User who soft-deleted this pause record
+        id:
+          type: integer
+        paused_by:
+          $ref: '#/components/schemas/UserSimple'
+        project:
+          type:
+          - integer
+          - 'null'
+          description: Related project for which the pause is set
+        reason:
+          $ref: '#/components/schemas/ReasonEnum'
+          description: 'Reason for pausing
+
+
+            * `MANUAL` - Manual
+
+            * `BEHAVIOR_BASED` - Behavior-based
+
+            * `ANNOTATOR_EVALUATION` - Annotator evaluation
+
+            * `ANNOTATION_LIMIT` - Annotation limit
+
+            * `CUSTOM_SCRIPT` - Custom script'
+        updated_at:
+          type: string
+          format: date-time
+          description: Timestamp when this pause record was last updated
+        user:
+          type:
+          - integer
+          - 'null'
+          description: User who is paused
+        verbose_reason:
+          type:
+          - string
+          - 'null'
+          description: Detailed description of why the project is paused, will be readable by paused annotators
+      required:
+      - created_at
+      - deleted_at
+      - deleted_by
+      - id
+      - paused_by
+      - project
+      - reason
+      - updated_at
+      - user
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: Pause
+    PauseRequest:
+      type: object
+      properties:
+        reason:
+          $ref: '#/components/schemas/ReasonEnum'
+          description: 'Reason for pausing
+
+
+            * `MANUAL` - Manual
+
+            * `BEHAVIOR_BASED` - Behavior-based
+
+            * `ANNOTATOR_EVALUATION` - Annotator evaluation
+
+            * `ANNOTATION_LIMIT` - Annotation limit
+
+            * `CUSTOM_SCRIPT` - Custom script'
+        verbose_reason:
+          type:
+          - string
+          - 'null'
+          description: Detailed description of why the project is paused, will be readable by paused annotators
+      required:
+      - reason
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: PauseRequest
+    PatchedPauseRequest:
+      type: object
+      properties:
+        reason:
+          $ref: '#/components/schemas/ReasonEnum'
+          description: 'Reason for pausing
+
+
+            * `MANUAL` - Manual
+
+            * `BEHAVIOR_BASED` - Behavior-based
+
+            * `ANNOTATOR_EVALUATION` - Annotator evaluation
+
+            * `ANNOTATION_LIMIT` - Annotation limit
+
+            * `CUSTOM_SCRIPT` - Custom script'
+        verbose_reason:
+          type:
+          - string
+          - 'null'
+          description: Detailed description of why the project is paused, will be readable by paused annotators
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: PatchedPauseRequest
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    ReasonEnum:
+      type: string
+      enum:
+      - MANUAL
+      - BEHAVIOR_BASED
+      - ANNOTATOR_EVALUATION
+      - ANNOTATION_LIMIT
+      - CUSTOM_SCRIPT
+      description: '* `MANUAL` - Manual
+
+        * `BEHAVIOR_BASED` - Behavior-based
+
+        * `ANNOTATOR_EVALUATION` - Annotator evaluation
+
+        * `ANNOTATION_LIMIT` - Annotation limit
+
+        * `CUSTOM_SCRIPT` - Custom script'
+      title: ReasonEnum
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

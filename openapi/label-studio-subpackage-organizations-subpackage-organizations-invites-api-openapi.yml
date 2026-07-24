@@ -1,0 +1,193 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_organizations.subpackage_organizations/invites API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_organizations.subpackage_organizations/invites
+paths:
+  /api/invite:
+    get:
+      operationId: get-invite-link
+      summary: Get invite link
+      description: Get invite link for organization
+      tags:
+      - subpackage_organizations.subpackage_organizations/invites
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationInvite'
+        '403':
+          description: Organization does not allow to invite people
+          content:
+            application/json:
+              schema:
+                description: Any type
+  /api/invite/revoke:
+    post:
+      operationId: revoke-invite
+      summary: ✨ Revoke invite
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRevoke invite to organization"
+      tags:
+      - subpackage_organizations.subpackage_organizations/invites
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Invite revoked
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/organizations_invites_revoke_invite_Response_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RevokeInviteRequest'
+  /api/invite/send-email:
+    post:
+      operationId: send-email
+      summary: ✨ Send email with invite
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nSend email with invite to organization"
+      tags:
+      - subpackage_organizations.subpackage_organizations/invites
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Invite sent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/organizations_invites_send_email_Response_200'
+        '403':
+          description: Organization does not allow to invite people
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendInviteRequest'
+components:
+  schemas:
+    organizations_invites_revoke_invite_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: organizations_invites_revoke_invite_Response_200
+    RevokeInviteRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Email address
+      required:
+      - email
+      title: RevokeInviteRequest
+    OrganizationInvite:
+      type: object
+      properties:
+        invite_url:
+          type: string
+        token:
+          type: string
+      title: OrganizationInvite
+    SendInviteRequest:
+      type: object
+      properties:
+        emails:
+          type: array
+          items:
+            type: string
+          description: Email addresses
+        projects:
+          type: array
+          items:
+            type: integer
+          description: Project IDs to grant access to
+        role:
+          $ref: '#/components/schemas/Role9e7Enum'
+          description: 'Organization role
+
+
+            * `OW` - Owner
+
+            * `AD` - Administrator
+
+            * `MA` - Manager
+
+            * `RE` - Reviewer
+
+            * `AN` - Annotator
+
+            * `DI` - Deactivated
+
+            * `NO` - Not Activated'
+        workspaces:
+          type: array
+          items:
+            type: integer
+          description: Workspace IDs to grant access to
+      required:
+      - emails
+      - role
+      title: SendInviteRequest
+    organizations_invites_send_email_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: organizations_invites_send_email_Response_200
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

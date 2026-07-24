@@ -1,0 +1,269 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_predictions API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_predictions
+paths:
+  /api/predictions/:
+    get:
+      operationId: list
+      summary: List predictions
+      description: List all predictions and their IDs.
+      tags:
+      - subpackage_predictions
+      parameters:
+      - name: project
+        in: query
+        description: Filter predictions by project ID
+        required: false
+        schema:
+          type: integer
+      - name: task
+        in: query
+        description: Filter predictions by task ID
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Predictions list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Prediction'
+    post:
+      operationId: create
+      summary: Create prediction
+      description: Create a prediction for a specific task.
+      tags:
+      - subpackage_predictions
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created prediction
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Prediction'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model_version:
+                  type: string
+                  description: Model version - tag for predictions that can be used to filter tasks in Data Manager, as well as select specific model version for showing preannotations in the labeling interface
+                result:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ApiPredictionsPostRequestBodyContentApplicationJsonSchemaResultItems'
+                  description: Prediction result in JSON format. Read more about the format in [the Label Studio documentation.](https://labelstud.io/guide/predictions)
+                score:
+                  type: number
+                  format: double
+                  description: Prediction score. Can be used in Data Manager to sort task by model confidence. Task with the lowest score will be shown first.
+                task:
+                  type: integer
+                  description: Task ID for which the prediction is created
+  /api/predictions/{id}/:
+    get:
+      operationId: get
+      summary: Get prediction details
+      description: Get details about a specific prediction by its ID.
+      tags:
+      - subpackage_predictions
+      parameters:
+      - name: id
+        in: path
+        description: Prediction ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Prediction details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Prediction'
+    delete:
+      operationId: delete
+      summary: Delete prediction
+      description: Delete a prediction by prediction ID.
+      tags:
+      - subpackage_predictions
+      parameters:
+      - name: id
+        in: path
+        description: Prediction ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: Update prediction
+      description: Update prediction data by prediction ID.
+      tags:
+      - subpackage_predictions
+      parameters:
+      - name: id
+        in: path
+        description: Prediction ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Updated prediction
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Prediction'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model_version:
+                  type: string
+                  description: Model version - tag for predictions that can be used to filter tasks in Data Manager, as well as select specific model version for showing preannotations in the labeling interface
+                result:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ApiPredictionsIdPatchRequestBodyContentApplicationJsonSchemaResultItems'
+                  description: Prediction result in JSON format. Read more about the format in [the Label Studio documentation.](https://labelstud.io/guide/predictions)
+                score:
+                  type: number
+                  format: double
+                  description: Prediction score. Can be used in Data Manager to sort task by model confidence. Task with the lowest score will be shown first.
+                task:
+                  type: integer
+                  description: Task ID for which the prediction is created
+components:
+  schemas:
+    Prediction:
+      type: object
+      properties:
+        cluster:
+          type:
+          - integer
+          - 'null'
+          description: Cluster for the current prediction
+        created_ago:
+          type: string
+          default: ''
+          description: Delta time from creation time
+        created_at:
+          type: string
+          format: date-time
+        id:
+          type: integer
+        mislabeling:
+          type: number
+          format: double
+          description: Related task mislabeling score
+        model:
+          type:
+          - integer
+          - 'null'
+          description: An ML Backend instance that created the prediction.
+        model_run:
+          type:
+          - integer
+          - 'null'
+          description: A run of a ModelVersion that created the prediction.
+        model_version:
+          type: string
+          description: Model version - tag for predictions that can be used to filter tasks in Data Manager, as well as select specific model version for showing preannotations in the labeling interface
+        neighbors:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Array of task IDs of the closest neighbors
+        project:
+          type:
+          - integer
+          - 'null'
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/PredictionResultItems'
+          description: List of prediction results for the task
+        score:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Prediction score
+        task:
+          type: integer
+        updated_at:
+          type: string
+          format: date-time
+      required:
+      - created_ago
+      - created_at
+      - id
+      - result
+      - task
+      - updated_at
+      title: Prediction
+    PredictionResultItems:
+      type: object
+      properties: {}
+      description: List of predicted regions for the task
+      title: PredictionResultItems
+    ApiPredictionsPostRequestBodyContentApplicationJsonSchemaResultItems:
+      type: object
+      properties: {}
+      title: ApiPredictionsPostRequestBodyContentApplicationJsonSchemaResultItems
+    ApiPredictionsIdPatchRequestBodyContentApplicationJsonSchemaResultItems:
+      type: object
+      properties: {}
+      title: ApiPredictionsIdPatchRequestBodyContentApplicationJsonSchemaResultItems
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

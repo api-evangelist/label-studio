@@ -1,0 +1,408 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_exportStorage.subpackage_exportStorage/gcs API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_exportStorage.subpackage_exportStorage/gcs
+paths:
+  /api/storages/export/gcs:
+    get:
+      operationId: list
+      summary: Get all export storage
+      description: Get a list of all GCS export storage connections.
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcs
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: project
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GCSExportStorage'
+    post:
+      operationId: create
+      summary: Create export storage
+      description: Create a new GCS export storage connection to store annotations.
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcs
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSExportStorage'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bucket:
+                  type: string
+                  description: GCS bucket name
+                can_delete_objects:
+                  type: boolean
+                  default: false
+                  description: Deletion from storage enabled.
+                description:
+                  type: string
+                  description: Storage description
+                google_application_credentials:
+                  type: string
+                  description: The content of GOOGLE_APPLICATION_CREDENTIALS json file. Check official Google Cloud Authentication documentation for more details.
+                google_project_id:
+                  type: string
+                  description: Google project ID
+                prefix:
+                  type: string
+                  description: GCS bucket prefix
+                project:
+                  type: integer
+                  description: Project ID
+                title:
+                  type: string
+                  description: Storage title
+  /api/storages/export/gcs/validate:
+    post:
+      operationId: validate
+      summary: Validate export storage
+      description: Validate a specific GCS export storage connection.
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcs
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Validation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/export_storage_gcs_validate_Response_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bucket:
+                  type: string
+                  description: GCS bucket name
+                can_delete_objects:
+                  type: boolean
+                  default: false
+                  description: Deletion from storage enabled.
+                description:
+                  type: string
+                  description: Storage description
+                google_application_credentials:
+                  type: string
+                  description: The content of GOOGLE_APPLICATION_CREDENTIALS json file. Check official Google Cloud Authentication documentation for more details.
+                google_project_id:
+                  type: string
+                  description: Google project ID
+                id:
+                  type: integer
+                  description: Storage ID. If set, storage with specified ID will be updated
+                prefix:
+                  type: string
+                  description: GCS bucket prefix
+                project:
+                  type: integer
+                  description: Project ID
+                title:
+                  type: string
+                  description: Storage title
+  /api/storages/export/gcs/{id}:
+    get:
+      operationId: get
+      summary: Get export storage
+      description: Get a specific GCS export storage connection.
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcs
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSExportStorage'
+    delete:
+      operationId: delete
+      summary: Delete export storage
+      description: Delete a specific GCS export storage connection.
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcs
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: Update export storage
+      description: Update a specific GCS export storage connection.
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcs
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSExportStorage'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bucket:
+                  type: string
+                  description: GCS bucket name
+                can_delete_objects:
+                  type: boolean
+                  default: false
+                  description: Deletion from storage enabled.
+                description:
+                  type: string
+                  description: Storage description
+                google_application_credentials:
+                  type: string
+                  description: The content of GOOGLE_APPLICATION_CREDENTIALS json file. Check official Google Cloud Authentication documentation for more details.
+                google_project_id:
+                  type: string
+                  description: Google project ID
+                prefix:
+                  type: string
+                  description: GCS bucket prefix
+                project:
+                  type: integer
+                  description: Project ID
+                title:
+                  type: string
+                  description: Storage title
+  /api/storages/export/gcs/{id}/sync:
+    post:
+      operationId: sync
+      summary: Sync export storage
+      description: Sync tasks from an GCS export storage connection.
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcs
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSExportStorage'
+components:
+  schemas:
+    GCSExportStorage:
+      type: object
+      properties:
+        bucket:
+          type:
+          - string
+          - 'null'
+          description: GCS bucket name
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        created_at:
+          type: string
+          format: date-time
+          description: Creation time
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        google_application_credentials:
+          type:
+          - string
+          - 'null'
+          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
+        google_project_id:
+          type:
+          - string
+          - 'null'
+          description: Google project ID
+        id:
+          type: integer
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: GCS bucket prefix
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage regex for filtering objects
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          type: boolean
+          default: true
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        type:
+          type: string
+          default: gcs
+        use_blob_urls:
+          type: boolean
+          description: Interpret objects as BLOBs and generate URLs
+      required:
+      - created_at
+      - id
+      - project
+      - type
+      title: GCSExportStorage
+    export_storage_gcs_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: export_storage_gcs_validate_Response_200
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

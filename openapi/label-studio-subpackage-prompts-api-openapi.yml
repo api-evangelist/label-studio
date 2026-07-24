@@ -1,0 +1,1397 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_prompts API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_prompts
+paths:
+  /api/model-run/batch-failed-predictions:
+    post:
+      operationId: batch-failed-predictions
+      summary: ✨ Create batch of failed predictions
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new batch of failed predictions."
+      tags:
+      - subpackage_prompts
+      parameters:
+      - name: num_failed_predictions
+        in: query
+        description: Number of failed predictions being sent (for telemetry only, has no effect)
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchFailedPredictions'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchFailedPredictionsRequestRequest'
+  /api/model-run/batch-predictions:
+    post:
+      operationId: batch-predictions
+      summary: ✨ Create batch predictions
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new batch prediction."
+      tags:
+      - subpackage_prompts
+      parameters:
+      - name: num_predictions
+        in: query
+        description: Number of predictions being sent (for telemetry only, has no effect)
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchPredictions'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchPredictionsRequestRequest'
+  /api/projects/{project_pk}/subset-tasks:
+    get:
+      operationId: subset-tasks
+      summary: ✨ Get Project Subset Task List with Predictions and Accuracy details
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\n\n        Provides list of tasks, based on project subset. Includes predictions for tasks. For the 'HasGT' subset, accuracy metrics will also be provided.\n        "
+      tags:
+      - subpackage_prompts
+      parameters:
+      - name: project_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: include_total
+        in: query
+        description: If true (default), includes task_count in response; if false, omits it.
+        required: false
+        schema:
+          type: boolean
+      - name: model_run
+        in: query
+        description: A unique ID of a ModelRun
+        required: false
+        schema:
+          type: integer
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: parent_model
+        in: query
+        description: The ID of the parent model (ModelInterface) for this Inference Run
+        required: false
+        schema:
+          type: integer
+      - name: project_subset
+        in: query
+        description: The project subset to retrieve tasks for
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectSubsetTasksResponseList'
+        '400':
+          description: Bad request - missing parent_model
+          content:
+            application/json:
+              schema:
+                description: Any type
+  /api/projects/{project_pk}/subsets:
+    get:
+      operationId: subsets
+      summary: ✨ Get available subsets of a project (for prompts usage)
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\n\n        Provides list of available subsets for a project along with count of tasks in each subset\n        "
+      tags:
+      - subpackage_prompts
+      parameters:
+      - name: project_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProjectSubsetItem'
+  /api/prompts/:
+    get:
+      operationId: list
+      summary: ✨ List prompts
+      description: List all prompts.
+      tags:
+      - subpackage_prompts
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedModelInterfaceSerializerGETList'
+    post:
+      operationId: create
+      summary: ✨ Create prompt
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new prompt."
+      tags:
+      - subpackage_prompts
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelInterface'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelInterfaceRequest'
+  /api/prompts/compatible-projects:
+    get:
+      operationId: compatible-projects
+      summary: ✨ List projects compatible with prompt
+      description: Retrieve a list of compatible project for prompt.
+      tags:
+      - subpackage_prompts
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: project_type
+        in: query
+        description: Skill to filter by
+        required: false
+        schema:
+          $ref: '#/components/schemas/ApiPromptsCompatibleProjectsGetParametersProjectType'
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAllRolesProjectListList'
+  /api/prompts/{id}/:
+    get:
+      operationId: get
+      summary: ✨ Get prompt
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a specific prompt."
+      tags:
+      - subpackage_prompts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelInterfaceSerializerGET'
+    delete:
+      operationId: delete
+      summary: ✨ Delete prompt
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a prompt by ID"
+      tags:
+      - subpackage_prompts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: ✨ Update prompt
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific prompt by ID."
+      tags:
+      - subpackage_prompts
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelInterface'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedModelInterfaceRequest'
+components:
+  schemas:
+    ModelInterfaceSerializerGET:
+      type: object
+      properties:
+        associated_projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssociatedProject'
+        best_score:
+          type:
+          - number
+          - 'null'
+          format: double
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+          description: User who created Dataset
+        description:
+          type:
+          - string
+          - 'null'
+          description: Model description
+        id:
+          type: integer
+        input_fields:
+          description: Any type
+        organization:
+          type:
+          - integer
+          - 'null'
+        output_classes:
+          description: Any type
+        runs_count:
+          type: integer
+          default: 0
+        skill_name:
+          $ref: '#/components/schemas/SkillNameEnum'
+        title:
+          type: string
+          description: Model name
+        updated_at:
+          type: string
+          format: date-time
+        versions_count:
+          type: integer
+          default: 0
+      required:
+      - best_score
+      - created_at
+      - id
+      - runs_count
+      - title
+      - updated_at
+      - versions_count
+      title: ModelInterfaceSerializerGET
+    BatchPredictions:
+      type: object
+      properties:
+        job_id:
+          type: string
+        results:
+          type: array
+          items:
+            description: Any type
+      required:
+      - job_id
+      - results
+      title: BatchPredictions
+    ReviewSettingsSamplingEnum:
+      type: string
+      enum:
+      - task_id
+      - random
+      description: '* `task_id` - By Task ID
+
+        * `random` - Random'
+      title: ReviewSettingsSamplingEnum
+    BatchFailedPredictionsRequestRequest:
+      type: object
+      properties:
+        failed_predictions:
+          type: array
+          items:
+            description: Any type
+        job_id:
+          type: string
+        modelrun_id:
+          type: integer
+      required:
+      - failed_predictions
+      - modelrun_id
+      title: BatchFailedPredictionsRequestRequest
+    PaginatedProjectSubsetTasksResponseList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectSubsetTasksResponse'
+      required:
+      - count
+      - results
+      title: PaginatedProjectSubsetTasksResponseList
+    ApiPromptsCompatibleProjectsGetParametersProjectType:
+      type: string
+      enum:
+      - NamedEntityRecognition
+      - TextClassification
+      default: TextClassification
+      title: ApiPromptsCompatibleProjectsGetParametersProjectType
+    RequeueRejectedTasksModeEnum:
+      type: string
+      enum:
+      - requeue
+      - remove
+      - flexible
+      description: '* `requeue` - Requeue
+
+        * `remove` - Remove
+
+        * `flexible` - Flexible'
+      title: RequeueRejectedTasksModeEnum
+    PaginatedAllRolesProjectListList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AllRolesProjectList'
+      required:
+      - count
+      - results
+      title: PaginatedAllRolesProjectListList
+    ModelInterfaceRequest:
+      type: object
+      properties:
+        associated_projects:
+          type: array
+          items:
+            type: integer
+        created_by:
+          $ref: '#/components/schemas/UserSimpleRequest'
+          description: User who created Dataset
+        description:
+          type:
+          - string
+          - 'null'
+          description: Model description
+        input_fields:
+          description: Any type
+        organization:
+          type:
+          - integer
+          - 'null'
+        output_classes:
+          description: Any type
+        skill_name:
+          $ref: '#/components/schemas/SkillNameEnum'
+        title:
+          type: string
+          description: Model name
+      required:
+      - title
+      title: ModelInterfaceRequest
+    ControlTagWeight:
+      type: object
+      properties:
+        labels:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+          description: Per-label weights (0.0 to 1.0). Zero excludes the label from agreement.
+        overall:
+          type: number
+          format: double
+          description: Overall weight for this control tag (0.0 to 1.0). Zero excludes the tag from agreement.
+        type:
+          type: string
+          description: Control tag type from the labeling config (e.g. Choices, Labels, TextArea).
+      required:
+      - overall
+      - type
+      description: 'Weights configuration for a single control tag.
+
+
+        Structure: {"overall": 0.5, "type": "Choices", "labels": {"cat": 1.0, "dog": 0.0}}'
+      title: ControlTagWeight
+    ProjectSubsetItem:
+      type: object
+      properties:
+        columns_schema:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Any type
+        count:
+          type: integer
+        subset:
+          type: string
+      required:
+      - count
+      - subset
+      title: ProjectSubsetItem
+    BlueprintList:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        description:
+          type:
+          - string
+          - 'null'
+          description: Project description
+        id:
+          type: integer
+        share_id:
+          type: string
+        short_url:
+          type: string
+        task_count:
+          type: string
+        title:
+          type:
+          - string
+          - 'null'
+          description: Blueprint name. Must be between 3 and 50 characters long.
+      required:
+      - created_at
+      - id
+      - share_id
+      - short_url
+      - task_count
+      title: BlueprintList
+    PaginatedModelInterfaceSerializerGETList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelInterfaceSerializerGET'
+      required:
+      - count
+      - results
+      title: PaginatedModelInterfaceSerializerGETList
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    ProjectSubsetTasksResponse:
+      type: object
+      properties:
+        next_cursor:
+          type:
+          - string
+          - 'null'
+        previous_cursor:
+          type:
+          - string
+          - 'null'
+        task_count:
+          type: integer
+          description: Present only when include_total=true
+        task_result_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectSubsetTaskItem'
+      required:
+      - task_result_list
+      title: ProjectSubsetTasksResponse
+    AllRolesProjectList:
+      type: object
+      properties:
+        agreement_methodology:
+          $ref: '#/components/schemas/AgreementMethodologyEnum'
+          description: 'Methodology (Consensus / Pairwise Averaging)
+
+
+            * `consensus` - Consensus
+
+            * `pairwise` - Pairwise Averaging'
+        agreement_threshold:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Agreement threshold
+        allow_stream:
+          type: boolean
+        annotation_limit_count:
+          type:
+          - integer
+          - 'null'
+          description: Limit by number of tasks
+        annotation_limit_percent:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Limit by percentage of tasks
+        annotator_evaluation_continuous_tasks:
+          type: integer
+          default: 0
+          description: 'Continuous Evaluation: Required tasks'
+        annotator_evaluation_enabled:
+          type: boolean
+          description: Evaluate all annotators against ground truth
+        annotator_evaluation_minimum_score:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          default: '95.00'
+          description: Score required to pass evaluation
+        annotator_evaluation_minimum_tasks:
+          type:
+          - integer
+          - 'null'
+          default: 10
+          description: Number of tasks for evaluation
+        annotator_evaluation_onboarding_tasks:
+          type: integer
+          default: 0
+          description: 'Onboarding Evaluation: Required tasks'
+        assignment_settings:
+          $ref: '#/components/schemas/AssignmentSettings'
+        blueprints:
+          type: array
+          items:
+            $ref: '#/components/schemas/BlueprintList'
+        color:
+          type:
+          - string
+          - 'null'
+          description: Color
+        comment_classification_config:
+          type: string
+        config_has_control_tags:
+          type: boolean
+          description: Flag to detect is project ready for labeling
+        config_suitable_for_bulk_annotation:
+          type: boolean
+          description: Flag to detect is project ready for bulk annotation
+        control_weights:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            $ref: '#/components/schemas/ControlTagWeight'
+          description: Dict of weights for each control tag in metric calculation. Keys are control tag names from the labeling config. At least one tag must have a non-zero overall weight.
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+          description: Project owner
+        custom_interface_code:
+          type:
+          - string
+          - 'null'
+        custom_interface_compiled:
+          type:
+          - string
+          - 'null'
+        custom_interface_params:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        custom_script:
+          type: string
+          description: Plugins
+        custom_task_lock_ttl:
+          type:
+          - integer
+          - 'null'
+          description: Task reservation time. TTL in seconds (UI displays and edits this value in minutes).
+        data_types:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            description: Any type
+        description:
+          type:
+          - string
+          - 'null'
+          description: Description
+        description_short:
+          type: string
+        duplication_done:
+          type: boolean
+          default: false
+        duplication_status:
+          type: string
+        enable_empty_annotation:
+          type: boolean
+          description: Allow empty annotations
+        evaluate_predictions_automatically:
+          type: boolean
+          description: Retrieve and display predictions when loading a task
+        expert_instruction:
+          type:
+          - string
+          - 'null'
+          description: Instructions
+        finished_task_number:
+          type: integer
+        ground_truth_number:
+          type: integer
+          description: Honeypot annotation number in project
+        id:
+          type: integer
+        input_schema:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        is_dimensions_enabled:
+          type: string
+        is_draft:
+          type: boolean
+          description: Whether or not the project is in the middle of being created
+        is_published:
+          type: boolean
+          description: Whether or not the project is published to annotators
+        label_config:
+          type:
+          - string
+          - 'null'
+          description: Labeling Configuration
+        max_additional_annotators_assignable:
+          type:
+          - integer
+          - 'null'
+          description: Maximum additional annotators
+        maximum_annotations:
+          type: integer
+          description: Annotations per task
+        members:
+          type: string
+        members_count:
+          type: integer
+        min_annotations_to_start_training:
+          type: integer
+          description: Minimum number of completed tasks after which model training is started
+        model_version:
+          type:
+          - string
+          - 'null'
+          description: Machine learning model version
+        num_tasks_with_annotations:
+          type:
+          - integer
+          - 'null'
+        organization:
+          type:
+          - integer
+          - 'null'
+        overlap_cohort_percentage:
+          type: integer
+          description: Annotations per task coverage
+        parsed_label_config:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: JSON-formatted labeling configuration
+        pause_on_failed_annotator_evaluation:
+          type:
+          - boolean
+          - 'null'
+          default: false
+          description: Pause annotator on failed evaluation
+        pinned_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Pinned date and time
+        prompts:
+          type: string
+        queue_done:
+          type: integer
+        queue_left:
+          type: integer
+        queue_total:
+          type: string
+        ready:
+          type: boolean
+        rejected:
+          type: integer
+        require_comment_on_skip:
+          type: boolean
+          default: false
+          description: Require comment to skip
+        reveal_preannotations_interactively:
+          type: boolean
+          description: Reveal pre-annotations interactively
+        review_settings:
+          $ref: '#/components/schemas/ReviewSettings'
+        review_total_tasks:
+          type: integer
+        reviewed_number:
+          type: integer
+        reviewer_queue_total:
+          type: integer
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/SamplingDe5Enum'
+          - type: 'null'
+        show_annotation_history:
+          type: boolean
+          description: Show Data Manager to Annotators
+        show_collab_predictions:
+          type: boolean
+          description: Use predictions to pre-label Tasks
+        show_ground_truth_first:
+          type: boolean
+          description: 'Onboarding mode (true): show ground truth tasks first in the labeling stream'
+        show_instruction:
+          type: boolean
+          description: Show instructions before labeling
+        show_overlap_first:
+          type: boolean
+          description: Show tasks with overlap first
+        show_skip_button:
+          type: boolean
+          description: Allow skipping tasks
+        show_unused_data_columns_to_annotators:
+          type:
+          - boolean
+          - 'null'
+          description: 'Show only columns used in labeling configuration to Annotators. API uses inverse field semantics here: set false to show only used columns, set true to show all task.data columns.'
+        skip_queue:
+          oneOf:
+          - $ref: '#/components/schemas/SkipQueueEnum'
+          - type: 'null'
+        skipped_annotations_number:
+          type: string
+        source_interface_id:
+          type:
+          - integer
+          - 'null'
+        source_interface_version:
+          type:
+          - integer
+          - 'null'
+        start_training_on_annotation_update:
+          type: boolean
+          description: Start model training after any annotations are submitted or updated
+        state:
+          type: string
+        strict_task_overlap:
+          type: boolean
+          default: true
+          description: Enforce strict overlap limit
+        task_number:
+          type: integer
+          description: Total task number in project
+        title:
+          type:
+          - string
+          - 'null'
+          description: Project Name
+        total_annotations_number:
+          type: string
+        total_predictions_number:
+          type: integer
+        use_custom_interface:
+          type: boolean
+          default: false
+        useful_annotation_number:
+          type:
+          - integer
+          - 'null'
+        workspace:
+          type: string
+        workspace_title:
+          type: string
+      required:
+      - allow_stream
+      - assignment_settings
+      - blueprints
+      - config_has_control_tags
+      - config_suitable_for_bulk_annotation
+      - created_at
+      - data_types
+      - description_short
+      - finished_task_number
+      - ground_truth_number
+      - id
+      - is_dimensions_enabled
+      - members
+      - members_count
+      - num_tasks_with_annotations
+      - parsed_label_config
+      - prompts
+      - queue_done
+      - queue_left
+      - queue_total
+      - ready
+      - rejected
+      - review_settings
+      - review_total_tasks
+      - reviewed_number
+      - reviewer_queue_total
+      - skipped_annotations_number
+      - start_training_on_annotation_update
+      - state
+      - task_number
+      - total_annotations_number
+      - total_predictions_number
+      - useful_annotation_number
+      - workspace
+      - workspace_title
+      description: 'Serializer get numbers from project queryset annotation,
+
+        make sure, that you use correct one(Project.objects.with_counts())'
+      title: AllRolesProjectList
+    BatchPredictionsRequestRequest:
+      type: object
+      properties:
+        job_id:
+          type: string
+        modelrun_id:
+          type: integer
+        results:
+          type: array
+          items:
+            description: Any type
+      required:
+      - modelrun_id
+      - results
+      title: BatchPredictionsRequestRequest
+    ProjectSubsetTaskItem:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties:
+            description: Any type
+        error:
+          type: object
+          additionalProperties:
+            description: Any type
+        ground_truth:
+          type: object
+          additionalProperties:
+            description: Any type
+        id:
+          type: integer
+        prediction:
+          type: object
+          additionalProperties:
+            description: Any type
+        score:
+          type:
+          - number
+          - 'null'
+          format: double
+      required:
+      - data
+      title: ProjectSubsetTaskItem
+    AssociatedProject:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type:
+          - string
+          - 'null'
+          description: Project name. Must be between 3 and 50 characters long.
+      required:
+      - id
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: AssociatedProject
+    ReviewSettings:
+      type: object
+      properties:
+        anonymize_annotations:
+          type: boolean
+          description: Hide annotator names from annotations while review
+        id:
+          type: integer
+        instruction:
+          type:
+          - string
+          - 'null'
+          description: Instructions
+        only_finished_tasks:
+          type: boolean
+          description: Show only finished tasks in the review stream
+        project:
+          type:
+          - integer
+          - 'null'
+        requeue_rejected_tasks_mode:
+          oneOf:
+          - $ref: '#/components/schemas/RequeueRejectedTasksModeEnum'
+          - type: 'null'
+          description: 'Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue
+
+
+            * `requeue` - Requeue
+
+            * `remove` - Remove
+
+            * `flexible` - Flexible'
+        requeue_rejected_tasks_to_annotator:
+          type: boolean
+        require_comment_on_reject:
+          type: boolean
+          description: Reviewers must leave a comment on reject
+        review_criteria:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewCriteriaEnum'
+          - type: 'null'
+          description: 'Task is reviewed after at least one accepted annotation / Task is reviewed when all annotations are reviewed
+
+
+            * `all` - Task is reviewed if all annotations are reviewed
+
+            * `one` - Task is reviewed if at least one annotation is reviewed'
+        review_only_manual_assignments:
+          type: boolean
+          description: Show only manually assigned tasks in the review stream
+        review_task_limit_percent:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Task limit (%)
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewSettingsSamplingEnum'
+          - type: 'null'
+          description: 'By Task ID / Random
+
+
+            * `task_id` - By Task ID
+
+            * `random` - Random'
+        show_agreement_to_reviewers:
+          type: boolean
+          description: Show agreement to reviewers in the Data Manager
+        show_data_manager_to_reviewers:
+          type: boolean
+          description: Show the Data Manager to reviewers
+        show_instruction:
+          type: boolean
+          description: Show before reviewing
+        show_unused_data_columns_to_reviewers:
+          type:
+          - boolean
+          - 'null'
+          description: Show unused task data columns to reviewers in the Data Manager
+      required:
+      - id
+      - requeue_rejected_tasks_to_annotator
+      title: ReviewSettings
+    PatchedModelInterfaceRequest:
+      type: object
+      properties:
+        associated_projects:
+          type: array
+          items:
+            type: integer
+        created_by:
+          $ref: '#/components/schemas/UserSimpleRequest'
+          description: User who created Dataset
+        description:
+          type:
+          - string
+          - 'null'
+          description: Model description
+        input_fields:
+          description: Any type
+        organization:
+          type:
+          - integer
+          - 'null'
+        output_classes:
+          description: Any type
+        skill_name:
+          $ref: '#/components/schemas/SkillNameEnum'
+        title:
+          type: string
+          description: Model name
+      title: PatchedModelInterfaceRequest
+    ReviewCriteriaEnum:
+      type: string
+      enum:
+      - all
+      - one
+      description: '* `all` - Task is reviewed if all annotations are reviewed
+
+        * `one` - Task is reviewed if at least one annotation is reviewed'
+      title: ReviewCriteriaEnum
+    ModelInterface:
+      type: object
+      properties:
+        associated_projects:
+          type: array
+          items:
+            type: integer
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+          description: User who created Dataset
+        description:
+          type:
+          - string
+          - 'null'
+          description: Model description
+        id:
+          type: integer
+        input_fields:
+          description: Any type
+        organization:
+          type:
+          - integer
+          - 'null'
+        output_classes:
+          description: Any type
+        skill_name:
+          $ref: '#/components/schemas/SkillNameEnum'
+        title:
+          type: string
+          description: Model name
+        updated_at:
+          type: string
+          format: date-time
+      required:
+      - created_at
+      - id
+      - title
+      - updated_at
+      title: ModelInterface
+    AgreementMethodologyEnum:
+      type: string
+      enum:
+      - consensus
+      - pairwise
+      description: '* `consensus` - Consensus
+
+        * `pairwise` - Pairwise Averaging'
+      title: AgreementMethodologyEnum
+    LabelStreamTaskDistributionEnum:
+      type: string
+      enum:
+      - auto_distribution
+      - assigned_only
+      description: '* `auto_distribution` - Label Stream distributes tasks automatically to annotators
+
+        * `assigned_only` - Label Stream shows tasks only to assigned users'
+      title: LabelStreamTaskDistributionEnum
+    SamplingDe5Enum:
+      type: string
+      enum:
+      - Sequential sampling
+      - Uniform sampling
+      - Uncertainty sampling
+      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
+
+        * `Uniform sampling` - Tasks are chosen randomly
+
+        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
+      title: SamplingDe5Enum
+    SkipQueueEnum:
+      type: string
+      enum:
+      - REQUEUE_FOR_ME
+      - REQUEUE_FOR_OTHERS
+      - IGNORE_SKIPPED
+      description: '* `REQUEUE_FOR_ME` - Requeue for me
+
+        * `REQUEUE_FOR_OTHERS` - Requeue for others
+
+        * `IGNORE_SKIPPED` - Ignore skipped'
+      title: SkipQueueEnum
+    AssignmentSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+        label_stream_task_distribution:
+          oneOf:
+          - $ref: '#/components/schemas/LabelStreamTaskDistributionEnum'
+          - type: 'null'
+          description: 'Automatic / Manual
+
+
+            * `auto_distribution` - Label Stream distributes tasks automatically to annotators
+
+            * `assigned_only` - Label Stream shows tasks only to assigned users'
+        project:
+          type:
+          - integer
+          - 'null'
+      required:
+      - id
+      title: AssignmentSettings
+    BatchFailedPredictions:
+      type: object
+      properties:
+        failed_predictions:
+          type: array
+          items:
+            description: Any type
+        job_id:
+          type: string
+      required:
+      - failed_predictions
+      - job_id
+      title: BatchFailedPredictions
+    UserSimpleRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimpleRequest
+    SkillNameEnum:
+      type: string
+      enum:
+      - TextClassification
+      - NamedEntityRecognition
+      description: '* `TextClassification` - TextClassification
+
+        * `NamedEntityRecognition` - NamedEntityRecognition'
+      title: SkillNameEnum
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

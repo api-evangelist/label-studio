@@ -1,0 +1,411 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated
+paths:
+  /api/projects/{id}/members/paginated/:
+    get:
+      operationId: list
+      summary: ✨ Get project members paginated
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the members for a specific project.\n\n**Response Fields:**\n- `implicit_member` (boolean): Indicates if the user is an implicit member.\n  - `true`: User has access via workspace membership or organization role (Administrator/Owner)\n  - `false`: User is an explicit project member (added directly to the project)\n- `project_role` (string|null): Project-specific role override if assigned, null otherwise\n\n**Note:** Users can have both explicit membership AND implicit access. The `implicit_member` field is `false` if the user has an explicit ProjectMember entry, regardless of whether they also have implicit access via workspace or org role."
+      tags:
+      - subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: ids
+        in: query
+        description: Comma-separated list of user IDs to filter by
+        required: false
+        schema:
+          type: string
+      - name: implicit
+        in: query
+        description: Include/Exclude implicit project members in the results. If not provided, explicit + implicit members are returned.
+        required: false
+        schema:
+          type: boolean
+      - name: last_activity__gte
+        in: query
+        description: Filter by last activity time (ISO 8601 datetime). Returns users with last activity greater than or equal to this time.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: last_activity__lte
+        in: query
+        description: Filter by last activity time (ISO 8601 datetime). Returns users with last activity less than or equal to this time.
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: no_annotators
+        in: query
+        description: Exclude annotators from the results
+        required: false
+        schema:
+          type: boolean
+      - name: ordering
+        in: query
+        description: 'Ordering field. Prefix with "-" for descending order. Allowed fields: id, email, first_name, last_name, username, last_activity, role, date_joined
+
+
+          **Note on role ordering:**
+
+          When ordering by "role", the system uses the effective role:
+
+          - Project-specific role if assigned (takes precedence)
+
+          - Organization role if no project role is assigned
+
+
+          Roles are sorted alphabetically by their code: AD (Administrator), AN (Annotator), DI (Disabled), MA (Manager), NO (Not Activated), OW (Owner), RE (Reviewer)'
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: role
+        in: query
+        description: 'Filter members by role. Accepts single role or comma-separated list of roles.
+
+
+          **Format:**
+
+          - Single role: `?role=RE`
+
+          - Multiple roles: `?role=AN,RE` (users with ANY of these roles)
+
+
+          **Role Codes:**
+
+          - `OW` = Owner
+
+          - `AD` = Administrator
+
+          - `MA` = Manager
+
+          - `RE` = Reviewer
+
+          - `AN` = Annotator
+
+
+          **Matching Logic:**
+
+          Returns users who have any of the specified roles either:
+
+          1. As their **project-specific role** (from project role assignments), OR
+
+          2. As their **organization role** (if they have no project-specific role override)
+
+
+          **Note:** Project-specific roles take precedence. If a user has a project role assigned, their organization role is ignored for filtering purposes.'
+        required: false
+        schema:
+          type: string
+      - name: search
+        in: query
+        description: Search term for filtering members by name, email, or username
+        required: false
+        schema:
+          type: string
+      - name: tags
+        in: query
+        description: Filter members by tags. Use a comma-separated list of tag IDs.
+        required: false
+        schema:
+          type: string
+      - name: with_deleted
+        in: query
+        description: Include deleted members in the results
+        required: false
+        schema:
+          type: boolean
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedPaginatedProjectMemberList'
+components:
+  schemas:
+    PaginatedPaginatedProjectMemberList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaginatedProjectMember'
+      required:
+      - count
+      - results
+      title: PaginatedPaginatedProjectMemberList
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
+    OnboardingStateEnum:
+      type: string
+      enum:
+      - not_started
+      - signup
+      - trial_signup
+      - first_tutorial
+      - in_app_guidance
+      - complete
+      description: '* `not_started` - Not Started
+
+        * `signup` - Signup
+
+        * `trial_signup` - Trial Signup
+
+        * `first_tutorial` - First Tutorial
+
+        * `in_app_guidance` - In App Guidance
+
+        * `complete` - Complete'
+      title: OnboardingStateEnum
+    OrganizationMembership:
+      type: object
+      properties:
+        active:
+          type: string
+        organization_id:
+          type: integer
+          description: Organization ID
+        role:
+          type: string
+      required:
+      - active
+      - organization_id
+      - role
+      title: OrganizationMembership
+    LseFields:
+      type: object
+      properties:
+        email_notification_settings:
+          type: string
+        invite_activated:
+          type:
+          - boolean
+          - 'null'
+        invite_expired:
+          type: string
+        invite_expired_at:
+          type: string
+        invited_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        invited_by:
+          type:
+          - integer
+          - 'null'
+        onboarding_state:
+          oneOf:
+          - $ref: '#/components/schemas/OnboardingStateEnum'
+          - type: 'null'
+          description: 'The current stage of user onboarding
+
+
+            * `not_started` - Not Started
+
+            * `signup` - Signup
+
+            * `trial_signup` - Trial Signup
+
+            * `first_tutorial` - First Tutorial
+
+            * `in_app_guidance` - In App Guidance
+
+            * `complete` - Complete'
+        social_auth_finished:
+          type:
+          - boolean
+          - 'null'
+          description: Is user finished social authentication
+        trial_company:
+          type:
+          - string
+          - 'null'
+        trial_experience_labeling:
+          type:
+          - string
+          - 'null'
+        trial_license_enterprise:
+          type:
+          - boolean
+          - 'null'
+        trial_models_in_production:
+          type:
+          - string
+          - 'null'
+        trial_role:
+          oneOf:
+          - $ref: '#/components/schemas/TrialRoleEnum'
+          - type: 'null'
+      required:
+      - email_notification_settings
+      - invite_expired
+      - invite_expired_at
+      title: LseFields
+    PaginatedProjectMember:
+      type: object
+      properties:
+        active_organization:
+          type:
+          - integer
+          - 'null'
+        active_organization_meta:
+          type: string
+        allow_newsletters:
+          type:
+          - boolean
+          - 'null'
+          description: Allow sending newsletters to user
+        avatar:
+          type: string
+        custom_hotkeys:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Custom keyboard shortcuts configuration for the user interface
+        date_joined:
+          type: string
+          format: date-time
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        implicit_member:
+          type: boolean
+        initials:
+          type: string
+          default: '?'
+        last_activity:
+          type: string
+          format: date-time
+        last_name:
+          type: string
+        lse_fields:
+          $ref: '#/components/schemas/LseFields'
+        org_membership:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationMembership'
+        organization_membership:
+          $ref: '#/components/schemas/OrganizationMembership'
+        pause:
+          type: string
+        phone:
+          type: string
+        project_role:
+          type: string
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimpleOrganizationMemberTag'
+        user_type:
+          type: string
+        username:
+          type: string
+      required:
+      - active_organization_meta
+      - avatar
+      - id
+      - implicit_member
+      - initials
+      - last_activity
+      - lse_fields
+      - org_membership
+      - organization_membership
+      - pause
+      - project_role
+      - tags
+      - user_type
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: PaginatedProjectMember
+    SimpleOrganizationMemberTag:
+      type: object
+      properties:
+        id:
+          type: integer
+        label:
+          type: string
+      required:
+      - id
+      - label
+      title: SimpleOrganizationMemberTag
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

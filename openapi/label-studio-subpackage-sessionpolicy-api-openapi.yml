@@ -1,0 +1,92 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_sessionPolicy API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_sessionPolicy
+paths:
+  /api/session-policy/:
+    get:
+      operationId: get
+      summary: Retrieve Session Policy
+      description: Retrieve session timeout policy for the currently active organization.
+      tags:
+      - subpackage_sessionPolicy
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionTimeoutPolicy'
+    patch:
+      operationId: update
+      summary: Update Session Policy
+      description: Update session timeout policy for the currently active organization.
+      tags:
+      - subpackage_sessionPolicy
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionTimeoutPolicy'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedSessionTimeoutPolicyRequest'
+components:
+  schemas:
+    PatchedSessionTimeoutPolicyRequest:
+      type: object
+      properties:
+        max_session_age:
+          type: integer
+          description: Number of minutes that a session can be active before needing to re-login
+        max_time_between_activity:
+          type: integer
+          description: Number of minutes that a session stays active without any activity
+      title: PatchedSessionTimeoutPolicyRequest
+    SessionTimeoutPolicy:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        max_session_age:
+          type: integer
+          description: Number of minutes that a session can be active before needing to re-login
+        max_time_between_activity:
+          type: integer
+          description: Number of minutes that a session stays active without any activity
+        updated_at:
+          type: string
+          format: date-time
+      required:
+      - created_at
+      - updated_at
+      title: SessionTimeoutPolicy
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

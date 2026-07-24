@@ -1,0 +1,216 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_tokens API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_tokens
+paths:
+  /api/token/:
+    get:
+      operationId: list
+      summary: List API tokens
+      description: List all API tokens for the current user.
+      tags:
+      - subpackage_tokens
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LSEAPITokenList'
+    post:
+      operationId: create
+      summary: Create API token
+      description: Create a new API token for the current user.
+      tags:
+      - subpackage_tokens
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LSEAPITokenCreate'
+  /api/token/blacklist/:
+    post:
+      operationId: blacklist
+      summary: Blacklist a JWT refresh token
+      description: Adds a JWT refresh token to the blacklist, preventing it from being used to obtain new access tokens.
+      tags:
+      - subpackage_tokens
+      responses:
+        '204':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  description: Any type
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LSAPITokenBlacklistRequest'
+  /api/token/refresh/:
+    post:
+      operationId: refresh
+      summary: Refresh JWT token
+      description: Get a new access token, using a refresh token.
+      tags:
+      - subpackage_tokens
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefreshResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefreshRequest'
+  /api/token/rotate/:
+    post:
+      operationId: rotate
+      summary: Rotate JWT refresh token
+      description: Creates a new JWT refresh token and blacklists the current one.
+      tags:
+      - subpackage_tokens
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRotateResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LSAPITokenRotateRequest'
+components:
+  schemas:
+    LSEAPITokenCreate:
+      type: object
+      properties:
+        created_at:
+          type: string
+        expires_at:
+          type: string
+        token:
+          type: string
+      required:
+      - created_at
+      - expires_at
+      - token
+      title: LSEAPITokenCreate
+    LSEAPITokenList:
+      type: object
+      properties:
+        created_at:
+          type: string
+        expires_at:
+          type: string
+        token:
+          type: string
+      required:
+      - created_at
+      - expires_at
+      - token
+      title: LSEAPITokenList
+    TokenRefreshRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+      title: TokenRefreshRequest
+    LSAPITokenBlacklistRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+      title: LSAPITokenBlacklistRequest
+    LSAPITokenRotateRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+      title: LSAPITokenRotateRequest
+    TokenRefreshResponse:
+      type: object
+      properties:
+        access:
+          type: string
+      required:
+      - access
+      title: TokenRefreshResponse
+    TokenRotateResponse:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+      title: TokenRotateResponse
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

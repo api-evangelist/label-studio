@@ -1,0 +1,644 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_states API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_states
+paths:
+  /api/fsm/backfill/:
+    post:
+      operationId: trigger-backfill
+      summary: ✨ Trigger state backfill for organization
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nTrigger state backfill for the authenticated user's active organization. Creates initial state records for entities without states. Requires administrator or owner role and both FSM feature flags (fflag_feat_fit_568_finite_state_management and fflag_feat_fit_710_fsm_state_fields)."
+      tags:
+      - subpackage_states
+      parameters:
+      - name: project_id
+        in: query
+        description: Optional project ID to trigger backfill for a single project
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StateBackfillResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                description: Any type
+    delete:
+      operationId: cancel-backfill
+      summary: ✨ Cancel state backfill jobs
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCancel state backfill jobs for the authenticated user's active organization. Can cancel a specific job by job_id, all jobs for a specific project by project_id, or all backfill jobs for the entire organization if neither is provided."
+      tags:
+      - subpackage_states
+      parameters:
+      - name: job_id
+        in: query
+        description: Optional specific job ID to cancel
+        required: false
+        schema:
+          type: integer
+      - name: project_id
+        in: query
+        description: Optional project ID to cancel its active jobs
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StateBackfillCancelResponse'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                description: Any type
+  /api/fsm/backfill/jobs/:
+    get:
+      operationId: list-backfills
+      summary: ✨ List state backfill jobs
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the latest 10 state backfill jobs for the authenticated user's active organization. Shows job history with status, progress, and timing information. Requires administrator or owner role and both FSM feature flags (fflag_feat_fit_568_finite_state_management and fflag_feat_fit_710_fsm_state_fields)."
+      tags:
+      - subpackage_states
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StateBackfillJobListResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                description: Any type
+  /api/fsm/backfill/status/:
+    get:
+      operationId: get-backfill-status
+      summary: ✨ Get state backfill status
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the status of a state backfill job for the authenticated user's active organization. By default returns the aggregated org status, or specify job_id or project_id to get explicit job statuses. Shows progress, completion time, and any errors. Requires administrator or owner role and both FSM feature flags (fflag_feat_fit_568_finite_state_management and fflag_feat_fit_710_fsm_state_fields)."
+      tags:
+      - subpackage_states
+      parameters:
+      - name: job_id
+        in: query
+        description: Optional job ID to retrieve specific job status
+        required: false
+        schema:
+          type: integer
+      - name: project_id
+        in: query
+        description: Optional project ID to retrieve the latest job status for a project. If omitted, returns aggregated org status.
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StateBackfillStatusResponse'
+        '403':
+          description: ''
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                description: Any type
+  /api/fsm/entities/{entity_name}/{entity_id}/history:
+    get:
+      operationId: state-history
+      summary: ✨ Get entity state history
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet the state history of an entity"
+      tags:
+      - subpackage_states
+      parameters:
+      - name: entity_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: entity_name
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: created_at_from
+        in: query
+        description: Filter for state history items created at or after the ISO 8601 formatted date (YYYY-MM-DDTHH:MM:SS)
+        required: false
+        schema:
+          type: string
+      - name: created_at_to
+        in: query
+        description: Filter for state history items created at or before the ISO 8601 formatted date (YYYY-MM-DDTHH:MM:SS)
+        required: false
+        schema:
+          type: string
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: previous_state
+        in: query
+        description: Filter previous_state by exact match (case-insensitive)
+        required: false
+        schema:
+          type: string
+      - name: state
+        in: query
+        description: Filter state by exact match (case-insensitive)
+        required: false
+        schema:
+          type: string
+      - name: transition_name
+        in: query
+        description: Filter transition_name by exact match (case-insensitive)
+        required: false
+        schema:
+          type: string
+      - name: triggered_by
+        in: query
+        description: Filter triggered_by by exact match
+        required: false
+        schema:
+          type: number
+          format: double
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStateModelList'
+  /api/fsm/entities/{entity_name}/{entity_id}/transition/:
+    post:
+      operationId: execute-transition
+      summary: ✨ Execute manual state transition
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nExecute a registered manual transition for an entity."
+      tags:
+      - subpackage_states
+      parameters:
+      - name: entity_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: entity_name
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FSMTransitionExecuteResponse'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FSMTransitionExecuteRequestRequest'
+components:
+  schemas:
+    StateBackfillStatusResponse:
+      type: object
+      properties:
+        completed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        error_message:
+          type:
+          - string
+          - 'null'
+        job_id:
+          type: integer
+          description: Job ID (if fetching a specific job)
+        org_status:
+          $ref: '#/components/schemas/StateBackfillOrgStatus'
+          description: Aggregated organization status
+        progress:
+          $ref: '#/components/schemas/StateBackfillProgress'
+        rq_job_id:
+          type:
+          - string
+          - 'null'
+        rq_job_info:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            description: Any type
+        started_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        status:
+          type: string
+        triggered_by:
+          $ref: '#/components/schemas/StateTriggeredBy'
+      title: StateBackfillStatusResponse
+    StateBackfillJobItem:
+      type: object
+      properties:
+        job_id:
+          type: integer
+          description: Database ID of the backfill job
+        project_id:
+          type: integer
+          description: Project ID being backfilled
+        rq_job_id:
+          type:
+          - string
+          - 'null'
+          description: Redis queue job ID
+      required:
+      - job_id
+      - project_id
+      title: StateBackfillJobItem
+    StateBackfillProgress:
+      type: object
+      properties:
+        failed_projects:
+          type: integer
+          description: Projects that failed
+        successful_projects:
+          type: integer
+          description: Projects completed successfully
+        total_entities_processed:
+          type: integer
+          description: Total entities processed so far
+        total_projects:
+          type: integer
+          description: Total projects involved
+      title: StateBackfillProgress
+    FSMTransitionExecuteResponse:
+      type: object
+      properties:
+        new_state:
+          type:
+          - string
+          - 'null'
+        state_record:
+          oneOf:
+          - $ref: '#/components/schemas/StateModel'
+          - type: 'null'
+        success:
+          type: boolean
+      required:
+      - new_state
+      - state_record
+      - success
+      description: Response serializer for manual FSM transition execution.
+      title: FSMTransitionExecuteResponse
+    StateBackfillOrgStatus:
+      type: object
+      properties:
+        completed_projects:
+          type: integer
+        failed_projects:
+          type: integer
+        pending_projects:
+          type: integer
+        running_projects:
+          type: integer
+        total_entities_processed:
+          type: integer
+        total_projects:
+          type: integer
+          description: Total projects in organization
+      required:
+      - completed_projects
+      - failed_projects
+      - pending_projects
+      - running_projects
+      - total_entities_processed
+      - total_projects
+      title: StateBackfillOrgStatus
+    FSMTransitionExecuteRequestRequest:
+      type: object
+      properties:
+        transition_data:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            description: Any type
+        transition_name:
+          type: string
+      required:
+      - transition_name
+      description: Request body serializer for executing a manual FSM transition.
+      title: FSMTransitionExecuteRequestRequest
+    StateTriggeredBy:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type:
+          - string
+          - 'null'
+        id:
+          type: integer
+        last_name:
+          type:
+          - string
+          - 'null'
+      required:
+      - email
+      - id
+      title: StateTriggeredBy
+    PaginatedStateModelList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateModel'
+      required:
+      - count
+      - results
+      title: PaginatedStateModelList
+    StateBackfillJobListResponse:
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateBackfillJobItemResponse'
+      required:
+      - jobs
+      title: StateBackfillJobListResponse
+    StateBackfillCancelResponse:
+      type: object
+      properties:
+        cancelled_count:
+          type: integer
+          description: Number of jobs successfully cancelled
+        message:
+          type: string
+          description: Cancellation status message
+      required:
+      - cancelled_count
+      - message
+      title: StateBackfillCancelResponse
+    StateBackfillResponse:
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateBackfillJobItem'
+        jobs_queued:
+          type: integer
+          description: Number of jobs queued
+        message:
+          type: string
+          description: Status message
+        organization_id:
+          type: integer
+          description: Organization ID
+        projects_skipped:
+          type: integer
+          description: Number of projects skipped because they are already completed
+      required:
+      - jobs
+      - jobs_queued
+      - message
+      - organization_id
+      - projects_skipped
+      title: StateBackfillResponse
+    StateModel:
+      type: object
+      properties:
+        context_data:
+          description: Any type
+        created_at:
+          type: string
+          format: date-time
+        id:
+          type: string
+          format: uuid
+        previous_state:
+          type:
+          - string
+          - 'null'
+        reason:
+          type:
+          - string
+          - 'null'
+        state:
+          type: string
+        transition_name:
+          type:
+          - string
+          - 'null'
+        triggered_by:
+          oneOf:
+          - $ref: '#/components/schemas/TriggeredBy'
+          - type: 'null'
+      required:
+      - context_data
+      - created_at
+      - id
+      - previous_state
+      - reason
+      - state
+      - transition_name
+      - triggered_by
+      description: 'Serializer for FSM state models.
+
+
+        Uses Serializer instead of ModelSerializer because BaseState is abstract.
+
+        Works with any concrete state model that inherits from BaseState.'
+      title: StateModel
+    StateBackfillJobItemResponse:
+      type: object
+      properties:
+        completed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        error_message:
+          type:
+          - string
+          - 'null'
+        job_id:
+          type: integer
+        progress_data:
+          oneOf:
+          - $ref: '#/components/schemas/StateBackfillProgress'
+          - type: 'null'
+        rq_job_id:
+          type:
+          - string
+          - 'null'
+        started_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        status:
+          type: string
+        triggered_by:
+          oneOf:
+          - $ref: '#/components/schemas/StateTriggeredBy'
+          - type: 'null'
+      required:
+      - created_at
+      - job_id
+      - status
+      title: StateBackfillJobItemResponse
+    TriggeredBy:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        id:
+          type: integer
+      required:
+      - id
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: TriggeredBy
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

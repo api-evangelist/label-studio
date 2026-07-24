@@ -1,0 +1,621 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_annotations API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_annotations
+paths:
+  /api/annotations/bulk-delete/:
+    post:
+      operationId: delete-bulk
+      summary: Bulk delete annotations by IDs
+      description: Delete multiple annotations by their IDs. The deletion is processed synchronously. Returns the count of deleted annotations in the response.
+      tags:
+      - subpackage_annotations
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Annotations deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/annotations_delete_bulk_Response_200'
+        '400':
+          description: Bad request - validation errors
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: Forbidden - insufficient permissions
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnnotationBulkDeleteRequest'
+  /api/annotations/bulk/:
+    post:
+      operationId: create-bulk
+      summary: Bulk create annotations
+      description: Create multiple annotations at once
+      tags:
+      - subpackage_annotations
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Bulk annotations created successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnnotationBulkSerializerWithSelectedItemsRequest'
+  /api/annotations/{id}/:
+    get:
+      operationId: get
+      summary: Get annotation by its ID
+      description: Retrieve a specific annotation for a task using the annotation result ID.
+      tags:
+      - subpackage_annotations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Retrieved annotation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Annotation'
+    delete:
+      operationId: delete
+      summary: Delete annotation
+      description: Delete an annotation. This action can't be undone!
+      tags:
+      - subpackage_annotations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: Update annotation
+      description: Update existing attributes on an annotation.
+      tags:
+      - subpackage_annotations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Updated annotation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Annotation'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                completed_by:
+                  type: integer
+                  description: User ID of the person who created this annotation
+                ground_truth:
+                  type: boolean
+                  description: This annotation is a Ground Truth
+                lead_time:
+                  type: number
+                  format: double
+                  description: How much time it took to annotate the task (in seconds)
+                project:
+                  type: integer
+                  description: Project ID for this annotation
+                result:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems'
+                  description: Labeling result in JSON format. Read more about the format in [the Label Studio documentation.](https://labelstud.io/guide/task_format)
+                task:
+                  type: integer
+                  description: Corresponding task for this annotation
+                updated_by:
+                  type: integer
+                  description: Last user who updated this annotation
+                was_cancelled:
+                  type: boolean
+                  description: User skipped the task
+  /api/tasks/{id}/annotations/:
+    get:
+      operationId: list
+      summary: Get all task annotations
+      description: List all annotations for a task.
+      tags:
+      - subpackage_annotations
+      parameters:
+      - name: id
+        in: path
+        description: Task ID
+        required: true
+        schema:
+          type: integer
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Annotation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Annotation'
+    post:
+      operationId: create
+      summary: Create annotation
+      description: "\n        Add annotations to a task like an annotator does. The content of the result field depends on your\n        labeling configuration. For example, send the following data as part of your POST\n        request to send an empty annotation with the ID of the user who completed the task:\n\n        ```json\n        {\n        \"result\": {},\n        \"was_cancelled\": true,\n        \"ground_truth\": true,\n        \"lead_time\": 0,\n        \"task\": 0\n        \"completed_by\": 123\n        }\n        ```\n        "
+      tags:
+      - subpackage_annotations
+      parameters:
+      - name: id
+        in: path
+        description: Task ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Created annotation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Annotation'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                completed_by:
+                  type: integer
+                  description: User ID of the person who created this annotation
+                ground_truth:
+                  type: boolean
+                  description: This annotation is a Ground Truth
+                lead_time:
+                  type: number
+                  format: double
+                  description: How much time it took to annotate the task (in seconds)
+                project:
+                  type: integer
+                  description: Project ID for this annotation
+                result:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems'
+                  description: Labeling result in JSON format. Read more about the format in [the Label Studio documentation.](https://labelstud.io/guide/task_format)
+                task:
+                  type: integer
+                  description: Corresponding task for this annotation
+                updated_by:
+                  type: integer
+                  description: Last user who updated this annotation
+                was_cancelled:
+                  type: boolean
+                  description: User skipped the task
+components:
+  schemas:
+    Annotation:
+      type: object
+      properties:
+        bulk_created:
+          type:
+          - boolean
+          - 'null'
+          description: Annotation was created in bulk mode
+        completed_by:
+          type: integer
+        created_ago:
+          type: string
+          default: ''
+          description: Time delta from creation time
+        created_at:
+          type: string
+          format: date-time
+          description: Creation time
+        created_username:
+          type: string
+          default: ''
+          description: Username string
+        draft_created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Draft creation time
+        ground_truth:
+          type: boolean
+          description: This annotation is a Ground Truth (ground_truth)
+        id:
+          type: integer
+        import_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          description: Original annotation ID that was at the import step or NULL if this annotation wasn't imported
+        last_action:
+          oneOf:
+          - $ref: '#/components/schemas/LastActionEnum'
+          - type: 'null'
+          description: 'Action which was performed in the last annotation history item
+
+
+            * `prediction` - Created from prediction
+
+            * `propagated_annotation` - Created from another annotation
+
+            * `imported` - Imported
+
+            * `submitted` - Submitted
+
+            * `updated` - Updated
+
+            * `skipped` - Skipped
+
+            * `accepted` - Accepted
+
+            * `rejected` - Rejected
+
+            * `fixed_and_accepted` - Fixed and accepted
+
+            * `deleted_review` - Deleted review'
+        last_created_by:
+          type:
+          - integer
+          - 'null'
+          description: User who created the last annotation history item
+        lead_time:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: How much time it took to annotate the task
+        parent_annotation:
+          type:
+          - integer
+          - 'null'
+          description: Points to the parent annotation from which this annotation was created
+        parent_prediction:
+          type:
+          - integer
+          - 'null'
+          description: Points to the prediction from which this annotation was created
+        project:
+          type:
+          - integer
+          - 'null'
+          description: Project ID for this annotation
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationResultItems'
+          description: List of annotation results for the task
+        state:
+          type: string
+        task:
+          type:
+          - integer
+          - 'null'
+          description: Corresponding task for this annotation
+        updated_at:
+          type: string
+          format: date-time
+          description: Last updated time
+        updated_by:
+          type:
+          - integer
+          - 'null'
+          description: Last user who updated this annotation
+        was_cancelled:
+          type: boolean
+          description: User skipped the task
+      required:
+      - created_ago
+      - created_at
+      - created_username
+      - id
+      - state
+      - updated_at
+      description: 'Annotation Serializer with FSM state support.
+
+
+        Note: The ''state'' field will be populated from the queryset annotation
+
+        if present, preventing N+1 queries. Use .with_state() on your queryset.'
+      title: Annotation
+    LastActionEnum:
+      type: string
+      enum:
+      - prediction
+      - propagated_annotation
+      - imported
+      - submitted
+      - updated
+      - skipped
+      - accepted
+      - rejected
+      - fixed_and_accepted
+      - deleted_review
+      description: '* `prediction` - Created from prediction
+
+        * `propagated_annotation` - Created from another annotation
+
+        * `imported` - Imported
+
+        * `submitted` - Submitted
+
+        * `updated` - Updated
+
+        * `skipped` - Skipped
+
+        * `accepted` - Accepted
+
+        * `rejected` - Rejected
+
+        * `fixed_and_accepted` - Fixed and accepted
+
+        * `deleted_review` - Deleted review'
+      title: LastActionEnum
+    annotations_delete_bulk_Response_200:
+      type: object
+      properties:
+        deleted_count:
+          type: integer
+          description: Number of annotations deleted
+      title: annotations_delete_bulk_Response_200
+    AnnotationBulkDeleteRequest:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: integer
+          description: List of annotation IDs to delete
+        project:
+          type: integer
+      required:
+      - ids
+      - project
+      description: Serializer for bulk annotation deletion by IDs.
+      title: AnnotationBulkDeleteRequest
+    ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Annotation ID
+      required:
+      - id
+      title: ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems
+    ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems:
+      type: object
+      properties: {}
+      title: ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems
+    ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems:
+      type: object
+      properties: {}
+      title: ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems
+    SelectedItemsRequest:
+      type: object
+      properties:
+        all:
+          type: boolean
+        excluded:
+          type: array
+          items:
+            type: integer
+        included:
+          type: array
+          items:
+            type: integer
+      required:
+      - all
+      title: SelectedItemsRequest
+    AnnotationBulkSerializerWithSelectedItemsRequest:
+      type: object
+      properties:
+        bulk_created:
+          type:
+          - boolean
+          - 'null'
+          description: Annotation was created in bulk mode
+        completed_by:
+          type: integer
+        draft_created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Draft creation time
+        ground_truth:
+          type: boolean
+          description: This annotation is a Ground Truth (ground_truth)
+        import_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          description: Original annotation ID that was at the import step or NULL if this annotation wasn't imported
+        last_action:
+          oneOf:
+          - $ref: '#/components/schemas/LastActionEnum'
+          - type: 'null'
+          description: 'Action which was performed in the last annotation history item
+
+
+            * `prediction` - Created from prediction
+
+            * `propagated_annotation` - Created from another annotation
+
+            * `imported` - Imported
+
+            * `submitted` - Submitted
+
+            * `updated` - Updated
+
+            * `skipped` - Skipped
+
+            * `accepted` - Accepted
+
+            * `rejected` - Rejected
+
+            * `fixed_and_accepted` - Fixed and accepted
+
+            * `deleted_review` - Deleted review'
+        last_created_by:
+          type:
+          - integer
+          - 'null'
+          description: User who created the last annotation history item
+        lead_time:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: How much time it took to annotate the task
+        parent_annotation:
+          type:
+          - integer
+          - 'null'
+          description: Points to the parent annotation from which this annotation was created
+        parent_prediction:
+          type:
+          - integer
+          - 'null'
+          description: Points to the prediction from which this annotation was created
+        project:
+          type:
+          - integer
+          - 'null'
+          description: Project ID for this annotation
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationBulkSerializerWithSelectedItemsRequestResultItems'
+          description: List of annotation results for the task
+        selected_items:
+          oneOf:
+          - $ref: '#/components/schemas/SelectedItemsRequest'
+          - type: 'null'
+        task:
+          type:
+          - integer
+          - 'null'
+          description: Corresponding task for this annotation
+        tasks:
+          type: array
+          items:
+            type: integer
+        unique_id:
+          type: string
+        updated_by:
+          type:
+          - integer
+          - 'null'
+          description: Last user who updated this annotation
+        was_cancelled:
+          type: boolean
+          description: User skipped the task
+      description: 'Annotation Serializer with FSM state support.
+
+
+        Note: The ''state'' field will be populated from the queryset annotation
+
+        if present, preventing N+1 queries. Use .with_state() on your queryset.'
+      title: AnnotationBulkSerializerWithSelectedItemsRequest
+    AnnotationBulkSerializerWithSelectedItemsRequestResultItems:
+      type: object
+      properties: {}
+      description: List of annotated regions for the task
+      title: AnnotationBulkSerializerWithSelectedItemsRequestResultItems
+    AnnotationResultItems:
+      type: object
+      properties: {}
+      description: List of annotated regions for the task
+      title: AnnotationResultItems
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

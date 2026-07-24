@@ -1,0 +1,1212 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/stats API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_projects.subpackage_projects/stats
+paths:
+  /api/projects/{id}/model-stats/{model_version}/agreement:
+    get:
+      operationId: model-version-annotator-agreement
+      summary: ✨ Get model-version overall agreement vs annotators
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet agreement between a given model version and all annotators in the project for overlapping tasks."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: model_version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Model-version overall agreement vs annotators
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_model_version_annotator_agreement_Response_200'
+  /api/projects/{id}/model-stats/{model_version}/agreement-groundtruth:
+    get:
+      operationId: model-version-ground-truth-agreement
+      summary: ✨ Get model-version ground truth agreement
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet agreement between a given model version and ground truth annotations in the project for overlapping tasks."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: model_version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: per_label
+        in: query
+        description: Calculate agreement per label
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Model-version ground truth agreement
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_model_version_ground_truth_agreement_Response_200'
+  /api/projects/{id}/model-stats/{model_version}/prediction:
+    get:
+      operationId: model-version-prediction-agreement
+      summary: ✨ Get model-version prediction agreement
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet agreement between a given model version and all other model versions in the project for overlapping tasks."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: model_version
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: per_label
+        in: query
+        description: Calculate agreement per label
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Model-version prediction agreement
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_model_version_prediction_agreement_Response_200'
+  /api/projects/{id}/stats/IAA:
+    get:
+      operationId: iaa
+      summary: ✨ Get Inter-Annotator Agreement matrix
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet Inter-Annotator Agreement (IAA) matrix for a project, showing agreement between all annotators."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: expand
+        in: query
+        description: Comma-separated list of fields to expand
+        required: false
+        schema:
+          type: string
+      - name: per_label
+        in: query
+        description: Calculate IAA per label
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: std
+        in: query
+        description: Include standard deviation in results
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: task
+        in: query
+        description: Comma-separated list of task IDs to filter by
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Inter-Annotator Agreement matrix
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_iaa_Response_200'
+  /api/projects/{id}/stats/agreement-groundtruth:
+    get:
+      operationId: users-ground-truth-agreement
+      summary: ✨ Get ground truth agreement for multiple users
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet ground truth agreement statistics for multiple users within a project."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: ids
+        in: query
+        description: Comma separated list of user IDs to get ground truth agreement for
+        required: true
+        schema:
+          type: string
+      - name: per_label
+        in: query
+        description: Per label
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Ground truth agreement statistics for multiple users
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_users_ground_truth_agreement_Response_200'
+  /api/projects/{id}/stats/agreement_annotator/{user_id}:
+    get:
+      operationId: agreement-annotator
+      summary: ✨ Get individual annotator agreement stats
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet agreement statistics for a specific annotator within a project."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Individual annotator agreement statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_agreement_annotator_Response_200'
+  /api/projects/{id}/stats/agreement_annotators:
+    get:
+      operationId: agreement-annotators
+      summary: ✨ Get agreement statistics for multiple annotators
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet agreement statistics for multiple annotators within a project."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: ids
+        in: query
+        description: Comma separated list of annotator user IDs to get agreement scores for
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Multiple annotator agreement statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_agreement_annotators_Response_200'
+  /api/projects/{id}/stats/data_filter:
+    get:
+      operationId: data-filters
+      summary: ✨ Get user data filter statistics
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet statistics about user data filters and their usage within a project."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User data filter statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_data_filters_Response_200'
+  /api/projects/{id}/stats/finished:
+    get:
+      operationId: finished-tasks
+      summary: ✨ Get finished tasks statistics
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet statistics about finished tasks for a project."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: user_pk
+        in: query
+        description: User ID to filter statistics by (optional)
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Finished tasks statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_finished_tasks_Response_200'
+  /api/projects/{id}/stats/label-distribution/counts:
+    get:
+      operationId: label-distribution-counts
+      summary: ✨ Get label distribution counts
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nReturns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: choice_keys
+        in: query
+        description: 'Explicit choice keys to fetch, joined by "___PIPE___" (for example: "label___SEP___pos___PIPE___quality___SEP___4"). When provided, pagination params are ignored.'
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of choice keys to return for pagination. Ignored when `choice_keys` is provided.
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: Zero-based offset into the structure `choice_keys` list. Used only when `choice_keys` is not provided.
+        required: false
+        schema:
+          type: integer
+          default: 0
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Label distribution counts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelDistributionCountsResponse'
+  /api/projects/{id}/stats/label-distribution/structure:
+    get:
+      operationId: label-distribution-structure
+      summary: ✨ Get label distribution structure
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nReturns dimensions and flattened `choice_keys` for a project. Use this response to drive paginated or targeted calls to the label distribution counts endpoint."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Label distribution structure
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LabelDistributionStructureResponse'
+  /api/projects/{id}/stats/lead_time:
+    get:
+      operationId: lead-time
+      summary: ✨ Get lead time statistics
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet lead time statistics across the project, including average annotation time."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Lead time statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_lead_time_Response_200'
+  /api/projects/{id}/stats/member_performance_rows/:
+    get:
+      operationId: member-performance-rows
+      summary: ✨ Get paginated member performance rows
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nPaginated, sortable member performance rows for annotation/review tables. Guarded by <code>fflag_feat_lse_project_dashboards_v3_members_short</code>."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: ids
+        in: query
+        description: Comma-separated user IDs to include. When omitted, members are derived from the project.
+        required: false
+        schema:
+          type: string
+      - name: ordering
+        in: query
+        description: Sort field; prefix with "-" for descending (e.g. "-finished").
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: 1-based page index.
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: Page size (1–100).
+        required: false
+        schema:
+          type: integer
+      - name: table
+        in: query
+        description: 'Which table to load: "annotations" or "reviews".'
+        required: false
+        schema:
+          $ref: '#/components/schemas/ApiProjectsIdStatsMemberPerformanceRowsGetParametersTable'
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Member performance rows for one page plus summary aggregates.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_member_performance_rows_Response_200'
+        '404':
+          description: Feature flag off or project not found.
+          content:
+            application/json:
+              schema:
+                description: Any type
+  /api/projects/{id}/stats/total_agreement:
+    get:
+      operationId: total-agreement
+      summary: ✨ Get total agreement for project
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nOverall or per-label total agreement across the project.\n\nNOTE: when this endpoint returns 204 No Content, SDK clients return None."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: per_label
+        in: query
+        description: Return agreement per label
+        required: false
+        schema:
+          type: boolean
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Total agreement
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_total_agreement_Response_200'
+  /api/projects/{id}/update-stats:
+    get:
+      operationId: update-stats
+      summary: ✨ Start stats recalculation
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nStart stats recalculation for given project"
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: stat_type
+        in: query
+        description: 'Stat type to recalculate. Possible values: label, stats'
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response returns job id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_update_stats_Response_200'
+  /api/projects/{id}/user-stats/prediction:
+    get:
+      operationId: users-prediction-agreement
+      summary: ✨ Get prediction agreement statistics for multiple annotators
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet prediction agreement statistics for multiple annotators within a project."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: ids
+        in: query
+        description: Comma separated list of annotator user IDs to get agreement scores for
+        required: true
+        schema:
+          type: string
+      - name: per_label
+        in: query
+        description: Per label
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Prediction agreement statistics for multiple annotators
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_users_prediction_agreement_Response_200'
+  /api/projects/{id}/user-stats/review_score:
+    get:
+      operationId: users-review-score
+      summary: ✨ Get review scores for multiple annotators
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet review score and performance score statistics for multiple annotators within a project. Only allowed for accounts with reviewing features enabled."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: ids
+        in: query
+        description: Comma separated list of annotator user IDs to get review scores for
+        required: true
+        schema:
+          type: string
+      - name: per_label
+        in: query
+        description: Per label
+        required: false
+        schema:
+          type: boolean
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Review scores and performance scores for multiple annotators
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_users_review_score_Response_200'
+  /api/projects/{id}/user-stats/{user_pk}/prediction:
+    get:
+      operationId: user-prediction-agreement
+      summary: ✨ Get individual user prediction agreement
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet prediction agreement statistics for a specific user within a project."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: user_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: per_label
+        in: query
+        description: Calculate agreement per label
+        required: false
+        schema:
+          type: boolean
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Individual user prediction agreement statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_user_prediction_agreement_Response_200'
+  /api/projects/{id}/user-stats/{user_pk}/review_score:
+    get:
+      operationId: user-review-score
+      summary: ✨ Get individual user review scores
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet review score statistics for a specific user within a project. Only allowed for accounts with reviewing features enabled."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: user_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: per_label
+        in: query
+        description: Calculate agreement per label
+        required: false
+        schema:
+          type: boolean
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Individual user review score statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_user_review_score_Response_200'
+  /api/projects/{id}/users/{user_pk}/stats/agreement-groundtruth:
+    get:
+      operationId: user-ground-truth-agreement
+      summary: ✨ Get individual user ground truth agreement
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet ground truth agreement statistics for a specific user within a project."
+      tags:
+      - subpackage_projects.subpackage_projects/stats
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: user_pk
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: per_label
+        in: query
+        description: Calculate agreement per label
+        required: false
+        schema:
+          type: boolean
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Individual user ground truth agreement statistics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_stats_user_ground_truth_agreement_Response_200'
+components:
+  schemas:
+    ApiProjectsIdStatsMemberPerformanceRowsGetParametersTable:
+      type: string
+      enum:
+      - annotations
+      - reviews
+      title: ApiProjectsIdStatsMemberPerformanceRowsGetParametersTable
+    ProjectsStatsTotalAgreementResponse2001:
+      type: object
+      properties:
+        total_agreement:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+      title: ProjectsStatsTotalAgreementResponse2001
+    projects_stats_users_review_score_Response_200:
+      type: object
+      properties:
+        performance_score:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore'
+          description: Performance scores mapped by annotator ID
+        review_score:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore'
+          description: Review scores mapped by annotator ID
+      title: projects_stats_users_review_score_Response_200
+    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems:
+      type: object
+      properties:
+        id:
+          type: string
+          description: User ID or model version identifier (e.g., "model:1.0")
+      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems
+    ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore
+    projects_stats_model_version_ground_truth_agreement_Response_200:
+      type: object
+      properties:
+        agreement:
+          type:
+          - number
+          - 'null'
+          format: double
+      title: projects_stats_model_version_ground_truth_agreement_Response_200
+    projects_stats_agreement_annotators_Response_200:
+      type: object
+      properties:
+        agreement:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+          description: Mapping of annotator ID to their agreement score (0-1) or null if no data
+      required:
+      - agreement
+      title: projects_stats_agreement_annotators_Response_200
+    ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems:
+      type: object
+      properties: {}
+      title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems
+    projects_stats_iaa_Response_200:
+      type: object
+      properties:
+        IAA:
+          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaIaa'
+          description: Inter-Annotator Agreement matrix - 2D array when per_label=false, object with label keys when per_label=true
+        common_tasks:
+          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaCommonTasks'
+          description: Common tasks matrix - 2D array when per_label=false, object with label keys when per_label=true
+        std:
+          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd'
+          description: Standard deviation - number when per_label=false, object with label keys when per_label=true
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems'
+          description: List of users in the matrix
+      title: projects_stats_iaa_Response_200
+    projects_stats_total_agreement_Response_200:
+      oneOf:
+      - $ref: '#/components/schemas/ProjectsStatsTotalAgreementResponse2000'
+      - $ref: '#/components/schemas/ProjectsStatsTotalAgreementResponse2001'
+      title: projects_stats_total_agreement_Response_200
+    projects_stats_lead_time_Response_200:
+      type: object
+      properties:
+        lead_time_stats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems'
+          description: Lead time statistics including mean, median, and distribution
+      title: projects_stats_lead_time_Response_200
+    projects_stats_user_ground_truth_agreement_Response_200:
+      type: object
+      properties:
+        agreement:
+          $ref: '#/components/schemas/ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement'
+      title: projects_stats_user_ground_truth_agreement_Response_200
+    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations:
+      type: object
+      properties: {}
+      description: Default filter tab for tasks with annotations
+      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations
+    projects_stats_user_review_score_Response_200:
+      type: object
+      properties:
+        performance_score:
+          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore'
+        review_score:
+          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore'
+      title: projects_stats_user_review_score_Response_200
+    ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems:
+      type: object
+      properties:
+        mean_time:
+          type: number
+          format: double
+          description: Average lead time for the user
+        median_time:
+          type: number
+          format: double
+          description: Median lead time for the user
+        sum_lead_time:
+          type: number
+          format: double
+          description: Total lead time for the user
+        user_id:
+          type: integer
+          description: User ID
+      title: ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems
+    ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      description: Standard deviation - number when per_label=false, object with label keys when per_label=true
+      title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd
+    ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore
+    ProjectsStatsTotalAgreementResponse2000:
+      type: object
+      properties:
+        total_agreement:
+          type: number
+          format: double
+      title: ProjectsStatsTotalAgreementResponse2000
+    LabelDistributionStructureDimension:
+      type: object
+      properties:
+        choice_keys:
+          type: array
+          items:
+            type: string
+          description: Flat keys in "<from_name>___SEP___<choice>" format for this dimension.
+        choices:
+          type: array
+          items:
+            type: string
+          description: Sorted list of choices observed from config and/or created labels.
+        name:
+          type: string
+          description: Original from_name from labeling config or observed annotation results.
+        type:
+          type: string
+          description: Result item type for this dimension when available.
+      required:
+      - choice_keys
+      - choices
+      - name
+      title: LabelDistributionStructureDimension
+    LabelDistributionStructureResponse:
+      type: object
+      properties:
+        choice_keys:
+          type: array
+          items:
+            type: string
+          description: All project choice keys in stable order, joined with "___PIPE___" when passed as query param.
+        dimensions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LabelDistributionStructureDimension'
+      required:
+      - choice_keys
+      - dimensions
+      title: LabelDistributionStructureResponse
+    ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement
+    projects_stats_users_prediction_agreement_Response_200:
+      type: object
+      properties:
+        agreement:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement'
+          description: Dictionary mapping user IDs to their prediction agreement scores
+      title: projects_stats_users_prediction_agreement_Response_200
+    projects_stats_member_performance_rows_Response_200:
+      type: object
+      properties:
+        count:
+          type: integer
+        page:
+          type: integer
+        page_size:
+          type: integer
+        results:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Any type
+        summary:
+          type: object
+          additionalProperties:
+            description: Any type
+      title: projects_stats_member_performance_rows_Response_200
+    projects_stats_agreement_annotator_Response_200:
+      type: object
+      properties:
+        Agreement_per_annotator:
+          type: number
+          format: double
+          description: Agreement score for the annotator (0-1)
+      title: projects_stats_agreement_annotator_Response_200
+    ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement
+    projects_stats_model_version_annotator_agreement_Response_200:
+      type: object
+      properties:
+        agreement:
+          type:
+          - number
+          - 'null'
+          format: double
+      title: projects_stats_model_version_annotator_agreement_Response_200
+    LabelDistributionCountsRow:
+      type: object
+      properties:
+        choice:
+          type: string
+        choice_key:
+          type: string
+        dimension_name:
+          type: string
+        from_annotations_count:
+          type: integer
+        from_annotations_percent:
+          type: number
+          format: double
+        from_predictions_count:
+          type: integer
+        from_predictions_percent:
+          type: number
+          format: double
+      required:
+      - choice
+      - choice_key
+      - dimension_name
+      - from_annotations_count
+      - from_annotations_percent
+      - from_predictions_count
+      - from_predictions_percent
+      title: LabelDistributionCountsRow
+    ApiProjectsIdStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement
+    projects_stats_update_stats_Response_200:
+      type: object
+      properties: {}
+      description: Stat recalculation job
+      title: projects_stats_update_stats_Response_200
+    projects_stats_finished_tasks_Response_200:
+      type: object
+      properties:
+        finished:
+          type: integer
+          description: Number of finished tasks
+        id:
+          type: integer
+          description: User ID
+        progress:
+          type: integer
+          description: Progress percentage (0-100)
+      title: projects_stats_finished_tasks_Response_200
+    ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaIaa:
+      oneOf:
+      - type: array
+        items:
+          type: array
+          items:
+            type: number
+            format: double
+      - type: object
+        additionalProperties:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+      description: Inter-Annotator Agreement matrix - 2D array when per_label=false, object with label keys when per_label=true
+      title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaIaa
+    projects_stats_users_ground_truth_agreement_Response_200:
+      type: object
+      properties:
+        agreement:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ApiProjectsIdStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement'
+          description: Dictionary mapping user IDs to their ground truth agreement scores
+      title: projects_stats_users_ground_truth_agreement_Response_200
+    ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaCommonTasks:
+      oneOf:
+      - type: array
+        items:
+          type: array
+          items:
+            type: number
+            format: double
+      - type: object
+        additionalProperties:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+      description: Common tasks matrix - 2D array when per_label=false, object with label keys when per_label=true
+      title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaCommonTasks
+    ApiProjectsIdUserStatsUserPkPredictionGetResponsesContentApplicationJsonSchemaAveragePredictionAgreementPerUser:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsUserPkPredictionGetResponsesContentApplicationJsonSchemaAveragePredictionAgreementPerUser
+    ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore
+    projects_stats_user_prediction_agreement_Response_200:
+      type: object
+      properties:
+        average_prediction_agreement_per_user:
+          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkPredictionGetResponsesContentApplicationJsonSchemaAveragePredictionAgreementPerUser'
+      title: projects_stats_user_prediction_agreement_Response_200
+    LabelDistributionCountsResponse:
+      type: object
+      properties:
+        next_offset:
+          type:
+          - integer
+          - 'null'
+          description: Next offset for pagination when using limit/offset mode; null when there are no more results or when filtering by explicit `choice_keys`.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LabelDistributionCountsRow'
+        totals:
+          $ref: '#/components/schemas/LabelDistributionCountsTotals'
+      required:
+      - next_offset
+      - results
+      - totals
+      title: LabelDistributionCountsResponse
+    ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore
+    projects_stats_data_filters_Response_200:
+      type: object
+      properties:
+        user_filters:
+          $ref: '#/components/schemas/ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFilters'
+          description: Data filter statistics by user and model
+      title: projects_stats_data_filters_Response_200
+    LabelDistributionCountsTotals:
+      type: object
+      properties:
+        annotation_totals_by_dimension:
+          type: object
+          additionalProperties:
+            type: integer
+          description: Total annotation counts keyed by dimension name.
+        prediction_totals_by_dimension:
+          type: object
+          additionalProperties:
+            type: integer
+          description: Total prediction counts keyed by dimension name.
+      title: LabelDistributionCountsTotals
+    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFilters:
+      type: object
+      properties:
+        stats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems'
+          description: List of filter configurations for users and models
+        tasks_with_annotations:
+          $ref: '#/components/schemas/ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations'
+          description: Default filter tab for tasks with annotations
+      description: Data filter statistics by user and model
+      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFilters
+    projects_stats_model_version_prediction_agreement_Response_200:
+      type: object
+      properties:
+        average_prediction_agreement_per_model:
+          type:
+          - number
+          - 'null'
+          format: double
+      title: projects_stats_model_version_prediction_agreement_Response_200
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

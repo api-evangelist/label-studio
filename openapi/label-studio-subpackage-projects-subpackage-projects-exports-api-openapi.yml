@@ -1,0 +1,807 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/exports API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_projects.subpackage_projects/exports
+paths:
+  /api/projects/{id}/export:
+    get:
+      operationId: download-sync
+      summary: '[Deprecated] Easy export of tasks and annotations'
+      description: "\n        This endpoint is deprecated in Enterprise. Use the async export API instead:\n        POST /api/projects/{id}/exports/ (see [Create new export](/api#operation/api_projects_exports_create)).\n\n        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.\n\n        <i>Note: if you have a large project it's recommended to use\n        export snapshots, this easy export endpoint might have timeouts.</i><br/><br>\n        Export annotated tasks as a file in a specific format.\n        For example, to export JSON annotations for a project to a file called `annotations.json`,\n        run the following from the command line:\n        ```bash\n        curl -X GET http://localhost:8000/api/projects/{id}/export?exportType=JSON -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        To export all tasks, including skipped tasks and others without annotations, run the following from the command line:\n        ```bash\n        curl -X GET http://localhost:8000/api/projects/{id}/export?exportType=JSON&download_all_tasks=true -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        To export specific tasks with IDs of 123 and 345, run the following from the command line:\n        ```bash\n        curl -X GET 'http://localhost:8000/api/projects/{id}/export?ids[]=123&ids[]=345' -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        "
+      tags:
+      - subpackage_projects.subpackage_projects/exports
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        schema:
+          type: integer
+      - name: download_all_tasks
+        in: query
+        description: If true, download all tasks regardless of status. If false, download only annotated tasks.
+        required: false
+        schema:
+          type: boolean
+      - name: download_resources
+        in: query
+        description: If true, download all resource files such as images, audio, and others relevant to the tasks.
+        required: false
+        schema:
+          type: boolean
+      - name: export_type
+        in: query
+        description: Selected export format (JSON by default)
+        required: false
+        schema:
+          type: string
+      - name: ids
+        in: query
+        description: Specify a list of task IDs to retrieve only the details for those tasks.
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Exported data
+          content:
+            application/json:
+              schema:
+                type: string
+                format: binary
+  /api/projects/{id}/export/formats:
+    get:
+      operationId: list-formats
+      summary: '[Deprecated] Get export formats'
+      description: "\n        This endpoint is deprecated in Enterprise. Use the async export API instead:\n        POST /api/projects/{{id}}/exports/ (see [Create new export](/api#operation/api_projects_exports_create)).\n\n        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.\n\n        Retrieve the available export formats for the current project by ID."
+      tags:
+      - subpackage_projects.subpackage_projects/exports
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Export formats
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /api/projects/{id}/exports/:
+    get:
+      operationId: list
+      summary: List all export snapshots
+      description: Returns a list of exported files for a specific project by ID.
+      tags:
+      - subpackage_projects.subpackage_projects/exports
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        schema:
+          type: integer
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Export'
+    post:
+      operationId: create
+      summary: Create new export snapshot
+      description: Create a new export request to start a background task and generate an export file for a specific project by ID.
+      tags:
+      - subpackage_projects.subpackage_projects/exports
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LseExportCreate'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LseExportCreateRequest'
+  /api/projects/{id}/exports/{export_pk}:
+    get:
+      operationId: get
+      summary: Get export snapshot by ID
+      description: Retrieve information about an export file by export ID for a specific project.
+      tags:
+      - subpackage_projects.subpackage_projects/exports
+      parameters:
+      - name: export_pk
+        in: path
+        description: Primary key identifying the export file.
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Export'
+    delete:
+      operationId: delete
+      summary: Delete export snapshot
+      description: Delete an export file by specified export ID.
+      tags:
+      - subpackage_projects.subpackage_projects/exports
+      parameters:
+      - name: export_pk
+        in: path
+        description: Primary key identifying the export file.
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+  /api/projects/{id}/exports/{export_pk}/convert:
+    post:
+      operationId: convert
+      summary: Export conversion
+      description: Convert export snapshot to selected format
+      tags:
+      - subpackage_projects.subpackage_projects/exports
+      parameters:
+      - name: export_pk
+        in: path
+        description: Primary key identifying the export file.
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects_exports_convert_Response_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportConvertRequest'
+  /api/projects/{id}/exports/{export_pk}/download:
+    get:
+      operationId: download
+      summary: Download export snapshot as file in specified format
+      description: "\n        Download an export file in the specified format for a specific project. Specify the project ID with the `id`\n        parameter in the path and the ID of the export file you want to download using the `export_pk` parameter\n        in the path.\n\n        Get the `export_pk` from the response of the request to [Create new export](/api#operation/api_projects_exports_create)\n        or after [listing export files](/api#operation/api_projects_exports_list).\n        "
+      tags:
+      - subpackage_projects.subpackage_projects/exports
+      parameters:
+      - name: export_pk
+        in: path
+        description: Primary key identifying the export file.
+        required: true
+        schema:
+          type: integer
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        schema:
+          type: integer
+      - name: exportType
+        in: query
+        description: Selected export format
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Export file
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+components:
+  schemas:
+    ExportConvertRequest:
+      type: object
+      properties:
+        download_resources:
+          type: boolean
+          description: Download resources in converter.
+        export_type:
+          type: string
+          description: Export file format.
+      required:
+      - export_type
+      title: ExportConvertRequest
+    ReviewedEnum:
+      type: string
+      enum:
+      - only
+      - exclude
+      description: '* `only` - only
+
+        * `exclude` - exclude
+
+        * `None` - None'
+      title: ReviewedEnum
+    LseAnnotationFilterOptionsRequest:
+      type: object
+      properties:
+        ground_truth:
+          type:
+          - boolean
+          - 'null'
+          description: Include ground truth annotations
+        reviewed:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewedEnum'
+          - type: 'null'
+          description: '`only` - include all tasks with at least one not reviewed annotation<br>`exclude` - exclude with at least one not reviewed annotation
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        skipped:
+          type:
+          - boolean
+          - 'null'
+          description: Include skipped annotations
+        usual:
+          type:
+          - boolean
+          - 'null'
+          default: true
+          description: Include not skipped and not ground truth annotations
+      title: LseAnnotationFilterOptionsRequest
+    ConvertedFormat:
+      type: object
+      properties:
+        export_type:
+          type: string
+        id:
+          type: integer
+        status:
+          $ref: '#/components/schemas/Status7bfEnum'
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report in case of errors
+      required:
+      - export_type
+      - id
+      title: ConvertedFormat
+    AnnotatedEnum:
+      type: string
+      enum:
+      - only
+      - exclude
+      description: '* `only` - only
+
+        * `exclude` - exclude
+
+        * `None` - None'
+      title: AnnotatedEnum
+    LseTaskFilterOptions:
+      type: object
+      properties:
+        annotated:
+          oneOf:
+          - $ref: '#/components/schemas/AnnotatedEnum'
+          - type: 'null'
+          description: '`only` - include all tasks with at least one not skipped annotation<br>`exclude` - exclude all tasks with at least one not skipped annotation
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        finished:
+          oneOf:
+          - $ref: '#/components/schemas/FinishedEnum'
+          - type: 'null'
+          description: '`only` - include all finished tasks (is_labeled = true)<br>`exclude` - exclude all finished tasks
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        only_with_annotations:
+          type: boolean
+          default: false
+        reviewed:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewedEnum'
+          - type: 'null'
+          description: '`only` - include all reviewed tasks<br>`exclude` - exclude all reviewed tasks
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        skipped:
+          oneOf:
+          - $ref: '#/components/schemas/SkippedEnum'
+          - type: 'null'
+          description: '`only` - include all tasks with skipped annotations<br>`exclude` - exclude all tasks with skipped annotations
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        view:
+          type: integer
+          description: Apply filters from the view ID (a tab from the Data Manager)
+      title: LseTaskFilterOptions
+    SkippedEnum:
+      type: string
+      enum:
+      - only
+      - exclude
+      description: '* `only` - only
+
+        * `exclude` - exclude
+
+        * `None` - None'
+      title: SkippedEnum
+    projects_exports_convert_Response_200:
+      type: object
+      properties:
+        converted_format:
+          type: integer
+        export_type:
+          type: string
+      title: projects_exports_convert_Response_200
+    SerializationOptions:
+      type: object
+      properties:
+        annotations__completed_by:
+          $ref: '#/components/schemas/SerializationOption'
+          description: JSON dict with parameters
+        drafts:
+          $ref: '#/components/schemas/SerializationOption'
+          description: JSON dict with parameters
+        include_annotation_history:
+          type: boolean
+          default: false
+          description: Include annotation history
+        interpolate_key_frames:
+          type: boolean
+          default: false
+          description: Interpolate video key frames
+        predictions:
+          $ref: '#/components/schemas/SerializationOption'
+          description: JSON dict with parameters
+      title: SerializationOptions
+    SerializationOptionRequest:
+      type: object
+      properties:
+        only_id:
+          type: boolean
+          default: false
+          description: Include a full json body or IDs only
+      title: SerializationOptionRequest
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    FinishedEnum:
+      type: string
+      enum:
+      - only
+      - exclude
+      description: '* `only` - only
+
+        * `exclude` - exclude
+
+        * `None` - None'
+      title: FinishedEnum
+    SerializationOption:
+      type: object
+      properties:
+        only_id:
+          type: boolean
+          default: false
+          description: Include a full json body or IDs only
+      title: SerializationOption
+    LseExportCreateRequest:
+      type: object
+      properties:
+        annotation_filter_options:
+          $ref: '#/components/schemas/LseAnnotationFilterOptionsRequest'
+        converted_formats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConvertedFormatRequest'
+        counters:
+          description: Any type
+        created_by:
+          $ref: '#/components/schemas/UserSimpleRequest'
+        finished_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Complete or fail time
+        md5:
+          type: string
+        serialization_options:
+          $ref: '#/components/schemas/SerializationOptionsRequest'
+        status:
+          $ref: '#/components/schemas/Status7bfEnum'
+        task_filter_options:
+          $ref: '#/components/schemas/LseTaskFilterOptionsRequest'
+        title:
+          type: string
+      title: LseExportCreateRequest
+    Status7bfEnum:
+      type: string
+      enum:
+      - created
+      - in_progress
+      - failed
+      - completed
+      description: '* `created` - Created
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed'
+      title: Status7bfEnum
+    LseTaskFilterOptionsRequest:
+      type: object
+      properties:
+        annotated:
+          oneOf:
+          - $ref: '#/components/schemas/AnnotatedEnum'
+          - type: 'null'
+          description: '`only` - include all tasks with at least one not skipped annotation<br>`exclude` - exclude all tasks with at least one not skipped annotation
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        finished:
+          oneOf:
+          - $ref: '#/components/schemas/FinishedEnum'
+          - type: 'null'
+          description: '`only` - include all finished tasks (is_labeled = true)<br>`exclude` - exclude all finished tasks
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        only_with_annotations:
+          type: boolean
+          default: false
+        reviewed:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewedEnum'
+          - type: 'null'
+          description: '`only` - include all reviewed tasks<br>`exclude` - exclude all reviewed tasks
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        skipped:
+          oneOf:
+          - $ref: '#/components/schemas/SkippedEnum'
+          - type: 'null'
+          description: '`only` - include all tasks with skipped annotations<br>`exclude` - exclude all tasks with skipped annotations
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        view:
+          type: integer
+          description: Apply filters from the view ID (a tab from the Data Manager)
+      title: LseTaskFilterOptionsRequest
+    LseAnnotationFilterOptions:
+      type: object
+      properties:
+        ground_truth:
+          type:
+          - boolean
+          - 'null'
+          description: Include ground truth annotations
+        reviewed:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewedEnum'
+          - type: 'null'
+          description: '`only` - include all tasks with at least one not reviewed annotation<br>`exclude` - exclude with at least one not reviewed annotation
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        skipped:
+          type:
+          - boolean
+          - 'null'
+          description: Include skipped annotations
+        usual:
+          type:
+          - boolean
+          - 'null'
+          default: true
+          description: Include not skipped and not ground truth annotations
+      title: LseAnnotationFilterOptions
+    UserSimpleRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimpleRequest
+    Export:
+      type: object
+      properties:
+        converted_formats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConvertedFormat'
+        counters:
+          description: Any type
+        created_at:
+          type: string
+          format: date-time
+          description: Creation time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+        finished_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Complete or fail time
+        id:
+          type: integer
+        md5:
+          type: string
+        status:
+          $ref: '#/components/schemas/Status7bfEnum'
+        title:
+          type: string
+      required:
+      - created_at
+      - id
+      title: Export
+    ConvertedFormatRequest:
+      type: object
+      properties:
+        export_type:
+          type: string
+        status:
+          $ref: '#/components/schemas/Status7bfEnum'
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report in case of errors
+      required:
+      - export_type
+      title: ConvertedFormatRequest
+    LseExportCreate:
+      type: object
+      properties:
+        annotation_filter_options:
+          $ref: '#/components/schemas/LseAnnotationFilterOptions'
+        converted_formats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConvertedFormat'
+        counters:
+          description: Any type
+        created_at:
+          type: string
+          format: date-time
+          description: Creation time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+        finished_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Complete or fail time
+        id:
+          type: integer
+        md5:
+          type: string
+        serialization_options:
+          $ref: '#/components/schemas/SerializationOptions'
+        status:
+          $ref: '#/components/schemas/Status7bfEnum'
+        task_filter_options:
+          $ref: '#/components/schemas/LseTaskFilterOptions'
+        title:
+          type: string
+      required:
+      - created_at
+      - id
+      title: LseExportCreate
+    SerializationOptionsRequest:
+      type: object
+      properties:
+        annotations__completed_by:
+          $ref: '#/components/schemas/SerializationOptionRequest'
+          description: JSON dict with parameters
+        drafts:
+          $ref: '#/components/schemas/SerializationOptionRequest'
+          description: JSON dict with parameters
+        include_annotation_history:
+          type: boolean
+          default: false
+          description: Include annotation history
+        interpolate_key_frames:
+          type: boolean
+          default: false
+          description: Interpolate video key frames
+        predictions:
+          $ref: '#/components/schemas/SerializationOptionRequest'
+          description: JSON dict with parameters
+      title: SerializationOptionsRequest
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

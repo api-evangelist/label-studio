@@ -1,0 +1,191 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/reviewRoutingRules API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_projects.subpackage_projects/reviewRoutingRules
+paths:
+  /api/projects/{id}/review-routing-rules/:
+    get:
+      operationId: list
+      summary: ✨ List review routing rules
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList ordered review routing rules for a project."
+      tags:
+      - subpackage_projects.subpackage_projects/reviewRoutingRules
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewRoutingRule'
+  /api/projects/{id}/review-routing-rules/bulk/:
+    post:
+      operationId: bulk-replace
+      summary: ✨ Bulk replace review routing rules
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAtomically replace the ordered review routing rules for a project. Rules with an `id` update the existing project rule. Rules without an `id` are created. Existing project rules omitted from the request are deleted, and request order becomes rule order."
+      tags:
+      - subpackage_projects.subpackage_projects/reviewRoutingRules
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewRoutingRule'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewRoutingRulesReplaceRequest'
+components:
+  schemas:
+    ReviewRoutingRuleRequestRequest:
+      type: object
+      properties:
+        agreement_threshold:
+          type:
+          - string
+          - 'null'
+          format: decimal
+        dimension:
+          type:
+          - integer
+          - 'null'
+        id:
+          type: integer
+        operator:
+          oneOf:
+          - $ref: '#/components/schemas/OperatorEnum'
+          - type: 'null'
+        sample_rate:
+          type: string
+          format: decimal
+      required:
+      - agreement_threshold
+      - dimension
+      - operator
+      - sample_rate
+      title: ReviewRoutingRuleRequestRequest
+    ReviewRoutingRule:
+      type: object
+      properties:
+        agreement_threshold:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Agreement threshold (0..1) compared against the rule operator. Required when operator is set.
+        created_at:
+          type: string
+          format: date-time
+          description: Time this rule was created
+        dimension:
+          type:
+          - integer
+          - 'null'
+          description: Dimension whose agreement is compared. Null => compare overall task agreement. Deleting the dimension cascades to the rule (a dimension-scoped rule has no meaning without its dimension; falling back to overall agreement would silently change the cohort).
+        id:
+          type: integer
+        operator:
+          oneOf:
+          - $ref: '#/components/schemas/OperatorEnum'
+          - type: 'null'
+          description: 'Comparison operator applied to the agreement value. Null => catch-all rule.
+
+
+            * `lt` - <
+
+            * `lte` - <=
+
+            * `gt` - >
+
+            * `gte` - >=
+
+            * `eq` - ='
+        order:
+          type: integer
+          description: Position in the rule list (rules are evaluated in ascending order)
+        sample_rate:
+          type: string
+          format: decimal
+          description: Sample rate (0..1) of matching tasks routed for review. 1 always routes, 0 never routes.
+        updated_at:
+          type: string
+          format: date-time
+          description: Last time this rule was updated
+      required:
+      - created_at
+      - order
+      - updated_at
+      title: ReviewRoutingRule
+    ReviewRoutingRulesReplaceRequest:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReviewRoutingRuleRequestRequest'
+      required:
+      - rules
+      title: ReviewRoutingRulesReplaceRequest
+    OperatorEnum:
+      type: string
+      enum:
+      - lt
+      - lte
+      - gt
+      - gte
+      - eq
+      description: '* `lt` - <
+
+        * `lte` - <=
+
+        * `gt` - >
+
+        * `gte` - >=
+
+        * `eq` - ='
+      title: OperatorEnum
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

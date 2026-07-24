@@ -1,0 +1,259 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_billing API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_billing
+paths:
+  /api/billing/info:
+    get:
+      operationId: info
+      summary: ✨ Get billing info
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve billing checks and feature flags for the active organization."
+      tags:
+      - subpackage_billing
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Billing information for the active organization
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillingInfoResponse'
+components:
+  schemas:
+    BillingChecks:
+      type: object
+      properties:
+        export_storages:
+          $ref: '#/components/schemas/CountLimit'
+        import_storages:
+          $ref: '#/components/schemas/CountLimit'
+        is_license_expired:
+          type: boolean
+        is_license_warning:
+          type: boolean
+        is_prompts_expire:
+          type: boolean
+        is_prompts_warning:
+          type: boolean
+        license_expires:
+          type:
+          - string
+          - 'null'
+          format: date
+        license_issued:
+          type:
+          - string
+          - 'null'
+          format: date
+        license_warning:
+          type:
+          - string
+          - 'null'
+          format: date
+        organization_is_active:
+          type: boolean
+        projects:
+          $ref: '#/components/schemas/CountLimit'
+        prompts_api_keys_enabled:
+          type: boolean
+        prompts_enabled:
+          type: boolean
+        prompts_expire:
+          type:
+          - string
+          - 'null'
+        prompts_status:
+          $ref: '#/components/schemas/PromptsStatusEnum'
+        prompts_warning:
+          type:
+          - string
+          - 'null'
+        results:
+          $ref: '#/components/schemas/CountLimit'
+        trial_days:
+          type: integer
+        users:
+          $ref: '#/components/schemas/CountLimit'
+      required:
+      - export_storages
+      - import_storages
+      - is_license_expired
+      - is_license_warning
+      - is_prompts_expire
+      - is_prompts_warning
+      - license_expires
+      - license_issued
+      - license_warning
+      - organization_is_active
+      - projects
+      - prompts_api_keys_enabled
+      - prompts_enabled
+      - prompts_expire
+      - prompts_status
+      - prompts_warning
+      - results
+      - trial_days
+      - users
+      title: BillingChecks
+    BillingFlags:
+      type: object
+      properties:
+        activated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        allow_activity_log:
+          type: boolean
+        allow_ai:
+          type: boolean
+        allow_ask_ai:
+          type: boolean
+        allow_data_credentials:
+          type: boolean
+        allow_invite_people:
+          type: boolean
+        allow_invite_project_experts:
+          type: boolean
+        allow_nda:
+          type: boolean
+        allow_organization_webhooks:
+          type: boolean
+        allow_reviewing:
+          type: boolean
+        allow_sso:
+          type: boolean
+        allow_storage_proxy:
+          type: boolean
+        automax_enabled:
+          type: boolean
+        automax_token_exists:
+          type: boolean
+        cloud_instance:
+          type: boolean
+        disable_members_page:
+          type: boolean
+        disable_project_imports:
+          type: boolean
+        early_adopter:
+          type: boolean
+        email_configured:
+          type: boolean
+        embed_domains:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Any type
+        embed_enabled:
+          type: boolean
+        embed_settings:
+          type: object
+          additionalProperties:
+            description: Any type
+        manual_role_management:
+          type: boolean
+        manual_workspace_management:
+          type: boolean
+        secure_mode:
+          type: boolean
+        storage_persistence:
+          type: boolean
+        white_label_id:
+          type:
+          - string
+          - 'null'
+      required:
+      - activated_at
+      - allow_activity_log
+      - allow_ai
+      - allow_ask_ai
+      - allow_data_credentials
+      - allow_invite_people
+      - allow_invite_project_experts
+      - allow_nda
+      - allow_organization_webhooks
+      - allow_reviewing
+      - allow_sso
+      - allow_storage_proxy
+      - automax_enabled
+      - automax_token_exists
+      - cloud_instance
+      - disable_members_page
+      - disable_project_imports
+      - early_adopter
+      - email_configured
+      - embed_enabled
+      - manual_role_management
+      - manual_workspace_management
+      - secure_mode
+      - storage_persistence
+      - white_label_id
+      title: BillingFlags
+    BillingInfoResponse:
+      type: object
+      properties:
+        billing_checks:
+          $ref: '#/components/schemas/BillingChecks'
+        billing_flags:
+          $ref: '#/components/schemas/BillingFlags'
+      required:
+      - billing_checks
+      - billing_flags
+      title: BillingInfoResponse
+    CountLimit:
+      type: object
+      properties:
+        count:
+          type: integer
+        limit:
+          type: integer
+        reached:
+          type: boolean
+        total:
+          type: integer
+      required:
+      - count
+      - limit
+      - reached
+      title: CountLimit
+    PromptsStatusEnum:
+      type: string
+      enum:
+      - Enabled
+      - Cloud license per organization disabled
+      - On-premise global license disabled
+      - Expired
+      - Adala not connected
+      - Disabled for this organization [FF]
+      - unknown
+      description: '* `Enabled` - Enabled
+
+        * `Cloud license per organization disabled` - Cloud license per organization disabled
+
+        * `On-premise global license disabled` - On-premise global license disabled
+
+        * `Expired` - Expired
+
+        * `Adala not connected` - Adala not connected
+
+        * `Disabled for this organization [FF]` - Disabled for this organization [FF]
+
+        * `unknown` - unknown'
+      title: PromptsStatusEnum
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

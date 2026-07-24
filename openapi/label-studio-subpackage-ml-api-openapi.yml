@@ -1,0 +1,508 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_ml API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_ml
+paths:
+  /api/ml/:
+    get:
+      operationId: list
+      summary: List ML backends
+      description: "\n    List all configured ML backends for a specific project by ID.\n    Use the following cURL command:\n    ```bash\n    curl http://localhost:8000/api/ml?project={project_id} -H 'Authorization: Token abc123'\n    "
+      tags:
+      - subpackage_ml
+      parameters:
+      - name: project
+        in: query
+        description: Project ID
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MLBackend'
+    post:
+      operationId: create
+      summary: Add ML Backend
+      description: "\n    Add an ML backend to a project using the Label Studio UI or by sending a POST request using the following cURL \n    command:\n    ```bash\n    curl -X POST -H 'Content-type: application/json' http://localhost:8000/api/ml -H 'Authorization: Token abc123'\\\n    --data '{\"url\": \"http://localhost:9090\", \"project\": {project_id}}' \n    "
+      tags:
+      - subpackage_ml
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLBackend'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                auth_method:
+                  $ref: '#/components/schemas/ApiMlPostRequestBodyContentApplicationJsonSchemaAuthMethod'
+                  description: Auth method
+                basic_auth_pass:
+                  type: string
+                  description: Basic auth password
+                basic_auth_user:
+                  type: string
+                  description: Basic auth user
+                description:
+                  type: string
+                  description: Description
+                extra_params:
+                  $ref: '#/components/schemas/ApiMlPostRequestBodyContentApplicationJsonSchemaExtraParams'
+                  description: Extra parameters
+                is_interactive:
+                  type: boolean
+                  description: Is interactive
+                project:
+                  type: integer
+                  description: Project ID
+                timeout:
+                  type: integer
+                  description: Response model timeout
+                title:
+                  type: string
+                  description: Title
+                url:
+                  type: string
+                  description: ML backend URL
+  /api/ml/{id}:
+    get:
+      operationId: get
+      summary: Get ML Backend
+      description: "\n    Get details about a specific ML backend connection by ID. For example, make a GET request using the\n    following cURL command:\n    ```bash\n    curl http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\n    "
+      tags:
+      - subpackage_ml
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLBackend'
+    delete:
+      operationId: delete
+      summary: Remove ML Backend
+      description: "\n    Remove an existing ML backend connection by ID. For example, use the\n    following cURL command:\n    ```bash\n    curl -X DELETE http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\n    "
+      tags:
+      - subpackage_ml
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: Update ML Backend
+      description: "\n    Update ML backend parameters using the Label Studio UI or by sending a PATCH request using the following cURL command:\n    ```bash\n    curl -X PATCH -H 'Content-type: application/json' http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\\\n    --data '{\"url\": \"http://localhost:9091\"}' \n    "
+      tags:
+      - subpackage_ml
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MLBackend'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                auth_method:
+                  $ref: '#/components/schemas/ApiMlIdPatchRequestBodyContentApplicationJsonSchemaAuthMethod'
+                  description: Auth method
+                basic_auth_pass:
+                  type: string
+                  description: Basic auth password
+                basic_auth_user:
+                  type: string
+                  description: Basic auth user
+                description:
+                  type: string
+                  description: Description
+                extra_params:
+                  $ref: '#/components/schemas/ApiMlIdPatchRequestBodyContentApplicationJsonSchemaExtraParams'
+                  description: Extra parameters
+                is_interactive:
+                  type: boolean
+                  description: Is interactive
+                project:
+                  type: integer
+                  description: Project ID
+                timeout:
+                  type: integer
+                  description: Response model timeout
+                title:
+                  type: string
+                  description: Title
+                url:
+                  type: string
+                  description: ML backend URL
+  /api/ml/{id}/interactive-annotating:
+    post:
+      operationId: predict-interactive
+      summary: Request Interactive Annotation
+      description: "\n        Send a request to the machine learning backend set up to be used for interactive preannotations to retrieve a\n        predicted region based on annotator input. \n        See [set up machine learning](https://labelstud.io/guide/ml.html#Get-interactive-preannotations) for more.\n        "
+      tags:
+      - subpackage_ml
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this ML backend.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Interactive annotation has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ml_predict_interactive_Response_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MLInteractiveAnnotatingRequestRequest'
+  /api/ml/{id}/predict:
+    post:
+      operationId: predict-all-tasks
+      summary: ✨ Create predictions for all tasks
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\n\n\nCreate predictions for all tasks using a specific ML backend so that you can set up an active learning strategy based on the confidence or uncertainty scores associated with the predictions. Creating predictions requires a Label Studio ML backend set up and configured for your project. \n\nSee [Set up machine learning](https://labelstud.io/guide/ml.html) for more details about a Label Studio ML backend. \n\nReference the ML backend ID in the path of this API call. Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list)."
+      tags:
+      - subpackage_ml
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this ML backend.
+        required: true
+        schema:
+          type: integer
+      - name: batch_size
+        in: query
+        description: Computed number of tasks without predictions that the ML backend needs to predict.
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Predictions have successfully started.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ml_predict_all_tasks_Response_200'
+  /api/ml/{id}/train:
+    post:
+      operationId: train
+      summary: Train
+      description: "\n        After you add an ML backend, call this API with the ML backend ID to start training with \n        already-labeled tasks. \n        \n        Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list).\n        "
+      tags:
+      - subpackage_ml
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this ML backend.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Training has successfully started.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ml_train_Response_200'
+        '500':
+          description: Training error
+          content:
+            application/json:
+              schema:
+                type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                use_ground_truth:
+                  type: boolean
+                  description: Whether to include ground truth annotations in training
+  /api/ml/{id}/versions:
+    get:
+      operationId: list-model-versions
+      summary: Get model versions
+      description: Get available versions of the model.
+      tags:
+      - subpackage_ml
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of available versions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ml_list_model_versions_Response_200'
+components:
+  schemas:
+    ml_predict_interactive_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: ml_predict_interactive_Response_200
+    ml_train_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: ml_train_Response_200
+    ApiMlPostRequestBodyContentApplicationJsonSchemaExtraParams:
+      type: object
+      properties: {}
+      description: Extra parameters
+      title: ApiMlPostRequestBodyContentApplicationJsonSchemaExtraParams
+    ApiMlPostRequestBodyContentApplicationJsonSchemaAuthMethod:
+      type: string
+      enum:
+      - NONE
+      - BASIC_AUTH
+      description: Auth method
+      title: ApiMlPostRequestBodyContentApplicationJsonSchemaAuthMethod
+    AuthMethodEnum:
+      type: string
+      enum:
+      - NONE
+      - BASIC_AUTH
+      description: '* `NONE` - None
+
+        * `BASIC_AUTH` - Basic Auth'
+      title: AuthMethodEnum
+    StateEnum:
+      type: string
+      enum:
+      - CO
+      - DI
+      - ER
+      - TR
+      - PR
+      description: '* `CO` - Connected
+
+        * `DI` - Disconnected
+
+        * `ER` - Error
+
+        * `TR` - Training
+
+        * `PR` - Predicting'
+      title: StateEnum
+    ml_predict_all_tasks_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: ml_predict_all_tasks_Response_200
+    ApiMlIdPatchRequestBodyContentApplicationJsonSchemaExtraParams:
+      type: object
+      properties: {}
+      description: Extra parameters
+      title: ApiMlIdPatchRequestBodyContentApplicationJsonSchemaExtraParams
+    ml_list_model_versions_Response_200:
+      type: object
+      properties:
+        message:
+          type: string
+        versions:
+          type: array
+          items:
+            type: string
+      title: ml_list_model_versions_Response_200
+    MLBackend:
+      type: object
+      properties:
+        auth_method:
+          $ref: '#/components/schemas/AuthMethodEnum'
+        auto_update:
+          type: boolean
+          description: If false, model version is set by the user, if true - getting latest version from backend.
+        basic_auth_pass_is_set:
+          type: boolean
+        basic_auth_user:
+          type:
+          - string
+          - 'null'
+          description: HTTP Basic Auth user
+        created_at:
+          type: string
+          format: date-time
+        description:
+          type:
+          - string
+          - 'null'
+          description: Description for the machine learning backend
+        error_message:
+          type:
+          - string
+          - 'null'
+          description: Error message in error state
+        extra_params:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Any extra parameters passed to the ML Backend during the setup
+        id:
+          type: integer
+        is_interactive:
+          type: boolean
+          description: Used to interactively annotate tasks. If true, model returns one list with results
+        model_version:
+          type:
+          - string
+          - 'null'
+          description: Current model version associated with this machine learning backend
+        project:
+          type: integer
+        readable_state:
+          type: string
+        state:
+          $ref: '#/components/schemas/StateEnum'
+        timeout:
+          type: number
+          format: double
+          description: Response model timeout
+        title:
+          type:
+          - string
+          - 'null'
+          description: Name of the machine learning backend
+        updated_at:
+          type: string
+          format: date-time
+        url:
+          type: string
+          description: URL for the machine learning model server
+      required:
+      - basic_auth_pass_is_set
+      - created_at
+      - id
+      - project
+      - readable_state
+      - updated_at
+      - url
+      description: Serializer for MLBackend model.
+      title: MLBackend
+    ApiMlIdPatchRequestBodyContentApplicationJsonSchemaAuthMethod:
+      type: string
+      enum:
+      - NONE
+      - BASIC_AUTH
+      description: Auth method
+      title: ApiMlIdPatchRequestBodyContentApplicationJsonSchemaAuthMethod
+    MLInteractiveAnnotatingRequestRequest:
+      type: object
+      properties:
+        context:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Context for ML model
+        task:
+          type: integer
+          description: ID of task to annotate
+      required:
+      - task
+      description: Serializer for ML interactive annotating request.
+      title: MLInteractiveAnnotatingRequestRequest
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

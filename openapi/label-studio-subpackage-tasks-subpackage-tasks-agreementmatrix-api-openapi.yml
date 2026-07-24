@@ -1,0 +1,106 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_tasks.subpackage_tasks/agreementMatrix API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_tasks.subpackage_tasks/agreementMatrix
+paths:
+  /api/projects/{project_pk}/tasks/{task_pk}/agreement-matrix:
+    get:
+      operationId: get
+      summary: ✨ Get task agreement matrix
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nReturns a pairwise agreement matrix between selected participants for a single task, averaged across all active dimensions or a single specified dimension."
+      tags:
+      - subpackage_tasks.subpackage_tasks/agreementMatrix
+      parameters:
+      - name: project_pk
+        in: path
+        description: Project ID
+        required: true
+        schema:
+          type: integer
+      - name: task_pk
+        in: path
+        description: Task ID
+        required: true
+        schema:
+          type: integer
+      - name: dimension
+        in: query
+        description: Dimension ID to compute agreement for. If not provided, averages across all active dimensions.
+        required: false
+        schema:
+          type: integer
+      - name: selection
+        in: query
+        description: JSON object specifying which participants to include in the agreement matrix
+        required: true
+        schema:
+          $ref: '#/components/schemas/AgreementSelectionRequest'
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskAgreementMatrixResponse'
+components:
+  schemas:
+    AgreementSelectionGroupRequest:
+      type: object
+      properties:
+        all:
+          type: boolean
+          default: false
+        ids:
+          type: array
+          items:
+            type: string
+      title: AgreementSelectionGroupRequest
+    AgreementSelectionRequest:
+      type: object
+      properties:
+        annotators:
+          $ref: '#/components/schemas/AgreementSelectionGroupRequest'
+        ground_truth:
+          type: boolean
+          default: false
+        models:
+          $ref: '#/components/schemas/AgreementSelectionGroupRequest'
+      title: AgreementSelectionRequest
+    TaskAgreementMatrixResponse:
+      type: object
+      properties:
+        matrix:
+          type: array
+          items:
+            type: array
+            items:
+              type: number
+              format: double
+          description: Pairwise agreement scores matrix where matrix[i][j] is the agreement between users[i] and users[j]
+        users:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Any type
+          description: Expanded participant details (annotators and/or model versions)
+      required:
+      - matrix
+      - users
+      title: TaskAgreementMatrixResponse
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

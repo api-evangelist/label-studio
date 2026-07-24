@@ -1,0 +1,129 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_organizations.subpackage_organizations/memberTags.subpackage_organizations/memberTags/bulk API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_organizations.subpackage_organizations/memberTags.subpackage_organizations/memberTags/bulk
+paths:
+  /api/organizations/{id}/member-tags/bulk:
+    post:
+      operationId: post
+      summary: ✨ Bulk create organization member tags
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate multiple member tags for the organization in bulk. Duplicate labels within the request are deduplicated. Labels that already exist in the organization are skipped."
+      tags:
+      - subpackage_organizations.subpackage_organizations/memberTags.subpackage_organizations/memberTags/bulk
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Number of tags created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/organizations_member_tags_bulk_post_Response_201'
+        '400':
+          description: Bad Request - Invalid input
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationMemberTagBulkCreateRequest'
+    delete:
+      operationId: delete
+      summary: ✨ Bulk delete organization member tags
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete multiple member tags from the organization in bulk. Pass tag IDs via the `ids` query parameter (comma-separated or repeated). For backward compatibility, a JSON body with `ids` is still accepted."
+      tags:
+      - subpackage_organizations.subpackage_organizations/memberTags.subpackage_organizations/memberTags/bulk
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: ids
+        in: query
+        description: Tag IDs to delete. Accepts comma-separated values (e.g., `1,2`) or repeated params.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Number of tags deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/organizations_member_tags_bulk_delete_Response_200'
+        '400':
+          description: Bad Request - Invalid input
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+components:
+  schemas:
+    organizations_member_tags_bulk_post_Response_201:
+      type: object
+      properties:
+        created:
+          type: integer
+      title: organizations_member_tags_bulk_post_Response_201
+    OrganizationMemberTagBulkCreateRequest:
+      type: object
+      properties:
+        labels:
+          type: array
+          items:
+            type: string
+          description: List of tag labels to create.
+      required:
+      - labels
+      description: Serializer for bulk create of organization member tags.
+      title: OrganizationMemberTagBulkCreateRequest
+    organizations_member_tags_bulk_delete_Response_200:
+      type: object
+      properties:
+        deleted:
+          type: integer
+      title: organizations_member_tags_bulk_delete_Response_200
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

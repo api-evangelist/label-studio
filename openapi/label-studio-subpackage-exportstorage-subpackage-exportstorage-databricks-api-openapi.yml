@@ -1,0 +1,586 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_exportStorage.subpackage_exportStorage/databricks API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_exportStorage.subpackage_exportStorage/databricks
+paths:
+  /api/storages/export/databricks:
+    get:
+      operationId: list
+      summary: ✨ List Databricks export storages
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a list of all Databricks Files export storage connections."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/databricks
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: project
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DatabricksExportStorage'
+    post:
+      operationId: create
+      summary: ✨ Create Databricks export storage
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a Databricks Files export storage connection."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/databricks
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabricksExportStorage'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatabricksExportStorageRequest'
+  /api/storages/export/databricks/validate:
+    post:
+      operationId: validate
+      summary: ✨ Validate Databricks export storage
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nValidate a specific Databricks Files export storage connection."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/databricks
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Validation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/export_storage_databricks_validate_Response_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatabricksExportStorageRequest'
+  /api/storages/export/databricks/{id}:
+    get:
+      operationId: get
+      summary: ✨ Get Databricks export storage
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a specific Databricks Files export storage connection."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/databricks
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabricksExportStorage'
+    delete:
+      operationId: delete
+      summary: ✨ Delete Databricks export storage
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific Databricks Files export storage connection."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/databricks
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: ✨ Update Databricks export storage
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific Databricks Files export storage connection."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/databricks
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabricksExportStorage'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedDatabricksExportStorageRequest'
+  /api/storages/export/databricks/{id}/sync:
+    post:
+      operationId: sync
+      summary: ✨ Sync Databricks export storage
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nExport annotations to a Databricks Files storage."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/databricks
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabricksExportStorage'
+components:
+  schemas:
+    DatabricksExportStorageRequest:
+      type: object
+      properties:
+        auth_type:
+          $ref: '#/components/schemas/AuthTypeEnum'
+          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
+
+
+            * `pat` - Personal Access Token
+
+            * `dbx_sp` - Databricks Service Principal
+
+            * `azure_ad_sp` - Azure AD Service Principal'
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        catalog:
+          type: string
+          description: UC catalog name
+        client_id:
+          type: string
+          description: Service principal client/application ID (required for SP modes)
+        client_secret:
+          type: string
+          description: Service principal client secret (required for SP modes)
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        host:
+          type: string
+          description: Databricks workspace base URL (https://...)
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: Export path prefix under the volume
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Regex for filtering objects
+        request_timeout_s:
+          type: integer
+        schema:
+          type: string
+          description: UC schema name
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        stream_chunk_bytes:
+          type: integer
+        synchronizable:
+          type: boolean
+          default: true
+        tenant_id:
+          type: string
+          description: Azure AD tenant ID (required for Azure AD SP mode)
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        token:
+          type: string
+          description: Databricks personal access token (required for PAT mode)
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Generate blob URLs in tasks
+        verify_tls:
+          type: boolean
+          description: Verify TLS certificates
+        volume:
+          type: string
+          description: UC volume name
+      required:
+      - catalog
+      - host
+      - project
+      - schema
+      - volume
+      description: Serializer for Databricks export storage with multi-auth support.
+      title: DatabricksExportStorageRequest
+    DatabricksExportStorage:
+      type: object
+      properties:
+        auth_type:
+          $ref: '#/components/schemas/AuthTypeEnum'
+          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
+
+
+            * `pat` - Personal Access Token
+
+            * `dbx_sp` - Databricks Service Principal
+
+            * `azure_ad_sp` - Azure AD Service Principal'
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        catalog:
+          type: string
+          description: UC catalog name
+        client_id:
+          type: string
+          description: Service principal client/application ID (required for SP modes)
+        created_at:
+          type: string
+          format: date-time
+          description: Creation time
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        host:
+          type: string
+          description: Databricks workspace base URL (https://...)
+        id:
+          type: integer
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: Export path prefix under the volume
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Regex for filtering objects
+        request_timeout_s:
+          type: integer
+        schema:
+          type: string
+          description: UC schema name
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        stream_chunk_bytes:
+          type: integer
+        synchronizable:
+          type: boolean
+          default: true
+        tenant_id:
+          type: string
+          description: Azure AD tenant ID (required for Azure AD SP mode)
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        type:
+          type: string
+          default: databricks
+        use_blob_urls:
+          type: boolean
+          description: Generate blob URLs in tasks
+        verify_tls:
+          type: boolean
+          description: Verify TLS certificates
+        volume:
+          type: string
+          description: UC volume name
+      required:
+      - catalog
+      - created_at
+      - host
+      - id
+      - project
+      - schema
+      - type
+      - volume
+      description: Serializer for Databricks export storage with multi-auth support.
+      title: DatabricksExportStorage
+    AuthTypeEnum:
+      type: string
+      enum:
+      - pat
+      - dbx_sp
+      - azure_ad_sp
+      description: '* `pat` - Personal Access Token
+
+        * `dbx_sp` - Databricks Service Principal
+
+        * `azure_ad_sp` - Azure AD Service Principal'
+      title: AuthTypeEnum
+    PatchedDatabricksExportStorageRequest:
+      type: object
+      properties:
+        auth_type:
+          $ref: '#/components/schemas/AuthTypeEnum'
+          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
+
+
+            * `pat` - Personal Access Token
+
+            * `dbx_sp` - Databricks Service Principal
+
+            * `azure_ad_sp` - Azure AD Service Principal'
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        catalog:
+          type: string
+          description: UC catalog name
+        client_id:
+          type: string
+          description: Service principal client/application ID (required for SP modes)
+        client_secret:
+          type: string
+          description: Service principal client secret (required for SP modes)
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        host:
+          type: string
+          description: Databricks workspace base URL (https://...)
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: Export path prefix under the volume
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Regex for filtering objects
+        request_timeout_s:
+          type: integer
+        schema:
+          type: string
+          description: UC schema name
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        stream_chunk_bytes:
+          type: integer
+        synchronizable:
+          type: boolean
+          default: true
+        tenant_id:
+          type: string
+          description: Azure AD tenant ID (required for Azure AD SP mode)
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        token:
+          type: string
+          description: Databricks personal access token (required for PAT mode)
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Generate blob URLs in tasks
+        verify_tls:
+          type: boolean
+          description: Verify TLS certificates
+        volume:
+          type: string
+          description: UC volume name
+      description: Serializer for Databricks export storage with multi-auth support.
+      title: PatchedDatabricksExportStorageRequest
+    export_storage_databricks_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: export_storage_databricks_validate_Response_200
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

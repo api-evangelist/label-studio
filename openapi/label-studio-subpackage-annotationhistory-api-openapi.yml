@@ -1,0 +1,302 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_annotationHistory API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_annotationHistory
+paths:
+  /api/annotation-history/:
+    get:
+      operationId: list
+      summary: ✨ List all annotation history items for annotation
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList annotation history items for an annotation. Annotation history logs all actions performed with annotations, such as: imports, submits, updates, reviews, and more. Users can view annotation history items in the Annotation History panel during labeling."
+      tags:
+      - subpackage_annotationHistory
+      parameters:
+      - name: annotation
+        in: query
+        description: Annotation ID to get annotation history items for.
+        required: false
+        schema:
+          type: integer
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AnnotationHistory'
+    delete:
+      operationId: delete
+      summary: ✨ Delete annotation history items
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete all annotation history items for a specific annotation, task or project. This method is available only for users with administrator roles."
+      tags:
+      - subpackage_annotationHistory
+      parameters:
+      - name: annotation
+        in: query
+        description: Annotation ID to delete annotation history items for.
+        required: false
+        schema:
+          type: integer
+      - name: project
+        in: query
+        description: Project ID to delete annotation history items for.
+        required: false
+        schema:
+          type: integer
+      - name: task
+        in: query
+        description: Task ID to delete annotation history items for.
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Returns a dict containing the count of removed items.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/annotation_history_delete_Response_200'
+  /api/annotation-history/{id}/:
+    get:
+      operationId: retrieve
+      summary: ✨ Retrieve a single annotation history item (full result for hydration)
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet one annotation history item by ID with full result. Used when FIT-720 lazy load is on and the user clicks a stubbed history item to hydrate it."
+      tags:
+      - subpackage_annotationHistory
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnotationHistory'
+  /api/projects/{id}/annotation-history/:
+    get:
+      operationId: list-for-project
+      summary: ✨ List annotation history items for project
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all annotation history items for the project with pagination."
+      tags:
+      - subpackage_annotationHistory
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAnnotationHistoryList'
+components:
+  schemas:
+    AnnotationHistory:
+      type: object
+      properties:
+        action:
+          oneOf:
+          - $ref: '#/components/schemas/ActionEnum'
+          - type: 'null'
+        annotation_id:
+          type:
+          - integer
+          - 'null'
+          description: Corresponding annotation for this historical annotation
+        comment:
+          type:
+          - string
+          - 'null'
+        comment_id:
+          type:
+          - integer
+          - 'null'
+          description: Comment id sent with result
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          type:
+          - integer
+          - 'null'
+          description: Created by user id
+        draft_id:
+          type:
+          - integer
+          - 'null'
+          description: Corresponding draft for this historical annotation
+        id:
+          type: integer
+        lead_time:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: How much time it took to annotate the task
+        organization_id:
+          type:
+          - integer
+          - 'null'
+          description: Organization for this annotation history
+        project_id:
+          type:
+          - integer
+          - 'null'
+          description: Project for this annotation history
+        result:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Labeling result
+        review_id:
+          type:
+          - integer
+          - 'null'
+          description: AnnotationReview ID, using with review field
+        started_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: The time that a user started working on this revision of the annotation
+        task_id:
+          type:
+          - integer
+          - 'null'
+          description: Task id
+      required:
+      - comment
+      - created_at
+      - id
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: AnnotationHistory
+    ActionEnum:
+      type: string
+      enum:
+      - prediction
+      - propagated_annotation
+      - imported
+      - submitted
+      - updated
+      - skipped
+      - accepted
+      - rejected
+      - fixed_and_accepted
+      - deleted_review
+      description: '* `prediction` - Created from prediction
+
+        * `propagated_annotation` - Created from another annotation
+
+        * `imported` - Imported
+
+        * `submitted` - Submitted
+
+        * `updated` - Updated
+
+        * `skipped` - Skipped
+
+        * `accepted` - Accepted
+
+        * `rejected` - Rejected
+
+        * `fixed_and_accepted` - Fixed and accepted
+
+        * `deleted_review` - Deleted review'
+      title: ActionEnum
+    annotation_history_delete_Response_200:
+      type: object
+      properties:
+        removed:
+          type: integer
+          description: Number of removed items
+      title: annotation_history_delete_Response_200
+    PaginatedAnnotationHistoryList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationHistory'
+      required:
+      - count
+      - results
+      title: PaginatedAnnotationHistoryList
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

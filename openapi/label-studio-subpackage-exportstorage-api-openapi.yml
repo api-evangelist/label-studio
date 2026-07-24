@@ -1,0 +1,48 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_exportStorage API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_exportStorage
+paths:
+  /api/storages/export/types:
+    get:
+      operationId: list-types
+      summary: List all export storages types
+      description: Retrieve a list of the export storages types.
+      tags:
+      - subpackage_exportStorage
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of export storage types
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApiStoragesExportTypesGetResponsesContentApplicationJsonSchemaItems'
+components:
+  schemas:
+    ApiStoragesExportTypesGetResponsesContentApplicationJsonSchemaItems:
+      type: object
+      properties:
+        name:
+          type: string
+        title:
+          type: string
+      title: ApiStoragesExportTypesGetResponsesContentApplicationJsonSchemaItems
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

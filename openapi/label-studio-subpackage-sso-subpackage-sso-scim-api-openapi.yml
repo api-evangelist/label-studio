@@ -1,0 +1,198 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_sso.subpackage_sso/scim API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_sso.subpackage_sso/scim
+paths:
+  /api/scim/settings:
+    get:
+      operationId: get
+      summary: ✨ Retrieve SCIM Settings
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve SCIM settings for the currently active organization."
+      tags:
+      - subpackage_sso.subpackage_sso/scim
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScimSettings'
+    post:
+      operationId: update
+      summary: ✨ Update SCIM Settings
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate SCIM settings for the currently active organization."
+      tags:
+      - subpackage_sso.subpackage_sso/scim
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScimSettingsUpdate'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScimSettingsUpdateRequest'
+components:
+  schemas:
+    ScimSettings:
+      type: object
+      properties:
+        projects_groups:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ProjectGroup'
+          description: Projects to Groups Mapping. List of objects with project_id, group, role.
+        roles_groups:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              type: string
+          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
+        workspaces_groups:
+          type:
+          - array
+          - 'null'
+          items:
+            type: array
+            items:
+              type: string
+          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
+      title: ScimSettings
+    ProjectGroupRoleEnum:
+      type: string
+      enum:
+      - Inherit
+      - Annotator
+      - Reviewer
+      description: '* `Inherit` - Inherit
+
+        * `Annotator` - Annotator
+
+        * `Reviewer` - Reviewer'
+      title: ProjectGroupRoleEnum
+    ScimSettingsUpdate:
+      type: object
+      properties:
+        projects_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectGroup'
+          description: Projects to Groups Mapping. List of objects with project_id, group, role.
+        roles_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
+        workspaces_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
+      title: ScimSettingsUpdate
+    ProjectGroupRequest:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group name
+        project_id:
+          type: integer
+          description: Project ID
+        role:
+          $ref: '#/components/schemas/ProjectGroupRoleEnum'
+          description: 'Project role (Inherit, Annotator, Reviewer)
+
+
+            * `Inherit` - Inherit
+
+            * `Annotator` - Annotator
+
+            * `Reviewer` - Reviewer'
+      required:
+      - group
+      - project_id
+      - role
+      title: ProjectGroupRequest
+    ScimSettingsUpdateRequest:
+      type: object
+      properties:
+        projects_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectGroupRequest'
+          description: Projects to Groups Mapping. List of objects with project_id, group, role.
+        roles_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
+        workspaces_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
+      title: ScimSettingsUpdateRequest
+    ProjectGroup:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group name
+        project_id:
+          type: integer
+          description: Project ID
+        role:
+          $ref: '#/components/schemas/ProjectGroupRoleEnum'
+          description: 'Project role (Inherit, Annotator, Reviewer)
+
+
+            * `Inherit` - Inherit
+
+            * `Annotator` - Annotator
+
+            * `Reviewer` - Reviewer'
+      required:
+      - group
+      - project_id
+      - role
+      title: ProjectGroup
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

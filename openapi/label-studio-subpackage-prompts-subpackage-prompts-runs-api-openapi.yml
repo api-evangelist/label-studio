@@ -1,0 +1,356 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_prompts.subpackage_prompts/runs API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_prompts.subpackage_prompts/runs
+paths:
+  /api/prompts/{prompt_id}/versions/{version_id}/inference-runs:
+    get:
+      operationId: list
+      summary: ✨ Get inference run info
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet information (status, metadata, etc) about an existing inference run"
+      tags:
+      - subpackage_prompts.subpackage_prompts/runs
+      parameters:
+      - name: prompt_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: version_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: parent_model
+        in: query
+        description: The ID of the parent model for this Inference Run
+        required: false
+        schema:
+          type: integer
+      - name: project
+        in: query
+        description: The ID of the project this Inference Run makes predictions on
+        required: false
+        schema:
+          type: integer
+      - name: project_subset
+        in: query
+        description: Defines which tasks are operated on (e.g. HasGT will only operate on tasks with a ground truth annotation, but All will operate on all records)
+        required: false
+        schema:
+          $ref: '#/components/schemas/ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset'
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelRun'
+    post:
+      operationId: create
+      summary: ✨ Run prompt inference
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRun a prompt inference."
+      tags:
+      - subpackage_prompts.subpackage_prompts/runs
+      parameters:
+      - name: prompt_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: version_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelRun'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelRunRequest'
+  /api/prompts/{prompt_id}/versions/{version_id}/inference-runs/{inference_run_id}/cancel:
+    post:
+      operationId: cancel
+      summary: ✨ Cancel Inference Run API
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCancel the inference run for the given api"
+      tags:
+      - subpackage_prompts.subpackage_prompts/runs
+      parameters:
+      - name: inference_run_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: prompt_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: version_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CancelModelRunResponse'
+components:
+  schemas:
+    ProjectSubsetEnum:
+      type: string
+      enum:
+      - All
+      - HasGT
+      - Sample
+      - Custom
+      description: '* `All` - All
+
+        * `HasGT` - HasGT
+
+        * `Sample` - Sample
+
+        * `Custom` - Custom'
+      title: ProjectSubsetEnum
+    ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset:
+      type: string
+      enum:
+      - All
+      - HasGT
+      - Sample
+      title: ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset
+    ModelRunRequest:
+      type: object
+      properties:
+        filters_json:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: DM filter group for Filtered subset. Stored for display/re-run purposes.
+        job_id:
+          type:
+          - string
+          - 'null'
+          description: Job ID for inference job for a ModelRun e.g. Adala job ID
+        only_missing_predictions:
+          type: boolean
+          default: false
+          description: When true, only tasks without successful predictions for this prompt version are submitted for inference.
+        organization:
+          type:
+          - integer
+          - 'null'
+        predictions_updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        project:
+          type: integer
+        project_subset:
+          $ref: '#/components/schemas/ProjectSubsetEnum'
+        sample_subset_size:
+          type:
+          - integer
+          - 'null'
+          description: Custom sample size for Sample subset. Uses PROMPTER_SAMPLE_SUBSET_SIZE if not set.
+        total_correct_predictions:
+          type:
+          - integer
+          - 'null'
+        total_predictions:
+          type:
+          - integer
+          - 'null'
+        total_tasks:
+          type:
+          - integer
+          - 'null'
+      required:
+      - project
+      title: ModelRunRequest
+    ModelRunStatusEnum:
+      type: string
+      enum:
+      - Pending
+      - InProgress
+      - Completed
+      - Failed
+      - Canceled
+      description: '* `Pending` - Pending
+
+        * `InProgress` - InProgress
+
+        * `Completed` - Completed
+
+        * `Failed` - Failed
+
+        * `Canceled` - Canceled'
+      title: ModelRunStatusEnum
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    CancelModelRunResponse:
+      type: object
+      properties:
+        detail:
+          type: string
+      required:
+      - detail
+      title: CancelModelRunResponse
+    ModelRun:
+      type: object
+      properties:
+        completed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+        filters_json:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: DM filter group for Filtered subset. Stored for display/re-run purposes.
+        id:
+          type: integer
+        job_id:
+          type:
+          - string
+          - 'null'
+          description: Job ID for inference job for a ModelRun e.g. Adala job ID
+        organization:
+          type:
+          - integer
+          - 'null'
+        parent_model:
+          type: integer
+        predictions_updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        project:
+          type: integer
+        project_subset:
+          $ref: '#/components/schemas/ProjectSubsetEnum'
+        sample_subset_size:
+          type:
+          - integer
+          - 'null'
+          description: Custom sample size for Sample subset. Uses PROMPTER_SAMPLE_SUBSET_SIZE if not set.
+        source_model_run:
+          type:
+          - integer
+          - 'null'
+        status:
+          $ref: '#/components/schemas/ModelRunStatusEnum'
+        task_ids:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: List of task IDs for Custom subset re-evaluation.
+        total_correct_predictions:
+          type:
+          - integer
+          - 'null'
+        total_predictions:
+          type:
+          - integer
+          - 'null'
+        total_tasks:
+          type:
+          - integer
+          - 'null'
+        triggered_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      required:
+      - completed_at
+      - created_at
+      - created_by
+      - id
+      - parent_model
+      - project
+      - source_model_run
+      - status
+      - task_ids
+      - triggered_at
+      title: ModelRun
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

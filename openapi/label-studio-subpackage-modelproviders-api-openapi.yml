@@ -1,0 +1,468 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_modelProviders API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_modelProviders
+paths:
+  /api/model-provider-connections/:
+    get:
+      operationId: list
+      summary: ✨ List model provider connections
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all model provider connections."
+      tags:
+      - subpackage_modelProviders
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelProviderConnection'
+    post:
+      operationId: create
+      summary: ✨ Create model provider connection
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new model provider connection."
+      tags:
+      - subpackage_modelProviders
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelProviderConnection'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelProviderConnectionRequest'
+  /api/model-provider-connections/provider-choices:
+    get:
+      operationId: list-model-provider-choices
+      summary: ✨ List model provider choices
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all possible model provider choices"
+      tags:
+      - subpackage_modelProviders
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of model provider choices
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/model_providers_list_model_provider_choices_Response_200'
+  /api/model-provider-connections/{id}/:
+    get:
+      operationId: get
+      summary: ✨ Get model provider connection
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a specific model provider connection."
+      tags:
+      - subpackage_modelProviders
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelProviderConnection'
+    delete:
+      operationId: delete
+      summary: ✨ Delete model provider connection
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a model provider connection by ID"
+      tags:
+      - subpackage_modelProviders
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: ✨ Update model provider connection
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific model provider connection by ID."
+      tags:
+      - subpackage_modelProviders
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelProviderConnection'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedModelProviderConnectionRequest'
+components:
+  schemas:
+    PatchedModelProviderConnectionRequest:
+      type: object
+      properties:
+        api_key:
+          type:
+          - string
+          - 'null'
+          description: Model provider API key
+        auth_token:
+          type:
+          - string
+          - 'null'
+          description: Model provider Auth token
+        budget_alert_threshold:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Budget alert threshold for the given provider connection
+        cached_available_models:
+          type:
+          - string
+          - 'null'
+          description: List of available models from the provider
+        deployment_name:
+          type:
+          - string
+          - 'null'
+          description: Azure OpenAI deployment name
+        endpoint:
+          type:
+          - string
+          - 'null'
+          description: Azure OpenAI endpoint
+        google_application_credentials:
+          type:
+          - string
+          - 'null'
+          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
+        google_location:
+          type:
+          - string
+          - 'null'
+          description: Google project location
+        google_project_id:
+          type:
+          - string
+          - 'null'
+          description: Google project ID
+        is_internal:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the model provider connection is internal, not visible to the user
+        provider:
+          $ref: '#/components/schemas/ProviderEnum'
+        scope:
+          $ref: '#/components/schemas/ScopeEnum'
+      title: PatchedModelProviderConnectionRequest
+    ScopeEnum:
+      type: string
+      enum:
+      - Organization
+      - User
+      - Model
+      description: '* `Organization` - Organization
+
+        * `User` - User
+
+        * `Model` - Model'
+      title: ScopeEnum
+    ProviderEnum:
+      type: string
+      enum:
+      - OpenAI
+      - AzureOpenAI
+      - AzureAIFoundry
+      - VertexAI
+      - Gemini
+      - Anthropic
+      - Custom
+      description: '* `OpenAI` - OpenAI
+
+        * `AzureOpenAI` - AzureOpenAI
+
+        * `AzureAIFoundry` - AzureAIFoundry
+
+        * `VertexAI` - VertexAI
+
+        * `Gemini` - Gemini
+
+        * `Anthropic` - Anthropic
+
+        * `Custom` - Custom'
+      title: ProviderEnum
+    ModelProviderConnection:
+      type: object
+      properties:
+        budget_alert_threshold:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Budget alert threshold for the given provider connection
+        budget_last_reset_date:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Date and time the budget was last reset
+        budget_limit:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Budget limit for the model provider connection (null if unlimited)
+        budget_reset_period:
+          oneOf:
+          - $ref: '#/components/schemas/BudgetResetPeriodEnum'
+          - type: 'null'
+          description: 'Budget reset period for the model provider connection (null if not reset)
+
+
+            * `Monthly` - Monthly
+
+            * `Yearly` - Yearly'
+        budget_total_spent:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Tracked total budget spent for the given provider connection within the current budget period
+        cached_available_models:
+          type:
+          - string
+          - 'null'
+          description: List of available models from the provider
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+        deployment_name:
+          type:
+          - string
+          - 'null'
+          description: Azure OpenAI deployment name
+        endpoint:
+          type:
+          - string
+          - 'null'
+          description: Azure OpenAI endpoint
+        google_location:
+          type:
+          - string
+          - 'null'
+          description: Google project location
+        google_project_id:
+          type:
+          - string
+          - 'null'
+          description: Google project ID
+        id:
+          type: integer
+        is_internal:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the model provider connection is internal, not visible to the user
+        model_params:
+          type: string
+          description: JSON schema for the model parameters available for the provider
+        organization:
+          type:
+          - integer
+          - 'null'
+        provider:
+          $ref: '#/components/schemas/ProviderEnum'
+        scope:
+          $ref: '#/components/schemas/ScopeEnum'
+        updated_at:
+          type: string
+          format: date-time
+      required:
+      - budget_last_reset_date
+      - budget_limit
+      - budget_reset_period
+      - budget_total_spent
+      - created_at
+      - created_by
+      - id
+      - model_params
+      - organization
+      - updated_at
+      title: ModelProviderConnection
+    ModelProviderConnectionRequest:
+      type: object
+      properties:
+        api_key:
+          type:
+          - string
+          - 'null'
+          description: Model provider API key
+        auth_token:
+          type:
+          - string
+          - 'null'
+          description: Model provider Auth token
+        budget_alert_threshold:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Budget alert threshold for the given provider connection
+        cached_available_models:
+          type:
+          - string
+          - 'null'
+          description: List of available models from the provider
+        deployment_name:
+          type:
+          - string
+          - 'null'
+          description: Azure OpenAI deployment name
+        endpoint:
+          type:
+          - string
+          - 'null'
+          description: Azure OpenAI endpoint
+        google_application_credentials:
+          type:
+          - string
+          - 'null'
+          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
+        google_location:
+          type:
+          - string
+          - 'null'
+          description: Google project location
+        google_project_id:
+          type:
+          - string
+          - 'null'
+          description: Google project ID
+        is_internal:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the model provider connection is internal, not visible to the user
+        provider:
+          $ref: '#/components/schemas/ProviderEnum'
+        scope:
+          $ref: '#/components/schemas/ScopeEnum'
+      title: ModelProviderConnectionRequest
+    BudgetResetPeriodEnum:
+      type: string
+      enum:
+      - Monthly
+      - Yearly
+      description: '* `Monthly` - Monthly
+
+        * `Yearly` - Yearly'
+      title: BudgetResetPeriodEnum
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    model_providers_list_model_provider_choices_Response_200:
+      type: object
+      properties:
+        provider_choices:
+          type: array
+          items:
+            type: string
+      title: model_providers_list_model_provider_choices_Response_200
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

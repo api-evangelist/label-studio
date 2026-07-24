@@ -1,0 +1,104 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_prompts.subpackage_prompts/indicators API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_prompts.subpackage_prompts/indicators
+paths:
+  /api/inference-runs/{id}/indicators/:
+    get:
+      operationId: list
+      summary: ✨ Get key indicators
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet key indicators for the Prompt dashboard."
+      tags:
+      - subpackage_prompts.subpackage_prompts/indicators
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Key indicators
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItems'
+  /api/inference-runs/{id}/indicators/{indicator_key}:
+    get:
+      operationId: get
+      summary: ✨ Get key indicator
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a specific key indicator for the Prompt dashboard."
+      tags:
+      - subpackage_prompts.subpackage_prompts/indicators
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: indicator_key
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Key indicator
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LSEKeyIndicatorValue'
+components:
+  schemas:
+    ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItems:
+      type: object
+      properties:
+        title:
+          type: string
+        values:
+          $ref: '#/components/schemas/ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues'
+      title: ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItems
+    ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues:
+      type: object
+      properties: {}
+      title: ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues
+    LSEKeyIndicatorValue:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The title for this metric, to be displayed to the user
+        values:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: Dictionary of key-value pairs for the indicator values
+      required:
+      - title
+      - values
+      description: "Key indicator value for Label Studio Enterprise.\n\nAttributes:\n    title: The title for this metric, to be displayed to the user\n    values: Dictionary of key-value pairs for the indicator values"
+      title: LSEKeyIndicatorValue
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

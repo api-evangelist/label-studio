@@ -1,0 +1,678 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_organizations.subpackage_organizations/members API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_organizations.subpackage_organizations/members
+paths:
+  /api/organizations/{id}/memberships:
+    get:
+      operationId: list
+      summary: ✨ Get organization members/roles
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a list of all users and roles in a specific organization."
+      tags:
+      - subpackage_organizations.subpackage_organizations/members
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: contributed_to_projects
+        in: query
+        description: Whether to include projects created and contributed to by the members.
+        required: false
+        schema:
+          type: boolean
+      - name: exclude_project_id
+        in: query
+        description: Project ID to exclude users who are already associated with this project (direct members, workspace members, or implicit admin/owner access).
+        required: false
+        schema:
+          type: integer
+      - name: exclude_workspace_id
+        in: query
+        description: Workspace ID to exclude users who are already associated with this workspace (direct workspace members or implicit admin/owner access).
+        required: false
+        schema:
+          type: integer
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A page number within the paginated result set.
+        required: false
+        schema:
+          type: integer
+      - name: page_size
+        in: query
+        description: Number of results to return per page.
+        required: false
+        schema:
+          type: integer
+      - name: role
+        in: query
+        description: 'Filter members by organization role. Accepts single role or comma-separated list of roles.
+
+
+          **Format:**
+
+          - Single role: `?role=RE`
+
+          - Multiple roles: `?role=AN,RE` (users with ANY of these roles)
+
+
+          **Role Codes:**
+
+          - `OW` = Owner
+
+          - `AD` = Administrator
+
+          - `MA` = Manager
+
+          - `RE` = Reviewer
+
+          - `AN` = Annotator
+
+          - `NO` = Not Activated
+
+          - `DI` = Disabled
+
+          '
+        required: false
+        schema:
+          type: string
+      - name: scope
+        in: query
+        description: Member visibility scope. `accessible` (default) limits Managers to members in their projects/workspaces. `all` returns all organization members. Only affects Manager role.
+        required: false
+        schema:
+          $ref: '#/components/schemas/ApiOrganizationsIdMembershipsGetParametersScope'
+      - name: search
+        in: query
+        description: A search term.
+        required: false
+        schema:
+          type: string
+      - name: tags
+        in: query
+        description: Filter members by tags. Use a comma-separated list of tag IDs.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedLseOrganizationMemberListList'
+    patch:
+      operationId: update
+      summary: ✨ Update organization member/role
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate organization membership or role for a specific user ID.\n\n**User Rotation Best Practices for API Usage**\n\nTo maintain compliance with our licensing terms and ensure optimal performance of HumanSignal's APIs, please consider the following guidelines when managing user assignments:\n\n* **Maintain a 7-Day Minimum Assignment**: Once a licensed seat is assigned to a user, maintain that assignment for at least seven consecutive days before rotating it to another user.\n\n* **Automate, Monitor, and Log Rotations**: Implement automated scheduling and logging mechanisms to track the timing of user rotations. This helps ensure that rotations adhere to the seven-day minimum period.\n\n* **Adhere to API Update Frequency and Wait Periods**: When updating user assignments via our APIs, follow the recommended frequency and wait period guidelines provided in the HumanSignal API documentation. Avoid sending rapid, successive requests that might overload the endpoint. Instead, incorporate appropriate delays between calls as specified in the documentation.\n\n* **Avoid Overloading the API Endpoint**: Design your integration to batch or schedule updates where possible, and implement backoff strategies if the API indicates rate limiting. This helps prevent service disruptions and ensures a smooth operation.\n\n"
+      tags:
+      - subpackage_organizations.subpackage_organizations/members
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LseOrganizationMemberList'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedOrganizationMemberCreateUpdateRequest'
+  /api/organizations/{id}/memberships/{user_pk}/:
+    get:
+      operationId: get
+      summary: Get organization member details
+      description: Get organization member details by user ID.
+      tags:
+      - subpackage_organizations.subpackage_organizations/members
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: user_pk
+        in: path
+        description: A unique integer value identifying the user to get organization details for.
+        required: true
+        schema:
+          type: integer
+      - name: contributed_to_projects
+        in: query
+        description: Whether to include projects created and contributed to by the member.
+        required: false
+        schema:
+          type: boolean
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationMember'
+    delete:
+      operationId: delete
+      summary: Soft delete an organization member
+      description: Soft delete a member from the organization.
+      tags:
+      - subpackage_organizations.subpackage_organizations/members
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: user_pk
+        in: path
+        description: A unique integer value identifying the user to be deleted from the organization.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '403':
+          description: You can delete members only for your current active organization
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: Member not found
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '405':
+          description: User cannot soft delete self.
+          content:
+            application/json:
+              schema:
+                description: Any type
+components:
+  schemas:
+    LseOrganizationMemberListContributedToProjectsItems:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+      required:
+      - id
+      - title
+      title: LseOrganizationMemberListContributedToProjectsItems
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
+    OnboardingStateEnum:
+      type: string
+      enum:
+      - not_started
+      - signup
+      - trial_signup
+      - first_tutorial
+      - in_app_guidance
+      - complete
+      description: '* `not_started` - Not Started
+
+        * `signup` - Signup
+
+        * `trial_signup` - Trial Signup
+
+        * `first_tutorial` - First Tutorial
+
+        * `in_app_guidance` - In App Guidance
+
+        * `complete` - Complete'
+      title: OnboardingStateEnum
+    LseOrganizationMemberListCreatedProjectsItems:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+      required:
+      - id
+      - title
+      title: LseOrganizationMemberListCreatedProjectsItems
+    PaginatedLseOrganizationMemberListList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LseOrganizationMemberList'
+      required:
+      - count
+      - results
+      title: PaginatedLseOrganizationMemberListList
+    OrganizationMember:
+      type: object
+      properties:
+        annotations_count:
+          type: integer
+        contributed_projects_count:
+          type: integer
+        contributed_to_projects:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/OrganizationMemberContributedToProjectsItems'
+        created_at:
+          type: string
+          format: date-time
+        created_projects:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/OrganizationMemberCreatedProjectsItems'
+        organization:
+          type: integer
+          description: Organization ID
+        user:
+          type: integer
+          description: User ID
+      required:
+      - annotations_count
+      - contributed_projects_count
+      - contributed_to_projects
+      - created_at
+      - created_projects
+      - organization
+      - user
+      description: 'A serializer mixin that takes an additional `fields` argument that controls
+
+        which fields should be displayed.'
+      title: OrganizationMember
+    OrganizationMemberContributedToProjectsItems:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+      required:
+      - id
+      - title
+      title: OrganizationMemberContributedToProjectsItems
+    LseUserOrganizationMemberListCreatedProjectsItems:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+      required:
+      - id
+      - title
+      title: LseUserOrganizationMemberListCreatedProjectsItems
+    LseFields:
+      type: object
+      properties:
+        email_notification_settings:
+          type: string
+        invite_activated:
+          type:
+          - boolean
+          - 'null'
+        invite_expired:
+          type: string
+        invite_expired_at:
+          type: string
+        invited_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        invited_by:
+          type:
+          - integer
+          - 'null'
+        onboarding_state:
+          oneOf:
+          - $ref: '#/components/schemas/OnboardingStateEnum'
+          - type: 'null'
+          description: 'The current stage of user onboarding
+
+
+            * `not_started` - Not Started
+
+            * `signup` - Signup
+
+            * `trial_signup` - Trial Signup
+
+            * `first_tutorial` - First Tutorial
+
+            * `in_app_guidance` - In App Guidance
+
+            * `complete` - Complete'
+        social_auth_finished:
+          type:
+          - boolean
+          - 'null'
+          description: Is user finished social authentication
+        trial_company:
+          type:
+          - string
+          - 'null'
+        trial_experience_labeling:
+          type:
+          - string
+          - 'null'
+        trial_license_enterprise:
+          type:
+          - boolean
+          - 'null'
+        trial_models_in_production:
+          type:
+          - string
+          - 'null'
+        trial_role:
+          oneOf:
+          - $ref: '#/components/schemas/TrialRoleEnum'
+          - type: 'null'
+      required:
+      - email_notification_settings
+      - invite_expired
+      - invite_expired_at
+      title: LseFields
+    LseUserOrganizationMemberListContributedToProjectsItems:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+      required:
+      - id
+      - title
+      title: LseUserOrganizationMemberListContributedToProjectsItems
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
+    OrganizationMemberCreatedProjectsItems:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+      required:
+      - id
+      - title
+      title: OrganizationMemberCreatedProjectsItems
+    LseOrganizationMemberList:
+      type: object
+      properties:
+        concurrency:
+          type: string
+        contributed_to_projects:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/LseOrganizationMemberListContributedToProjectsItems'
+        created_projects:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/LseOrganizationMemberListCreatedProjectsItems'
+        id:
+          type: integer
+        organization:
+          type: integer
+          description: Organization ID
+        role:
+          type: string
+        role_source:
+          type: string
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimpleOrganizationMemberTag'
+        user:
+          $ref: '#/components/schemas/LseUserOrganizationMemberList'
+        user_type:
+          type: string
+      required:
+      - concurrency
+      - contributed_to_projects
+      - created_projects
+      - id
+      - organization
+      - role
+      - role_source
+      - tags
+      - user
+      - user_type
+      description: 'A serializer mixin that takes an additional `fields` argument that controls
+
+        which fields should be displayed.'
+      title: LseOrganizationMemberList
+    ApiOrganizationsIdMembershipsGetParametersScope:
+      type: string
+      enum:
+      - accessible
+      - all
+      title: ApiOrganizationsIdMembershipsGetParametersScope
+    PatchedOrganizationMemberCreateUpdateRequest:
+      type: object
+      properties:
+        role:
+          $ref: '#/components/schemas/Role9e7Enum'
+          description: 'Organization role
+
+
+            * `OW` - Owner
+
+            * `AD` - Administrator
+
+            * `MA` - Manager
+
+            * `RE` - Reviewer
+
+            * `AN` - Annotator
+
+            * `DI` - Deactivated
+
+            * `NO` - Not Activated'
+        user_id:
+          type: integer
+          description: Member
+      title: PatchedOrganizationMemberCreateUpdateRequest
+    LseUserOrganizationMemberList:
+      type: object
+      properties:
+        active_organization:
+          type:
+          - integer
+          - 'null'
+        allow_newsletters:
+          type:
+          - boolean
+          - 'null'
+          description: Allow sending newsletters to user
+        avatar:
+          type: string
+        contributed_to_projects:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/LseUserOrganizationMemberListContributedToProjectsItems'
+        created_projects:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/LseUserOrganizationMemberListCreatedProjectsItems'
+        custom_hotkeys:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Custom keyboard shortcuts configuration for the user interface
+        date_joined:
+          type: string
+          format: date-time
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        initials:
+          type: string
+          default: '?'
+        last_activity:
+          type: string
+          format: date-time
+        last_name:
+          type: string
+        lse_fields:
+          $ref: '#/components/schemas/LseFields'
+        pause:
+          type: string
+        phone:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - contributed_to_projects
+      - created_projects
+      - id
+      - initials
+      - last_activity
+      - lse_fields
+      - pause
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: LseUserOrganizationMemberList
+    SimpleOrganizationMemberTag:
+      type: object
+      properties:
+        id:
+          type: integer
+        label:
+          type: string
+      required:
+      - id
+      - label
+      title: SimpleOrganizationMemberTag
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

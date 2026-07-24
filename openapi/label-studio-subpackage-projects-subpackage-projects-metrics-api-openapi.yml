@@ -1,0 +1,116 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/metrics API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_projects.subpackage_projects/metrics
+paths:
+  /api/projects/{id}/metricparam/:
+    get:
+      operationId: get
+      summary: ✨ Get project metrics configuration
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet the current metrics configuration for a project."
+      tags:
+      - subpackage_projects.subpackage_projects/metrics
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Current metrics configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricParam'
+    post:
+      operationId: update
+      summary: ✨ Update project metrics configuration
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate metrics strategy and parameters for a project."
+      tags:
+      - subpackage_projects.subpackage_projects/metrics
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Updated metrics configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricParamUpdateRequest'
+components:
+  schemas:
+    MetricParam:
+      type: object
+      properties:
+        agreement_threshold:
+          type: string
+        allowed:
+          type: string
+        max_additional_annotators_assignable:
+          type:
+          - integer
+          - 'null'
+          description: Maximum number of additional annotators that can be assigned to a low agreement task
+        metric_name:
+          type:
+          - string
+          - 'null'
+          description: Evaluation metric chosen for this project
+        metric_params:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+      required:
+      - agreement_threshold
+      - allowed
+      title: MetricParam
+    MetricParamUpdateRequest:
+      type: object
+      properties:
+        additional_params:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            description: Any type
+          description: Agreement metric parameters
+        agreement_threshold:
+          type: integer
+        max_additional_annotators_assignable:
+          type: integer
+        metric_name:
+          type: string
+          description: Agreement metric
+      title: MetricParamUpdateRequest
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

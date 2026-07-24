@@ -1,0 +1,660 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_webhooks API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_webhooks
+paths:
+  /api/webhooks/:
+    get:
+      operationId: list
+      summary: List all webhooks
+      description: List all webhooks set up for your organization.
+      tags:
+      - subpackage_webhooks
+      parameters:
+      - name: project
+        in: query
+        description: Project ID
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Webhook'
+    post:
+      operationId: create
+      summary: Create a webhook
+      description: Create a webhook for your organization.
+      tags:
+      - subpackage_webhooks
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookRequest'
+  /api/webhooks/info/:
+    get:
+      operationId: info
+      summary: Get all webhook actions
+      description: Get descriptions of all available webhook actions to set up webhooks.
+      tags:
+      - subpackage_webhooks
+      parameters:
+      - name: organization-only
+        in: query
+        description: organization-only or not
+        required: false
+        schema:
+          type: boolean
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Object with webhook action descriptions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/webhooks_info_Response_200'
+  /api/webhooks/{id}/:
+    get:
+      operationId: get
+      summary: Get webhook info
+      tags:
+      - subpackage_webhooks
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+    delete:
+      operationId: delete
+      summary: Delete webhook info
+      tags:
+      - subpackage_webhooks
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: Update webhook info
+      tags:
+      - subpackage_webhooks
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSerializerForUpdate'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedWebhookSerializerForUpdateRequest'
+components:
+  schemas:
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectDeleted:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectDeleted
+    Webhook:
+      type: object
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionsEnum'
+        created_at:
+          type: string
+          format: date-time
+          description: Creation time
+        headers:
+          description: Key Value Json of headers
+        id:
+          type: integer
+        is_active:
+          type: boolean
+          description: If value is False the webhook is disabled
+        organization:
+          type: integer
+        project:
+          type:
+          - integer
+          - 'null'
+        send_for_all_actions:
+          type: boolean
+          description: If value is False - used only for actions from WebhookAction
+        send_payload:
+          type: boolean
+          description: If value is False send only action
+        updated_at:
+          type: string
+          format: date-time
+          description: Last update time
+        url:
+          type: string
+          format: uri
+          description: URL of webhook
+      required:
+      - created_at
+      - id
+      - organization
+      - updated_at
+      - url
+      title: Webhook
+    WebhookRequest:
+      type: object
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionsEnum'
+        headers:
+          description: Key Value Json of headers
+        is_active:
+          type: boolean
+          description: If value is False the webhook is disabled
+        project:
+          type:
+          - integer
+          - 'null'
+        send_for_all_actions:
+          type: boolean
+          description: If value is False - used only for actions from WebhookAction
+        send_payload:
+          type: boolean
+          description: If value is False send only action
+        url:
+          type: string
+          format: uri
+          description: URL of webhook
+      required:
+      - url
+      title: WebhookRequest
+    PatchedWebhookSerializerForUpdateRequest:
+      type: object
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionsEnum'
+        headers:
+          description: Key Value Json of headers
+        is_active:
+          type: boolean
+          description: If value is False the webhook is disabled
+        send_for_all_actions:
+          type: boolean
+          description: If value is False - used only for actions from WebhookAction
+        send_payload:
+          type: boolean
+          description: If value is False send only action
+        url:
+          type: string
+          format: uri
+          description: URL of webhook
+      description: 'Serializer class for updating webhooks
+
+
+        Used to forbid updating project field.'
+      title: PatchedWebhookSerializerForUpdateRequest
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewUpdated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewUpdated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewsDeleted:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewsDeleted
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewCreated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewCreated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkUpdated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkUpdated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectCreated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectCreated
+    webhooks_info_Response_200:
+      type: object
+      properties:
+        ANNOTATIONS_CREATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsCreated'
+        ANNOTATIONS_DELETED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsDeleted'
+        ANNOTATION_CREATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationCreated'
+        ANNOTATION_UPDATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationUpdated'
+        LABEL_LINK_CREATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkCreated'
+        LABEL_LINK_DELETED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkDeleted'
+        LABEL_LINK_UPDATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkUpdated'
+        PROJECT_CREATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectCreated'
+        PROJECT_DELETED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectDeleted'
+        PROJECT_UPDATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectUpdated'
+        REVIEWS_DELETED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewsDeleted'
+        REVIEW_CREATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewCreated'
+        REVIEW_UPDATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewUpdated'
+        TASKS_CREATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksCreated'
+        TASKS_DELETED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksDeleted'
+      title: webhooks_info_Response_200
+    ActionsEnum:
+      type: string
+      enum:
+      - PROJECT_CREATED
+      - PROJECT_UPDATED
+      - PROJECT_DELETED
+      - TASKS_CREATED
+      - TASKS_DELETED
+      - ANNOTATION_CREATED
+      - ANNOTATIONS_CREATED
+      - ANNOTATION_UPDATED
+      - ANNOTATIONS_DELETED
+      - LABEL_LINK_CREATED
+      - LABEL_LINK_UPDATED
+      - LABEL_LINK_DELETED
+      - REVIEW_CREATED
+      - REVIEW_UPDATED
+      - REVIEWS_DELETED
+      description: '* `PROJECT_CREATED` - PROJECT_CREATED
+
+        * `PROJECT_UPDATED` - PROJECT_UPDATED
+
+        * `PROJECT_DELETED` - PROJECT_DELETED
+
+        * `TASKS_CREATED` - TASKS_CREATED
+
+        * `TASKS_DELETED` - TASKS_DELETED
+
+        * `ANNOTATION_CREATED` - ANNOTATION_CREATED
+
+        * `ANNOTATIONS_CREATED` - ANNOTATIONS_CREATED
+
+        * `ANNOTATION_UPDATED` - ANNOTATION_UPDATED
+
+        * `ANNOTATIONS_DELETED` - ANNOTATIONS_DELETED
+
+        * `LABEL_LINK_CREATED` - LABEL_LINK_CREATED
+
+        * `LABEL_LINK_UPDATED` - LABEL_LINK_UPDATED
+
+        * `LABEL_LINK_DELETED` - LABEL_LINK_DELETED
+
+        * `REVIEW_CREATED` - REVIEW_CREATED
+
+        * `REVIEW_UPDATED` - REVIEW_UPDATED
+
+        * `REVIEWS_DELETED` - REVIEWS_DELETED'
+      title: ActionsEnum
+    WebhookSerializerForUpdate:
+      type: object
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionsEnum'
+        created_at:
+          type: string
+          format: date-time
+          description: Creation time
+        headers:
+          description: Key Value Json of headers
+        id:
+          type: integer
+        is_active:
+          type: boolean
+          description: If value is False the webhook is disabled
+        organization:
+          type: integer
+        project:
+          type:
+          - integer
+          - 'null'
+        send_for_all_actions:
+          type: boolean
+          description: If value is False - used only for actions from WebhookAction
+        send_payload:
+          type: boolean
+          description: If value is False send only action
+        updated_at:
+          type: string
+          format: date-time
+          description: Last update time
+        url:
+          type: string
+          format: uri
+          description: URL of webhook
+      required:
+      - created_at
+      - id
+      - organization
+      - project
+      - updated_at
+      - url
+      description: 'Serializer class for updating webhooks
+
+
+        Used to forbid updating project field.'
+      title: WebhookSerializerForUpdate
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksCreated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksCreated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsCreated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsCreated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkCreated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkCreated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsDeleted:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsDeleted
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectUpdated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectUpdated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationCreated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationCreated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkDeleted:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkDeleted
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationUpdated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationUpdated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksDeleted:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksDeleted
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

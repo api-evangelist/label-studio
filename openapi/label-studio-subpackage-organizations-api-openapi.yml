@@ -1,0 +1,548 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_organizations API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_organizations
+paths:
+  /api/invite/reset-token:
+    post:
+      operationId: reset-token
+      summary: Reset organization token
+      description: Reset the token used in the invitation link to invite someone to an organization.
+      tags:
+      - subpackage_organizations
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationInvite'
+  /api/organizations/:
+    get:
+      operationId: list
+      summary: List your organizations
+      description: "\n        Return a list of the organizations you've created or that you have access to.\n        "
+      tags:
+      - subpackage_organizations
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrganizationId'
+  /api/organizations/{id}:
+    get:
+      operationId: get
+      summary: Get organization settings
+      description: Retrieve the settings for a specific organization by ID.
+      tags:
+      - subpackage_organizations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LseOrganization'
+    patch:
+      operationId: update
+      summary: ✨ Update organization
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate organization details including title, embed domains, and Plugins settings."
+      tags:
+      - subpackage_organizations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LseOrganization'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLseOrganizationSerializerUpdateRequest'
+  /api/organizations/{id}/set-default-role:
+    patch:
+      operationId: update-default-role
+      summary: ✨ Update default role
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate the default role for members of a specific organization."
+      tags:
+      - subpackage_organizations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultRole'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedDefaultRoleRequest'
+components:
+  schemas:
+    PatchedLseOrganizationSerializerUpdateRequest:
+      type: object
+      properties:
+        contact_info:
+          type:
+          - string
+          - 'null'
+          format: email
+        created_by:
+          type:
+          - integer
+          - 'null'
+        custom_scripts_enabled:
+          type:
+          - boolean
+          - 'null'
+          description: Plugins
+        email_notification_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Email Notification Settings
+        embed_domains:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            additionalProperties:
+              type: string
+          description: Supported domains
+        embed_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Public Verification Key and Public Verification Algorithms configuration
+        react_code_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: ReactCode settings
+        title:
+          type:
+          - string
+          - 'null'
+          description: Organization name
+        token:
+          type:
+          - string
+          - 'null'
+      description: 'A serializer mixin that takes an additional `fields` argument that controls
+
+        which fields should be displayed.'
+      title: PatchedLseOrganizationSerializerUpdateRequest
+    PatchedDefaultRoleRequest:
+      type: object
+      properties:
+        annotator_reviewer_firewall_enabled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Set to current time to restrict data sharing between annotators and reviewers in the label stream, review stream, and notifications (which will be disabled). In these settings, information about annotator and reviewer identity is suppressed in the UI.
+        custom_interfaces_enabled:
+          type:
+          - boolean
+          - 'null'
+          description: Enable custom interfaces for this organization. When disabled, projects with use_custom_interface=True will not render custom interfaces anywhere in the product (label stream, embed, data manager, interfaces dashboard).
+        custom_scripts_enabled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Set to current time to enable custom scripts (Plugins) for this organization. Can only be enabled if no organization members are active members of any other organizations; otherwise an error will be raised. If this occurs, contact the LEAP team for assistance with enabling custom scripts (Plugins).
+        default_role:
+          $ref: '#/components/schemas/Role9e7Enum'
+          description: 'Default membership role for invited users
+
+
+            * `OW` - Owner
+
+            * `AD` - Administrator
+
+            * `MA` - Manager
+
+            * `RE` - Reviewer
+
+            * `AN` - Annotator
+
+            * `DI` - Deactivated
+
+            * `NO` - Not Activated'
+        email_notification_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: 'Email notification settings for this organization. Controls which email notifications users can receive. Structure: {"notifications_allowed": {"notification_type": bool}}'
+        embed_domains:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: 'List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.'
+        embed_enabled:
+          type:
+          - boolean
+          - 'null'
+          description: Enable embed functionality for this organization
+        embed_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Embed settings for this organization
+        external_id:
+          type:
+          - string
+          - 'null'
+          description: External ID to uniquely identify this organization
+        extra_data_on_activity_logs:
+          type: boolean
+        interface_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: 'Security settings for custom interfaces: CSP allowlists, script origins, iframe permissions.'
+        label_stream_navigation_disabled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Set to current time to disable the label stream navigation for this organization. This will prevent users from going back in the label stream to view previous labels.
+        organization:
+          type: integer
+          description: A unique integer value identifying this organization.
+        react_code_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: 'ReactCode tag security settings. Structure: {"mode": "disabled"|"src_only"|"everything", "allowed_origins": ["https://..."], "allowed_permissions": ["camera", ...]}'
+        read_only_quick_view_enabled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Set to current time to prevent creating or editing annotations in quick view.
+      title: PatchedDefaultRoleRequest
+    OrganizationInvite:
+      type: object
+      properties:
+        invite_url:
+          type: string
+        token:
+          type: string
+      title: OrganizationInvite
+    OrganizationId:
+      type: object
+      properties:
+        contact_info:
+          type:
+          - string
+          - 'null'
+          format: email
+        created_at:
+          type: string
+          format: date-time
+        id:
+          type: integer
+        title:
+          type: string
+      required:
+      - created_at
+      - id
+      - title
+      description: 'A serializer mixin that takes an additional `fields` argument that controls
+
+        which fields should be displayed.'
+      title: OrganizationId
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
+    DefaultRole:
+      type: object
+      properties:
+        annotator_reviewer_firewall_enabled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Set to current time to restrict data sharing between annotators and reviewers in the label stream, review stream, and notifications (which will be disabled). In these settings, information about annotator and reviewer identity is suppressed in the UI.
+        custom_interfaces_enabled:
+          type:
+          - boolean
+          - 'null'
+          description: Enable custom interfaces for this organization. When disabled, projects with use_custom_interface=True will not render custom interfaces anywhere in the product (label stream, embed, data manager, interfaces dashboard).
+        custom_scripts_enabled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Set to current time to enable custom scripts (Plugins) for this organization. Can only be enabled if no organization members are active members of any other organizations; otherwise an error will be raised. If this occurs, contact the LEAP team for assistance with enabling custom scripts (Plugins).
+        default_role:
+          $ref: '#/components/schemas/Role9e7Enum'
+          description: 'Default membership role for invited users
+
+
+            * `OW` - Owner
+
+            * `AD` - Administrator
+
+            * `MA` - Manager
+
+            * `RE` - Reviewer
+
+            * `AN` - Annotator
+
+            * `DI` - Deactivated
+
+            * `NO` - Not Activated'
+        email_notification_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: 'Email notification settings for this organization. Controls which email notifications users can receive. Structure: {"notifications_allowed": {"notification_type": bool}}'
+        embed_domains:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: 'List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.'
+        embed_enabled:
+          type:
+          - boolean
+          - 'null'
+          description: Enable embed functionality for this organization
+        embed_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Embed settings for this organization
+        external_id:
+          type:
+          - string
+          - 'null'
+          description: External ID to uniquely identify this organization
+        extra_data_on_activity_logs:
+          type: boolean
+        interface_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: 'Security settings for custom interfaces: CSP allowlists, script origins, iframe permissions.'
+        label_stream_navigation_disabled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Set to current time to disable the label stream navigation for this organization. This will prevent users from going back in the label stream to view previous labels.
+        organization:
+          type: integer
+          description: A unique integer value identifying this organization.
+        react_code_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: 'ReactCode tag security settings. Structure: {"mode": "disabled"|"src_only"|"everything", "allowed_origins": ["https://..."], "allowed_permissions": ["camera", ...]}'
+        read_only_quick_view_enabled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Set to current time to prevent creating or editing annotations in quick view.
+      required:
+      - organization
+      title: DefaultRole
+    OrganizationBilling:
+      type: object
+      properties:
+        enforce_session_concurrency:
+          type: string
+        manual_role_management:
+          type: string
+        manual_workspace_management:
+          type: string
+        max_parallel_sessions:
+          type: string
+        session_concurrency_window_seconds:
+          type: string
+      required:
+      - enforce_session_concurrency
+      - manual_role_management
+      - manual_workspace_management
+      - max_parallel_sessions
+      - session_concurrency_window_seconds
+      title: OrganizationBilling
+    LseOrganization:
+      type: object
+      properties:
+        billing:
+          $ref: '#/components/schemas/OrganizationBilling'
+        created_at:
+          type: string
+          format: date-time
+        custom_scripts_enabled:
+          type: string
+        default_role:
+          $ref: '#/components/schemas/Role9e7Enum'
+          description: 'Default membership role for invited users
+
+
+            * `OW` - Owner
+
+            * `AD` - Administrator
+
+            * `MA` - Manager
+
+            * `RE` - Reviewer
+
+            * `AN` - Annotator
+
+            * `DI` - Deactivated
+
+            * `NO` - Not Activated'
+        email_notification_settings:
+          type: string
+        embed_domains:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: 'List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.'
+        embed_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Embed settings for this organization
+        external_id:
+          type:
+          - string
+          - 'null'
+          description: External ID to uniquely identify this organization
+        id:
+          type: integer
+        react_code_settings:
+          type: string
+        title:
+          type: string
+        token:
+          type: string
+      required:
+      - billing
+      - created_at
+      - custom_scripts_enabled
+      - email_notification_settings
+      - id
+      - react_code_settings
+      - title
+      - token
+      title: LseOrganization
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

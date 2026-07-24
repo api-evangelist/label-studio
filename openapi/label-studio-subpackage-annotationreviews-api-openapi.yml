@@ -1,0 +1,326 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_annotationReviews API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_annotationReviews
+paths:
+  /api/annotation-reviews/:
+    get:
+      operationId: list
+      summary: ✨ List reviews
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all reviews for a specific annotation ID. Only allowed for organizations with reviewing features enabled."
+      tags:
+      - subpackage_annotationReviews
+      parameters:
+      - name: annotation
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: annotation__task__project
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AnnotationReview'
+    post:
+      operationId: create
+      summary: ✨ Create review
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a review for a specific annotation ID. Only allowed for organizations with reviewing features enabled."
+      tags:
+      - subpackage_annotationReviews
+      parameters:
+      - name: async_postprocess
+        in: query
+        description: Whether to postprocess the review asynchronously.
+        required: false
+        schema:
+          type: boolean
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnotationReview'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnnotationReviewRequest'
+  /api/annotation-reviews/{id}/:
+    get:
+      operationId: get
+      summary: ✨ Get review
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a specific review by ID for an annotation. Only allowed for organizations with reviewing features enabled."
+      tags:
+      - subpackage_annotationReviews
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this annotation review.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnotationReview'
+    delete:
+      operationId: delete
+      summary: ✨ Delete review
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a review by ID. Only allowed for organizations with reviewing features enabled."
+      tags:
+      - subpackage_annotationReviews
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this annotation review.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: ✨ Update review
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific review by ID. Only allowed for organizations with reviewing features enabled."
+      tags:
+      - subpackage_annotationReviews
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this annotation review.
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnnotationReview'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAnnotationReviewRequest'
+components:
+  schemas:
+    PatchedAnnotationReviewRequest:
+      type: object
+      properties:
+        accepted:
+          type: boolean
+          description: Accepted or rejected (if false) flag
+        annotation:
+          type: integer
+          description: Corresponding annotation
+        comment:
+          type:
+          - string
+          - 'null'
+        last_annotation_history:
+          type:
+          - integer
+          - 'null'
+        remove_from_queue:
+          type:
+          - boolean
+          - 'null'
+        result:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        started_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      description: 'AnnotationReview Serializer with FSM state support.
+
+
+        Note: The ''state'' field will be populated from the queryset annotation
+
+        if present, preventing N+1 queries. Use .with_state() on your queryset.
+
+
+        The state field display is controlled by both:
+
+        - fflag_feat_fit_568_finite_state_management (FSM background calculations)
+
+        - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
+      title: PatchedAnnotationReviewRequest
+    AnnotationReview:
+      type: object
+      properties:
+        accepted:
+          type: boolean
+          description: Accepted or rejected (if false) flag
+        annotation:
+          type: integer
+          description: Corresponding annotation
+        created_at:
+          type: string
+          format: date-time
+          description: Creation time
+        created_by:
+          type: integer
+          description: User who made this review
+        fixed_annotation_history:
+          type:
+          - integer
+          - 'null'
+          description: Fixed annotation history item by the reviewer
+        id:
+          type: integer
+        last_annotation_history:
+          type:
+          - integer
+          - 'null'
+        previous_annotation_history:
+          type:
+          - integer
+          - 'null'
+          description: Previous annotation history item by the annotator
+        remove_from_queue:
+          type:
+          - boolean
+          - 'null'
+        result:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        started_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        state:
+          type: string
+      required:
+      - annotation
+      - created_at
+      - created_by
+      - fixed_annotation_history
+      - id
+      - previous_annotation_history
+      - state
+      description: 'AnnotationReview Serializer with FSM state support.
+
+
+        Note: The ''state'' field will be populated from the queryset annotation
+
+        if present, preventing N+1 queries. Use .with_state() on your queryset.
+
+
+        The state field display is controlled by both:
+
+        - fflag_feat_fit_568_finite_state_management (FSM background calculations)
+
+        - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
+      title: AnnotationReview
+    AnnotationReviewRequest:
+      type: object
+      properties:
+        accepted:
+          type: boolean
+          description: Accepted or rejected (if false) flag
+        annotation:
+          type: integer
+          description: Corresponding annotation
+        comment:
+          type:
+          - string
+          - 'null'
+        last_annotation_history:
+          type:
+          - integer
+          - 'null'
+        remove_from_queue:
+          type:
+          - boolean
+          - 'null'
+        result:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        started_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      required:
+      - annotation
+      description: 'AnnotationReview Serializer with FSM state support.
+
+
+        Note: The ''state'' field will be populated from the queryset annotation
+
+        if present, preventing N+1 queries. Use .with_state() on your queryset.
+
+
+        The state field display is controlled by both:
+
+        - fflag_feat_fit_568_finite_state_management (FSM background calculations)
+
+        - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
+      title: AnnotationReviewRequest
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

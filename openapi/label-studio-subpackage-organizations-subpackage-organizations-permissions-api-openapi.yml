@@ -1,0 +1,454 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_organizations.subpackage_organizations/permissions API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_organizations.subpackage_organizations/permissions
+paths:
+  /api/organizations/{id}/permissions:
+    get:
+      operationId: list
+      summary: ✨ List organization permission overrides
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all organization-level permission overrides for a given organization."
+      tags:
+      - subpackage_organizations.subpackage_organizations/permissions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrganizationPermission'
+    post:
+      operationId: create
+      summary: ✨ Create organization permission override
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new organization-level permission override for a given organization."
+      tags:
+      - subpackage_organizations.subpackage_organizations/permissions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationPermission'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationPermissionRequest'
+  /api/organizations/{id}/permissions/options:
+    get:
+      operationId: get-options
+      summary: ✨ Get configurable permissions options
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the list of configurable permission options (label, tooltip, default role and allowed roles)."
+      tags:
+      - subpackage_organizations.subpackage_organizations/permissions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConfigurablePermissionOption'
+  /api/organizations/{id}/permissions/{permission}:
+    get:
+      operationId: get
+      summary: ✨ Retrieve organization permission override
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the organization-level permission override for a given permission key."
+      tags:
+      - subpackage_organizations.subpackage_organizations/permissions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: permission
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationPermission'
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: Permission not found for organization
+          content:
+            application/json:
+              schema:
+                description: Any type
+    put:
+      operationId: replace
+      summary: ✨ Replace organization permission override
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nReplace the organization-level permission override for a given permission key."
+      tags:
+      - subpackage_organizations.subpackage_organizations/permissions
+      parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this organization.
+        required: true
+        schema:
+          type: integer
+      - name: permission
+        in: path
+        description: Permission key to update within the organization.
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationPermission'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: Permission not found for organization
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationPermissionRequest'
+    delete:
+      operationId: delete
+      summary: ✨ Delete organization permission override
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete the organization-level permission override for a given permission key."
+      tags:
+      - subpackage_organizations.subpackage_organizations/permissions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: permission
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: Permission not found for organization
+          content:
+            application/json:
+              schema:
+                description: Any type
+    patch:
+      operationId: update
+      summary: ✨ Update organization permission override
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nPartially update the organization-level permission override for a given permission key."
+      tags:
+      - subpackage_organizations.subpackage_organizations/permissions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: permission
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationPermission'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '403':
+          description: Permission Denied
+          content:
+            application/json:
+              schema:
+                description: Any type
+        '404':
+          description: Permission not found for organization
+          content:
+            application/json:
+              schema:
+                description: Any type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedOrganizationPermissionRequest'
+components:
+  schemas:
+    Default165Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      title: Default165Enum
+    OrganizationPermissionRequest:
+      type: object
+      properties:
+        permission:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role9e7Enum'
+          description: Organization roles
+      required:
+      - permission
+      title: OrganizationPermissionRequest
+    PatchedOrganizationPermissionRequest:
+      type: object
+      properties:
+        permission:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role9e7Enum'
+          description: Organization roles
+      title: PatchedOrganizationPermissionRequest
+    OrganizationPermission:
+      type: object
+      properties:
+        default:
+          type: array
+          items:
+            $ref: '#/components/schemas/Default165Enum'
+        group:
+          type:
+          - string
+          - 'null'
+        id:
+          type: integer
+        label:
+          type:
+          - string
+          - 'null'
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Options165Enum'
+        organization:
+          type: integer
+        permission:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role9e7Enum'
+          description: Organization roles
+        tooltip:
+          type:
+          - string
+          - 'null'
+      required:
+      - default
+      - group
+      - id
+      - label
+      - options
+      - organization
+      - permission
+      - tooltip
+      title: OrganizationPermission
+    Options165Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      title: Options165Enum
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
+    ConfigurablePermissionOption:
+      type: object
+      properties:
+        default:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role9e7Enum'
+        group:
+          type: string
+        label:
+          type: string
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role9e7Enum'
+        permission:
+          type: string
+        tooltip:
+          type: string
+      required:
+      - default
+      - options
+      - permission
+      title: ConfigurablePermissionOption
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

@@ -1,0 +1,217 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_files API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_files
+paths:
+  /api/import/file-upload/{id}:
+    get:
+      operationId: get
+      summary: Get file upload
+      description: Retrieve details about a specific uploaded file.
+      tags:
+      - subpackage_files
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUpload'
+    delete:
+      operationId: delete
+      summary: Delete file upload
+      description: Delete a specific uploaded file.
+      tags:
+      - subpackage_files
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: Update file upload
+      description: Update a specific uploaded file.
+      tags:
+      - subpackage_files
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUpload'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedFileUploadRequest'
+  /api/projects/{id}/file-uploads:
+    get:
+      operationId: list
+      summary: Get files list
+      description: "\n        Retrieve the list of uploaded files used to create labeling tasks for a specific project.\n        "
+      tags:
+      - subpackage_files
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: all
+        in: query
+        description: Set to "true" if you want to retrieve all file uploads
+        required: false
+        schema:
+          type: boolean
+      - name: ids
+        in: query
+        description: Specify the list of file upload IDs to retrieve, e.g. ids=[1,2,3]
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FileUpload'
+    delete:
+      operationId: delete-many
+      summary: Delete files
+      description: "\n        Delete uploaded files for a specific project.\n        "
+      tags:
+      - subpackage_files
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+  /data/upload/{filename}:
+    get:
+      operationId: download
+      summary: Download file
+      description: Download a specific uploaded file.
+      tags:
+      - subpackage_files
+      parameters:
+      - name: filename
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: File downloaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/files_download_Response_200'
+components:
+  schemas:
+    PatchedFileUploadRequest:
+      type: object
+      properties:
+        file:
+          type: string
+          format: binary
+      title: PatchedFileUploadRequest
+    FileUpload:
+      type: object
+      properties:
+        file:
+          type: string
+        id:
+          type: integer
+        size:
+          type:
+          - integer
+          - 'null'
+      required:
+      - file
+      - id
+      - size
+      title: FileUpload
+    files_download_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: files_download_Response_200
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

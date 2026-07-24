@@ -1,0 +1,86 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_versions API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_versions
+paths:
+  /api/version/:
+    get:
+      operationId: get
+      summary: Get version information
+      description: Get version information about the Label Studio instance.
+      tags:
+      - subpackage_versions
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionResponse'
+components:
+  schemas:
+    EditionEnum:
+      type: string
+      enum:
+      - Community
+      - Enterprise
+      description: '* `Community` - Community
+
+        * `Enterprise` - Enterprise'
+      title: EditionEnum
+    VersionResponse:
+      type: object
+      properties:
+        backend:
+          description: Additional backend information
+        dm2:
+          description: Information about the Data Manager 2.0 component
+        edition:
+          $ref: '#/components/schemas/EditionEnum'
+          description: 'Label Studio edition (Community or Enterprise)
+
+
+            * `Community` - Community
+
+            * `Enterprise` - Enterprise'
+        label-studio-converter:
+          description: Information about the Label Studio converter component
+        label-studio-frontend:
+          description: Information about the Label Studio frontend
+        label-studio-os-backend:
+          description: Information about the Label Studio backend
+        label-studio-os-package:
+          description: Information about the Label Studio open source package
+        lsf:
+          description: Information about the Label Studio Frontend library
+        release:
+          type: string
+          description: Current release version of Label Studio
+      required:
+      - backend
+      - dm2
+      - edition
+      - label-studio-converter
+      - label-studio-frontend
+      - label-studio-os-backend
+      - label-studio-os-package
+      - lsf
+      - release
+      title: VersionResponse
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

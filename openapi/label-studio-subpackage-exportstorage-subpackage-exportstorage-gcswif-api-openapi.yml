@@ -1,0 +1,551 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_exportStorage.subpackage_exportStorage/gcswif API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_exportStorage.subpackage_exportStorage/gcswif
+paths:
+  /api/storages/export/gcswif:
+    get:
+      operationId: list
+      summary: ✨ Get all GCS WIF export storage
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a list of all GCS export storage connections that were set up with WIF authentication."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcswif
+      parameters:
+      - name: ordering
+        in: query
+        description: Which field to use when ordering the results.
+        required: false
+        schema:
+          type: string
+      - name: project
+        in: query
+        description: Project ID
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GCSWIFExportStorage'
+    post:
+      operationId: create
+      summary: ✨ Create GCS export storage with WIF authentication
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate an GCS export storage connection with WIF authentication to store annotations."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcswif
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSWIFExportStorage'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GCSWIFExportStorageRequest'
+  /api/storages/export/gcswif/validate:
+    post:
+      operationId: validate
+      summary: ✨ Validate GCS WIF export storage
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nValidate a specific GCS export storage connection that was set up with WIF authentication."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcswif
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Validation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/export_storage_gcswif_validate_Response_200'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GCSWIFExportStorageRequest'
+  /api/storages/export/gcswif/{id}:
+    get:
+      operationId: get
+      summary: ✨ Get GCS WIF export storage
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a specific GCS export storage connection that was set up with WIF authentication."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcswif
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSWIFExportStorage'
+    delete:
+      operationId: delete
+      summary: ✨ Delete GCS WIF export storage
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific GCS export storage connection that was set up with WIF authentication."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcswif
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+    patch:
+      operationId: update
+      summary: ✨ Update GCS WIF export storage
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific GCS export storage connection that was set up with WIF authentication."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcswif
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSWIFExportStorage'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedGCSWIFExportStorageRequest'
+  /api/storages/export/gcswif/{id}/sync:
+    post:
+      operationId: sync
+      summary: ✨ Sync GCS WIF export storage
+      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nSync tasks from an GCS WIF export storage."
+      tags:
+      - subpackage_exportStorage.subpackage_exportStorage/gcswif
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GCSWIFExportStorage'
+components:
+  schemas:
+    GCSWIFExportStorage:
+      type: object
+      properties:
+        bucket:
+          type:
+          - string
+          - 'null'
+          description: GCS bucket name
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        created_at:
+          type: string
+          format: date-time
+          description: Creation time
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        google_application_credentials:
+          type:
+          - string
+          - 'null'
+          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
+        google_project_id:
+          type:
+          - string
+          - 'null'
+          description: Google project ID
+        google_project_number:
+          type:
+          - string
+          - 'null'
+          description: Google project number
+        google_service_account_email:
+          type:
+          - string
+          - 'null'
+          description: Google service account email
+        google_wif_pool_id:
+          type:
+          - string
+          - 'null'
+          description: Google WIF pool ID
+        google_wif_provider_id:
+          type:
+          - string
+          - 'null'
+          description: Google WIF provider ID
+        id:
+          type: integer
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: GCS bucket prefix
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage regex for filtering objects
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          type: boolean
+          default: true
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        type:
+          type: string
+          default: gcswif
+        use_blob_urls:
+          type: boolean
+          description: Interpret objects as BLOBs and generate URLs
+      required:
+      - created_at
+      - id
+      - project
+      - type
+      title: GCSWIFExportStorage
+    export_storage_gcswif_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: export_storage_gcswif_validate_Response_200
+    GCSWIFExportStorageRequest:
+      type: object
+      properties:
+        bucket:
+          type:
+          - string
+          - 'null'
+          description: GCS bucket name
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        google_application_credentials:
+          type:
+          - string
+          - 'null'
+          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
+        google_project_id:
+          type:
+          - string
+          - 'null'
+          description: Google project ID
+        google_project_number:
+          type:
+          - string
+          - 'null'
+          description: Google project number
+        google_service_account_email:
+          type:
+          - string
+          - 'null'
+          description: Google service account email
+        google_wif_pool_id:
+          type:
+          - string
+          - 'null'
+          description: Google WIF pool ID
+        google_wif_provider_id:
+          type:
+          - string
+          - 'null'
+          description: Google WIF provider ID
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: GCS bucket prefix
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage regex for filtering objects
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          type: boolean
+          default: true
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Interpret objects as BLOBs and generate URLs
+      required:
+      - project
+      title: GCSWIFExportStorageRequest
+    PatchedGCSWIFExportStorageRequest:
+      type: object
+      properties:
+        bucket:
+          type:
+          - string
+          - 'null'
+          description: GCS bucket name
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        google_application_credentials:
+          type:
+          - string
+          - 'null'
+          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
+        google_project_id:
+          type:
+          - string
+          - 'null'
+          description: Google project ID
+        google_project_number:
+          type:
+          - string
+          - 'null'
+          description: Google project number
+        google_service_account_email:
+          type:
+          - string
+          - 'null'
+          description: Google service account email
+        google_wif_pool_id:
+          type:
+          - string
+          - 'null'
+          description: Google WIF pool ID
+        google_wif_provider_id:
+          type:
+          - string
+          - 'null'
+          description: Google WIF provider ID
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: GCS bucket prefix
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage regex for filtering objects
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          type: boolean
+          default: true
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Interpret objects as BLOBs and generate URLs
+      title: PatchedGCSWIFExportStorageRequest
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'

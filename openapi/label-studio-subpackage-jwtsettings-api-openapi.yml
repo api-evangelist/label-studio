@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: API Reference subpackage_actions subpackage_jwtSettings API
+  version: 1.0.0
+servers:
+- url: http://localhost:8000
+tags:
+- name: subpackage_jwtSettings
+paths:
+  /api/jwt/settings:
+    get:
+      operationId: get
+      summary: Retrieve JWT Settings
+      description: Retrieve JWT settings for the currently active organization.
+      tags:
+      - subpackage_jwtSettings
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LSEJWTSettings'
+    post:
+      operationId: update
+      summary: Update JWT Settings
+      description: Update JWT settings for the currently active organization.
+      tags:
+      - subpackage_jwtSettings
+      parameters:
+      - name: Authorization
+        in: header
+        description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LSEJWTSettings'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LSEJWTSettingsRequest'
+components:
+  schemas:
+    LSEJWTSettings:
+      type: object
+      properties:
+        api_token_ttl_days:
+          type: integer
+        api_tokens_enabled:
+          type: boolean
+          description: Enable JWT API token authentication for this organization
+        legacy_api_tokens_enabled:
+          type: boolean
+          description: Enable legacy API token authentication for this organization
+      required:
+      - api_token_ttl_days
+      title: LSEJWTSettings
+    LSEJWTSettingsRequest:
+      type: object
+      properties:
+        api_token_ttl_days:
+          type: integer
+        api_tokens_enabled:
+          type: boolean
+          description: Enable JWT API token authentication for this organization
+        legacy_api_tokens_enabled:
+          type: boolean
+          description: Enable legacy API token authentication for this organization
+      required:
+      - api_token_ttl_days
+      title: LSEJWTSettingsRequest
+  securitySchemes:
+    Token:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class="language-bash">curl https://label-studio-host/api/projects -H "Authorization: Token [your-token]"</code></pre>'
