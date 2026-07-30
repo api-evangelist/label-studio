@@ -1,4 +1,18 @@
 aid: label-studio
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/label-studio.png
 url: https://raw.githubusercontent.com/api-evangelist/label-studio/refs/heads/main/apis.yml
 name: Label Studio
 type: Index
@@ -20,35 +34,1486 @@ description: >-
   training data, and validate AI models. The Label Studio REST API exposes projects, tasks, annotations, predictions,
   storage, webhooks, prompts, and review workflows.
 apis:
-  - aid: label-studio:label-studio
-    name: Label Studio
-    tags:
-      - AI
-      - Annotation
-      - Data Labeling
-      - LLM
-      - Machine Learning
-      - Open Source
-      - REST
-    image: https://raw.githubusercontent.com/api-evangelist/label-studio/refs/heads/main/image.png
-    humanURL: https://labelstud.io/
-    baseURL: https://app.humansignal.com/api
-    description: >-
-      The Label Studio REST API supports the full data labeling lifecycle: managing projects, tasks, annotations,
-      annotation reviews, comments, predictions, ML backends, prompts, storage (S3 / Azure / GCS), webhooks, users,
-      organizations, and analytics. The OpenAPI 3.1 specification is published by HumanSignal at
-      https://api.labelstud.io/openapi.yaml.
-    properties:
-      - url: https://labelstud.io/
-        type: Documentation
-      - url: https://api.labelstud.io/
-        type: APIReference
-      - url: openapi/label-studio-openapi.yml
-        type: OpenAPI
-      - url: https://github.com/HumanSignal/label-studio
-        type: SourceCode
-      - url: https://labelstud.io/community
-        type: Community
+- aid: label-studio:label-studio-subpackage-actions-api
+  name: Label Studio subpackage_actions API
+  description: The subpackage_actions API from Label Studio — 1 operation(s) for subpackage_actions.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_actions
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-actions-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-activitylogs-api
+  name: Label Studio subpackage_activityLogs API
+  description: >-
+    The subpackage_activityLogs API from Label Studio — 1 operation(s) for subpackage_activitylogs.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_activityLogs
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-activitylogs-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-annotationhistory-api
+  name: Label Studio subpackage_annotationHistory API
+  description: >-
+    The subpackage_annotationHistory API from Label Studio — 3 operation(s) for subpackage_annotationhistory.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_annotationHistory
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-annotationhistory-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-annotationreviews-api
+  name: Label Studio subpackage_annotationReviews API
+  description: >-
+    The subpackage_annotationReviews API from Label Studio — 2 operation(s) for subpackage_annotationreviews.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_annotationReviews
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-annotationreviews-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-annotations-api
+  name: Label Studio subpackage_annotations API
+  description: >-
+    The subpackage_annotations API from Label Studio — 4 operation(s) for subpackage_annotations.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_annotations
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-annotations-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-billing-api
+  name: Label Studio subpackage_billing API
+  description: The subpackage_billing API from Label Studio — 1 operation(s) for subpackage_billing.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_billing
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-billing-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-comments-api
+  name: Label Studio subpackage_comments API
+  description: The subpackage_comments API from Label Studio — 3 operation(s) for subpackage_comments.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_comments
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-comments-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-dimensions-api
+  name: Label Studio subpackage_dimensions API
+  description: >-
+    The subpackage_dimensions API from Label Studio — 5 operation(s) for subpackage_dimensions.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_dimensions
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-dimensions-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-exportstorage-api
+  name: Label Studio subpackage_exportStorage API
+  description: >-
+    The subpackage_exportStorage API from Label Studio — 1 operation(s) for subpackage_exportstorage.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_exportStorage
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-exportstorage-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-azure-api
+  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/azure API
+  description: >-
+    The subpackage_exportStorage.subpackage_exportStorage/azure API from Label Studio — 4 operation(s)
+    for subpackage_exportstorage.subpackage_exportstorage/azure.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_exportStorage.subpackage_exportStorage/azure
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-exportstorage-subpackage-exportstorage-azure-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-azurespi-api
+  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/azureSpi API
+  description: >-
+    The subpackage_exportStorage.subpackage_exportStorage/azureSpi API from Label Studio — 4 operation(s)
+    for subpackage_exportstorage.subpackage_exportstorage/azurespi.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_exportStorage.subpackage_exportStorage/azureSpi
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-exportstorage-subpackage-exportstorage-azurespi-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: >-
+    label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-databricks-api
+  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/databricks API
+  description: >-
+    The subpackage_exportStorage.subpackage_exportStorage/databricks API from Label Studio — 4 operation(s)
+    for subpackage_exportstorage.subpackage_exportstorage/databricks.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_exportStorage.subpackage_exportStorage/databricks
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-exportstorage-subpackage-exportstorage-databricks-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-gcs-api
+  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/gcs API
+  description: >-
+    The subpackage_exportStorage.subpackage_exportStorage/gcs API from Label Studio — 4 operation(s) for
+    subpackage_exportstorage.subpackage_exportstorage/gcs.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_exportStorage.subpackage_exportStorage/gcs
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-exportstorage-subpackage-exportstorage-gcs-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-gcssa-api
+  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/gcsSa API
+  description: >-
+    The subpackage_exportStorage.subpackage_exportStorage/gcsSa API from Label Studio — 4 operation(s)
+    for subpackage_exportstorage.subpackage_exportstorage/gcssa.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_exportStorage.subpackage_exportStorage/gcsSa
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-exportstorage-subpackage-exportstorage-gcssa-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-gcswif-api
+  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/gcswif API
+  description: >-
+    The subpackage_exportStorage.subpackage_exportStorage/gcswif API from Label Studio — 4 operation(s)
+    for subpackage_exportstorage.subpackage_exportstorage/gcswif.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_exportStorage.subpackage_exportStorage/gcswif
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-exportstorage-subpackage-exportstorage-gcswif-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-local-api
+  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/local API
+  description: >-
+    The subpackage_exportStorage.subpackage_exportStorage/local API from Label Studio — 4 operation(s)
+    for subpackage_exportstorage.subpackage_exportstorage/local.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_exportStorage.subpackage_exportStorage/local
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-exportstorage-subpackage-exportstorage-local-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-redis-api
+  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/redis API
+  description: >-
+    The subpackage_exportStorage.subpackage_exportStorage/redis API from Label Studio — 4 operation(s)
+    for subpackage_exportstorage.subpackage_exportstorage/redis.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_exportStorage.subpackage_exportStorage/redis
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-exportstorage-subpackage-exportstorage-redis-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-s3-api
+  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/s3 API
+  description: >-
+    The subpackage_exportStorage.subpackage_exportStorage/s3 API from Label Studio — 4 operation(s) for
+    subpackage_exportstorage.subpackage_exportstorage/s3.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_exportStorage.subpackage_exportStorage/s3
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-exportstorage-subpackage-exportstorage-s3-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-s3s-api
+  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/s3S API
+  description: >-
+    The subpackage_exportStorage.subpackage_exportStorage/s3S API from Label Studio — 4 operation(s) for
+    subpackage_exportstorage.subpackage_exportstorage/s3s.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_exportStorage.subpackage_exportStorage/s3S
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-exportstorage-subpackage-exportstorage-s3s-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-files-api
+  name: Label Studio subpackage_files API
+  description: The subpackage_files API from Label Studio — 3 operation(s) for subpackage_files.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_files
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-files-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-importstorage-api
+  name: Label Studio subpackage_importStorage API
+  description: >-
+    The subpackage_importStorage API from Label Studio — 1 operation(s) for subpackage_importstorage.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_importStorage
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-importstorage-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-azure-api
+  name: Label Studio subpackage_importStorage.subpackage_importStorage/azure API
+  description: >-
+    The subpackage_importStorage.subpackage_importStorage/azure API from Label Studio — 4 operation(s)
+    for subpackage_importstorage.subpackage_importstorage/azure.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_importStorage.subpackage_importStorage/azure
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-importstorage-subpackage-importstorage-azure-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-azurespi-api
+  name: Label Studio subpackage_importStorage.subpackage_importStorage/azureSpi API
+  description: >-
+    The subpackage_importStorage.subpackage_importStorage/azureSpi API from Label Studio — 4 operation(s)
+    for subpackage_importstorage.subpackage_importstorage/azurespi.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_importStorage.subpackage_importStorage/azureSpi
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-importstorage-subpackage-importstorage-azurespi-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: >-
+    label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-databricks-api
+  name: Label Studio subpackage_importStorage.subpackage_importStorage/databricks API
+  description: >-
+    The subpackage_importStorage.subpackage_importStorage/databricks API from Label Studio — 4 operation(s)
+    for subpackage_importstorage.subpackage_importstorage/databricks.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_importStorage.subpackage_importStorage/databricks
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-importstorage-subpackage-importstorage-databricks-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-gcs-api
+  name: Label Studio subpackage_importStorage.subpackage_importStorage/gcs API
+  description: >-
+    The subpackage_importStorage.subpackage_importStorage/gcs API from Label Studio — 4 operation(s) for
+    subpackage_importstorage.subpackage_importstorage/gcs.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_importStorage.subpackage_importStorage/gcs
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-importstorage-subpackage-importstorage-gcs-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-gcssa-api
+  name: Label Studio subpackage_importStorage.subpackage_importStorage/gcsSa API
+  description: >-
+    The subpackage_importStorage.subpackage_importStorage/gcsSa API from Label Studio — 4 operation(s)
+    for subpackage_importstorage.subpackage_importstorage/gcssa.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_importStorage.subpackage_importStorage/gcsSa
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-importstorage-subpackage-importstorage-gcssa-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-gcswif-api
+  name: Label Studio subpackage_importStorage.subpackage_importStorage/gcswif API
+  description: >-
+    The subpackage_importStorage.subpackage_importStorage/gcswif API from Label Studio — 4 operation(s)
+    for subpackage_importstorage.subpackage_importstorage/gcswif.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_importStorage.subpackage_importStorage/gcswif
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-importstorage-subpackage-importstorage-gcswif-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-local-api
+  name: Label Studio subpackage_importStorage.subpackage_importStorage/local API
+  description: >-
+    The subpackage_importStorage.subpackage_importStorage/local API from Label Studio — 4 operation(s)
+    for subpackage_importstorage.subpackage_importstorage/local.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_importStorage.subpackage_importStorage/local
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-importstorage-subpackage-importstorage-local-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-redis-api
+  name: Label Studio subpackage_importStorage.subpackage_importStorage/redis API
+  description: >-
+    The subpackage_importStorage.subpackage_importStorage/redis API from Label Studio — 4 operation(s)
+    for subpackage_importstorage.subpackage_importstorage/redis.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_importStorage.subpackage_importStorage/redis
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-importstorage-subpackage-importstorage-redis-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-s3-api
+  name: Label Studio subpackage_importStorage.subpackage_importStorage/s3 API
+  description: >-
+    The subpackage_importStorage.subpackage_importStorage/s3 API from Label Studio — 4 operation(s) for
+    subpackage_importstorage.subpackage_importstorage/s3.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_importStorage.subpackage_importStorage/s3
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-importstorage-subpackage-importstorage-s3-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-s3s-api
+  name: Label Studio subpackage_importStorage.subpackage_importStorage/s3S API
+  description: >-
+    The subpackage_importStorage.subpackage_importStorage/s3S API from Label Studio — 4 operation(s) for
+    subpackage_importstorage.subpackage_importstorage/s3s.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_importStorage.subpackage_importStorage/s3S
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-importstorage-subpackage-importstorage-s3s-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-jwtsettings-api
+  name: Label Studio subpackage_jwtSettings API
+  description: >-
+    The subpackage_jwtSettings API from Label Studio — 1 operation(s) for subpackage_jwtsettings.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_jwtSettings
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-jwtsettings-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-ml-api
+  name: Label Studio subpackage_ml API
+  description: The subpackage_ml API from Label Studio — 6 operation(s) for subpackage_ml.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_ml
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-ml-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-modelproviders-api
+  name: Label Studio subpackage_modelProviders API
+  description: >-
+    The subpackage_modelProviders API from Label Studio — 3 operation(s) for subpackage_modelproviders.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_modelProviders
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-modelproviders-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-organizations-api
+  name: Label Studio subpackage_organizations API
+  description: >-
+    The subpackage_organizations API from Label Studio — 4 operation(s) for subpackage_organizations.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-organizations-subpackage-organizations-invites-api
+  name: Label Studio subpackage_organizations.subpackage_organizations/invites API
+  description: >-
+    The subpackage_organizations.subpackage_organizations/invites API from Label Studio — 3 operation(s)
+    for subpackage_organizations.subpackage_organizations/invites.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_organizations.subpackage_organizations/invites
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-organizations-subpackage-organizations-invites-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-organizations-subpackage-organizations-members-api
+  name: Label Studio subpackage_organizations.subpackage_organizations/members API
+  description: >-
+    The subpackage_organizations.subpackage_organizations/members API from Label Studio — 2 operation(s)
+    for subpackage_organizations.subpackage_organizations/members.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_organizations.subpackage_organizations/members
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-organizations-subpackage-organizations-members-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: >-
+    label-studio:label-studio-subpackage-organizations-subpackage-organizations-membertags-api
+  name: Label Studio subpackage_organizations.subpackage_organizations/memberTags API
+  description: >-
+    The subpackage_organizations.subpackage_organizations/memberTags API from Label Studio — 5 operation(s)
+    for subpackage_organizations.subpackage_organizations/membertags.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_organizations.subpackage_organizations/memberTags
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-organizations-subpackage-organizations-membertags-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: >-
+    label-studio:label-studio-subpackage-organizations-subpackage-organizations-membertags-subpackage-organizations-membertags-bulk-api
+  name: >-
+    Label Studio subpackage_organizations.subpackage_organizations/memberTags.subpackage_organizations/memberTags/bulk
+    API
+  description: >-
+    The subpackage_organizations.subpackage_organizations/memberTags.subpackage_organizations/memberTags/bulk
+    API from Label Studio — 1 operation(s) for subpackage_organizations.subpackage_organizations/membertags.subpackage_organizations/membertags/bulk.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - >-
+    subpackage_organizations.subpackage_organizations/memberTags.subpackage_organizations/memberTags/bulk
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-organizations-subpackage-organizations-membertags-subpackage-organizations-membertags-bulk-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: >-
+    label-studio:label-studio-subpackage-organizations-subpackage-organizations-permissions-api
+  name: Label Studio subpackage_organizations.subpackage_organizations/permissions API
+  description: >-
+    The subpackage_organizations.subpackage_organizations/permissions API from Label Studio — 3 operation(s)
+    for subpackage_organizations.subpackage_organizations/permissions.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_organizations.subpackage_organizations/permissions
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-organizations-subpackage-organizations-permissions-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-predictions-api
+  name: Label Studio subpackage_predictions API
+  description: >-
+    The subpackage_predictions API from Label Studio — 2 operation(s) for subpackage_predictions.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_predictions
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-predictions-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-projects-api
+  name: Label Studio subpackage_projects API
+  description: The subpackage_projects API from Label Studio — 8 operation(s) for subpackage_projects.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projects
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-projects-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-projects-subpackage-projects-assignments-api
+  name: Label Studio subpackage_projects.subpackage_projects/assignments API
+  description: >-
+    The subpackage_projects.subpackage_projects/assignments API from Label Studio — 2 operation(s) for
+    subpackage_projects.subpackage_projects/assignments.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projects.subpackage_projects/assignments
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-projects-subpackage-projects-assignments-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-projects-subpackage-projects-exports-api
+  name: Label Studio subpackage_projects.subpackage_projects/exports API
+  description: >-
+    The subpackage_projects.subpackage_projects/exports API from Label Studio — 6 operation(s) for subpackage_projects.subpackage_projects/exports.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projects.subpackage_projects/exports
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-projects-subpackage-projects-exports-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-projects-subpackage-projects-members-api
+  name: Label Studio subpackage_projects.subpackage_projects/members API
+  description: >-
+    The subpackage_projects.subpackage_projects/members API from Label Studio — 1 operation(s) for subpackage_projects.subpackage_projects/members.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projects.subpackage_projects/members
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-projects-subpackage-projects-members-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: >-
+    label-studio:label-studio-subpackage-projects-subpackage-projects-members-subpackage-projects-members-bulk-api
+  name: >-
+    Label Studio subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk API
+  description: >-
+    The subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk API from Label
+    Studio — 1 operation(s) for subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-projects-subpackage-projects-members-subpackage-projects-members-bulk-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: >-
+    label-studio:label-studio-subpackage-projects-subpackage-projects-members-subpackage-projects-members-paginated-api
+  name: >-
+    Label Studio subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated
+    API
+  description: >-
+    The subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated API from
+    Label Studio — 1 operation(s) for subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-projects-subpackage-projects-members-subpackage-projects-members-paginated-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-projects-subpackage-projects-metrics-api
+  name: Label Studio subpackage_projects.subpackage_projects/metrics API
+  description: >-
+    The subpackage_projects.subpackage_projects/metrics API from Label Studio — 1 operation(s) for subpackage_projects.subpackage_projects/metrics.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projects.subpackage_projects/metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-projects-subpackage-projects-metrics-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: >-
+    label-studio:label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom-api
+  name: >-
+    Label Studio subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom API
+  description: >-
+    The subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom API from Label
+    Studio — 6 operation(s) for subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-projects-subpackage-projects-metrics-subpackage-projects-metrics-custom-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-projects-subpackage-projects-pauses-api
+  name: Label Studio subpackage_projects.subpackage_projects/pauses API
+  description: >-
+    The subpackage_projects.subpackage_projects/pauses API from Label Studio — 2 operation(s) for subpackage_projects.subpackage_projects/pauses.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projects.subpackage_projects/pauses
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-projects-subpackage-projects-pauses-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-projects-subpackage-projects-reviewroutingrules-api
+  name: Label Studio subpackage_projects.subpackage_projects/reviewRoutingRules API
+  description: >-
+    The subpackage_projects.subpackage_projects/reviewRoutingRules API from Label Studio — 2 operation(s)
+    for subpackage_projects.subpackage_projects/reviewroutingrules.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projects.subpackage_projects/reviewRoutingRules
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-projects-subpackage-projects-reviewroutingrules-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-projects-subpackage-projects-roles-api
+  name: Label Studio subpackage_projects.subpackage_projects/roles API
+  description: >-
+    The subpackage_projects.subpackage_projects/roles API from Label Studio — 3 operation(s) for subpackage_projects.subpackage_projects/roles.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projects.subpackage_projects/roles
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-projects-subpackage-projects-roles-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-projects-subpackage-projects-stats-api
+  name: Label Studio subpackage_projects.subpackage_projects/stats API
+  description: >-
+    The subpackage_projects.subpackage_projects/stats API from Label Studio — 20 operation(s) for subpackage_projects.subpackage_projects/stats.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projects.subpackage_projects/stats
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-projects-subpackage-projects-stats-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-projecttemplates-api
+  name: Label Studio subpackage_projectTemplates API
+  description: >-
+    The subpackage_projectTemplates API from Label Studio — 3 operation(s) for subpackage_projecttemplates.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_projectTemplates
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-projecttemplates-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-prompts-api
+  name: Label Studio subpackage_prompts API
+  description: The subpackage_prompts API from Label Studio — 7 operation(s) for subpackage_prompts.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_prompts
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-prompts-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-prompts-subpackage-prompts-indicators-api
+  name: Label Studio subpackage_prompts.subpackage_prompts/indicators API
+  description: >-
+    The subpackage_prompts.subpackage_prompts/indicators API from Label Studio — 2 operation(s) for subpackage_prompts.subpackage_prompts/indicators.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_prompts.subpackage_prompts/indicators
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-prompts-subpackage-prompts-indicators-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-prompts-subpackage-prompts-runs-api
+  name: Label Studio subpackage_prompts.subpackage_prompts/runs API
+  description: >-
+    The subpackage_prompts.subpackage_prompts/runs API from Label Studio — 2 operation(s) for subpackage_prompts.subpackage_prompts/runs.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_prompts.subpackage_prompts/runs
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-prompts-subpackage-prompts-runs-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-prompts-subpackage-prompts-versions-api
+  name: Label Studio subpackage_prompts.subpackage_prompts/versions API
+  description: >-
+    The subpackage_prompts.subpackage_prompts/versions API from Label Studio — 5 operation(s) for subpackage_prompts.subpackage_prompts/versions.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_prompts.subpackage_prompts/versions
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-prompts-subpackage-prompts-versions-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-sessionpolicy-api
+  name: Label Studio subpackage_sessionPolicy API
+  description: >-
+    The subpackage_sessionPolicy API from Label Studio — 1 operation(s) for subpackage_sessionpolicy.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_sessionPolicy
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-sessionpolicy-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-sso-subpackage-sso-saml-api
+  name: Label Studio subpackage_sso.subpackage_sso/saml API
+  description: >-
+    The subpackage_sso.subpackage_sso/saml API from Label Studio — 2 operation(s) for subpackage_sso.subpackage_sso/saml.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_sso.subpackage_sso/saml
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-sso-subpackage-sso-saml-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-sso-subpackage-sso-scim-api
+  name: Label Studio subpackage_sso.subpackage_sso/scim API
+  description: >-
+    The subpackage_sso.subpackage_sso/scim API from Label Studio — 1 operation(s) for subpackage_sso.subpackage_sso/scim.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_sso.subpackage_sso/scim
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-sso-subpackage-sso-scim-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-states-api
+  name: Label Studio subpackage_states API
+  description: The subpackage_states API from Label Studio — 5 operation(s) for subpackage_states.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_states
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-states-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-tasks-api
+  name: Label Studio subpackage_tasks API
+  description: The subpackage_tasks API from Label Studio — 5 operation(s) for subpackage_tasks.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-tasks-subpackage-tasks-agreementmatrix-api
+  name: Label Studio subpackage_tasks.subpackage_tasks/agreementMatrix API
+  description: >-
+    The subpackage_tasks.subpackage_tasks/agreementMatrix API from Label Studio — 1 operation(s) for subpackage_tasks.subpackage_tasks/agreementmatrix.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_tasks.subpackage_tasks/agreementMatrix
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-tasks-subpackage-tasks-agreementmatrix-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-tokens-api
+  name: Label Studio subpackage_tokens API
+  description: The subpackage_tokens API from Label Studio — 4 operation(s) for subpackage_tokens.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-users-api
+  name: Label Studio subpackage_users API
+  description: The subpackage_users API from Label Studio — 7 operation(s) for subpackage_users.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_users
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-users-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-versions-api
+  name: Label Studio subpackage_versions API
+  description: The subpackage_versions API from Label Studio — 1 operation(s) for subpackage_versions.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_versions
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-versions-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-views-api
+  name: Label Studio subpackage_views API
+  description: The subpackage_views API from Label Studio — 4 operation(s) for subpackage_views.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_views
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-views-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-webhooks-api
+  name: Label Studio subpackage_webhooks API
+  description: The subpackage_webhooks API from Label Studio — 3 operation(s) for subpackage_webhooks.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-workspaces-api
+  name: Label Studio subpackage_workspaces API
+  description: >-
+    The subpackage_workspaces API from Label Studio — 2 operation(s) for subpackage_workspaces.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_workspaces
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-workspaces-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-workspaces-subpackage-workspaces-members-api
+  name: Label Studio subpackage_workspaces.subpackage_workspaces/members API
+  description: >-
+    The subpackage_workspaces.subpackage_workspaces/members API from Label Studio — 1 operation(s) for
+    subpackage_workspaces.subpackage_workspaces/members.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_workspaces.subpackage_workspaces/members
+  properties:
+  - type: OpenAPI
+    url: openapi/label-studio-subpackage-workspaces-subpackage-workspaces-members-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: >-
+    label-studio:label-studio-subpackage-workspaces-subpackage-workspaces-members-subpackage-workspaces-members-bulk-api
+  name: >-
+    Label Studio subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/bulk
+    API
+  description: >-
+    The subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/bulk API from
+    Label Studio — 1 operation(s) for subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/bulk.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/bulk
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-workspaces-subpackage-workspaces-members-subpackage-workspaces-members-bulk-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: >-
+    label-studio:label-studio-subpackage-workspaces-subpackage-workspaces-members-subpackage-workspaces-members-paginated-api
+  name: >-
+    Label Studio subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/paginated
+    API
+  description: >-
+    The subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/paginated API
+    from Label Studio — 1 operation(s) for subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/paginated.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - >-
+    subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/paginated
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-workspaces-subpackage-workspaces-members-subpackage-workspaces-members-paginated-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
+- aid: label-studio:label-studio-subpackage-workspaces-subpackage-workspaces-projects-api
+  name: Label Studio subpackage_workspaces.subpackage_workspaces/projects API
+  description: >-
+    The subpackage_workspaces.subpackage_workspaces/projects API from Label Studio — 1 operation(s) for
+    subpackage_workspaces.subpackage_workspaces/projects.
+  humanURL: https://labelstud.io/
+  baseURL: https://app.humansignal.com/api
+  tags:
+  - subpackage_workspaces.subpackage_workspaces/projects
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/label-studio-subpackage-workspaces-subpackage-workspaces-projects-api-openapi.yml
+  - type: Documentation
+    url: https://labelstud.io/
+  - type: APIReference
+    url: https://api.labelstud.io/
+  - type: SourceCode
+    url: https://github.com/HumanSignal/label-studio
+  - type: Community
+    url: https://labelstud.io/community
 common:
   - type: AgenticAccess
     url: agentic-access/label-studio-agentic-access.yml
