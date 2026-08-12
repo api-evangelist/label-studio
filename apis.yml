@@ -1515,6 +1515,17 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 common:
+  - type: IssueTracker
+    url: https://github.com/HumanSignal/label-studio/issues
+  - type: Releases
+    url: https://github.com/HumanSignal/label-studio/releases
+  - type: CodeOfConduct
+    url: https://github.com/HumanSignal/label-studio/blob/develop/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/HumanSignal/label-studio/blob/develop/CONTRIBUTING.md
+  - type: License
+    name: Apache-2.0
+    url: https://github.com/HumanSignal/label-studio/blob/develop/LICENSE
   - type: AgenticAccess
     url: agentic-access/label-studio-agentic-access.yml
   - type: DomainSecurity
