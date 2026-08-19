@@ -28,7 +28,7 @@ created: '2025-02-08'
 modified: '2026-05-19'
 position: Consumer
 access: 3rd-Party
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 description: >-
   Label Studio is the most flexible open-source data labeling platform from HumanSignal, used to fine-tune LLMs, prepare
   training data, and validate AI models. The Label Studio REST API exposes projects, tasks, annotations, predictions,
