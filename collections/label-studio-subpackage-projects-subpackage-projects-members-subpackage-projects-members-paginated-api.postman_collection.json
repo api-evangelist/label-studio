@@ -1,0 +1,255 @@
+{
+  "item": [
+    {
+      "id": "1176c800-bc2b-427e-b52d-88c7e11b5286",
+      "name": "subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d7094b99-1658-4d2b-afed-41909c964bd9",
+          "name": "✨ Get project members paginated",
+          "request": {
+            "name": "✨ Get project members paginated",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the members for a specific project.\n\n**Response Fields:**\n- `implicit_member` (boolean): Indicates if the user is an implicit member.\n  - `true`: User has access via workspace membership or organization role (Administrator/Owner)\n  - `false`: User is an explicit project member (added directly to the project)\n- `project_role` (string|null): Project-specific role override if assigned, null otherwise\n\n**Note:** Users can have both explicit membership AND implicit access. The `implicit_member` field is `false` if the user has an explicit ProjectMember entry, regardless of whether they also have implicit access via workspace or org role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "members",
+                "paginated",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of user IDs to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "implicit",
+                  "value": "<boolean>",
+                  "description": "Include/Exclude implicit project members in the results. If not provided, explicit + implicit members are returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "last_activity__gte",
+                  "value": "<dateTime>",
+                  "description": "Filter by last activity time (ISO 8601 datetime). Returns users with last activity greater than or equal to this time."
+                },
+                {
+                  "disabled": false,
+                  "key": "last_activity__lte",
+                  "value": "<dateTime>",
+                  "description": "Filter by last activity time (ISO 8601 datetime). Returns users with last activity less than or equal to this time."
+                },
+                {
+                  "disabled": false,
+                  "key": "no_annotators",
+                  "value": "<boolean>",
+                  "description": "Exclude annotators from the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Ordering field. Prefix with \"-\" for descending order. Allowed fields: id, email, first_name, last_name, username, last_activity, role, date_joined\n\n**Note on role ordering:**\nWhen ordering by \"role\", the system uses the effective role:\n- Project-specific role if assigned (takes precedence)\n- Organization role if no project role is assigned\n\nRoles are sorted alphabetically by their code: AD (Administrator), AN (Annotator), DI (Disabled), MA (Manager), NO (Not Activated), OW (Owner), RE (Reviewer)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string>",
+                  "description": "Filter members by role. Accepts single role or comma-separated list of roles.\n\n**Format:**\n- Single role: `?role=RE`\n- Multiple roles: `?role=AN,RE` (users with ANY of these roles)\n\n**Role Codes:**\n- `OW` = Owner\n- `AD` = Administrator\n- `MA` = Manager\n- `RE` = Reviewer\n- `AN` = Annotator\n\n**Matching Logic:**\nReturns users who have any of the specified roles either:\n1. As their **project-specific role** (from project role assignments), OR\n2. As their **organization role** (if they have no project-specific role override)\n\n**Note:** Project-specific roles take precedence. If a user has a project role assigned, their organization role is ignored for filtering purposes."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search term for filtering members by name, email, or username"
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Filter members by tags. Use a comma-separated list of tag IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "with_deleted",
+                  "value": "<boolean>",
+                  "description": "Include deleted members in the results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc293a84-5617-4b77-9b1f-6ff6a8315850",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "members",
+                    "paginated",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "implicit",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "last_activity__gte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "last_activity__lte",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "no_annotators",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "role",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "with_deleted",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 3567,\n  \"results\": [\n    {\n      \"active_organization_meta\": \"string\",\n      \"avatar\": \"string\",\n      \"id\": 2425,\n      \"implicit_member\": true,\n      \"initials\": \"?\",\n      \"last_activity\": \"2021-02-08T10:54:41.991Z\",\n      \"lse_fields\": {\n        \"email_notification_settings\": \"string\",\n        \"invite_expired\": \"string\",\n        \"invite_expired_at\": \"string\",\n        \"invite_activated\": true,\n        \"invited_at\": \"2003-06-26T21:39:14.360Z\",\n        \"invited_by\": 9133,\n        \"onboarding_state\": \"complete\",\n        \"social_auth_finished\": true,\n        \"trial_company\": \"string\",\n        \"trial_experience_labeling\": \"string\",\n        \"trial_license_enterprise\": false,\n        \"trial_models_in_production\": \"string\",\n        \"trial_role\": \"data_engineer_platform_engineer\"\n      },\n      \"org_membership\": [\n        {\n          \"active\": \"string\",\n          \"organization_id\": 1864,\n          \"role\": \"string\"\n        },\n        {\n          \"active\": \"string\",\n          \"organization_id\": 1315,\n          \"role\": \"string\"\n        }\n      ],\n      \"organization_membership\": {\n        \"active\": \"string\",\n        \"organization_id\": 1670,\n        \"role\": \"string\"\n      },\n      \"pause\": \"string\",\n      \"project_role\": \"string\",\n      \"tags\": [\n        {\n          \"id\": 6892,\n          \"label\": \"string\"\n        },\n        {\n          \"id\": 6022,\n          \"label\": \"string\"\n        }\n      ],\n      \"user_type\": \"string\",\n      \"username\": \"string\",\n      \"active_organization\": 8416,\n      \"allow_newsletters\": false,\n      \"custom_hotkeys\": {},\n      \"date_joined\": \"1997-09-18T20:44:30.123Z\",\n      \"email\": \"p6FcA6FMtP@GPuYnUD.btc\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"phone\": \"string\"\n    },\n    {\n      \"active_organization_meta\": \"string\",\n      \"avatar\": \"string\",\n      \"id\": 4039,\n      \"implicit_member\": false,\n      \"initials\": \"?\",\n      \"last_activity\": \"2007-09-26T22:11:21.239Z\",\n      \"lse_fields\": {\n        \"email_notification_settings\": \"string\",\n        \"invite_expired\": \"string\",\n        \"invite_expired_at\": \"string\",\n        \"invite_activated\": true,\n        \"invited_at\": \"1984-01-15T12:53:10.165Z\",\n        \"invited_by\": 656,\n        \"onboarding_state\": \"in_app_guidance\",\n        \"social_auth_finished\": true,\n        \"trial_company\": \"string\",\n        \"trial_experience_labeling\": \"string\",\n        \"trial_license_enterprise\": true,\n        \"trial_models_in_production\": \"string\",\n        \"trial_role\": \"other\"\n      },\n      \"org_membership\": [\n        {\n          \"active\": \"string\",\n          \"organization_id\": 4818,\n          \"role\": \"string\"\n        },\n        {\n          \"active\": \"string\",\n          \"organization_id\": 8541,\n          \"role\": \"string\"\n        }\n      ],\n      \"organization_membership\": {\n        \"active\": \"string\",\n        \"organization_id\": 9497,\n        \"role\": \"string\"\n      },\n      \"pause\": \"string\",\n      \"project_role\": \"string\",\n      \"tags\": [\n        {\n          \"id\": 9688,\n          \"label\": \"string\"\n        },\n        {\n          \"id\": 6972,\n          \"label\": \"string\"\n        }\n      ],\n      \"user_type\": \"string\",\n      \"username\": \"string\",\n      \"active_organization\": 4306,\n      \"allow_newsletters\": false,\n      \"custom_hotkeys\": {},\n      \"date_joined\": \"1952-06-27T18:46:00.152Z\",\n      \"email\": \"UsfhN8iXnitC@ovTuelMNHzUndDEIgxTkEEJhIeGhDuXfH.kfps\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"phone\": \"string\"\n    }\n  ],\n  \"next\": \"http://UqFknxEMDAPZBWQfYJCcTjcPNqNow.tkpsUY2icLFNnsKg2sIHc8kcEJW6hpqFdcFBeG1troy5X6NXVA-ThE2hvMN,gxsMhcl0hTjW\",\n  \"previous\": \"https://dmbpNwbBazAJEtosOzWnDfJQuGlqeY.lqcjb77fBrrUy7-BqLgPWv3m8.R2APDhCI+yrDD245GjW\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cfb99043-228b-427a-914e-0b3aae7ff221",
+    "name": "API Reference subpackage_actions subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

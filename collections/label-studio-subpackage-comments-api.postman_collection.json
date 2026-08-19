@@ -1,0 +1,759 @@
+{
+  "item": [
+    {
+      "id": "6e11ea5a-3daa-4153-8e8e-731b4d51b078",
+      "name": "subpackage_comments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "79a66c30-5bac-4f16-9aa6-876aafa5b49b",
+          "name": "✨ List comments",
+          "request": {
+            "name": "✨ List comments",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all comments for a specific annotation ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "comments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "annotation",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "annotators",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "draft",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "expand_created_by",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "projects",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5b744955-3fd2-4426-ad5f-a2c108a97cd8",
+              "name": "List of comments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "comments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "annotation",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "annotators",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "draft",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "expand_created_by",
+                      "value": "false"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "projects",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_at\": \"1968-05-15T00:27:28.191Z\",\n    \"created_by\": 5427,\n    \"id\": 6925,\n    \"project\": 5203,\n    \"resolved_at\": \"1983-10-10T17:10:02.979Z\",\n    \"state\": \"string\",\n    \"task\": 7424,\n    \"updated_at\": \"2018-07-20T16:14:21.908Z\",\n    \"annotation\": 5836,\n    \"classifications\": {},\n    \"draft\": 3390,\n    \"is_resolved\": true,\n    \"region_ref\": {},\n    \"text\": \"string\"\n  },\n  {\n    \"created_at\": \"1990-07-13T12:07:18.799Z\",\n    \"created_by\": 8200,\n    \"id\": 3447,\n    \"project\": 9468,\n    \"resolved_at\": \"2017-11-23T10:18:04.373Z\",\n    \"state\": \"string\",\n    \"task\": 2816,\n    \"updated_at\": \"1968-01-13T10:54:13.784Z\",\n    \"annotation\": 7490,\n    \"classifications\": {},\n    \"draft\": 3566,\n    \"is_resolved\": false,\n    \"region_ref\": {},\n    \"text\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23a1bf33-c9bf-406b-bdbe-6b673181ec16",
+          "name": "✨ Create comment",
+          "request": {
+            "name": "✨ Create comment",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a comment for a specific annotation ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "comments",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand_created_by",
+                  "value": "<boolean>",
+                  "description": "Expand the created_by field"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"annotation\": \"<integer,null>\",\n  \"classifications\": {},\n  \"draft\": \"<integer,null>\",\n  \"is_resolved\": \"<boolean>\",\n  \"region_ref\": {},\n  \"text\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e3bedf0-ff27-47e5-8107-39c2f1af956f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "comments",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand_created_by",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"annotation\": \"<integer,null>\",\n  \"classifications\": {},\n  \"draft\": \"<integer,null>\",\n  \"is_resolved\": \"<boolean>\",\n  \"region_ref\": {},\n  \"text\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1986-10-02T14:54:12.323Z\",\n  \"created_by\": 4805,\n  \"id\": 2168,\n  \"project\": 3759,\n  \"resolved_at\": \"1948-01-29T08:38:25.482Z\",\n  \"state\": \"string\",\n  \"task\": 2881,\n  \"updated_at\": \"2009-01-10T18:56:22.893Z\",\n  \"annotation\": 4204,\n  \"classifications\": {},\n  \"draft\": 5631,\n  \"is_resolved\": false,\n  \"region_ref\": {},\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2daa849e-0583-4f97-875a-b44f50d38908",
+          "name": "✨ Export comments to CSV",
+          "request": {
+            "name": "✨ Export comments to CSV",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nExport comments to CSV file",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "comments",
+                "export",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "annotation",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "annotators",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "draft",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "expand_created_by",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "projects",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tz",
+                  "value": "<string>",
+                  "description": "Timezone in which to export the data. Format IANA timezone name, e.g. \"America/New_York\""
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "60e402c9-f01a-44dc-bd25-575b0ca6e1aa",
+              "name": "CSV file with comments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "comments",
+                    "export",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "annotation",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "annotators",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "draft",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "expand_created_by",
+                      "value": "false"
+                    },
+                    {
+                      "key": "projects",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tz",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e005539f-0b09-420d-8257-fbfb058e5ca7",
+          "name": "✨ Get comment",
+          "request": {
+            "name": "✨ Get comment",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a specific comment by ID for an annotation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "comments",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand_created_by",
+                  "value": "<boolean>",
+                  "description": "Expand the created_by field"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eaa60779-1dac-4208-ae21-27afb2d664e1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "comments",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand_created_by",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1986-10-02T14:54:12.323Z\",\n  \"created_by\": 4805,\n  \"id\": 2168,\n  \"project\": 3759,\n  \"resolved_at\": \"1948-01-29T08:38:25.482Z\",\n  \"state\": \"string\",\n  \"task\": 2881,\n  \"updated_at\": \"2009-01-10T18:56:22.893Z\",\n  \"annotation\": 4204,\n  \"classifications\": {},\n  \"draft\": 5631,\n  \"is_resolved\": false,\n  \"region_ref\": {},\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f971492-dc61-455a-ab91-bf9790905a4b",
+          "name": "✨ Delete comment",
+          "request": {
+            "name": "✨ Delete comment",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a comment by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "comments",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand_created_by",
+                  "value": "<boolean>",
+                  "description": "Expand the created_by field"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0612c2ec-e583-4278-af77-f4a41eadca53",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "comments",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand_created_by",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42831301-801b-48cf-8649-24c865dd97f4",
+          "name": "✨ Update comment",
+          "request": {
+            "name": "✨ Update comment",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific comment by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "comments",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "expand_created_by",
+                  "value": "<boolean>",
+                  "description": "Expand the created_by field"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"annotation\": \"<integer,null>\",\n  \"classifications\": {},\n  \"draft\": \"<integer,null>\",\n  \"is_resolved\": \"<boolean>\",\n  \"region_ref\": {},\n  \"text\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "40d45aa6-eae2-4843-ae48-7028ffbe4e43",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "comments",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "expand_created_by",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"annotation\": \"<integer,null>\",\n  \"classifications\": {},\n  \"draft\": \"<integer,null>\",\n  \"is_resolved\": \"<boolean>\",\n  \"region_ref\": {},\n  \"text\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1986-10-02T14:54:12.323Z\",\n  \"created_by\": 4805,\n  \"id\": 2168,\n  \"project\": 3759,\n  \"resolved_at\": \"1948-01-29T08:38:25.482Z\",\n  \"state\": \"string\",\n  \"task\": 2881,\n  \"updated_at\": \"2009-01-10T18:56:22.893Z\",\n  \"annotation\": 4204,\n  \"classifications\": {},\n  \"draft\": 5631,\n  \"is_resolved\": false,\n  \"region_ref\": {},\n  \"text\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0d872ba7-720c-4608-9aa4-2f501044894a",
+    "name": "API Reference subpackage_actions subpackage_comments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

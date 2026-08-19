@@ -1,0 +1,287 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference subpackage_actions subpackage_tasks API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_tasks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get project import status ",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/projects/:id/imports/:import_pk/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project import."
+              },
+              {
+                "name": "import_pk",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "\n            Poll the status of an asynchronous project import operation.\n            \n            **Usage:**\n            1. When you POST to `/api/projects/{project_id}/import`, you'll receive a response like `{\"import\": <import_id>}`\n            2. Use that `import_id` with this GET endpoint to check the import status\n            3. Poll this endpoint to see if the import has completed, is still processing, or has failed\n            4. **Import errors and failures will only be visible in this "
+        },
+        {
+          "info": {
+            "name": "Delete all tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8000/api/projects/:id/tasks/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project."
+              }
+            ]
+          },
+          "docs": "Delete all tasks from a specific project."
+        },
+        {
+          "info": {
+            "name": "List tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/tasks/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query",
+                "description": "Set to \"all\" if you want to include annotations and predictions in the response. Defaults to task_only"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Specify which fields to include in the response"
+              },
+              {
+                "name": "only_annotated",
+                "value": "",
+                "type": "query",
+                "description": "Filter to show only tasks that have annotations"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "query",
+                "description": "Project ID"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Additional query to filter tasks. It must be JSON encoded string of dict containing one of the following parameters: {\"filters\": ..., \"selectedItems\": ..., \"ordering\": ...}. Check Data Manager > Create View > see data field for more details about filters, selectedItems and ordering.\n\nfilters: dict with \"conjunction\" string (\"or\" or \"and\") and list of filters in \"items\" array. Each filter is a dictionary with keys: \"filter\", \"operator\", \"type\", \"value\". Read more about available filters\nExample: {\"conjunction\": \"or\", \"items\": [{\"filter\": \"filter:tasks:completed_at\", \"operator\": \"greater\", \"type\": \"Datetime\", \"value\": \"2021-01-01T00:00:00.000Z\"}]}\nselectedItems: dictionary with keys: \"all\", \"included\", \"excluded\". If \"all\" is false, \"included\" must be used. If \"all\" is true, \"excluded\" must be used.\nExamples: {\"all\": false, \"included\": [1, 2, 3]} or {\"all\": true, \"excluded\": [4, 5]}\nordering: list of fields to order by. Currently, ordering is supported by only one parameter.\nExample: [\"completed_at\"]"
+              },
+              {
+                "name": "resolve_uri",
+                "value": "",
+                "type": "query",
+                "description": "Resolve task data URIs using Cloud Storage"
+              },
+              {
+                "name": "review",
+                "value": "",
+                "type": "query",
+                "description": "Get tasks for review"
+              },
+              {
+                "name": "selectedItems",
+                "value": "",
+                "type": "query",
+                "description": "JSON string of selected task IDs for review workflow"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "View ID"
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of tasks. The response format varies based on the user's role in the organization:\n- **Admin/Owner**: Full task details with all annotations, reviews, and metadata\n- **Reviewer**: Task details optimized for review workflow\n- **Annotator**: Task details filtered to show only user's own annotations and assignments"
+        },
+        {
+          "info": {
+            "name": "Create a new task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/tasks/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new task"
+        },
+        {
+          "info": {
+            "name": "Get task",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/tasks/:id/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Task ID"
+              }
+            ]
+          },
+          "docs": "Get task data, metadata, annotations and other attributes for a specific labeling task by task ID."
+        },
+        {
+          "info": {
+            "name": "Update task",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://localhost:8000/api/tasks/:id/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Task ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the attributes of an existing labeling task."
+        },
+        {
+          "info": {
+            "name": "Delete task",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8000/api/tasks/:id/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Task ID"
+              }
+            ]
+          },
+          "docs": "Delete a task in Label Studio. This action cannot be undone!"
+        },
+        {
+          "info": {
+            "name": "Create task event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/tasks/:id/events/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Task ID to associate the event with"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n    Create a new task event to track user interactions and system events during annotation.\n\n    This endpoint is designed to receive events from the frontend labeling interface to enable\n    accurate lead time calculation and detailed annotation analytics.\n\n    ## Event Types\n\n    **Core Annotation Events:**\n    - `annotation_loaded` - When annotation interface is loaded\n    - `annotation_created` - When annotation is submitted\n    - `annotation_updated` - When annotation is modified\n    - `an"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

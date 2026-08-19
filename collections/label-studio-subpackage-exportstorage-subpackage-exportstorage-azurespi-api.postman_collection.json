@@ -1,0 +1,752 @@
+{
+  "item": [
+    {
+      "id": "64f2a6c8-4278-4ef1-a6a8-14654530dd54",
+      "name": "subpackage_exportStorage.subpackage_exportStorage/azureSpi",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "638ba7cf-0929-4569-839d-1639a32261c9",
+          "name": "✨ Get all Azure SPI export storage",
+          "request": {
+            "name": "✨ Get all Azure SPI export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a list of all Azure export storage connections that were set up with Service Principal authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "azure_spi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "(Required) Project ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9800e77-d4d0-4d95-8a9c-1ff1bc8d76bf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "azure_spi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_at\": \"1950-10-15T14:54:47.515Z\",\n    \"id\": 4436,\n    \"project\": 3727,\n    \"type\": \"azure_spi\",\n    \"account_name\": \"string\",\n    \"can_delete_objects\": true,\n    \"client_id\": \"string\",\n    \"client_secret\": \"string\",\n    \"container\": \"string\",\n    \"description\": \"string\",\n    \"last_sync\": \"1967-04-19T06:40:58.692Z\",\n    \"last_sync_count\": 6413,\n    \"last_sync_job\": \"string\",\n    \"meta\": {},\n    \"prefix\": \"string\",\n    \"regex_filter\": \"string\",\n    \"status\": \"completed\",\n    \"synchronizable\": true,\n    \"tenant_id\": \"string\",\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": true,\n    \"user_delegation_key\": \"string\"\n  },\n  {\n    \"created_at\": \"1987-09-17T01:42:03.121Z\",\n    \"id\": 90,\n    \"project\": 8017,\n    \"type\": \"azure_spi\",\n    \"account_name\": \"string\",\n    \"can_delete_objects\": false,\n    \"client_id\": \"string\",\n    \"client_secret\": \"string\",\n    \"container\": \"string\",\n    \"description\": \"string\",\n    \"last_sync\": \"1966-08-27T04:14:49.729Z\",\n    \"last_sync_count\": 2031,\n    \"last_sync_job\": \"string\",\n    \"meta\": {},\n    \"prefix\": \"string\",\n    \"regex_filter\": \"string\",\n    \"status\": \"failed\",\n    \"synchronizable\": true,\n    \"tenant_id\": \"string\",\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": false,\n    \"user_delegation_key\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29f75614-8b23-4231-821e-89f04fa43fc4",
+          "name": "✨ Create Azure export storage with SPI authentication",
+          "request": {
+            "name": "✨ Create Azure export storage with SPI authentication",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate an Azure export storage connection with Service Principal authentication to store annotations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "azure_spi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project\": \"<integer>\",\n  \"account_name\": \"<string,null>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"client_id\": \"<string,null>\",\n  \"client_secret\": \"<string,null>\",\n  \"container\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"<string,null>\",\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\",\n  \"user_delegation_key\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "98d0311c-b88a-4dd2-92f6-420d0a1ff8b3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "azure_spi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project\": \"<integer>\",\n  \"account_name\": \"<string,null>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"client_id\": \"<string,null>\",\n  \"client_secret\": \"<string,null>\",\n  \"container\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"status\": \"initialized\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"<string,null>\",\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\",\n  \"user_delegation_key\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1987-12-13T07:53:28.509Z\",\n  \"id\": 9234,\n  \"project\": 835,\n  \"type\": \"azure_spi\",\n  \"account_name\": \"string\",\n  \"can_delete_objects\": false,\n  \"client_id\": \"string\",\n  \"client_secret\": \"string\",\n  \"container\": \"string\",\n  \"description\": \"string\",\n  \"last_sync\": \"2020-07-21T10:05:53.248Z\",\n  \"last_sync_count\": 1741,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"status\": \"initialized\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"string\",\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": true,\n  \"user_delegation_key\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb764d07-1e73-44b4-a860-7d83271754b0",
+          "name": "✨ Validate Azure SPI export storage",
+          "request": {
+            "name": "✨ Validate Azure SPI export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nValidate a specific Azure export storage connection that was set up with Service Principal authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "azure_spi",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project\": \"<integer>\",\n  \"account_name\": \"<string,null>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"client_id\": \"<string,null>\",\n  \"client_secret\": \"<string,null>\",\n  \"container\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"<string,null>\",\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\",\n  \"user_delegation_key\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f3ffeaad-68fd-43f9-be45-9f330a8e6b3b",
+              "name": "Validation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "azure_spi",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project\": \"<integer>\",\n  \"account_name\": \"<string,null>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"client_id\": \"<string,null>\",\n  \"client_secret\": \"<string,null>\",\n  \"container\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"status\": \"initialized\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"<string,null>\",\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\",\n  \"user_delegation_key\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f148806-b399-41f6-831f-c2795b98f9c9",
+          "name": "✨ Get Azure SPI export storage",
+          "request": {
+            "name": "✨ Get Azure SPI export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a specific Azure export storage connection that was set up with Service Principal authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "azure_spi",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d08e0f95-85d5-48f2-ab4a-ae1b29c7ca98",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "azure_spi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1987-12-13T07:53:28.509Z\",\n  \"id\": 9234,\n  \"project\": 835,\n  \"type\": \"azure_spi\",\n  \"account_name\": \"string\",\n  \"can_delete_objects\": false,\n  \"client_id\": \"string\",\n  \"client_secret\": \"string\",\n  \"container\": \"string\",\n  \"description\": \"string\",\n  \"last_sync\": \"2020-07-21T10:05:53.248Z\",\n  \"last_sync_count\": 1741,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"status\": \"initialized\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"string\",\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": true,\n  \"user_delegation_key\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96fb2f61-91f8-4452-8f74-bb9ca9d8385d",
+          "name": "✨ Delete Azure SPI export storage",
+          "request": {
+            "name": "✨ Delete Azure SPI export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific Azure export storage connection that was set up with Service Principal authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "azure_spi",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "544f0ca4-7349-4f0b-9428-bf82ad4b785a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "azure_spi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a53d0725-d651-4fc6-a911-74b8b1e8190b",
+          "name": "✨ Update Azure SPI export storage",
+          "request": {
+            "name": "✨ Update Azure SPI export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific Azure export storage connection that was set up with Service Principal authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "azure_spi",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_name\": \"<string,null>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"client_id\": \"<string,null>\",\n  \"client_secret\": \"<string,null>\",\n  \"container\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"<string,null>\",\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\",\n  \"user_delegation_key\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5e1e55ee-d948-4b78-8b3c-a2c60e05a74d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "azure_spi",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_name\": \"<string,null>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"client_id\": \"<string,null>\",\n  \"client_secret\": \"<string,null>\",\n  \"container\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string,null>\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"<string,null>\",\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\",\n  \"user_delegation_key\": \"<string,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1987-12-13T07:53:28.509Z\",\n  \"id\": 9234,\n  \"project\": 835,\n  \"type\": \"azure_spi\",\n  \"account_name\": \"string\",\n  \"can_delete_objects\": false,\n  \"client_id\": \"string\",\n  \"client_secret\": \"string\",\n  \"container\": \"string\",\n  \"description\": \"string\",\n  \"last_sync\": \"2020-07-21T10:05:53.248Z\",\n  \"last_sync_count\": 1741,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"status\": \"initialized\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"string\",\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": true,\n  \"user_delegation_key\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3231bb89-f20c-46f9-ae0b-0563d23c5929",
+          "name": "✨ Sync Azure SPI export storage",
+          "request": {
+            "name": "✨ Sync Azure SPI export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nSync tasks from an Azure SPI export storage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "azure_spi",
+                ":id",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f6fcb55-5505-4fe7-8092-2cb06f1e19df",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "azure_spi",
+                    ":id",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1987-12-13T07:53:28.509Z\",\n  \"id\": 9234,\n  \"project\": 835,\n  \"type\": \"azure_spi\",\n  \"account_name\": \"string\",\n  \"can_delete_objects\": false,\n  \"client_id\": \"string\",\n  \"client_secret\": \"string\",\n  \"container\": \"string\",\n  \"description\": \"string\",\n  \"last_sync\": \"2020-07-21T10:05:53.248Z\",\n  \"last_sync_count\": 1741,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"status\": \"initialized\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"string\",\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": true,\n  \"user_delegation_key\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0cbc76e6-1d95-4e9e-b536-a39073f6118c",
+    "name": "API Reference subpackage_actions subpackage_exportStorage.subpackage_exportStorage/azureSpi API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

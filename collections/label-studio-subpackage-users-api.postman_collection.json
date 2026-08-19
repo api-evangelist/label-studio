@@ -1,0 +1,1125 @@
+{
+  "item": [
+    {
+      "id": "a977e959-1b14-4bec-8bd5-28a39dc0832d",
+      "name": "subpackage_users",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "16a8c03b-f635-421b-ad5b-258bfa5cfd38",
+          "name": "✨ Get current user info",
+          "request": {
+            "name": "✨ Get current user info",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet info about the currently authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "current-user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eef6f1f5-7252-491e-bbee-eaf39a089244",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "current-user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active_organization_meta\": \"string\",\n  \"avatar\": \"string\",\n  \"id\": 5611,\n  \"initials\": \"?\",\n  \"last_activity\": \"1970-02-13T07:30:34.355Z\",\n  \"org_membership\": [\n    {\n      \"active\": \"string\",\n      \"organization_id\": 862,\n      \"role\": \"string\"\n    },\n    {\n      \"active\": \"string\",\n      \"organization_id\": 5002,\n      \"role\": \"string\"\n    }\n  ],\n  \"organization_membership\": {\n    \"active\": \"string\",\n    \"organization_id\": 1957,\n    \"role\": \"string\"\n  },\n  \"username\": \"string\",\n  \"active_organization\": 7324,\n  \"allow_newsletters\": false,\n  \"custom_hotkeys\": {},\n  \"date_joined\": \"1963-02-10T01:28:37.418Z\",\n  \"email\": \"SYq9AbPFErV@sXdvkezDADwxaYCwT.rwp\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"phone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6bc662f3-b4d3-47cb-829b-3e23d1b9141a",
+          "name": "✨ Update current user",
+          "request": {
+            "name": "✨ Update current user",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate details for the currently authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "current-user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"active_organization\": \"<integer,null>\",\n  \"allow_newsletters\": \"<boolean,null>\",\n  \"custom_hotkeys\": {},\n  \"date_joined\": \"<dateTime>\",\n  \"email_notification_settings\": {},\n  \"first_name\": \"<string>\",\n  \"is_email_verified\": \"<boolean,null>\",\n  \"last_name\": \"<string>\",\n  \"onboarding_state\": \"<string,null>\",\n  \"password\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "108996df-e19b-4149-bf84-358ac00a503e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "current-user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"active_organization\": \"<integer,null>\",\n  \"allow_newsletters\": \"<boolean,null>\",\n  \"custom_hotkeys\": {},\n  \"date_joined\": \"<dateTime>\",\n  \"email_notification_settings\": {},\n  \"first_name\": \"<string>\",\n  \"is_email_verified\": \"<boolean,null>\",\n  \"last_name\": \"<string>\",\n  \"onboarding_state\": \"<string,null>\",\n  \"password\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active_organization_meta\": \"string\",\n  \"avatar\": \"string\",\n  \"id\": 5611,\n  \"initials\": \"?\",\n  \"last_activity\": \"1970-02-13T07:30:34.355Z\",\n  \"org_membership\": [\n    {\n      \"active\": \"string\",\n      \"organization_id\": 862,\n      \"role\": \"string\"\n    },\n    {\n      \"active\": \"string\",\n      \"organization_id\": 5002,\n      \"role\": \"string\"\n    }\n  ],\n  \"organization_membership\": {\n    \"active\": \"string\",\n    \"organization_id\": 1957,\n    \"role\": \"string\"\n  },\n  \"username\": \"string\",\n  \"active_organization\": 7324,\n  \"allow_newsletters\": false,\n  \"custom_hotkeys\": {},\n  \"date_joined\": \"1963-02-10T01:28:37.418Z\",\n  \"email\": \"SYq9AbPFErV@sXdvkezDADwxaYCwT.rwp\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"phone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8541932e-859a-4c65-955b-5372ff47431c",
+          "name": "Get user hotkeys",
+          "request": {
+            "name": "Get user hotkeys",
+            "description": {
+              "content": "Retrieve the custom hotkeys configuration for the current user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "current-user",
+                "hotkeys",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "edd712c5-e8c5-43a5-9cca-7252f022c319",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "current-user",
+                    "hotkeys",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"custom_hotkeys\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe6f6e27-b3fb-44e4-ad93-c86e430d9c5e",
+          "name": "Update user hotkeys",
+          "request": {
+            "name": "Update user hotkeys",
+            "description": {
+              "content": "Update the custom hotkeys configuration for the current user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "current-user",
+                "hotkeys",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custom_hotkeys\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc0fa8be-5ed2-432f-9735-46df26351992",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "current-user",
+                    "hotkeys",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"custom_hotkeys\": {\n    \"key_0\": {}\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"custom_hotkeys\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e456233-4b82-43c3-9592-683854b1232e",
+          "name": "Reset user token",
+          "request": {
+            "name": "Reset user token",
+            "description": {
+              "content": "Reset the user token for the current user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "current-user",
+                "reset-token",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "802507ce-4a31-4a3a-bf09-0b756cdcaa95",
+              "name": "User token response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "current-user",
+                    "reset-token",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d5a7f44-bd28-4297-881e-aaedd0d89077",
+          "name": "Get user token",
+          "request": {
+            "name": "Get user token",
+            "description": {
+              "content": "Get a user token to authenticate to the API as the current user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "current-user",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe7afb57-6bb1-475c-8ad1-aa5e1055208d",
+              "name": "User token response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "current-user",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6cbb809-02c3-48aa-87af-d0d7e63589ed",
+          "name": "Retrieve my user",
+          "request": {
+            "name": "Retrieve my user",
+            "description": {
+              "content": "Retrieve details of the account that you are using to access the API.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "current-user",
+                "whoami"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d47488b-8a8b-43d3-8b42-dc722985bf55",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "current-user",
+                    "whoami"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active_organization_meta\": \"string\",\n  \"avatar\": \"string\",\n  \"id\": 1267,\n  \"initials\": \"?\",\n  \"last_activity\": \"2012-04-24T14:15:09.650Z\",\n  \"lse_fields\": {\n    \"active_organization_external_id\": \"string\",\n    \"email_notification_settings\": \"string\",\n    \"invite_expired\": \"string\",\n    \"invite_expired_at\": \"string\",\n    \"invite_activated\": false,\n    \"invited_at\": \"1970-02-15T18:18:11.179Z\",\n    \"invited_by\": 2504,\n    \"onboarding_state\": \"signup\",\n    \"social_auth_finished\": false,\n    \"trial_company\": \"string\",\n    \"trial_experience_labeling\": \"string\",\n    \"trial_license_enterprise\": false,\n    \"trial_models_in_production\": \"string\",\n    \"trial_role\": \"data_engineer_platform_engineer\"\n  },\n  \"org_membership\": [\n    {\n      \"active\": \"string\",\n      \"organization_id\": 3630,\n      \"role\": \"string\"\n    },\n    {\n      \"active\": \"string\",\n      \"organization_id\": 2914,\n      \"role\": \"string\"\n    }\n  ],\n  \"organization_membership\": {\n    \"active\": \"string\",\n    \"organization_id\": 722,\n    \"role\": \"string\"\n  },\n  \"pause\": \"string\",\n  \"permissions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"social_accounts\": [\n    {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ],\n  \"username\": \"string\",\n  \"active_organization\": 6994,\n  \"allow_newsletters\": true,\n  \"custom_hotkeys\": {},\n  \"date_joined\": \"2013-07-05T18:54:19.073Z\",\n  \"email\": \"j04QbA@kaOPNNGKSFwRgtyRZhUaaiaT.rhb\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"phone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e90276e-86de-4a3b-88c9-6337751906cf",
+          "name": "List users",
+          "request": {
+            "name": "List users",
+            "description": {
+              "content": "List the users that exist on the Label Studio server.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "users",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b6487d5-d306-47ba-8e79-bdcbe3daf4f5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"active_organization_meta\": \"string\",\n    \"avatar\": \"string\",\n    \"id\": 5309,\n    \"initials\": \"?\",\n    \"last_activity\": \"2003-03-20T17:57:23.596Z\",\n    \"org_membership\": [\n      {\n        \"active\": \"string\",\n        \"organization_id\": 3131,\n        \"role\": \"string\"\n      },\n      {\n        \"active\": \"string\",\n        \"organization_id\": 5481,\n        \"role\": \"string\"\n      }\n    ],\n    \"organization_membership\": {\n      \"active\": \"string\",\n      \"organization_id\": 8228,\n      \"role\": \"string\"\n    },\n    \"username\": \"string\",\n    \"active_organization\": 3571,\n    \"allow_newsletters\": false,\n    \"custom_hotkeys\": {},\n    \"date_joined\": \"2017-05-18T08:22:24.549Z\",\n    \"email\": \"ebQYVoyc7w@wnklNmUPkTPtVGkXvtzqUvY.mqx\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"phone\": \"string\"\n  },\n  {\n    \"active_organization_meta\": \"string\",\n    \"avatar\": \"string\",\n    \"id\": 6201,\n    \"initials\": \"?\",\n    \"last_activity\": \"1991-12-14T03:51:08.050Z\",\n    \"org_membership\": [\n      {\n        \"active\": \"string\",\n        \"organization_id\": 2722,\n        \"role\": \"string\"\n      },\n      {\n        \"active\": \"string\",\n        \"organization_id\": 6332,\n        \"role\": \"string\"\n      }\n    ],\n    \"organization_membership\": {\n      \"active\": \"string\",\n      \"organization_id\": 6305,\n      \"role\": \"string\"\n    },\n    \"username\": \"string\",\n    \"active_organization\": 3271,\n    \"allow_newsletters\": false,\n    \"custom_hotkeys\": {},\n    \"date_joined\": \"1954-08-18T09:37:03.343Z\",\n    \"email\": \"O2qa5hf@BzLAUqLZNBHNMotrCADjs.art\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"phone\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "867993aa-74fe-43ae-bbe8-7bbfb716be0b",
+          "name": "Create new user",
+          "request": {
+            "name": "Create new user",
+            "description": {
+              "content": "Create a user in Label Studio.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "users",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"allow_newsletters\": \"<boolean>\",\n  \"avatar\": \"<string>\",\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"initials\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "58d7cf63-30e7-4c8c-84a6-8be3f19ce25b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_newsletters\": \"<boolean>\",\n  \"avatar\": \"<string>\",\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"initials\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active_organization_meta\": \"string\",\n  \"avatar\": \"string\",\n  \"id\": 9977,\n  \"initials\": \"?\",\n  \"last_activity\": \"1964-11-03T19:56:50.989Z\",\n  \"lse_fields\": {\n    \"email_notification_settings\": \"string\",\n    \"invite_expired\": \"string\",\n    \"invite_expired_at\": \"string\",\n    \"invite_activated\": false,\n    \"invited_at\": \"2022-08-19T09:46:00.508Z\",\n    \"invited_by\": 6245,\n    \"onboarding_state\": \"trial_signup\",\n    \"social_auth_finished\": false,\n    \"trial_company\": \"string\",\n    \"trial_experience_labeling\": \"string\",\n    \"trial_license_enterprise\": true,\n    \"trial_models_in_production\": \"string\",\n    \"trial_role\": \"data_engineer_platform_engineer\"\n  },\n  \"org_membership\": [\n    {\n      \"active\": \"string\",\n      \"organization_id\": 5189,\n      \"role\": \"string\"\n    },\n    {\n      \"active\": \"string\",\n      \"organization_id\": 5601,\n      \"role\": \"string\"\n    }\n  ],\n  \"organization_membership\": {\n    \"active\": \"string\",\n    \"organization_id\": 6676,\n    \"role\": \"string\"\n  },\n  \"pause\": \"string\",\n  \"username\": \"string\",\n  \"active_organization\": 9912,\n  \"allow_newsletters\": false,\n  \"custom_hotkeys\": {},\n  \"date_joined\": \"1966-10-06T14:07:48.463Z\",\n  \"email\": \"bGiqg@MRGVrHcsguE.vm\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"phone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94761eb5-1e9f-487b-8573-ae40b6ddb38c",
+          "name": "Get user info",
+          "request": {
+            "name": "Get user info",
+            "description": {
+              "content": "Get info about a specific Label Studio user, based on the user ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "users",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) User ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cc14bf10-97e8-49f2-af5e-083ab096106a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) User ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active_organization_meta\": \"string\",\n  \"avatar\": \"string\",\n  \"id\": 9977,\n  \"initials\": \"?\",\n  \"last_activity\": \"1964-11-03T19:56:50.989Z\",\n  \"lse_fields\": {\n    \"email_notification_settings\": \"string\",\n    \"invite_expired\": \"string\",\n    \"invite_expired_at\": \"string\",\n    \"invite_activated\": false,\n    \"invited_at\": \"2022-08-19T09:46:00.508Z\",\n    \"invited_by\": 6245,\n    \"onboarding_state\": \"trial_signup\",\n    \"social_auth_finished\": false,\n    \"trial_company\": \"string\",\n    \"trial_experience_labeling\": \"string\",\n    \"trial_license_enterprise\": true,\n    \"trial_models_in_production\": \"string\",\n    \"trial_role\": \"data_engineer_platform_engineer\"\n  },\n  \"org_membership\": [\n    {\n      \"active\": \"string\",\n      \"organization_id\": 5189,\n      \"role\": \"string\"\n    },\n    {\n      \"active\": \"string\",\n      \"organization_id\": 5601,\n      \"role\": \"string\"\n    }\n  ],\n  \"organization_membership\": {\n    \"active\": \"string\",\n    \"organization_id\": 6676,\n    \"role\": \"string\"\n  },\n  \"pause\": \"string\",\n  \"username\": \"string\",\n  \"active_organization\": 9912,\n  \"allow_newsletters\": false,\n  \"custom_hotkeys\": {},\n  \"date_joined\": \"1966-10-06T14:07:48.463Z\",\n  \"email\": \"bGiqg@MRGVrHcsguE.vm\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"phone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8359f72d-3368-44f7-9668-f77d64f4c865",
+          "name": "Delete user",
+          "request": {
+            "name": "Delete user",
+            "description": {
+              "content": "Delete a specific Label Studio user. Only available in community edition.\n\n<Warning>Use caution when deleting a user, as this can cause issues such as breaking the \"Annotated by\" filter or leaving orphaned records.</Warning>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "users",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) User ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58756cf1-ce35-4a1a-a143-d5e846e7d2be",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) User ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fccb1356-a4ae-4dc4-8fc3-08510a8ce2ab",
+          "name": "Update user details",
+          "request": {
+            "name": "Update user details",
+            "description": {
+              "content": "\n        Update details for a specific user, such as their name or contact information, in Label Studio.\n        ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "users",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) User ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"allow_newsletters\": \"<boolean>\",\n  \"avatar\": \"<string>\",\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"initials\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce0ef04e-2a08-4273-a653-36019d54d86a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "users",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) User ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_newsletters\": \"<boolean>\",\n  \"avatar\": \"<string>\",\n  \"email\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"initials\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active_organization_meta\": \"string\",\n  \"avatar\": \"string\",\n  \"id\": 9977,\n  \"initials\": \"?\",\n  \"last_activity\": \"1964-11-03T19:56:50.989Z\",\n  \"lse_fields\": {\n    \"email_notification_settings\": \"string\",\n    \"invite_expired\": \"string\",\n    \"invite_expired_at\": \"string\",\n    \"invite_activated\": false,\n    \"invited_at\": \"2022-08-19T09:46:00.508Z\",\n    \"invited_by\": 6245,\n    \"onboarding_state\": \"trial_signup\",\n    \"social_auth_finished\": false,\n    \"trial_company\": \"string\",\n    \"trial_experience_labeling\": \"string\",\n    \"trial_license_enterprise\": true,\n    \"trial_models_in_production\": \"string\",\n    \"trial_role\": \"data_engineer_platform_engineer\"\n  },\n  \"org_membership\": [\n    {\n      \"active\": \"string\",\n      \"organization_id\": 5189,\n      \"role\": \"string\"\n    },\n    {\n      \"active\": \"string\",\n      \"organization_id\": 5601,\n      \"role\": \"string\"\n    }\n  ],\n  \"organization_membership\": {\n    \"active\": \"string\",\n    \"organization_id\": 6676,\n    \"role\": \"string\"\n  },\n  \"pause\": \"string\",\n  \"username\": \"string\",\n  \"active_organization\": 9912,\n  \"allow_newsletters\": false,\n  \"custom_hotkeys\": {},\n  \"date_joined\": \"1966-10-06T14:07:48.463Z\",\n  \"email\": \"bGiqg@MRGVrHcsguE.vm\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"phone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a1399e0f-a804-4016-90ee-f49ce378952d",
+    "name": "API Reference subpackage_actions subpackage_users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

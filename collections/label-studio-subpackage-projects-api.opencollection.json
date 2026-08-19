@@ -1,0 +1,460 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference subpackage_actions subpackage_projects API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/projects/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query",
+                "description": "Filter by projects that belong to archived workspaces"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter projects by pinned status. Use 'pinned_only' to return only pinned projects, 'exclude_pinned' to return only non-pinned projects, or 'all' to return all projects."
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter id by in list"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of count fields to include in the response to optimize performance. Available fields: task_number, finished_task_number, total_predictions_number, total_annotations_number, num_tasks_with_annotations, useful_annotation_number, ground_truth_number, skipped_annotations_number. If not specified, all count fields are included."
+              },
+              {
+                "name": "members_limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of members to return"
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term for project title and description"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Filter current_state by exact match"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "Filter title by contains (case-insensitive)"
+              },
+              {
+                "name": "workspaces",
+                "value": "",
+                "type": "query",
+                "description": "Filter workspaces by exact match"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of projects."
+        },
+        {
+          "info": {
+            "name": "Create a project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/projects/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a project for a specific organization."
+        },
+        {
+          "info": {
+            "name": "List projects' counts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/projects/counts/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "archived",
+                "value": "",
+                "type": "query",
+                "description": "Filter by projects that belong to archived workspaces"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter projects by pinned status. Use 'pinned_only' to return only pinned projects, 'exclude_pinned' to return only non-pinned projects, or 'all' to return all projects."
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Filter id by in list"
+              },
+              {
+                "name": "include",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of count fields to include in the response to optimize performance. Available fields: task_number, finished_task_number, total_predictions_number, total_annotations_number, num_tasks_with_annotations, useful_annotation_number, ground_truth_number, skipped_annotations_number. If not specified, all count fields are included."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term for project title and description"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "Filter current_state by exact match"
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "Filter title by contains (case-insensitive)"
+              },
+              {
+                "name": "workspaces",
+                "value": "",
+                "type": "query",
+                "description": "Filter workspaces by exact match"
+              }
+            ]
+          },
+          "docs": "Returns a list of projects with their counts. For example, task_number which is the total task number in project"
+        },
+        {
+          "info": {
+            "name": "Get project by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/projects/:id/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "members_limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of members to return"
+              }
+            ]
+          },
+          "docs": "Retrieve information about a project by project ID."
+        },
+        {
+          "info": {
+            "name": "Update project details",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://localhost:8000/api/projects/:id/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "members_limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of members to return"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of a specific project."
+        },
+        {
+          "info": {
+            "name": "Delete project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8000/api/projects/:id/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a project by specified project ID."
+        },
+        {
+          "info": {
+            "name": "List unique annotators for project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/projects/:id/annotators/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Return unique users who have submitted annotations in the specified project."
+        },
+        {
+          "info": {
+            "name": "✨ Duplicate project",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/projects/:id/duplicate/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nMake a copy of project."
+        },
+        {
+          "info": {
+            "name": "Import tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/projects/:id/import",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project."
+              },
+              {
+                "name": "commit_to_project",
+                "value": "",
+                "type": "query",
+                "description": "Set to \"true\" to immediately commit tasks to the project."
+              },
+              {
+                "name": "preannotated_from_fields",
+                "value": "",
+                "type": "query",
+                "description": "List of fields to preannotate from the task data. For example, if you provide a list of `{\"text\": \"text\", \"prediction\": \"label\"}` items in the request, the system will create a task with the `text` field and a prediction with the `label` field when `preannoted_from_fields=[\"prediction\"]`."
+              },
+              {
+                "name": "return_task_ids",
+                "value": "",
+                "type": "query",
+                "description": "Set to \"true\" to return task IDs in the response."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n            Import data as labeling tasks in bulk using this API endpoint. You can use this API endpoint to import multiple tasks.\n            One POST request is limited at 250K tasks and 200 MB.\n\n            **Note:** Imported data is verified against a project *label_config* and must\n            include all variables that were used in the *label_config*. For example,\n            if the label configuration has a *$text* variable, then each item in a data object\n            must include a \"tex"
+        },
+        {
+          "info": {
+            "name": "Import predictions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/projects/:id/import/predictions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Import model predictions for tasks in the specified project."
+        },
+        {
+          "info": {
+            "name": "Validate project label config",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/projects/:id/validate/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Determine whether the label configuration for a specific project is valid."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference subpackage_actions subpackage_tasks.subpackage_tasks/agreementMatrix API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_tasks.subpackage_tasks/agreementMatrix",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "✨ Get task agreement matrix",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/projects/:project_pk/tasks/:task_pk/agreement-matrix",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "project_pk",
+                "value": "",
+                "type": "path",
+                "description": "Project ID"
+              },
+              {
+                "name": "task_pk",
+                "value": "",
+                "type": "path",
+                "description": "Task ID"
+              },
+              {
+                "name": "dimension",
+                "value": "",
+                "type": "query",
+                "description": "Dimension ID to compute agreement for. If not provided, averages across all active dimensions."
+              },
+              {
+                "name": "selection",
+                "value": "",
+                "type": "query",
+                "description": "JSON object specifying which participants to include in the agreement matrix"
+              }
+            ]
+          },
+          "docs": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nReturns a pairwise agreement matrix betw"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

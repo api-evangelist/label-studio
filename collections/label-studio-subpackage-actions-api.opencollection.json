@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference subpackage_actions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/dm/actions/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "query",
+                "description": "Project ID"
+              }
+            ]
+          },
+          "docs": "Retrieve all the registered actions with descriptions that data manager can use."
+        },
+        {
+          "info": {
+            "name": "Post actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/dm/actions/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Action name ID, see the full list of actions in the `GET api/actions` request"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "query",
+                "description": "Project ID"
+              },
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "View ID (optional, it has higher priority than filters, selectedItems and ordering from the request body payload)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Perform a Data Manager action with the selected tasks and filters. Note: More complex actions require additional parameters in the request body. Call `GET api/actions?project=<id>` to explore them. <br>Example: `GET api/actions?id=delete_tasks&project=1`"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

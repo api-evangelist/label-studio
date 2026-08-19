@@ -1,0 +1,189 @@
+{
+  "item": [
+    {
+      "id": "d4275f9e-1741-41ee-bbe3-09264d122dae",
+      "name": "subpackage_tasks.subpackage_tasks/agreementMatrix",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5c6d5d65-edd9-4cac-9ef3-77790a2dd9a3",
+          "name": "✨ Get task agreement matrix",
+          "request": {
+            "name": "✨ Get task agreement matrix",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nReturns a pairwise agreement matrix between selected participants for a single task, averaged across all active dimensions or a single specified dimension.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":project_pk",
+                "tasks",
+                ":task_pk",
+                "agreement-matrix"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "dimension",
+                  "value": "<integer>",
+                  "description": "Dimension ID to compute agreement for. If not provided, averages across all active dimensions."
+                },
+                {
+                  "disabled": false,
+                  "key": "annotators",
+                  "value": "{\"all\":false,\"ids\":[\"<string>\",\"<string>\"]}",
+                  "description": "(Required) JSON object specifying which participants to include in the agreement matrix"
+                },
+                {
+                  "disabled": false,
+                  "key": "ground_truth",
+                  "value": "false",
+                  "description": "(Required) JSON object specifying which participants to include in the agreement matrix"
+                },
+                {
+                  "disabled": false,
+                  "key": "models",
+                  "value": "{\"all\":false,\"ids\":[\"<string>\",\"<string>\"]}",
+                  "description": "(Required) JSON object specifying which participants to include in the agreement matrix"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "project_pk",
+                  "description": "(Required) Project ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "task_pk",
+                  "description": "(Required) Task ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ba256b7-79c1-44e2-942a-a05ccda60d9d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":project_pk",
+                    "tasks",
+                    ":task_pk",
+                    "agreement-matrix"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "dimension",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "annotators",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "ground_truth",
+                      "value": "false"
+                    },
+                    {
+                      "key": "models",
+                      "value": "[object Object]"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "project_pk",
+                      "description": "(Required) Project ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "task_pk",
+                      "description": "(Required) Task ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"matrix\": [\n    [\n      9979.603164224958,\n      450.057831073668\n    ],\n    [\n      9192.732144959644,\n      2145.152432835925\n    ]\n  ],\n  \"users\": [\n    {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    {\n      \"key_0\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6f18353e-33a0-4989-8a9a-0264f02f5501",
+    "name": "API Reference subpackage_actions subpackage_tasks.subpackage_tasks/agreementMatrix API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,727 @@
+{
+  "item": [
+    {
+      "id": "02a2c900-a857-49fd-86c2-52969128b98f",
+      "name": "subpackage_views",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83d521b1-ee9d-474b-8e91-63c3a628a40e",
+          "name": "List views",
+          "request": {
+            "name": "List views",
+            "description": {
+              "content": "List all views for a specific project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "dm",
+                "views",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "Project ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "874292b6-b25d-4091-a41e-6f74c908bb4e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "dm",
+                    "views",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6252,\n    \"project\": 9940,\n    \"data\": {},\n    \"filter_group\": {\n      \"conjunction\": \"string\",\n      \"filters\": [\n        {\n          \"column\": \"string\",\n          \"id\": 7237,\n          \"operator\": \"string\",\n          \"type\": \"string\",\n          \"child_filter\": {\n            \"column\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"operator\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parent\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"index\": 4065,\n          \"parent\": 3597,\n          \"value\": {}\n        },\n        {\n          \"column\": \"string\",\n          \"id\": 2608,\n          \"operator\": \"string\",\n          \"type\": \"string\",\n          \"child_filter\": {\n            \"column\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"operator\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parent\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"index\": 7924,\n          \"parent\": 313,\n          \"value\": {}\n        }\n      ],\n      \"id\": 2321\n    },\n    \"order\": 9538,\n    \"ordering\": {},\n    \"selected_items\": {},\n    \"user\": 9421\n  },\n  {\n    \"id\": 8616,\n    \"project\": 2551,\n    \"data\": {},\n    \"filter_group\": {\n      \"conjunction\": \"string\",\n      \"filters\": [\n        {\n          \"column\": \"string\",\n          \"id\": 5019,\n          \"operator\": \"string\",\n          \"type\": \"string\",\n          \"child_filter\": {\n            \"column\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"operator\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parent\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"index\": 1977,\n          \"parent\": 5471,\n          \"value\": {}\n        },\n        {\n          \"column\": \"string\",\n          \"id\": 1922,\n          \"operator\": \"string\",\n          \"type\": \"string\",\n          \"child_filter\": {\n            \"column\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"id\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"operator\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"index\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"parent\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"index\": 6479,\n          \"parent\": 3086,\n          \"value\": {}\n        }\n      ],\n      \"id\": 3692\n    },\n    \"order\": 5877,\n    \"ordering\": {},\n    \"selected_items\": {},\n    \"user\": 878\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db1dc31a-a5c4-4f88-ba5d-f12159fabe6e",
+          "name": "Create view",
+          "request": {
+            "name": "Create view",
+            "description": {
+              "content": "Create a view for a specific project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "dm",
+                "views",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"filters\": {\n      \"conjunction\": \"<string>\",\n      \"items\": [\n        {\n          \"filter\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"type\": \"<string>\",\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"filter\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"type\": \"<string>\",\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"ordering\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"project\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b2e5dc94-36bd-4f16-aead-e815bed86a67",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "dm",
+                    "views",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"filters\": {\n      \"conjunction\": \"or\",\n      \"items\": [\n        {\n          \"filter\": \"filter:tasks:annotations_results\",\n          \"operator\": \"ends_with\",\n          \"type\": \"string\",\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"filter\": \"filter:tasks:ground_truth\",\n          \"operator\": \"in\",\n          \"type\": \"string\",\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"ordering\": [\n      \"tasks:total_annotations\",\n      \"tasks:reviewers\"\n    ]\n  },\n  \"project\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7579,\n  \"project\": 8759,\n  \"data\": {},\n  \"filter_group\": {\n    \"conjunction\": \"string\",\n    \"filters\": [\n      {\n        \"column\": \"string\",\n        \"id\": 1258,\n        \"operator\": \"string\",\n        \"type\": \"string\",\n        \"child_filter\": {\n          \"column\": \"string\",\n          \"id\": 5372,\n          \"operator\": \"string\",\n          \"type\": \"string\",\n          \"index\": 5194,\n          \"parent\": 5451,\n          \"value\": {}\n        },\n        \"index\": 5713,\n        \"parent\": 9071,\n        \"value\": {}\n      },\n      {\n        \"column\": \"string\",\n        \"id\": 3413,\n        \"operator\": \"string\",\n        \"type\": \"string\",\n        \"child_filter\": {\n          \"column\": \"string\",\n          \"id\": 8616,\n          \"operator\": \"string\",\n          \"type\": \"string\",\n          \"index\": 4165,\n          \"parent\": 5520,\n          \"value\": {}\n        },\n        \"index\": 6852,\n        \"parent\": 8481,\n        \"value\": {}\n      }\n    ],\n    \"id\": 1658\n  },\n  \"order\": 4758,\n  \"ordering\": {},\n  \"selected_items\": {},\n  \"user\": 6526\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b21f31b-6841-4b88-8b0a-1ce30070440e",
+          "name": "Update order of views",
+          "request": {
+            "name": "Update order of views",
+            "description": {
+              "content": "Update the order field of views based on the provided list of view IDs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "dm",
+                "views",
+                "order",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"project\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17869cea-ff69-41ee-a465-39d5a98bade8",
+              "name": "View order updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "dm",
+                    "views",
+                    "order",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"project\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1337c532-4247-4e83-8c79-b82e11b69b61",
+          "name": "Delete all project views",
+          "request": {
+            "name": "Delete all project views",
+            "description": {
+              "content": "Delete all views for a specific project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "dm",
+                "views",
+                "reset",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "(Required) Project ID"
+                }
+              ],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ccec3733-1c38-42b7-aa5c-163e6b136344",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "dm",
+                    "views",
+                    "reset",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eaa53f51-80c8-4fe8-b221-24269cb02c46",
+          "name": "Get view details",
+          "request": {
+            "name": "Get view details",
+            "description": {
+              "content": "Get the details about a specific view in the data manager",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "dm",
+                "views",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) View ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8db0e75-ac9e-4ca2-a391-33d221147dee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "dm",
+                    "views",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) View ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7579,\n  \"project\": 8759,\n  \"data\": {},\n  \"filter_group\": {\n    \"conjunction\": \"string\",\n    \"filters\": [\n      {\n        \"column\": \"string\",\n        \"id\": 1258,\n        \"operator\": \"string\",\n        \"type\": \"string\",\n        \"child_filter\": {\n          \"column\": \"string\",\n          \"id\": 5372,\n          \"operator\": \"string\",\n          \"type\": \"string\",\n          \"index\": 5194,\n          \"parent\": 5451,\n          \"value\": {}\n        },\n        \"index\": 5713,\n        \"parent\": 9071,\n        \"value\": {}\n      },\n      {\n        \"column\": \"string\",\n        \"id\": 3413,\n        \"operator\": \"string\",\n        \"type\": \"string\",\n        \"child_filter\": {\n          \"column\": \"string\",\n          \"id\": 8616,\n          \"operator\": \"string\",\n          \"type\": \"string\",\n          \"index\": 4165,\n          \"parent\": 5520,\n          \"value\": {}\n        },\n        \"index\": 6852,\n        \"parent\": 8481,\n        \"value\": {}\n      }\n    ],\n    \"id\": 1658\n  },\n  \"order\": 4758,\n  \"ordering\": {},\n  \"selected_items\": {},\n  \"user\": 6526\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20dd056d-565b-4afb-aeb9-eeffbe76690e",
+          "name": "Delete view",
+          "request": {
+            "name": "Delete view",
+            "description": {
+              "content": "Delete a specific view by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "dm",
+                "views",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) View ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8228b71b-d090-44fa-a9ea-a8a23fa2e2a5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "dm",
+                    "views",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) View ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "766a2d9c-ac21-406f-9a14-422b5670e29a",
+          "name": "Update view",
+          "request": {
+            "name": "Update view",
+            "description": {
+              "content": "Update view data with additional filters and other information for a specific project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "dm",
+                "views",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) View ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"filters\": {\n      \"conjunction\": \"<string>\",\n      \"items\": [\n        {\n          \"filter\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"type\": \"<string>\",\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"filter\": \"<string>\",\n          \"operator\": \"<string>\",\n          \"type\": \"<string>\",\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"ordering\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"project\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5704da67-bb8a-4a1e-bbf7-cf9e26daca84",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "dm",
+                    "views",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) View ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"filters\": {\n      \"conjunction\": \"or\",\n      \"items\": [\n        {\n          \"filter\": \"filter:tasks:id\",\n          \"operator\": \"starts_with\",\n          \"type\": \"string\",\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"filter\": \"filter:tasks:reviewed\",\n          \"operator\": \"less\",\n          \"type\": \"string\",\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ]\n    },\n    \"ordering\": [\n      \"tasks:comments\",\n      \"tasks:reviews_rejected\"\n    ]\n  },\n  \"project\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7579,\n  \"project\": 8759,\n  \"data\": {},\n  \"filter_group\": {\n    \"conjunction\": \"string\",\n    \"filters\": [\n      {\n        \"column\": \"string\",\n        \"id\": 1258,\n        \"operator\": \"string\",\n        \"type\": \"string\",\n        \"child_filter\": {\n          \"column\": \"string\",\n          \"id\": 5372,\n          \"operator\": \"string\",\n          \"type\": \"string\",\n          \"index\": 5194,\n          \"parent\": 5451,\n          \"value\": {}\n        },\n        \"index\": 5713,\n        \"parent\": 9071,\n        \"value\": {}\n      },\n      {\n        \"column\": \"string\",\n        \"id\": 3413,\n        \"operator\": \"string\",\n        \"type\": \"string\",\n        \"child_filter\": {\n          \"column\": \"string\",\n          \"id\": 8616,\n          \"operator\": \"string\",\n          \"type\": \"string\",\n          \"index\": 4165,\n          \"parent\": 5520,\n          \"value\": {}\n        },\n        \"index\": 6852,\n        \"parent\": 8481,\n        \"value\": {}\n      }\n    ],\n    \"id\": 1658\n  },\n  \"order\": 4758,\n  \"ordering\": {},\n  \"selected_items\": {},\n  \"user\": 6526\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ef9cca33-ab84-437a-82e6-c64200482a83",
+    "name": "API Reference subpackage_actions subpackage_views API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

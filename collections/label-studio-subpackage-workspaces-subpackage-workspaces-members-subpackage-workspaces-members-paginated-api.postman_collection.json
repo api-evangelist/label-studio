@@ -1,0 +1,175 @@
+{
+  "item": [
+    {
+      "id": "ccbe8725-f11b-4d8c-8198-9f214c8cbe94",
+      "name": "subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/paginated",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "286e947c-3a14-45a8-806d-78265cc234f1",
+          "name": "✨ Get workspace members paginated",
+          "request": {
+            "name": "✨ Get workspace members paginated",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the members for a specific workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workspaces",
+                ":id",
+                "memberships",
+                "paginated",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Comma-separated list of user IDs to filter by"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "61006093-d2b6-4ac6-9010-de8895f0ee3a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workspaces",
+                    ":id",
+                    "memberships",
+                    "paginated",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9315,\n  \"results\": [\n    {\n      \"active_organization_meta\": \"string\",\n      \"avatar\": \"string\",\n      \"id\": 8530,\n      \"initials\": \"?\",\n      \"last_activity\": \"2003-01-18T22:10:10.096Z\",\n      \"lse_fields\": {\n        \"email_notification_settings\": \"string\",\n        \"invite_expired\": \"string\",\n        \"invite_expired_at\": \"string\",\n        \"invite_activated\": false,\n        \"invited_at\": \"2014-09-06T14:43:46.000Z\",\n        \"invited_by\": 25,\n        \"onboarding_state\": \"not_started\",\n        \"social_auth_finished\": true,\n        \"trial_company\": \"string\",\n        \"trial_experience_labeling\": \"string\",\n        \"trial_license_enterprise\": true,\n        \"trial_models_in_production\": \"string\",\n        \"trial_role\": \"business_analyst\"\n      },\n      \"org_membership\": [\n        {\n          \"active\": \"string\",\n          \"organization_id\": 2877,\n          \"role\": \"string\"\n        },\n        {\n          \"active\": \"string\",\n          \"organization_id\": 8739,\n          \"role\": \"string\"\n        }\n      ],\n      \"organization_membership\": {\n        \"active\": \"string\",\n        \"organization_id\": 6383,\n        \"role\": \"string\"\n      },\n      \"pause\": \"string\",\n      \"username\": \"string\",\n      \"active_organization\": 2180,\n      \"allow_newsletters\": true,\n      \"custom_hotkeys\": {},\n      \"date_joined\": \"2002-10-06T02:30:59.356Z\",\n      \"email\": \"gBS@I.afuy\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"phone\": \"string\"\n    },\n    {\n      \"active_organization_meta\": \"string\",\n      \"avatar\": \"string\",\n      \"id\": 2082,\n      \"initials\": \"?\",\n      \"last_activity\": \"1988-12-02T02:45:51.844Z\",\n      \"lse_fields\": {\n        \"email_notification_settings\": \"string\",\n        \"invite_expired\": \"string\",\n        \"invite_expired_at\": \"string\",\n        \"invite_activated\": false,\n        \"invited_at\": \"2001-11-13T20:09:16.531Z\",\n        \"invited_by\": 7342,\n        \"onboarding_state\": \"complete\",\n        \"social_auth_finished\": true,\n        \"trial_company\": \"string\",\n        \"trial_experience_labeling\": \"string\",\n        \"trial_license_enterprise\": false,\n        \"trial_models_in_production\": \"string\",\n        \"trial_role\": \"annotator_team_manager\"\n      },\n      \"org_membership\": [\n        {\n          \"active\": \"string\",\n          \"organization_id\": 7847,\n          \"role\": \"string\"\n        },\n        {\n          \"active\": \"string\",\n          \"organization_id\": 9208,\n          \"role\": \"string\"\n        }\n      ],\n      \"organization_membership\": {\n        \"active\": \"string\",\n        \"organization_id\": 3086,\n        \"role\": \"string\"\n      },\n      \"pause\": \"string\",\n      \"username\": \"string\",\n      \"active_organization\": 8355,\n      \"allow_newsletters\": true,\n      \"custom_hotkeys\": {},\n      \"date_joined\": \"1949-12-17T01:23:52.260Z\",\n      \"email\": \"bEWi@KhnStPCwnCaZMNDmprpjsC.ecy\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"phone\": \"string\"\n    }\n  ],\n  \"next\": \"https://cAHPBQDNooqhaVTLvPPXnapX.zrim7RJOIiGguEabutQKeIW5jaQGMRyZaFHliq0Qxs3bfi95VFR70qaH+zXDH9FIAWq94C2D5.gQBz\",\n  \"previous\": \"https://ybUcrPWySMXOc.wuih3X5ua\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b3ef36c6-7120-46a3-b7eb-dc87e245311e",
+    "name": "API Reference subpackage_actions subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/paginated API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

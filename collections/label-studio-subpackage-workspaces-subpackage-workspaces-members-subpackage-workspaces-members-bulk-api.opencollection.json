@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference subpackage_actions subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/bulk API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/bulk",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "✨ Bulk assign workspace members",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/workspaces/:id/memberships/bulk/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAssign workspace members in bulk."
+        },
+        {
+          "info": {
+            "name": "✨ Bulk unassign workspace members",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8000/api/workspaces/:id/memberships/bulk/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "all",
+                "value": "",
+                "type": "query",
+                "description": "Apply unassignment to all currently matched workspace members."
+              },
+              {
+                "name": "excluded",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of user IDs to keep assigned when `all=true`."
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of user IDs to filter matched members."
+              },
+              {
+                "name": "included",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of user IDs to unassign when `all=false`."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term for filtering matched members by name or email."
+              }
+            ]
+          },
+          "docs": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUnassign workspace members in bulk. Pass"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,286 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference subpackage_actions subpackage_projects.subpackage_projects/exports API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_projects.subpackage_projects/exports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "[Deprecated] Easy export of tasks and annotations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/projects/:id/export",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project."
+              },
+              {
+                "name": "download_all_tasks",
+                "value": "",
+                "type": "query",
+                "description": "If true, download all tasks regardless of status. If false, download only annotated tasks."
+              },
+              {
+                "name": "download_resources",
+                "value": "",
+                "type": "query",
+                "description": "If true, download all resource files such as images, audio, and others relevant to the tasks."
+              },
+              {
+                "name": "export_type",
+                "value": "",
+                "type": "query",
+                "description": "Selected export format (JSON by default)"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Specify a list of task IDs to retrieve only the details for those tasks."
+              }
+            ]
+          },
+          "docs": "\n        This endpoint is deprecated in Enterprise. Use the async export API instead:\n        POST /api/projects/{id}/exports/ (see [Create new export](/api#operation/api_projects_exports_create)).\n\n        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.\n\n        <i>Note: if you have a large project it's recommended to use\n        export snapshots, this easy export endpoint might have timeouts.</i><br/><br>\n    "
+        },
+        {
+          "info": {
+            "name": "[Deprecated] Get export formats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/projects/:id/export/formats",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project."
+              }
+            ]
+          },
+          "docs": "\n        This endpoint is deprecated in Enterprise. Use the async export API instead:\n        POST /api/projects/{{id}}/exports/ (see [Create new export](/api#operation/api_projects_exports_create)).\n\n        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.\n\n        Retrieve the available export formats for the current project by ID."
+        },
+        {
+          "info": {
+            "name": "List all export snapshots",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/projects/:id/exports/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              }
+            ]
+          },
+          "docs": "Returns a list of exported files for a specific project by ID."
+        },
+        {
+          "info": {
+            "name": "Create new export snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/projects/:id/exports/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new export request to start a background task and generate an export file for a specific project by ID."
+        },
+        {
+          "info": {
+            "name": "Get export snapshot by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/projects/:id/exports/:export_pk",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "export_pk",
+                "value": "",
+                "type": "path",
+                "description": "Primary key identifying the export file."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project."
+              }
+            ]
+          },
+          "docs": "Retrieve information about an export file by export ID for a specific project."
+        },
+        {
+          "info": {
+            "name": "Delete export snapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8000/api/projects/:id/exports/:export_pk",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "export_pk",
+                "value": "",
+                "type": "path",
+                "description": "Primary key identifying the export file."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project."
+              }
+            ]
+          },
+          "docs": "Delete an export file by specified export ID."
+        },
+        {
+          "info": {
+            "name": "Export conversion",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/projects/:id/exports/:export_pk/convert",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "export_pk",
+                "value": "",
+                "type": "path",
+                "description": "Primary key identifying the export file."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Convert export snapshot to selected format"
+        },
+        {
+          "info": {
+            "name": "Download export snapshot as file in specified format",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/projects/:id/exports/:export_pk/download",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "export_pk",
+                "value": "",
+                "type": "path",
+                "description": "Primary key identifying the export file."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this project."
+              },
+              {
+                "name": "exportType",
+                "value": "",
+                "type": "query",
+                "description": "Selected export format"
+              }
+            ]
+          },
+          "docs": "\n        Download an export file in the specified format for a specific project. Specify the project ID with the `id`\n        parameter in the path and the ID of the export file you want to download using the `export_pk` parameter\n        in the path.\n\n        Get the `export_pk` from the response of the request to [Create new export](/api#operation/api_projects_exports_create)\n        or after [listing export files](/api#operation/api_projects_exports_list).\n        "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

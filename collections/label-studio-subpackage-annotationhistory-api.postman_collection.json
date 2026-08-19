@@ -1,0 +1,463 @@
+{
+  "item": [
+    {
+      "id": "aa078cf4-8f86-483f-bf6d-541933a708b5",
+      "name": "subpackage_annotationHistory",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eef7d30b-c021-4651-b4fc-22a7f0353a5e",
+          "name": "✨ List all annotation history items for annotation",
+          "request": {
+            "name": "✨ List all annotation history items for annotation",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList annotation history items for an annotation. Annotation history logs all actions performed with annotations, such as: imports, submits, updates, reviews, and more. Users can view annotation history items in the Annotation History panel during labeling.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "annotation-history",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "annotation",
+                  "value": "<integer>",
+                  "description": "Annotation ID to get annotation history items for."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43293fbe-3a66-496d-90e8-fd999c9a50a4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "annotation-history",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "annotation",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"comment\": \"string\",\n    \"created_at\": \"2009-02-20T17:31:06.388Z\",\n    \"id\": 1603,\n    \"action\": \"prediction\",\n    \"annotation_id\": 2155,\n    \"comment_id\": 5179,\n    \"created_by\": 4419,\n    \"draft_id\": 4938,\n    \"lead_time\": 3107.455379879529,\n    \"organization_id\": 7515,\n    \"project_id\": 3415,\n    \"result\": {},\n    \"review_id\": 4265,\n    \"started_at\": \"1956-10-20T04:30:04.911Z\",\n    \"task_id\": 4598\n  },\n  {\n    \"comment\": \"string\",\n    \"created_at\": \"1982-03-26T03:32:37.675Z\",\n    \"id\": 119,\n    \"action\": \"updated\",\n    \"annotation_id\": 5410,\n    \"comment_id\": 6877,\n    \"created_by\": 3176,\n    \"draft_id\": 7214,\n    \"lead_time\": 4456.872448693123,\n    \"organization_id\": 1495,\n    \"project_id\": 2802,\n    \"result\": {},\n    \"review_id\": 9822,\n    \"started_at\": \"2000-03-10T11:49:42.904Z\",\n    \"task_id\": 8467\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b2794a0-058a-47ed-8c6d-69a6d018aa90",
+          "name": "✨ Delete annotation history items",
+          "request": {
+            "name": "✨ Delete annotation history items",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete all annotation history items for a specific annotation, task or project. This method is available only for users with administrator roles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "annotation-history",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "annotation",
+                  "value": "<integer>",
+                  "description": "Annotation ID to delete annotation history items for."
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "Project ID to delete annotation history items for."
+                },
+                {
+                  "disabled": false,
+                  "key": "task",
+                  "value": "<integer>",
+                  "description": "Task ID to delete annotation history items for."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a23de70a-83a0-4201-8900-414ea5b32dc4",
+              "name": "Returns a dict containing the count of removed items.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "annotation-history",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "annotation",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "task",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"removed\": 2105\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60ebe28d-701c-43b2-854d-fad143eec85a",
+          "name": "✨ Retrieve a single annotation history item (full result for hydration)",
+          "request": {
+            "name": "✨ Retrieve a single annotation history item (full result for hydration)",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet one annotation history item by ID with full result. Used when FIT-720 lazy load is on and the user clicks a stubbed history item to hydrate it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "annotation-history",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e64dad77-c7fc-40ae-aad9-7eeeba3a2c62",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "annotation-history",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"comment\": \"string\",\n  \"created_at\": \"1950-07-14T17:35:28.692Z\",\n  \"id\": 711,\n  \"action\": \"updated\",\n  \"annotation_id\": 8732,\n  \"comment_id\": 9926,\n  \"created_by\": 4730,\n  \"draft_id\": 4493,\n  \"lead_time\": 3847.362212944033,\n  \"organization_id\": 7728,\n  \"project_id\": 8458,\n  \"result\": {},\n  \"review_id\": 5058,\n  \"started_at\": \"1964-06-27T07:46:43.763Z\",\n  \"task_id\": 5099\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d677c886-1ceb-486f-b2ab-ab964d42d13e",
+          "name": "✨ List annotation history items for project",
+          "request": {
+            "name": "✨ List annotation history items for project",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all annotation history items for the project with pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "annotation-history",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "88261c95-ef23-4077-b97a-9be842f0823d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "annotation-history",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 1567,\n  \"results\": [\n    {\n      \"comment\": \"string\",\n      \"created_at\": \"1959-10-08T11:15:20.751Z\",\n      \"id\": 9157,\n      \"action\": \"propagated_annotation\",\n      \"annotation_id\": 8723,\n      \"comment_id\": 1729,\n      \"created_by\": 6750,\n      \"draft_id\": 5310,\n      \"lead_time\": 7075.6067154350185,\n      \"organization_id\": 5890,\n      \"project_id\": 4458,\n      \"result\": {},\n      \"review_id\": 1925,\n      \"started_at\": \"1979-09-17T11:46:30.478Z\",\n      \"task_id\": 6102\n    },\n    {\n      \"comment\": \"string\",\n      \"created_at\": \"1989-01-28T00:16:44.764Z\",\n      \"id\": 7680,\n      \"action\": \"skipped\",\n      \"annotation_id\": 4172,\n      \"comment_id\": 3289,\n      \"created_by\": 7455,\n      \"draft_id\": 8181,\n      \"lead_time\": 75.1024094161179,\n      \"organization_id\": 5033,\n      \"project_id\": 6179,\n      \"result\": {},\n      \"review_id\": 5982,\n      \"started_at\": \"2022-01-09T22:37:18.142Z\",\n      \"task_id\": 5016\n    }\n  ],\n  \"next\": \"https://FJdXwK.odntReKmBR.hK6Aqmj4BD\",\n  \"previous\": \"http://jmXnaVtTvjdJYYUTfqemPlYO.sbtjLwyn16eOJ5k85HcC4993Y,xX4oSv3RSp0m7NftA-\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ec070014-ae82-44cb-8f24-933c10e4d405",
+    "name": "API Reference subpackage_actions subpackage_annotationHistory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1459 @@
+{
+  "item": [
+    {
+      "id": "5c1fede6-4433-45f3-9649-2544564f13d1",
+      "name": "subpackage_tasks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "df423af8-9e1e-4357-8dfa-7ecc62651ff0",
+          "name": "Get project import status ",
+          "request": {
+            "name": "Get project import status ",
+            "description": {
+              "content": "\n            Poll the status of an asynchronous project import operation.\n            \n            **Usage:**\n            1. When you POST to `/api/projects/{project_id}/import`, you'll receive a response like `{\"import\": <import_id>}`\n            2. Use that `import_id` with this GET endpoint to check the import status\n            3. Poll this endpoint to see if the import has completed, is still processing, or has failed\n            4. **Import errors and failures will only be visible in this GET response**, not in the original POST request\n            \n            This endpoint returns detailed information about the import including task counts, status, and any error messages.\n        ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "imports",
+                ":import_pk",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project import."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "import_pk",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "602ea9fb-cf83-4ad7-a214-a2441f66d34b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "imports",
+                    ":import_pk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project import."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "import_pk",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1966-06-16T14:45:08.424Z\",\n  \"id\": 2028,\n  \"updated_at\": \"1948-02-02T08:32:58.463Z\",\n  \"annotation_count\": 9723,\n  \"commit_to_project\": false,\n  \"could_be_tasks_list\": false,\n  \"data_columns\": {},\n  \"duration\": 1253,\n  \"error\": \"string\",\n  \"file_upload_ids\": {},\n  \"finished_at\": \"2013-03-13T14:06:51.977Z\",\n  \"found_formats\": {},\n  \"preannotated_from_fields\": {},\n  \"prediction_count\": 8036,\n  \"project\": 565,\n  \"return_task_ids\": true,\n  \"status\": \"in_progress\",\n  \"task_count\": 315,\n  \"task_ids\": {},\n  \"tasks\": {},\n  \"url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12e322af-2208-4300-9a23-285092d39c1d",
+          "name": "Delete all tasks",
+          "request": {
+            "name": "Delete all tasks",
+            "description": {
+              "content": "Delete all tasks from a specific project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "tasks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7ed4c1b8-72ec-4d6b-b19c-c96ee85ae9d4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "tasks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e0f9ff3-1162-4013-88fe-c6d7c362634a",
+          "name": "List tasks",
+          "request": {
+            "name": "List tasks",
+            "description": {
+              "content": "Retrieve a paginated list of tasks. The response format varies based on the user's role in the organization:\n- **Admin/Owner**: Full task details with all annotations, reviews, and metadata\n- **Reviewer**: Task details optimized for review workflow\n- **Annotator**: Task details filtered to show only user's own annotations and assignments",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tasks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>",
+                  "description": "Set to \"all\" if you want to include annotations and predictions in the response. Defaults to task_only"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Specify which fields to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "only_annotated",
+                  "value": "<boolean>",
+                  "description": "Filter to show only tasks that have annotations"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "Project ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "Additional query to filter tasks. It must be JSON encoded string of dict containing one of the following parameters: {\"filters\": ..., \"selectedItems\": ..., \"ordering\": ...}. Check Data Manager > Create View > see data field for more details about filters, selectedItems and ordering.\n\nfilters: dict with \"conjunction\" string (\"or\" or \"and\") and list of filters in \"items\" array. Each filter is a dictionary with keys: \"filter\", \"operator\", \"type\", \"value\". Read more about available filters\nExample: {\"conjunction\": \"or\", \"items\": [{\"filter\": \"filter:tasks:completed_at\", \"operator\": \"greater\", \"type\": \"Datetime\", \"value\": \"2021-01-01T00:00:00.000Z\"}]}\nselectedItems: dictionary with keys: \"all\", \"included\", \"excluded\". If \"all\" is false, \"included\" must be used. If \"all\" is true, \"excluded\" must be used.\nExamples: {\"all\": false, \"included\": [1, 2, 3]} or {\"all\": true, \"excluded\": [4, 5]}\nordering: list of fields to order by. Currently, ordering is supported by only one parameter.\nExample: [\"completed_at\"]"
+                },
+                {
+                  "disabled": false,
+                  "key": "resolve_uri",
+                  "value": "<boolean>",
+                  "description": "Resolve task data URIs using Cloud Storage"
+                },
+                {
+                  "disabled": false,
+                  "key": "review",
+                  "value": "<boolean>",
+                  "description": "Get tasks for review"
+                },
+                {
+                  "disabled": false,
+                  "key": "selectedItems",
+                  "value": "<string>",
+                  "description": "JSON string of selected task IDs for review workflow"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "<integer>",
+                  "description": "View ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "51a1b7fd-db3f-4b26-801a-9c68d5b0e4d0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "all"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_annotated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resolve_uri",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "review",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "selectedItems",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tasks\": [\n    {\n      \"agreement\": \"string\",\n      \"agreement_selected\": \"string\",\n      \"annotation_time\": 6730,\n      \"annotations\": \"string\",\n      \"annotations_ids\": \"string\",\n      \"annotations_results\": \"string\",\n      \"annotators_count\": 1525,\n      \"comment_authors\": [\n        {\n          \"key_0\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {},\n          \"key_2\": {}\n        }\n      ],\n      \"comment_authors_count\": 5076,\n      \"comments\": \"string\",\n      \"created_at\": \"1984-03-11T11:39:15.268Z\",\n      \"data\": {\n        \"key_0\": {}\n      },\n      \"drafts\": [\n        {\n          \"created_at\": \"1954-03-10T00:06:20.875Z\",\n          \"result\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"updated_at\": \"1997-04-20T20:00:11.566Z\"\n        },\n        {\n          \"created_at\": \"1968-07-03T20:32:47.048Z\",\n          \"result\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"updated_at\": \"2014-03-09T10:14:15.833Z\"\n        }\n      ],\n      \"file_upload\": \"string\",\n      \"id\": 3646,\n      \"predictions\": [\n        {\n          \"created_at\": \"1962-06-07T17:52:10.493Z\",\n          \"model\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"model_run\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"model_version\": \"string\",\n          \"project\": 2680,\n          \"result\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"score\": 23.539702471170322,\n          \"task\": 6858,\n          \"updated_at\": \"2017-06-04T18:37:40.255Z\"\n        },\n        {\n          \"created_at\": \"1976-05-16T11:39:06.161Z\",\n          \"model\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"model_run\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"model_version\": \"string\",\n          \"project\": 2732,\n          \"result\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"score\": 5272.58312533355,\n          \"task\": 6637,\n          \"updated_at\": \"2022-08-30T03:35:28.023Z\"\n        }\n      ],\n      \"predictions_model_versions\": \"string\",\n      \"predictions_results\": \"string\",\n      \"review_time\": 8179,\n      \"reviewers\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"reviewers_count\": 4246,\n      \"state\": \"string\",\n      \"storage_filename\": \"string\",\n      \"updated_at\": \"1965-09-16T11:38:01.578Z\",\n      \"allow_skip\": true,\n      \"avg_lead_time\": 2299.8870754070344,\n      \"cancelled_annotations\": 6574,\n      \"comment_count\": 8288,\n      \"completed_at\": \"1988-04-04T04:46:38.657Z\",\n      \"draft_exists\": false,\n      \"ground_truth\": false,\n      \"inner_id\": 4408,\n      \"is_labeled\": true,\n      \"last_comment_updated_at\": \"1972-03-23T03:55:16.059Z\",\n      \"meta\": {},\n      \"overlap\": 8156,\n      \"precomputed_agreement\": 3753.6388478081462,\n      \"predictions_score\": 6732.08232664988,\n      \"project\": 7835,\n      \"reviewed\": true,\n      \"reviews_accepted\": 5213,\n      \"reviews_rejected\": 737,\n      \"total_annotations\": 2820,\n      \"total_predictions\": 7548,\n      \"unresolved_comment_count\": 9040\n    },\n    {\n      \"agreement\": \"string\",\n      \"agreement_selected\": \"string\",\n      \"annotation_time\": 8105,\n      \"annotations\": \"string\",\n      \"annotations_ids\": \"string\",\n      \"annotations_results\": \"string\",\n      \"annotators_count\": 6888,\n      \"comment_authors\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {}\n        }\n      ],\n      \"comment_authors_count\": 9398,\n      \"comments\": \"string\",\n      \"created_at\": \"2017-08-22T14:12:31.024Z\",\n      \"data\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"drafts\": [\n        {\n          \"created_at\": \"2025-12-28T13:04:27.719Z\",\n          \"result\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"updated_at\": \"2023-08-23T07:02:38.141Z\"\n        },\n        {\n          \"created_at\": \"1957-03-19T21:28:29.332Z\",\n          \"result\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"updated_at\": \"1993-05-04T08:52:20.192Z\"\n        }\n      ],\n      \"file_upload\": \"string\",\n      \"id\": 8305,\n      \"predictions\": [\n        {\n          \"created_at\": \"2004-11-26T10:54:47.082Z\",\n          \"model\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"model_run\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"model_version\": \"string\",\n          \"project\": 607,\n          \"result\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"score\": 4245.714728887544,\n          \"task\": 8726,\n          \"updated_at\": \"1952-03-05T08:55:42.828Z\"\n        },\n        {\n          \"created_at\": \"1960-04-04T06:18:49.445Z\",\n          \"model\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"model_run\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"model_version\": \"string\",\n          \"project\": 430,\n          \"result\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"score\": 6675.882975302349,\n          \"task\": 541,\n          \"updated_at\": \"2013-07-10T04:13:42.699Z\"\n        }\n      ],\n      \"predictions_model_versions\": \"string\",\n      \"predictions_results\": \"string\",\n      \"review_time\": 5664,\n      \"reviewers\": [\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        },\n        {\n          \"key_0\": {},\n          \"key_1\": {}\n        }\n      ],\n      \"reviewers_count\": 5941,\n      \"state\": \"string\",\n      \"storage_filename\": \"string\",\n      \"updated_at\": \"1994-08-11T04:44:32.930Z\",\n      \"allow_skip\": false,\n      \"avg_lead_time\": 3799.7390247343433,\n      \"cancelled_annotations\": 228,\n      \"comment_count\": 6815,\n      \"completed_at\": \"2010-06-18T01:46:36.646Z\",\n      \"draft_exists\": true,\n      \"ground_truth\": true,\n      \"inner_id\": 6873,\n      \"is_labeled\": false,\n      \"last_comment_updated_at\": \"2014-11-20T07:50:04.090Z\",\n      \"meta\": {},\n      \"overlap\": 6948,\n      \"precomputed_agreement\": 7126.169954646388,\n      \"predictions_score\": 5921.519026563039,\n      \"project\": 8410,\n      \"reviewed\": false,\n      \"reviews_accepted\": 3827,\n      \"reviews_rejected\": 9770,\n      \"total_annotations\": 5897,\n      \"total_predictions\": 4630,\n      \"unresolved_comment_count\": 3821\n    }\n  ],\n  \"total\": 4971,\n  \"total_annotations\": 3997,\n  \"total_predictions\": 2516\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5d720dda-2cf8-47b0-9004-9c7a0bffd426",
+              "name": "Bad request - invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "all"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_annotated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resolve_uri",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "review",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "selectedItems",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ac12398-9359-4508-8691-f4d3914668f9",
+              "name": "Unauthorized - authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "all"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_annotated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resolve_uri",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "review",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "selectedItems",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b29ed2a4-3f7e-4b34-8a8e-f6cfc7f37c0b",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fields",
+                      "value": "all"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "only_annotated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resolve_uri",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "review",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "selectedItems",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8149b3a5-659e-4d6b-854a-cd50e296177c",
+          "name": "Create a new task",
+          "request": {
+            "name": "Create a new task",
+            "description": {
+              "content": "Create a new task",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tasks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"allow_skip\": \"<boolean,null>\",\n  \"cancelled_annotations\": \"<integer>\",\n  \"comment_authors\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"comment_count\": \"<integer>\",\n  \"file_upload\": \"<integer,null>\",\n  \"inner_id\": \"<integer,null-int64>\",\n  \"is_labeled\": \"<boolean>\",\n  \"last_comment_updated_at\": \"<string,null-date-time>\",\n  \"meta\": {},\n  \"overlap\": \"<integer>\",\n  \"project\": \"<integer,null>\",\n  \"total_annotations\": \"<integer>\",\n  \"total_predictions\": \"<integer>\",\n  \"unresolved_comment_count\": \"<integer>\",\n  \"updated_by\": \"<integer,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "232c91ce-0137-41e5-a3f7-60377b3ff7b9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"allow_skip\": \"<boolean,null>\",\n  \"cancelled_annotations\": \"<integer>\",\n  \"comment_authors\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"comment_count\": \"<integer>\",\n  \"file_upload\": \"<integer,null>\",\n  \"inner_id\": \"<integer,null-int64>\",\n  \"is_labeled\": \"<boolean>\",\n  \"last_comment_updated_at\": \"<string,null-date-time>\",\n  \"meta\": {},\n  \"overlap\": \"<integer>\",\n  \"project\": \"<integer,null>\",\n  \"total_annotations\": \"<integer>\",\n  \"total_predictions\": \"<integer>\",\n  \"unresolved_comment_count\": \"<integer>\",\n  \"updated_by\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agreement\": \"string\",\n  \"agreement_selected\": \"string\",\n  \"annotation_time\": 764,\n  \"annotations\": \"string\",\n  \"annotations_ids\": \"string\",\n  \"annotations_results\": \"string\",\n  \"annotators\": [],\n  \"annotators_count\": 8680,\n  \"comment_authors\": [\n    {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ],\n  \"comment_authors_count\": 4067,\n  \"comments\": \"string\",\n  \"created_at\": \"1987-10-15T03:00:52.748Z\",\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"drafts\": [\n    {\n      \"created_at\": \"2000-03-03T15:26:53.453Z\",\n      \"updated_at\": \"1956-02-03T08:48:10.251Z\"\n    },\n    {\n      \"created_at\": \"1962-07-23T20:48:12.148Z\",\n      \"updated_at\": \"1963-02-17T03:51:48.926Z\"\n    }\n  ],\n  \"file_upload\": \"string\",\n  \"id\": 6926,\n  \"predictions\": [\n    {\n      \"created_at\": \"1962-02-19T12:13:54.838Z\",\n      \"model\": {},\n      \"model_run\": {},\n      \"model_version\": \"string\",\n      \"project\": 167,\n      \"score\": 2025.1003009967683,\n      \"task\": 5520,\n      \"updated_at\": \"2023-11-06T04:15:03.733Z\"\n    },\n    {\n      \"created_at\": \"1964-08-20T21:09:35.764Z\",\n      \"model\": {},\n      \"model_run\": {},\n      \"model_version\": \"string\",\n      \"project\": 5888,\n      \"score\": 9884.995822320303,\n      \"task\": 9768,\n      \"updated_at\": \"1966-03-16T23:46:12.812Z\"\n    }\n  ],\n  \"predictions_model_versions\": \"string\",\n  \"predictions_results\": \"string\",\n  \"review_time\": 9234,\n  \"reviewers\": [\n    {\n      \"key_0\": {}\n    },\n    {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ],\n  \"reviewers_count\": 352,\n  \"state\": \"string\",\n  \"storage_filename\": \"string\",\n  \"updated_at\": \"2012-02-19T08:43:44.039Z\",\n  \"updated_by\": [],\n  \"allow_skip\": false,\n  \"avg_lead_time\": 2045.9956960831505,\n  \"cancelled_annotations\": 2059,\n  \"comment_count\": 5754,\n  \"completed_at\": \"1983-11-27T06:41:58.637Z\",\n  \"draft_exists\": false,\n  \"ground_truth\": false,\n  \"inner_id\": 1302,\n  \"is_labeled\": false,\n  \"last_comment_updated_at\": \"1948-01-15T00:10:40.465Z\",\n  \"meta\": {},\n  \"overlap\": 633,\n  \"precomputed_agreement\": 8581.245708276056,\n  \"predictions_score\": 1519.0042330100805,\n  \"project\": 3927,\n  \"reviewed\": true,\n  \"reviews_accepted\": 642,\n  \"reviews_rejected\": 7054,\n  \"total_annotations\": 6165,\n  \"total_predictions\": 2528,\n  \"unresolved_comment_count\": 548\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4eeb962-e0a7-4134-90bb-62ae4807a86e",
+          "name": "Get task",
+          "request": {
+            "name": "Get task",
+            "description": {
+              "content": "Get task data, metadata, annotations and other attributes for a specific labeling task by task ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tasks",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Task ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5640e4b8-7729-4dfb-a096-3fed0b84fff1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Task ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agreement\": \"string\",\n  \"agreement_selected\": \"string\",\n  \"annotation_time\": 764,\n  \"annotations\": \"string\",\n  \"annotations_ids\": \"string\",\n  \"annotations_results\": \"string\",\n  \"annotators\": [],\n  \"annotators_count\": 8680,\n  \"comment_authors\": [\n    {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ],\n  \"comment_authors_count\": 4067,\n  \"comments\": \"string\",\n  \"created_at\": \"1987-10-15T03:00:52.748Z\",\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"drafts\": [\n    {\n      \"created_at\": \"2000-03-03T15:26:53.453Z\",\n      \"updated_at\": \"1956-02-03T08:48:10.251Z\"\n    },\n    {\n      \"created_at\": \"1962-07-23T20:48:12.148Z\",\n      \"updated_at\": \"1963-02-17T03:51:48.926Z\"\n    }\n  ],\n  \"file_upload\": \"string\",\n  \"id\": 6926,\n  \"predictions\": [\n    {\n      \"created_at\": \"1962-02-19T12:13:54.838Z\",\n      \"model\": {},\n      \"model_run\": {},\n      \"model_version\": \"string\",\n      \"project\": 167,\n      \"score\": 2025.1003009967683,\n      \"task\": 5520,\n      \"updated_at\": \"2023-11-06T04:15:03.733Z\"\n    },\n    {\n      \"created_at\": \"1964-08-20T21:09:35.764Z\",\n      \"model\": {},\n      \"model_run\": {},\n      \"model_version\": \"string\",\n      \"project\": 5888,\n      \"score\": 9884.995822320303,\n      \"task\": 9768,\n      \"updated_at\": \"1966-03-16T23:46:12.812Z\"\n    }\n  ],\n  \"predictions_model_versions\": \"string\",\n  \"predictions_results\": \"string\",\n  \"review_time\": 9234,\n  \"reviewers\": [\n    {\n      \"key_0\": {}\n    },\n    {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ],\n  \"reviewers_count\": 352,\n  \"state\": \"string\",\n  \"storage_filename\": \"string\",\n  \"updated_at\": \"2012-02-19T08:43:44.039Z\",\n  \"updated_by\": [],\n  \"allow_skip\": false,\n  \"avg_lead_time\": 2045.9956960831505,\n  \"cancelled_annotations\": 2059,\n  \"comment_count\": 5754,\n  \"completed_at\": \"1983-11-27T06:41:58.637Z\",\n  \"draft_exists\": false,\n  \"ground_truth\": false,\n  \"inner_id\": 1302,\n  \"is_labeled\": false,\n  \"last_comment_updated_at\": \"1948-01-15T00:10:40.465Z\",\n  \"meta\": {},\n  \"overlap\": 633,\n  \"precomputed_agreement\": 8581.245708276056,\n  \"predictions_score\": 1519.0042330100805,\n  \"project\": 3927,\n  \"reviewed\": true,\n  \"reviews_accepted\": 642,\n  \"reviews_rejected\": 7054,\n  \"total_annotations\": 6165,\n  \"total_predictions\": 2528,\n  \"unresolved_comment_count\": 548\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8feadd0-ccff-4e6f-a58c-09a539809032",
+          "name": "Delete task",
+          "request": {
+            "name": "Delete task",
+            "description": {
+              "content": "Delete a task in Label Studio. This action cannot be undone!",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tasks",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Task ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "360ab2f4-09e8-4c9b-966a-701a28e6cb5e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Task ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbf503f6-f0db-4c57-a413-b456aa363046",
+          "name": "Update task",
+          "request": {
+            "name": "Update task",
+            "description": {
+              "content": "Update the attributes of an existing labeling task.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tasks",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Task ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"allow_skip\": \"<boolean,null>\",\n  \"avg_lead_time\": \"<double>\",\n  \"cancelled_annotations\": \"<integer>\",\n  \"comment_count\": \"<integer>\",\n  \"completed_at\": \"<dateTime>\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"draft_exists\": \"<boolean>\",\n  \"ground_truth\": \"<boolean>\",\n  \"inner_id\": \"<integer>\",\n  \"is_labeled\": \"<boolean>\",\n  \"last_comment_updated_at\": \"<string,null-date-time>\",\n  \"meta\": {},\n  \"overlap\": \"<integer>\",\n  \"precomputed_agreement\": \"<number,null-double>\",\n  \"predictions_score\": \"<double>\",\n  \"project\": \"<integer,null>\",\n  \"reviewed\": \"<boolean>\",\n  \"reviews_accepted\": \"<integer>\",\n  \"reviews_rejected\": \"<integer>\",\n  \"total_annotations\": \"<integer>\",\n  \"total_predictions\": \"<integer>\",\n  \"unresolved_comment_count\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9928c8b6-9bc1-479d-ae56-2550c5c28a88",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Task ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"allow_skip\": \"<boolean,null>\",\n  \"avg_lead_time\": \"<double>\",\n  \"cancelled_annotations\": \"<integer>\",\n  \"comment_count\": \"<integer>\",\n  \"completed_at\": \"<dateTime>\",\n  \"data\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"draft_exists\": \"<boolean>\",\n  \"ground_truth\": \"<boolean>\",\n  \"inner_id\": \"<integer>\",\n  \"is_labeled\": \"<boolean>\",\n  \"last_comment_updated_at\": \"<string,null-date-time>\",\n  \"meta\": {},\n  \"overlap\": \"<integer>\",\n  \"precomputed_agreement\": \"<number,null-double>\",\n  \"predictions_score\": \"<double>\",\n  \"project\": \"<integer,null>\",\n  \"reviewed\": \"<boolean>\",\n  \"reviews_accepted\": \"<integer>\",\n  \"reviews_rejected\": \"<integer>\",\n  \"total_annotations\": \"<integer>\",\n  \"total_predictions\": \"<integer>\",\n  \"unresolved_comment_count\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agreement\": \"string\",\n  \"agreement_selected\": \"string\",\n  \"annotation_time\": 764,\n  \"annotations\": \"string\",\n  \"annotations_ids\": \"string\",\n  \"annotations_results\": \"string\",\n  \"annotators\": [],\n  \"annotators_count\": 8680,\n  \"comment_authors\": [\n    {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ],\n  \"comment_authors_count\": 4067,\n  \"comments\": \"string\",\n  \"created_at\": \"1987-10-15T03:00:52.748Z\",\n  \"data\": {\n    \"key_0\": {}\n  },\n  \"drafts\": [\n    {\n      \"created_at\": \"2000-03-03T15:26:53.453Z\",\n      \"updated_at\": \"1956-02-03T08:48:10.251Z\"\n    },\n    {\n      \"created_at\": \"1962-07-23T20:48:12.148Z\",\n      \"updated_at\": \"1963-02-17T03:51:48.926Z\"\n    }\n  ],\n  \"file_upload\": \"string\",\n  \"id\": 6926,\n  \"predictions\": [\n    {\n      \"created_at\": \"1962-02-19T12:13:54.838Z\",\n      \"model\": {},\n      \"model_run\": {},\n      \"model_version\": \"string\",\n      \"project\": 167,\n      \"score\": 2025.1003009967683,\n      \"task\": 5520,\n      \"updated_at\": \"2023-11-06T04:15:03.733Z\"\n    },\n    {\n      \"created_at\": \"1964-08-20T21:09:35.764Z\",\n      \"model\": {},\n      \"model_run\": {},\n      \"model_version\": \"string\",\n      \"project\": 5888,\n      \"score\": 9884.995822320303,\n      \"task\": 9768,\n      \"updated_at\": \"1966-03-16T23:46:12.812Z\"\n    }\n  ],\n  \"predictions_model_versions\": \"string\",\n  \"predictions_results\": \"string\",\n  \"review_time\": 9234,\n  \"reviewers\": [\n    {\n      \"key_0\": {}\n    },\n    {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  ],\n  \"reviewers_count\": 352,\n  \"state\": \"string\",\n  \"storage_filename\": \"string\",\n  \"updated_at\": \"2012-02-19T08:43:44.039Z\",\n  \"updated_by\": [],\n  \"allow_skip\": false,\n  \"avg_lead_time\": 2045.9956960831505,\n  \"cancelled_annotations\": 2059,\n  \"comment_count\": 5754,\n  \"completed_at\": \"1983-11-27T06:41:58.637Z\",\n  \"draft_exists\": false,\n  \"ground_truth\": false,\n  \"inner_id\": 1302,\n  \"is_labeled\": false,\n  \"last_comment_updated_at\": \"1948-01-15T00:10:40.465Z\",\n  \"meta\": {},\n  \"overlap\": 633,\n  \"precomputed_agreement\": 8581.245708276056,\n  \"predictions_score\": 1519.0042330100805,\n  \"project\": 3927,\n  \"reviewed\": true,\n  \"reviews_accepted\": 642,\n  \"reviews_rejected\": 7054,\n  \"total_annotations\": 6165,\n  \"total_predictions\": 2528,\n  \"unresolved_comment_count\": 548\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a44ef153-7353-4ed5-8de9-6c03f0e5ccef",
+          "name": "Create task event",
+          "request": {
+            "name": "Create task event",
+            "description": {
+              "content": "\n    Create a new task event to track user interactions and system events during annotation.\n\n    This endpoint is designed to receive events from the frontend labeling interface to enable\n    accurate lead time calculation and detailed annotation analytics.\n\n    ## Event Types\n\n    **Core Annotation Events:**\n    - `annotation_loaded` - When annotation interface is loaded\n    - `annotation_created` - When annotation is submitted\n    - `annotation_updated` - When annotation is modified\n    - `annotation_reviewed` - When annotation is reviewed\n\n    **User Activity Events:**\n    - `visibility_change` - When page visibility changes (tab switch, minimize)\n    - `idle_detected` - When user goes idle\n    - `idle_resumed` - When user returns from idle\n\n    **Interaction Events:**\n    - `region_finished_drawing` - When annotation region is completed\n    - `region_deleted` - When annotation regions are removed\n    - `hotkey_pressed` - When keyboard shortcuts are used\n\n    **Media Events:**\n    - `video_playback_start/end` - Video playback control\n    - `audio_playback_start/end` - Audio playback control\n    - `video_scrub` - Video timeline scrubbing\n\n    ## Usage\n\n    Events are automatically associated with the task specified in the URL path.\n    The current user is automatically set as the actor. Project and organization\n    are derived from the task context.\n\n    ## Example Request\n\n    ```json\n    {\n        \"event_key\": \"annotation_loaded\",\n        \"event_time\": \"2024-01-15T10:30:00Z\",\n        \"annotation\": 123,\n        \"meta\": {\n            \"annotation_count\": 5,\n            \"estimated_time\": 300\n        }\n    }\n    ```\n    ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tasks",
+                ":id",
+                "events",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Task ID to associate the event with"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event_key\": \"<string>\",\n  \"event_time\": \"<dateTime>\",\n  \"annotation\": \"<integer,null>\",\n  \"annotation_draft_id\": \"<integer,null>\",\n  \"meta\": {},\n  \"review\": \"<integer,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1c52eb6e-af52-4184-a244-a1f567bb9d87",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ":id",
+                    "events",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Task ID to associate the event with"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_key\": \"<string>\",\n  \"event_time\": \"<dateTime>\",\n  \"annotation\": \"<integer,null>\",\n  \"annotation_draft_id\": \"<integer,null>\",\n  \"meta\": {},\n  \"review\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"actor\": 9705,\n  \"created_at\": \"1959-06-20T19:53:07.525Z\",\n  \"event_key\": \"string\",\n  \"event_time\": \"1967-05-05T02:26:47.453Z\",\n  \"id\": 5685,\n  \"organization\": 1693,\n  \"project\": 3467,\n  \"task\": 495,\n  \"annotation\": 9468,\n  \"annotation_draft_id\": 2741,\n  \"meta\": {},\n  \"review\": 5264\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf17a383-f391-49cb-996d-42d175e7de62",
+              "name": "Bad request - validation errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ":id",
+                    "events",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Task ID to associate the event with"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_key\": \"<string>\",\n  \"event_time\": \"<dateTime>\",\n  \"annotation\": \"<integer,null>\",\n  \"annotation_draft_id\": \"<integer,null>\",\n  \"meta\": {},\n  \"review\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3f6d6b2-4dc7-4c80-bde2-766ba55217c4",
+              "name": "Unauthorized - authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ":id",
+                    "events",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Task ID to associate the event with"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_key\": \"<string>\",\n  \"event_time\": \"<dateTime>\",\n  \"annotation\": \"<integer,null>\",\n  \"annotation_draft_id\": \"<integer,null>\",\n  \"meta\": {},\n  \"review\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c36d6843-8f6f-4cdb-bd96-3b19f0a7a61a",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ":id",
+                    "events",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Task ID to associate the event with"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_key\": \"<string>\",\n  \"event_time\": \"<dateTime>\",\n  \"annotation\": \"<integer,null>\",\n  \"annotation_draft_id\": \"<integer,null>\",\n  \"meta\": {},\n  \"review\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6f33a00-7b33-499f-960d-b297885a1331",
+              "name": "Not found - task does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ":id",
+                    "events",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Task ID to associate the event with"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_key\": \"<string>\",\n  \"event_time\": \"<dateTime>\",\n  \"annotation\": \"<integer,null>\",\n  \"annotation_draft_id\": \"<integer,null>\",\n  \"meta\": {},\n  \"review\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b5395b9c-85a5-436e-905e-cfd842458946",
+    "name": "API Reference subpackage_actions subpackage_tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

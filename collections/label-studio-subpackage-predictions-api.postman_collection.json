@@ -1,0 +1,540 @@
+{
+  "item": [
+    {
+      "id": "8d2ae6be-2121-461b-a93d-222dab30a4d6",
+      "name": "subpackage_predictions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2940b292-9024-4a44-b1c4-cbe92634b56c",
+          "name": "List predictions",
+          "request": {
+            "name": "List predictions",
+            "description": {
+              "content": "List all predictions and their IDs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "predictions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "Filter predictions by project ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "task",
+                  "value": "<integer>",
+                  "description": "Filter predictions by task ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5349b7f5-1f8d-4644-83a9-d16b611ae0fa",
+              "name": "Predictions list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "predictions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "task",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_ago\": \"\",\n    \"created_at\": \"2016-12-23T14:20:13.015Z\",\n    \"id\": 1576,\n    \"result\": [],\n    \"task\": 580,\n    \"updated_at\": \"1986-03-14T20:01:55.146Z\",\n    \"cluster\": 34,\n    \"mislabeling\": 7146.120585484893,\n    \"model\": 118,\n    \"model_run\": 4520,\n    \"model_version\": \"string\",\n    \"neighbors\": {},\n    \"project\": 7595,\n    \"score\": 1771.1012439603157\n  },\n  {\n    \"created_ago\": \"\",\n    \"created_at\": \"1981-05-07T09:48:03.005Z\",\n    \"id\": 9757,\n    \"result\": [],\n    \"task\": 8025,\n    \"updated_at\": \"1972-03-02T05:38:48.587Z\",\n    \"cluster\": 1924,\n    \"mislabeling\": 2675.3591162594194,\n    \"model\": 6099,\n    \"model_run\": 3634,\n    \"model_version\": \"string\",\n    \"neighbors\": {},\n    \"project\": 8603,\n    \"score\": 4701.210620276053\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2ba6369-3bb2-4075-ab1f-67205c000960",
+          "name": "Create prediction",
+          "request": {
+            "name": "Create prediction",
+            "description": {
+              "content": "Create a prediction for a specific task.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "predictions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model_version\": \"<string>\",\n  \"score\": \"<double>\",\n  \"task\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fea50c11-9d79-4f96-8d57-00baf02c5eab",
+              "name": "Created prediction",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "predictions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model_version\": \"<string>\",\n  \"score\": \"<double>\",\n  \"task\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_ago\": \"\",\n  \"created_at\": \"1985-02-08T19:48:54.621Z\",\n  \"id\": 7049,\n  \"result\": [],\n  \"task\": 4120,\n  \"updated_at\": \"1992-09-23T09:12:04.422Z\",\n  \"cluster\": 1338,\n  \"mislabeling\": 9663.237747125957,\n  \"model\": 7879,\n  \"model_run\": 205,\n  \"model_version\": \"string\",\n  \"neighbors\": {},\n  \"project\": 2772,\n  \"score\": 9229.906587688067\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "810f8599-b06a-471c-8361-d3f876263fbd",
+          "name": "Get prediction details",
+          "request": {
+            "name": "Get prediction details",
+            "description": {
+              "content": "Get details about a specific prediction by its ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "predictions",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Prediction ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f825abd5-d597-4d94-8c99-c41f3878ceec",
+              "name": "Prediction details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "predictions",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Prediction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_ago\": \"\",\n  \"created_at\": \"1985-02-08T19:48:54.621Z\",\n  \"id\": 7049,\n  \"result\": [],\n  \"task\": 4120,\n  \"updated_at\": \"1992-09-23T09:12:04.422Z\",\n  \"cluster\": 1338,\n  \"mislabeling\": 9663.237747125957,\n  \"model\": 7879,\n  \"model_run\": 205,\n  \"model_version\": \"string\",\n  \"neighbors\": {},\n  \"project\": 2772,\n  \"score\": 9229.906587688067\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95200762-b75f-4dd8-a2a6-cab779b58994",
+          "name": "Delete prediction",
+          "request": {
+            "name": "Delete prediction",
+            "description": {
+              "content": "Delete a prediction by prediction ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "predictions",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Prediction ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c7b0140-b511-43ce-9429-17ad76d60d70",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "predictions",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Prediction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ccf6f89-c3e7-474e-8005-686018d29f1f",
+          "name": "Update prediction",
+          "request": {
+            "name": "Update prediction",
+            "description": {
+              "content": "Update prediction data by prediction ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "predictions",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Prediction ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model_version\": \"<string>\",\n  \"score\": \"<double>\",\n  \"task\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "71596e93-b688-48e2-8c43-00412123dc21",
+              "name": "Updated prediction",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "predictions",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Prediction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"model_version\": \"<string>\",\n  \"score\": \"<double>\",\n  \"task\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_ago\": \"\",\n  \"created_at\": \"1985-02-08T19:48:54.621Z\",\n  \"id\": 7049,\n  \"result\": [],\n  \"task\": 4120,\n  \"updated_at\": \"1992-09-23T09:12:04.422Z\",\n  \"cluster\": 1338,\n  \"mislabeling\": 9663.237747125957,\n  \"model\": 7879,\n  \"model_run\": 205,\n  \"model_version\": \"string\",\n  \"neighbors\": {},\n  \"project\": 2772,\n  \"score\": 9229.906587688067\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7eaf7d14-4bc1-40dd-a5ee-68080b1bacf9",
+    "name": "API Reference subpackage_actions subpackage_predictions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

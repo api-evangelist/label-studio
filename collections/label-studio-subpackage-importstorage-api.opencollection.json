@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference subpackage_actions subpackage_importStorage API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_importStorage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all import storages types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/storages/types",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Retrieve a list of the import storages types."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

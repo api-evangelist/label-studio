@@ -1,0 +1,112 @@
+{
+  "item": [
+    {
+      "id": "12cc801e-87ed-42a2-aa0d-cc2b7515358c",
+      "name": "subpackage_billing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "91046e4a-dd7b-4439-ac66-39420e100fe4",
+          "name": "✨ Get billing info",
+          "request": {
+            "name": "✨ Get billing info",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve billing checks and feature flags for the active organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "billing",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "726aaf69-07af-47e7-ae44-5de5574f6841",
+              "name": "Billing information for the active organization",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "billing",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"billing_checks\": {\n    \"export_storages\": {\n      \"count\": 7071,\n      \"limit\": 8054,\n      \"reached\": true,\n      \"total\": 497\n    },\n    \"import_storages\": {\n      \"count\": 1413,\n      \"limit\": 4929,\n      \"reached\": true,\n      \"total\": 8860\n    },\n    \"is_license_expired\": true,\n    \"is_license_warning\": true,\n    \"is_prompts_expire\": true,\n    \"is_prompts_warning\": false,\n    \"license_expires\": \"1992-04-29\",\n    \"license_issued\": \"2012-03-13\",\n    \"license_warning\": \"1949-07-18\",\n    \"organization_is_active\": true,\n    \"projects\": {\n      \"count\": 2806,\n      \"limit\": 6219,\n      \"reached\": true,\n      \"total\": 1657\n    },\n    \"prompts_api_keys_enabled\": true,\n    \"prompts_enabled\": false,\n    \"prompts_expire\": \"string\",\n    \"prompts_status\": \"Cloud license per organization disabled\",\n    \"prompts_warning\": \"string\",\n    \"results\": {\n      \"count\": 1577,\n      \"limit\": 4608,\n      \"reached\": false,\n      \"total\": 6705\n    },\n    \"trial_days\": 5780,\n    \"users\": {\n      \"count\": 9429,\n      \"limit\": 8673,\n      \"reached\": true,\n      \"total\": 9756\n    }\n  },\n  \"billing_flags\": {\n    \"activated_at\": \"1975-07-14T21:34:24.357Z\",\n    \"allow_activity_log\": false,\n    \"allow_ai\": false,\n    \"allow_ask_ai\": false,\n    \"allow_data_credentials\": true,\n    \"allow_invite_people\": true,\n    \"allow_invite_project_experts\": true,\n    \"allow_nda\": true,\n    \"allow_organization_webhooks\": true,\n    \"allow_reviewing\": false,\n    \"allow_sso\": false,\n    \"allow_storage_proxy\": true,\n    \"automax_enabled\": true,\n    \"automax_token_exists\": true,\n    \"cloud_instance\": true,\n    \"disable_members_page\": false,\n    \"disable_project_imports\": false,\n    \"early_adopter\": true,\n    \"email_configured\": false,\n    \"embed_enabled\": true,\n    \"manual_role_management\": false,\n    \"manual_workspace_management\": false,\n    \"secure_mode\": true,\n    \"storage_persistence\": false,\n    \"white_label_id\": \"string\",\n    \"embed_domains\": [\n      {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      {\n        \"key_0\": {},\n        \"key_1\": {}\n      }\n    ],\n    \"embed_settings\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "695d2ffd-37a4-48a3-9bc5-828e1f753538",
+    "name": "API Reference subpackage_actions subpackage_billing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

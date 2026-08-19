@@ -1,0 +1,298 @@
+{
+  "item": [
+    {
+      "id": "009a6fcc-5a73-4690-9fca-e35517813d89",
+      "name": "subpackage_activityLogs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "513000fe-b781-45e1-9020-a73ad384b26e",
+          "name": "✨ Get activity logs",
+          "request": {
+            "name": "✨ Get activity logs",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve activity logs filtered by workspace, project, user, HTTP method, date range or search query.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "activity-logs",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "End date/time (ISO-8601) for log filtering."
+                },
+                {
+                  "disabled": false,
+                  "key": "method",
+                  "value": "all",
+                  "description": "HTTP request method used in the log."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "[or \"start\"] Current page index."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "[or \"length\"] Logs per page, use -1 to obtain all logs (might be slow)."
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "Project ID to filter logs."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search expression using \"AND\"/\"OR\" to filter by request URL."
+                },
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "Start date/time (ISO-8601) for log filtering."
+                },
+                {
+                  "disabled": false,
+                  "key": "user",
+                  "value": "<integer>",
+                  "description": "User ID to filter logs."
+                },
+                {
+                  "disabled": false,
+                  "key": "workspace",
+                  "value": "<integer>",
+                  "description": "Workspace owner ID to filter logs."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc6aa0c2-58e0-4106-abb6-ffd4f370f5e5",
+              "name": "Activity logs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "activity-logs",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "method",
+                      "value": "all"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "workspace",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"data\": [\n      {\n        \"datetime\": \"1997-02-14T14:10:49.416Z\",\n        \"email\": \"string\",\n        \"id\": 9044,\n        \"request_method\": \"string\",\n        \"request_url\": \"string\",\n        \"response_code\": \"string\",\n        \"user_id\": 7644,\n        \"duration\": 5163,\n        \"extra_data\": {},\n        \"http_referer\": \"string\",\n        \"ip_address\": \"string\",\n        \"organization_id\": 7664,\n        \"project_id\": 8299,\n        \"user_agent\": \"string\",\n        \"user_session\": \"string\",\n        \"workspace_owner_id\": 8497\n      },\n      {\n        \"datetime\": \"2011-02-23T23:44:38.542Z\",\n        \"email\": \"string\",\n        \"id\": 9943,\n        \"request_method\": \"string\",\n        \"request_url\": \"string\",\n        \"response_code\": \"string\",\n        \"user_id\": 4827,\n        \"duration\": 8551,\n        \"extra_data\": {},\n        \"http_referer\": \"string\",\n        \"ip_address\": \"string\",\n        \"organization_id\": 1899,\n        \"project_id\": 8119,\n        \"user_agent\": \"string\",\n        \"user_session\": \"string\",\n        \"workspace_owner_id\": 6071\n      }\n    ],\n    \"recordsFiltered\": 4844,\n    \"recordsTotal\": 2985\n  },\n  {\n    \"data\": [\n      {\n        \"datetime\": \"2016-04-11T09:22:27.684Z\",\n        \"email\": \"string\",\n        \"id\": 9229,\n        \"request_method\": \"string\",\n        \"request_url\": \"string\",\n        \"response_code\": \"string\",\n        \"user_id\": 9914,\n        \"duration\": 8497,\n        \"extra_data\": {},\n        \"http_referer\": \"string\",\n        \"ip_address\": \"string\",\n        \"organization_id\": 9303,\n        \"project_id\": 9101,\n        \"user_agent\": \"string\",\n        \"user_session\": \"string\",\n        \"workspace_owner_id\": 336\n      },\n      {\n        \"datetime\": \"1976-01-14T11:43:31.242Z\",\n        \"email\": \"string\",\n        \"id\": 8917,\n        \"request_method\": \"string\",\n        \"request_url\": \"string\",\n        \"response_code\": \"string\",\n        \"user_id\": 4112,\n        \"duration\": 1321,\n        \"extra_data\": {},\n        \"http_referer\": \"string\",\n        \"ip_address\": \"string\",\n        \"organization_id\": 4649,\n        \"project_id\": 1367,\n        \"user_agent\": \"string\",\n        \"user_session\": \"string\",\n        \"workspace_owner_id\": 5540\n      }\n    ],\n    \"recordsFiltered\": 8509,\n    \"recordsTotal\": 2045\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6651d80b-8286-4914-8066-1d1e18f862f5",
+              "name": "No more logs found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "activity-logs",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "method",
+                      "value": "all"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "workspace",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2e415896-8ebb-447b-b70c-96ecf82b7a0a",
+    "name": "API Reference subpackage_actions subpackage_activityLogs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

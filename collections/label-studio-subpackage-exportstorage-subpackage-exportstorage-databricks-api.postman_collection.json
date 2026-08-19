@@ -1,0 +1,752 @@
+{
+  "item": [
+    {
+      "id": "02f4f44e-e1ba-4191-bccd-ce4605313be3",
+      "name": "subpackage_exportStorage.subpackage_exportStorage/databricks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d660ded3-1309-446c-be95-5fef1dbb5489",
+          "name": "✨ List Databricks export storages",
+          "request": {
+            "name": "✨ List Databricks export storages",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a list of all Databricks Files export storage connections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "databricks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "(Required) Project ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65d0874f-9d6c-4b56-88cf-f7270abe1178",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "databricks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"catalog\": \"string\",\n    \"created_at\": \"1952-09-19T07:19:10.494Z\",\n    \"host\": \"string\",\n    \"id\": 2122,\n    \"project\": 6933,\n    \"schema\": \"string\",\n    \"type\": \"databricks\",\n    \"volume\": \"string\",\n    \"auth_type\": \"dbx_sp\",\n    \"can_delete_objects\": true,\n    \"client_id\": \"string\",\n    \"description\": \"string\",\n    \"last_sync\": \"2024-10-20T13:20:48.796Z\",\n    \"last_sync_count\": 9034,\n    \"last_sync_job\": \"string\",\n    \"meta\": {},\n    \"prefix\": \"string\",\n    \"regex_filter\": \"string\",\n    \"request_timeout_s\": 5699,\n    \"status\": \"completed_with_errors\",\n    \"stream_chunk_bytes\": 3155,\n    \"synchronizable\": true,\n    \"tenant_id\": \"string\",\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": false,\n    \"verify_tls\": false\n  },\n  {\n    \"catalog\": \"string\",\n    \"created_at\": \"1989-09-11T18:54:29.598Z\",\n    \"host\": \"string\",\n    \"id\": 8429,\n    \"project\": 8210,\n    \"schema\": \"string\",\n    \"type\": \"databricks\",\n    \"volume\": \"string\",\n    \"auth_type\": \"dbx_sp\",\n    \"can_delete_objects\": false,\n    \"client_id\": \"string\",\n    \"description\": \"string\",\n    \"last_sync\": \"1997-06-20T23:48:13.213Z\",\n    \"last_sync_count\": 3967,\n    \"last_sync_job\": \"string\",\n    \"meta\": {},\n    \"prefix\": \"string\",\n    \"regex_filter\": \"string\",\n    \"request_timeout_s\": 6228,\n    \"status\": \"completed_with_errors\",\n    \"stream_chunk_bytes\": 5716,\n    \"synchronizable\": true,\n    \"tenant_id\": \"string\",\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": false,\n    \"verify_tls\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8b7573e-aa9a-471a-9732-4bf415dfcd0a",
+          "name": "✨ Create Databricks export storage",
+          "request": {
+            "name": "✨ Create Databricks export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a Databricks Files export storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "databricks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"catalog\": \"<string>\",\n  \"host\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"schema\": \"<string>\",\n  \"volume\": \"<string>\",\n  \"auth_type\": \"<string>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"description\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"request_timeout_s\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"stream_chunk_bytes\": \"<integer>\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"<string>\",\n  \"title\": \"<string,null>\",\n  \"token\": \"<string>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\",\n  \"verify_tls\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "adb8dc3a-9168-40f9-a556-48c8c4e40b2c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "databricks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"catalog\": \"<string>\",\n  \"host\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"schema\": \"<string>\",\n  \"volume\": \"<string>\",\n  \"auth_type\": \"azure_ad_sp\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"description\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"request_timeout_s\": \"<integer>\",\n  \"status\": \"queued\",\n  \"stream_chunk_bytes\": \"<integer>\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"<string>\",\n  \"title\": \"<string,null>\",\n  \"token\": \"<string>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\",\n  \"verify_tls\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"catalog\": \"string\",\n  \"created_at\": \"1958-11-26T15:33:25.032Z\",\n  \"host\": \"string\",\n  \"id\": 4576,\n  \"project\": 8778,\n  \"schema\": \"string\",\n  \"type\": \"databricks\",\n  \"volume\": \"string\",\n  \"auth_type\": \"azure_ad_sp\",\n  \"can_delete_objects\": true,\n  \"client_id\": \"string\",\n  \"description\": \"string\",\n  \"last_sync\": \"1970-02-08T22:16:58.027Z\",\n  \"last_sync_count\": 5198,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"request_timeout_s\": 8192,\n  \"status\": \"queued\",\n  \"stream_chunk_bytes\": 3181,\n  \"synchronizable\": true,\n  \"tenant_id\": \"string\",\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false,\n  \"verify_tls\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1ba452f-d1a2-42d6-b16b-f10ecc8a98f4",
+          "name": "✨ Validate Databricks export storage",
+          "request": {
+            "name": "✨ Validate Databricks export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nValidate a specific Databricks Files export storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "databricks",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"catalog\": \"<string>\",\n  \"host\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"schema\": \"<string>\",\n  \"volume\": \"<string>\",\n  \"auth_type\": \"<string>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"description\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"request_timeout_s\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"stream_chunk_bytes\": \"<integer>\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"<string>\",\n  \"title\": \"<string,null>\",\n  \"token\": \"<string>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\",\n  \"verify_tls\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1af43802-fbe1-4368-bae5-92310933d9e8",
+              "name": "Validation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "databricks",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"catalog\": \"<string>\",\n  \"host\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"schema\": \"<string>\",\n  \"volume\": \"<string>\",\n  \"auth_type\": \"azure_ad_sp\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"description\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"request_timeout_s\": \"<integer>\",\n  \"status\": \"queued\",\n  \"stream_chunk_bytes\": \"<integer>\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"<string>\",\n  \"title\": \"<string,null>\",\n  \"token\": \"<string>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\",\n  \"verify_tls\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6dbaa640-bf24-4c93-9c6d-cff09ae7e405",
+          "name": "✨ Get Databricks export storage",
+          "request": {
+            "name": "✨ Get Databricks export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a specific Databricks Files export storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "databricks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "317dfffc-58f8-4339-b9a3-8e73aff91e2e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "databricks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"catalog\": \"string\",\n  \"created_at\": \"1958-11-26T15:33:25.032Z\",\n  \"host\": \"string\",\n  \"id\": 4576,\n  \"project\": 8778,\n  \"schema\": \"string\",\n  \"type\": \"databricks\",\n  \"volume\": \"string\",\n  \"auth_type\": \"azure_ad_sp\",\n  \"can_delete_objects\": true,\n  \"client_id\": \"string\",\n  \"description\": \"string\",\n  \"last_sync\": \"1970-02-08T22:16:58.027Z\",\n  \"last_sync_count\": 5198,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"request_timeout_s\": 8192,\n  \"status\": \"queued\",\n  \"stream_chunk_bytes\": 3181,\n  \"synchronizable\": true,\n  \"tenant_id\": \"string\",\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false,\n  \"verify_tls\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "059829fc-7a2a-4352-8eab-489736ce986c",
+          "name": "✨ Delete Databricks export storage",
+          "request": {
+            "name": "✨ Delete Databricks export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific Databricks Files export storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "databricks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ae5016c-13f7-4cce-8a2a-2b34c1d1acbd",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "databricks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dccfa99d-1b79-404a-9d7c-2af85f9e7c90",
+          "name": "✨ Update Databricks export storage",
+          "request": {
+            "name": "✨ Update Databricks export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific Databricks Files export storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "databricks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"auth_type\": \"<string>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"catalog\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"description\": \"<string,null>\",\n  \"host\": \"<string>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string,null>\",\n  \"request_timeout_s\": \"<integer>\",\n  \"schema\": \"<string>\",\n  \"status\": \"<string>\",\n  \"stream_chunk_bytes\": \"<integer>\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"<string>\",\n  \"title\": \"<string,null>\",\n  \"token\": \"<string>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\",\n  \"verify_tls\": \"<boolean>\",\n  \"volume\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b91bb267-974e-482f-b240-1f4dc113dca7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "databricks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"auth_type\": \"azure_ad_sp\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"catalog\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"description\": \"<string,null>\",\n  \"host\": \"<string>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string,null>\",\n  \"request_timeout_s\": \"<integer>\",\n  \"schema\": \"<string>\",\n  \"status\": \"in_progress\",\n  \"stream_chunk_bytes\": \"<integer>\",\n  \"synchronizable\": true,\n  \"tenant_id\": \"<string>\",\n  \"title\": \"<string,null>\",\n  \"token\": \"<string>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\",\n  \"verify_tls\": \"<boolean>\",\n  \"volume\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"catalog\": \"string\",\n  \"created_at\": \"1958-11-26T15:33:25.032Z\",\n  \"host\": \"string\",\n  \"id\": 4576,\n  \"project\": 8778,\n  \"schema\": \"string\",\n  \"type\": \"databricks\",\n  \"volume\": \"string\",\n  \"auth_type\": \"azure_ad_sp\",\n  \"can_delete_objects\": true,\n  \"client_id\": \"string\",\n  \"description\": \"string\",\n  \"last_sync\": \"1970-02-08T22:16:58.027Z\",\n  \"last_sync_count\": 5198,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"request_timeout_s\": 8192,\n  \"status\": \"queued\",\n  \"stream_chunk_bytes\": 3181,\n  \"synchronizable\": true,\n  \"tenant_id\": \"string\",\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false,\n  \"verify_tls\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a875498f-5582-4bbe-af9e-ed9fef96c1f4",
+          "name": "✨ Sync Databricks export storage",
+          "request": {
+            "name": "✨ Sync Databricks export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nExport annotations to a Databricks Files storage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "databricks",
+                ":id",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e3f34d77-d590-4eff-9bda-10b383b54263",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "databricks",
+                    ":id",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"catalog\": \"string\",\n  \"created_at\": \"1958-11-26T15:33:25.032Z\",\n  \"host\": \"string\",\n  \"id\": 4576,\n  \"project\": 8778,\n  \"schema\": \"string\",\n  \"type\": \"databricks\",\n  \"volume\": \"string\",\n  \"auth_type\": \"azure_ad_sp\",\n  \"can_delete_objects\": true,\n  \"client_id\": \"string\",\n  \"description\": \"string\",\n  \"last_sync\": \"1970-02-08T22:16:58.027Z\",\n  \"last_sync_count\": 5198,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"request_timeout_s\": 8192,\n  \"status\": \"queued\",\n  \"stream_chunk_bytes\": 3181,\n  \"synchronizable\": true,\n  \"tenant_id\": \"string\",\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false,\n  \"verify_tls\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "293e7cd6-19c3-40dc-ab92-8d51a25008c9",
+    "name": "API Reference subpackage_actions subpackage_exportStorage.subpackage_exportStorage/databricks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

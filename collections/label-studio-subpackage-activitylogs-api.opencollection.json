@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference subpackage_actions subpackage_activityLogs API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_activityLogs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "✨ Get activity logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/activity-logs/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date/time (ISO-8601) for log filtering."
+              },
+              {
+                "name": "method",
+                "value": "",
+                "type": "query",
+                "description": "HTTP request method used in the log."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "[or \"start\"] Current page index."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "[or \"length\"] Logs per page, use -1 to obtain all logs (might be slow)."
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "query",
+                "description": "Project ID to filter logs."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search expression using \"AND\"/\"OR\" to filter by request URL."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date/time (ISO-8601) for log filtering."
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "query",
+                "description": "User ID to filter logs."
+              },
+              {
+                "name": "workspace",
+                "value": "",
+                "type": "query",
+                "description": "Workspace owner ID to filter logs."
+              }
+            ]
+          },
+          "docs": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve activity logs filtered by works"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,458 @@
+{
+  "item": [
+    {
+      "id": "48f82c62-3b49-413f-a20d-f00a7c6368d7",
+      "name": "subpackage_prompts.subpackage_prompts/runs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7a6f0144-b5df-4f4b-995e-8dba508a1fac",
+          "name": "✨ Get inference run info",
+          "request": {
+            "name": "✨ Get inference run info",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet information (status, metadata, etc) about an existing inference run",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prompts",
+                ":prompt_id",
+                "versions",
+                ":version_id",
+                "inference-runs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "parent_model",
+                  "value": "<integer>",
+                  "description": "The ID of the parent model for this Inference Run"
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "The ID of the project this Inference Run makes predictions on"
+                },
+                {
+                  "disabled": false,
+                  "key": "project_subset",
+                  "value": "<string>",
+                  "description": "Defines which tasks are operated on (e.g. HasGT will only operate on tasks with a ground truth annotation, but All will operate on all records)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "prompt_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "version_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aca62cb7-72c2-4a77-8f3b-82ab780efb5e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prompts",
+                    ":prompt_id",
+                    "versions",
+                    ":version_id",
+                    "inference-runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "parent_model",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "project_subset",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "prompt_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"completed_at\": \"1959-10-17T09:52:50.431Z\",\n    \"created_at\": \"1998-08-28T13:32:07.568Z\",\n    \"created_by\": {\n      \"avatar\": \"string\",\n      \"id\": 8788,\n      \"username\": \"string\",\n      \"email\": \"vpt8M@UOzzFwzprlhMTYVxQxCTsQqWRgIPhI.xaau\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\"\n    },\n    \"id\": 8007,\n    \"parent_model\": 8604,\n    \"project\": 2403,\n    \"source_model_run\": 8288,\n    \"status\": \"Completed\",\n    \"task_ids\": {},\n    \"triggered_at\": \"1947-07-03T13:06:49.812Z\",\n    \"filters_json\": {},\n    \"job_id\": \"string\",\n    \"organization\": 3762,\n    \"predictions_updated_at\": \"2008-11-06T16:21:40.876Z\",\n    \"project_subset\": \"Custom\",\n    \"sample_subset_size\": 7033,\n    \"total_correct_predictions\": 6130,\n    \"total_predictions\": 7624,\n    \"total_tasks\": 7030\n  },\n  {\n    \"completed_at\": \"2000-08-01T05:28:57.407Z\",\n    \"created_at\": \"1948-05-31T22:05:00.257Z\",\n    \"created_by\": {\n      \"avatar\": \"string\",\n      \"id\": 8719,\n      \"username\": \"string\",\n      \"email\": \"N831sOhQinC@VLifSBgVgmJqcLhygmkoFuELzp.woo\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\"\n    },\n    \"id\": 2259,\n    \"parent_model\": 6422,\n    \"project\": 8761,\n    \"source_model_run\": 350,\n    \"status\": \"Canceled\",\n    \"task_ids\": {},\n    \"triggered_at\": \"2005-11-23T10:17:25.704Z\",\n    \"filters_json\": {},\n    \"job_id\": \"string\",\n    \"organization\": 4107,\n    \"predictions_updated_at\": \"1991-12-20T00:51:30.199Z\",\n    \"project_subset\": \"All\",\n    \"sample_subset_size\": 9022,\n    \"total_correct_predictions\": 6166,\n    \"total_predictions\": 3516,\n    \"total_tasks\": 7989\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe360f7a-13d5-4ba7-878b-fafb8c8c20f4",
+          "name": "✨ Run prompt inference",
+          "request": {
+            "name": "✨ Run prompt inference",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRun a prompt inference.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prompts",
+                ":prompt_id",
+                "versions",
+                ":version_id",
+                "inference-runs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "prompt_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "version_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project\": \"<integer>\",\n  \"filters_json\": {},\n  \"job_id\": \"<string,null>\",\n  \"only_missing_predictions\": false,\n  \"organization\": \"<integer,null>\",\n  \"predictions_updated_at\": \"<string,null-date-time>\",\n  \"project_subset\": \"<string>\",\n  \"sample_subset_size\": \"<integer,null>\",\n  \"total_correct_predictions\": \"<integer,null>\",\n  \"total_predictions\": \"<integer,null>\",\n  \"total_tasks\": \"<integer,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab3fab45-d770-4172-9c98-1554d9621285",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prompts",
+                    ":prompt_id",
+                    "versions",
+                    ":version_id",
+                    "inference-runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "prompt_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project\": \"<integer>\",\n  \"filters_json\": {},\n  \"job_id\": \"<string,null>\",\n  \"only_missing_predictions\": false,\n  \"organization\": \"<integer,null>\",\n  \"predictions_updated_at\": \"<string,null-date-time>\",\n  \"project_subset\": \"All\",\n  \"sample_subset_size\": \"<integer,null>\",\n  \"total_correct_predictions\": \"<integer,null>\",\n  \"total_predictions\": \"<integer,null>\",\n  \"total_tasks\": \"<integer,null>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"completed_at\": \"2005-09-09T12:52:12.671Z\",\n  \"created_at\": \"1949-09-09T09:15:44.100Z\",\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 1962,\n    \"username\": \"string\",\n    \"email\": \"wgSPB@LGWLFHOGrH.qjml\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"id\": 8201,\n  \"parent_model\": 6937,\n  \"project\": 7082,\n  \"source_model_run\": 3613,\n  \"status\": \"Completed\",\n  \"task_ids\": {},\n  \"triggered_at\": \"1950-01-26T19:19:37.971Z\",\n  \"filters_json\": {},\n  \"job_id\": \"string\",\n  \"organization\": 3489,\n  \"predictions_updated_at\": \"1956-07-06T15:58:02.307Z\",\n  \"project_subset\": \"All\",\n  \"sample_subset_size\": 4700,\n  \"total_correct_predictions\": 52,\n  \"total_predictions\": 4947,\n  \"total_tasks\": 9794\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbb456dc-ea2a-4253-b689-fe15178998cc",
+          "name": "✨ Cancel Inference Run API",
+          "request": {
+            "name": "✨ Cancel Inference Run API",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCancel the inference run for the given api",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prompts",
+                ":prompt_id",
+                "versions",
+                ":version_id",
+                "inference-runs",
+                ":inference_run_id",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "inference_run_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "prompt_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "version_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d5b18595-3276-4d97-9c90-3f21514faf42",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prompts",
+                    ":prompt_id",
+                    "versions",
+                    ":version_id",
+                    "inference-runs",
+                    ":inference_run_id",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "inference_run_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "prompt_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "af85e845-c767-499d-8a51-9e4bc8327083",
+    "name": "API Reference subpackage_actions subpackage_prompts.subpackage_prompts/runs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

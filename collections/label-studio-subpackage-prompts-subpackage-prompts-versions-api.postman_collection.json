@@ -1,0 +1,1101 @@
+{
+  "item": [
+    {
+      "id": "374aa6f0-9017-4c82-aff9-df2f00767b25",
+      "name": "subpackage_prompts.subpackage_prompts/versions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "26c9a8be-d198-4bee-bf67-28a51c332534",
+          "name": "✨ Get default prompt version name",
+          "request": {
+            "name": "✨ Get default prompt version name",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet default prompt version name",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prompts",
+                ":id",
+                "get-default-version-name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "744417f8-2359-4443-a85d-5019b3397ecd",
+              "name": "No response body",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prompts",
+                    ":id",
+                    "get-default-version-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a4028f42-e013-4ccd-af76-c4a9a919d276",
+          "name": "✨ List prompt versions",
+          "request": {
+            "name": "✨ List prompt versions",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all versions of a prompt.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prompts",
+                ":prompt_id",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "prompt_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ba08c7d-c716-4705-8966-de19d9836edc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prompts",
+                    ":prompt_id",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "prompt_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_at\": \"1979-10-18T18:44:09.636Z\",\n    \"created_by\": {\n      \"avatar\": \"string\",\n      \"id\": 1642,\n      \"username\": \"string\",\n      \"email\": \"ohbnvPUU@RdOAHkDcRMISoQiK.dv\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\"\n    },\n    \"id\": 2887,\n    \"model_display_name\": \"string\",\n    \"prompt\": \"string\",\n    \"provider_model_id\": \"string\",\n    \"score\": \"string\",\n    \"title\": \"string\",\n    \"updated_at\": \"1983-09-19T15:59:35.771Z\",\n    \"max_few_shot_examples\": 7314,\n    \"model_provider_connection\": 4851,\n    \"organization\": 1642,\n    \"parent_model\": 2774,\n    \"provider\": \"Anthropic\"\n  },\n  {\n    \"created_at\": \"1981-06-18T13:08:12.327Z\",\n    \"created_by\": {\n      \"avatar\": \"string\",\n      \"id\": 8022,\n      \"username\": \"string\",\n      \"email\": \"K1Z6S8G8@ThVWXrMvtUDWNBSdinzDmZTfmeGEs.gsu\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\"\n    },\n    \"id\": 6167,\n    \"model_display_name\": \"string\",\n    \"prompt\": \"string\",\n    \"provider_model_id\": \"string\",\n    \"score\": \"string\",\n    \"title\": \"string\",\n    \"updated_at\": \"1985-09-23T12:09:15.248Z\",\n    \"max_few_shot_examples\": 2104,\n    \"model_provider_connection\": 5671,\n    \"organization\": 660,\n    \"parent_model\": 1422,\n    \"provider\": \"Gemini\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f51a06ec-7ebe-4314-a8ca-e33995dd634b",
+          "name": "✨ Create prompt version",
+          "request": {
+            "name": "✨ Create prompt version",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new version of a prompt.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prompts",
+                ":prompt_id",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "prompt_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"prompt\": \"<string>\",\n  \"provider_model_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"max_few_shot_examples\": \"<integer,null>\",\n  \"model_provider_connection\": \"<integer,null>\",\n  \"organization\": \"<integer,null>\",\n  \"parent_model\": \"<integer>\",\n  \"provider\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce58ade3-0c89-4a22-bcda-e4d18e542927",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prompts",
+                    ":prompt_id",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "prompt_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"prompt\": \"<string>\",\n  \"provider_model_id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"max_few_shot_examples\": \"<integer,null>\",\n  \"model_provider_connection\": \"<integer,null>\",\n  \"organization\": \"<integer,null>\",\n  \"parent_model\": \"<integer>\",\n  \"provider\": \"OpenAI\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1953-11-21T00:38:16.129Z\",\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 8782,\n    \"username\": \"string\",\n    \"email\": \"6xv5M@QYT.im\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"id\": 5356,\n  \"model_display_name\": \"string\",\n  \"prompt\": \"string\",\n  \"provider_model_id\": \"string\",\n  \"score\": \"string\",\n  \"title\": \"string\",\n  \"updated_at\": \"1966-11-27T05:11:32.440Z\",\n  \"max_few_shot_examples\": 420,\n  \"model_provider_connection\": 2202,\n  \"organization\": 2683,\n  \"parent_model\": 3222,\n  \"provider\": \"AzureOpenAI\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29defc62-b0f1-4611-a8a8-4cc0958badcd",
+          "name": "✨ Get prompt version",
+          "request": {
+            "name": "✨ Get prompt version",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a specific prompt of a model.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prompts",
+                ":prompt_id",
+                "versions",
+                ":version_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "prompt_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "version_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8ae3c21c-419b-4262-bb00-eed2d229fd89",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prompts",
+                    ":prompt_id",
+                    "versions",
+                    ":version_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "prompt_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1953-11-21T00:38:16.129Z\",\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 8782,\n    \"username\": \"string\",\n    \"email\": \"6xv5M@QYT.im\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"id\": 5356,\n  \"model_display_name\": \"string\",\n  \"prompt\": \"string\",\n  \"provider_model_id\": \"string\",\n  \"score\": \"string\",\n  \"title\": \"string\",\n  \"updated_at\": \"1966-11-27T05:11:32.440Z\",\n  \"max_few_shot_examples\": 420,\n  \"model_provider_connection\": 2202,\n  \"organization\": 2683,\n  \"parent_model\": 3222,\n  \"provider\": \"AzureOpenAI\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5e701a4-7338-414a-83e2-b86947988cd3",
+          "name": "✨ Delete prompt version",
+          "request": {
+            "name": "✨ Delete prompt version",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a prompt version by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prompts",
+                ":prompt_id",
+                "versions",
+                ":version_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "prompt_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "version_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "156d9208-3ef5-466f-9457-79d7ef7606bf",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prompts",
+                    ":prompt_id",
+                    "versions",
+                    ":version_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "prompt_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c19f966-3fb4-4231-b16c-ac2d353b7729",
+          "name": "✨ Update prompt version",
+          "request": {
+            "name": "✨ Update prompt version",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific prompt version by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prompts",
+                ":prompt_id",
+                "versions",
+                ":version_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "prompt_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "version_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"max_few_shot_examples\": \"<integer,null>\",\n  \"model_provider_connection\": \"<integer,null>\",\n  \"organization\": \"<integer,null>\",\n  \"parent_model\": \"<integer>\",\n  \"prompt\": \"<string>\",\n  \"provider\": \"<string>\",\n  \"provider_model_id\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "77df8dad-13d5-4828-a0a1-5228d104d4e6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prompts",
+                    ":prompt_id",
+                    "versions",
+                    ":version_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "prompt_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"max_few_shot_examples\": \"<integer,null>\",\n  \"model_provider_connection\": \"<integer,null>\",\n  \"organization\": \"<integer,null>\",\n  \"parent_model\": \"<integer>\",\n  \"prompt\": \"<string>\",\n  \"provider\": \"VertexAI\",\n  \"provider_model_id\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1953-11-21T00:38:16.129Z\",\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 8782,\n    \"username\": \"string\",\n    \"email\": \"6xv5M@QYT.im\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"id\": 5356,\n  \"model_display_name\": \"string\",\n  \"prompt\": \"string\",\n  \"provider_model_id\": \"string\",\n  \"score\": \"string\",\n  \"title\": \"string\",\n  \"updated_at\": \"1966-11-27T05:11:32.440Z\",\n  \"max_few_shot_examples\": 420,\n  \"model_provider_connection\": 2202,\n  \"organization\": 2683,\n  \"parent_model\": 3222,\n  \"provider\": \"AzureOpenAI\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a37665a8-e3f0-490c-927a-d10b40a89af8",
+          "name": "✨ Get cost estimate for running a prompt version on a particular project/subset",
+          "request": {
+            "name": "✨ Get cost estimate for running a prompt version on a particular project/subset",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet an estimate of the cost for making an inference run on the selected Prompt Version and Project/ProjectSubset",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prompts",
+                ":prompt_id",
+                "versions",
+                ":version_id",
+                "cost-estimate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "prompt_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "version_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a3bd13a-df7e-4a59-b5f1-332377517a34",
+              "name": "Cost estimate response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prompts",
+                    ":prompt_id",
+                    "versions",
+                    ":version_id",
+                    "cost-estimate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "prompt_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"completion_cost_usd\": \"string\",\n  \"error_message\": \"string\",\n  \"error_type\": \"string\",\n  \"is_error\": true,\n  \"prompt_cost_usd\": \"string\",\n  \"total_cost_usd\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab5ba83a-9eba-4de9-8927-0822295ab7a5",
+          "name": "✨ Get refined prompt",
+          "request": {
+            "name": "✨ Get refined prompt",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet the refined prompt based on the `refinement_job_id`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prompts",
+                ":prompt_id",
+                "versions",
+                ":version_id",
+                "refine"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "refinement_job_id",
+                  "value": "<string>",
+                  "description": "Refinement Job ID acquired from the `POST /api/prompts/{prompt_id}/versions/{version_id}/refine` endpoint"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "prompt_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "version_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd594bb5-2c0c-4134-b564-4510b8859466",
+              "name": "Refined prompt response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prompts",
+                    ":prompt_id",
+                    "versions",
+                    ":version_id",
+                    "refine"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "refinement_job_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "prompt_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"previous_version\": {\n    \"created_at\": \"2021-10-01T19:43:55.796Z\",\n    \"created_by\": {\n      \"avatar\": \"string\",\n      \"id\": 9006,\n      \"username\": \"string\",\n      \"email\": \"rCDQbzxK3eygfb@eWgagjqAaBc.qabw\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\"\n    },\n    \"id\": 7987,\n    \"model_display_name\": \"string\",\n    \"prompt\": \"string\",\n    \"provider_model_id\": \"string\",\n    \"score\": \"string\",\n    \"title\": \"string\",\n    \"updated_at\": \"1997-10-27T11:08:46.826Z\",\n    \"max_few_shot_examples\": 9726,\n    \"model_provider_connection\": 8783,\n    \"organization\": 248,\n    \"parent_model\": 4070,\n    \"provider\": \"VertexAI\"\n  },\n  \"prompt\": \"string\",\n  \"reasoning\": \"string\",\n  \"refinement_job_id\": \"string\",\n  \"refinement_status\": \"string\",\n  \"title\": \"string\",\n  \"total_cost\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d869774-dac2-493d-b7a9-6717e7c71a0a",
+          "name": "✨ Refine a prompt version",
+          "request": {
+            "name": "✨ Refine a prompt version",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRefine a prompt version using a teacher model and save the refined prompt as a new version.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "prompts",
+                ":prompt_id",
+                "versions",
+                ":version_id",
+                "refine"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "async",
+                  "value": "<boolean>",
+                  "description": "Whether to run the refinement asynchronously"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "prompt_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "version_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project_id\": \"<integer>\",\n  \"teacher_model_name\": \"<string>\",\n  \"teacher_model_provider_connection_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f9bc4096-d916-4b7d-b9c4-dcc8c21b51d3",
+              "name": "Refined prompt response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "prompts",
+                    ":prompt_id",
+                    "versions",
+                    ":version_id",
+                    "refine"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "async",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "prompt_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "version_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project_id\": \"<integer>\",\n  \"teacher_model_name\": \"<string>\",\n  \"teacher_model_provider_connection_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"previous_version\": {\n    \"created_at\": \"2021-10-01T19:43:55.796Z\",\n    \"created_by\": {\n      \"avatar\": \"string\",\n      \"id\": 9006,\n      \"username\": \"string\",\n      \"email\": \"rCDQbzxK3eygfb@eWgagjqAaBc.qabw\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\"\n    },\n    \"id\": 7987,\n    \"model_display_name\": \"string\",\n    \"prompt\": \"string\",\n    \"provider_model_id\": \"string\",\n    \"score\": \"string\",\n    \"title\": \"string\",\n    \"updated_at\": \"1997-10-27T11:08:46.826Z\",\n    \"max_few_shot_examples\": 9726,\n    \"model_provider_connection\": 8783,\n    \"organization\": 248,\n    \"parent_model\": 4070,\n    \"provider\": \"VertexAI\"\n  },\n  \"prompt\": \"string\",\n  \"reasoning\": \"string\",\n  \"refinement_job_id\": \"string\",\n  \"refinement_status\": \"string\",\n  \"title\": \"string\",\n  \"total_cost\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "248b13ee-4efc-45ad-84f0-50714892c3aa",
+    "name": "API Reference subpackage_actions subpackage_prompts.subpackage_prompts/versions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

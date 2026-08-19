@@ -1,0 +1,253 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference subpackage_actions subpackage_ml API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_ml",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List ML backends",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/ml/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "query",
+                "description": "Project ID"
+              }
+            ]
+          },
+          "docs": "\n    List all configured ML backends for a specific project by ID.\n    Use the following cURL command:\n    ```bash\n    curl http://localhost:8000/api/ml?project={project_id} -H 'Authorization: Token abc123'\n    "
+        },
+        {
+          "info": {
+            "name": "Add ML Backend",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/ml/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n    Add an ML backend to a project using the Label Studio UI or by sending a POST request using the following cURL \n    command:\n    ```bash\n    curl -X POST -H 'Content-type: application/json' http://localhost:8000/api/ml -H 'Authorization: Token abc123'\\\n    --data '{\"url\": \"http://localhost:9090\", \"project\": {project_id}}' \n    "
+        },
+        {
+          "info": {
+            "name": "Get ML Backend",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/ml/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "\n    Get details about a specific ML backend connection by ID. For example, make a GET request using the\n    following cURL command:\n    ```bash\n    curl http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\n    "
+        },
+        {
+          "info": {
+            "name": "Update ML Backend",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://localhost:8000/api/ml/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n    Update ML backend parameters using the Label Studio UI or by sending a PATCH request using the following cURL command:\n    ```bash\n    curl -X PATCH -H 'Content-type: application/json' http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\\\n    --data '{\"url\": \"http://localhost:9091\"}' \n    "
+        },
+        {
+          "info": {
+            "name": "Remove ML Backend",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8000/api/ml/:id",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "\n    Remove an existing ML backend connection by ID. For example, use the\n    following cURL command:\n    ```bash\n    curl -X DELETE http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\n    "
+        },
+        {
+          "info": {
+            "name": "Request Interactive Annotation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/ml/:id/interactive-annotating",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this ML backend."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n        Send a request to the machine learning backend set up to be used for interactive preannotations to retrieve a\n        predicted region based on annotator input. \n        See [set up machine learning](https://labelstud.io/guide/ml.html#Get-interactive-preannotations) for more.\n        "
+        },
+        {
+          "info": {
+            "name": "✨ Create predictions for all tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/ml/:id/predict",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this ML backend."
+              },
+              {
+                "name": "batch_size",
+                "value": "",
+                "type": "query",
+                "description": "Computed number of tasks without predictions that the ML backend needs to predict."
+              }
+            ]
+          },
+          "docs": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\n\n\nCreate predictions for all tasks using"
+        },
+        {
+          "info": {
+            "name": "Train",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/ml/:id/train",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this ML backend."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "\n        After you add an ML backend, call this API with the ML backend ID to start training with \n        already-labeled tasks. \n        \n        Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list).\n        "
+        },
+        {
+          "info": {
+            "name": "Get model versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/ml/:id/versions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get available versions of the model."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

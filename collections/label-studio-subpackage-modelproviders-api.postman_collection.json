@@ -1,0 +1,606 @@
+{
+  "item": [
+    {
+      "id": "6e32c833-4bbe-44fa-9d1d-1dba4a7ed0d5",
+      "name": "subpackage_modelProviders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "37a71892-dff1-4cc2-adba-4c39b429e002",
+          "name": "✨ List model provider connections",
+          "request": {
+            "name": "✨ List model provider connections",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all model provider connections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "model-provider-connections",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39e4636e-9657-427d-a4b3-9554af14ddef",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "model-provider-connections",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"budget_last_reset_date\": \"2003-04-30T23:40:52.065Z\",\n    \"budget_limit\": 8845.59168034187,\n    \"budget_reset_period\": \"Yearly\",\n    \"budget_total_spent\": 9981.171876392606,\n    \"created_at\": \"2013-08-02T04:08:17.559Z\",\n    \"created_by\": {\n      \"avatar\": \"string\",\n      \"id\": 1959,\n      \"username\": \"string\",\n      \"email\": \"QOZ0@vHDwatyNdzSGxzvQ.fo\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\"\n    },\n    \"id\": 3558,\n    \"model_params\": \"string\",\n    \"organization\": 887,\n    \"updated_at\": \"1971-10-29T15:18:22.418Z\",\n    \"budget_alert_threshold\": 3919.8107743685673,\n    \"cached_available_models\": \"string\",\n    \"deployment_name\": \"string\",\n    \"endpoint\": \"string\",\n    \"google_location\": \"string\",\n    \"google_project_id\": \"string\",\n    \"is_internal\": false,\n    \"provider\": \"OpenAI\",\n    \"scope\": \"Model\"\n  },\n  {\n    \"budget_last_reset_date\": \"2007-03-24T21:47:30.021Z\",\n    \"budget_limit\": 7728.827783230412,\n    \"budget_reset_period\": \"Yearly\",\n    \"budget_total_spent\": 2567.61645588079,\n    \"created_at\": \"1947-04-17T13:59:41.285Z\",\n    \"created_by\": {\n      \"avatar\": \"string\",\n      \"id\": 8847,\n      \"username\": \"string\",\n      \"email\": \"G9a6@OjSWLkdtyf.sh\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\"\n    },\n    \"id\": 3860,\n    \"model_params\": \"string\",\n    \"organization\": 5632,\n    \"updated_at\": \"2025-06-11T07:22:58.402Z\",\n    \"budget_alert_threshold\": 9736.678081256126,\n    \"cached_available_models\": \"string\",\n    \"deployment_name\": \"string\",\n    \"endpoint\": \"string\",\n    \"google_location\": \"string\",\n    \"google_project_id\": \"string\",\n    \"is_internal\": false,\n    \"provider\": \"AzureAIFoundry\",\n    \"scope\": \"Organization\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77aeb0c2-87ff-4541-b467-55e7a20fd486",
+          "name": "✨ Create model provider connection",
+          "request": {
+            "name": "✨ Create model provider connection",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new model provider connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "model-provider-connections",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"api_key\": \"<string,null>\",\n  \"auth_token\": \"<string,null>\",\n  \"budget_alert_threshold\": \"<number,null-double>\",\n  \"cached_available_models\": \"<string,null>\",\n  \"deployment_name\": \"<string,null>\",\n  \"endpoint\": \"<string,null>\",\n  \"google_application_credentials\": \"<string,null>\",\n  \"google_location\": \"<string,null>\",\n  \"google_project_id\": \"<string,null>\",\n  \"is_internal\": \"<boolean,null>\",\n  \"provider\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "82d0ea72-75a1-4e64-89f6-e404c2514688",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "model-provider-connections",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"api_key\": \"<string,null>\",\n  \"auth_token\": \"<string,null>\",\n  \"budget_alert_threshold\": \"<number,null-double>\",\n  \"cached_available_models\": \"<string,null>\",\n  \"deployment_name\": \"<string,null>\",\n  \"endpoint\": \"<string,null>\",\n  \"google_application_credentials\": \"<string,null>\",\n  \"google_location\": \"<string,null>\",\n  \"google_project_id\": \"<string,null>\",\n  \"is_internal\": \"<boolean,null>\",\n  \"provider\": \"Anthropic\",\n  \"scope\": \"Organization\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"budget_last_reset_date\": \"2008-10-09T18:39:47.498Z\",\n  \"budget_limit\": 9451.175906319993,\n  \"budget_reset_period\": \"Monthly\",\n  \"budget_total_spent\": 5420.421782591848,\n  \"created_at\": \"2012-04-02T08:02:43.039Z\",\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 3968,\n    \"username\": \"string\",\n    \"email\": \"2-PbCuzBwmv8ZFH@dqkG.bm\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"id\": 725,\n  \"model_params\": \"string\",\n  \"organization\": 2390,\n  \"updated_at\": \"1977-06-10T17:44:55.396Z\",\n  \"budget_alert_threshold\": 2879.8662959619005,\n  \"cached_available_models\": \"string\",\n  \"deployment_name\": \"string\",\n  \"endpoint\": \"string\",\n  \"google_location\": \"string\",\n  \"google_project_id\": \"string\",\n  \"is_internal\": true,\n  \"provider\": \"AzureOpenAI\",\n  \"scope\": \"Organization\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b7739ab-2c50-43d8-8aa2-b2dcbfd9260a",
+          "name": "✨ List model provider choices",
+          "request": {
+            "name": "✨ List model provider choices",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all possible model provider choices",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "model-provider-connections",
+                "provider-choices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "24781d10-898e-4cc2-ab77-0dcec331de48",
+              "name": "List of model provider choices",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "model-provider-connections",
+                    "provider-choices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"provider_choices\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13290174-9ddd-4b0f-8af5-9afe906dc6c8",
+          "name": "✨ Get model provider connection",
+          "request": {
+            "name": "✨ Get model provider connection",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a specific model provider connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "model-provider-connections",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4e405c74-cfac-4ded-9bc9-62b03d94dfee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "model-provider-connections",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"budget_last_reset_date\": \"2008-10-09T18:39:47.498Z\",\n  \"budget_limit\": 9451.175906319993,\n  \"budget_reset_period\": \"Monthly\",\n  \"budget_total_spent\": 5420.421782591848,\n  \"created_at\": \"2012-04-02T08:02:43.039Z\",\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 3968,\n    \"username\": \"string\",\n    \"email\": \"2-PbCuzBwmv8ZFH@dqkG.bm\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"id\": 725,\n  \"model_params\": \"string\",\n  \"organization\": 2390,\n  \"updated_at\": \"1977-06-10T17:44:55.396Z\",\n  \"budget_alert_threshold\": 2879.8662959619005,\n  \"cached_available_models\": \"string\",\n  \"deployment_name\": \"string\",\n  \"endpoint\": \"string\",\n  \"google_location\": \"string\",\n  \"google_project_id\": \"string\",\n  \"is_internal\": true,\n  \"provider\": \"AzureOpenAI\",\n  \"scope\": \"Organization\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0cc666e2-d0c3-4628-9383-4336201a6d14",
+          "name": "✨ Delete model provider connection",
+          "request": {
+            "name": "✨ Delete model provider connection",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a model provider connection by ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "model-provider-connections",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "50b49b3c-4904-44b9-b270-71e4d30d4f40",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "model-provider-connections",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dce1540-43fb-4510-99fb-7f4718a7bf9a",
+          "name": "✨ Update model provider connection",
+          "request": {
+            "name": "✨ Update model provider connection",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific model provider connection by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "model-provider-connections",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"api_key\": \"<string,null>\",\n  \"auth_token\": \"<string,null>\",\n  \"budget_alert_threshold\": \"<number,null-double>\",\n  \"cached_available_models\": \"<string,null>\",\n  \"deployment_name\": \"<string,null>\",\n  \"endpoint\": \"<string,null>\",\n  \"google_application_credentials\": \"<string,null>\",\n  \"google_location\": \"<string,null>\",\n  \"google_project_id\": \"<string,null>\",\n  \"is_internal\": \"<boolean,null>\",\n  \"provider\": \"<string>\",\n  \"scope\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "445bc0e4-e0fa-4fd8-b8bc-85dbc9de499b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "model-provider-connections",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"api_key\": \"<string,null>\",\n  \"auth_token\": \"<string,null>\",\n  \"budget_alert_threshold\": \"<number,null-double>\",\n  \"cached_available_models\": \"<string,null>\",\n  \"deployment_name\": \"<string,null>\",\n  \"endpoint\": \"<string,null>\",\n  \"google_application_credentials\": \"<string,null>\",\n  \"google_location\": \"<string,null>\",\n  \"google_project_id\": \"<string,null>\",\n  \"is_internal\": \"<boolean,null>\",\n  \"provider\": \"Custom\",\n  \"scope\": \"User\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"budget_last_reset_date\": \"2008-10-09T18:39:47.498Z\",\n  \"budget_limit\": 9451.175906319993,\n  \"budget_reset_period\": \"Monthly\",\n  \"budget_total_spent\": 5420.421782591848,\n  \"created_at\": \"2012-04-02T08:02:43.039Z\",\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 3968,\n    \"username\": \"string\",\n    \"email\": \"2-PbCuzBwmv8ZFH@dqkG.bm\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"id\": 725,\n  \"model_params\": \"string\",\n  \"organization\": 2390,\n  \"updated_at\": \"1977-06-10T17:44:55.396Z\",\n  \"budget_alert_threshold\": 2879.8662959619005,\n  \"cached_available_models\": \"string\",\n  \"deployment_name\": \"string\",\n  \"endpoint\": \"string\",\n  \"google_location\": \"string\",\n  \"google_project_id\": \"string\",\n  \"is_internal\": true,\n  \"provider\": \"AzureOpenAI\",\n  \"scope\": \"Organization\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "60850fc0-f3b1-43c3-9db2-4cd40fbc4b2c",
+    "name": "API Reference subpackage_actions subpackage_modelProviders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

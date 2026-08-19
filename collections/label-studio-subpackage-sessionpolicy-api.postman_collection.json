@@ -1,0 +1,211 @@
+{
+  "item": [
+    {
+      "id": "c9e337c5-f6ac-4277-8c69-b2a7c8390c15",
+      "name": "subpackage_sessionPolicy",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c8fe3670-8e2c-4b51-8c8b-abb5f106f15a",
+          "name": "Retrieve Session Policy",
+          "request": {
+            "name": "Retrieve Session Policy",
+            "description": {
+              "content": "Retrieve session timeout policy for the currently active organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "session-policy",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a89bee4a-bb93-4646-83af-ee52631cd42e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "session-policy",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1994-10-23T08:27:16.418Z\",\n  \"updated_at\": \"1973-05-22T18:35:53.635Z\",\n  \"max_session_age\": 4577,\n  \"max_time_between_activity\": 8341\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6287e46f-c70e-4bb1-94fe-dbda91170618",
+          "name": "Update Session Policy",
+          "request": {
+            "name": "Update Session Policy",
+            "description": {
+              "content": "Update session timeout policy for the currently active organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "session-policy",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"max_session_age\": \"<integer>\",\n  \"max_time_between_activity\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a2348396-5441-43e3-a3bd-3b6d5e52bc56",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "session-policy",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"max_session_age\": \"<integer>\",\n  \"max_time_between_activity\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1994-10-23T08:27:16.418Z\",\n  \"updated_at\": \"1973-05-22T18:35:53.635Z\",\n  \"max_session_age\": 4577,\n  \"max_time_between_activity\": 8341\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6a91805b-a880-4ea8-90a3-9baa6db67f85",
+    "name": "API Reference subpackage_actions subpackage_sessionPolicy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

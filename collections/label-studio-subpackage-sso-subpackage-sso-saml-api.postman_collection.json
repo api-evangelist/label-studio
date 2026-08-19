@@ -1,0 +1,383 @@
+{
+  "item": [
+    {
+      "id": "a192d9a2-f698-4790-a999-42624061f647",
+      "name": "subpackage_sso.subpackage_sso/saml",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4dfe7dd9-df51-4ad5-b8e9-784138a7ba8f",
+          "name": "✨ Retrieve SAML2 Settings",
+          "request": {
+            "name": "✨ Retrieve SAML2 Settings",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve SAML2 settings for the currently active organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac7bdb8f-3103-4553-a5f3-0fab0d1792e1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"acs_url\": \"string\",\n  \"login_url\": \"string\",\n  \"logout_url\": \"string\",\n  \"metadata_xml_url\": \"string\",\n  \"nameid_format\": \"string\",\n  \"domain\": \"string\",\n  \"idp_provider\": \"string\",\n  \"manual_role_management\": true,\n  \"mapping_email\": \"string\",\n  \"mapping_first_name\": \"string\",\n  \"mapping_groups\": \"string\",\n  \"mapping_last_name\": \"string\",\n  \"metadata_url\": \"string\",\n  \"metadata_xml\": \"string\",\n  \"projects_groups\": [\n    {\n      \"group\": \"string\",\n      \"project_id\": 8101,\n      \"role\": \"Inherit\"\n    },\n    {\n      \"group\": \"string\",\n      \"project_id\": 9199,\n      \"role\": \"Annotator\"\n    }\n  ],\n  \"roles_groups\": [\n    [\n      \"string\",\n      \"string\"\n    ],\n    [\n      \"string\",\n      \"string\"\n    ]\n  ],\n  \"token\": \"string\",\n  \"workspaces_groups\": [\n    [\n      \"string\",\n      \"string\"\n    ],\n    [\n      \"string\",\n      \"string\"\n    ]\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdc0eefe-fd32-4f79-845c-f8d87e9d7ff3",
+          "name": "✨ Update SAML2 Settings",
+          "request": {
+            "name": "✨ Update SAML2 Settings",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate SAML2 settings for the currently active organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domain\": \"<string>\",\n  \"idp_provider\": \"<string,null>\",\n  \"manual_role_management\": \"<boolean,null>\",\n  \"mapping_email\": \"<string,null>\",\n  \"mapping_first_name\": \"<string,null>\",\n  \"mapping_groups\": \"<string,null>\",\n  \"mapping_last_name\": \"<string,null>\",\n  \"metadata_url\": \"<string>\",\n  \"metadata_xml\": \"<string>\",\n  \"projects_groups\": [\n    {\n      \"group\": \"<string>\",\n      \"project_id\": \"<integer>\",\n      \"role\": \"<string>\"\n    },\n    {\n      \"group\": \"<string>\",\n      \"project_id\": \"<integer>\",\n      \"role\": \"<string>\"\n    }\n  ],\n  \"roles_groups\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ],\n  \"workspaces_groups\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b9d26f05-ab06-45ff-8339-1713fb3ea122",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"domain\": \"<string>\",\n  \"idp_provider\": \"<string,null>\",\n  \"manual_role_management\": \"<boolean,null>\",\n  \"mapping_email\": \"<string,null>\",\n  \"mapping_first_name\": \"<string,null>\",\n  \"mapping_groups\": \"<string,null>\",\n  \"mapping_last_name\": \"<string,null>\",\n  \"metadata_url\": \"<string>\",\n  \"metadata_xml\": \"<string>\",\n  \"projects_groups\": [\n    {\n      \"group\": \"string\",\n      \"project_id\": 1103,\n      \"role\": \"Inherit\"\n    },\n    {\n      \"group\": \"string\",\n      \"project_id\": 2415,\n      \"role\": \"Reviewer\"\n    }\n  ],\n  \"roles_groups\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ],\n  \"workspaces_groups\": [\n    [\n      \"<string>\",\n      \"<string>\"\n    ],\n    [\n      \"<string>\",\n      \"<string>\"\n    ]\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"domain\": \"string\",\n  \"idp_provider\": \"string\",\n  \"manual_role_management\": true,\n  \"mapping_email\": \"string\",\n  \"mapping_first_name\": \"string\",\n  \"mapping_groups\": \"string\",\n  \"mapping_last_name\": \"string\",\n  \"metadata_url\": \"string\",\n  \"metadata_xml\": \"string\",\n  \"projects_groups\": [\n    {\n      \"group\": \"string\",\n      \"project_id\": 7762,\n      \"role\": \"Annotator\"\n    },\n    {\n      \"group\": \"string\",\n      \"project_id\": 5546,\n      \"role\": \"Inherit\"\n    }\n  ],\n  \"roles_groups\": [\n    [\n      \"string\",\n      \"string\"\n    ],\n    [\n      \"string\",\n      \"string\"\n    ]\n  ],\n  \"workspaces_groups\": [\n    [\n      \"string\",\n      \"string\"\n    ],\n    [\n      \"string\",\n      \"string\"\n    ]\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65585bc7-41af-4563-aa7b-d331a2ea0d9e",
+          "name": "✨ Reset SAML2 Settings",
+          "request": {
+            "name": "✨ Reset SAML2 Settings",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nReset SAML2 settings for the currently active organization. This clears all configured fields (domain, metadata, attribute mappings, group mappings) back to their defaults without deleting the underlying settings record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "22264fae-d801-4b02-9c45-46ef9e371445",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "363a2c39-a6ff-4bd5-8647-d1a830c89a33",
+          "name": "✨ Validate SAML Metadata URL",
+          "request": {
+            "name": "✨ Validate SAML Metadata URL",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nValidate a SAML metadata URL by fetching it and checking for valid XML, without saving.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "saml",
+                "settings",
+                "validate-metadata-url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metadata_url\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "593111db-106c-4980-902e-54fcef989fbb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "saml",
+                    "settings",
+                    "validate-metadata-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata_url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"valid\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ee5c635b-cc47-497b-a1c7-9b7619ca3fbe",
+    "name": "API Reference subpackage_actions subpackage_sso.subpackage_sso/saml API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

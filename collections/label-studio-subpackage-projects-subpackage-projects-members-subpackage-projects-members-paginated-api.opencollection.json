@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference subpackage_actions subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "✨ Get project members paginated",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/projects/:id/members/paginated/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of user IDs to filter by"
+              },
+              {
+                "name": "implicit",
+                "value": "",
+                "type": "query",
+                "description": "Include/Exclude implicit project members in the results. If not provided, explicit + implicit members are returned."
+              },
+              {
+                "name": "last_activity__gte",
+                "value": "",
+                "type": "query",
+                "description": "Filter by last activity time (ISO 8601 datetime). Returns users with last activity greater than or equal to this time."
+              },
+              {
+                "name": "last_activity__lte",
+                "value": "",
+                "type": "query",
+                "description": "Filter by last activity time (ISO 8601 datetime). Returns users with last activity less than or equal to this time."
+              },
+              {
+                "name": "no_annotators",
+                "value": "",
+                "type": "query",
+                "description": "Exclude annotators from the results"
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Ordering field. Prefix with \"-\" for descending order. Allowed fields: id, email, first_name, last_name, username, last_activity, role, date_joined\n\n**Note on role ordering:**\nWhen ordering by \"role\", the system uses the effective role:\n- Project-specific role if assigned (takes precedence)\n- Organization role if no project role is assigned\n\nRoles are sorted alphabetically by their code: AD (Administrator), AN (Annotator), DI (Disabled), MA (Manager), NO (Not Activated), OW (Owner), RE (Reviewer)"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query",
+                "description": "Filter members by role. Accepts single role or comma-separated list of roles.\n\n**Format:**\n- Single role: `?role=RE`\n- Multiple roles: `?role=AN,RE` (users with ANY of these roles)\n\n**Role Codes:**\n- `OW` = Owner\n- `AD` = Administrator\n- `MA` = Manager\n- `RE` = Reviewer\n- `AN` = Annotator\n\n**Matching Logic:**\nReturns users who have any of the specified roles either:\n1. As their **project-specific role** (from project role assignments), OR\n2. As their **organization role** (if they have no project-specific role override)\n\n**Note:** Project-specific roles take precedence. If a user has a project role assigned, their organization role is ignored for filtering purposes."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term for filtering members by name, email, or username"
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Filter members by tags. Use a comma-separated list of tag IDs."
+              },
+              {
+                "name": "with_deleted",
+                "value": "",
+                "type": "query",
+                "description": "Include deleted members in the results"
+              }
+            ]
+          },
+          "docs": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the members for a specific proj"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

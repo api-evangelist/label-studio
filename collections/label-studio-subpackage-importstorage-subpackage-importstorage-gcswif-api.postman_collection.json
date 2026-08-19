@@ -1,0 +1,742 @@
+{
+  "item": [
+    {
+      "id": "71ec710e-3b95-4a84-90a0-69281f4655b9",
+      "name": "subpackage_importStorage.subpackage_importStorage/gcswif",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d5374d97-dd68-424e-8977-6cde8cb638f1",
+          "name": "✨ Get GCS WIF import storage",
+          "request": {
+            "name": "✨ Get GCS WIF import storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet list of all GCS import storage connections set up with WIF authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "gcswif",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "(Required) Project ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4935977e-eaaf-4e88-8baa-846deba0f7f6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "gcswif",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_at\": \"2025-11-10T01:13:13.517Z\",\n    \"id\": 9215,\n    \"project\": 5853,\n    \"type\": \"gcswif\",\n    \"bucket\": \"string\",\n    \"description\": \"string\",\n    \"google_application_credentials\": \"string\",\n    \"google_project_id\": \"string\",\n    \"google_project_number\": \"string\",\n    \"google_service_account_email\": \"string\",\n    \"google_wif_pool_id\": \"string\",\n    \"google_wif_provider_id\": \"string\",\n    \"last_sync\": \"1971-10-19T06:52:17.045Z\",\n    \"last_sync_count\": 4836,\n    \"last_sync_job\": \"string\",\n    \"meta\": {},\n    \"prefix\": \"string\",\n    \"presign\": true,\n    \"presign_ttl\": 5578,\n    \"recursive_scan\": false,\n    \"regex_filter\": \"string\",\n    \"status\": \"in_progress\",\n    \"synchronizable\": true,\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": true\n  },\n  {\n    \"created_at\": \"2010-03-31T18:36:40.281Z\",\n    \"id\": 9682,\n    \"project\": 1537,\n    \"type\": \"gcswif\",\n    \"bucket\": \"string\",\n    \"description\": \"string\",\n    \"google_application_credentials\": \"string\",\n    \"google_project_id\": \"string\",\n    \"google_project_number\": \"string\",\n    \"google_service_account_email\": \"string\",\n    \"google_wif_pool_id\": \"string\",\n    \"google_wif_provider_id\": \"string\",\n    \"last_sync\": \"2018-10-08T10:36:42.412Z\",\n    \"last_sync_count\": 1964,\n    \"last_sync_job\": \"string\",\n    \"meta\": {},\n    \"prefix\": \"string\",\n    \"presign\": true,\n    \"presign_ttl\": 655,\n    \"recursive_scan\": false,\n    \"regex_filter\": \"string\",\n    \"status\": \"completed\",\n    \"synchronizable\": true,\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6ac2b86-c730-4578-90bb-af231475eb74",
+          "name": "✨ Create GCS import storage with WIF",
+          "request": {
+            "name": "✨ Create GCS import storage with WIF",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate GCS import storage with WIF.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "gcswif",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project\": \"<integer>\",\n  \"bucket\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"google_application_credentials\": \"<string,null>\",\n  \"google_project_id\": \"<string,null>\",\n  \"google_project_number\": \"<string,null>\",\n  \"google_service_account_email\": \"<string,null>\",\n  \"google_wif_pool_id\": \"<string,null>\",\n  \"google_wif_provider_id\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"presign\": true,\n  \"presign_ttl\": \"<integer>\",\n  \"recursive_scan\": \"<boolean,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"synchronizable\": true,\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4058b824-073e-4486-981e-16b16cc437b3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "gcswif",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project\": \"<integer>\",\n  \"bucket\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"google_application_credentials\": \"<string,null>\",\n  \"google_project_id\": \"<string,null>\",\n  \"google_project_number\": \"<string,null>\",\n  \"google_service_account_email\": \"<string,null>\",\n  \"google_wif_pool_id\": \"<string,null>\",\n  \"google_wif_provider_id\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"presign\": true,\n  \"presign_ttl\": \"<integer>\",\n  \"recursive_scan\": \"<boolean,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"status\": \"queued\",\n  \"synchronizable\": true,\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"2000-12-22T21:53:09.298Z\",\n  \"id\": 3013,\n  \"project\": 1817,\n  \"type\": \"gcswif\",\n  \"bucket\": \"string\",\n  \"description\": \"string\",\n  \"google_application_credentials\": \"string\",\n  \"google_project_id\": \"string\",\n  \"google_project_number\": \"string\",\n  \"google_service_account_email\": \"string\",\n  \"google_wif_pool_id\": \"string\",\n  \"google_wif_provider_id\": \"string\",\n  \"last_sync\": \"1955-04-08T01:42:58.708Z\",\n  \"last_sync_count\": 6180,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"presign\": true,\n  \"presign_ttl\": 1245,\n  \"recursive_scan\": false,\n  \"regex_filter\": \"string\",\n  \"status\": \"completed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4847d16-675f-4f90-adbb-d933b986758e",
+          "name": "✨ Validate GCS WIF import storage",
+          "request": {
+            "name": "✨ Validate GCS WIF import storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nValidate a specific GCS import storage connection that was set up with WIF authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "gcswif",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project\": \"<integer>\",\n  \"bucket\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"google_application_credentials\": \"<string,null>\",\n  \"google_project_id\": \"<string,null>\",\n  \"google_project_number\": \"<string,null>\",\n  \"google_service_account_email\": \"<string,null>\",\n  \"google_wif_pool_id\": \"<string,null>\",\n  \"google_wif_provider_id\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"presign\": true,\n  \"presign_ttl\": \"<integer>\",\n  \"recursive_scan\": \"<boolean,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"synchronizable\": true,\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a9814ef-8bda-4ef6-8d2d-57020c52c2f6",
+              "name": "Validation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "gcswif",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project\": \"<integer>\",\n  \"bucket\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"google_application_credentials\": \"<string,null>\",\n  \"google_project_id\": \"<string,null>\",\n  \"google_project_number\": \"<string,null>\",\n  \"google_service_account_email\": \"<string,null>\",\n  \"google_wif_pool_id\": \"<string,null>\",\n  \"google_wif_provider_id\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"presign\": true,\n  \"presign_ttl\": \"<integer>\",\n  \"recursive_scan\": \"<boolean,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"status\": \"queued\",\n  \"synchronizable\": true,\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a737c17d-645f-48da-938f-b93d43f72e52",
+          "name": "✨ Get GCS WIF import storage",
+          "request": {
+            "name": "✨ Get GCS WIF import storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a specific GCS import storage connection that was set up with WIF.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "gcswif",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3738748b-85bb-4408-bcba-6692606e9531",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "gcswif",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"2000-12-22T21:53:09.298Z\",\n  \"id\": 3013,\n  \"project\": 1817,\n  \"type\": \"gcswif\",\n  \"bucket\": \"string\",\n  \"description\": \"string\",\n  \"google_application_credentials\": \"string\",\n  \"google_project_id\": \"string\",\n  \"google_project_number\": \"string\",\n  \"google_service_account_email\": \"string\",\n  \"google_wif_pool_id\": \"string\",\n  \"google_wif_provider_id\": \"string\",\n  \"last_sync\": \"1955-04-08T01:42:58.708Z\",\n  \"last_sync_count\": 6180,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"presign\": true,\n  \"presign_ttl\": 1245,\n  \"recursive_scan\": false,\n  \"regex_filter\": \"string\",\n  \"status\": \"completed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e45c2631-da60-4098-b911-37090c386878",
+          "name": "✨ Delete GCS WIF import storage",
+          "request": {
+            "name": "✨ Delete GCS WIF import storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific GCS import storage connection that was set up with WIF authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "gcswif",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46d99700-73c9-4823-bd7c-5de7f7e874ed",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "gcswif",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "157345ca-3f0d-4726-b441-28072da34a9d",
+          "name": "✨ Update GCS WIF import storage",
+          "request": {
+            "name": "✨ Update GCS WIF import storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific GCS import storage connection that was set up with WIF authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "gcswif",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bucket\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"google_application_credentials\": \"<string,null>\",\n  \"google_project_id\": \"<string,null>\",\n  \"google_project_number\": \"<string,null>\",\n  \"google_service_account_email\": \"<string,null>\",\n  \"google_wif_pool_id\": \"<string,null>\",\n  \"google_wif_provider_id\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"presign\": true,\n  \"presign_ttl\": \"<integer>\",\n  \"project\": \"<integer>\",\n  \"recursive_scan\": \"<boolean,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"synchronizable\": true,\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "497d7fef-4e67-452b-9902-0f0d24fb4d36",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "gcswif",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bucket\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"google_application_credentials\": \"<string,null>\",\n  \"google_project_id\": \"<string,null>\",\n  \"google_project_number\": \"<string,null>\",\n  \"google_service_account_email\": \"<string,null>\",\n  \"google_wif_pool_id\": \"<string,null>\",\n  \"google_wif_provider_id\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"presign\": true,\n  \"presign_ttl\": \"<integer>\",\n  \"project\": \"<integer>\",\n  \"recursive_scan\": \"<boolean,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"status\": \"completed_with_errors\",\n  \"synchronizable\": true,\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"2000-12-22T21:53:09.298Z\",\n  \"id\": 3013,\n  \"project\": 1817,\n  \"type\": \"gcswif\",\n  \"bucket\": \"string\",\n  \"description\": \"string\",\n  \"google_application_credentials\": \"string\",\n  \"google_project_id\": \"string\",\n  \"google_project_number\": \"string\",\n  \"google_service_account_email\": \"string\",\n  \"google_wif_pool_id\": \"string\",\n  \"google_wif_provider_id\": \"string\",\n  \"last_sync\": \"1955-04-08T01:42:58.708Z\",\n  \"last_sync_count\": 6180,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"presign\": true,\n  \"presign_ttl\": 1245,\n  \"recursive_scan\": false,\n  \"regex_filter\": \"string\",\n  \"status\": \"completed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c58fc54d-b1be-46e2-8b1f-e07904b7eacc",
+          "name": "✨ Sync GCS WIF import storage",
+          "request": {
+            "name": "✨ Sync GCS WIF import storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nSync tasks from an GCS import storage connection that was set up with WIF authentication.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "gcswif",
+                ":id",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1e2e710-3ed2-44a1-95ba-49d3c573606a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "gcswif",
+                    ":id",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"2000-12-22T21:53:09.298Z\",\n  \"id\": 3013,\n  \"project\": 1817,\n  \"type\": \"gcswif\",\n  \"bucket\": \"string\",\n  \"description\": \"string\",\n  \"google_application_credentials\": \"string\",\n  \"google_project_id\": \"string\",\n  \"google_project_number\": \"string\",\n  \"google_service_account_email\": \"string\",\n  \"google_wif_pool_id\": \"string\",\n  \"google_wif_provider_id\": \"string\",\n  \"last_sync\": \"1955-04-08T01:42:58.708Z\",\n  \"last_sync_count\": 6180,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"presign\": true,\n  \"presign_ttl\": 1245,\n  \"recursive_scan\": false,\n  \"regex_filter\": \"string\",\n  \"status\": \"completed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "517e850c-979d-458d-9fde-ca97566201dd",
+    "name": "API Reference subpackage_actions subpackage_importStorage.subpackage_importStorage/gcswif API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

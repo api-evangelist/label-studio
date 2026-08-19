@@ -1,0 +1,409 @@
+{
+  "item": [
+    {
+      "id": "0e1ba07e-7fee-4aed-936d-5dbebe00da9d",
+      "name": "subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ce08865e-eee6-4aa8-9bff-2daf41c98f27",
+          "name": "✨ Bulk assign project members",
+          "request": {
+            "name": "✨ Bulk assign project members",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAssign project members in bulk.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "members",
+                "bulk",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "last_activity__gte",
+                  "value": "<string>",
+                  "description": "Filter by last activity (ISO 8601 formatted date). Only when all=True."
+                },
+                {
+                  "disabled": false,
+                  "key": "last_activity__lte",
+                  "value": "<string>",
+                  "description": "Filter by last activity upper bound (ISO 8601 formatted date). Only when all=True."
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string>",
+                  "description": "Filter by role, project roles take precedence over organization roles. Only when all=True. (comma-separated values)"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search term for filtering members by name, email, or username. Only when all=True."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Multiple values may be separated by commas. (comma-separated values)"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_type",
+                  "value": "<string>",
+                  "description": "Multiple values may be separated by commas. (comma-separated values)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"all\": \"<boolean>\",\n  \"excluded\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"included\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"roles\": [\n    {\n      \"role\": \"<string>\",\n      \"user_id\": \"<integer>\"\n    },\n    {\n      \"role\": \"<string>\",\n      \"user_id\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "893699e7-bcdb-42b1-a456-faf1edd66c1d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "members",
+                    "bulk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "last_activity__gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_activity__lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "role",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"all\": \"<boolean>\",\n  \"excluded\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"included\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"roles\": [\n    {\n      \"role\": \"DI\",\n      \"user_id\": 4261\n    },\n    {\n      \"role\": \"NO\",\n      \"user_id\": 1685\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assignments\": 6080\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "884c3dba-a8f1-4072-9bab-def82af8015f",
+          "name": "✨ Bulk unassign project members",
+          "request": {
+            "name": "✨ Bulk unassign project members",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUnassign project members in bulk. Pass selector fields via query parameters (`all`, `included`, `excluded`) and optional member filters (`search`, `role`, `tags`, `last_activity__gte`, `last_activity__lte`). For backward compatibility, a JSON body with bulk fields is still accepted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "members",
+                "bulk",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "all",
+                  "value": "<boolean>",
+                  "description": "Apply unassignment to all currently matched project members."
+                },
+                {
+                  "disabled": false,
+                  "key": "excluded",
+                  "value": "<string>",
+                  "description": "Comma-separated list of user IDs to keep assigned when `all=true`."
+                },
+                {
+                  "disabled": false,
+                  "key": "included",
+                  "value": "<string>",
+                  "description": "Comma-separated list of user IDs to unassign when `all=false`."
+                },
+                {
+                  "disabled": false,
+                  "key": "last_activity__gte",
+                  "value": "<string>",
+                  "description": "Filter by last activity (ISO 8601 formatted date). Only when all=True."
+                },
+                {
+                  "disabled": false,
+                  "key": "last_activity__lte",
+                  "value": "<string>",
+                  "description": "Filter by last activity upper bound (ISO 8601 formatted date). Only when all=True."
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string>",
+                  "description": "Filter by role, project roles take precedence over organization roles. Only when all=True. (comma-separated values)"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search term for filtering members by name, email, or username. Only when all=True."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Multiple values may be separated by commas. (comma-separated values)"
+                },
+                {
+                  "disabled": false,
+                  "key": "user_type",
+                  "value": "<string>",
+                  "description": "Multiple values may be separated by commas. (comma-separated values)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9692198a-95f2-4a43-b8c3-4380029efe9c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "members",
+                    "bulk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "all",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "excluded",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "included",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_activity__gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_activity__lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "role",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "user_type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"unassignments\": 3483\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "29724f87-aa98-4e6b-89ea-93e9629e9a15",
+    "name": "API Reference subpackage_actions subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

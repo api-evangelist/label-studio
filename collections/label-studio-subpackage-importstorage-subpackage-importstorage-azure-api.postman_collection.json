@@ -1,0 +1,742 @@
+{
+  "item": [
+    {
+      "id": "71e1e04e-3826-41b6-b0f3-40a8a070fafd",
+      "name": "subpackage_importStorage.subpackage_importStorage/azure",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53ef17bb-e6d9-4163-bec7-d0566977d0b7",
+          "name": "Get all import storage",
+          "request": {
+            "name": "Get all import storage",
+            "description": {
+              "content": "Get list of all Azure import storage connections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "azure",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "(Required) Project ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ae09164-1f7c-48d0-ab67-ce17bcf206b8",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "azure",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_at\": \"1993-03-12T06:46:38.070Z\",\n    \"id\": 7170,\n    \"project\": 5965,\n    \"type\": \"azure\",\n    \"account_key\": \"string\",\n    \"account_name\": \"string\",\n    \"container\": \"string\",\n    \"description\": \"string\",\n    \"last_sync\": \"1959-03-29T10:23:53.493Z\",\n    \"last_sync_count\": 7656,\n    \"last_sync_job\": \"string\",\n    \"meta\": {},\n    \"prefix\": \"string\",\n    \"presign\": true,\n    \"presign_ttl\": 5588,\n    \"recursive_scan\": true,\n    \"regex_filter\": \"string\",\n    \"status\": \"queued\",\n    \"synchronizable\": true,\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": false\n  },\n  {\n    \"created_at\": \"1991-07-03T05:04:30.317Z\",\n    \"id\": 6112,\n    \"project\": 9855,\n    \"type\": \"azure\",\n    \"account_key\": \"string\",\n    \"account_name\": \"string\",\n    \"container\": \"string\",\n    \"description\": \"string\",\n    \"last_sync\": \"1973-03-16T09:08:09.155Z\",\n    \"last_sync_count\": 3269,\n    \"last_sync_job\": \"string\",\n    \"meta\": {},\n    \"prefix\": \"string\",\n    \"presign\": true,\n    \"presign_ttl\": 2923,\n    \"recursive_scan\": false,\n    \"regex_filter\": \"string\",\n    \"status\": \"completed\",\n    \"synchronizable\": true,\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8011a6e4-6c0a-4748-9560-cf382e6dc72e",
+          "name": "Create new storage",
+          "request": {
+            "name": "Create new storage",
+            "description": {
+              "content": "Create new Azure import storage",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "azure",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_key\": \"<string>\",\n  \"account_name\": \"<string>\",\n  \"container\": \"<string>\",\n  \"description\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"presign\": true,\n  \"presign_ttl\": 1,\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string>\",\n  \"title\": \"<string>\",\n  \"use_blob_urls\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "96ebcb54-8e79-4dd4-9493-171c9d3b3b86",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "azure",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_key\": \"<string>\",\n  \"account_name\": \"<string>\",\n  \"container\": \"<string>\",\n  \"description\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"presign\": true,\n  \"presign_ttl\": 1,\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string>\",\n  \"title\": \"<string>\",\n  \"use_blob_urls\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1976-03-10T03:02:06.711Z\",\n  \"id\": 8444,\n  \"project\": 6545,\n  \"type\": \"azure\",\n  \"account_key\": \"string\",\n  \"account_name\": \"string\",\n  \"container\": \"string\",\n  \"description\": \"string\",\n  \"last_sync\": \"1966-09-03T08:27:20.738Z\",\n  \"last_sync_count\": 5289,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"presign\": true,\n  \"presign_ttl\": 4556,\n  \"recursive_scan\": true,\n  \"regex_filter\": \"string\",\n  \"status\": \"queued\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf862a3d-9e4c-4dac-b73c-7f8b3f47c0f4",
+          "name": "Validate import storage",
+          "request": {
+            "name": "Validate import storage",
+            "description": {
+              "content": "Validate a specific Azure import storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "azure",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_key\": \"<string>\",\n  \"account_name\": \"<string>\",\n  \"container\": \"<string>\",\n  \"description\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"prefix\": \"<string>\",\n  \"presign\": true,\n  \"presign_ttl\": 1,\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string>\",\n  \"title\": \"<string>\",\n  \"use_blob_urls\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "be5a6341-2e5b-46ec-83e5-1823827c2e51",
+              "name": "Validation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "azure",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_key\": \"<string>\",\n  \"account_name\": \"<string>\",\n  \"container\": \"<string>\",\n  \"description\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"prefix\": \"<string>\",\n  \"presign\": true,\n  \"presign_ttl\": 1,\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string>\",\n  \"title\": \"<string>\",\n  \"use_blob_urls\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71cb0708-0018-405a-bc37-efb7cd74be40",
+          "name": "Get import storage",
+          "request": {
+            "name": "Get import storage",
+            "description": {
+              "content": "Get a specific Azure import storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "azure",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7533c789-5114-44d3-9c22-a33b6c202bc7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "azure",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1976-03-10T03:02:06.711Z\",\n  \"id\": 8444,\n  \"project\": 6545,\n  \"type\": \"azure\",\n  \"account_key\": \"string\",\n  \"account_name\": \"string\",\n  \"container\": \"string\",\n  \"description\": \"string\",\n  \"last_sync\": \"1966-09-03T08:27:20.738Z\",\n  \"last_sync_count\": 5289,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"presign\": true,\n  \"presign_ttl\": 4556,\n  \"recursive_scan\": true,\n  \"regex_filter\": \"string\",\n  \"status\": \"queued\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80cb46a3-7ba8-4b12-9186-eea87c07398d",
+          "name": "Delete import storage",
+          "request": {
+            "name": "Delete import storage",
+            "description": {
+              "content": "Delete a specific Azure import storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "azure",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54c3cdbb-749a-4da1-a6c3-168376efab44",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "azure",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a7e710e-2202-49f2-88df-d3fdf6560635",
+          "name": "Update import storage",
+          "request": {
+            "name": "Update import storage",
+            "description": {
+              "content": "Update a specific Azure import storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "azure",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_key\": \"<string>\",\n  \"account_name\": \"<string>\",\n  \"container\": \"<string>\",\n  \"description\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"presign\": true,\n  \"presign_ttl\": 1,\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string>\",\n  \"title\": \"<string>\",\n  \"use_blob_urls\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d80fbdbe-84d6-43ac-9ea5-d072e5dafddc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "azure",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account_key\": \"<string>\",\n  \"account_name\": \"<string>\",\n  \"container\": \"<string>\",\n  \"description\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"presign\": true,\n  \"presign_ttl\": 1,\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string>\",\n  \"title\": \"<string>\",\n  \"use_blob_urls\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1976-03-10T03:02:06.711Z\",\n  \"id\": 8444,\n  \"project\": 6545,\n  \"type\": \"azure\",\n  \"account_key\": \"string\",\n  \"account_name\": \"string\",\n  \"container\": \"string\",\n  \"description\": \"string\",\n  \"last_sync\": \"1966-09-03T08:27:20.738Z\",\n  \"last_sync_count\": 5289,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"presign\": true,\n  \"presign_ttl\": 4556,\n  \"recursive_scan\": true,\n  \"regex_filter\": \"string\",\n  \"status\": \"queued\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e600b4fc-988b-41e7-9472-29a4406991b0",
+          "name": "Sync import storage",
+          "request": {
+            "name": "Sync import storage",
+            "description": {
+              "content": "Sync tasks from an Azure import storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "azure",
+                ":id",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Storage ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6dd3268-55e3-4961-bc6f-3e2ca4f90f55",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "azure",
+                    ":id",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Storage ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1976-03-10T03:02:06.711Z\",\n  \"id\": 8444,\n  \"project\": 6545,\n  \"type\": \"azure\",\n  \"account_key\": \"string\",\n  \"account_name\": \"string\",\n  \"container\": \"string\",\n  \"description\": \"string\",\n  \"last_sync\": \"1966-09-03T08:27:20.738Z\",\n  \"last_sync_count\": 5289,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"presign\": true,\n  \"presign_ttl\": 4556,\n  \"recursive_scan\": true,\n  \"regex_filter\": \"string\",\n  \"status\": \"queued\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c3f71d77-57a5-4b6f-ae24-d2ef16872768",
+    "name": "API Reference subpackage_actions subpackage_importStorage.subpackage_importStorage/azure API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,752 @@
+{
+  "item": [
+    {
+      "id": "438dc774-b9a2-4226-847e-48ad91d7e20e",
+      "name": "subpackage_exportStorage.subpackage_exportStorage/s3S",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "27d3f980-fb41-4c16-be4c-cfcd90333419",
+          "name": "✨ List S3s export storage",
+          "request": {
+            "name": "✨ List S3s export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a list of all S3 export storage connections that were set up with IAM role access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3s"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "(Required) Project ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5fa42667-309d-4cb6-ad9a-a82677274da6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3s"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_at\": \"1996-09-08T11:23:55.371Z\",\n    \"id\": 4327,\n    \"project\": 234,\n    \"role_arn\": \"string\",\n    \"type\": \"s3s\",\n    \"aws_access_key_id\": \"string\",\n    \"aws_secret_access_key\": \"string\",\n    \"aws_session_token\": \"string\",\n    \"aws_sse_kms_key_id\": \"string\",\n    \"bucket\": \"string\",\n    \"can_delete_objects\": true,\n    \"description\": \"string\",\n    \"external_id\": \"string\",\n    \"last_sync\": \"1957-02-08T13:01:43.089Z\",\n    \"last_sync_count\": 1595,\n    \"last_sync_job\": \"string\",\n    \"legacy_auth\": false,\n    \"meta\": {},\n    \"prefix\": \"string\",\n    \"regex_filter\": \"string\",\n    \"region_name\": \"string\",\n    \"s3_endpoint\": \"string\",\n    \"status\": \"initialized\",\n    \"synchronizable\": true,\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": true\n  },\n  {\n    \"created_at\": \"1956-09-06T17:23:05.649Z\",\n    \"id\": 1768,\n    \"project\": 3134,\n    \"role_arn\": \"string\",\n    \"type\": \"s3s\",\n    \"aws_access_key_id\": \"string\",\n    \"aws_secret_access_key\": \"string\",\n    \"aws_session_token\": \"string\",\n    \"aws_sse_kms_key_id\": \"string\",\n    \"bucket\": \"string\",\n    \"can_delete_objects\": false,\n    \"description\": \"string\",\n    \"external_id\": \"string\",\n    \"last_sync\": \"1978-03-21T17:25:27.932Z\",\n    \"last_sync_count\": 472,\n    \"last_sync_job\": \"string\",\n    \"legacy_auth\": false,\n    \"meta\": {},\n    \"prefix\": \"string\",\n    \"regex_filter\": \"string\",\n    \"region_name\": \"string\",\n    \"s3_endpoint\": \"string\",\n    \"status\": \"queued\",\n    \"synchronizable\": true,\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe9fc1cd-c6f1-4455-b075-4d5b771c883f",
+          "name": "✨ Create export storage",
+          "request": {
+            "name": "✨ Create export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate an S3 export storage connection with IAM role access to store annotations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3s"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project\": \"<integer>\",\n  \"role_arn\": \"<string>\",\n  \"aws_access_key_id\": \"<string,null>\",\n  \"aws_secret_access_key\": \"<string,null>\",\n  \"aws_session_token\": \"<string,null>\",\n  \"aws_sse_kms_key_id\": \"<string,null>\",\n  \"bucket\": \"<string,null>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"description\": \"<string,null>\",\n  \"external_id\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"legacy_auth\": \"<boolean,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"region_name\": \"<string,null>\",\n  \"s3_endpoint\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"synchronizable\": true,\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b96b517-024c-412c-925c-0e763422ff86",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3s"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project\": \"<integer>\",\n  \"role_arn\": \"<string>\",\n  \"aws_access_key_id\": \"<string,null>\",\n  \"aws_secret_access_key\": \"<string,null>\",\n  \"aws_session_token\": \"<string,null>\",\n  \"aws_sse_kms_key_id\": \"<string,null>\",\n  \"bucket\": \"<string,null>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"description\": \"<string,null>\",\n  \"external_id\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"legacy_auth\": \"<boolean,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"region_name\": \"<string,null>\",\n  \"s3_endpoint\": \"<string,null>\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1985-07-23T18:28:32.836Z\",\n  \"id\": 876,\n  \"project\": 4412,\n  \"role_arn\": \"string\",\n  \"type\": \"s3s\",\n  \"aws_access_key_id\": \"string\",\n  \"aws_secret_access_key\": \"string\",\n  \"aws_session_token\": \"string\",\n  \"aws_sse_kms_key_id\": \"string\",\n  \"bucket\": \"string\",\n  \"can_delete_objects\": false,\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"last_sync\": \"2004-06-26T02:26:18.565Z\",\n  \"last_sync_count\": 9957,\n  \"last_sync_job\": \"string\",\n  \"legacy_auth\": false,\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"region_name\": \"string\",\n  \"s3_endpoint\": \"string\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0cf31429-f643-4492-ad57-fc56d19a5b26",
+          "name": "✨ Validate export storage",
+          "request": {
+            "name": "✨ Validate export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nValidate a specific S3 export storage connection that was set up with IAM role access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3s",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project\": \"<integer>\",\n  \"role_arn\": \"<string>\",\n  \"aws_access_key_id\": \"<string,null>\",\n  \"aws_secret_access_key\": \"<string,null>\",\n  \"aws_session_token\": \"<string,null>\",\n  \"aws_sse_kms_key_id\": \"<string,null>\",\n  \"bucket\": \"<string,null>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"description\": \"<string,null>\",\n  \"external_id\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"legacy_auth\": \"<boolean,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"region_name\": \"<string,null>\",\n  \"s3_endpoint\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"synchronizable\": true,\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "21e837a9-5fc7-432e-a7d8-9d5fb521c127",
+              "name": "Validation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3s",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project\": \"<integer>\",\n  \"role_arn\": \"<string>\",\n  \"aws_access_key_id\": \"<string,null>\",\n  \"aws_secret_access_key\": \"<string,null>\",\n  \"aws_session_token\": \"<string,null>\",\n  \"aws_sse_kms_key_id\": \"<string,null>\",\n  \"bucket\": \"<string,null>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"description\": \"<string,null>\",\n  \"external_id\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"legacy_auth\": \"<boolean,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"regex_filter\": \"<string,null>\",\n  \"region_name\": \"<string,null>\",\n  \"s3_endpoint\": \"<string,null>\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "388ef2aa-7788-496f-a89b-fa131abf7382",
+          "name": "✨ Get export storage",
+          "request": {
+            "name": "✨ Get export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a specific S3 export storage connection that was set up with IAM role access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3s",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "29d0c92b-0db0-47b2-9031-49e9c718e369",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3s",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1985-07-23T18:28:32.836Z\",\n  \"id\": 876,\n  \"project\": 4412,\n  \"role_arn\": \"string\",\n  \"type\": \"s3s\",\n  \"aws_access_key_id\": \"string\",\n  \"aws_secret_access_key\": \"string\",\n  \"aws_session_token\": \"string\",\n  \"aws_sse_kms_key_id\": \"string\",\n  \"bucket\": \"string\",\n  \"can_delete_objects\": false,\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"last_sync\": \"2004-06-26T02:26:18.565Z\",\n  \"last_sync_count\": 9957,\n  \"last_sync_job\": \"string\",\n  \"legacy_auth\": false,\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"region_name\": \"string\",\n  \"s3_endpoint\": \"string\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "342acacb-b72c-4e06-adca-a0ad95077e5d",
+          "name": "✨ Delete export storage",
+          "request": {
+            "name": "✨ Delete export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific S3 export storage connection that was set up with IAM role access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3s",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e128e853-c5ae-447c-b302-3572909b8179",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3s",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "001e7ac7-9914-4771-ba78-929de4f6a46f",
+          "name": "✨ Update export storage",
+          "request": {
+            "name": "✨ Update export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific S3 export storage connection that was set up with IAM role access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3s",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aws_access_key_id\": \"<string,null>\",\n  \"aws_secret_access_key\": \"<string,null>\",\n  \"aws_session_token\": \"<string,null>\",\n  \"aws_sse_kms_key_id\": \"<string,null>\",\n  \"bucket\": \"<string,null>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"description\": \"<string,null>\",\n  \"external_id\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"legacy_auth\": \"<boolean,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string,null>\",\n  \"region_name\": \"<string,null>\",\n  \"role_arn\": \"<string>\",\n  \"s3_endpoint\": \"<string,null>\",\n  \"status\": \"<string>\",\n  \"synchronizable\": true,\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a8a74cbe-9bfe-4e1b-bc57-2a79b285abc7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3s",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aws_access_key_id\": \"<string,null>\",\n  \"aws_secret_access_key\": \"<string,null>\",\n  \"aws_session_token\": \"<string,null>\",\n  \"aws_sse_kms_key_id\": \"<string,null>\",\n  \"bucket\": \"<string,null>\",\n  \"can_delete_objects\": \"<boolean,null>\",\n  \"description\": \"<string,null>\",\n  \"external_id\": \"<string,null>\",\n  \"last_sync\": \"<string,null-date-time>\",\n  \"last_sync_count\": \"<integer,null>\",\n  \"last_sync_job\": \"<string,null>\",\n  \"legacy_auth\": \"<boolean,null>\",\n  \"meta\": {},\n  \"prefix\": \"<string,null>\",\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string,null>\",\n  \"region_name\": \"<string,null>\",\n  \"role_arn\": \"<string>\",\n  \"s3_endpoint\": \"<string,null>\",\n  \"status\": \"in_progress\",\n  \"synchronizable\": true,\n  \"title\": \"<string,null>\",\n  \"traceback\": \"<string,null>\",\n  \"use_blob_urls\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1985-07-23T18:28:32.836Z\",\n  \"id\": 876,\n  \"project\": 4412,\n  \"role_arn\": \"string\",\n  \"type\": \"s3s\",\n  \"aws_access_key_id\": \"string\",\n  \"aws_secret_access_key\": \"string\",\n  \"aws_session_token\": \"string\",\n  \"aws_sse_kms_key_id\": \"string\",\n  \"bucket\": \"string\",\n  \"can_delete_objects\": false,\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"last_sync\": \"2004-06-26T02:26:18.565Z\",\n  \"last_sync_count\": 9957,\n  \"last_sync_job\": \"string\",\n  \"legacy_auth\": false,\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"region_name\": \"string\",\n  \"s3_endpoint\": \"string\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf27cfca-3398-42f2-83a0-24fcd2868b80",
+          "name": "✨ Sync export storage",
+          "request": {
+            "name": "✨ Sync export storage",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nSync tasks from an S3 export storage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3s",
+                ":id",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2189ea1-3d96-4821-bd06-f81995910d3b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3s",
+                    ":id",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1985-07-23T18:28:32.836Z\",\n  \"id\": 876,\n  \"project\": 4412,\n  \"role_arn\": \"string\",\n  \"type\": \"s3s\",\n  \"aws_access_key_id\": \"string\",\n  \"aws_secret_access_key\": \"string\",\n  \"aws_session_token\": \"string\",\n  \"aws_sse_kms_key_id\": \"string\",\n  \"bucket\": \"string\",\n  \"can_delete_objects\": false,\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"last_sync\": \"2004-06-26T02:26:18.565Z\",\n  \"last_sync_count\": 9957,\n  \"last_sync_job\": \"string\",\n  \"legacy_auth\": false,\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"region_name\": \"string\",\n  \"s3_endpoint\": \"string\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3d21e7fe-418f-448e-a3a3-397391a6c6b2",
+    "name": "API Reference subpackage_actions subpackage_exportStorage.subpackage_exportStorage/s3S API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

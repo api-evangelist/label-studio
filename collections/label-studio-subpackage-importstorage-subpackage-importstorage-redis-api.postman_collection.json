@@ -1,0 +1,742 @@
+{
+  "item": [
+    {
+      "id": "a66b06a6-ebe6-4101-b472-af3169960f54",
+      "name": "subpackage_importStorage.subpackage_importStorage/redis",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8d9f6990-2947-4d82-864d-c92b5ea8fbc6",
+          "name": "Get all import storage",
+          "request": {
+            "name": "Get all import storage",
+            "description": {
+              "content": "Get a list of all Redis import storage connections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "redis",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "(Required) Project ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f78fd2b9-fd7f-4207-bcc6-c8a8432b2180",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "redis",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_at\": \"1954-11-02T17:37:30.109Z\",\n    \"id\": 5021,\n    \"project\": 4720,\n    \"type\": \"redis\",\n    \"db\": 6656,\n    \"description\": \"string\",\n    \"host\": \"string\",\n    \"last_sync\": \"1952-07-07T20:23:12.168Z\",\n    \"last_sync_count\": 5962,\n    \"last_sync_job\": \"string\",\n    \"meta\": {},\n    \"password\": \"string\",\n    \"path\": \"string\",\n    \"port\": \"string\",\n    \"regex_filter\": \"string\",\n    \"status\": \"queued\",\n    \"synchronizable\": true,\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": false\n  },\n  {\n    \"created_at\": \"1983-10-30T19:55:43.887Z\",\n    \"id\": 5614,\n    \"project\": 6236,\n    \"type\": \"redis\",\n    \"db\": 4305,\n    \"description\": \"string\",\n    \"host\": \"string\",\n    \"last_sync\": \"1996-04-01T18:53:41.049Z\",\n    \"last_sync_count\": 6896,\n    \"last_sync_job\": \"string\",\n    \"meta\": {},\n    \"password\": \"string\",\n    \"path\": \"string\",\n    \"port\": \"string\",\n    \"regex_filter\": \"string\",\n    \"status\": \"initialized\",\n    \"synchronizable\": true,\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3854dd0-a40c-4208-887c-0fcf4692dd9c",
+          "name": "Create import storage",
+          "request": {
+            "name": "Create import storage",
+            "description": {
+              "content": "Create a new Redis import storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "redis",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"host\": \"<string>\",\n  \"password\": \"<string>\",\n  \"path\": \"<string>\",\n  \"port\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string>\",\n  \"title\": \"<string>\",\n  \"use_blob_urls\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1bbe9123-5051-48c8-a416-e9a7ed9a2dfd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "redis",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"host\": \"<string>\",\n  \"password\": \"<string>\",\n  \"path\": \"<string>\",\n  \"port\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string>\",\n  \"title\": \"<string>\",\n  \"use_blob_urls\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1975-07-13T02:31:27.303Z\",\n  \"id\": 4647,\n  \"project\": 5718,\n  \"type\": \"redis\",\n  \"db\": 5807,\n  \"description\": \"string\",\n  \"host\": \"string\",\n  \"last_sync\": \"2025-02-20T07:15:12.214Z\",\n  \"last_sync_count\": 5722,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"password\": \"string\",\n  \"path\": \"string\",\n  \"port\": \"string\",\n  \"regex_filter\": \"string\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc745389-0354-4b56-b5d3-fa4720e60a0b",
+          "name": "Validate import storage",
+          "request": {
+            "name": "Validate import storage",
+            "description": {
+              "content": "Validate a specific Redis import storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "redis",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"host\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"path\": \"<string>\",\n  \"port\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string>\",\n  \"title\": \"<string>\",\n  \"use_blob_urls\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a92dc6f4-54f8-46cc-a9a4-a3441157d286",
+              "name": "Validation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "redis",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"host\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"password\": \"<string>\",\n  \"path\": \"<string>\",\n  \"port\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string>\",\n  \"title\": \"<string>\",\n  \"use_blob_urls\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c09f8a46-685f-46a5-9f6b-9dc497fb1fa9",
+          "name": "Get import storage",
+          "request": {
+            "name": "Get import storage",
+            "description": {
+              "content": "Get a specific Redis import storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "redis",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d035f145-f401-434c-92a5-4ae752dfdb17",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "redis",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1975-07-13T02:31:27.303Z\",\n  \"id\": 4647,\n  \"project\": 5718,\n  \"type\": \"redis\",\n  \"db\": 5807,\n  \"description\": \"string\",\n  \"host\": \"string\",\n  \"last_sync\": \"2025-02-20T07:15:12.214Z\",\n  \"last_sync_count\": 5722,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"password\": \"string\",\n  \"path\": \"string\",\n  \"port\": \"string\",\n  \"regex_filter\": \"string\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f5debd2-bce9-440a-a5c3-070d7aac762c",
+          "name": "Delete import storage",
+          "request": {
+            "name": "Delete import storage",
+            "description": {
+              "content": "Delete a specific Redis import storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "redis",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "37abf8de-6110-4758-aacc-304141a19e00",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "redis",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2abccc2-47ff-4f77-9c49-70a155817e8d",
+          "name": "Update import storage",
+          "request": {
+            "name": "Update import storage",
+            "description": {
+              "content": "Update a specific Redis import storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "redis",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"host\": \"<string>\",\n  \"password\": \"<string>\",\n  \"path\": \"<string>\",\n  \"port\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string>\",\n  \"title\": \"<string>\",\n  \"use_blob_urls\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ad66ec88-01b0-4f22-a832-ee373db1fad3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "redis",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"host\": \"<string>\",\n  \"password\": \"<string>\",\n  \"path\": \"<string>\",\n  \"port\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"regex_filter\": \"<string>\",\n  \"title\": \"<string>\",\n  \"use_blob_urls\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1975-07-13T02:31:27.303Z\",\n  \"id\": 4647,\n  \"project\": 5718,\n  \"type\": \"redis\",\n  \"db\": 5807,\n  \"description\": \"string\",\n  \"host\": \"string\",\n  \"last_sync\": \"2025-02-20T07:15:12.214Z\",\n  \"last_sync_count\": 5722,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"password\": \"string\",\n  \"path\": \"string\",\n  \"port\": \"string\",\n  \"regex_filter\": \"string\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08a57c55-2559-4b0a-9fd8-1609091a0dcd",
+          "name": "Sync import storage",
+          "request": {
+            "name": "Sync import storage",
+            "description": {
+              "content": "Sync tasks from a Redis import storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "redis",
+                ":id",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Storage ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7431e6ec-5c31-498e-8850-c1b72843ada0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "redis",
+                    ":id",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Storage ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1975-07-13T02:31:27.303Z\",\n  \"id\": 4647,\n  \"project\": 5718,\n  \"type\": \"redis\",\n  \"db\": 5807,\n  \"description\": \"string\",\n  \"host\": \"string\",\n  \"last_sync\": \"2025-02-20T07:15:12.214Z\",\n  \"last_sync_count\": 5722,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"password\": \"string\",\n  \"path\": \"string\",\n  \"port\": \"string\",\n  \"regex_filter\": \"string\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "98db1835-e6c3-403b-8b66-a5696f248c96",
+    "name": "API Reference subpackage_actions subpackage_importStorage.subpackage_importStorage/redis API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

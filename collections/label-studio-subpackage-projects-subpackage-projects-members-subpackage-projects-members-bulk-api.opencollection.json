@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference subpackage_actions subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "✨ Bulk assign project members",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:8000/api/projects/:id/members/bulk/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "last_activity__gte",
+                "value": "",
+                "type": "query",
+                "description": "Filter by last activity (ISO 8601 formatted date). Only when all=True."
+              },
+              {
+                "name": "last_activity__lte",
+                "value": "",
+                "type": "query",
+                "description": "Filter by last activity upper bound (ISO 8601 formatted date). Only when all=True."
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query",
+                "description": "Filter by role, project roles take precedence over organization roles. Only when all=True. (comma-separated values)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term for filtering members by name, email, or username. Only when all=True."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas. (comma-separated values)"
+              },
+              {
+                "name": "user_type",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas. (comma-separated values)"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAssign project members in bulk."
+        },
+        {
+          "info": {
+            "name": "✨ Bulk unassign project members",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8000/api/projects/:id/members/bulk/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "all",
+                "value": "",
+                "type": "query",
+                "description": "Apply unassignment to all currently matched project members."
+              },
+              {
+                "name": "excluded",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of user IDs to keep assigned when `all=true`."
+              },
+              {
+                "name": "included",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of user IDs to unassign when `all=false`."
+              },
+              {
+                "name": "last_activity__gte",
+                "value": "",
+                "type": "query",
+                "description": "Filter by last activity (ISO 8601 formatted date). Only when all=True."
+              },
+              {
+                "name": "last_activity__lte",
+                "value": "",
+                "type": "query",
+                "description": "Filter by last activity upper bound (ISO 8601 formatted date). Only when all=True."
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query",
+                "description": "Filter by role, project roles take precedence over organization roles. Only when all=True. (comma-separated values)"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search term for filtering members by name, email, or username. Only when all=True."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas. (comma-separated values)"
+              },
+              {
+                "name": "user_type",
+                "value": "",
+                "type": "query",
+                "description": "Multiple values may be separated by commas. (comma-separated values)"
+              }
+            ]
+          },
+          "docs": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUnassign project members in bulk. Pass s"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

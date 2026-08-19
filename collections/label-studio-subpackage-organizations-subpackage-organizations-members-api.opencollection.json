@@ -1,0 +1,198 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference subpackage_actions subpackage_organizations.subpackage_organizations/members API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "subpackage_organizations.subpackage_organizations/members",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "✨ Get organization members/roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/organizations/:id/memberships",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this organization."
+              },
+              {
+                "name": "contributed_to_projects",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include projects created and contributed to by the members."
+              },
+              {
+                "name": "exclude_project_id",
+                "value": "",
+                "type": "query",
+                "description": "Project ID to exclude users who are already associated with this project (direct members, workspace members, or implicit admin/owner access)."
+              },
+              {
+                "name": "exclude_workspace_id",
+                "value": "",
+                "type": "query",
+                "description": "Workspace ID to exclude users who are already associated with this workspace (direct workspace members or implicit admin/owner access)."
+              },
+              {
+                "name": "ordering",
+                "value": "",
+                "type": "query",
+                "description": "Which field to use when ordering the results."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A page number within the paginated result set."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return per page."
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query",
+                "description": "Filter members by organization role. Accepts single role or comma-separated list of roles.\n\n**Format:**\n- Single role: `?role=RE`\n- Multiple roles: `?role=AN,RE` (users with ANY of these roles)\n\n**Role Codes:**\n- `OW` = Owner\n- `AD` = Administrator\n- `MA` = Manager\n- `RE` = Reviewer\n- `AN` = Annotator\n- `NO` = Not Activated\n- `DI` = Disabled\n"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query",
+                "description": "Member visibility scope. `accessible` (default) limits Managers to members in their projects/workspaces. `all` returns all organization members. Only affects Manager role."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "A search term."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Filter members by tags. Use a comma-separated list of tag IDs."
+              }
+            ]
+          },
+          "docs": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a list of all users and roles i"
+        },
+        {
+          "info": {
+            "name": "✨ Update organization member/role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "http://localhost:8000/api/organizations/:id/memberships",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying this organization."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate organization membership or role f"
+        },
+        {
+          "info": {
+            "name": "Get organization member details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8000/api/organizations/:id/memberships/:user_pk/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_pk",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying the user to get organization details for."
+              },
+              {
+                "name": "contributed_to_projects",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include projects created and contributed to by the member."
+              }
+            ]
+          },
+          "docs": "Get organization member details by user ID."
+        },
+        {
+          "info": {
+            "name": "Soft delete an organization member",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://localhost:8000/api/organizations/:id/memberships/:user_pk/",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "user_pk",
+                "value": "",
+                "type": "path",
+                "description": "A unique integer value identifying the user to be deleted from the organization."
+              }
+            ]
+          },
+          "docs": "Soft delete a member from the organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

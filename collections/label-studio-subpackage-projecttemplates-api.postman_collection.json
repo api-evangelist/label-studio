@@ -1,0 +1,639 @@
+{
+  "item": [
+    {
+      "id": "c2f7401b-752e-46f3-a590-1c50453652ed",
+      "name": "subpackage_projectTemplates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4fe72cd2-bbfd-48e5-beb8-f0fe2d1c5d4f",
+          "name": "✨ Get project templates",
+          "request": {
+            "name": "✨ Get project templates",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a list of all project templates for an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "project-templates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd20051e-73f3-44d3-8566-0eec50768fe9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "project-templates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_at\": \"2010-11-13T15:32:47.512Z\",\n    \"id\": 3677,\n    \"name\": \"string\",\n    \"updated_at\": \"1996-02-05T06:03:10.623Z\",\n    \"assignment_settings\": {},\n    \"created_by\": 1126,\n    \"custom_script\": \"string\",\n    \"description\": \"string\",\n    \"organization\": 9968,\n    \"project_settings\": {},\n    \"require_comment_on_skip\": true,\n    \"review_settings\": {},\n    \"show_unused_data_columns_to_annotators\": true,\n    \"tags\": {}\n  },\n  {\n    \"created_at\": \"1965-02-12T21:24:37.230Z\",\n    \"id\": 1998,\n    \"name\": \"string\",\n    \"updated_at\": \"2010-04-25T15:25:39.145Z\",\n    \"assignment_settings\": {},\n    \"created_by\": 545,\n    \"custom_script\": \"string\",\n    \"description\": \"string\",\n    \"organization\": 8739,\n    \"project_settings\": {},\n    \"require_comment_on_skip\": false,\n    \"review_settings\": {},\n    \"show_unused_data_columns_to_annotators\": false,\n    \"tags\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51462ae2-0192-49fd-b05c-4bbd86aad503",
+          "name": "✨ Create project template",
+          "request": {
+            "name": "✨ Create project template",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a project template for an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "project-templates",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"project_id\": \"<integer>\",\n  \"assignment_settings\": {},\n  \"created_by\": \"<integer,null>\",\n  \"custom_script\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"organization\": \"<integer,null>\",\n  \"project_settings\": {},\n  \"require_comment_on_skip\": \"<boolean>\",\n  \"review_settings\": {},\n  \"show_unused_data_columns_to_annotators\": \"<boolean,null>\",\n  \"tags\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "23661d33-bfb1-444f-8526-92eb5f7c97b1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "project-templates",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"project_id\": \"<integer>\",\n  \"assignment_settings\": {},\n  \"created_by\": \"<integer,null>\",\n  \"custom_script\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"organization\": \"<integer,null>\",\n  \"project_settings\": {},\n  \"require_comment_on_skip\": \"<boolean>\",\n  \"review_settings\": {},\n  \"show_unused_data_columns_to_annotators\": \"<boolean,null>\",\n  \"tags\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1956-01-06T23:19:56.459Z\",\n  \"id\": 9254,\n  \"name\": \"string\",\n  \"updated_at\": \"1995-06-04T07:39:01.430Z\",\n  \"assignment_settings\": {},\n  \"created_by\": 3973,\n  \"custom_script\": \"string\",\n  \"description\": \"string\",\n  \"organization\": 1483,\n  \"project_settings\": {},\n  \"require_comment_on_skip\": false,\n  \"review_settings\": {},\n  \"show_unused_data_columns_to_annotators\": true,\n  \"tags\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44fcdb77-296c-494c-af81-94efb6896b6d",
+          "name": "✨ Get a project template",
+          "request": {
+            "name": "✨ Get a project template",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a specific project template by ID for an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "project-templates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "403029ce-44a1-49ba-9045-397704c26208",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "project-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1956-01-06T23:19:56.459Z\",\n  \"id\": 9254,\n  \"name\": \"string\",\n  \"updated_at\": \"1995-06-04T07:39:01.430Z\",\n  \"assignment_settings\": {},\n  \"created_by\": 3973,\n  \"custom_script\": \"string\",\n  \"description\": \"string\",\n  \"organization\": 1483,\n  \"project_settings\": {},\n  \"require_comment_on_skip\": false,\n  \"review_settings\": {},\n  \"show_unused_data_columns_to_annotators\": true,\n  \"tags\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "396bee5c-f188-4f61-8dcd-a52fe394fc6b",
+          "name": "✨ Delete a project template",
+          "request": {
+            "name": "✨ Delete a project template",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific project template by ID for an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "project-templates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a619d2e-5c17-454a-9bfd-207191aabbe6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "project-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5aeee30a-e88a-49b4-8b55-97d1a4398434",
+          "name": "✨ Update a project template",
+          "request": {
+            "name": "✨ Update a project template",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate the details of a specific project template by ID for an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "project-templates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"assignment_settings\": {},\n  \"created_by\": \"<integer,null>\",\n  \"custom_script\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"name\": \"<string>\",\n  \"organization\": \"<integer,null>\",\n  \"project_id\": \"<integer>\",\n  \"project_settings\": {},\n  \"require_comment_on_skip\": \"<boolean>\",\n  \"review_settings\": {},\n  \"show_unused_data_columns_to_annotators\": \"<boolean,null>\",\n  \"tags\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4b6b578f-9b5c-4a1b-9ac4-8d51bf24d365",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "project-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assignment_settings\": {},\n  \"created_by\": \"<integer,null>\",\n  \"custom_script\": \"<string,null>\",\n  \"description\": \"<string,null>\",\n  \"name\": \"<string>\",\n  \"organization\": \"<integer,null>\",\n  \"project_id\": \"<integer>\",\n  \"project_settings\": {},\n  \"require_comment_on_skip\": \"<boolean>\",\n  \"review_settings\": {},\n  \"show_unused_data_columns_to_annotators\": \"<boolean,null>\",\n  \"tags\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1956-01-06T23:19:56.459Z\",\n  \"id\": 9254,\n  \"name\": \"string\",\n  \"updated_at\": \"1995-06-04T07:39:01.430Z\",\n  \"assignment_settings\": {},\n  \"created_by\": 3973,\n  \"custom_script\": \"string\",\n  \"description\": \"string\",\n  \"organization\": 1483,\n  \"project_settings\": {},\n  \"require_comment_on_skip\": false,\n  \"review_settings\": {},\n  \"show_unused_data_columns_to_annotators\": true,\n  \"tags\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9b42a1f-641d-4dab-b03c-b2d52e5b53b6",
+          "name": "✨ Create project from template",
+          "request": {
+            "name": "✨ Create project from template",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a project from a specific project template by ID for an organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "project-templates",
+                ":id",
+                "create-project"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"workspace_id\": \"<integer>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7fd13db-b1c4-4463-ad90-73feca70b68f",
+              "name": "Project created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "project-templates",
+                    ":id",
+                    "create-project"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"workspace_id\": \"<integer>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assignment_settings\": {\n    \"id\": 9397,\n    \"label_stream_task_distribution\": \"auto_distribution\",\n    \"project\": 3105\n  },\n  \"config_has_control_tags\": true,\n  \"config_suitable_for_bulk_annotation\": false,\n  \"created_at\": \"2019-05-31T07:10:44.629Z\",\n  \"data_types\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {},\n    \"key_3\": {},\n    \"key_4\": {}\n  },\n  \"finished_task_number\": 5368,\n  \"ground_truth_number\": 6919,\n  \"id\": 3876,\n  \"is_dimensions_enabled\": \"string\",\n  \"members\": \"string\",\n  \"members_count\": 1930,\n  \"num_tasks_with_annotations\": 6909,\n  \"parsed_label_config\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"prompts\": \"string\",\n  \"queue_done\": \"string\",\n  \"queue_left\": \"string\",\n  \"queue_total\": \"string\",\n  \"review_settings\": {\n    \"id\": 9749,\n    \"requeue_rejected_tasks_to_annotator\": true,\n    \"anonymize_annotations\": false,\n    \"instruction\": \"string\",\n    \"only_finished_tasks\": false,\n    \"project\": 3596,\n    \"requeue_rejected_tasks_mode\": \"requeue\",\n    \"require_comment_on_reject\": false,\n    \"review_criteria\": \"one\",\n    \"review_only_manual_assignments\": false,\n    \"review_task_limit_percent\": \"string\",\n    \"sampling\": \"task_id\",\n    \"show_agreement_to_reviewers\": false,\n    \"show_data_manager_to_reviewers\": false,\n    \"show_instruction\": true,\n    \"show_unused_data_columns_to_reviewers\": true\n  },\n  \"reviewer_queue_total\": \"string\",\n  \"skipped_annotations_number\": 4591,\n  \"start_training_on_annotation_update\": true,\n  \"state\": \"string\",\n  \"task_number\": 6533,\n  \"total_annotations_number\": 0,\n  \"total_predictions_number\": 2512,\n  \"useful_annotation_number\": 2738,\n  \"workspace\": \"string\",\n  \"workspace_title\": \"string\",\n  \"agreement_methodology\": \"consensus\",\n  \"agreement_threshold\": \"string\",\n  \"annotation_limit_count\": 5232,\n  \"annotation_limit_percent\": \"string\",\n  \"annotator_evaluation_continuous_tasks\": 0,\n  \"annotator_evaluation_enabled\": true,\n  \"annotator_evaluation_minimum_score\": \"95.00\",\n  \"annotator_evaluation_minimum_tasks\": 10,\n  \"annotator_evaluation_onboarding_tasks\": 0,\n  \"color\": \"string\",\n  \"comment_classification_config\": \"string\",\n  \"control_weights\": {\n    \"key_0\": {\n      \"overall\": 676.557693073605,\n      \"type\": \"string\",\n      \"labels\": {\n        \"key_0\": 1768.21224221684\n      }\n    },\n    \"key_1\": {\n      \"overall\": 5751.984676988109,\n      \"type\": \"string\",\n      \"labels\": {\n        \"key_0\": 3185.011309397313,\n        \"key_1\": 2138.4194359673215,\n        \"key_2\": 9898.060128660134\n      }\n    }\n  },\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 4733,\n    \"username\": \"string\",\n    \"email\": \"eDQWi7PT@CMP.rp\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"custom_interface_code\": \"string\",\n  \"custom_interface_compiled\": \"string\",\n  \"custom_interface_params\": {},\n  \"custom_script\": \"string\",\n  \"custom_task_lock_ttl\": 175,\n  \"description\": \"string\",\n  \"duplication_done\": false,\n  \"duplication_status\": \"string\",\n  \"enable_empty_annotation\": false,\n  \"evaluate_predictions_automatically\": true,\n  \"expert_instruction\": \"string\",\n  \"input_schema\": {},\n  \"is_draft\": true,\n  \"is_published\": false,\n  \"label_config\": \"string\",\n  \"max_additional_annotators_assignable\": 9090,\n  \"maximum_annotations\": 5898,\n  \"min_annotations_to_start_training\": 3114,\n  \"model_version\": \"string\",\n  \"organization\": 4781,\n  \"overlap_cohort_percentage\": 505,\n  \"pause_on_failed_annotator_evaluation\": false,\n  \"pinned_at\": \"2016-02-05T21:58:18.936Z\",\n  \"require_comment_on_skip\": false,\n  \"reveal_preannotations_interactively\": true,\n  \"sampling\": \"Uniform sampling\",\n  \"show_annotation_history\": false,\n  \"show_collab_predictions\": true,\n  \"show_ground_truth_first\": false,\n  \"show_instruction\": true,\n  \"show_overlap_first\": true,\n  \"show_skip_button\": false,\n  \"show_unused_data_columns_to_annotators\": true,\n  \"skip_queue\": \"IGNORE_SKIPPED\",\n  \"source_interface_id\": 7620,\n  \"source_interface_version\": 8337,\n  \"strict_task_overlap\": true,\n  \"task_data_login\": \"string\",\n  \"task_data_password\": \"string\",\n  \"title\": \"string\",\n  \"use_custom_interface\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "802d0ae5-fc21-428e-9364-33ee0802f53d",
+    "name": "API Reference subpackage_actions subpackage_projectTemplates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

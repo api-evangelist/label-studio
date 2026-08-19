@@ -1,0 +1,771 @@
+{
+  "item": [
+    {
+      "id": "f3f83459-4036-4ed0-8d21-8173037926bb",
+      "name": "subpackage_organizations.subpackage_organizations/members",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "af4a399f-ee02-4184-a38f-8d4802480d8c",
+          "name": "✨ Get organization members/roles",
+          "request": {
+            "name": "✨ Get organization members/roles",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a list of all users and roles in a specific organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "organizations",
+                ":id",
+                "memberships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contributed_to_projects",
+                  "value": "<boolean>",
+                  "description": "Whether to include projects created and contributed to by the members."
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude_project_id",
+                  "value": "<integer>",
+                  "description": "Project ID to exclude users who are already associated with this project (direct members, workspace members, or implicit admin/owner access)."
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude_workspace_id",
+                  "value": "<integer>",
+                  "description": "Workspace ID to exclude users who are already associated with this workspace (direct workspace members or implicit admin/owner access)."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string>",
+                  "description": "Filter members by organization role. Accepts single role or comma-separated list of roles.\n\n**Format:**\n- Single role: `?role=RE`\n- Multiple roles: `?role=AN,RE` (users with ANY of these roles)\n\n**Role Codes:**\n- `OW` = Owner\n- `AD` = Administrator\n- `MA` = Manager\n- `RE` = Reviewer\n- `AN` = Annotator\n- `NO` = Not Activated\n- `DI` = Disabled\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>",
+                  "description": "Member visibility scope. `accessible` (default) limits Managers to members in their projects/workspaces. `all` returns all organization members. Only affects Manager role."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "A search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Filter members by tags. Use a comma-separated list of tag IDs."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this organization."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7493102c-77ab-4a14-9170-a938a4851bb2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "organizations",
+                    ":id",
+                    "memberships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contributed_to_projects",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "exclude_project_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "exclude_workspace_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "role",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "all"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this organization."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 2731,\n  \"results\": [\n    {\n      \"concurrency\": \"string\",\n      \"contributed_to_projects\": [\n        {\n          \"id\": 661,\n          \"title\": \"string\"\n        },\n        {\n          \"id\": 9117,\n          \"title\": \"string\"\n        }\n      ],\n      \"created_projects\": [\n        {\n          \"id\": 1520,\n          \"title\": \"string\"\n        },\n        {\n          \"id\": 5434,\n          \"title\": \"string\"\n        }\n      ],\n      \"id\": 8839,\n      \"organization\": 9658,\n      \"role\": \"string\",\n      \"role_source\": \"string\",\n      \"tags\": [\n        {\n          \"id\": 3128,\n          \"label\": \"string\"\n        },\n        {\n          \"id\": 4669,\n          \"label\": \"string\"\n        }\n      ],\n      \"user\": {\n        \"avatar\": \"string\",\n        \"contributed_to_projects\": [\n          {\n            \"id\": 1341,\n            \"title\": \"string\"\n          },\n          {\n            \"id\": 4287,\n            \"title\": \"string\"\n          }\n        ],\n        \"created_projects\": [\n          {\n            \"id\": 6605,\n            \"title\": \"string\"\n          },\n          {\n            \"id\": 3991,\n            \"title\": \"string\"\n          }\n        ],\n        \"id\": 799,\n        \"initials\": \"?\",\n        \"last_activity\": \"1963-10-16T06:19:17.874Z\",\n        \"lse_fields\": {\n          \"email_notification_settings\": \"string\",\n          \"invite_expired\": \"string\",\n          \"invite_expired_at\": \"string\",\n          \"invite_activated\": true,\n          \"invited_at\": \"2000-03-24T07:22:28.136Z\",\n          \"invited_by\": 1504,\n          \"onboarding_state\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"social_auth_finished\": true,\n          \"trial_company\": \"string\",\n          \"trial_experience_labeling\": \"string\",\n          \"trial_license_enterprise\": false,\n          \"trial_models_in_production\": \"string\",\n          \"trial_role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"pause\": \"string\",\n        \"username\": \"string\",\n        \"active_organization\": 2327,\n        \"allow_newsletters\": true,\n        \"custom_hotkeys\": {},\n        \"date_joined\": \"1997-11-29T03:17:24.899Z\",\n        \"email\": \"qS5wu9NNvRJf4@xFg.kzyk\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"phone\": \"string\"\n      },\n      \"user_type\": \"string\"\n    },\n    {\n      \"concurrency\": \"string\",\n      \"contributed_to_projects\": [\n        {\n          \"id\": 2465,\n          \"title\": \"string\"\n        },\n        {\n          \"id\": 6138,\n          \"title\": \"string\"\n        }\n      ],\n      \"created_projects\": [\n        {\n          \"id\": 3870,\n          \"title\": \"string\"\n        },\n        {\n          \"id\": 8943,\n          \"title\": \"string\"\n        }\n      ],\n      \"id\": 7812,\n      \"organization\": 7503,\n      \"role\": \"string\",\n      \"role_source\": \"string\",\n      \"tags\": [\n        {\n          \"id\": 518,\n          \"label\": \"string\"\n        },\n        {\n          \"id\": 7027,\n          \"label\": \"string\"\n        }\n      ],\n      \"user\": {\n        \"avatar\": \"string\",\n        \"contributed_to_projects\": [\n          {\n            \"id\": 981,\n            \"title\": \"string\"\n          },\n          {\n            \"id\": 2654,\n            \"title\": \"string\"\n          }\n        ],\n        \"created_projects\": [\n          {\n            \"id\": 3894,\n            \"title\": \"string\"\n          },\n          {\n            \"id\": 2869,\n            \"title\": \"string\"\n          }\n        ],\n        \"id\": 3632,\n        \"initials\": \"?\",\n        \"last_activity\": \"1950-02-22T01:15:36.182Z\",\n        \"lse_fields\": {\n          \"email_notification_settings\": \"string\",\n          \"invite_expired\": \"string\",\n          \"invite_expired_at\": \"string\",\n          \"invite_activated\": true,\n          \"invited_at\": \"2008-02-01T14:43:16.103Z\",\n          \"invited_by\": 4539,\n          \"onboarding_state\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"social_auth_finished\": false,\n          \"trial_company\": \"string\",\n          \"trial_experience_labeling\": \"string\",\n          \"trial_license_enterprise\": true,\n          \"trial_models_in_production\": \"string\",\n          \"trial_role\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"pause\": \"string\",\n        \"username\": \"string\",\n        \"active_organization\": 5545,\n        \"allow_newsletters\": false,\n        \"custom_hotkeys\": {},\n        \"date_joined\": \"1984-10-09T19:31:37.280Z\",\n        \"email\": \"Yijhp@SwNRaWJUAeHtbFOqOVfjycMfG.mc\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\",\n        \"phone\": \"string\"\n      },\n      \"user_type\": \"string\"\n    }\n  ],\n  \"next\": \"https://rxhKwKOCIvSaizt.gmSnuuZZhJE4tdwP-CT44BO3fwgNAr16BRvNmeJr-8ICvTTRktJAdYHcvI2JsTD3RJ\",\n  \"previous\": \"https://YWaNMOP.kcehoqRCY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d0791fd-41f9-41d0-8126-c20e9c28b318",
+          "name": "✨ Update organization member/role",
+          "request": {
+            "name": "✨ Update organization member/role",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate organization membership or role for a specific user ID.\n\n**User Rotation Best Practices for API Usage**\n\nTo maintain compliance with our licensing terms and ensure optimal performance of HumanSignal's APIs, please consider the following guidelines when managing user assignments:\n\n* **Maintain a 7-Day Minimum Assignment**: Once a licensed seat is assigned to a user, maintain that assignment for at least seven consecutive days before rotating it to another user.\n\n* **Automate, Monitor, and Log Rotations**: Implement automated scheduling and logging mechanisms to track the timing of user rotations. This helps ensure that rotations adhere to the seven-day minimum period.\n\n* **Adhere to API Update Frequency and Wait Periods**: When updating user assignments via our APIs, follow the recommended frequency and wait period guidelines provided in the HumanSignal API documentation. Avoid sending rapid, successive requests that might overload the endpoint. Instead, incorporate appropriate delays between calls as specified in the documentation.\n\n* **Avoid Overloading the API Endpoint**: Design your integration to batch or schedule updates where possible, and implement backoff strategies if the API indicates rate limiting. This helps prevent service disruptions and ensures a smooth operation.\n\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "organizations",
+                ":id",
+                "memberships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this organization."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"<string>\",\n  \"user_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0f67ac39-8a2b-46fc-8a83-fc423655fb91",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "organizations",
+                    ":id",
+                    "memberships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this organization."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"role\": \"NO\",\n  \"user_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"concurrency\": \"string\",\n  \"contributed_to_projects\": [\n    {\n      \"id\": 3057,\n      \"title\": \"string\"\n    },\n    {\n      \"id\": 7197,\n      \"title\": \"string\"\n    }\n  ],\n  \"created_projects\": [\n    {\n      \"id\": 3309,\n      \"title\": \"string\"\n    },\n    {\n      \"id\": 9304,\n      \"title\": \"string\"\n    }\n  ],\n  \"id\": 845,\n  \"organization\": 9243,\n  \"role\": \"string\",\n  \"role_source\": \"string\",\n  \"tags\": [\n    {\n      \"id\": 3053,\n      \"label\": \"string\"\n    },\n    {\n      \"id\": 6850,\n      \"label\": \"string\"\n    }\n  ],\n  \"user\": {\n    \"avatar\": \"string\",\n    \"contributed_to_projects\": [\n      {\n        \"id\": 7318,\n        \"title\": \"string\"\n      },\n      {\n        \"id\": 5734,\n        \"title\": \"string\"\n      }\n    ],\n    \"created_projects\": [\n      {\n        \"id\": 2632,\n        \"title\": \"string\"\n      },\n      {\n        \"id\": 1929,\n        \"title\": \"string\"\n      }\n    ],\n    \"id\": 6690,\n    \"initials\": \"?\",\n    \"last_activity\": \"1982-01-26T15:31:02.676Z\",\n    \"lse_fields\": {\n      \"email_notification_settings\": \"string\",\n      \"invite_expired\": \"string\",\n      \"invite_expired_at\": \"string\",\n      \"invite_activated\": true,\n      \"invited_at\": \"1990-12-08T22:43:17.034Z\",\n      \"invited_by\": 4989,\n      \"onboarding_state\": \"in_app_guidance\",\n      \"social_auth_finished\": false,\n      \"trial_company\": \"string\",\n      \"trial_experience_labeling\": \"string\",\n      \"trial_license_enterprise\": true,\n      \"trial_models_in_production\": \"string\",\n      \"trial_role\": \"data_scientist\"\n    },\n    \"pause\": \"string\",\n    \"username\": \"string\",\n    \"active_organization\": 127,\n    \"allow_newsletters\": false,\n    \"custom_hotkeys\": {},\n    \"date_joined\": \"1980-03-21T04:05:59.487Z\",\n    \"email\": \"VK8-8UL4HFj1NH@yfXJsBdUXgVNhWsjHrCKrpK.lfjx\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\",\n    \"phone\": \"string\"\n  },\n  \"user_type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c7344b0-eeed-47e6-9ff3-824e29e4add4",
+          "name": "Get organization member details",
+          "request": {
+            "name": "Get organization member details",
+            "description": {
+              "content": "Get organization member details by user ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "organizations",
+                ":id",
+                "memberships",
+                ":user_pk",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contributed_to_projects",
+                  "value": "<boolean>",
+                  "description": "Whether to include projects created and contributed to by the member."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "user_pk",
+                  "description": "(Required) A unique integer value identifying the user to get organization details for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "482d5c71-0715-417e-a14f-4a11acb48959",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "organizations",
+                    ":id",
+                    "memberships",
+                    ":user_pk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contributed_to_projects",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "user_pk",
+                      "description": "(Required) A unique integer value identifying the user to get organization details for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"annotations_count\": 6140,\n  \"contributed_projects_count\": 8683,\n  \"contributed_to_projects\": [\n    {\n      \"id\": 807,\n      \"title\": \"string\"\n    },\n    {\n      \"id\": 3014,\n      \"title\": \"string\"\n    }\n  ],\n  \"created_at\": \"2010-08-16T06:30:36.939Z\",\n  \"created_projects\": [\n    {\n      \"id\": 1017,\n      \"title\": \"string\"\n    },\n    {\n      \"id\": 2156,\n      \"title\": \"string\"\n    }\n  ],\n  \"organization\": 7869,\n  \"user\": 673\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4dc7714-b83f-4dfa-9802-560e9d6b9a99",
+          "name": "Soft delete an organization member",
+          "request": {
+            "name": "Soft delete an organization member",
+            "description": {
+              "content": "Soft delete a member from the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "organizations",
+                ":id",
+                "memberships",
+                ":user_pk",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "user_pk",
+                  "description": "(Required) A unique integer value identifying the user to be deleted from the organization."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c04ee528-1174-4f6f-bdf1-187a8adc3b16",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "organizations",
+                    ":id",
+                    "memberships",
+                    ":user_pk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "user_pk",
+                      "description": "(Required) A unique integer value identifying the user to be deleted from the organization."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "031bb9ab-de86-4b41-945e-0d57047f5989",
+              "name": "You can delete members only for your current active organization",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "organizations",
+                    ":id",
+                    "memberships",
+                    ":user_pk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "user_pk",
+                      "description": "(Required) A unique integer value identifying the user to be deleted from the organization."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4bec6b98-e7a9-4d55-9109-e365b18d86f9",
+              "name": "Member not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "organizations",
+                    ":id",
+                    "memberships",
+                    ":user_pk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "user_pk",
+                      "description": "(Required) A unique integer value identifying the user to be deleted from the organization."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a3e3610b-4544-43bc-855f-b6c3c02fe93e",
+              "name": "User cannot soft delete self.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "organizations",
+                    ":id",
+                    "memberships",
+                    ":user_pk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "user_pk",
+                      "description": "(Required) A unique integer value identifying the user to be deleted from the organization."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "80af9417-3617-4f2c-a0d1-98bf2ecc015f",
+    "name": "API Reference subpackage_actions subpackage_organizations.subpackage_organizations/members API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

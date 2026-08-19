@@ -1,0 +1,354 @@
+{
+  "item": [
+    {
+      "id": "22ca281f-66f7-4b44-976c-5ccff0142e9a",
+      "name": "subpackage_workspaces.subpackage_workspaces/members",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "828ce8b8-6e61-4074-b94c-bf13166938f1",
+          "name": "✨ List workspace memberships",
+          "request": {
+            "name": "✨ List workspace memberships",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a list of all members in a specific workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workspaces",
+                ":id",
+                "memberships",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "264bd1c1-87c2-403b-8493-a569b2887972",
+              "name": "A list of workspace memberships",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workspaces",
+                    ":id",
+                    "memberships",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"user\": {\n      \"active_organization_meta\": \"string\",\n      \"avatar\": \"string\",\n      \"id\": 9189,\n      \"initials\": \"?\",\n      \"last_activity\": \"2000-04-24T14:09:44.337Z\",\n      \"lse_fields\": {\n        \"email_notification_settings\": \"string\",\n        \"invite_expired\": \"string\",\n        \"invite_expired_at\": \"string\",\n        \"invite_activated\": true,\n        \"invited_at\": \"1958-10-25T14:25:06.294Z\",\n        \"invited_by\": 3900,\n        \"onboarding_state\": \"first_tutorial\",\n        \"social_auth_finished\": true,\n        \"trial_company\": \"string\",\n        \"trial_experience_labeling\": \"string\",\n        \"trial_license_enterprise\": false,\n        \"trial_models_in_production\": \"string\",\n        \"trial_role\": \"annotator_team_manager\"\n      },\n      \"org_membership\": [\n        {\n          \"active\": \"string\",\n          \"organization_id\": 5483,\n          \"role\": \"string\"\n        },\n        {\n          \"active\": \"string\",\n          \"organization_id\": 9688,\n          \"role\": \"string\"\n        }\n      ],\n      \"organization_membership\": {\n        \"active\": \"string\",\n        \"organization_id\": 1122,\n        \"role\": \"string\"\n      },\n      \"pause\": \"string\",\n      \"username\": \"string\",\n      \"active_organization\": 9224,\n      \"allow_newsletters\": true,\n      \"custom_hotkeys\": {},\n      \"date_joined\": \"1996-04-14T15:47:11.759Z\",\n      \"email\": \"FnzvjnvuY@YrrhMjYNREXIsEXOeaNgoDgCLtf.wqap\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"workspace\": 8559\n  },\n  {\n    \"user\": {\n      \"active_organization_meta\": \"string\",\n      \"avatar\": \"string\",\n      \"id\": 9104,\n      \"initials\": \"?\",\n      \"last_activity\": \"2000-08-05T21:18:20.713Z\",\n      \"lse_fields\": {\n        \"email_notification_settings\": \"string\",\n        \"invite_expired\": \"string\",\n        \"invite_expired_at\": \"string\",\n        \"invite_activated\": false,\n        \"invited_at\": \"1963-04-10T12:47:05.460Z\",\n        \"invited_by\": 405,\n        \"onboarding_state\": \"signup\",\n        \"social_auth_finished\": true,\n        \"trial_company\": \"string\",\n        \"trial_experience_labeling\": \"string\",\n        \"trial_license_enterprise\": true,\n        \"trial_models_in_production\": \"string\",\n        \"trial_role\": \"annotator_team_manager\"\n      },\n      \"org_membership\": [\n        {\n          \"active\": \"string\",\n          \"organization_id\": 9440,\n          \"role\": \"string\"\n        },\n        {\n          \"active\": \"string\",\n          \"organization_id\": 8880,\n          \"role\": \"string\"\n        }\n      ],\n      \"organization_membership\": {\n        \"active\": \"string\",\n        \"organization_id\": 5186,\n        \"role\": \"string\"\n      },\n      \"pause\": \"string\",\n      \"username\": \"string\",\n      \"active_organization\": 2636,\n      \"allow_newsletters\": true,\n      \"custom_hotkeys\": {},\n      \"date_joined\": \"2011-10-16T13:47:45.495Z\",\n      \"email\": \"z5-Bt9@V.pwc\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"phone\": \"string\"\n    },\n    \"workspace\": 5738\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8dd91b6-45a1-4a28-bff7-4e16146f5050",
+          "name": "✨ Create workspace membership",
+          "request": {
+            "name": "✨ Create workspace membership",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAdd a new workspace member by user ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workspaces",
+                ":id",
+                "memberships",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": \"<integer>\",\n  \"workspace\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "76b7ca38-0d11-4dde-9b4f-8ce4fb60c9cf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workspaces",
+                    ":id",
+                    "memberships",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": \"<integer>\",\n  \"workspace\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": 781,\n  \"workspace\": 8036\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "56b6224b-94dd-406c-a504-0709d72e0c4d",
+          "name": "✨ Delete workspace membership",
+          "request": {
+            "name": "✨ Delete workspace membership",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRemove a specific member by ID from a workspace. Pass the member ID via the `user_id` query parameter. For backward compatibility, a JSON body with `user_id` (or `user`) is still accepted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "workspaces",
+                ":id",
+                "memberships",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "user_id",
+                  "value": "<integer>",
+                  "description": "User ID to remove from the workspace."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "474029be-f744-43b2-ae55-daa952c4fe50",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "workspaces",
+                    ":id",
+                    "memberships",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "user_id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "79166a81-290d-4d02-b54b-0fe5d1f3217e",
+    "name": "API Reference subpackage_actions subpackage_workspaces.subpackage_workspaces/members API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

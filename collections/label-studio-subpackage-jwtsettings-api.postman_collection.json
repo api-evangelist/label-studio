@@ -1,0 +1,211 @@
+{
+  "item": [
+    {
+      "id": "e6283e0c-33fe-4456-bd71-5a67257ef8cf",
+      "name": "subpackage_jwtSettings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "712ad11a-3693-473a-a6e7-8b8367584de3",
+          "name": "Retrieve JWT Settings",
+          "request": {
+            "name": "Retrieve JWT Settings",
+            "description": {
+              "content": "Retrieve JWT settings for the currently active organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jwt",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eeab1cf6-c133-47cd-b03a-866ff69a9a98",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jwt",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_token_ttl_days\": 5053,\n  \"api_tokens_enabled\": true,\n  \"legacy_api_tokens_enabled\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66b5c88c-d344-4bc1-a369-f3e70a58cc3d",
+          "name": "Update JWT Settings",
+          "request": {
+            "name": "Update JWT Settings",
+            "description": {
+              "content": "Update JWT settings for the currently active organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "jwt",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"api_token_ttl_days\": \"<integer>\",\n  \"api_tokens_enabled\": \"<boolean>\",\n  \"legacy_api_tokens_enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "84e581c6-2969-4be7-9600-c0ada65fab96",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jwt",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"api_token_ttl_days\": \"<integer>\",\n  \"api_tokens_enabled\": \"<boolean>\",\n  \"legacy_api_tokens_enabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_token_ttl_days\": 5053,\n  \"api_tokens_enabled\": true,\n  \"legacy_api_tokens_enabled\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "429d26f9-6555-4d83-b717-daf4f470f959",
+    "name": "API Reference subpackage_actions subpackage_jwtSettings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

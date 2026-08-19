@@ -1,0 +1,994 @@
+{
+  "item": [
+    {
+      "id": "9e06d177-60ca-4511-84e3-1ffa18afc1e7",
+      "name": "subpackage_projects.subpackage_projects/exports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ed192f74-6253-4a48-ad11-93da72fcc8fd",
+          "name": "[Deprecated] Easy export of tasks and annotations",
+          "request": {
+            "name": "[Deprecated] Easy export of tasks and annotations",
+            "description": {
+              "content": "\n        This endpoint is deprecated in Enterprise. Use the async export API instead:\n        POST /api/projects/{id}/exports/ (see [Create new export](/api#operation/api_projects_exports_create)).\n\n        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.\n\n        <i>Note: if you have a large project it's recommended to use\n        export snapshots, this easy export endpoint might have timeouts.</i><br/><br>\n        Export annotated tasks as a file in a specific format.\n        For example, to export JSON annotations for a project to a file called `annotations.json`,\n        run the following from the command line:\n        ```bash\n        curl -X GET http://localhost:8000/api/projects/{id}/export?exportType=JSON -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        To export all tasks, including skipped tasks and others without annotations, run the following from the command line:\n        ```bash\n        curl -X GET http://localhost:8000/api/projects/{id}/export?exportType=JSON&download_all_tasks=true -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        To export specific tasks with IDs of 123 and 345, run the following from the command line:\n        ```bash\n        curl -X GET 'http://localhost:8000/api/projects/{id}/export?ids[]=123&ids[]=345' -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "download_all_tasks",
+                  "value": "<boolean>",
+                  "description": "If true, download all tasks regardless of status. If false, download only annotated tasks."
+                },
+                {
+                  "disabled": false,
+                  "key": "download_resources",
+                  "value": "<boolean>",
+                  "description": "If true, download all resource files such as images, audio, and others relevant to the tasks."
+                },
+                {
+                  "disabled": false,
+                  "key": "export_type",
+                  "value": "<string>",
+                  "description": "Selected export format (JSON by default)"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Specify a list of task IDs to retrieve only the details for those tasks."
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Specify a list of task IDs to retrieve only the details for those tasks."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "061dfc1b-59ae-4e92-9ff3-eaba0c95fd8b",
+              "name": "Exported data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "download_all_tasks",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "download_resources",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "export_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "939c58f8-e56b-470a-943d-33a276c8c390",
+          "name": "[Deprecated] Get export formats",
+          "request": {
+            "name": "[Deprecated] Get export formats",
+            "description": {
+              "content": "\n        This endpoint is deprecated in Enterprise. Use the async export API instead:\n        POST /api/projects/{{id}}/exports/ (see [Create new export](/api#operation/api_projects_exports_create)).\n\n        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.\n\n        Retrieve the available export formats for the current project by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "export",
+                "formats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1910a594-8586-489c-ba54-4c5143172769",
+              "name": "Export formats",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "export",
+                    "formats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59a1c828-b436-4f0f-a64d-e813cd1376a1",
+          "name": "List all export snapshots",
+          "request": {
+            "name": "List all export snapshots",
+            "description": {
+              "content": "Returns a list of exported files for a specific project by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "exports",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a375c639-bc23-4455-b8fb-9c53ae67825d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "exports",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_at\": \"1986-10-25T20:08:38.631Z\",\n    \"id\": 1812,\n    \"converted_formats\": [\n      {\n        \"export_type\": \"string\",\n        \"id\": 4614,\n        \"status\": \"completed\",\n        \"traceback\": \"string\"\n      },\n      {\n        \"export_type\": \"string\",\n        \"id\": 6171,\n        \"status\": \"completed\",\n        \"traceback\": \"string\"\n      }\n    ],\n    \"counters\": {},\n    \"created_by\": {\n      \"avatar\": \"string\",\n      \"id\": 5666,\n      \"username\": \"string\",\n      \"email\": \"JC8Rd3e18JjjOL@mzftLIkPjlpnINBVHRfgFyUwLuJUSCwU.nhd\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\"\n    },\n    \"finished_at\": \"1959-05-11T23:37:27.516Z\",\n    \"md5\": \"string\",\n    \"status\": \"failed\",\n    \"title\": \"string\"\n  },\n  {\n    \"created_at\": \"1976-08-12T09:19:13.619Z\",\n    \"id\": 9420,\n    \"converted_formats\": [\n      {\n        \"export_type\": \"string\",\n        \"id\": 3116,\n        \"status\": \"failed\",\n        \"traceback\": \"string\"\n      },\n      {\n        \"export_type\": \"string\",\n        \"id\": 733,\n        \"status\": \"failed\",\n        \"traceback\": \"string\"\n      }\n    ],\n    \"counters\": {},\n    \"created_by\": {\n      \"avatar\": \"string\",\n      \"id\": 5069,\n      \"username\": \"string\",\n      \"email\": \"MBy-62wZ5BKCftr@BVBcvmLWUOSAQJHCArgZUDB.hh\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\"\n    },\n    \"finished_at\": \"1995-01-23T16:00:30.837Z\",\n    \"md5\": \"string\",\n    \"status\": \"failed\",\n    \"title\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "161df250-b700-47ea-b8e0-8dc965564626",
+          "name": "Create new export snapshot",
+          "request": {
+            "name": "Create new export snapshot",
+            "description": {
+              "content": "Create a new export request to start a background task and generate an export file for a specific project by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "exports",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"annotation_filter_options\": {\n    \"ground_truth\": \"<boolean,null>\",\n    \"reviewed\": \"<string>\",\n    \"skipped\": \"<boolean,null>\",\n    \"usual\": true\n  },\n  \"converted_formats\": [\n    {\n      \"export_type\": \"<string>\",\n      \"status\": \"<string>\",\n      \"traceback\": \"<string,null>\"\n    },\n    {\n      \"export_type\": \"<string>\",\n      \"status\": \"<string>\",\n      \"traceback\": \"<string,null>\"\n    }\n  ],\n  \"counters\": {},\n  \"created_by\": {\n    \"username\": \"<string>\",\n    \"email\": \"<email>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\"\n  },\n  \"finished_at\": \"<string,null-date-time>\",\n  \"md5\": \"<string>\",\n  \"serialization_options\": {\n    \"annotations__completed_by\": {\n      \"only_id\": false\n    },\n    \"drafts\": {\n      \"only_id\": false\n    },\n    \"include_annotation_history\": false,\n    \"interpolate_key_frames\": false,\n    \"predictions\": {\n      \"only_id\": false\n    }\n  },\n  \"status\": \"<string>\",\n  \"task_filter_options\": {\n    \"annotated\": \"<string>\",\n    \"finished\": \"<string>\",\n    \"only_with_annotations\": false,\n    \"reviewed\": \"<string>\",\n    \"skipped\": \"<string>\",\n    \"view\": \"<integer>\"\n  },\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1e916ad9-9eee-4b3b-ad58-318837364489",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "exports",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"annotation_filter_options\": {\n    \"ground_truth\": false,\n    \"reviewed\": \"exclude\",\n    \"skipped\": false,\n    \"usual\": true\n  },\n  \"converted_formats\": [\n    {\n      \"export_type\": \"string\",\n      \"status\": \"completed\",\n      \"traceback\": \"string\"\n    },\n    {\n      \"export_type\": \"string\",\n      \"status\": \"failed\",\n      \"traceback\": \"string\"\n    }\n  ],\n  \"counters\": {},\n  \"created_by\": {\n    \"username\": \"string\",\n    \"email\": \"G9Scvw@ORvpkGipJ.gxyv\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"finished_at\": \"<string,null-date-time>\",\n  \"md5\": \"<string>\",\n  \"serialization_options\": {\n    \"annotations__completed_by\": {\n      \"only_id\": false\n    },\n    \"drafts\": {\n      \"only_id\": false\n    },\n    \"include_annotation_history\": false,\n    \"interpolate_key_frames\": false,\n    \"predictions\": {\n      \"only_id\": false\n    }\n  },\n  \"status\": \"created\",\n  \"task_filter_options\": {\n    \"annotated\": \"only\",\n    \"finished\": \"only\",\n    \"only_with_annotations\": false,\n    \"reviewed\": \"exclude\",\n    \"skipped\": \"exclude\",\n    \"view\": 6568\n  },\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1986-04-20T08:09:36.355Z\",\n  \"id\": 3859,\n  \"annotation_filter_options\": {\n    \"ground_truth\": false,\n    \"reviewed\": \"only\",\n    \"skipped\": false,\n    \"usual\": true\n  },\n  \"converted_formats\": [\n    {\n      \"export_type\": \"string\",\n      \"id\": 267,\n      \"status\": \"failed\",\n      \"traceback\": \"string\"\n    },\n    {\n      \"export_type\": \"string\",\n      \"id\": 2964,\n      \"status\": \"failed\",\n      \"traceback\": \"string\"\n    }\n  ],\n  \"counters\": {},\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 6279,\n    \"username\": \"string\",\n    \"email\": \"q2Fq-GbIPK6c@xVyEbTCKXbBurv.zoml\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"finished_at\": \"1958-10-08T15:17:11.812Z\",\n  \"md5\": \"string\",\n  \"serialization_options\": {\n    \"annotations__completed_by\": {\n      \"only_id\": false\n    },\n    \"drafts\": {\n      \"only_id\": false\n    },\n    \"include_annotation_history\": false,\n    \"interpolate_key_frames\": false,\n    \"predictions\": {\n      \"only_id\": false\n    }\n  },\n  \"status\": \"created\",\n  \"task_filter_options\": {\n    \"annotated\": \"exclude\",\n    \"finished\": \"only\",\n    \"only_with_annotations\": false,\n    \"reviewed\": \"only\",\n    \"skipped\": \"exclude\",\n    \"view\": 6704\n  },\n  \"title\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43f137ba-6a08-465d-bd63-2fa0a0c07c5d",
+          "name": "Get export snapshot by ID",
+          "request": {
+            "name": "Get export snapshot by ID",
+            "description": {
+              "content": "Retrieve information about an export file by export ID for a specific project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "exports",
+                ":export_pk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "export_pk",
+                  "description": "(Required) Primary key identifying the export file."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "df58df3e-b9ce-405b-be8a-2dcb57e25e45",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "exports",
+                    ":export_pk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "export_pk",
+                      "description": "(Required) Primary key identifying the export file."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1988-03-26T08:36:49.839Z\",\n  \"id\": 1159,\n  \"converted_formats\": [\n    {\n      \"export_type\": \"string\",\n      \"id\": 5489,\n      \"status\": \"completed\",\n      \"traceback\": \"string\"\n    },\n    {\n      \"export_type\": \"string\",\n      \"id\": 9265,\n      \"status\": \"created\",\n      \"traceback\": \"string\"\n    }\n  ],\n  \"counters\": {},\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 5268,\n    \"username\": \"string\",\n    \"email\": \"Iny9mIR6-O@mcwDJEfbNoHFGEbAbQ.peyx\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"finished_at\": \"1947-09-22T09:28:40.783Z\",\n  \"md5\": \"string\",\n  \"status\": \"in_progress\",\n  \"title\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "821349b6-5463-4fbe-b2d6-87a56b3aa061",
+          "name": "Delete export snapshot",
+          "request": {
+            "name": "Delete export snapshot",
+            "description": {
+              "content": "Delete an export file by specified export ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "exports",
+                ":export_pk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "export_pk",
+                  "description": "(Required) Primary key identifying the export file."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "54bf9983-c80b-4f98-bac5-818272186b11",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "exports",
+                    ":export_pk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "export_pk",
+                      "description": "(Required) Primary key identifying the export file."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d25d6771-f6ab-4786-9cca-1031836cdbd5",
+          "name": "Export conversion",
+          "request": {
+            "name": "Export conversion",
+            "description": {
+              "content": "Convert export snapshot to selected format",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "exports",
+                ":export_pk",
+                "convert"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "export_pk",
+                  "description": "(Required) Primary key identifying the export file."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"export_type\": \"<string>\",\n  \"download_resources\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "74a193ad-07e9-4a62-9a3f-6bb0ebc8ae96",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "exports",
+                    ":export_pk",
+                    "convert"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "export_pk",
+                      "description": "(Required) Primary key identifying the export file."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"export_type\": \"<string>\",\n  \"download_resources\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"converted_format\": 7245,\n  \"export_type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d81af32f-1668-4c47-9037-c982e8d8a60f",
+          "name": "Download export snapshot as file in specified format",
+          "request": {
+            "name": "Download export snapshot as file in specified format",
+            "description": {
+              "content": "\n        Download an export file in the specified format for a specific project. Specify the project ID with the `id`\n        parameter in the path and the ID of the export file you want to download using the `export_pk` parameter\n        in the path.\n\n        Get the `export_pk` from the response of the request to [Create new export](/api#operation/api_projects_exports_create)\n        or after [listing export files](/api#operation/api_projects_exports_list).\n        ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "exports",
+                ":export_pk",
+                "download"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "exportType",
+                  "value": "<string>",
+                  "description": "Selected export format"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "export_pk",
+                  "description": "(Required) Primary key identifying the export file."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91e04af4-a8c8-450a-846b-11c6b6e773ad",
+              "name": "Export file",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "exports",
+                    ":export_pk",
+                    "download"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "exportType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "export_pk",
+                      "description": "(Required) Primary key identifying the export file."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e9b19793-ea6c-40ca-ae0f-b569cc418778",
+    "name": "API Reference subpackage_actions subpackage_projects.subpackage_projects/exports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

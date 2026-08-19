@@ -1,0 +1,611 @@
+{
+  "item": [
+    {
+      "id": "ae1b1acb-5409-425c-9370-04b0b171e5af",
+      "name": "subpackage_webhooks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "22fab971-a5c2-4d1f-895f-f5cf4d6dd879",
+          "name": "List all webhooks",
+          "request": {
+            "name": "List all webhooks",
+            "description": {
+              "content": "List all webhooks set up for your organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "webhooks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<string>",
+                  "description": "Project ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e90c5110-e2de-4ea9-a685-56a8767876df",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "project",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_at\": \"1979-10-09T00:43:16.687Z\",\n    \"id\": 7835,\n    \"organization\": 552,\n    \"updated_at\": \"1974-12-23T12:19:11.741Z\",\n    \"url\": \"https://pJFb.uodFSQ\",\n    \"actions\": [\n      \"REVIEW_UPDATED\",\n      \"TASKS_DELETED\"\n    ],\n    \"headers\": {},\n    \"is_active\": false,\n    \"project\": 8759,\n    \"send_for_all_actions\": false,\n    \"send_payload\": true\n  },\n  {\n    \"created_at\": \"1984-04-26T05:56:46.344Z\",\n    \"id\": 7699,\n    \"organization\": 7256,\n    \"updated_at\": \"1970-04-10T07:06:14.864Z\",\n    \"url\": \"https://BSACFXGWqavavZBrM.blzrxO5X2iGc7BT2GU\",\n    \"actions\": [\n      \"PROJECT_CREATED\",\n      \"LABEL_LINK_DELETED\"\n    ],\n    \"headers\": {},\n    \"is_active\": true,\n    \"project\": 530,\n    \"send_for_all_actions\": true,\n    \"send_payload\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "484fe791-876f-42a5-bcb9-ff9879093697",
+          "name": "Create a webhook",
+          "request": {
+            "name": "Create a webhook",
+            "description": {
+              "content": "Create a webhook for your organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "webhooks",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"<uri>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"headers\": {},\n  \"is_active\": \"<boolean>\",\n  \"project\": \"<integer,null>\",\n  \"send_for_all_actions\": \"<boolean>\",\n  \"send_payload\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2e2fba2a-37a0-4698-aa90-85ade3984771",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"<uri>\",\n  \"actions\": [\n    \"ANNOTATION_CREATED\",\n    \"TASKS_CREATED\"\n  ],\n  \"headers\": {},\n  \"is_active\": \"<boolean>\",\n  \"project\": \"<integer,null>\",\n  \"send_for_all_actions\": \"<boolean>\",\n  \"send_payload\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"2012-05-14T03:56:42.564Z\",\n  \"id\": 967,\n  \"organization\": 86,\n  \"updated_at\": \"1972-11-07T20:50:18.755Z\",\n  \"url\": \"https://lkkhszQJUI.eejoYjbqLykYPtntCeVvF+4+0JE+oLVx77d7tHHYiN3zYKHui27N--MyHAdpC9Og\",\n  \"actions\": [\n    \"ANNOTATIONS_DELETED\",\n    \"TASKS_CREATED\"\n  ],\n  \"headers\": {},\n  \"is_active\": false,\n  \"project\": 1589,\n  \"send_for_all_actions\": false,\n  \"send_payload\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e5ce83d-b2f2-4a3a-90dc-3a85193f1d04",
+          "name": "Get all webhook actions",
+          "request": {
+            "name": "Get all webhook actions",
+            "description": {
+              "content": "Get descriptions of all available webhook actions to set up webhooks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "webhooks",
+                "info",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "organization-only",
+                  "value": "<boolean>",
+                  "description": "organization-only or not"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8f9e2c49-3db4-45e3-b868-b0a1e235c883",
+              "name": "Object with webhook action descriptions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    "info",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "organization-only",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ANNOTATIONS_CREATED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": false\n  },\n  \"ANNOTATIONS_DELETED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": true\n  },\n  \"ANNOTATION_CREATED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": false\n  },\n  \"ANNOTATION_UPDATED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": true\n  },\n  \"LABEL_LINK_CREATED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": false\n  },\n  \"LABEL_LINK_DELETED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": false\n  },\n  \"LABEL_LINK_UPDATED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": true\n  },\n  \"PROJECT_CREATED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": true\n  },\n  \"PROJECT_DELETED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": true\n  },\n  \"PROJECT_UPDATED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": false\n  },\n  \"REVIEWS_DELETED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": true\n  },\n  \"REVIEW_CREATED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": false\n  },\n  \"REVIEW_UPDATED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": false\n  },\n  \"TASKS_CREATED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": false\n  },\n  \"TASKS_DELETED\": {\n    \"description\": \"string\",\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"organization-only\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6012081a-9e8c-4ae3-b648-f03612bb60eb",
+          "name": "Get webhook info",
+          "request": {
+            "name": "Get webhook info",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "webhooks",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e8a53b7-6f99-4029-9751-5310c20a7d94",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"2012-05-14T03:56:42.564Z\",\n  \"id\": 967,\n  \"organization\": 86,\n  \"updated_at\": \"1972-11-07T20:50:18.755Z\",\n  \"url\": \"https://lkkhszQJUI.eejoYjbqLykYPtntCeVvF+4+0JE+oLVx77d7tHHYiN3zYKHui27N--MyHAdpC9Og\",\n  \"actions\": [\n    \"ANNOTATIONS_DELETED\",\n    \"TASKS_CREATED\"\n  ],\n  \"headers\": {},\n  \"is_active\": false,\n  \"project\": 1589,\n  \"send_for_all_actions\": false,\n  \"send_payload\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2525e51d-a6fa-4455-a472-d04cd1aa0d23",
+          "name": "Delete webhook info",
+          "request": {
+            "name": "Delete webhook info",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "webhooks",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c50b7ec-e437-40cc-a875-4fed3ab258a3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f3b53c0a-6f08-4111-854f-d55dbbde60c2",
+          "name": "Update webhook info",
+          "request": {
+            "name": "Update webhook info",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "webhooks",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"headers\": {},\n  \"is_active\": \"<boolean>\",\n  \"send_for_all_actions\": \"<boolean>\",\n  \"send_payload\": \"<boolean>\",\n  \"url\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3a805748-07b4-4c11-be9b-b54cd9be7743",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "webhooks",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"actions\": [\n    \"TASKS_DELETED\",\n    \"LABEL_LINK_DELETED\"\n  ],\n  \"headers\": {},\n  \"is_active\": \"<boolean>\",\n  \"send_for_all_actions\": \"<boolean>\",\n  \"send_payload\": \"<boolean>\",\n  \"url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"1947-03-20T02:29:01.448Z\",\n  \"id\": 5514,\n  \"organization\": 9653,\n  \"project\": 366,\n  \"updated_at\": \"2000-07-08T07:53:32.144Z\",\n  \"url\": \"http://DBStDHXJZIJvQFRTIsRbvqZacU.vxhKMKurLsHZAPvY7fnewSRou-Em\",\n  \"actions\": [\n    \"REVIEWS_DELETED\",\n    \"ANNOTATION_CREATED\"\n  ],\n  \"headers\": {},\n  \"is_active\": true,\n  \"send_for_all_actions\": false,\n  \"send_payload\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "eb954f24-4195-4303-a0a4-ad5168f8c8de",
+    "name": "API Reference subpackage_actions subpackage_webhooks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

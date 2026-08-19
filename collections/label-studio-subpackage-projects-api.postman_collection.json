@@ -1,0 +1,1615 @@
+{
+  "item": [
+    {
+      "id": "6147404b-5b54-4e4a-a9fb-3c03bd09a5de",
+      "name": "subpackage_projects",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c5c25419-d56c-409c-aeba-f4110c17be78",
+          "name": "List projects",
+          "request": {
+            "name": "List projects",
+            "description": {
+              "content": "Retrieve a list of projects.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "archived",
+                  "value": "<boolean>",
+                  "description": "Filter by projects that belong to archived workspaces"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "all",
+                  "description": "Filter projects by pinned status. Use 'pinned_only' to return only pinned projects, 'exclude_pinned' to return only non-pinned projects, or 'all' to return all projects."
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Filter id by in list"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of count fields to include in the response to optimize performance. Available fields: task_number, finished_task_number, total_predictions_number, total_annotations_number, num_tasks_with_annotations, useful_annotation_number, ground_truth_number, skipped_annotations_number. If not specified, all count fields are included."
+                },
+                {
+                  "disabled": false,
+                  "key": "members_limit",
+                  "value": "10",
+                  "description": "Maximum number of members to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search term for project title and description"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Filter current_state by exact match"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "Filter title by contains (case-insensitive)"
+                },
+                {
+                  "disabled": false,
+                  "key": "workspaces",
+                  "value": "<double>",
+                  "description": "Filter workspaces by exact match"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7d28223a-d0b8-47ca-a5d0-a6f6c31561c9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "all"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "members_limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "workspaces",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 8376,\n  \"results\": [\n    {\n      \"allow_stream\": true,\n      \"assignment_settings\": {\n        \"id\": 6878,\n        \"label_stream_task_distribution\": \"assigned_only\",\n        \"project\": 2283\n      },\n      \"blueprints\": [\n        {\n          \"created_at\": \"1989-05-13T12:31:22.665Z\",\n          \"id\": 7862,\n          \"share_id\": \"string\",\n          \"short_url\": \"string\",\n          \"task_count\": \"string\",\n          \"description\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"created_at\": \"1955-10-13T17:07:45.294Z\",\n          \"id\": 8877,\n          \"share_id\": \"string\",\n          \"short_url\": \"string\",\n          \"task_count\": \"string\",\n          \"description\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"config_has_control_tags\": true,\n      \"config_suitable_for_bulk_annotation\": true,\n      \"created_at\": \"1979-09-22T05:22:35.747Z\",\n      \"data_types\": {\n        \"key_0\": {},\n        \"key_1\": {}\n      },\n      \"description_short\": \"string\",\n      \"finished_task_number\": 7278,\n      \"ground_truth_number\": 238,\n      \"id\": 5911,\n      \"is_dimensions_enabled\": \"string\",\n      \"members\": \"string\",\n      \"members_count\": 8618,\n      \"num_tasks_with_annotations\": 8044,\n      \"parsed_label_config\": {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      \"prompts\": \"string\",\n      \"queue_done\": 9841,\n      \"queue_left\": 3796,\n      \"queue_total\": \"string\",\n      \"ready\": false,\n      \"rejected\": 3496,\n      \"review_settings\": {\n        \"id\": 9809,\n        \"requeue_rejected_tasks_to_annotator\": false,\n        \"anonymize_annotations\": true,\n        \"instruction\": \"string\",\n        \"only_finished_tasks\": true,\n        \"project\": 8132,\n        \"requeue_rejected_tasks_mode\": \"remove\",\n        \"require_comment_on_reject\": false,\n        \"review_criteria\": \"one\",\n        \"review_only_manual_assignments\": true,\n        \"review_task_limit_percent\": \"string\",\n        \"sampling\": \"random\",\n        \"show_agreement_to_reviewers\": true,\n        \"show_data_manager_to_reviewers\": true,\n        \"show_instruction\": true,\n        \"show_unused_data_columns_to_reviewers\": false\n      },\n      \"review_total_tasks\": 1698,\n      \"reviewed_number\": 6905,\n      \"reviewer_queue_total\": 3164,\n      \"skipped_annotations_number\": \"string\",\n      \"start_training_on_annotation_update\": true,\n      \"state\": \"string\",\n      \"task_number\": 1933,\n      \"total_annotations_number\": \"string\",\n      \"total_predictions_number\": 8620,\n      \"useful_annotation_number\": 3470,\n      \"workspace\": \"string\",\n      \"workspace_title\": \"string\",\n      \"agreement_methodology\": \"consensus\",\n      \"agreement_threshold\": \"string\",\n      \"annotation_limit_count\": 5810,\n      \"annotation_limit_percent\": \"string\",\n      \"annotator_evaluation_continuous_tasks\": 0,\n      \"annotator_evaluation_enabled\": true,\n      \"annotator_evaluation_minimum_score\": \"95.00\",\n      \"annotator_evaluation_minimum_tasks\": 10,\n      \"annotator_evaluation_onboarding_tasks\": 0,\n      \"color\": \"string\",\n      \"comment_classification_config\": \"string\",\n      \"control_weights\": {\n        \"key_0\": {\n          \"overall\": 5218.413835455077,\n          \"type\": \"string\",\n          \"labels\": {\n            \"key_0\": 9574.636616805206,\n            \"key_1\": 7901.706135634894,\n            \"key_2\": 6560.183019086227,\n            \"key_3\": 3274.983155279133\n          }\n        }\n      },\n      \"created_by\": {\n        \"avatar\": \"string\",\n        \"id\": 6411,\n        \"username\": \"string\",\n        \"email\": \"3RDeNeFja09HB22@siEHqIwKqCyPGCSuScjzzeItqUoKp.yh\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"custom_interface_code\": \"string\",\n      \"custom_interface_compiled\": \"string\",\n      \"custom_interface_params\": {},\n      \"custom_script\": \"string\",\n      \"custom_task_lock_ttl\": 3510,\n      \"description\": \"string\",\n      \"duplication_done\": false,\n      \"duplication_status\": \"string\",\n      \"enable_empty_annotation\": true,\n      \"evaluate_predictions_automatically\": true,\n      \"expert_instruction\": \"string\",\n      \"input_schema\": {},\n      \"is_draft\": false,\n      \"is_published\": true,\n      \"label_config\": \"string\",\n      \"max_additional_annotators_assignable\": 4101,\n      \"maximum_annotations\": 263,\n      \"min_annotations_to_start_training\": 5838,\n      \"model_version\": \"string\",\n      \"organization\": 9088,\n      \"overlap_cohort_percentage\": 8065,\n      \"pause_on_failed_annotator_evaluation\": false,\n      \"pinned_at\": \"2021-05-07T06:52:05.612Z\",\n      \"require_comment_on_skip\": false,\n      \"reveal_preannotations_interactively\": false,\n      \"sampling\": \"Uniform sampling\",\n      \"show_annotation_history\": true,\n      \"show_collab_predictions\": false,\n      \"show_ground_truth_first\": false,\n      \"show_instruction\": true,\n      \"show_overlap_first\": true,\n      \"show_skip_button\": false,\n      \"show_unused_data_columns_to_annotators\": false,\n      \"skip_queue\": \"REQUEUE_FOR_ME\",\n      \"source_interface_id\": 8314,\n      \"source_interface_version\": 6271,\n      \"strict_task_overlap\": true,\n      \"title\": \"string\",\n      \"use_custom_interface\": false\n    },\n    {\n      \"allow_stream\": true,\n      \"assignment_settings\": {\n        \"id\": 5090,\n        \"label_stream_task_distribution\": \"assigned_only\",\n        \"project\": 5817\n      },\n      \"blueprints\": [\n        {\n          \"created_at\": \"2022-04-10T01:24:06.074Z\",\n          \"id\": 6982,\n          \"share_id\": \"string\",\n          \"short_url\": \"string\",\n          \"task_count\": \"string\",\n          \"description\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"created_at\": \"1997-02-19T23:27:38.793Z\",\n          \"id\": 691,\n          \"share_id\": \"string\",\n          \"short_url\": \"string\",\n          \"task_count\": \"string\",\n          \"description\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"config_has_control_tags\": true,\n      \"config_suitable_for_bulk_annotation\": false,\n      \"created_at\": \"1949-10-31T04:28:12.821Z\",\n      \"data_types\": {\n        \"key_0\": {}\n      },\n      \"description_short\": \"string\",\n      \"finished_task_number\": 8470,\n      \"ground_truth_number\": 6716,\n      \"id\": 6399,\n      \"is_dimensions_enabled\": \"string\",\n      \"members\": \"string\",\n      \"members_count\": 9383,\n      \"num_tasks_with_annotations\": 4360,\n      \"parsed_label_config\": {\n        \"key_0\": {}\n      },\n      \"prompts\": \"string\",\n      \"queue_done\": 8152,\n      \"queue_left\": 8916,\n      \"queue_total\": \"string\",\n      \"ready\": true,\n      \"rejected\": 2140,\n      \"review_settings\": {\n        \"id\": 258,\n        \"requeue_rejected_tasks_to_annotator\": false,\n        \"anonymize_annotations\": false,\n        \"instruction\": \"string\",\n        \"only_finished_tasks\": false,\n        \"project\": 8312,\n        \"requeue_rejected_tasks_mode\": \"flexible\",\n        \"require_comment_on_reject\": true,\n        \"review_criteria\": \"one\",\n        \"review_only_manual_assignments\": false,\n        \"review_task_limit_percent\": \"string\",\n        \"sampling\": \"random\",\n        \"show_agreement_to_reviewers\": true,\n        \"show_data_manager_to_reviewers\": false,\n        \"show_instruction\": true,\n        \"show_unused_data_columns_to_reviewers\": false\n      },\n      \"review_total_tasks\": 6048,\n      \"reviewed_number\": 9142,\n      \"reviewer_queue_total\": 1239,\n      \"skipped_annotations_number\": \"string\",\n      \"start_training_on_annotation_update\": false,\n      \"state\": \"string\",\n      \"task_number\": 4346,\n      \"total_annotations_number\": \"string\",\n      \"total_predictions_number\": 2452,\n      \"useful_annotation_number\": 679,\n      \"workspace\": \"string\",\n      \"workspace_title\": \"string\",\n      \"agreement_methodology\": \"pairwise\",\n      \"agreement_threshold\": \"string\",\n      \"annotation_limit_count\": 1379,\n      \"annotation_limit_percent\": \"string\",\n      \"annotator_evaluation_continuous_tasks\": 0,\n      \"annotator_evaluation_enabled\": false,\n      \"annotator_evaluation_minimum_score\": \"95.00\",\n      \"annotator_evaluation_minimum_tasks\": 10,\n      \"annotator_evaluation_onboarding_tasks\": 0,\n      \"color\": \"string\",\n      \"comment_classification_config\": \"string\",\n      \"control_weights\": {\n        \"key_0\": {\n          \"overall\": 3615.9871748288174,\n          \"type\": \"string\",\n          \"labels\": {\n            \"key_0\": 9286.92986508815,\n            \"key_1\": 8512.91954010219,\n            \"key_2\": 9820.125124445723\n          }\n        },\n        \"key_1\": {\n          \"overall\": 7022.643298258794,\n          \"type\": \"string\",\n          \"labels\": {\n            \"key_0\": 1862.069870188745,\n            \"key_1\": 970.2820178814342\n          }\n        },\n        \"key_2\": {\n          \"overall\": 6645.432272636709,\n          \"type\": \"string\",\n          \"labels\": {\n            \"key_0\": 7601.996047433077\n          }\n        }\n      },\n      \"created_by\": {\n        \"avatar\": \"string\",\n        \"id\": 762,\n        \"username\": \"string\",\n        \"email\": \"0iVMsyoIToAk@HbxOzNOXUBywOQxsVuTVlD.lc\",\n        \"first_name\": \"string\",\n        \"last_name\": \"string\"\n      },\n      \"custom_interface_code\": \"string\",\n      \"custom_interface_compiled\": \"string\",\n      \"custom_interface_params\": {},\n      \"custom_script\": \"string\",\n      \"custom_task_lock_ttl\": 7998,\n      \"description\": \"string\",\n      \"duplication_done\": false,\n      \"duplication_status\": \"string\",\n      \"enable_empty_annotation\": false,\n      \"evaluate_predictions_automatically\": true,\n      \"expert_instruction\": \"string\",\n      \"input_schema\": {},\n      \"is_draft\": true,\n      \"is_published\": false,\n      \"label_config\": \"string\",\n      \"max_additional_annotators_assignable\": 5235,\n      \"maximum_annotations\": 8051,\n      \"min_annotations_to_start_training\": 2129,\n      \"model_version\": \"string\",\n      \"organization\": 6043,\n      \"overlap_cohort_percentage\": 1822,\n      \"pause_on_failed_annotator_evaluation\": false,\n      \"pinned_at\": \"2025-10-26T10:02:12.106Z\",\n      \"require_comment_on_skip\": false,\n      \"reveal_preannotations_interactively\": false,\n      \"sampling\": \"Uncertainty sampling\",\n      \"show_annotation_history\": false,\n      \"show_collab_predictions\": true,\n      \"show_ground_truth_first\": false,\n      \"show_instruction\": true,\n      \"show_overlap_first\": false,\n      \"show_skip_button\": true,\n      \"show_unused_data_columns_to_annotators\": false,\n      \"skip_queue\": \"REQUEUE_FOR_ME\",\n      \"source_interface_id\": 8882,\n      \"source_interface_version\": 969,\n      \"strict_task_overlap\": true,\n      \"title\": \"string\",\n      \"use_custom_interface\": false\n    }\n  ],\n  \"next\": \"http://kBBAyyzhAOjgHvfGQzAKFAZyyCXQwEK.kzuiwEM2wRDpQd3dIGTNJDIp.TjwXx4kip\",\n  \"previous\": \"https://VxIIJGdtkUPzMDbHHiezF.bokrN8A+ldHHWQHJRZluQRZlcBAOZMYOu+\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9edcd8d-0c5f-4c40-81c9-b53bec8626aa",
+          "name": "Create a project",
+          "request": {
+            "name": "Create a project",
+            "description": {
+              "content": "Create a project for a specific organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"annotator_evaluation_enabled\": \"<boolean>\",\n  \"color\": \"<string,null>\",\n  \"control_weights\": {\n    \"key_0\": {\n      \"overall\": \"<double>\",\n      \"type\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<double>\",\n        \"key_1\": \"<double>\",\n        \"key_2\": \"<double>\",\n        \"key_3\": \"<double>\"\n      }\n    }\n  },\n  \"created_by\": {\n    \"username\": \"<string>\",\n    \"email\": \"<email>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\"\n  },\n  \"custom_interface_code\": \"<string,null>\",\n  \"custom_interface_compiled\": \"<string,null>\",\n  \"custom_interface_params\": {},\n  \"description\": \"<string,null>\",\n  \"enable_empty_annotation\": \"<boolean>\",\n  \"evaluate_predictions_automatically\": \"<boolean>\",\n  \"expert_instruction\": \"<string,null>\",\n  \"input_schema\": {},\n  \"is_draft\": \"<boolean>\",\n  \"is_published\": \"<boolean>\",\n  \"label_config\": \"<string,null>\",\n  \"maximum_annotations\": \"<integer>\",\n  \"min_annotations_to_start_training\": \"<integer>\",\n  \"model_version\": \"<string,null>\",\n  \"organization\": \"<integer,null>\",\n  \"overlap_cohort_percentage\": \"<integer>\",\n  \"pinned_at\": \"<string,null-date-time>\",\n  \"reveal_preannotations_interactively\": \"<boolean>\",\n  \"sampling\": \"<string>\",\n  \"show_annotation_history\": \"<boolean>\",\n  \"show_collab_predictions\": \"<boolean>\",\n  \"show_ground_truth_first\": \"<boolean>\",\n  \"show_instruction\": \"<boolean>\",\n  \"show_overlap_first\": \"<boolean>\",\n  \"show_skip_button\": \"<boolean>\",\n  \"skip_queue\": \"<string>\",\n  \"source_interface_id\": \"<integer,null>\",\n  \"source_interface_version\": \"<integer,null>\",\n  \"task_data_login\": \"<string,null>\",\n  \"task_data_password\": \"<string,null>\",\n  \"title\": \"<string,null>\",\n  \"use_custom_interface\": false,\n  \"workspace\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9882ed0b-77b9-4759-b4ec-fe42678582ba",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"annotator_evaluation_enabled\": \"<boolean>\",\n  \"color\": \"<string,null>\",\n  \"control_weights\": {\n    \"key_0\": {\n      \"overall\": 5201.851752177029,\n      \"type\": \"string\",\n      \"labels\": {\n        \"key_0\": 3736.1362708336633,\n        \"key_1\": 1766.5951477655285\n      }\n    }\n  },\n  \"created_by\": {\n    \"username\": \"string\",\n    \"email\": \"CEW6Vt5IW@qGu.ihm\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"custom_interface_code\": \"<string,null>\",\n  \"custom_interface_compiled\": \"<string,null>\",\n  \"custom_interface_params\": {},\n  \"description\": \"<string,null>\",\n  \"enable_empty_annotation\": \"<boolean>\",\n  \"evaluate_predictions_automatically\": \"<boolean>\",\n  \"expert_instruction\": \"<string,null>\",\n  \"input_schema\": {},\n  \"is_draft\": \"<boolean>\",\n  \"is_published\": \"<boolean>\",\n  \"label_config\": \"<string,null>\",\n  \"maximum_annotations\": \"<integer>\",\n  \"min_annotations_to_start_training\": \"<integer>\",\n  \"model_version\": \"<string,null>\",\n  \"organization\": \"<integer,null>\",\n  \"overlap_cohort_percentage\": \"<integer>\",\n  \"pinned_at\": \"<string,null-date-time>\",\n  \"reveal_preannotations_interactively\": \"<boolean>\",\n  \"sampling\": \"Uniform sampling\",\n  \"show_annotation_history\": \"<boolean>\",\n  \"show_collab_predictions\": \"<boolean>\",\n  \"show_ground_truth_first\": \"<boolean>\",\n  \"show_instruction\": \"<boolean>\",\n  \"show_overlap_first\": \"<boolean>\",\n  \"show_skip_button\": \"<boolean>\",\n  \"skip_queue\": \"REQUEUE_FOR_OTHERS\",\n  \"source_interface_id\": \"<integer,null>\",\n  \"source_interface_version\": \"<integer,null>\",\n  \"task_data_login\": \"<string,null>\",\n  \"task_data_password\": \"<string,null>\",\n  \"title\": \"<string,null>\",\n  \"use_custom_interface\": false,\n  \"workspace\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"config_has_control_tags\": false,\n  \"config_suitable_for_bulk_annotation\": false,\n  \"created_at\": \"1970-12-23T12:31:16.298Z\",\n  \"finished_task_number\": 6213,\n  \"ground_truth_number\": 374,\n  \"id\": 1068,\n  \"num_tasks_with_annotations\": 9407,\n  \"parsed_label_config\": {\n    \"key_0\": {}\n  },\n  \"queue_done\": 7074,\n  \"queue_total\": 4705,\n  \"skipped_annotations_number\": 1147,\n  \"start_training_on_annotation_update\": true,\n  \"state\": \"string\",\n  \"task_number\": 9797,\n  \"total_annotations_number\": 6595,\n  \"total_predictions_number\": 5192,\n  \"useful_annotation_number\": 5051,\n  \"annotator_evaluation_enabled\": false,\n  \"color\": \"string\",\n  \"control_weights\": {\n    \"key_0\": {\n      \"overall\": 6290.902024322866,\n      \"type\": \"string\",\n      \"labels\": {\n        \"key_0\": 2308.1730495492825,\n        \"key_1\": 4422.913967914435,\n        \"key_2\": 2846.5033609331736\n      }\n    },\n    \"key_1\": {\n      \"overall\": 2332.507959079024,\n      \"type\": \"string\",\n      \"labels\": {\n        \"key_0\": 3938.798819443131,\n        \"key_1\": 5234.883455005722,\n        \"key_2\": 9749.718979211286,\n        \"key_3\": 4035.0474572501626\n      }\n    }\n  },\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 466,\n    \"username\": \"string\",\n    \"email\": \"jMklS-kiYUKP@BjxuwBIhtBzMJHceAgcsZ.dgf\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"custom_interface_code\": \"string\",\n  \"custom_interface_compiled\": \"string\",\n  \"custom_interface_params\": {},\n  \"description\": \"string\",\n  \"enable_empty_annotation\": false,\n  \"evaluate_predictions_automatically\": true,\n  \"expert_instruction\": \"string\",\n  \"input_schema\": {},\n  \"is_draft\": true,\n  \"is_published\": true,\n  \"label_config\": \"string\",\n  \"maximum_annotations\": 2403,\n  \"min_annotations_to_start_training\": 7616,\n  \"model_version\": \"string\",\n  \"organization\": 8136,\n  \"overlap_cohort_percentage\": 7846,\n  \"pinned_at\": \"1957-11-08T08:07:19.127Z\",\n  \"reveal_preannotations_interactively\": false,\n  \"sampling\": \"Uniform sampling\",\n  \"show_annotation_history\": false,\n  \"show_collab_predictions\": false,\n  \"show_ground_truth_first\": false,\n  \"show_instruction\": false,\n  \"show_overlap_first\": true,\n  \"show_skip_button\": false,\n  \"skip_queue\": \"REQUEUE_FOR_OTHERS\",\n  \"source_interface_id\": 236,\n  \"source_interface_version\": 9085,\n  \"task_data_login\": \"string\",\n  \"task_data_password\": \"string\",\n  \"title\": \"string\",\n  \"use_custom_interface\": false,\n  \"workspace\": 3372\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec6c15b7-473b-46b6-9523-6e9a6a01c4ec",
+          "name": "List projects' counts",
+          "request": {
+            "name": "List projects' counts",
+            "description": {
+              "content": "Returns a list of projects with their counts. For example, task_number which is the total task number in project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                "counts",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "archived",
+                  "value": "<boolean>",
+                  "description": "Filter by projects that belong to archived workspaces"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "all",
+                  "description": "Filter projects by pinned status. Use 'pinned_only' to return only pinned projects, 'exclude_pinned' to return only non-pinned projects, or 'all' to return all projects."
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<string>",
+                  "description": "Filter id by in list"
+                },
+                {
+                  "disabled": false,
+                  "key": "include",
+                  "value": "<string>",
+                  "description": "Comma-separated list of count fields to include in the response to optimize performance. Available fields: task_number, finished_task_number, total_predictions_number, total_annotations_number, num_tasks_with_annotations, useful_annotation_number, ground_truth_number, skipped_annotations_number. If not specified, all count fields are included."
+                },
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A page number within the paginated result set."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "<integer>",
+                  "description": "Number of results to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Search term for project title and description"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "Filter current_state by exact match"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "Filter title by contains (case-insensitive)"
+                },
+                {
+                  "disabled": false,
+                  "key": "workspaces",
+                  "value": "<double>",
+                  "description": "Filter workspaces by exact match"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa952d47-5a9a-435c-903a-af4875ad7cf0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    "counts",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "archived",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "all"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "workspaces",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9740,\n  \"results\": [\n    {\n      \"finished_task_number\": 2508,\n      \"ground_truth_number\": 7200,\n      \"id\": 9225,\n      \"num_tasks_with_annotations\": 7617,\n      \"queue_done\": 3330,\n      \"queue_left\": 5368,\n      \"queue_total\": \"string\",\n      \"rejected\": 7926,\n      \"review_total_tasks\": 6203,\n      \"reviewed_number\": 7473,\n      \"skipped_annotations_number\": \"string\",\n      \"task_number\": 8043,\n      \"total_annotations_number\": \"string\",\n      \"total_predictions_number\": 6028,\n      \"useful_annotation_number\": 84\n    },\n    {\n      \"finished_task_number\": 8929,\n      \"ground_truth_number\": 553,\n      \"id\": 5238,\n      \"num_tasks_with_annotations\": 4571,\n      \"queue_done\": 9462,\n      \"queue_left\": 6318,\n      \"queue_total\": \"string\",\n      \"rejected\": 1325,\n      \"review_total_tasks\": 1250,\n      \"reviewed_number\": 3315,\n      \"skipped_annotations_number\": \"string\",\n      \"task_number\": 4481,\n      \"total_annotations_number\": \"string\",\n      \"total_predictions_number\": 2721,\n      \"useful_annotation_number\": 3843\n    }\n  ],\n  \"next\": \"http://bLkAmICXaGJoVRDRtelG.meovfiHHh2IQIOHeNQ47BnVjt6Au1jJOTcR4mxQlHcPgDiH6p\",\n  \"previous\": \"https://lRhHCOUxIXhuFuPSbsonPH.tmbzmBijAc8NmZT5a-EhirB3Gy+NgsBiqYjHviThKuBqrpTZKDfni0oSj-9\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad309cff-be22-4494-b57b-ebfe963974c1",
+          "name": "Get project by ID",
+          "request": {
+            "name": "Get project by ID",
+            "description": {
+              "content": "Retrieve information about a project by project ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "members_limit",
+                  "value": "10",
+                  "description": "Maximum number of members to return"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68ac5f98-e876-4ac6-bf94-02828932318e",
+              "name": "Project information. Not all fields are available for all roles.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "members_limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"allow_stream\": false,\n  \"assignment_settings\": {\n    \"id\": 3966,\n    \"label_stream_task_distribution\": \"auto_distribution\",\n    \"project\": 8106\n  },\n  \"config_has_control_tags\": false,\n  \"config_suitable_for_bulk_annotation\": false,\n  \"created_at\": \"2022-05-05T17:03:04.577Z\",\n  \"data_types\": {\n    \"key_0\": {}\n  },\n  \"finished_task_number\": 9659,\n  \"ground_truth_number\": 8863,\n  \"id\": 1399,\n  \"is_dimensions_enabled\": \"string\",\n  \"members\": \"string\",\n  \"members_count\": 2803,\n  \"num_tasks_with_annotations\": 6321,\n  \"parsed_label_config\": {\n    \"key_0\": {},\n    \"key_1\": {}\n  },\n  \"prompts\": \"string\",\n  \"queue_done\": 2598,\n  \"queue_left\": 7568,\n  \"queue_total\": 3062,\n  \"ready\": false,\n  \"rejected\": 4771,\n  \"review_settings\": {\n    \"id\": 2830,\n    \"requeue_rejected_tasks_to_annotator\": true,\n    \"anonymize_annotations\": false,\n    \"instruction\": \"string\",\n    \"only_finished_tasks\": true,\n    \"project\": 8006,\n    \"requeue_rejected_tasks_mode\": \"requeue\",\n    \"require_comment_on_reject\": true,\n    \"review_criteria\": \"one\",\n    \"review_only_manual_assignments\": false,\n    \"review_task_limit_percent\": \"string\",\n    \"sampling\": \"task_id\",\n    \"show_agreement_to_reviewers\": true,\n    \"show_data_manager_to_reviewers\": true,\n    \"show_instruction\": false,\n    \"show_unused_data_columns_to_reviewers\": false\n  },\n  \"review_total_tasks\": 5865,\n  \"reviewed_number\": 3940,\n  \"reviewer_queue_total\": 9533,\n  \"skipped_annotations_number\": 4520,\n  \"start_training_on_annotation_update\": false,\n  \"state\": \"string\",\n  \"task_number\": 4684,\n  \"total_annotations_number\": 2715,\n  \"total_predictions_number\": 9321,\n  \"useful_annotation_number\": 4044,\n  \"workspace\": \"string\",\n  \"workspace_title\": \"string\",\n  \"agreement_methodology\": \"consensus\",\n  \"agreement_threshold\": \"string\",\n  \"annotation_limit_count\": 4238,\n  \"annotation_limit_percent\": \"string\",\n  \"annotator_evaluation_continuous_tasks\": 0,\n  \"annotator_evaluation_enabled\": false,\n  \"annotator_evaluation_minimum_score\": \"95.00\",\n  \"annotator_evaluation_minimum_tasks\": 10,\n  \"annotator_evaluation_onboarding_tasks\": 0,\n  \"color\": \"string\",\n  \"comment_classification_config\": \"string\",\n  \"control_weights\": {\n    \"key_0\": {\n      \"overall\": 6833.386612803103,\n      \"type\": \"string\",\n      \"labels\": {\n        \"key_0\": 5501.957089487039\n      }\n    }\n  },\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 5081,\n    \"username\": \"string\",\n    \"email\": \"I7MRlA@Ro.obkh\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"custom_interface_code\": \"string\",\n  \"custom_interface_compiled\": \"string\",\n  \"custom_interface_params\": {},\n  \"custom_script\": \"string\",\n  \"custom_task_lock_ttl\": 4629,\n  \"description\": \"string\",\n  \"duplication_done\": false,\n  \"duplication_status\": \"string\",\n  \"enable_empty_annotation\": true,\n  \"evaluate_predictions_automatically\": false,\n  \"expert_instruction\": \"string\",\n  \"input_schema\": {},\n  \"is_draft\": false,\n  \"is_published\": false,\n  \"label_config\": \"string\",\n  \"max_additional_annotators_assignable\": 7210,\n  \"maximum_annotations\": 6282,\n  \"min_annotations_to_start_training\": 2175,\n  \"model_version\": \"string\",\n  \"organization\": 8823,\n  \"overlap_cohort_percentage\": 4005,\n  \"pause_on_failed_annotator_evaluation\": false,\n  \"pinned_at\": \"2001-06-16T11:22:00.748Z\",\n  \"require_comment_on_skip\": false,\n  \"reveal_preannotations_interactively\": false,\n  \"sampling\": \"Uncertainty sampling\",\n  \"show_annotation_history\": true,\n  \"show_collab_predictions\": true,\n  \"show_ground_truth_first\": false,\n  \"show_instruction\": false,\n  \"show_overlap_first\": false,\n  \"show_skip_button\": true,\n  \"show_unused_data_columns_to_annotators\": true,\n  \"skip_queue\": \"IGNORE_SKIPPED\",\n  \"source_interface_id\": 7101,\n  \"source_interface_version\": 6423,\n  \"strict_task_overlap\": true,\n  \"task_data_login\": \"string\",\n  \"task_data_password\": \"string\",\n  \"title\": \"string\",\n  \"use_custom_interface\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82b36c40-578d-4857-a4dd-cf1e37f4872e",
+          "name": "Delete project",
+          "request": {
+            "name": "Delete project",
+            "description": {
+              "content": "Delete a project by specified project ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc477958-45f0-47d5-b62e-46c6bbe0d413",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ba69d7a-f8c8-46d8-9a16-a88715d332fe",
+          "name": "Update project details",
+          "request": {
+            "name": "Update project details",
+            "description": {
+              "content": "Update the details of a specific project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "members_limit",
+                  "value": "10",
+                  "description": "Maximum number of members to return"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agreement_methodology\": \"<string>\",\n  \"agreement_threshold\": \"<string,null-decimal>\",\n  \"annotation_limit_count\": \"<integer,null>\",\n  \"annotation_limit_percent\": \"<string,null-decimal>\",\n  \"annotator_evaluation_continuous_tasks\": 0,\n  \"annotator_evaluation_enabled\": \"<boolean>\",\n  \"annotator_evaluation_minimum_score\": \"95.00\",\n  \"annotator_evaluation_minimum_tasks\": 10,\n  \"annotator_evaluation_onboarding_tasks\": 0,\n  \"assignment_settings\": {\n    \"label_stream_task_distribution\": \"<string>\",\n    \"project\": \"<integer,null>\"\n  },\n  \"color\": \"<string,null>\",\n  \"comment_classification_config\": \"<string>\",\n  \"control_weights\": {\n    \"key_0\": {\n      \"overall\": \"<double>\",\n      \"type\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<double>\",\n        \"key_1\": \"<double>\",\n        \"key_2\": \"<double>\"\n      }\n    },\n    \"key_1\": {\n      \"overall\": \"<double>\",\n      \"type\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<double>\",\n        \"key_1\": \"<double>\",\n        \"key_2\": \"<double>\"\n      }\n    },\n    \"key_2\": {\n      \"overall\": \"<double>\",\n      \"type\": \"<string>\",\n      \"labels\": {\n        \"key_0\": \"<double>\",\n        \"key_1\": \"<double>\"\n      }\n    }\n  },\n  \"created_by\": {\n    \"username\": \"<string>\",\n    \"email\": \"<email>\",\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\"\n  },\n  \"custom_interface_code\": \"<string,null>\",\n  \"custom_interface_compiled\": \"<string,null>\",\n  \"custom_interface_params\": {},\n  \"custom_script\": \"<string>\",\n  \"custom_task_lock_ttl\": \"<integer,null>\",\n  \"description\": \"<string,null>\",\n  \"enable_empty_annotation\": \"<boolean>\",\n  \"evaluate_predictions_automatically\": \"<boolean>\",\n  \"expert_instruction\": \"<string,null>\",\n  \"input_schema\": {},\n  \"is_draft\": \"<boolean>\",\n  \"is_published\": \"<boolean>\",\n  \"label_config\": \"<string,null>\",\n  \"max_additional_annotators_assignable\": \"<integer,null>\",\n  \"maximum_annotations\": \"<integer>\",\n  \"min_annotations_to_start_training\": \"<integer>\",\n  \"model_version\": \"<string,null>\",\n  \"organization\": \"<integer,null>\",\n  \"overlap_cohort_percentage\": \"<integer>\",\n  \"pause_on_failed_annotator_evaluation\": false,\n  \"pinned_at\": \"<string,null-date-time>\",\n  \"require_comment_on_skip\": false,\n  \"reveal_preannotations_interactively\": \"<boolean>\",\n  \"review_settings\": {\n    \"anonymize_annotations\": \"<boolean>\",\n    \"instruction\": \"<string,null>\",\n    \"only_finished_tasks\": \"<boolean>\",\n    \"project\": \"<integer,null>\",\n    \"requeue_rejected_tasks_mode\": \"<string>\",\n    \"require_comment_on_reject\": \"<boolean>\",\n    \"review_criteria\": \"<string>\",\n    \"review_only_manual_assignments\": \"<boolean>\",\n    \"review_task_limit_percent\": \"<string,null-decimal>\",\n    \"sampling\": \"<string>\",\n    \"show_agreement_to_reviewers\": \"<boolean>\",\n    \"show_data_manager_to_reviewers\": \"<boolean>\",\n    \"show_instruction\": \"<boolean>\",\n    \"show_unused_data_columns_to_reviewers\": \"<boolean,null>\"\n  },\n  \"sampling\": \"<string>\",\n  \"show_annotation_history\": \"<boolean>\",\n  \"show_collab_predictions\": \"<boolean>\",\n  \"show_ground_truth_first\": \"<boolean>\",\n  \"show_instruction\": \"<boolean>\",\n  \"show_overlap_first\": \"<boolean>\",\n  \"show_skip_button\": \"<boolean>\",\n  \"show_unused_data_columns_to_annotators\": \"<boolean,null>\",\n  \"skip_queue\": \"<string>\",\n  \"source_interface_id\": \"<integer,null>\",\n  \"source_interface_version\": \"<integer,null>\",\n  \"strict_task_overlap\": true,\n  \"task_data_login\": \"<string,null>\",\n  \"task_data_password\": \"<string,null>\",\n  \"title\": \"<string,null>\",\n  \"use_custom_interface\": false,\n  \"workspace\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ffbc083c-da7a-40ac-a956-a512a6af8c85",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "members_limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agreement_methodology\": \"consensus\",\n  \"agreement_threshold\": \"<string,null-decimal>\",\n  \"annotation_limit_count\": \"<integer,null>\",\n  \"annotation_limit_percent\": \"<string,null-decimal>\",\n  \"annotator_evaluation_continuous_tasks\": 0,\n  \"annotator_evaluation_enabled\": \"<boolean>\",\n  \"annotator_evaluation_minimum_score\": \"95.00\",\n  \"annotator_evaluation_minimum_tasks\": 10,\n  \"annotator_evaluation_onboarding_tasks\": 0,\n  \"assignment_settings\": {\n    \"label_stream_task_distribution\": \"assigned_only\",\n    \"project\": 8792\n  },\n  \"color\": \"<string,null>\",\n  \"comment_classification_config\": \"<string>\",\n  \"control_weights\": {\n    \"key_0\": {\n      \"overall\": 4646.3430257143455,\n      \"type\": \"string\",\n      \"labels\": {\n        \"key_0\": 8358.075399500454,\n        \"key_1\": 9177.640605416093\n      }\n    },\n    \"key_1\": {\n      \"overall\": 271.8544116543864,\n      \"type\": \"string\",\n      \"labels\": {\n        \"key_0\": 6721.0105849314905\n      }\n    }\n  },\n  \"created_by\": {\n    \"username\": \"string\",\n    \"email\": \"1qCc@ggKBDZhOgIwwwugHoWAZVrQnAgAde.lmwu\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"custom_interface_code\": \"<string,null>\",\n  \"custom_interface_compiled\": \"<string,null>\",\n  \"custom_interface_params\": {},\n  \"custom_script\": \"<string>\",\n  \"custom_task_lock_ttl\": \"<integer,null>\",\n  \"description\": \"<string,null>\",\n  \"enable_empty_annotation\": \"<boolean>\",\n  \"evaluate_predictions_automatically\": \"<boolean>\",\n  \"expert_instruction\": \"<string,null>\",\n  \"input_schema\": {},\n  \"is_draft\": \"<boolean>\",\n  \"is_published\": \"<boolean>\",\n  \"label_config\": \"<string,null>\",\n  \"max_additional_annotators_assignable\": \"<integer,null>\",\n  \"maximum_annotations\": \"<integer>\",\n  \"min_annotations_to_start_training\": \"<integer>\",\n  \"model_version\": \"<string,null>\",\n  \"organization\": \"<integer,null>\",\n  \"overlap_cohort_percentage\": \"<integer>\",\n  \"pause_on_failed_annotator_evaluation\": false,\n  \"pinned_at\": \"<string,null-date-time>\",\n  \"require_comment_on_skip\": false,\n  \"reveal_preannotations_interactively\": \"<boolean>\",\n  \"review_settings\": {\n    \"anonymize_annotations\": false,\n    \"instruction\": \"string\",\n    \"only_finished_tasks\": false,\n    \"project\": 2683,\n    \"requeue_rejected_tasks_mode\": \"remove\",\n    \"require_comment_on_reject\": false,\n    \"review_criteria\": \"all\",\n    \"review_only_manual_assignments\": true,\n    \"review_task_limit_percent\": \"string\",\n    \"sampling\": \"random\",\n    \"show_agreement_to_reviewers\": false,\n    \"show_data_manager_to_reviewers\": false,\n    \"show_instruction\": false,\n    \"show_unused_data_columns_to_reviewers\": true\n  },\n  \"sampling\": \"Uniform sampling\",\n  \"show_annotation_history\": \"<boolean>\",\n  \"show_collab_predictions\": \"<boolean>\",\n  \"show_ground_truth_first\": \"<boolean>\",\n  \"show_instruction\": \"<boolean>\",\n  \"show_overlap_first\": \"<boolean>\",\n  \"show_skip_button\": \"<boolean>\",\n  \"show_unused_data_columns_to_annotators\": \"<boolean,null>\",\n  \"skip_queue\": \"REQUEUE_FOR_OTHERS\",\n  \"source_interface_id\": \"<integer,null>\",\n  \"source_interface_version\": \"<integer,null>\",\n  \"strict_task_overlap\": true,\n  \"task_data_login\": \"<string,null>\",\n  \"task_data_password\": \"<string,null>\",\n  \"title\": \"<string,null>\",\n  \"use_custom_interface\": false,\n  \"workspace\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assignment_settings\": {\n    \"id\": 6192,\n    \"label_stream_task_distribution\": \"assigned_only\",\n    \"project\": 8701\n  },\n  \"config_has_control_tags\": false,\n  \"config_suitable_for_bulk_annotation\": true,\n  \"created_at\": \"1985-07-27T02:04:07.283Z\",\n  \"finished_task_number\": 4859,\n  \"ground_truth_number\": 8968,\n  \"id\": 2106,\n  \"num_tasks_with_annotations\": 5575,\n  \"parsed_label_config\": {\n    \"key_0\": {},\n    \"key_1\": {},\n    \"key_2\": {}\n  },\n  \"prompts\": \"string\",\n  \"queue_done\": 8478,\n  \"queue_total\": 9516,\n  \"review_settings\": {\n    \"id\": 998,\n    \"requeue_rejected_tasks_to_annotator\": true,\n    \"anonymize_annotations\": false,\n    \"instruction\": \"string\",\n    \"only_finished_tasks\": false,\n    \"project\": 5515,\n    \"requeue_rejected_tasks_mode\": \"remove\",\n    \"require_comment_on_reject\": false,\n    \"review_criteria\": \"one\",\n    \"review_only_manual_assignments\": true,\n    \"review_task_limit_percent\": \"string\",\n    \"sampling\": \"task_id\",\n    \"show_agreement_to_reviewers\": false,\n    \"show_data_manager_to_reviewers\": true,\n    \"show_instruction\": false,\n    \"show_unused_data_columns_to_reviewers\": true\n  },\n  \"skipped_annotations_number\": 432,\n  \"start_training_on_annotation_update\": false,\n  \"state\": \"string\",\n  \"task_number\": 8211,\n  \"total_annotations_number\": 2151,\n  \"total_predictions_number\": 9498,\n  \"useful_annotation_number\": 8543,\n  \"workspace\": 5005,\n  \"workspace_title\": \"string\",\n  \"agreement_methodology\": \"pairwise\",\n  \"agreement_threshold\": \"string\",\n  \"annotation_limit_count\": 9564,\n  \"annotation_limit_percent\": \"string\",\n  \"annotator_evaluation_continuous_tasks\": 0,\n  \"annotator_evaluation_enabled\": false,\n  \"annotator_evaluation_minimum_score\": \"95.00\",\n  \"annotator_evaluation_minimum_tasks\": 10,\n  \"annotator_evaluation_onboarding_tasks\": 0,\n  \"color\": \"string\",\n  \"comment_classification_config\": \"string\",\n  \"control_weights\": {\n    \"key_0\": {\n      \"overall\": 3874.3946699161493,\n      \"type\": \"string\",\n      \"labels\": {\n        \"key_0\": 2288.139737072181,\n        \"key_1\": 6132.10136757865\n      }\n    }\n  },\n  \"created_by\": {\n    \"avatar\": \"string\",\n    \"id\": 8808,\n    \"username\": \"string\",\n    \"email\": \"nZVWfW-rzpVh@eWtrzKKmC.yd\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  \"custom_interface_code\": \"string\",\n  \"custom_interface_compiled\": \"string\",\n  \"custom_interface_params\": {},\n  \"custom_script\": \"string\",\n  \"custom_task_lock_ttl\": 641,\n  \"description\": \"string\",\n  \"enable_empty_annotation\": true,\n  \"evaluate_predictions_automatically\": false,\n  \"expert_instruction\": \"string\",\n  \"input_schema\": {},\n  \"is_draft\": false,\n  \"is_published\": true,\n  \"label_config\": \"string\",\n  \"max_additional_annotators_assignable\": 2578,\n  \"maximum_annotations\": 4872,\n  \"min_annotations_to_start_training\": 3664,\n  \"model_version\": \"string\",\n  \"organization\": 9054,\n  \"overlap_cohort_percentage\": 5986,\n  \"pause_on_failed_annotator_evaluation\": false,\n  \"pinned_at\": \"1961-05-02T22:59:33.209Z\",\n  \"require_comment_on_skip\": false,\n  \"reveal_preannotations_interactively\": false,\n  \"sampling\": \"Uncertainty sampling\",\n  \"show_annotation_history\": true,\n  \"show_collab_predictions\": false,\n  \"show_ground_truth_first\": true,\n  \"show_instruction\": false,\n  \"show_overlap_first\": true,\n  \"show_skip_button\": true,\n  \"show_unused_data_columns_to_annotators\": true,\n  \"skip_queue\": \"IGNORE_SKIPPED\",\n  \"source_interface_id\": 5603,\n  \"source_interface_version\": 8558,\n  \"strict_task_overlap\": true,\n  \"task_data_login\": \"string\",\n  \"task_data_password\": \"string\",\n  \"title\": \"string\",\n  \"use_custom_interface\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc29c628-dfb9-4d13-824c-2032a7bd6915",
+          "name": "List unique annotators for project",
+          "request": {
+            "name": "List unique annotators for project",
+            "description": {
+              "content": "Return unique users who have submitted annotations in the specified project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "annotators",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7bee29a8-d508-4b0c-8a68-2616c19390db",
+              "name": "List of annotator users",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "annotators",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"avatar\": \"string\",\n    \"id\": 2150,\n    \"username\": \"string\",\n    \"email\": \"yxliQbxXfzXa@EcPbPMYsYsqqhoBqlkQT.pymc\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  },\n  {\n    \"avatar\": \"string\",\n    \"id\": 5272,\n    \"username\": \"string\",\n    \"email\": \"3mtcWgm6A7@PRiPzDjycWzrZJIEhmeqALMewEe.epu\",\n    \"first_name\": \"string\",\n    \"last_name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb58302e-96ab-454e-b7d8-12c4941bb99e",
+          "name": "✨ Duplicate project",
+          "request": {
+            "name": "✨ Duplicate project",
+            "description": {
+              "content": "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nMake a copy of project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "duplicate",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mode\": \"<string>\",\n  \"title\": \"<string>\",\n  \"workspace\": \"<integer>\",\n  \"description\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea8a7ce7-6d3f-4428-95a9-83d8329e7685",
+              "name": "Project duplicated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "duplicate",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mode\": \"settings\",\n  \"title\": \"<string>\",\n  \"workspace\": \"<integer>\",\n  \"description\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7095\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f75e1b54-5837-4534-ad4f-e642ecca2091",
+          "name": "Import tasks",
+          "request": {
+            "name": "Import tasks",
+            "description": {
+              "content": "\n            Import data as labeling tasks in bulk using this API endpoint. You can use this API endpoint to import multiple tasks.\n            One POST request is limited at 250K tasks and 200 MB.\n\n            **Note:** Imported data is verified against a project *label_config* and must\n            include all variables that were used in the *label_config*. For example,\n            if the label configuration has a *$text* variable, then each item in a data object\n            must include a \"text\" field.\n            <br>\n\n            ## Async Import Behavior\n            <hr style=\"opacity:0.3\">\n\n            **For non-Community editions, this endpoint processes imports asynchronously.**\n            \n            - The POST request **can fail** for invalid parameters, malformed request body, or other request-level validation errors.\n            - However, **data validation errors** that occur during import processing are handled asynchronously and will not cause the POST request to fail.\n            - Upon successful request validation, a response is returned: `{\"import\": <import_id>}`\n            - Use the returned `import_id` to poll the GET `/api/projects/{project_id}/imports/{import_id}` endpoint to check the import status and see any data validation errors.\n            - Data-level errors and import failures will only be visible in the GET request response.\n\n            For Community edition, imports are processed synchronously and return task counts immediately.\n            <br>\n\n            ## POST requests\n            <hr style=\"opacity:0.3\">\n\n            There are three possible ways to import tasks with this endpoint:\n\n            ### 1. **POST with data**\n            Send JSON tasks as POST data. Only JSON is supported for POSTing files directly.\n            Update this example to specify your authorization token and Label Studio instance host, then run the following from\n            the command line.\n\n            ```bash\n            curl -H 'Content-Type: application/json' -H 'Authorization: Token abc123' \\\n            -X POST 'http://localhost:8000/api/projects/1/import' --data '[{\"text\": \"Some text 1\"}, {\"text\": \"Some text 2\"}]'\n            ```\n\n            ### 2. **POST with files**\n            Send tasks as files. You can attach multiple files with different names.\n\n            - **JSON**: text files in JavaScript object notation format\n            - **CSV**: text files with tables in Comma Separated Values format\n            - **TSV**: text files with tables in Tab Separated Value format\n            - **TXT**: simple text files are similar to CSV with one column and no header, supported for projects with one source only\n\n            Update this example to specify your authorization token, Label Studio instance host, and file name and path,\n            then run the following from the command line:\n\n            ```bash\n            curl -H 'Authorization: Token abc123' \\\n            -X POST 'http://localhost:8000/api/projects/1/import' -F 'file=@path/to/my_file.csv'\n            ```\n\n            ### 3. **POST with URL**\n            You can also provide a URL to a file with labeling tasks. Supported file formats are the same as in option 2.\n\n            ```bash\n            curl -H 'Content-Type: application/json' -H 'Authorization: Token abc123' \\\n            -X POST 'http://localhost:8000/api/projects/1/import' \\\n            --data '[{\"url\": \"http://example.com/test1.csv\"}, {\"url\": \"http://example.com/test2.csv\"}]'\n            ```\n\n            <br>\n        ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "import"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "commit_to_project",
+                  "value": "true",
+                  "description": "Set to \"true\" to immediately commit tasks to the project."
+                },
+                {
+                  "disabled": false,
+                  "key": "preannotated_from_fields",
+                  "value": "<string>",
+                  "description": "List of fields to preannotate from the task data. For example, if you provide a list of `{\"text\": \"text\", \"prediction\": \"label\"}` items in the request, the system will create a task with the `text` field and a prediction with the `label` field when `preannoted_from_fields=[\"prediction\"]`."
+                },
+                {
+                  "disabled": false,
+                  "key": "preannotated_from_fields",
+                  "value": "<string>",
+                  "description": "List of fields to preannotate from the task data. For example, if you provide a list of `{\"text\": \"text\", \"prediction\": \"label\"}` items in the request, the system will create a task with the `text` field and a prediction with the `label` field when `preannoted_from_fields=[\"prediction\"]`."
+                },
+                {
+                  "disabled": false,
+                  "key": "return_task_ids",
+                  "value": "false",
+                  "description": "Set to \"true\" to return task IDs in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"data\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"allow_skip\": \"<boolean,null>\",\n    \"annotations\": [\n      {\n        \"bulk_created\": \"<boolean,null>\",\n        \"completed_by\": \"<integer>\",\n        \"draft_created_at\": \"<string,null-date-time>\",\n        \"ground_truth\": \"<boolean>\",\n        \"import_id\": \"<integer,null-int64>\",\n        \"last_action\": \"<string>\",\n        \"last_created_by\": \"<integer,null>\",\n        \"lead_time\": \"<number,null-double>\",\n        \"parent_annotation\": \"<integer,null>\",\n        \"parent_prediction\": \"<integer,null>\",\n        \"project\": \"<integer,null>\",\n        \"task\": \"<integer,null>\",\n        \"unique_id\": \"<string>\",\n        \"updated_by\": \"<integer,null>\",\n        \"was_cancelled\": \"<boolean>\"\n      },\n      {\n        \"bulk_created\": \"<boolean,null>\",\n        \"completed_by\": \"<integer>\",\n        \"draft_created_at\": \"<string,null-date-time>\",\n        \"ground_truth\": \"<boolean>\",\n        \"import_id\": \"<integer,null-int64>\",\n        \"last_action\": \"<string>\",\n        \"last_created_by\": \"<integer,null>\",\n        \"lead_time\": \"<number,null-double>\",\n        \"parent_annotation\": \"<integer,null>\",\n        \"parent_prediction\": \"<integer,null>\",\n        \"project\": \"<integer,null>\",\n        \"task\": \"<integer,null>\",\n        \"unique_id\": \"<string>\",\n        \"updated_by\": \"<integer,null>\",\n        \"was_cancelled\": \"<boolean>\"\n      }\n    ],\n    \"cancelled_annotations\": \"<integer>\",\n    \"comment_authors\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"comment_count\": \"<integer>\",\n    \"file_upload\": \"<integer,null>\",\n    \"inner_id\": \"<integer,null-int64>\",\n    \"last_comment_updated_at\": \"<string,null-date-time>\",\n    \"meta\": {},\n    \"overlap\": \"<integer>\",\n    \"precomputed_agreement\": \"<number,null-double>\",\n    \"predictions\": [\n      {\n        \"result\": [],\n        \"task\": \"<integer>\",\n        \"cluster\": \"<integer,null>\",\n        \"mislabeling\": \"<double>\",\n        \"model\": \"<integer,null>\",\n        \"model_run\": \"<integer,null>\",\n        \"model_version\": \"<string>\",\n        \"neighbors\": {},\n        \"project\": \"<integer,null>\",\n        \"score\": \"<number,null-double>\"\n      },\n      {\n        \"result\": [],\n        \"task\": \"<integer>\",\n        \"cluster\": \"<integer,null>\",\n        \"mislabeling\": \"<double>\",\n        \"model\": \"<integer,null>\",\n        \"model_run\": \"<integer,null>\",\n        \"model_version\": \"<string>\",\n        \"neighbors\": {},\n        \"project\": \"<integer,null>\",\n        \"score\": \"<number,null-double>\"\n      }\n    ],\n    \"total_annotations\": \"<integer>\",\n    \"total_predictions\": \"<integer>\",\n    \"unresolved_comment_count\": \"<integer>\",\n    \"updated_by\": \"<integer,null>\"\n  },\n  {\n    \"data\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"allow_skip\": \"<boolean,null>\",\n    \"annotations\": [\n      {\n        \"bulk_created\": \"<boolean,null>\",\n        \"completed_by\": \"<integer>\",\n        \"draft_created_at\": \"<string,null-date-time>\",\n        \"ground_truth\": \"<boolean>\",\n        \"import_id\": \"<integer,null-int64>\",\n        \"last_action\": \"<string>\",\n        \"last_created_by\": \"<integer,null>\",\n        \"lead_time\": \"<number,null-double>\",\n        \"parent_annotation\": \"<integer,null>\",\n        \"parent_prediction\": \"<integer,null>\",\n        \"project\": \"<integer,null>\",\n        \"task\": \"<integer,null>\",\n        \"unique_id\": \"<string>\",\n        \"updated_by\": \"<integer,null>\",\n        \"was_cancelled\": \"<boolean>\"\n      },\n      {\n        \"bulk_created\": \"<boolean,null>\",\n        \"completed_by\": \"<integer>\",\n        \"draft_created_at\": \"<string,null-date-time>\",\n        \"ground_truth\": \"<boolean>\",\n        \"import_id\": \"<integer,null-int64>\",\n        \"last_action\": \"<string>\",\n        \"last_created_by\": \"<integer,null>\",\n        \"lead_time\": \"<number,null-double>\",\n        \"parent_annotation\": \"<integer,null>\",\n        \"parent_prediction\": \"<integer,null>\",\n        \"project\": \"<integer,null>\",\n        \"task\": \"<integer,null>\",\n        \"unique_id\": \"<string>\",\n        \"updated_by\": \"<integer,null>\",\n        \"was_cancelled\": \"<boolean>\"\n      }\n    ],\n    \"cancelled_annotations\": \"<integer>\",\n    \"comment_authors\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"comment_count\": \"<integer>\",\n    \"file_upload\": \"<integer,null>\",\n    \"inner_id\": \"<integer,null-int64>\",\n    \"last_comment_updated_at\": \"<string,null-date-time>\",\n    \"meta\": {},\n    \"overlap\": \"<integer>\",\n    \"precomputed_agreement\": \"<number,null-double>\",\n    \"predictions\": [\n      {\n        \"result\": [],\n        \"task\": \"<integer>\",\n        \"cluster\": \"<integer,null>\",\n        \"mislabeling\": \"<double>\",\n        \"model\": \"<integer,null>\",\n        \"model_run\": \"<integer,null>\",\n        \"model_version\": \"<string>\",\n        \"neighbors\": {},\n        \"project\": \"<integer,null>\",\n        \"score\": \"<number,null-double>\"\n      },\n      {\n        \"result\": [],\n        \"task\": \"<integer>\",\n        \"cluster\": \"<integer,null>\",\n        \"mislabeling\": \"<double>\",\n        \"model\": \"<integer,null>\",\n        \"model_run\": \"<integer,null>\",\n        \"model_version\": \"<string>\",\n        \"neighbors\": {},\n        \"project\": \"<integer,null>\",\n        \"score\": \"<number,null-double>\"\n      }\n    ],\n    \"total_annotations\": \"<integer>\",\n    \"total_predictions\": \"<integer>\",\n    \"unresolved_comment_count\": \"<integer>\",\n    \"updated_by\": \"<integer,null>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57f1b6c0-6183-45dd-add9-ef670faf4055",
+              "name": "Tasks successfully imported or import queued. **For non-Community editions**, the response will be `{\"import\": <import_id>}` which you can use to poll the import status. **For Community edition**, the response contains task counts and is processed synchronously.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "commit_to_project",
+                      "value": "true"
+                    },
+                    {
+                      "key": "preannotated_from_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "preannotated_from_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "return_task_ids",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"data\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"allow_skip\": false,\n    \"annotations\": [\n      {\n        \"bulk_created\": true,\n        \"completed_by\": 2459,\n        \"draft_created_at\": \"1956-07-25T12:05:30.146Z\",\n        \"ground_truth\": false,\n        \"import_id\": 1575,\n        \"last_action\": \"imported\",\n        \"last_created_by\": 1561,\n        \"lead_time\": 8891.097768039333,\n        \"parent_annotation\": 6330,\n        \"parent_prediction\": 3303,\n        \"project\": 776,\n        \"task\": 7405,\n        \"unique_id\": \"string\",\n        \"updated_by\": 7002,\n        \"was_cancelled\": true\n      },\n      {\n        \"bulk_created\": false,\n        \"completed_by\": 9602,\n        \"draft_created_at\": \"2006-10-10T11:12:30.317Z\",\n        \"ground_truth\": false,\n        \"import_id\": 9239,\n        \"last_action\": \"propagated_annotation\",\n        \"last_created_by\": 6324,\n        \"lead_time\": 1187.1299353282682,\n        \"parent_annotation\": 1934,\n        \"parent_prediction\": 9597,\n        \"project\": 5301,\n        \"task\": 1071,\n        \"unique_id\": \"string\",\n        \"updated_by\": 6322,\n        \"was_cancelled\": false\n      }\n    ],\n    \"cancelled_annotations\": 6482,\n    \"comment_authors\": [\n      8802,\n      3030\n    ],\n    \"comment_count\": 6224,\n    \"file_upload\": 6562,\n    \"inner_id\": 9708,\n    \"last_comment_updated_at\": \"1978-06-23T11:37:46.309Z\",\n    \"meta\": {},\n    \"overlap\": 5453,\n    \"precomputed_agreement\": 6422.595745244552,\n    \"predictions\": [\n      {\n        \"result\": [],\n        \"task\": 2085,\n        \"cluster\": 8306,\n        \"mislabeling\": 5072.709039068398,\n        \"model\": 8600,\n        \"model_run\": 2435,\n        \"model_version\": \"string\",\n        \"neighbors\": {},\n        \"project\": 7360,\n        \"score\": 184.57806864888292\n      },\n      {\n        \"result\": [],\n        \"task\": 5647,\n        \"cluster\": 1348,\n        \"mislabeling\": 1999.1533428272955,\n        \"model\": 7809,\n        \"model_run\": 6708,\n        \"model_version\": \"string\",\n        \"neighbors\": {},\n        \"project\": 7028,\n        \"score\": 5614.314455974477\n      }\n    ],\n    \"total_annotations\": 4047,\n    \"total_predictions\": 1576,\n    \"unresolved_comment_count\": 3043,\n    \"updated_by\": 1707\n  },\n  {\n    \"data\": {\n      \"key_0\": {}\n    },\n    \"allow_skip\": false,\n    \"annotations\": [\n      {\n        \"bulk_created\": false,\n        \"completed_by\": 7024,\n        \"draft_created_at\": \"1959-03-24T13:26:47.878Z\",\n        \"ground_truth\": false,\n        \"import_id\": 382,\n        \"last_action\": \"prediction\",\n        \"last_created_by\": 1295,\n        \"lead_time\": 87.41125463108679,\n        \"parent_annotation\": 247,\n        \"parent_prediction\": 6299,\n        \"project\": 6700,\n        \"task\": 2385,\n        \"unique_id\": \"string\",\n        \"updated_by\": 7269,\n        \"was_cancelled\": false\n      },\n      {\n        \"bulk_created\": false,\n        \"completed_by\": 3164,\n        \"draft_created_at\": \"2003-05-24T23:31:38.599Z\",\n        \"ground_truth\": false,\n        \"import_id\": 6155,\n        \"last_action\": \"accepted\",\n        \"last_created_by\": 2310,\n        \"lead_time\": 5972.243158549187,\n        \"parent_annotation\": 1182,\n        \"parent_prediction\": 2462,\n        \"project\": 2452,\n        \"task\": 3371,\n        \"unique_id\": \"string\",\n        \"updated_by\": 2970,\n        \"was_cancelled\": true\n      }\n    ],\n    \"cancelled_annotations\": 5253,\n    \"comment_authors\": [\n      1163,\n      2844\n    ],\n    \"comment_count\": 8763,\n    \"file_upload\": 8486,\n    \"inner_id\": 4108,\n    \"last_comment_updated_at\": \"2012-06-20T02:45:03.516Z\",\n    \"meta\": {},\n    \"overlap\": 9605,\n    \"precomputed_agreement\": 6675.473767202124,\n    \"predictions\": [\n      {\n        \"result\": [],\n        \"task\": 4312,\n        \"cluster\": 9568,\n        \"mislabeling\": 705.1445905218945,\n        \"model\": 4024,\n        \"model_run\": 5607,\n        \"model_version\": \"string\",\n        \"neighbors\": {},\n        \"project\": 2971,\n        \"score\": 589.3171315710199\n      },\n      {\n        \"result\": [],\n        \"task\": 5771,\n        \"cluster\": 6492,\n        \"mislabeling\": 4702.032902982728,\n        \"model\": 8195,\n        \"model_run\": 6751,\n        \"model_version\": \"string\",\n        \"neighbors\": {},\n        \"project\": 8698,\n        \"score\": 5164.254339954112\n      }\n    ],\n    \"total_annotations\": 3186,\n    \"total_predictions\": 5413,\n    \"unresolved_comment_count\": 5956,\n    \"updated_by\": 4967\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"annotation_count\": 1756,\n  \"could_be_tasks_list\": true,\n  \"data_columns\": [\n    \"string\",\n    \"string\"\n  ],\n  \"duration\": 5736.960329008679,\n  \"file_upload_ids\": [\n    7442,\n    9046\n  ],\n  \"found_formats\": [\n    \"string\",\n    \"string\"\n  ],\n  \"import\": 7425,\n  \"predictions_count\": 8739,\n  \"task_count\": 5572\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2380528-d1c9-43b9-b670-7721f562ae48",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "commit_to_project",
+                      "value": "true"
+                    },
+                    {
+                      "key": "preannotated_from_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "preannotated_from_fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "return_task_ids",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"data\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    },\n    \"allow_skip\": false,\n    \"annotations\": [\n      {\n        \"bulk_created\": true,\n        \"completed_by\": 2459,\n        \"draft_created_at\": \"1956-07-25T12:05:30.146Z\",\n        \"ground_truth\": false,\n        \"import_id\": 1575,\n        \"last_action\": \"imported\",\n        \"last_created_by\": 1561,\n        \"lead_time\": 8891.097768039333,\n        \"parent_annotation\": 6330,\n        \"parent_prediction\": 3303,\n        \"project\": 776,\n        \"task\": 7405,\n        \"unique_id\": \"string\",\n        \"updated_by\": 7002,\n        \"was_cancelled\": true\n      },\n      {\n        \"bulk_created\": false,\n        \"completed_by\": 9602,\n        \"draft_created_at\": \"2006-10-10T11:12:30.317Z\",\n        \"ground_truth\": false,\n        \"import_id\": 9239,\n        \"last_action\": \"propagated_annotation\",\n        \"last_created_by\": 6324,\n        \"lead_time\": 1187.1299353282682,\n        \"parent_annotation\": 1934,\n        \"parent_prediction\": 9597,\n        \"project\": 5301,\n        \"task\": 1071,\n        \"unique_id\": \"string\",\n        \"updated_by\": 6322,\n        \"was_cancelled\": false\n      }\n    ],\n    \"cancelled_annotations\": 6482,\n    \"comment_authors\": [\n      8802,\n      3030\n    ],\n    \"comment_count\": 6224,\n    \"file_upload\": 6562,\n    \"inner_id\": 9708,\n    \"last_comment_updated_at\": \"1978-06-23T11:37:46.309Z\",\n    \"meta\": {},\n    \"overlap\": 5453,\n    \"precomputed_agreement\": 6422.595745244552,\n    \"predictions\": [\n      {\n        \"result\": [],\n        \"task\": 2085,\n        \"cluster\": 8306,\n        \"mislabeling\": 5072.709039068398,\n        \"model\": 8600,\n        \"model_run\": 2435,\n        \"model_version\": \"string\",\n        \"neighbors\": {},\n        \"project\": 7360,\n        \"score\": 184.57806864888292\n      },\n      {\n        \"result\": [],\n        \"task\": 5647,\n        \"cluster\": 1348,\n        \"mislabeling\": 1999.1533428272955,\n        \"model\": 7809,\n        \"model_run\": 6708,\n        \"model_version\": \"string\",\n        \"neighbors\": {},\n        \"project\": 7028,\n        \"score\": 5614.314455974477\n      }\n    ],\n    \"total_annotations\": 4047,\n    \"total_predictions\": 1576,\n    \"unresolved_comment_count\": 3043,\n    \"updated_by\": 1707\n  },\n  {\n    \"data\": {\n      \"key_0\": {}\n    },\n    \"allow_skip\": false,\n    \"annotations\": [\n      {\n        \"bulk_created\": false,\n        \"completed_by\": 7024,\n        \"draft_created_at\": \"1959-03-24T13:26:47.878Z\",\n        \"ground_truth\": false,\n        \"import_id\": 382,\n        \"last_action\": \"prediction\",\n        \"last_created_by\": 1295,\n        \"lead_time\": 87.41125463108679,\n        \"parent_annotation\": 247,\n        \"parent_prediction\": 6299,\n        \"project\": 6700,\n        \"task\": 2385,\n        \"unique_id\": \"string\",\n        \"updated_by\": 7269,\n        \"was_cancelled\": false\n      },\n      {\n        \"bulk_created\": false,\n        \"completed_by\": 3164,\n        \"draft_created_at\": \"2003-05-24T23:31:38.599Z\",\n        \"ground_truth\": false,\n        \"import_id\": 6155,\n        \"last_action\": \"accepted\",\n        \"last_created_by\": 2310,\n        \"lead_time\": 5972.243158549187,\n        \"parent_annotation\": 1182,\n        \"parent_prediction\": 2462,\n        \"project\": 2452,\n        \"task\": 3371,\n        \"unique_id\": \"string\",\n        \"updated_by\": 2970,\n        \"was_cancelled\": true\n      }\n    ],\n    \"cancelled_annotations\": 5253,\n    \"comment_authors\": [\n      1163,\n      2844\n    ],\n    \"comment_count\": 8763,\n    \"file_upload\": 8486,\n    \"inner_id\": 4108,\n    \"last_comment_updated_at\": \"2012-06-20T02:45:03.516Z\",\n    \"meta\": {},\n    \"overlap\": 9605,\n    \"precomputed_agreement\": 6675.473767202124,\n    \"predictions\": [\n      {\n        \"result\": [],\n        \"task\": 4312,\n        \"cluster\": 9568,\n        \"mislabeling\": 705.1445905218945,\n        \"model\": 4024,\n        \"model_run\": 5607,\n        \"model_version\": \"string\",\n        \"neighbors\": {},\n        \"project\": 2971,\n        \"score\": 589.3171315710199\n      },\n      {\n        \"result\": [],\n        \"task\": 5771,\n        \"cluster\": 6492,\n        \"mislabeling\": 4702.032902982728,\n        \"model\": 8195,\n        \"model_run\": 6751,\n        \"model_version\": \"string\",\n        \"neighbors\": {},\n        \"project\": 8698,\n        \"score\": 5164.254339954112\n      }\n    ],\n    \"total_annotations\": 3186,\n    \"total_predictions\": 5413,\n    \"unresolved_comment_count\": 5956,\n    \"updated_by\": 4967\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8ac59d9-84d4-4a08-ace3-31333a6b8915",
+          "name": "Import predictions",
+          "request": {
+            "name": "Import predictions",
+            "description": {
+              "content": "Import model predictions for tasks in the specified project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "import",
+                "predictions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"result\": [],\n    \"task\": \"<integer>\",\n    \"cluster\": \"<integer,null>\",\n    \"mislabeling\": \"<double>\",\n    \"model\": \"<integer,null>\",\n    \"model_run\": \"<integer,null>\",\n    \"model_version\": \"<string>\",\n    \"neighbors\": {},\n    \"project\": \"<integer,null>\",\n    \"score\": \"<number,null-double>\"\n  },\n  {\n    \"result\": [],\n    \"task\": \"<integer>\",\n    \"cluster\": \"<integer,null>\",\n    \"mislabeling\": \"<double>\",\n    \"model\": \"<integer,null>\",\n    \"model_run\": \"<integer,null>\",\n    \"model_version\": \"<string>\",\n    \"neighbors\": {},\n    \"project\": \"<integer,null>\",\n    \"score\": \"<number,null-double>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a73dab3-23f2-4513-a85e-afb1e7254350",
+              "name": "Predictions successfully imported",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "import",
+                    "predictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"result\": [],\n    \"task\": 2707,\n    \"cluster\": 1350,\n    \"mislabeling\": 6696.002640637665,\n    \"model\": 4899,\n    \"model_run\": 6441,\n    \"model_version\": \"string\",\n    \"neighbors\": {},\n    \"project\": 8303,\n    \"score\": 1586.4376616200636\n  },\n  {\n    \"result\": [],\n    \"task\": 3016,\n    \"cluster\": 5340,\n    \"mislabeling\": 7379.076127519303,\n    \"model\": 261,\n    \"model_run\": 826,\n    \"model_version\": \"string\",\n    \"neighbors\": {},\n    \"project\": 6668,\n    \"score\": 7056.248610622546\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created\": 3905\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68b284b3-262d-4e35-9862-eee3575952f2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "import",
+                    "predictions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"result\": [],\n    \"task\": 2707,\n    \"cluster\": 1350,\n    \"mislabeling\": 6696.002640637665,\n    \"model\": 4899,\n    \"model_run\": 6441,\n    \"model_version\": \"string\",\n    \"neighbors\": {},\n    \"project\": 8303,\n    \"score\": 1586.4376616200636\n  },\n  {\n    \"result\": [],\n    \"task\": 3016,\n    \"cluster\": 5340,\n    \"mislabeling\": 7379.076127519303,\n    \"model\": 261,\n    \"model_run\": 826,\n    \"model_version\": \"string\",\n    \"neighbors\": {},\n    \"project\": 6668,\n    \"score\": 7056.248610622546\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a08edb9d-1248-4cfa-b44d-3f6e11f50993",
+          "name": "Validate project label config",
+          "request": {
+            "name": "Validate project label config",
+            "description": {
+              "content": "Determine whether the label configuration for a specific project is valid.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "projects",
+                ":id",
+                "validate",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) A unique integer value identifying this project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"label_config\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fb7bffaa-1ff5-4039-a83d-3a4ac5055bf2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "projects",
+                    ":id",
+                    "validate",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) A unique integer value identifying this project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"label_config\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"label_config\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2f08eb49-22e9-4240-932b-6bf07144f5b3",
+    "name": "API Reference subpackage_actions subpackage_projects API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

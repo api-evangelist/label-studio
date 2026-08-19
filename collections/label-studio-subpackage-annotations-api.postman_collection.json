@@ -1,0 +1,880 @@
+{
+  "item": [
+    {
+      "id": "5660c32c-fd99-4080-a1ec-5a671e25f835",
+      "name": "subpackage_annotations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db1392bf-b0af-4f8f-9492-df508e063a26",
+          "name": "Bulk delete annotations by IDs",
+          "request": {
+            "name": "Bulk delete annotations by IDs",
+            "description": {
+              "content": "Delete multiple annotations by their IDs. The deletion is processed synchronously. Returns the count of deleted annotations in the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "annotations",
+                "bulk-delete",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"project\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0014f1ed-a494-4b7b-83c7-5d758662eb4d",
+              "name": "Annotations deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "annotations",
+                    "bulk-delete",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"project\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deleted_count\": 6595\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c17efbb9-8660-4daf-8948-d828b0fb6597",
+              "name": "Bad request - validation errors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "annotations",
+                    "bulk-delete",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"project\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a4baedbd-f672-4dc3-9873-bb4497ebe5d8",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "annotations",
+                    "bulk-delete",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"project\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0dda7779-eb76-40cd-b971-dafa36168edc",
+          "name": "Bulk create annotations",
+          "request": {
+            "name": "Bulk create annotations",
+            "description": {
+              "content": "Create multiple annotations at once",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "annotations",
+                "bulk",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bulk_created\": \"<boolean,null>\",\n  \"completed_by\": \"<integer>\",\n  \"draft_created_at\": \"<string,null-date-time>\",\n  \"ground_truth\": \"<boolean>\",\n  \"import_id\": \"<integer,null-int64>\",\n  \"last_action\": \"<string>\",\n  \"last_created_by\": \"<integer,null>\",\n  \"lead_time\": \"<number,null-double>\",\n  \"parent_annotation\": \"<integer,null>\",\n  \"parent_prediction\": \"<integer,null>\",\n  \"project\": \"<integer,null>\",\n  \"selected_items\": {\n    \"all\": \"<boolean>\",\n    \"excluded\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"included\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  },\n  \"task\": \"<integer,null>\",\n  \"tasks\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"unique_id\": \"<string>\",\n  \"updated_by\": \"<integer,null>\",\n  \"was_cancelled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "193a37e7-80fc-4106-9689-209d35da1057",
+              "name": "Bulk annotations created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "annotations",
+                    "bulk",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"bulk_created\": \"<boolean,null>\",\n  \"completed_by\": \"<integer>\",\n  \"draft_created_at\": \"<string,null-date-time>\",\n  \"ground_truth\": \"<boolean>\",\n  \"import_id\": \"<integer,null-int64>\",\n  \"last_action\": \"skipped\",\n  \"last_created_by\": \"<integer,null>\",\n  \"lead_time\": \"<number,null-double>\",\n  \"parent_annotation\": \"<integer,null>\",\n  \"parent_prediction\": \"<integer,null>\",\n  \"project\": \"<integer,null>\",\n  \"selected_items\": {\n    \"all\": false,\n    \"excluded\": [\n      9873,\n      3295\n    ],\n    \"included\": [\n      9799,\n      6719\n    ]\n  },\n  \"task\": \"<integer,null>\",\n  \"tasks\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"unique_id\": \"<string>\",\n  \"updated_by\": \"<integer,null>\",\n  \"was_cancelled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3275\n  },\n  {\n    \"id\": 5942\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c1b9d38-ead6-4cd8-9c58-7e54afcd42c4",
+          "name": "Get annotation by its ID",
+          "request": {
+            "name": "Get annotation by its ID",
+            "description": {
+              "content": "Retrieve a specific annotation for a task using the annotation result ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "annotations",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09bf66ac-074f-43f5-b964-6329b477ef72",
+              "name": "Retrieved annotation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "annotations",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_ago\": \"\",\n  \"created_at\": \"2024-03-21T11:31:40.284Z\",\n  \"created_username\": \"\",\n  \"id\": 8075,\n  \"state\": \"string\",\n  \"updated_at\": \"1985-01-12T19:12:03.866Z\",\n  \"bulk_created\": false,\n  \"completed_by\": 2705,\n  \"draft_created_at\": \"2007-11-15T12:41:35.430Z\",\n  \"ground_truth\": false,\n  \"import_id\": 8594,\n  \"last_action\": \"accepted\",\n  \"last_created_by\": 6474,\n  \"lead_time\": 9878.003226413477,\n  \"parent_annotation\": 3036,\n  \"parent_prediction\": 2051,\n  \"project\": 4095,\n  \"task\": 1718,\n  \"updated_by\": 7998,\n  \"was_cancelled\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad26425e-9a80-4c48-9f8a-502dcb354434",
+          "name": "Delete annotation",
+          "request": {
+            "name": "Delete annotation",
+            "description": {
+              "content": "Delete an annotation. This action can't be undone!",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "annotations",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9df2b051-262d-4ad7-9761-db6dcee53992",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "annotations",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21370eb9-16d6-42fb-9163-c06dfd73e9e7",
+          "name": "Update annotation",
+          "request": {
+            "name": "Update annotation",
+            "description": {
+              "content": "Update existing attributes on an annotation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "annotations",
+                ":id",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"completed_by\": \"<integer>\",\n  \"ground_truth\": \"<boolean>\",\n  \"lead_time\": \"<double>\",\n  \"project\": \"<integer>\",\n  \"task\": \"<integer>\",\n  \"updated_by\": \"<integer>\",\n  \"was_cancelled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57e5f0a9-310b-4e2f-9744-db45dae6db0d",
+              "name": "Updated annotation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "annotations",
+                    ":id",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"completed_by\": \"<integer>\",\n  \"ground_truth\": \"<boolean>\",\n  \"lead_time\": \"<double>\",\n  \"project\": \"<integer>\",\n  \"task\": \"<integer>\",\n  \"updated_by\": \"<integer>\",\n  \"was_cancelled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_ago\": \"\",\n  \"created_at\": \"2024-03-21T11:31:40.284Z\",\n  \"created_username\": \"\",\n  \"id\": 8075,\n  \"state\": \"string\",\n  \"updated_at\": \"1985-01-12T19:12:03.866Z\",\n  \"bulk_created\": false,\n  \"completed_by\": 2705,\n  \"draft_created_at\": \"2007-11-15T12:41:35.430Z\",\n  \"ground_truth\": false,\n  \"import_id\": 8594,\n  \"last_action\": \"accepted\",\n  \"last_created_by\": 6474,\n  \"lead_time\": 9878.003226413477,\n  \"parent_annotation\": 3036,\n  \"parent_prediction\": 2051,\n  \"project\": 4095,\n  \"task\": 1718,\n  \"updated_by\": 7998,\n  \"was_cancelled\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae2d4dcf-3ced-4128-b9fa-3d92e23e5d79",
+          "name": "Get all task annotations",
+          "request": {
+            "name": "Get all task annotations",
+            "description": {
+              "content": "List all annotations for a task.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tasks",
+                ":id",
+                "annotations",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Task ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dcbc0cb8-64df-4f58-a8fe-1fe98b68052a",
+              "name": "Annotation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ":id",
+                    "annotations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Task ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_ago\": \"\",\n    \"created_at\": \"2000-07-01T08:05:35.341Z\",\n    \"created_username\": \"\",\n    \"id\": 4366,\n    \"state\": \"string\",\n    \"updated_at\": \"1970-09-05T20:33:35.778Z\",\n    \"bulk_created\": false,\n    \"completed_by\": 5870,\n    \"draft_created_at\": \"1972-12-26T18:31:57.990Z\",\n    \"ground_truth\": false,\n    \"import_id\": 6659,\n    \"last_action\": \"skipped\",\n    \"last_created_by\": 8658,\n    \"lead_time\": 6824.1408180070375,\n    \"parent_annotation\": 1307,\n    \"parent_prediction\": 3355,\n    \"project\": 6177,\n    \"task\": 6022,\n    \"updated_by\": 4928,\n    \"was_cancelled\": true\n  },\n  {\n    \"created_ago\": \"\",\n    \"created_at\": \"1987-10-24T08:38:59.216Z\",\n    \"created_username\": \"\",\n    \"id\": 8318,\n    \"state\": \"string\",\n    \"updated_at\": \"1979-04-15T14:21:14.381Z\",\n    \"bulk_created\": true,\n    \"completed_by\": 2672,\n    \"draft_created_at\": \"1996-12-18T06:50:05.054Z\",\n    \"ground_truth\": true,\n    \"import_id\": 8400,\n    \"last_action\": \"skipped\",\n    \"last_created_by\": 8549,\n    \"lead_time\": 3969.487684754682,\n    \"parent_annotation\": 7160,\n    \"parent_prediction\": 803,\n    \"project\": 7709,\n    \"task\": 6067,\n    \"updated_by\": 7340,\n    \"was_cancelled\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52b6e737-d1d4-4ed3-9743-cdbc164558c8",
+          "name": "Create annotation",
+          "request": {
+            "name": "Create annotation",
+            "description": {
+              "content": "\n        Add annotations to a task like an annotator does. The content of the result field depends on your\n        labeling configuration. For example, send the following data as part of your POST\n        request to send an empty annotation with the ID of the user who completed the task:\n\n        ```json\n        {\n        \"result\": {},\n        \"was_cancelled\": true,\n        \"ground_truth\": true,\n        \"lead_time\": 0,\n        \"task\": 0\n        \"completed_by\": 123\n        }\n        ```\n        ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "tasks",
+                ":id",
+                "annotations",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Task ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"completed_by\": \"<integer>\",\n  \"ground_truth\": \"<boolean>\",\n  \"lead_time\": \"<double>\",\n  \"project\": \"<integer>\",\n  \"task\": \"<integer>\",\n  \"updated_by\": \"<integer>\",\n  \"was_cancelled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "61f33874-bccb-41df-be22-7b1000690ae8",
+              "name": "Created annotation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "tasks",
+                    ":id",
+                    "annotations",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Task ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"completed_by\": \"<integer>\",\n  \"ground_truth\": \"<boolean>\",\n  \"lead_time\": \"<double>\",\n  \"project\": \"<integer>\",\n  \"task\": \"<integer>\",\n  \"updated_by\": \"<integer>\",\n  \"was_cancelled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_ago\": \"\",\n  \"created_at\": \"2024-03-21T11:31:40.284Z\",\n  \"created_username\": \"\",\n  \"id\": 8075,\n  \"state\": \"string\",\n  \"updated_at\": \"1985-01-12T19:12:03.866Z\",\n  \"bulk_created\": false,\n  \"completed_by\": 2705,\n  \"draft_created_at\": \"2007-11-15T12:41:35.430Z\",\n  \"ground_truth\": false,\n  \"import_id\": 8594,\n  \"last_action\": \"accepted\",\n  \"last_created_by\": 6474,\n  \"lead_time\": 9878.003226413477,\n  \"parent_annotation\": 3036,\n  \"parent_prediction\": 2051,\n  \"project\": 4095,\n  \"task\": 1718,\n  \"updated_by\": 7998,\n  \"was_cancelled\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0920999e-81f3-4300-bf26-88b83800ce6e",
+    "name": "API Reference subpackage_actions subpackage_annotations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

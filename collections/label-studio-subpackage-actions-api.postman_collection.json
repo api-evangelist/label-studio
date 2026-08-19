@@ -1,0 +1,261 @@
+{
+  "item": [
+    {
+      "id": "826f13ce-d1f1-4ab3-98bc-30ba736fc0ba",
+      "name": "subpackage_actions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "67974cb4-4fb6-4128-ae50-c4e6a63076e9",
+          "name": "Get actions",
+          "request": {
+            "name": "Get actions",
+            "description": {
+              "content": "Retrieve all the registered actions with descriptions that data manager can use.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "dm",
+                "actions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "(Required) Project ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2fc93939-80b0-4049-8518-bbc91fa4454d",
+              "name": "Actions retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "dm",
+                    "actions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"dialog\": {\n      \"text\": \"string\",\n      \"title\": \"string\",\n      \"type\": \"string\"\n    },\n    \"experimental\": false,\n    \"id\": \"string\",\n    \"order\": 7467,\n    \"permission\": \"string\",\n    \"title\": \"string\"\n  },\n  {\n    \"dialog\": {\n      \"text\": \"string\",\n      \"title\": \"string\",\n      \"type\": \"string\"\n    },\n    \"experimental\": false,\n    \"id\": \"string\",\n    \"order\": 4083,\n    \"permission\": \"string\",\n    \"title\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c8ca37da-5dd7-44f2-aa51-7f4af18895b5",
+          "name": "Post actions",
+          "request": {
+            "name": "Post actions",
+            "description": {
+              "content": "Perform a Data Manager action with the selected tasks and filters. Note: More complex actions require additional parameters in the request body. Call `GET api/actions?project=<id>` to explore them. <br>Example: `GET api/actions?id=delete_tasks&project=1`",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "dm",
+                "actions",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "(Required) Action name ID, see the full list of actions in the `GET api/actions` request"
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "(Required) Project ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "<integer>",
+                  "description": "View ID (optional, it has higher priority than filters, selectedItems and ordering from the request body payload)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filters\": {\n    \"conjunction\": \"<string>\",\n    \"items\": [\n      {\n        \"filter\": \"<string>\",\n        \"operator\": \"<string>\",\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"filter\": \"<string>\",\n        \"operator\": \"<string>\",\n        \"type\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"ordering\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"selectedItems\": {\n    \"all\": \"<boolean>\",\n    \"included\": [\n      \"<integer>\",\n      \"<integer>\"\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4dec6e0e-068b-411a-8b72-b25f39389467",
+              "name": "Action performed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "dm",
+                    "actions",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "delete_ground_truths"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "view",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filters\": {\n    \"conjunction\": \"or\",\n    \"items\": [\n      {\n        \"filter\": \"filter:tasks:total_annotations\",\n        \"operator\": \"less_or_equal\",\n        \"type\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"filter\": \"filter:tasks:unresolved_comment_count\",\n        \"operator\": \"not_in\",\n        \"type\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  },\n  \"ordering\": [\n    \"tasks:total_predictions\",\n    \"tasks:agreement\"\n  ],\n  \"selectedItems\": {\n    \"all\": false,\n    \"included\": [\n      9397,\n      1935\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2407f37e-cead-4f4b-b4aa-f44078ad6bf4",
+    "name": "API Reference subpackage_actions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

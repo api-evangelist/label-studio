@@ -1,0 +1,752 @@
+{
+  "item": [
+    {
+      "id": "22f61b1d-26e6-4db0-b8e3-cb7b7816cfac",
+      "name": "subpackage_exportStorage.subpackage_exportStorage/s3",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e051cfcf-3b65-4c91-9347-3af3173f768f",
+          "name": "Get all export storage",
+          "request": {
+            "name": "Get all export storage",
+            "description": {
+              "content": "Get a list of all S3 export storage connections.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ordering",
+                  "value": "<string>",
+                  "description": "Which field to use when ordering the results."
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<integer>",
+                  "description": "(Required) Project ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b22cb825-748f-47bb-bd57-dc7412b59176",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ordering",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"created_at\": \"2000-08-22T12:19:20.086Z\",\n    \"id\": 1570,\n    \"project\": 4282,\n    \"type\": \"s3\",\n    \"aws_access_key_id\": \"string\",\n    \"aws_secret_access_key\": \"string\",\n    \"aws_session_token\": \"string\",\n    \"aws_sse_kms_key_id\": \"string\",\n    \"bucket\": \"string\",\n    \"can_delete_objects\": false,\n    \"description\": \"string\",\n    \"last_sync\": \"2011-12-03T06:45:48.384Z\",\n    \"last_sync_count\": 2438,\n    \"last_sync_job\": \"string\",\n    \"meta\": {},\n    \"prefix\": \"string\",\n    \"regex_filter\": \"string\",\n    \"region_name\": \"string\",\n    \"s3_endpoint\": \"string\",\n    \"status\": \"completed_with_errors\",\n    \"synchronizable\": true,\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": false\n  },\n  {\n    \"created_at\": \"1984-03-19T05:37:58.845Z\",\n    \"id\": 3423,\n    \"project\": 3004,\n    \"type\": \"s3\",\n    \"aws_access_key_id\": \"string\",\n    \"aws_secret_access_key\": \"string\",\n    \"aws_session_token\": \"string\",\n    \"aws_sse_kms_key_id\": \"string\",\n    \"bucket\": \"string\",\n    \"can_delete_objects\": true,\n    \"description\": \"string\",\n    \"last_sync\": \"1995-04-28T04:28:51.931Z\",\n    \"last_sync_count\": 2233,\n    \"last_sync_job\": \"string\",\n    \"meta\": {},\n    \"prefix\": \"string\",\n    \"regex_filter\": \"string\",\n    \"region_name\": \"string\",\n    \"s3_endpoint\": \"string\",\n    \"status\": \"completed\",\n    \"synchronizable\": true,\n    \"title\": \"string\",\n    \"traceback\": \"string\",\n    \"use_blob_urls\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2f73af11-93a3-4aac-806f-68311761c5a2",
+          "name": "Create export storage",
+          "request": {
+            "name": "Create export storage",
+            "description": {
+              "content": "Create a new S3 export storage connection to store annotations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aws_access_key_id\": \"<string>\",\n  \"aws_secret_access_key\": \"<string>\",\n  \"aws_session_token\": \"<string>\",\n  \"aws_sse_kms_key_id\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"can_delete_objects\": false,\n  \"description\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"region_name\": \"<string>\",\n  \"s3_endpoint\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "74823468-98e7-448b-af32-033452d1c92a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aws_access_key_id\": \"<string>\",\n  \"aws_secret_access_key\": \"<string>\",\n  \"aws_session_token\": \"<string>\",\n  \"aws_sse_kms_key_id\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"can_delete_objects\": false,\n  \"description\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"region_name\": \"<string>\",\n  \"s3_endpoint\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"2013-02-26T01:07:29.434Z\",\n  \"id\": 7231,\n  \"project\": 8223,\n  \"type\": \"s3\",\n  \"aws_access_key_id\": \"string\",\n  \"aws_secret_access_key\": \"string\",\n  \"aws_session_token\": \"string\",\n  \"aws_sse_kms_key_id\": \"string\",\n  \"bucket\": \"string\",\n  \"can_delete_objects\": false,\n  \"description\": \"string\",\n  \"last_sync\": \"1980-02-18T17:30:16.129Z\",\n  \"last_sync_count\": 41,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"region_name\": \"string\",\n  \"s3_endpoint\": \"string\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31a5add0-6a20-4a8a-b4c3-789c7fde570a",
+          "name": "Validate export storage",
+          "request": {
+            "name": "Validate export storage",
+            "description": {
+              "content": "Validate a specific S3 export storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aws_access_key_id\": \"<string>\",\n  \"aws_secret_access_key\": \"<string>\",\n  \"aws_session_token\": \"<string>\",\n  \"aws_sse_kms_key_id\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"can_delete_objects\": false,\n  \"description\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"prefix\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"region_name\": \"<string>\",\n  \"s3_endpoint\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4b416c4c-6b76-49ce-a279-efe1ece28981",
+              "name": "Validation successful",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aws_access_key_id\": \"<string>\",\n  \"aws_secret_access_key\": \"<string>\",\n  \"aws_session_token\": \"<string>\",\n  \"aws_sse_kms_key_id\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"can_delete_objects\": false,\n  \"description\": \"<string>\",\n  \"id\": \"<integer>\",\n  \"prefix\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"region_name\": \"<string>\",\n  \"s3_endpoint\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6814d474-3fa7-4dac-abae-cbe2bfdca487",
+          "name": "Get export storage",
+          "request": {
+            "name": "Get export storage",
+            "description": {
+              "content": "Get a specific S3 export storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1f0bda5-6c05-46f0-893c-2826f9654393",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"2013-02-26T01:07:29.434Z\",\n  \"id\": 7231,\n  \"project\": 8223,\n  \"type\": \"s3\",\n  \"aws_access_key_id\": \"string\",\n  \"aws_secret_access_key\": \"string\",\n  \"aws_session_token\": \"string\",\n  \"aws_sse_kms_key_id\": \"string\",\n  \"bucket\": \"string\",\n  \"can_delete_objects\": false,\n  \"description\": \"string\",\n  \"last_sync\": \"1980-02-18T17:30:16.129Z\",\n  \"last_sync_count\": 41,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"region_name\": \"string\",\n  \"s3_endpoint\": \"string\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0608d6a1-3b11-4214-b295-01cc19f17e51",
+          "name": "Delete export storage",
+          "request": {
+            "name": "Delete export storage",
+            "description": {
+              "content": "Delete a specific S3 export storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5edc40d6-8e77-4b2f-8026-cb42eca4421a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "534c149a-ca1f-4139-9bbe-c2e3c27cb915",
+          "name": "Update export storage",
+          "request": {
+            "name": "Update export storage",
+            "description": {
+              "content": "Update a specific S3 export storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aws_access_key_id\": \"<string>\",\n  \"aws_secret_access_key\": \"<string>\",\n  \"aws_session_token\": \"<string>\",\n  \"aws_sse_kms_key_id\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"can_delete_objects\": false,\n  \"description\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"region_name\": \"<string>\",\n  \"s3_endpoint\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "119831ec-cc64-4ab3-be5b-086184ff1493",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"aws_access_key_id\": \"<string>\",\n  \"aws_secret_access_key\": \"<string>\",\n  \"aws_session_token\": \"<string>\",\n  \"aws_sse_kms_key_id\": \"<string>\",\n  \"bucket\": \"<string>\",\n  \"can_delete_objects\": false,\n  \"description\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"project\": \"<integer>\",\n  \"region_name\": \"<string>\",\n  \"s3_endpoint\": \"<string>\",\n  \"title\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"2013-02-26T01:07:29.434Z\",\n  \"id\": 7231,\n  \"project\": 8223,\n  \"type\": \"s3\",\n  \"aws_access_key_id\": \"string\",\n  \"aws_secret_access_key\": \"string\",\n  \"aws_session_token\": \"string\",\n  \"aws_sse_kms_key_id\": \"string\",\n  \"bucket\": \"string\",\n  \"can_delete_objects\": false,\n  \"description\": \"string\",\n  \"last_sync\": \"1980-02-18T17:30:16.129Z\",\n  \"last_sync_count\": 41,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"region_name\": \"string\",\n  \"s3_endpoint\": \"string\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c531d1f8-cbcf-45c5-aef9-84cd3c7b8e72",
+          "name": "Sync export storage",
+          "request": {
+            "name": "Sync export storage",
+            "description": {
+              "content": "Sync tasks from an S3 export storage connection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "storages",
+                "export",
+                "s3",
+                ":id",
+                "sync"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d55a8ada-7ac2-4211-b715-8139657a68ff",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "storages",
+                    "export",
+                    "s3",
+                    ":id",
+                    "sync"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) The token (or API key) must be passed as a request header. You can find your user token on the User Account page in Label Studio. Example: <br><pre><code class=\"language-bash\">curl https://label-studio-host/api/projects -H \"Authorization: Token [your-token]\"</code></pre>",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"created_at\": \"2013-02-26T01:07:29.434Z\",\n  \"id\": 7231,\n  \"project\": 8223,\n  \"type\": \"s3\",\n  \"aws_access_key_id\": \"string\",\n  \"aws_secret_access_key\": \"string\",\n  \"aws_session_token\": \"string\",\n  \"aws_sse_kms_key_id\": \"string\",\n  \"bucket\": \"string\",\n  \"can_delete_objects\": false,\n  \"description\": \"string\",\n  \"last_sync\": \"1980-02-18T17:30:16.129Z\",\n  \"last_sync_count\": 41,\n  \"last_sync_job\": \"string\",\n  \"meta\": {},\n  \"prefix\": \"string\",\n  \"regex_filter\": \"string\",\n  \"region_name\": \"string\",\n  \"s3_endpoint\": \"string\",\n  \"status\": \"failed\",\n  \"synchronizable\": true,\n  \"title\": \"string\",\n  \"traceback\": \"string\",\n  \"use_blob_urls\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8000",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6d974e00-3af6-409e-8a72-1b11155ad68c",
+    "name": "API Reference subpackage_actions subpackage_exportStorage.subpackage_exportStorage/s3 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}
