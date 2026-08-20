@@ -17,6 +17,13 @@ url: https://raw.githubusercontent.com/api-evangelist/label-studio/refs/heads/ma
 name: Label Studio
 type: Index
 tags:
+  - Artificial Intelligence
+  - Annotation
+  - Data Labeling
+  - LLM
+  - Machine-Learning
+  - Open-Source
+tags_raw:
   - AI
   - Annotation
   - Artificial Intelligence
@@ -39,7 +46,8 @@ apis:
   description: The subpackage_actions API from Label Studio — 1 operation(s) for subpackage_actions.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_actions
   properties:
   - type: OpenAPI
@@ -115,7 +123,8 @@ apis:
     The subpackage_annotations API from Label Studio — 4 operation(s) for subpackage_annotations.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_annotations
   properties:
   - type: OpenAPI
@@ -133,7 +142,8 @@ apis:
   description: The subpackage_billing API from Label Studio — 1 operation(s) for subpackage_billing.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_billing
   properties:
   - type: OpenAPI
@@ -151,7 +161,8 @@ apis:
   description: The subpackage_comments API from Label Studio — 3 operation(s) for subpackage_comments.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_comments
   properties:
   - type: OpenAPI
@@ -170,7 +181,8 @@ apis:
     The subpackage_dimensions API from Label Studio — 5 operation(s) for subpackage_dimensions.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_dimensions
   properties:
   - type: OpenAPI
@@ -418,7 +430,8 @@ apis:
   description: The subpackage_files API from Label Studio — 3 operation(s) for subpackage_files.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_files
   properties:
   - type: OpenAPI
@@ -685,7 +698,8 @@ apis:
   description: The subpackage_ml API from Label Studio — 6 operation(s) for subpackage_ml.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_ml
   properties:
   - type: OpenAPI
@@ -723,7 +737,8 @@ apis:
     The subpackage_organizations API from Label Studio — 4 operation(s) for subpackage_organizations.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_organizations
   properties:
   - type: OpenAPI
@@ -833,7 +848,8 @@ apis:
     for subpackage_organizations.subpackage_organizations/permissions.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_organizations.subpackage_organizations/permissions
   properties:
   - type: OpenAPI
@@ -853,7 +869,8 @@ apis:
     The subpackage_predictions API from Label Studio — 2 operation(s) for subpackage_predictions.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_predictions
   properties:
   - type: OpenAPI
@@ -871,7 +888,8 @@ apis:
   description: The subpackage_projects API from Label Studio — 8 operation(s) for subpackage_projects.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_projects
   properties:
   - type: OpenAPI
@@ -951,7 +969,8 @@ apis:
     Studio — 1 operation(s) for subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_projects.subpackage_projects/members.subpackage_projects/members/bulk
   properties:
   - type: OpenAPI
@@ -975,7 +994,8 @@ apis:
     Label Studio — 1 operation(s) for subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated
   properties:
   - type: OpenAPI
@@ -1017,7 +1037,8 @@ apis:
     Studio — 6 operation(s) for subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
   properties:
   - type: OpenAPI
@@ -1133,7 +1154,8 @@ apis:
   description: The subpackage_prompts API from Label Studio — 7 operation(s) for subpackage_prompts.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_prompts
   properties:
   - type: OpenAPI
@@ -1265,7 +1287,8 @@ apis:
   description: The subpackage_states API from Label Studio — 5 operation(s) for subpackage_states.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_states
   properties:
   - type: OpenAPI
@@ -1283,7 +1306,8 @@ apis:
   description: The subpackage_tasks API from Label Studio — 5 operation(s) for subpackage_tasks.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_tasks
   properties:
   - type: OpenAPI
@@ -1320,7 +1344,8 @@ apis:
   description: The subpackage_tokens API from Label Studio — 4 operation(s) for subpackage_tokens.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_tokens
   properties:
   - type: OpenAPI
@@ -1338,7 +1363,8 @@ apis:
   description: The subpackage_users API from Label Studio — 7 operation(s) for subpackage_users.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_users
   properties:
   - type: OpenAPI
@@ -1356,7 +1382,8 @@ apis:
   description: The subpackage_versions API from Label Studio — 1 operation(s) for subpackage_versions.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_versions
   properties:
   - type: OpenAPI
@@ -1374,7 +1401,8 @@ apis:
   description: The subpackage_views API from Label Studio — 4 operation(s) for subpackage_views.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_views
   properties:
   - type: OpenAPI
@@ -1392,7 +1420,8 @@ apis:
   description: The subpackage_webhooks API from Label Studio — 3 operation(s) for subpackage_webhooks.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_webhooks
   properties:
   - type: OpenAPI
@@ -1411,7 +1440,8 @@ apis:
     The subpackage_workspaces API from Label Studio — 2 operation(s) for subpackage_workspaces.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_workspaces
   properties:
   - type: OpenAPI
@@ -1454,7 +1484,8 @@ apis:
     Label Studio — 1 operation(s) for subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/bulk.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
-  tags:
+  tags: []
+  tags_raw:
   - subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/bulk
   properties:
   - type: OpenAPI
