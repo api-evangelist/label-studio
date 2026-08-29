@@ -1,4 +1,18 @@
 aid: label-studio
+deliveryModel:
+  model: open-core
+  license: Apache-2.0
+  open_source: true
+  commercial: true
+  callable_host: false
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -1546,6 +1560,9 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 common:
+  - type: CapabilityMap
+    url: capabilities/label-studio-capability-edges.yml
+    name: Label Studio Business Capability Map
   - type: IssueTracker
     url: https://github.com/HumanSignal/label-studio/issues
   - type: Releases
