@@ -1,0 +1,117 @@
+slug: label-studio
+provider: Label Studio
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 10
+edges:
+- tag: subpackage_organizations.subpackage_organizations/permissions
+  spec_file: label-studio-subpackage-organizations-subpackage-organizations-permissions-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: 'GET /api/organizations/{id}/permissions  list  List organization permission overrides; GET
+    .../permissions/options  Get configurable permissions options; schemas: OrganizationPermission, Role9e7Enum'
+  reason: CRUD over role-based permission overrides and configurable permission options is plainly access-rights
+    administration, i.e. Identity & Access Management.
+- tag: subpackage_ml
+  spec_file: label-studio-subpackage-ml-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.8
+  evidence: POST /api/ml/{id}/train train Train; GET /api/ml/{id}/versions list-model-versions Get model
+    versions; POST /api/ml/{id}/predict ✨ Create predictions for all tasks
+  reason: Operations register ML backends, trigger training, generate predictions and list model versions
+    — this is ML model lifecycle / MLOps management, matching Artificial Intelligence Management. Some
+    ambiguity as it is a connector to external model servers, hence 0.8.
+- tag: subpackage_prompts
+  spec_file: label-studio-subpackage-prompts-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.78
+  evidence: '''Create batch predictions'', ''List prompts'', ''Create prompt'', ''List projects compatible
+    with prompt''; ModelInterface, BatchFailedPredictions'
+  reason: Lifecycle management of LLM prompts and model interfaces plus generation of batch predictions
+    is AI/ML model lifecycle work, matching Artificial Intelligence Management.
+- tag: subpackage_prompts.subpackage_prompts/runs
+  spec_file: label-studio-subpackage-prompts-subpackage-prompts-runs-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.78
+  evidence: '''Run prompt inference'', ''Get inference run info'', ''Cancel Inference Run API''; ModelRun,
+    ModelRunStatusEnum'
+  reason: Execution, monitoring and cancellation of model inference runs against prompt versions is ML
+    model operations (MLOps), squarely Artificial Intelligence Management.
+- tag: subpackage_webhooks
+  spec_file: label-studio-subpackage-webhooks-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.78
+  evidence: POST /api/webhooks/  create  Create a webhook; GET /api/webhooks/info/  Get all webhook actions;
+    schemas Webhook, ActionsEnum, ...AnnotationsCreated
+  reason: Manages outbound webhook subscriptions and the catalogue of subscribable event actions (project/annotation/review
+    created, updated, deleted), which is exactly Webhook & Event Subscription Management in the developer-platform
+    capability.
+- tag: subpackage_sso.subpackage_sso/saml
+  spec_file: label-studio-subpackage-sso-subpackage-sso-saml-api-openapi.yml
+  capability_id: BC-4230.50
+  capability_id_l1: BC-4230
+  capability_name: Tenant Identity Federation
+  confidence: 0.72
+  evidence: GET /api/saml/settings  Retrieve SAML2 Settings; POST /api/saml/settings/validate-metadata-url  Validate
+    SAML Metadata URL; schemas SamlSettingsUpdate, ProjectGroupRoleEnum
+  reason: Configures the customer organisation's SAML2 identity provider and maps IdP groups to project
+    roles — federation of a tenant's identity provider via single sign-on, i.e. Tenant Identity Federation.
+- tag: subpackage_sso.subpackage_sso/scim
+  spec_file: label-studio-subpackage-sso-subpackage-sso-scim-api-openapi.yml
+  capability_id: BC-4230.50
+  capability_id_l1: BC-4230
+  capability_name: Tenant Identity Federation
+  confidence: 0.72
+  evidence: GET /api/scim/settings  ✨ Retrieve SCIM Settings; ScimSettingsUpdate, ProjectGroupRoleEnum
+  reason: SCIM settings govern automated provisioning of tenant user accounts from the customer's directory,
+    which the candidate defines explicitly as tenant identity federation 'via single sign-on and SCIM'.
+- tag: subpackage_organizations.subpackage_organizations/members
+  spec_file: label-studio-subpackage-organizations-subpackage-organizations-members-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: GET /api/organizations/{id}/memberships  list  Get organization members/roles; PATCH .../memberships  Update
+    organization member/role; DELETE .../memberships/{user_pk}/  Soft delete an organization member
+  reason: Membership and role assignment plus member removal is joiner-mover-leaver style access administration
+    for the platform, mapping to Identity & Access Management. Not HR employee records — these are application
+    user accounts.
+- tag: subpackage_predictions
+  spec_file: label-studio-subpackage-predictions-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: 'POST /api/predictions/  create  Create prediction; schemas: Prediction, PredictionResultItems'
+  reason: Predictions here are ML model outputs attached to labeling tasks (pre-annotations / model validation),
+    part of the AI/ML model lifecycle and training-data workflow the vendor describes ('validate AI models').
+- tag: subpackage_projects
+  spec_file: label-studio-subpackage-projects-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: POST /api/projects/{id}/import  import-tasks  Import tasks; POST /api/projects/{id}/import/predictions  import-predictions;
+    POST /api/projects/{id}/validate/  Validate project label config
+  reason: 'Projects are data-labeling projects: importing tasks and model predictions and validating the
+    labeling configuration. This realises AI/ML training-data preparation and model lifecycle support,
+    not generic project management.'
