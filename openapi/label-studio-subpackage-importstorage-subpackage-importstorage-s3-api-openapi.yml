@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_importStorage.subpackage_importStorage/s3 API
+  title: Reference Subpackage Import Storage.subpackage Import…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -358,6 +358,27 @@ paths:
                 $ref: '#/components/schemas/S3ImportStorage'
 components:
   schemas:
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
     import_storage_s3_validate_Response_200:
       type: object
       properties: {}
@@ -482,27 +503,6 @@ components:
       - project
       - type
       title: S3ImportStorage
-    StatusC5aEnum:
-      type: string
-      enum:
-      - initialized
-      - queued
-      - in_progress
-      - failed
-      - completed
-      - completed_with_errors
-      description: '* `initialized` - Initialized
-
-        * `queued` - Queued
-
-        * `in_progress` - In progress
-
-        * `failed` - Failed
-
-        * `completed` - Completed
-
-        * `completed_with_errors` - Completed with errors'
-      title: StatusC5aEnum
   securitySchemes:
     Token:
       type: apiKey

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_prompts.subpackage_prompts/runs API
+  title: Reference Subpackage Prompts.subpackage Prompts/runs API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ Get inference run info
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet information (status, metadata, etc) about an existing inference run"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get information (status, metadata, etc) about an existing inference run'
       tags:
       - subpackage_prompts.subpackage_prompts/runs
       parameters:
@@ -67,7 +70,10 @@ paths:
     post:
       operationId: create
       summary: ✨ Run prompt inference
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRun a prompt inference."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Run a prompt inference.'
       tags:
       - subpackage_prompts.subpackage_prompts/runs
       parameters:
@@ -103,7 +109,10 @@ paths:
     post:
       operationId: cancel
       summary: ✨ Cancel Inference Run API
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCancel the inference run for the given api"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Cancel the inference run for the given api'
       tags:
       - subpackage_prompts.subpackage_prompts/runs
       parameters:
@@ -137,28 +146,6 @@ paths:
                 $ref: '#/components/schemas/CancelModelRunResponse'
 components:
   schemas:
-    ProjectSubsetEnum:
-      type: string
-      enum:
-      - All
-      - HasGT
-      - Sample
-      - Custom
-      description: '* `All` - All
-
-        * `HasGT` - HasGT
-
-        * `Sample` - Sample
-
-        * `Custom` - Custom'
-      title: ProjectSubsetEnum
-    ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset:
-      type: string
-      enum:
-      - All
-      - HasGT
-      - Sample
-      title: ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset
     ModelRunRequest:
       type: object
       properties:
@@ -227,42 +214,6 @@ components:
 
         * `Canceled` - Canceled'
       title: ModelRunStatusEnum
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
-    CancelModelRunResponse:
-      type: object
-      properties:
-        detail:
-          type: string
-      required:
-      - detail
-      title: CancelModelRunResponse
     ModelRun:
       type: object
       properties:
@@ -348,6 +299,64 @@ components:
       - task_ids
       - triggered_at
       title: ModelRun
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    CancelModelRunResponse:
+      type: object
+      properties:
+        detail:
+          type: string
+      required:
+      - detail
+      title: CancelModelRunResponse
+    ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset:
+      type: string
+      enum:
+      - All
+      - HasGT
+      - Sample
+      title: ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset
+    ProjectSubsetEnum:
+      type: string
+      enum:
+      - All
+      - HasGT
+      - Sample
+      - Custom
+      description: '* `All` - All
+
+        * `HasGT` - HasGT
+
+        * `Sample` - Sample
+
+        * `Custom` - Custom'
+      title: ProjectSubsetEnum
   securitySchemes:
     Token:
       type: apiKey

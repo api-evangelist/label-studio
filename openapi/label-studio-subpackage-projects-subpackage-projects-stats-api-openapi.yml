@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/stats API
+  title: Reference Subpackage Projects.subpackage Projects/stats API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: model-version-annotator-agreement
       summary: ✨ Get model-version overall agreement vs annotators
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet agreement between a given model version and all annotators in the project for overlapping tasks."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get agreement between a given model version and all annotators in the project for overlapping tasks.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -42,7 +45,10 @@ paths:
     get:
       operationId: model-version-ground-truth-agreement
       summary: ✨ Get model-version ground truth agreement
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet agreement between a given model version and ground truth annotations in the project for overlapping tasks."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get agreement between a given model version and ground truth annotations in the project for overlapping tasks.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -80,7 +86,10 @@ paths:
     get:
       operationId: model-version-prediction-agreement
       summary: ✨ Get model-version prediction agreement
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet agreement between a given model version and all other model versions in the project for overlapping tasks."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get agreement between a given model version and all other model versions in the project for overlapping tasks.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -118,7 +127,10 @@ paths:
     get:
       operationId: iaa
       summary: ✨ Get Inter-Annotator Agreement matrix
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet Inter-Annotator Agreement (IAA) matrix for a project, showing agreement between all annotators."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get Inter-Annotator Agreement (IAA) matrix for a project, showing agreement between all annotators.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -170,7 +182,10 @@ paths:
     get:
       operationId: users-ground-truth-agreement
       summary: ✨ Get ground truth agreement for multiple users
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet ground truth agreement statistics for multiple users within a project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get ground truth agreement statistics for multiple users within a project.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -209,7 +224,10 @@ paths:
     get:
       operationId: agreement-annotator
       summary: ✨ Get individual annotator agreement stats
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet agreement statistics for a specific annotator within a project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get agreement statistics for a specific annotator within a project.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -240,7 +258,10 @@ paths:
     get:
       operationId: agreement-annotators
       summary: ✨ Get agreement statistics for multiple annotators
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet agreement statistics for multiple annotators within a project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get agreement statistics for multiple annotators within a project.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -272,7 +293,10 @@ paths:
     get:
       operationId: data-filters
       summary: ✨ Get user data filter statistics
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet statistics about user data filters and their usage within a project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get statistics about user data filters and their usage within a project.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -298,7 +322,10 @@ paths:
     get:
       operationId: finished-tasks
       summary: ✨ Get finished tasks statistics
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet statistics about finished tasks for a project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get statistics about finished tasks for a project.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -330,7 +357,10 @@ paths:
     get:
       operationId: label-distribution-counts
       summary: ✨ Get label distribution counts
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nReturns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Returns counts and percentages for requested label choices, from both annotations and predictions. Supports either pagination (`limit`, `offset`) or targeted fetches via explicit `choice_keys`.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -375,7 +405,10 @@ paths:
     get:
       operationId: label-distribution-structure
       summary: ✨ Get label distribution structure
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nReturns dimensions and flattened `choice_keys` for a project. Use this response to drive paginated or targeted calls to the label distribution counts endpoint."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Returns dimensions and flattened `choice_keys` for a project. Use this response to drive paginated or targeted calls to the label distribution counts endpoint.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -401,7 +434,10 @@ paths:
     get:
       operationId: lead-time
       summary: ✨ Get lead time statistics
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet lead time statistics across the project, including average annotation time."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get lead time statistics across the project, including average annotation time.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -427,7 +463,10 @@ paths:
     get:
       operationId: member-performance-rows
       summary: ✨ Get paginated member performance rows
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nPaginated, sortable member performance rows for annotation/review tables. Guarded by <code>fflag_feat_lse_project_dashboards_v3_members_short</code>."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Paginated, sortable member performance rows for annotation/review tables. Guarded by fflag_feat_lse_project_dashboards_v3_members_short.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -489,7 +528,13 @@ paths:
     get:
       operationId: total-agreement
       summary: ✨ Get total agreement for project
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nOverall or per-label total agreement across the project.\n\nNOTE: when this endpoint returns 204 No Content, SDK clients return None."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Overall or per-label total agreement across the project.
+
+
+        NOTE: when this endpoint returns 204 No Content, SDK clients return None.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -521,7 +566,10 @@ paths:
     get:
       operationId: update-stats
       summary: ✨ Start stats recalculation
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nStart stats recalculation for given project"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Start stats recalculation for given project'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -553,7 +601,10 @@ paths:
     get:
       operationId: users-prediction-agreement
       summary: ✨ Get prediction agreement statistics for multiple annotators
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet prediction agreement statistics for multiple annotators within a project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get prediction agreement statistics for multiple annotators within a project.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -592,7 +643,10 @@ paths:
     get:
       operationId: users-review-score
       summary: ✨ Get review scores for multiple annotators
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet review score and performance score statistics for multiple annotators within a project. Only allowed for accounts with reviewing features enabled."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get review score and performance score statistics for multiple annotators within a project. Only allowed for accounts with reviewing features enabled.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -630,7 +684,10 @@ paths:
     get:
       operationId: user-prediction-agreement
       summary: ✨ Get individual user prediction agreement
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet prediction agreement statistics for a specific user within a project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get prediction agreement statistics for a specific user within a project.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -667,7 +724,10 @@ paths:
     get:
       operationId: user-review-score
       summary: ✨ Get individual user review scores
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet review score statistics for a specific user within a project. Only allowed for accounts with reviewing features enabled."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get review score statistics for a specific user within a project. Only allowed for accounts with reviewing features enabled.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -704,7 +764,10 @@ paths:
     get:
       operationId: user-ground-truth-agreement
       summary: ✨ Get individual user ground truth agreement
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet ground truth agreement statistics for a specific user within a project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get ground truth agreement statistics for a specific user within a project.'
       tags:
       - subpackage_projects.subpackage_projects/stats
       parameters:
@@ -739,60 +802,24 @@ paths:
                 $ref: '#/components/schemas/projects_stats_user_ground_truth_agreement_Response_200'
 components:
   schemas:
-    ApiProjectsIdStatsMemberPerformanceRowsGetParametersTable:
-      type: string
-      enum:
-      - annotations
-      - reviews
-      title: ApiProjectsIdStatsMemberPerformanceRowsGetParametersTable
-    ProjectsStatsTotalAgreementResponse2001:
+    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFilters:
       type: object
       properties:
-        total_agreement:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-      title: ProjectsStatsTotalAgreementResponse2001
-    projects_stats_users_review_score_Response_200:
-      type: object
-      properties:
-        performance_score:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore'
-          description: Performance scores mapped by annotator ID
-        review_score:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore'
-          description: Review scores mapped by annotator ID
-      title: projects_stats_users_review_score_Response_200
-    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems:
-      type: object
-      properties:
-        id:
-          type: string
-          description: User ID or model version identifier (e.g., "model:1.0")
-      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems
-    ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore:
+        stats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems'
+          description: List of filter configurations for users and models
+        tasks_with_annotations:
+          $ref: '#/components/schemas/ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations'
+          description: Default filter tab for tasks with annotations
+      description: Data filter statistics by user and model
+      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFilters
+    projects_stats_total_agreement_Response_200:
       oneOf:
-      - type: number
-        format: double
-      - type: object
-        additionalProperties:
-          type: number
-          format: double
-      title: ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore
-    projects_stats_model_version_ground_truth_agreement_Response_200:
-      type: object
-      properties:
-        agreement:
-          type:
-          - number
-          - 'null'
-          format: double
-      title: projects_stats_model_version_ground_truth_agreement_Response_200
+      - $ref: '#/components/schemas/ProjectsStatsTotalAgreementResponse2000'
+      - $ref: '#/components/schemas/ProjectsStatsTotalAgreementResponse2001'
+      title: projects_stats_total_agreement_Response_200
     projects_stats_agreement_annotators_Response_200:
       type: object
       properties:
@@ -805,210 +832,6 @@ components:
       required:
       - agreement
       title: projects_stats_agreement_annotators_Response_200
-    ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems:
-      type: object
-      properties: {}
-      title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems
-    projects_stats_iaa_Response_200:
-      type: object
-      properties:
-        IAA:
-          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaIaa'
-          description: Inter-Annotator Agreement matrix - 2D array when per_label=false, object with label keys when per_label=true
-        common_tasks:
-          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaCommonTasks'
-          description: Common tasks matrix - 2D array when per_label=false, object with label keys when per_label=true
-        std:
-          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd'
-          description: Standard deviation - number when per_label=false, object with label keys when per_label=true
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems'
-          description: List of users in the matrix
-      title: projects_stats_iaa_Response_200
-    projects_stats_total_agreement_Response_200:
-      oneOf:
-      - $ref: '#/components/schemas/ProjectsStatsTotalAgreementResponse2000'
-      - $ref: '#/components/schemas/ProjectsStatsTotalAgreementResponse2001'
-      title: projects_stats_total_agreement_Response_200
-    projects_stats_lead_time_Response_200:
-      type: object
-      properties:
-        lead_time_stats:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems'
-          description: Lead time statistics including mean, median, and distribution
-      title: projects_stats_lead_time_Response_200
-    projects_stats_user_ground_truth_agreement_Response_200:
-      type: object
-      properties:
-        agreement:
-          $ref: '#/components/schemas/ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement'
-      title: projects_stats_user_ground_truth_agreement_Response_200
-    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations:
-      type: object
-      properties: {}
-      description: Default filter tab for tasks with annotations
-      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations
-    projects_stats_user_review_score_Response_200:
-      type: object
-      properties:
-        performance_score:
-          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore'
-        review_score:
-          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore'
-      title: projects_stats_user_review_score_Response_200
-    ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems:
-      type: object
-      properties:
-        mean_time:
-          type: number
-          format: double
-          description: Average lead time for the user
-        median_time:
-          type: number
-          format: double
-          description: Median lead time for the user
-        sum_lead_time:
-          type: number
-          format: double
-          description: Total lead time for the user
-        user_id:
-          type: integer
-          description: User ID
-      title: ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems
-    ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd:
-      oneOf:
-      - type: number
-        format: double
-      - type: object
-        additionalProperties:
-          type: number
-          format: double
-      description: Standard deviation - number when per_label=false, object with label keys when per_label=true
-      title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd
-    ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore:
-      oneOf:
-      - type: number
-        format: double
-      - type: object
-        additionalProperties:
-          type: number
-          format: double
-      title: ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore
-    ProjectsStatsTotalAgreementResponse2000:
-      type: object
-      properties:
-        total_agreement:
-          type: number
-          format: double
-      title: ProjectsStatsTotalAgreementResponse2000
-    LabelDistributionStructureDimension:
-      type: object
-      properties:
-        choice_keys:
-          type: array
-          items:
-            type: string
-          description: Flat keys in "<from_name>___SEP___<choice>" format for this dimension.
-        choices:
-          type: array
-          items:
-            type: string
-          description: Sorted list of choices observed from config and/or created labels.
-        name:
-          type: string
-          description: Original from_name from labeling config or observed annotation results.
-        type:
-          type: string
-          description: Result item type for this dimension when available.
-      required:
-      - choice_keys
-      - choices
-      - name
-      title: LabelDistributionStructureDimension
-    LabelDistributionStructureResponse:
-      type: object
-      properties:
-        choice_keys:
-          type: array
-          items:
-            type: string
-          description: All project choice keys in stable order, joined with "___PIPE___" when passed as query param.
-        dimensions:
-          type: array
-          items:
-            $ref: '#/components/schemas/LabelDistributionStructureDimension'
-      required:
-      - choice_keys
-      - dimensions
-      title: LabelDistributionStructureResponse
-    ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement:
-      oneOf:
-      - type: number
-        format: double
-      - type: object
-        additionalProperties:
-          type: number
-          format: double
-      title: ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement
-    projects_stats_users_prediction_agreement_Response_200:
-      type: object
-      properties:
-        agreement:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement'
-          description: Dictionary mapping user IDs to their prediction agreement scores
-      title: projects_stats_users_prediction_agreement_Response_200
-    projects_stats_member_performance_rows_Response_200:
-      type: object
-      properties:
-        count:
-          type: integer
-        page:
-          type: integer
-        page_size:
-          type: integer
-        results:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Any type
-        summary:
-          type: object
-          additionalProperties:
-            description: Any type
-      title: projects_stats_member_performance_rows_Response_200
-    projects_stats_agreement_annotator_Response_200:
-      type: object
-      properties:
-        Agreement_per_annotator:
-          type: number
-          format: double
-          description: Agreement score for the annotator (0-1)
-      title: projects_stats_agreement_annotator_Response_200
-    ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement:
-      oneOf:
-      - type: number
-        format: double
-      - type: object
-        additionalProperties:
-          type: number
-          format: double
-      title: ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement
-    projects_stats_model_version_annotator_agreement_Response_200:
-      type: object
-      properties:
-        agreement:
-          type:
-          - number
-          - 'null'
-          format: double
-      title: projects_stats_model_version_annotator_agreement_Response_200
     LabelDistributionCountsRow:
       type: object
       properties:
@@ -1037,7 +860,7 @@ components:
       - from_predictions_count
       - from_predictions_percent
       title: LabelDistributionCountsRow
-    ApiProjectsIdStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement:
+    ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd:
       oneOf:
       - type: number
         format: double
@@ -1045,25 +868,67 @@ components:
         additionalProperties:
           type: number
           format: double
-      title: ApiProjectsIdStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement
-    projects_stats_update_stats_Response_200:
-      type: object
-      properties: {}
-      description: Stat recalculation job
-      title: projects_stats_update_stats_Response_200
-    projects_stats_finished_tasks_Response_200:
+      description: Standard deviation - number when per_label=false, object with label keys when per_label=true
+      title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd
+    projects_stats_user_prediction_agreement_Response_200:
       type: object
       properties:
-        finished:
-          type: integer
-          description: Number of finished tasks
+        average_prediction_agreement_per_user:
+          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkPredictionGetResponsesContentApplicationJsonSchemaAveragePredictionAgreementPerUser'
+      title: projects_stats_user_prediction_agreement_Response_200
+    projects_stats_model_version_ground_truth_agreement_Response_200:
+      type: object
+      properties:
+        agreement:
+          type:
+          - number
+          - 'null'
+          format: double
+      title: projects_stats_model_version_ground_truth_agreement_Response_200
+    ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore
+    projects_stats_model_version_annotator_agreement_Response_200:
+      type: object
+      properties:
+        agreement:
+          type:
+          - number
+          - 'null'
+          format: double
+      title: projects_stats_model_version_annotator_agreement_Response_200
+    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems:
+      type: object
+      properties:
         id:
-          type: integer
-          description: User ID
-        progress:
-          type: integer
-          description: Progress percentage (0-100)
-      title: projects_stats_finished_tasks_Response_200
+          type: string
+          description: User ID or model version identifier (e.g., "model:1.0")
+      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems
+    LabelDistributionCountsResponse:
+      type: object
+      properties:
+        next_offset:
+          type:
+          - integer
+          - 'null'
+          description: Next offset for pagination when using limit/offset mode; null when there are no more results or when filtering by explicit `choice_keys`.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LabelDistributionCountsRow'
+        totals:
+          $ref: '#/components/schemas/LabelDistributionCountsTotals'
+      required:
+      - next_offset
+      - results
+      - totals
+      title: LabelDistributionCountsResponse
     ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaIaa:
       oneOf:
       - type: array
@@ -1082,6 +947,224 @@ components:
               format: double
       description: Inter-Annotator Agreement matrix - 2D array when per_label=false, object with label keys when per_label=true
       title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaIaa
+    projects_stats_iaa_Response_200:
+      type: object
+      properties:
+        IAA:
+          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaIaa'
+          description: Inter-Annotator Agreement matrix - 2D array when per_label=false, object with label keys when per_label=true
+        common_tasks:
+          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaCommonTasks'
+          description: Common tasks matrix - 2D array when per_label=false, object with label keys when per_label=true
+        std:
+          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd'
+          description: Standard deviation - number when per_label=false, object with label keys when per_label=true
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems'
+          description: List of users in the matrix
+      title: projects_stats_iaa_Response_200
+    projects_stats_user_review_score_Response_200:
+      type: object
+      properties:
+        performance_score:
+          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore'
+        review_score:
+          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore'
+      title: projects_stats_user_review_score_Response_200
+    ProjectsStatsTotalAgreementResponse2000:
+      type: object
+      properties:
+        total_agreement:
+          type: number
+          format: double
+      title: ProjectsStatsTotalAgreementResponse2000
+    ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement
+    ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems:
+      type: object
+      properties:
+        mean_time:
+          type: number
+          format: double
+          description: Average lead time for the user
+        median_time:
+          type: number
+          format: double
+          description: Median lead time for the user
+        sum_lead_time:
+          type: number
+          format: double
+          description: Total lead time for the user
+        user_id:
+          type: integer
+          description: User ID
+      title: ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems
+    ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems:
+      type: object
+      properties: {}
+      title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems
+    LabelDistributionCountsTotals:
+      type: object
+      properties:
+        annotation_totals_by_dimension:
+          type: object
+          additionalProperties:
+            type: integer
+          description: Total annotation counts keyed by dimension name.
+        prediction_totals_by_dimension:
+          type: object
+          additionalProperties:
+            type: integer
+          description: Total prediction counts keyed by dimension name.
+      title: LabelDistributionCountsTotals
+    ProjectsStatsTotalAgreementResponse2001:
+      type: object
+      properties:
+        total_agreement:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+      title: ProjectsStatsTotalAgreementResponse2001
+    projects_stats_data_filters_Response_200:
+      type: object
+      properties:
+        user_filters:
+          $ref: '#/components/schemas/ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFilters'
+          description: Data filter statistics by user and model
+      title: projects_stats_data_filters_Response_200
+    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations:
+      type: object
+      properties: {}
+      description: Default filter tab for tasks with annotations
+      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations
+    LabelDistributionStructureDimension:
+      type: object
+      properties:
+        choice_keys:
+          type: array
+          items:
+            type: string
+          description: Flat keys in "<from_name>___SEP___<choice>" format for this dimension.
+        choices:
+          type: array
+          items:
+            type: string
+          description: Sorted list of choices observed from config and/or created labels.
+        name:
+          type: string
+          description: Original from_name from labeling config or observed annotation results.
+        type:
+          type: string
+          description: Result item type for this dimension when available.
+      required:
+      - choice_keys
+      - choices
+      - name
+      title: LabelDistributionStructureDimension
+    ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore
+    projects_stats_users_prediction_agreement_Response_200:
+      type: object
+      properties:
+        agreement:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement'
+          description: Dictionary mapping user IDs to their prediction agreement scores
+      title: projects_stats_users_prediction_agreement_Response_200
+    projects_stats_update_stats_Response_200:
+      type: object
+      properties: {}
+      description: Stat recalculation job
+      title: projects_stats_update_stats_Response_200
+    projects_stats_model_version_prediction_agreement_Response_200:
+      type: object
+      properties:
+        average_prediction_agreement_per_model:
+          type:
+          - number
+          - 'null'
+          format: double
+      title: projects_stats_model_version_prediction_agreement_Response_200
+    projects_stats_agreement_annotator_Response_200:
+      type: object
+      properties:
+        Agreement_per_annotator:
+          type: number
+          format: double
+          description: Agreement score for the annotator (0-1)
+      title: projects_stats_agreement_annotator_Response_200
+    ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement
+    projects_stats_finished_tasks_Response_200:
+      type: object
+      properties:
+        finished:
+          type: integer
+          description: Number of finished tasks
+        id:
+          type: integer
+          description: User ID
+        progress:
+          type: integer
+          description: Progress percentage (0-100)
+      title: projects_stats_finished_tasks_Response_200
+    ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore
+    projects_stats_lead_time_Response_200:
+      type: object
+      properties:
+        lead_time_stats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems'
+          description: Lead time statistics including mean, median, and distribution
+      title: projects_stats_lead_time_Response_200
+    projects_stats_users_review_score_Response_200:
+      type: object
+      properties:
+        performance_score:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore'
+          description: Performance scores mapped by annotator ID
+        review_score:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore'
+          description: Review scores mapped by annotator ID
+      title: projects_stats_users_review_score_Response_200
     projects_stats_users_ground_truth_agreement_Response_200:
       type: object
       properties:
@@ -1091,6 +1174,15 @@ components:
             $ref: '#/components/schemas/ApiProjectsIdStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement'
           description: Dictionary mapping user IDs to their ground truth agreement scores
       title: projects_stats_users_ground_truth_agreement_Response_200
+    ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore
     ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaCommonTasks:
       oneOf:
       - type: array
@@ -1118,7 +1210,7 @@ components:
           type: number
           format: double
       title: ApiProjectsIdUserStatsUserPkPredictionGetResponsesContentApplicationJsonSchemaAveragePredictionAgreementPerUser
-    ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore:
+    ApiProjectsIdStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement:
       oneOf:
       - type: number
         format: double
@@ -1126,84 +1218,55 @@ components:
         additionalProperties:
           type: number
           format: double
-      title: ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore
-    projects_stats_user_prediction_agreement_Response_200:
+      title: ApiProjectsIdStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement
+    LabelDistributionStructureResponse:
       type: object
       properties:
-        average_prediction_agreement_per_user:
-          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkPredictionGetResponsesContentApplicationJsonSchemaAveragePredictionAgreementPerUser'
-      title: projects_stats_user_prediction_agreement_Response_200
-    LabelDistributionCountsResponse:
+        choice_keys:
+          type: array
+          items:
+            type: string
+          description: All project choice keys in stable order, joined with "___PIPE___" when passed as query param.
+        dimensions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LabelDistributionStructureDimension'
+      required:
+      - choice_keys
+      - dimensions
+      title: LabelDistributionStructureResponse
+    projects_stats_member_performance_rows_Response_200:
       type: object
       properties:
-        next_offset:
-          type:
-          - integer
-          - 'null'
-          description: Next offset for pagination when using limit/offset mode; null when there are no more results or when filtering by explicit `choice_keys`.
+        count:
+          type: integer
+        page:
+          type: integer
+        page_size:
+          type: integer
         results:
           type: array
           items:
-            $ref: '#/components/schemas/LabelDistributionCountsRow'
-        totals:
-          $ref: '#/components/schemas/LabelDistributionCountsTotals'
-      required:
-      - next_offset
-      - results
-      - totals
-      title: LabelDistributionCountsResponse
-    ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore:
-      oneOf:
-      - type: number
-        format: double
-      - type: object
-        additionalProperties:
-          type: number
-          format: double
-      title: ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore
-    projects_stats_data_filters_Response_200:
-      type: object
-      properties:
-        user_filters:
-          $ref: '#/components/schemas/ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFilters'
-          description: Data filter statistics by user and model
-      title: projects_stats_data_filters_Response_200
-    LabelDistributionCountsTotals:
-      type: object
-      properties:
-        annotation_totals_by_dimension:
+            type: object
+            additionalProperties:
+              description: Any type
+        summary:
           type: object
           additionalProperties:
-            type: integer
-          description: Total annotation counts keyed by dimension name.
-        prediction_totals_by_dimension:
-          type: object
-          additionalProperties:
-            type: integer
-          description: Total prediction counts keyed by dimension name.
-      title: LabelDistributionCountsTotals
-    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFilters:
+            description: Any type
+      title: projects_stats_member_performance_rows_Response_200
+    projects_stats_user_ground_truth_agreement_Response_200:
       type: object
       properties:
-        stats:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems'
-          description: List of filter configurations for users and models
-        tasks_with_annotations:
-          $ref: '#/components/schemas/ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations'
-          description: Default filter tab for tasks with annotations
-      description: Data filter statistics by user and model
-      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFilters
-    projects_stats_model_version_prediction_agreement_Response_200:
-      type: object
-      properties:
-        average_prediction_agreement_per_model:
-          type:
-          - number
-          - 'null'
-          format: double
-      title: projects_stats_model_version_prediction_agreement_Response_200
+        agreement:
+          $ref: '#/components/schemas/ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement'
+      title: projects_stats_user_ground_truth_agreement_Response_200
+    ApiProjectsIdStatsMemberPerformanceRowsGetParametersTable:
+      type: string
+      enum:
+      - annotations
+      - reviews
+      title: ApiProjectsIdStatsMemberPerformanceRowsGetParametersTable
   securitySchemes:
     Token:
       type: apiKey

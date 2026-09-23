@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/members API
+  title: Reference Subpackage Projects.subpackage Projects/members…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     post:
       operationId: add
       summary: ✨ Add project member
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAdd a member to a specific project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Add a member to a specific project.'
       tags:
       - subpackage_projects.subpackage_projects/members
       parameters:
@@ -41,7 +44,10 @@ paths:
     delete:
       operationId: remove
       summary: ✨ Remove member from project
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRemove a member from a specific project. Pass the member ID via the `user` query parameter. For backward compatibility, a JSON body with `user` is still accepted."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Remove a member from a specific project. Pass the member ID via the `user` query parameter. For backward compatibility, a JSON body with `user` is still accepted.'
       tags:
       - subpackage_projects.subpackage_projects/members
       parameters:
@@ -67,14 +73,6 @@ paths:
           description: Successful response
 components:
   schemas:
-    ProjectMemberRequest:
-      type: object
-      properties:
-        user:
-          type: integer
-      required:
-      - user
-      title: ProjectMemberRequest
     ProjectMember:
       type: object
       properties:
@@ -83,6 +81,14 @@ components:
       required:
       - user
       title: ProjectMember
+    ProjectMemberRequest:
+      type: object
+      properties:
+        user:
+          type: integer
+      required:
+      - user
+      title: ProjectMemberRequest
   securitySchemes:
     Token:
       type: apiKey

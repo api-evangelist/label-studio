@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_dimensions API
+  title: Reference Subpackage Dimensions API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,20 @@ paths:
     post:
       operationId: trigger-backfill
       summary: ✨ Trigger Agreement V2 backfill
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nTrigger an Agreement V2 backfill for the authenticated user's active organization. Recomputes agreement score matrices for all tasks that are missing them. Exactly one of three body fields must be provided:\n\n- **project_id**: backfill a single specific project.\n- **num_projects**: batched org backfill — queue the next N not-yet-started projects (in ascending project ID order), leaving any currently in-flight jobs untouched. Repeat calls until `projects_remaining` in the response reaches 0.\n- **all_projects**: full org backfill — cancel all in-flight jobs and queue every remaining non-completed project at once.\n\nRequires administrator or owner role and the Agreement V2 feature flag."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Trigger an Agreement V2 backfill for the authenticated user''s active organization. Recomputes agreement score matrices for all tasks that are missing them. Exactly one of three body fields must be provided:
+
+
+        - **project_id**: backfill a single specific project.
+
+        - **num_projects**: batched org backfill — queue the next N not-yet-started projects (in ascending project ID order), leaving any currently in-flight jobs untouched. Repeat calls until `projects_remaining` in the response reaches 0.
+
+        - **all_projects**: full org backfill — cancel all in-flight jobs and queue every remaining non-completed project at once.
+
+
+        Requires administrator or owner role and the Agreement V2 feature flag.'
       tags:
       - subpackage_dimensions
       parameters:
@@ -54,7 +67,10 @@ paths:
     delete:
       operationId: cancel-backfill
       summary: ✨ Cancel Agreement V2 backfill jobs
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCancel Agreement V2 backfill jobs for the authenticated user's active organization. Cancel a specific job by job_id, all jobs for a specific project by project_id, or all backfill jobs for the entire organization if neither is provided."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Cancel Agreement V2 backfill jobs for the authenticated user''s active organization. Cancel a specific job by job_id, all jobs for a specific project by project_id, or all backfill jobs for the entire organization if neither is provided.'
       tags:
       - subpackage_dimensions
       parameters:
@@ -99,7 +115,10 @@ paths:
     get:
       operationId: list-backfills
       summary: ✨ List Agreement V2 backfill jobs
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve Agreement V2 backfill jobs for the authenticated user's active organization, ordered by most-recently created first. Supports page / page_size query params (default 50 per page, max 500). Requires administrator or owner role and the Agreement V2 feature flag."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve Agreement V2 backfill jobs for the authenticated user''s active organization, ordered by most-recently created first. Supports page / page_size query params (default 50 per page, max 500). Requires administrator or owner role and the Agreement V2 feature flag.'
       tags:
       - subpackage_dimensions
       parameters:
@@ -140,7 +159,10 @@ paths:
     get:
       operationId: get-backfill-status
       summary: ✨ Get Agreement V2 backfill status
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the status of an Agreement V2 backfill job for the authenticated user's active organization. By default returns the aggregated organization status. Specify job_id or project_id to get a specific job status. Requires administrator or owner role and the Agreement V2 feature flag."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve the status of an Agreement V2 backfill job for the authenticated user''s active organization. By default returns the aggregated organization status. Specify job_id or project_id to get a specific job status. Requires administrator or owner role and the Agreement V2 feature flag.'
       tags:
       - subpackage_dimensions
       parameters:
@@ -185,7 +207,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List dimensions
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all dimensions for a specific project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        List all dimensions for a specific project.'
       tags:
       - subpackage_dimensions
       parameters:
@@ -232,7 +257,10 @@ paths:
     get:
       operationId: get
       summary: ✨ Get dimension
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a specific dimension by ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve a specific dimension by ID.'
       tags:
       - subpackage_dimensions
       parameters:
@@ -263,135 +291,6 @@ paths:
                 $ref: '#/components/schemas/Dimension'
 components:
   schemas:
-    DimensionList:
-      type: object
-      properties:
-        allowed_metrics_with_params:
-          type: string
-          description: Dictionary mapping metric type names to their parameter schemas.
-        control_tag:
-          type:
-          - string
-          - 'null'
-          description: Name of the control tag this dimension is extracted from. Set automatically for system dimensions.
-        created_at:
-          type: string
-          format: date-time
-        description:
-          type: string
-          description: Human-readable description of what this dimension represents
-        extraction_method:
-          type: string
-          description: Method used to extract values from annotation JSON
-        extraction_method_params:
-          description: Parameters specific to the extraction method. See metrics.py for available extraction methods and their parameters.
-        id:
-          type: integer
-        is_active:
-          type: boolean
-          description: Whether this dimension is used in agreement calculations.
-        is_user_defined:
-          type: boolean
-          description: Whether this dimension was manually created by a user. System-generated dimensions have this set to False.
-        metric_params:
-          description: Parameters for the metric. See metrics.py for available metrics and their parameters.
-        metric_type:
-          type: string
-          description: Strategy for comparing dimension values across annotators
-        name:
-          type: string
-          description: Unique identifier for this dimension within the project
-        order:
-          type: integer
-          description: Display order within the project
-        project:
-          type: integer
-          description: Project this dimension belongs to
-        updated_at:
-          type: string
-          format: date-time
-      required:
-      - allowed_metrics_with_params
-      - control_tag
-      - created_at
-      - description
-      - extraction_method
-      - extraction_method_params
-      - id
-      - is_active
-      - is_user_defined
-      - metric_params
-      - metric_type
-      - name
-      - order
-      - project
-      - updated_at
-      description: 'Lightweight serializer for listing dimensions.
-
-
-        Excludes detailed parameters for performance in list views.'
-      title: DimensionList
-    AgreementV2BackfillJob:
-      type: object
-      properties:
-        completed_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        created_at:
-          type: string
-          format: date-time
-        error_message:
-          type: string
-          description: Error message if job failed
-        job_id:
-          type: integer
-          description: Database ID of the backfill job
-        progress_data:
-          description: JSON data tracking job progress (matrices_created, errors, etc.)
-        project_id:
-          type:
-          - integer
-          - 'null'
-          description: Optional specific project to backfill (if null, backfills entire organization)
-        rq_job_id:
-          type:
-          - string
-          - 'null'
-          description: Redis queue job ID
-        started_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        status:
-          $ref: '#/components/schemas/AgreementV2BackfillJobStatusEnum'
-          description: 'Current status of the backfill job
-
-
-            * `PENDING` - Pending
-
-            * `QUEUED` - Queued
-
-            * `RUNNING` - Running
-
-            * `COMPLETED` - Completed
-
-            * `FAILED` - Failed'
-        triggered_by:
-          type: string
-          description: User who triggered the backfill
-      required:
-      - created_at
-      - job_id
-      - project_id
-      - rq_job_id
-      - triggered_by
-      description: 'Serializes a DimensionsBackfillJob model instance.
-
-        Used by the list endpoint and as the base for the status endpoint.'
-      title: AgreementV2BackfillJob
     AgreementV2BackfillJobStatusEnum:
       type: string
       enum:
@@ -410,6 +309,19 @@ components:
 
         * `FAILED` - Failed'
       title: AgreementV2BackfillJobStatusEnum
+    AgreementV2BackfillCancelResponse:
+      type: object
+      properties:
+        cancelled_count:
+          type: integer
+          description: Number of jobs successfully cancelled
+        message:
+          type: string
+      required:
+      - cancelled_count
+      - message
+      description: Response from DELETE /api/dimensions/backfill/
+      title: AgreementV2BackfillCancelResponse
     AgreementV2BackfillTriggerRequestRequest:
       type: object
       properties:
@@ -430,19 +342,6 @@ components:
           description: Backfill a single specific project.
       description: "Request body for POST /api/dimensions/backfill/\n\nExactly one of the three mode fields must be provided:\n\n- project_id:   backfill a single specific project.\n- num_projects: batched org backfill — queue the next N not-yet-started projects\n                (ascending project ID order), leaving in-flight jobs untouched.\n                Check `projects_remaining` in the response and repeat until it reaches 0.\n- all_projects: full org backfill — cancel all in-flight jobs and queue every\n                remaining non-completed project at once."
       title: AgreementV2BackfillTriggerRequestRequest
-    AgreementV2BackfillCancelResponse:
-      type: object
-      properties:
-        cancelled_count:
-          type: integer
-          description: Number of jobs successfully cancelled
-        message:
-          type: string
-      required:
-      - cancelled_count
-      - message
-      description: Response from DELETE /api/dimensions/backfill/
-      title: AgreementV2BackfillCancelResponse
     Dimension:
       type: object
       properties:
@@ -511,6 +410,67 @@ components:
 
         The project and created_by fields are set automatically from the request context.'
       title: Dimension
+    AgreementV2BackfillJob:
+      type: object
+      properties:
+        completed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        error_message:
+          type: string
+          description: Error message if job failed
+        job_id:
+          type: integer
+          description: Database ID of the backfill job
+        progress_data:
+          description: JSON data tracking job progress (matrices_created, errors, etc.)
+        project_id:
+          type:
+          - integer
+          - 'null'
+          description: Optional specific project to backfill (if null, backfills entire organization)
+        rq_job_id:
+          type:
+          - string
+          - 'null'
+          description: Redis queue job ID
+        started_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        status:
+          $ref: '#/components/schemas/AgreementV2BackfillJobStatusEnum'
+          description: 'Current status of the backfill job
+
+
+            * `PENDING` - Pending
+
+            * `QUEUED` - Queued
+
+            * `RUNNING` - Running
+
+            * `COMPLETED` - Completed
+
+            * `FAILED` - Failed'
+        triggered_by:
+          type: string
+          description: User who triggered the backfill
+      required:
+      - created_at
+      - job_id
+      - project_id
+      - rq_job_id
+      - triggered_by
+      description: 'Serializes a DimensionsBackfillJob model instance.
+
+        Used by the list endpoint and as the base for the status endpoint.'
+      title: AgreementV2BackfillJob
     AgreementV2BackfillTriggerResponse:
       type: object
       properties:
@@ -543,6 +503,74 @@ components:
       - projects_skipped
       description: Response from POST /api/dimensions/backfill/
       title: AgreementV2BackfillTriggerResponse
+    DimensionList:
+      type: object
+      properties:
+        allowed_metrics_with_params:
+          type: string
+          description: Dictionary mapping metric type names to their parameter schemas.
+        control_tag:
+          type:
+          - string
+          - 'null'
+          description: Name of the control tag this dimension is extracted from. Set automatically for system dimensions.
+        created_at:
+          type: string
+          format: date-time
+        description:
+          type: string
+          description: Human-readable description of what this dimension represents
+        extraction_method:
+          type: string
+          description: Method used to extract values from annotation JSON
+        extraction_method_params:
+          description: Parameters specific to the extraction method. See metrics.py for available extraction methods and their parameters.
+        id:
+          type: integer
+        is_active:
+          type: boolean
+          description: Whether this dimension is used in agreement calculations.
+        is_user_defined:
+          type: boolean
+          description: Whether this dimension was manually created by a user. System-generated dimensions have this set to False.
+        metric_params:
+          description: Parameters for the metric. See metrics.py for available metrics and their parameters.
+        metric_type:
+          type: string
+          description: Strategy for comparing dimension values across annotators
+        name:
+          type: string
+          description: Unique identifier for this dimension within the project
+        order:
+          type: integer
+          description: Display order within the project
+        project:
+          type: integer
+          description: Project this dimension belongs to
+        updated_at:
+          type: string
+          format: date-time
+      required:
+      - allowed_metrics_with_params
+      - control_tag
+      - created_at
+      - description
+      - extraction_method
+      - extraction_method_params
+      - id
+      - is_active
+      - is_user_defined
+      - metric_params
+      - metric_type
+      - name
+      - order
+      - project
+      - updated_at
+      description: 'Lightweight serializer for listing dimensions.
+
+
+        Excludes detailed parameters for performance in list views.'
+      title: DimensionList
   securitySchemes:
     Token:
       type: apiKey

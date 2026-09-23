@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_tokens API
+  title: Reference Subpackage Tokens API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -140,20 +140,14 @@ paths:
               $ref: '#/components/schemas/LSAPITokenRotateRequest'
 components:
   schemas:
-    LSEAPITokenCreate:
+    TokenRefreshResponse:
       type: object
       properties:
-        created_at:
-          type: string
-        expires_at:
-          type: string
-        token:
+        access:
           type: string
       required:
-      - created_at
-      - expires_at
-      - token
-      title: LSEAPITokenCreate
+      - access
+      title: TokenRefreshResponse
     LSEAPITokenList:
       type: object
       properties:
@@ -168,22 +162,6 @@ components:
       - expires_at
       - token
       title: LSEAPITokenList
-    TokenRefreshRequest:
-      type: object
-      properties:
-        refresh:
-          type: string
-      required:
-      - refresh
-      title: TokenRefreshRequest
-    LSAPITokenBlacklistRequest:
-      type: object
-      properties:
-        refresh:
-          type: string
-      required:
-      - refresh
-      title: LSAPITokenBlacklistRequest
     LSAPITokenRotateRequest:
       type: object
       properties:
@@ -192,14 +170,20 @@ components:
       required:
       - refresh
       title: LSAPITokenRotateRequest
-    TokenRefreshResponse:
+    LSEAPITokenCreate:
       type: object
       properties:
-        access:
+        created_at:
+          type: string
+        expires_at:
+          type: string
+        token:
           type: string
       required:
-      - access
-      title: TokenRefreshResponse
+      - created_at
+      - expires_at
+      - token
+      title: LSEAPITokenCreate
     TokenRotateResponse:
       type: object
       properties:
@@ -208,6 +192,22 @@ components:
       required:
       - refresh
       title: TokenRotateResponse
+    LSAPITokenBlacklistRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+      title: LSAPITokenBlacklistRequest
+    TokenRefreshRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+      title: TokenRefreshRequest
   securitySchemes:
     Token:
       type: apiKey

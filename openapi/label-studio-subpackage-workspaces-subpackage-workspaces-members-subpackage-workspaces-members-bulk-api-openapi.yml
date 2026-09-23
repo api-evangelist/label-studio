@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/bulk API
+  title: Reference Subpackage Workspaces.subpackage…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     post:
       operationId: post
       summary: ✨ Bulk assign workspace members
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAssign workspace members in bulk."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Assign workspace members in bulk.'
       tags:
       - subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/bulk
       parameters:
@@ -41,7 +44,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Bulk unassign workspace members
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUnassign workspace members in bulk. Pass selector fields via query parameters (`all`, `included`, `excluded`) and optional paginated-list filters (`search`, `ids`). For backward compatibility, a JSON body with bulk fields is still accepted."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Unassign workspace members in bulk. Pass selector fields via query parameters (`all`, `included`, `excluded`) and optional paginated-list filters (`search`, `ids`). For backward compatibility, a JSON body with bulk fields is still accepted.'
       tags:
       - subpackage_workspaces.subpackage_workspaces/members.subpackage_workspaces/members/bulk
       parameters:

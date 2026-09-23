@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_comments API
+  title: Reference Subpackage Comments API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List comments
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all comments for a specific annotation ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        List all comments for a specific annotation ID.'
       tags:
       - subpackage_comments
       parameters:
@@ -65,7 +68,10 @@ paths:
     post:
       operationId: create
       summary: ✨ Create comment
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a comment for a specific annotation ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create a comment for a specific annotation ID.'
       tags:
       - subpackage_comments
       parameters:
@@ -97,7 +103,10 @@ paths:
     get:
       operationId: export
       summary: ✨ Export comments to CSV
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nExport comments to CSV file"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Export comments to CSV file'
       tags:
       - subpackage_comments
       parameters:
@@ -151,7 +160,10 @@ paths:
     get:
       operationId: get
       summary: ✨ Get comment
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a specific comment by ID for an annotation."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve a specific comment by ID for an annotation.'
       tags:
       - subpackage_comments
       parameters:
@@ -182,7 +194,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Delete comment
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a comment by ID"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Delete a comment by ID'
       tags:
       - subpackage_comments
       parameters:
@@ -209,7 +224,10 @@ paths:
     patch:
       operationId: update
       summary: ✨ Update comment
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific comment by ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Update a specific comment by ID.'
       tags:
       - subpackage_comments
       parameters:
@@ -244,30 +262,6 @@ paths:
               $ref: '#/components/schemas/PatchedCommentRequest'
 components:
   schemas:
-    TrialRoleEnum:
-      type: string
-      enum:
-      - annotator
-      - annotator_team_manager
-      - business_analyst
-      - business_or_data_team_leadership
-      - data_engineer_platform_engineer
-      - data_scientist
-      - other
-      description: '* `annotator` - Annotator
-
-        * `annotator_team_manager` - Annotator Team Manager
-
-        * `business_analyst` - Business Analyst
-
-        * `business_or_data_team_leadership` - Business Or Data Team Leadership
-
-        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
-
-        * `data_scientist` - Data Scientist
-
-        * `other` - Other'
-      title: TrialRoleEnum
     OnboardingStateEnum:
       type: string
       enum:
@@ -289,54 +283,6 @@ components:
 
         * `complete` - Complete'
       title: OnboardingStateEnum
-    MaybeExpandedComment:
-      oneOf:
-      - $ref: '#/components/schemas/Comment'
-      - $ref: '#/components/schemas/CommentSerializerWithExpandedUser'
-      title: MaybeExpandedComment
-    CommentRequest:
-      type: object
-      properties:
-        annotation:
-          type:
-          - integer
-          - 'null'
-        classifications:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Classifications applied by a reviewer or annotator
-        draft:
-          type:
-          - integer
-          - 'null'
-        is_resolved:
-          type: boolean
-          description: True if the comment is resolved
-        region_ref:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Set if this comment is related to a specific part of the annotation. Normally contains region ID and control name.
-        text:
-          type:
-          - string
-          - 'null'
-          description: Reviewer or annotator comment
-      description: 'Comment Serializer with FSM state support.
-
-
-        Note: The ''state'' field will be populated from the queryset annotation
-
-        if present, preventing N+1 queries. Use .with_state() on your queryset.
-
-
-        The state field display is controlled by both:
-
-        - fflag_feat_fit_568_finite_state_management (FSM background calculations)
-
-        - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
-      title: CommentRequest
     LseUser:
       type: object
       properties:
@@ -409,134 +355,6 @@ components:
 
         values with complex, nested serializations'
       title: LseUser
-    PatchedCommentRequest:
-      type: object
-      properties:
-        annotation:
-          type:
-          - integer
-          - 'null'
-        classifications:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Classifications applied by a reviewer or annotator
-        draft:
-          type:
-          - integer
-          - 'null'
-        is_resolved:
-          type: boolean
-          description: True if the comment is resolved
-        region_ref:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Set if this comment is related to a specific part of the annotation. Normally contains region ID and control name.
-        text:
-          type:
-          - string
-          - 'null'
-          description: Reviewer or annotator comment
-      description: 'Comment Serializer with FSM state support.
-
-
-        Note: The ''state'' field will be populated from the queryset annotation
-
-        if present, preventing N+1 queries. Use .with_state() on your queryset.
-
-
-        The state field display is controlled by both:
-
-        - fflag_feat_fit_568_finite_state_management (FSM background calculations)
-
-        - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
-      title: PatchedCommentRequest
-    OrganizationMembership:
-      type: object
-      properties:
-        active:
-          type: string
-        organization_id:
-          type: integer
-          description: Organization ID
-        role:
-          type: string
-      required:
-      - active
-      - organization_id
-      - role
-      title: OrganizationMembership
-    LseFields:
-      type: object
-      properties:
-        email_notification_settings:
-          type: string
-        invite_activated:
-          type:
-          - boolean
-          - 'null'
-        invite_expired:
-          type: string
-        invite_expired_at:
-          type: string
-        invited_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        invited_by:
-          type:
-          - integer
-          - 'null'
-        onboarding_state:
-          oneOf:
-          - $ref: '#/components/schemas/OnboardingStateEnum'
-          - type: 'null'
-          description: 'The current stage of user onboarding
-
-
-            * `not_started` - Not Started
-
-            * `signup` - Signup
-
-            * `trial_signup` - Trial Signup
-
-            * `first_tutorial` - First Tutorial
-
-            * `in_app_guidance` - In App Guidance
-
-            * `complete` - Complete'
-        social_auth_finished:
-          type:
-          - boolean
-          - 'null'
-          description: Is user finished social authentication
-        trial_company:
-          type:
-          - string
-          - 'null'
-        trial_experience_labeling:
-          type:
-          - string
-          - 'null'
-        trial_license_enterprise:
-          type:
-          - boolean
-          - 'null'
-        trial_models_in_production:
-          type:
-          - string
-          - 'null'
-        trial_role:
-          oneOf:
-          - $ref: '#/components/schemas/TrialRoleEnum'
-          - type: 'null'
-      required:
-      - email_notification_settings
-      - invite_expired
-      - invite_expired_at
-      title: LseFields
     Comment:
       type: object
       properties:
@@ -618,6 +436,136 @@ components:
 
         - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
       title: Comment
+    PatchedCommentRequest:
+      type: object
+      properties:
+        annotation:
+          type:
+          - integer
+          - 'null'
+        classifications:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Classifications applied by a reviewer or annotator
+        draft:
+          type:
+          - integer
+          - 'null'
+        is_resolved:
+          type: boolean
+          description: True if the comment is resolved
+        region_ref:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Set if this comment is related to a specific part of the annotation. Normally contains region ID and control name.
+        text:
+          type:
+          - string
+          - 'null'
+          description: Reviewer or annotator comment
+      description: 'Comment Serializer with FSM state support.
+
+
+        Note: The ''state'' field will be populated from the queryset annotation
+
+        if present, preventing N+1 queries. Use .with_state() on your queryset.
+
+
+        The state field display is controlled by both:
+
+        - fflag_feat_fit_568_finite_state_management (FSM background calculations)
+
+        - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
+      title: PatchedCommentRequest
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
+    CommentRequest:
+      type: object
+      properties:
+        annotation:
+          type:
+          - integer
+          - 'null'
+        classifications:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Classifications applied by a reviewer or annotator
+        draft:
+          type:
+          - integer
+          - 'null'
+        is_resolved:
+          type: boolean
+          description: True if the comment is resolved
+        region_ref:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Set if this comment is related to a specific part of the annotation. Normally contains region ID and control name.
+        text:
+          type:
+          - string
+          - 'null'
+          description: Reviewer or annotator comment
+      description: 'Comment Serializer with FSM state support.
+
+
+        Note: The ''state'' field will be populated from the queryset annotation
+
+        if present, preventing N+1 queries. Use .with_state() on your queryset.
+
+
+        The state field display is controlled by both:
+
+        - fflag_feat_fit_568_finite_state_management (FSM background calculations)
+
+        - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
+      title: CommentRequest
+    OrganizationMembership:
+      type: object
+      properties:
+        active:
+          type: string
+        organization_id:
+          type: integer
+          description: Organization ID
+        role:
+          type: string
+      required:
+      - active
+      - organization_id
+      - role
+      title: OrganizationMembership
+    MaybeExpandedComment:
+      oneOf:
+      - $ref: '#/components/schemas/Comment'
+      - $ref: '#/components/schemas/CommentSerializerWithExpandedUser'
+      title: MaybeExpandedComment
     CommentSerializerWithExpandedUser:
       type: object
       properties:
@@ -698,6 +646,76 @@ components:
 
         - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
       title: CommentSerializerWithExpandedUser
+    LseFields:
+      type: object
+      properties:
+        email_notification_settings:
+          type: string
+        invite_activated:
+          type:
+          - boolean
+          - 'null'
+        invite_expired:
+          type: string
+        invite_expired_at:
+          type: string
+        invited_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        invited_by:
+          type:
+          - integer
+          - 'null'
+        onboarding_state:
+          oneOf:
+          - $ref: '#/components/schemas/OnboardingStateEnum'
+          - type: 'null'
+          description: 'The current stage of user onboarding
+
+
+            * `not_started` - Not Started
+
+            * `signup` - Signup
+
+            * `trial_signup` - Trial Signup
+
+            * `first_tutorial` - First Tutorial
+
+            * `in_app_guidance` - In App Guidance
+
+            * `complete` - Complete'
+        social_auth_finished:
+          type:
+          - boolean
+          - 'null'
+          description: Is user finished social authentication
+        trial_company:
+          type:
+          - string
+          - 'null'
+        trial_experience_labeling:
+          type:
+          - string
+          - 'null'
+        trial_license_enterprise:
+          type:
+          - boolean
+          - 'null'
+        trial_models_in_production:
+          type:
+          - string
+          - 'null'
+        trial_role:
+          oneOf:
+          - $ref: '#/components/schemas/TrialRoleEnum'
+          - type: 'null'
+      required:
+      - email_notification_settings
+      - invite_expired
+      - invite_expired_at
+      title: LseFields
   securitySchemes:
     Token:
       type: apiKey

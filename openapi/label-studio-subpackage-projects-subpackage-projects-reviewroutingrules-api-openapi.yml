@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/reviewRoutingRules API
+  title: Reference Subpackage Projects.subpackage Projects/review…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List review routing rules
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList ordered review routing rules for a project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        List ordered review routing rules for a project.'
       tags:
       - subpackage_projects.subpackage_projects/reviewRoutingRules
       parameters:
@@ -45,7 +48,10 @@ paths:
     post:
       operationId: bulk-replace
       summary: ✨ Bulk replace review routing rules
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAtomically replace the ordered review routing rules for a project. Rules with an `id` update the existing project rule. Rules without an `id` are created. Existing project rules omitted from the request are deleted, and request order becomes rule order."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Atomically replace the ordered review routing rules for a project. Rules with an `id` update the existing project rule. Rules without an `id` are created. Existing project rules omitted from the request are deleted, and request order becomes rule order.'
       tags:
       - subpackage_projects.subpackage_projects/reviewRoutingRules
       parameters:
@@ -103,6 +109,34 @@ components:
       - operator
       - sample_rate
       title: ReviewRoutingRuleRequestRequest
+    ReviewRoutingRulesReplaceRequest:
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReviewRoutingRuleRequestRequest'
+      required:
+      - rules
+      title: ReviewRoutingRulesReplaceRequest
+    OperatorEnum:
+      type: string
+      enum:
+      - lt
+      - lte
+      - gt
+      - gte
+      - eq
+      description: '* `lt` - <
+
+        * `lte` - <=
+
+        * `gt` - >
+
+        * `gte` - >=
+
+        * `eq` - ='
+      title: OperatorEnum
     ReviewRoutingRule:
       type: object
       properties:
@@ -155,34 +189,6 @@ components:
       - order
       - updated_at
       title: ReviewRoutingRule
-    ReviewRoutingRulesReplaceRequest:
-      type: object
-      properties:
-        rules:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReviewRoutingRuleRequestRequest'
-      required:
-      - rules
-      title: ReviewRoutingRulesReplaceRequest
-    OperatorEnum:
-      type: string
-      enum:
-      - lt
-      - lte
-      - gt
-      - gte
-      - eq
-      description: '* `lt` - <
-
-        * `lte` - <=
-
-        * `gt` - >
-
-        * `gte` - >=
-
-        * `eq` - ='
-      title: OperatorEnum
   securitySchemes:
     Token:
       type: apiKey

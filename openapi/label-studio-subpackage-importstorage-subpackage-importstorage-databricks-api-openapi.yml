@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_importStorage.subpackage_importStorage/databricks API
+  title: Reference Subpackage Import Storage.subpackage Import…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List Databricks import storages
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet list of all Databricks Files import storage connections."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get list of all Databricks Files import storage connections.'
       tags:
       - subpackage_importStorage.subpackage_importStorage/databricks
       parameters:
@@ -45,7 +48,10 @@ paths:
     post:
       operationId: create
       summary: ✨ Create Databricks import storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a Databricks Files import storage connection."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create a Databricks Files import storage connection.'
       tags:
       - subpackage_importStorage.subpackage_importStorage/databricks
       parameters:
@@ -71,7 +77,10 @@ paths:
     post:
       operationId: validate
       summary: ✨ Validate Databricks import storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nValidate a specific Databricks Files import storage connection."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Validate a specific Databricks Files import storage connection.'
       tags:
       - subpackage_importStorage.subpackage_importStorage/databricks
       parameters:
@@ -97,7 +106,10 @@ paths:
     get:
       operationId: get
       summary: ✨ Get Databricks import storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a specific Databricks Files import storage connection."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get a specific Databricks Files import storage connection.'
       tags:
       - subpackage_importStorage.subpackage_importStorage/databricks
       parameters:
@@ -122,7 +134,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Delete Databricks import storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific Databricks Files import storage connection."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Delete a specific Databricks Files import storage connection.'
       tags:
       - subpackage_importStorage.subpackage_importStorage/databricks
       parameters:
@@ -143,7 +158,10 @@ paths:
     patch:
       operationId: update
       summary: ✨ Update Databricks import storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific Databricks Files import storage connection."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Update a specific Databricks Files import storage connection.'
       tags:
       - subpackage_importStorage.subpackage_importStorage/databricks
       parameters:
@@ -174,7 +192,10 @@ paths:
     post:
       operationId: sync
       summary: ✨ Sync Databricks import storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nSync tasks from a Databricks Files import storage."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Sync tasks from a Databricks Files import storage.'
       tags:
       - subpackage_importStorage.subpackage_importStorage/databricks
       parameters:
@@ -198,6 +219,262 @@ paths:
                 $ref: '#/components/schemas/DatabricksImportStorage'
 components:
   schemas:
+    import_storage_databricks_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: import_storage_databricks_validate_Response_200
+    DatabricksImportStorageRequest:
+      type: object
+      properties:
+        auth_type:
+          $ref: '#/components/schemas/AuthTypeEnum'
+          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
+
+
+            * `pat` - Personal Access Token
+
+            * `dbx_sp` - Databricks Service Principal
+
+            * `azure_ad_sp` - Azure AD Service Principal'
+        catalog:
+          type: string
+          description: UC catalog name
+        client_id:
+          type: string
+          description: Service principal client/application ID (required for SP modes)
+        client_secret:
+          type: string
+          description: Service principal client secret (required for SP modes)
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        host:
+          type: string
+          description: Databricks workspace base URL (https://...)
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: Path under the volume
+        presign:
+          type: boolean
+          description: Presign not supported; always proxied
+        presign_ttl:
+          type: integer
+          description: Unused for Databricks; kept for compatibility
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        recursive_scan:
+          type: boolean
+          description: Perform recursive scan
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Regex for filtering objects
+        request_timeout_s:
+          type: integer
+        schema:
+          type: string
+          description: UC schema name
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        stream_chunk_bytes:
+          type: integer
+        synchronizable:
+          type: boolean
+          default: true
+        tenant_id:
+          type: string
+          description: Azure AD tenant ID (required for Azure AD SP mode)
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        token:
+          type: string
+          description: Databricks personal access token (required for PAT mode)
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Generate blob URLs in tasks
+        verify_tls:
+          type: boolean
+          description: Verify TLS certificates
+        volume:
+          type: string
+          description: UC volume name
+      required:
+      - catalog
+      - host
+      - project
+      - schema
+      - volume
+      description: Serializer for Databricks import storage with multi-auth support.
+      title: DatabricksImportStorageRequest
+    PatchedDatabricksImportStorageRequest:
+      type: object
+      properties:
+        auth_type:
+          $ref: '#/components/schemas/AuthTypeEnum'
+          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
+
+
+            * `pat` - Personal Access Token
+
+            * `dbx_sp` - Databricks Service Principal
+
+            * `azure_ad_sp` - Azure AD Service Principal'
+        catalog:
+          type: string
+          description: UC catalog name
+        client_id:
+          type: string
+          description: Service principal client/application ID (required for SP modes)
+        client_secret:
+          type: string
+          description: Service principal client secret (required for SP modes)
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        host:
+          type: string
+          description: Databricks workspace base URL (https://...)
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: Path under the volume
+        presign:
+          type: boolean
+          description: Presign not supported; always proxied
+        presign_ttl:
+          type: integer
+          description: Unused for Databricks; kept for compatibility
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        recursive_scan:
+          type: boolean
+          description: Perform recursive scan
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Regex for filtering objects
+        request_timeout_s:
+          type: integer
+        schema:
+          type: string
+          description: UC schema name
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        stream_chunk_bytes:
+          type: integer
+        synchronizable:
+          type: boolean
+          default: true
+        tenant_id:
+          type: string
+          description: Azure AD tenant ID (required for Azure AD SP mode)
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        token:
+          type: string
+          description: Databricks personal access token (required for PAT mode)
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Generate blob URLs in tasks
+        verify_tls:
+          type: boolean
+          description: Verify TLS certificates
+        volume:
+          type: string
+          description: UC volume name
+      description: Serializer for Databricks import storage with multi-auth support.
+      title: PatchedDatabricksImportStorageRequest
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
     DatabricksImportStorage:
       type: object
       properties:
@@ -334,262 +611,6 @@ components:
 
         * `azure_ad_sp` - Azure AD Service Principal'
       title: AuthTypeEnum
-    DatabricksImportStorageRequest:
-      type: object
-      properties:
-        auth_type:
-          $ref: '#/components/schemas/AuthTypeEnum'
-          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
-
-
-            * `pat` - Personal Access Token
-
-            * `dbx_sp` - Databricks Service Principal
-
-            * `azure_ad_sp` - Azure AD Service Principal'
-        catalog:
-          type: string
-          description: UC catalog name
-        client_id:
-          type: string
-          description: Service principal client/application ID (required for SP modes)
-        client_secret:
-          type: string
-          description: Service principal client secret (required for SP modes)
-        description:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage description
-        host:
-          type: string
-          description: Databricks workspace base URL (https://...)
-        last_sync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last sync finished time
-        last_sync_count:
-          type:
-          - integer
-          - 'null'
-          description: Count of tasks synced last time
-        last_sync_job:
-          type:
-          - string
-          - 'null'
-          description: Last sync job ID
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta and debug information about storage processes
-        prefix:
-          type:
-          - string
-          - 'null'
-          description: Path under the volume
-        presign:
-          type: boolean
-          description: Presign not supported; always proxied
-        presign_ttl:
-          type: integer
-          description: Unused for Databricks; kept for compatibility
-        project:
-          type: integer
-          description: A unique integer value identifying this project.
-        recursive_scan:
-          type: boolean
-          description: Perform recursive scan
-        regex_filter:
-          type:
-          - string
-          - 'null'
-          description: Regex for filtering objects
-        request_timeout_s:
-          type: integer
-        schema:
-          type: string
-          description: UC schema name
-        status:
-          $ref: '#/components/schemas/StatusC5aEnum'
-        stream_chunk_bytes:
-          type: integer
-        synchronizable:
-          type: boolean
-          default: true
-        tenant_id:
-          type: string
-          description: Azure AD tenant ID (required for Azure AD SP mode)
-        title:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage title
-        token:
-          type: string
-          description: Databricks personal access token (required for PAT mode)
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report for the last failed sync
-        use_blob_urls:
-          type: boolean
-          description: Generate blob URLs in tasks
-        verify_tls:
-          type: boolean
-          description: Verify TLS certificates
-        volume:
-          type: string
-          description: UC volume name
-      required:
-      - catalog
-      - host
-      - project
-      - schema
-      - volume
-      description: Serializer for Databricks import storage with multi-auth support.
-      title: DatabricksImportStorageRequest
-    import_storage_databricks_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: import_storage_databricks_validate_Response_200
-    PatchedDatabricksImportStorageRequest:
-      type: object
-      properties:
-        auth_type:
-          $ref: '#/components/schemas/AuthTypeEnum'
-          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
-
-
-            * `pat` - Personal Access Token
-
-            * `dbx_sp` - Databricks Service Principal
-
-            * `azure_ad_sp` - Azure AD Service Principal'
-        catalog:
-          type: string
-          description: UC catalog name
-        client_id:
-          type: string
-          description: Service principal client/application ID (required for SP modes)
-        client_secret:
-          type: string
-          description: Service principal client secret (required for SP modes)
-        description:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage description
-        host:
-          type: string
-          description: Databricks workspace base URL (https://...)
-        last_sync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last sync finished time
-        last_sync_count:
-          type:
-          - integer
-          - 'null'
-          description: Count of tasks synced last time
-        last_sync_job:
-          type:
-          - string
-          - 'null'
-          description: Last sync job ID
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta and debug information about storage processes
-        prefix:
-          type:
-          - string
-          - 'null'
-          description: Path under the volume
-        presign:
-          type: boolean
-          description: Presign not supported; always proxied
-        presign_ttl:
-          type: integer
-          description: Unused for Databricks; kept for compatibility
-        project:
-          type: integer
-          description: A unique integer value identifying this project.
-        recursive_scan:
-          type: boolean
-          description: Perform recursive scan
-        regex_filter:
-          type:
-          - string
-          - 'null'
-          description: Regex for filtering objects
-        request_timeout_s:
-          type: integer
-        schema:
-          type: string
-          description: UC schema name
-        status:
-          $ref: '#/components/schemas/StatusC5aEnum'
-        stream_chunk_bytes:
-          type: integer
-        synchronizable:
-          type: boolean
-          default: true
-        tenant_id:
-          type: string
-          description: Azure AD tenant ID (required for Azure AD SP mode)
-        title:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage title
-        token:
-          type: string
-          description: Databricks personal access token (required for PAT mode)
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report for the last failed sync
-        use_blob_urls:
-          type: boolean
-          description: Generate blob URLs in tasks
-        verify_tls:
-          type: boolean
-          description: Verify TLS certificates
-        volume:
-          type: string
-          description: UC volume name
-      description: Serializer for Databricks import storage with multi-auth support.
-      title: PatchedDatabricksImportStorageRequest
-    StatusC5aEnum:
-      type: string
-      enum:
-      - initialized
-      - queued
-      - in_progress
-      - failed
-      - completed
-      - completed_with_errors
-      description: '* `initialized` - Initialized
-
-        * `queued` - Queued
-
-        * `in_progress` - In progress
-
-        * `failed` - Failed
-
-        * `completed` - Completed
-
-        * `completed_with_errors` - Completed with errors'
-      title: StatusC5aEnum
   securitySchemes:
     Token:
       type: apiKey

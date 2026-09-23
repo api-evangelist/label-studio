@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom API
+  title: Reference Subpackage Projects.subpackage…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: get-lambda
       summary: ✨ Get AWS custom metric code
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet the AWS Lambda code for the custom metric configured for this project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get the AWS Lambda code for the custom metric configured for this project.'
       tags:
       - subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
       parameters:
@@ -36,7 +39,10 @@ paths:
     post:
       operationId: update-lambda
       summary: ✨ Update AWS custom metric Lambda
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate or update the AWS Lambda function used for custom metrics in this project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create or update the AWS Lambda function used for custom metrics in this project.'
       tags:
       - subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
       parameters:
@@ -73,7 +79,10 @@ paths:
     get:
       operationId: logs
       summary: ✨ Get AWS lambda logs for project
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet AWS lambda logs for project, including filtering by start and end dates"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get AWS lambda logs for project, including filtering by start and end dates'
       tags:
       - subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
       parameters:
@@ -118,7 +127,10 @@ paths:
     post:
       operationId: check-function
       summary: ✨ Check custom matching function code
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nValidate custom matching function code for the project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Validate custom matching function code for the project.'
       tags:
       - subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
       parameters:
@@ -149,7 +161,10 @@ paths:
     get:
       operationId: get-function
       summary: ✨ Get custom metric code
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet the custom metric function code for this project. The server routes to the active cloud provider (AWS Lambda or GCP Cloud Functions) based on the CUSTOM_METRIC_PROVIDER setting."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get the custom metric function code for this project. The server routes to the active cloud provider (AWS Lambda or GCP Cloud Functions) based on the CUSTOM_METRIC_PROVIDER setting.'
       tags:
       - subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
       parameters:
@@ -174,7 +189,10 @@ paths:
     post:
       operationId: deploy-function
       summary: ✨ Deploy custom metric function
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate or update the custom metric function for this project. The server routes to the active cloud provider (AWS Lambda or GCP Cloud Functions) based on the CUSTOM_METRIC_PROVIDER setting."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create or update the custom metric function for this project. The server routes to the active cloud provider (AWS Lambda or GCP Cloud Functions) based on the CUSTOM_METRIC_PROVIDER setting.'
       tags:
       - subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
       parameters:
@@ -211,7 +229,10 @@ paths:
     get:
       operationId: get-function-logs
       summary: ✨ Get custom metric function logs
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet execution logs for the custom metric function. The server routes to the active cloud provider based on the CUSTOM_METRIC_PROVIDER setting."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get execution logs for the custom metric function. The server routes to the active cloud provider based on the CUSTOM_METRIC_PROVIDER setting.'
       tags:
       - subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
       parameters:
@@ -256,7 +277,10 @@ paths:
     get:
       operationId: get-gcp-function
       summary: ✨ Get GCP custom metric code
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet the GCP Cloud Function code for the custom metric configured for this project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get the GCP Cloud Function code for the custom metric configured for this project.'
       tags:
       - subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
       parameters:
@@ -281,7 +305,10 @@ paths:
     post:
       operationId: update-gcp-function
       summary: ✨ Update GCP custom metric Cloud Function
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate or update the GCP Cloud Function used for custom metrics in this project."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create or update the GCP Cloud Function used for custom metrics in this project.'
       tags:
       - subpackage_projects.subpackage_projects/metrics.subpackage_projects/metrics/custom
       parameters:
@@ -316,36 +343,11 @@ paths:
               $ref: '#/components/schemas/GCPCustomFunctionUpdateRequest'
 components:
   schemas:
-    ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
-      type: string
-      enum:
-      - NotDeployed
-      - Active
-      - Pending
-      - Failed
-      - NotFound
-      - Error
-      title: ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
-    GCPCustomFunctionUpdateRequest:
+    projects_metrics_custom_update_lambda_Response_200:
       type: object
-      properties:
-        code:
-          type: string
-          description: The Python code for the custom metric function.
-        project:
-          type:
-          - string
-          - 'null'
-          description: The GCP project ID. Uses default if not provided.
-        region:
-          type:
-          - string
-          - 'null'
-          description: The GCP region for the Cloud Function. Uses default if not provided.
-      required:
-      - code
-      description: Serializer for updating GCP Cloud Function custom metric.
-      title: GCPCustomFunctionUpdateRequest
+      properties: {}
+      description: Empty response body
+      title: projects_metrics_custom_update_lambda_Response_200
     projects_metrics_custom_deploy_function_Response_200:
       type: object
       properties: {}
@@ -371,56 +373,17 @@ components:
       - code
       description: Serializer for updating AWS Lambda custom metric function.
       title: AWSCustomFunctionUpdateRequest
-    projects_metrics_custom_update_gcp_function_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: projects_metrics_custom_update_gcp_function_Response_200
-    projects_metrics_custom_get_function_logs_Response_200:
-      type: object
-      properties: {}
-      title: projects_metrics_custom_get_function_logs_Response_200
-    projects_metrics_custom_logs_Response_200:
-      type: object
-      properties: {}
-      description: List of AWS lambda logs
-      title: projects_metrics_custom_logs_Response_200
-    ApiProjectsIdAwsCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
-      type: string
-      enum:
-      - NotDeployed
-      - Active
-      - Pending
-      - Inactive
-      - Failed
-      - NotFound
-      - Error
-      description: Deployment status of the Lambda function.
-      title: ApiProjectsIdAwsCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
-    projects_metrics_custom_check_function_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: projects_metrics_custom_check_function_Response_200
-    CustomFunctionCodeRequestRequest:
-      type: object
-      properties:
-        code:
-          type: string
-      required:
-      - code
-      title: CustomFunctionCodeRequestRequest
-    projects_metrics_custom_get_function_Response_200:
+    projects_metrics_custom_get_gcp_function_Response_200:
       type: object
       properties:
         code:
           type: string
         status:
-          $ref: '#/components/schemas/ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus'
+          $ref: '#/components/schemas/ApiProjectsIdGcpCustomFunctionGetResponsesContentApplicationJsonSchemaStatus'
       required:
       - code
       - status
-      title: projects_metrics_custom_get_function_Response_200
+      title: projects_metrics_custom_get_gcp_function_Response_200
     CheckMatchingFunctionRequestRequest:
       type: object
       properties:
@@ -429,6 +392,28 @@ components:
       required:
       - code
       title: CheckMatchingFunctionRequestRequest
+    CustomFunctionCodeRequestRequest:
+      type: object
+      properties:
+        code:
+          type: string
+      required:
+      - code
+      title: CustomFunctionCodeRequestRequest
+    projects_metrics_custom_logs_Response_200:
+      type: object
+      properties: {}
+      description: List of AWS lambda logs
+      title: projects_metrics_custom_logs_Response_200
+    projects_metrics_custom_get_function_logs_Response_200:
+      type: object
+      properties: {}
+      title: projects_metrics_custom_get_function_logs_Response_200
+    projects_metrics_custom_check_function_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: projects_metrics_custom_check_function_Response_200
     ApiProjectsIdGcpCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
       type: string
       enum:
@@ -439,11 +424,16 @@ components:
       - NotFound
       - Error
       title: ApiProjectsIdGcpCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
-    projects_metrics_custom_update_lambda_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: projects_metrics_custom_update_lambda_Response_200
+    ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
+      type: string
+      enum:
+      - NotDeployed
+      - Active
+      - Pending
+      - Failed
+      - NotFound
+      - Error
+      title: ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
     projects_metrics_custom_get_lambda_Response_200:
       type: object
       properties:
@@ -456,17 +446,54 @@ components:
       - code
       - status
       title: projects_metrics_custom_get_lambda_Response_200
-    projects_metrics_custom_get_gcp_function_Response_200:
+    GCPCustomFunctionUpdateRequest:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The Python code for the custom metric function.
+        project:
+          type:
+          - string
+          - 'null'
+          description: The GCP project ID. Uses default if not provided.
+        region:
+          type:
+          - string
+          - 'null'
+          description: The GCP region for the Cloud Function. Uses default if not provided.
+      required:
+      - code
+      description: Serializer for updating GCP Cloud Function custom metric.
+      title: GCPCustomFunctionUpdateRequest
+    projects_metrics_custom_update_gcp_function_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: projects_metrics_custom_update_gcp_function_Response_200
+    ApiProjectsIdAwsCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
+      type: string
+      enum:
+      - NotDeployed
+      - Active
+      - Pending
+      - Inactive
+      - Failed
+      - NotFound
+      - Error
+      description: Deployment status of the Lambda function.
+      title: ApiProjectsIdAwsCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
+    projects_metrics_custom_get_function_Response_200:
       type: object
       properties:
         code:
           type: string
         status:
-          $ref: '#/components/schemas/ApiProjectsIdGcpCustomFunctionGetResponsesContentApplicationJsonSchemaStatus'
+          $ref: '#/components/schemas/ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus'
       required:
       - code
       - status
-      title: projects_metrics_custom_get_gcp_function_Response_200
+      title: projects_metrics_custom_get_function_Response_200
   securitySchemes:
     Token:
       type: apiKey

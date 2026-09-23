@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated API
+  title: Reference Subpackage Projects.subpackage…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,24 @@ paths:
     get:
       operationId: list
       summary: ✨ Get project members paginated
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the members for a specific project.\n\n**Response Fields:**\n- `implicit_member` (boolean): Indicates if the user is an implicit member.\n  - `true`: User has access via workspace membership or organization role (Administrator/Owner)\n  - `false`: User is an explicit project member (added directly to the project)\n- `project_role` (string|null): Project-specific role override if assigned, null otherwise\n\n**Note:** Users can have both explicit membership AND implicit access. The `implicit_member` field is `false` if the user has an explicit ProjectMember entry, regardless of whether they also have implicit access via workspace or org role."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve the members for a specific project.
+
+
+        **Response Fields:**
+
+        - `implicit_member` (boolean): Indicates if the user is an implicit member.
+
+        - `true`: User has access via workspace membership or organization role (Administrator/Owner)
+
+        - `false`: User is an explicit project member (added directly to the project)
+
+        - `project_role` (string|null): Project-specific role override if assigned, null otherwise
+
+
+        **Note:** Users can have both explicit membership AND implicit access. The `implicit_member` field is `false` if the user has an explicit ProjectMember entry, regardless of whether they also have implicit access via workspace or org role.'
       tags:
       - subpackage_projects.subpackage_projects/members.subpackage_projects/members/paginated
       parameters:
@@ -153,159 +170,6 @@ paths:
                 $ref: '#/components/schemas/PaginatedPaginatedProjectMemberList'
 components:
   schemas:
-    PaginatedPaginatedProjectMemberList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PaginatedProjectMember'
-      required:
-      - count
-      - results
-      title: PaginatedPaginatedProjectMemberList
-    TrialRoleEnum:
-      type: string
-      enum:
-      - annotator
-      - annotator_team_manager
-      - business_analyst
-      - business_or_data_team_leadership
-      - data_engineer_platform_engineer
-      - data_scientist
-      - other
-      description: '* `annotator` - Annotator
-
-        * `annotator_team_manager` - Annotator Team Manager
-
-        * `business_analyst` - Business Analyst
-
-        * `business_or_data_team_leadership` - Business Or Data Team Leadership
-
-        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
-
-        * `data_scientist` - Data Scientist
-
-        * `other` - Other'
-      title: TrialRoleEnum
-    OnboardingStateEnum:
-      type: string
-      enum:
-      - not_started
-      - signup
-      - trial_signup
-      - first_tutorial
-      - in_app_guidance
-      - complete
-      description: '* `not_started` - Not Started
-
-        * `signup` - Signup
-
-        * `trial_signup` - Trial Signup
-
-        * `first_tutorial` - First Tutorial
-
-        * `in_app_guidance` - In App Guidance
-
-        * `complete` - Complete'
-      title: OnboardingStateEnum
-    OrganizationMembership:
-      type: object
-      properties:
-        active:
-          type: string
-        organization_id:
-          type: integer
-          description: Organization ID
-        role:
-          type: string
-      required:
-      - active
-      - organization_id
-      - role
-      title: OrganizationMembership
-    LseFields:
-      type: object
-      properties:
-        email_notification_settings:
-          type: string
-        invite_activated:
-          type:
-          - boolean
-          - 'null'
-        invite_expired:
-          type: string
-        invite_expired_at:
-          type: string
-        invited_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        invited_by:
-          type:
-          - integer
-          - 'null'
-        onboarding_state:
-          oneOf:
-          - $ref: '#/components/schemas/OnboardingStateEnum'
-          - type: 'null'
-          description: 'The current stage of user onboarding
-
-
-            * `not_started` - Not Started
-
-            * `signup` - Signup
-
-            * `trial_signup` - Trial Signup
-
-            * `first_tutorial` - First Tutorial
-
-            * `in_app_guidance` - In App Guidance
-
-            * `complete` - Complete'
-        social_auth_finished:
-          type:
-          - boolean
-          - 'null'
-          description: Is user finished social authentication
-        trial_company:
-          type:
-          - string
-          - 'null'
-        trial_experience_labeling:
-          type:
-          - string
-          - 'null'
-        trial_license_enterprise:
-          type:
-          - boolean
-          - 'null'
-        trial_models_in_production:
-          type:
-          - string
-          - 'null'
-        trial_role:
-          oneOf:
-          - $ref: '#/components/schemas/TrialRoleEnum'
-          - type: 'null'
-      required:
-      - email_notification_settings
-      - invite_expired
-      - invite_expired_at
-      title: LseFields
     PaginatedProjectMember:
       type: object
       properties:
@@ -403,6 +267,159 @@ components:
       - id
       - label
       title: SimpleOrganizationMemberTag
+    OnboardingStateEnum:
+      type: string
+      enum:
+      - not_started
+      - signup
+      - trial_signup
+      - first_tutorial
+      - in_app_guidance
+      - complete
+      description: '* `not_started` - Not Started
+
+        * `signup` - Signup
+
+        * `trial_signup` - Trial Signup
+
+        * `first_tutorial` - First Tutorial
+
+        * `in_app_guidance` - In App Guidance
+
+        * `complete` - Complete'
+      title: OnboardingStateEnum
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
+    OrganizationMembership:
+      type: object
+      properties:
+        active:
+          type: string
+        organization_id:
+          type: integer
+          description: Organization ID
+        role:
+          type: string
+      required:
+      - active
+      - organization_id
+      - role
+      title: OrganizationMembership
+    LseFields:
+      type: object
+      properties:
+        email_notification_settings:
+          type: string
+        invite_activated:
+          type:
+          - boolean
+          - 'null'
+        invite_expired:
+          type: string
+        invite_expired_at:
+          type: string
+        invited_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        invited_by:
+          type:
+          - integer
+          - 'null'
+        onboarding_state:
+          oneOf:
+          - $ref: '#/components/schemas/OnboardingStateEnum'
+          - type: 'null'
+          description: 'The current stage of user onboarding
+
+
+            * `not_started` - Not Started
+
+            * `signup` - Signup
+
+            * `trial_signup` - Trial Signup
+
+            * `first_tutorial` - First Tutorial
+
+            * `in_app_guidance` - In App Guidance
+
+            * `complete` - Complete'
+        social_auth_finished:
+          type:
+          - boolean
+          - 'null'
+          description: Is user finished social authentication
+        trial_company:
+          type:
+          - string
+          - 'null'
+        trial_experience_labeling:
+          type:
+          - string
+          - 'null'
+        trial_license_enterprise:
+          type:
+          - boolean
+          - 'null'
+        trial_models_in_production:
+          type:
+          - string
+          - 'null'
+        trial_role:
+          oneOf:
+          - $ref: '#/components/schemas/TrialRoleEnum'
+          - type: 'null'
+      required:
+      - email_notification_settings
+      - invite_expired
+      - invite_expired_at
+      title: LseFields
+    PaginatedPaginatedProjectMemberList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaginatedProjectMember'
+      required:
+      - count
+      - results
+      title: PaginatedPaginatedProjectMemberList
   securitySchemes:
     Token:
       type: apiKey

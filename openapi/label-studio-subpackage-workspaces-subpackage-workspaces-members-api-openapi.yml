@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_workspaces.subpackage_workspaces/members API
+  title: Reference Subpackage Workspaces.subpackage…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List workspace memberships
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a list of all members in a specific workspace."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get a list of all members in a specific workspace.'
       tags:
       - subpackage_workspaces.subpackage_workspaces/members
       parameters:
@@ -38,7 +41,10 @@ paths:
     post:
       operationId: create
       summary: ✨ Create workspace membership
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAdd a new workspace member by user ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Add a new workspace member by user ID.'
       tags:
       - subpackage_workspaces.subpackage_workspaces/members
       parameters:
@@ -68,7 +74,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Delete workspace membership
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRemove a specific member by ID from a workspace. Pass the member ID via the `user_id` query parameter. For backward compatibility, a JSON body with `user_id` (or `user`) is still accepted."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Remove a specific member by ID from a workspace. Pass the member ID via the `user_id` query parameter. For backward compatibility, a JSON body with `user_id` (or `user`) is still accepted.'
       tags:
       - subpackage_workspaces.subpackage_workspaces/members
       parameters:
@@ -94,30 +103,6 @@ paths:
           description: Successful response
 components:
   schemas:
-    TrialRoleEnum:
-      type: string
-      enum:
-      - annotator
-      - annotator_team_manager
-      - business_analyst
-      - business_or_data_team_leadership
-      - data_engineer_platform_engineer
-      - data_scientist
-      - other
-      description: '* `annotator` - Annotator
-
-        * `annotator_team_manager` - Annotator Team Manager
-
-        * `business_analyst` - Business Analyst
-
-        * `business_or_data_team_leadership` - Business Or Data Team Leadership
-
-        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
-
-        * `data_scientist` - Data Scientist
-
-        * `other` - Other'
-      title: TrialRoleEnum
     OnboardingStateEnum:
       type: string
       enum:
@@ -139,6 +124,17 @@ components:
 
         * `complete` - Complete'
       title: OnboardingStateEnum
+    WorkspaceMemberList:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/LseUser'
+        workspace:
+          type: integer
+          description: Workspace ID
+      required:
+      - user
+      title: WorkspaceMemberList
     LseUser:
       type: object
       properties:
@@ -211,6 +207,42 @@ components:
 
         values with complex, nested serializations'
       title: LseUser
+    WorkspaceMemberCreate:
+      type: object
+      properties:
+        user:
+          type: integer
+          description: User ID
+        workspace:
+          type: integer
+          description: Workspace ID
+      required:
+      - user
+      title: WorkspaceMemberCreate
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
     OrganizationMembership:
       type: object
       properties:
@@ -296,18 +328,6 @@ components:
       - invite_expired
       - invite_expired_at
       title: LseFields
-    WorkspaceMemberCreate:
-      type: object
-      properties:
-        user:
-          type: integer
-          description: User ID
-        workspace:
-          type: integer
-          description: Workspace ID
-      required:
-      - user
-      title: WorkspaceMemberCreate
     WorkspaceMemberCreateRequest:
       type: object
       properties:
@@ -320,17 +340,6 @@ components:
       required:
       - user
       title: WorkspaceMemberCreateRequest
-    WorkspaceMemberList:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/LseUser'
-        workspace:
-          type: integer
-          description: Workspace ID
-      required:
-      - user
-      title: WorkspaceMemberList
   securitySchemes:
     Token:
       type: apiKey

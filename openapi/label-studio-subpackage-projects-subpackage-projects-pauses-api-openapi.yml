@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/pauses API
+  title: Reference Subpackage Projects.subpackage Projects/pauses API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List pauses
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a list of all pauses."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve a list of all pauses.'
       tags:
       - subpackage_projects.subpackage_projects/pauses
       parameters:
@@ -55,7 +58,10 @@ paths:
     post:
       operationId: create
       summary: ✨ Create pause
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new pause entry."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create a new pause entry.'
       tags:
       - subpackage_projects.subpackage_projects/pauses
       parameters:
@@ -91,7 +97,10 @@ paths:
     get:
       operationId: get
       summary: ✨ Get pause
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a specific pause by ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve a specific pause by ID.'
       tags:
       - subpackage_projects.subpackage_projects/pauses
       parameters:
@@ -126,7 +135,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Delete pause
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific pause by ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Delete a specific pause by ID.'
       tags:
       - subpackage_projects.subpackage_projects/pauses
       parameters:
@@ -157,7 +169,10 @@ paths:
     patch:
       operationId: update
       summary: ✨ Update pause
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nPartially update a pause entry by ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Partially update a pause entry by ID.'
       tags:
       - subpackage_projects.subpackage_projects/pauses
       parameters:
@@ -196,79 +211,6 @@ paths:
               $ref: '#/components/schemas/PatchedPauseRequest'
 components:
   schemas:
-    Pause:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-          description: Timestamp when this pause record was created
-        deleted_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Timestamp when this pause record was soft-deleted
-        deleted_by:
-          type:
-          - integer
-          - 'null'
-          description: User who soft-deleted this pause record
-        id:
-          type: integer
-        paused_by:
-          $ref: '#/components/schemas/UserSimple'
-        project:
-          type:
-          - integer
-          - 'null'
-          description: Related project for which the pause is set
-        reason:
-          $ref: '#/components/schemas/ReasonEnum'
-          description: 'Reason for pausing
-
-
-            * `MANUAL` - Manual
-
-            * `BEHAVIOR_BASED` - Behavior-based
-
-            * `ANNOTATOR_EVALUATION` - Annotator evaluation
-
-            * `ANNOTATION_LIMIT` - Annotation limit
-
-            * `CUSTOM_SCRIPT` - Custom script'
-        updated_at:
-          type: string
-          format: date-time
-          description: Timestamp when this pause record was last updated
-        user:
-          type:
-          - integer
-          - 'null'
-          description: User who is paused
-        verbose_reason:
-          type:
-          - string
-          - 'null'
-          description: Detailed description of why the project is paused, will be readable by paused annotators
-      required:
-      - created_at
-      - deleted_at
-      - deleted_by
-      - id
-      - paused_by
-      - project
-      - reason
-      - updated_at
-      - user
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: Pause
     PauseRequest:
       type: object
       properties:
@@ -377,6 +319,79 @@ components:
 
         * `CUSTOM_SCRIPT` - Custom script'
       title: ReasonEnum
+    Pause:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when this pause record was created
+        deleted_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Timestamp when this pause record was soft-deleted
+        deleted_by:
+          type:
+          - integer
+          - 'null'
+          description: User who soft-deleted this pause record
+        id:
+          type: integer
+        paused_by:
+          $ref: '#/components/schemas/UserSimple'
+        project:
+          type:
+          - integer
+          - 'null'
+          description: Related project for which the pause is set
+        reason:
+          $ref: '#/components/schemas/ReasonEnum'
+          description: 'Reason for pausing
+
+
+            * `MANUAL` - Manual
+
+            * `BEHAVIOR_BASED` - Behavior-based
+
+            * `ANNOTATOR_EVALUATION` - Annotator evaluation
+
+            * `ANNOTATION_LIMIT` - Annotation limit
+
+            * `CUSTOM_SCRIPT` - Custom script'
+        updated_at:
+          type: string
+          format: date-time
+          description: Timestamp when this pause record was last updated
+        user:
+          type:
+          - integer
+          - 'null'
+          description: User who is paused
+        verbose_reason:
+          type:
+          - string
+          - 'null'
+          description: Detailed description of why the project is paused, will be readable by paused annotators
+      required:
+      - created_at
+      - deleted_at
+      - deleted_by
+      - id
+      - paused_by
+      - project
+      - reason
+      - updated_at
+      - user
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: Pause
   securitySchemes:
     Token:
       type: apiKey

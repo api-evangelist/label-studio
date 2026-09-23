@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/roles API
+  title: Reference Subpackage Projects.subpackage Projects/roles API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List project roles for current user
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\n\n        List project roles for requested IDs for the current user\n        "
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        List project roles for requested IDs for the current user'
       tags:
       - subpackage_projects.subpackage_projects/roles
       parameters:
@@ -44,7 +47,10 @@ paths:
     post:
       operationId: add
       summary: ✨ Create project role for user
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\n\n        Create project role for user allowing the user the same access level provided by organization role.\n        "
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create project role for user allowing the user the same access level provided by organization role.'
       tags:
       - subpackage_projects.subpackage_projects/roles
       parameters:
@@ -70,7 +76,10 @@ paths:
     delete:
       operationId: remove
       summary: ✨ Remove project role for user
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\n\n        Remove project role for user allowing the user the same access level provided by organization role.\n        "
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Remove project role for user allowing the user the same access level provided by organization role.'
       tags:
       - subpackage_projects.subpackage_projects/roles
       parameters:
@@ -93,7 +102,12 @@ paths:
     get:
       operationId: get
       summary: ✨ List project roles
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\n\n        List users and their project level roles for a given project.\n        If user is not listed here and is a member of the project then they would behave as assigned role in organization.\n        "
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        List users and their project level roles for a given project.
+
+        If user is not listed here and is a member of the project then they would behave as assigned role in organization.'
       tags:
       - subpackage_projects.subpackage_projects/roles
       parameters:

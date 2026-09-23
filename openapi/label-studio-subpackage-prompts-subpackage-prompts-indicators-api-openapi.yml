@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_prompts.subpackage_prompts/indicators API
+  title: Reference Subpackage Prompts.subpackage Prompts/indicators…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ Get key indicators
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet key indicators for the Prompt dashboard."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get key indicators for the Prompt dashboard.'
       tags:
       - subpackage_prompts.subpackage_prompts/indicators
       parameters:
@@ -39,7 +42,10 @@ paths:
     get:
       operationId: get
       summary: ✨ Get key indicator
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a specific key indicator for the Prompt dashboard."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get a specific key indicator for the Prompt dashboard.'
       tags:
       - subpackage_prompts.subpackage_prompts/indicators
       parameters:
@@ -68,18 +74,6 @@ paths:
                 $ref: '#/components/schemas/LSEKeyIndicatorValue'
 components:
   schemas:
-    ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItems:
-      type: object
-      properties:
-        title:
-          type: string
-        values:
-          $ref: '#/components/schemas/ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues'
-      title: ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItems
-    ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues:
-      type: object
-      properties: {}
-      title: ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues
     LSEKeyIndicatorValue:
       type: object
       properties:
@@ -96,6 +90,18 @@ components:
       - values
       description: "Key indicator value for Label Studio Enterprise.\n\nAttributes:\n    title: The title for this metric, to be displayed to the user\n    values: Dictionary of key-value pairs for the indicator values"
       title: LSEKeyIndicatorValue
+    ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues:
+      type: object
+      properties: {}
+      title: ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues
+    ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItems:
+      type: object
+      properties:
+        title:
+          type: string
+        values:
+          $ref: '#/components/schemas/ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues'
+      title: ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItems
   securitySchemes:
     Token:
       type: apiKey

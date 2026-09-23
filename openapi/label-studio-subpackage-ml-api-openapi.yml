@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_ml API
+  title: Reference Subpackage Ml API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,13 @@ paths:
     get:
       operationId: list
       summary: List ML backends
-      description: "\n    List all configured ML backends for a specific project by ID.\n    Use the following cURL command:\n    ```bash\n    curl http://localhost:8000/api/ml?project={project_id} -H 'Authorization: Token abc123'\n    "
+      description: 'List all configured ML backends for a specific project by ID.
+
+        Use the following cURL command:
+
+        ```bash
+
+        curl http://localhost:8000/api/ml?project={project_id} -H ''Authorization: Token abc123'''
       tags:
       - subpackage_ml
       parameters:
@@ -39,7 +45,15 @@ paths:
     post:
       operationId: create
       summary: Add ML Backend
-      description: "\n    Add an ML backend to a project using the Label Studio UI or by sending a POST request using the following cURL \n    command:\n    ```bash\n    curl -X POST -H 'Content-type: application/json' http://localhost:8000/api/ml -H 'Authorization: Token abc123'\\\n    --data '{\"url\": \"http://localhost:9090\", \"project\": {project_id}}' \n    "
+      description: 'Add an ML backend to a project using the Label Studio UI or by sending a POST request using the following cURL
+
+        command:
+
+        ```bash
+
+        curl -X POST -H ''Content-type: application/json'' http://localhost:8000/api/ml -H ''Authorization: Token abc123''\
+
+        --data ''{"url": "http://localhost:9090", "project": {project_id}}'''
       tags:
       - subpackage_ml
       parameters:
@@ -96,7 +110,13 @@ paths:
     get:
       operationId: get
       summary: Get ML Backend
-      description: "\n    Get details about a specific ML backend connection by ID. For example, make a GET request using the\n    following cURL command:\n    ```bash\n    curl http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\n    "
+      description: 'Get details about a specific ML backend connection by ID. For example, make a GET request using the
+
+        following cURL command:
+
+        ```bash
+
+        curl http://localhost:8000/api/ml/{ml_backend_ID} -H ''Authorization: Token abc123'''
       tags:
       - subpackage_ml
       parameters:
@@ -121,7 +141,13 @@ paths:
     delete:
       operationId: delete
       summary: Remove ML Backend
-      description: "\n    Remove an existing ML backend connection by ID. For example, use the\n    following cURL command:\n    ```bash\n    curl -X DELETE http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\n    "
+      description: 'Remove an existing ML backend connection by ID. For example, use the
+
+        following cURL command:
+
+        ```bash
+
+        curl -X DELETE http://localhost:8000/api/ml/{ml_backend_ID} -H ''Authorization: Token abc123'''
       tags:
       - subpackage_ml
       parameters:
@@ -142,7 +168,13 @@ paths:
     patch:
       operationId: update
       summary: Update ML Backend
-      description: "\n    Update ML backend parameters using the Label Studio UI or by sending a PATCH request using the following cURL command:\n    ```bash\n    curl -X PATCH -H 'Content-type: application/json' http://localhost:8000/api/ml/{ml_backend_ID} -H 'Authorization: Token abc123'\\\n    --data '{\"url\": \"http://localhost:9091\"}' \n    "
+      description: 'Update ML backend parameters using the Label Studio UI or by sending a PATCH request using the following cURL command:
+
+        ```bash
+
+        curl -X PATCH -H ''Content-type: application/json'' http://localhost:8000/api/ml/{ml_backend_ID} -H ''Authorization: Token abc123''\
+
+        --data ''{"url": "http://localhost:9091"}'''
       tags:
       - subpackage_ml
       parameters:
@@ -204,7 +236,11 @@ paths:
     post:
       operationId: predict-interactive
       summary: Request Interactive Annotation
-      description: "\n        Send a request to the machine learning backend set up to be used for interactive preannotations to retrieve a\n        predicted region based on annotator input. \n        See [set up machine learning](https://labelstud.io/guide/ml.html#Get-interactive-preannotations) for more.\n        "
+      description: 'Send a request to the machine learning backend set up to be used for interactive preannotations to retrieve a
+
+        predicted region based on annotator input.
+
+        See set up machine learning for more.'
       tags:
       - subpackage_ml
       parameters:
@@ -236,7 +272,16 @@ paths:
     post:
       operationId: predict-all-tasks
       summary: ✨ Create predictions for all tasks
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\n\n\nCreate predictions for all tasks using a specific ML backend so that you can set up an active learning strategy based on the confidence or uncertainty scores associated with the predictions. Creating predictions requires a Label Studio ML backend set up and configured for your project. \n\nSee [Set up machine learning](https://labelstud.io/guide/ml.html) for more details about a Label Studio ML backend. \n\nReference the ML backend ID in the path of this API call. Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list)."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create predictions for all tasks using a specific ML backend so that you can set up an active learning strategy based on the confidence or uncertainty scores associated with the predictions. Creating predictions requires a Label Studio ML backend set up and configured for your project.
+
+
+        See Set up machine learning for more details about a Label Studio ML backend.
+
+
+        Reference the ML backend ID in the path of this API call. Get the ML backend ID by listing the ML backends for a project.'
       tags:
       - subpackage_ml
       parameters:
@@ -269,7 +314,12 @@ paths:
     post:
       operationId: train
       summary: Train
-      description: "\n        After you add an ML backend, call this API with the ML backend ID to start training with \n        already-labeled tasks. \n        \n        Get the ML backend ID by [listing the ML backends for a project](https://labelstud.io/api/#operation/api_ml_list).\n        "
+      description: 'After you add an ML backend, call this API with the ML backend ID to start training with
+
+        already-labeled tasks.
+
+
+        Get the ML backend ID by listing the ML backends for a project.'
       tags:
       - subpackage_ml
       parameters:
@@ -335,21 +385,41 @@ paths:
                 $ref: '#/components/schemas/ml_list_model_versions_Response_200'
 components:
   schemas:
-    ml_predict_interactive_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: ml_predict_interactive_Response_200
-    ml_train_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: ml_train_Response_200
     ApiMlPostRequestBodyContentApplicationJsonSchemaExtraParams:
       type: object
       properties: {}
       description: Extra parameters
       title: ApiMlPostRequestBodyContentApplicationJsonSchemaExtraParams
+    ml_list_model_versions_Response_200:
+      type: object
+      properties:
+        message:
+          type: string
+        versions:
+          type: array
+          items:
+            type: string
+      title: ml_list_model_versions_Response_200
+    ml_train_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: ml_train_Response_200
+    MLInteractiveAnnotatingRequestRequest:
+      type: object
+      properties:
+        context:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Context for ML model
+        task:
+          type: integer
+          description: ID of task to annotate
+      required:
+      - task
+      description: Serializer for ML interactive annotating request.
+      title: MLInteractiveAnnotatingRequestRequest
     ApiMlPostRequestBodyContentApplicationJsonSchemaAuthMethod:
       type: string
       enum:
@@ -357,6 +427,11 @@ components:
       - BASIC_AUTH
       description: Auth method
       title: ApiMlPostRequestBodyContentApplicationJsonSchemaAuthMethod
+    ApiMlIdPatchRequestBodyContentApplicationJsonSchemaExtraParams:
+      type: object
+      properties: {}
+      description: Extra parameters
+      title: ApiMlIdPatchRequestBodyContentApplicationJsonSchemaExtraParams
     AuthMethodEnum:
       type: string
       enum:
@@ -384,26 +459,6 @@ components:
 
         * `PR` - Predicting'
       title: StateEnum
-    ml_predict_all_tasks_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: ml_predict_all_tasks_Response_200
-    ApiMlIdPatchRequestBodyContentApplicationJsonSchemaExtraParams:
-      type: object
-      properties: {}
-      description: Extra parameters
-      title: ApiMlIdPatchRequestBodyContentApplicationJsonSchemaExtraParams
-    ml_list_model_versions_Response_200:
-      type: object
-      properties:
-        message:
-          type: string
-        versions:
-          type: array
-          items:
-            type: string
-      title: ml_list_model_versions_Response_200
     MLBackend:
       type: object
       properties:
@@ -485,21 +540,16 @@ components:
       - BASIC_AUTH
       description: Auth method
       title: ApiMlIdPatchRequestBodyContentApplicationJsonSchemaAuthMethod
-    MLInteractiveAnnotatingRequestRequest:
+    ml_predict_all_tasks_Response_200:
       type: object
-      properties:
-        context:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Context for ML model
-        task:
-          type: integer
-          description: ID of task to annotate
-      required:
-      - task
-      description: Serializer for ML interactive annotating request.
-      title: MLInteractiveAnnotatingRequestRequest
+      properties: {}
+      description: Empty response body
+      title: ml_predict_all_tasks_Response_200
+    ml_predict_interactive_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: ml_predict_interactive_Response_200
   securitySchemes:
     Token:
       type: apiKey

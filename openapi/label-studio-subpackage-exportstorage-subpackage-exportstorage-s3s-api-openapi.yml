@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_exportStorage.subpackage_exportStorage/s3S API
+  title: Reference Subpackage Export Storage.subpackage Export…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List S3s export storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a list of all S3 export storage connections that were set up with IAM role access."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get a list of all S3 export storage connections that were set up with IAM role access.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/s3S
       parameters:
@@ -45,7 +48,10 @@ paths:
     post:
       operationId: create
       summary: ✨ Create export storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate an S3 export storage connection with IAM role access to store annotations."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create an S3 export storage connection with IAM role access to store annotations.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/s3S
       parameters:
@@ -71,7 +77,10 @@ paths:
     post:
       operationId: validate
       summary: ✨ Validate export storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nValidate a specific S3 export storage connection that was set up with IAM role access."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Validate a specific S3 export storage connection that was set up with IAM role access.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/s3S
       parameters:
@@ -97,7 +106,10 @@ paths:
     get:
       operationId: get
       summary: ✨ Get export storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a specific S3 export storage connection that was set up with IAM role access."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get a specific S3 export storage connection that was set up with IAM role access.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/s3S
       parameters:
@@ -122,7 +134,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Delete export storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific S3 export storage connection that was set up with IAM role access."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Delete a specific S3 export storage connection that was set up with IAM role access.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/s3S
       parameters:
@@ -143,7 +158,10 @@ paths:
     patch:
       operationId: update
       summary: ✨ Update export storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific S3 export storage connection that was set up with IAM role access."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Update a specific S3 export storage connection that was set up with IAM role access.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/s3S
       parameters:
@@ -174,7 +192,10 @@ paths:
     post:
       operationId: sync
       summary: ✨ Sync export storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nSync tasks from an S3 export storage."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Sync tasks from an S3 export storage.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/s3S
       parameters:
@@ -198,255 +219,6 @@ paths:
                 $ref: '#/components/schemas/LseS3ExportStorage'
 components:
   schemas:
-    export_storage_s3s_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: export_storage_s3s_validate_Response_200
-    LseS3ExportStorageRequest:
-      type: object
-      properties:
-        aws_access_key_id:
-          type:
-          - string
-          - 'null'
-          description: AWS_ACCESS_KEY_ID
-        aws_secret_access_key:
-          type:
-          - string
-          - 'null'
-          description: AWS_SECRET_ACCESS_KEY
-        aws_session_token:
-          type:
-          - string
-          - 'null'
-          description: AWS_SESSION_TOKEN
-        aws_sse_kms_key_id:
-          type:
-          - string
-          - 'null'
-          description: AWS SSE KMS Key ID
-        bucket:
-          type:
-          - string
-          - 'null'
-          description: S3 bucket name
-        can_delete_objects:
-          type:
-          - boolean
-          - 'null'
-          description: Deletion from storage enabled
-        description:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage description
-        external_id:
-          type:
-          - string
-          - 'null'
-          description: AWS ExternalId
-        last_sync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last sync finished time
-        last_sync_count:
-          type:
-          - integer
-          - 'null'
-          description: Count of tasks synced last time
-        last_sync_job:
-          type:
-          - string
-          - 'null'
-          description: Last sync job ID
-        legacy_auth:
-          type:
-          - boolean
-          - 'null'
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta and debug information about storage processes
-        prefix:
-          type:
-          - string
-          - 'null'
-          description: S3 bucket prefix
-        project:
-          type: integer
-          description: A unique integer value identifying this project.
-        regex_filter:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage regex for filtering objects
-        region_name:
-          type:
-          - string
-          - 'null'
-          description: AWS Region
-        role_arn:
-          type: string
-          description: AWS RoleArn
-        s3_endpoint:
-          type:
-          - string
-          - 'null'
-          description: S3 Endpoint
-        status:
-          $ref: '#/components/schemas/StatusC5aEnum'
-        synchronizable:
-          type: boolean
-          default: true
-        title:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage title
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report for the last failed sync
-        use_blob_urls:
-          type: boolean
-          description: Interpret objects as BLOBs and generate URLs
-      required:
-      - project
-      - role_arn
-      title: LseS3ExportStorageRequest
-    LseS3ExportStorage:
-      type: object
-      properties:
-        aws_access_key_id:
-          type:
-          - string
-          - 'null'
-          description: AWS_ACCESS_KEY_ID
-        aws_secret_access_key:
-          type:
-          - string
-          - 'null'
-          description: AWS_SECRET_ACCESS_KEY
-        aws_session_token:
-          type:
-          - string
-          - 'null'
-          description: AWS_SESSION_TOKEN
-        aws_sse_kms_key_id:
-          type:
-          - string
-          - 'null'
-          description: AWS SSE KMS Key ID
-        bucket:
-          type:
-          - string
-          - 'null'
-          description: S3 bucket name
-        can_delete_objects:
-          type:
-          - boolean
-          - 'null'
-          description: Deletion from storage enabled
-        created_at:
-          type: string
-          format: date-time
-          description: Creation time
-        description:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage description
-        external_id:
-          type:
-          - string
-          - 'null'
-          description: AWS ExternalId
-        id:
-          type: integer
-        last_sync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last sync finished time
-        last_sync_count:
-          type:
-          - integer
-          - 'null'
-          description: Count of tasks synced last time
-        last_sync_job:
-          type:
-          - string
-          - 'null'
-          description: Last sync job ID
-        legacy_auth:
-          type:
-          - boolean
-          - 'null'
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta and debug information about storage processes
-        prefix:
-          type:
-          - string
-          - 'null'
-          description: S3 bucket prefix
-        project:
-          type: integer
-          description: A unique integer value identifying this project.
-        regex_filter:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage regex for filtering objects
-        region_name:
-          type:
-          - string
-          - 'null'
-          description: AWS Region
-        role_arn:
-          type: string
-          description: AWS RoleArn
-        s3_endpoint:
-          type:
-          - string
-          - 'null'
-          description: S3 Endpoint
-        status:
-          $ref: '#/components/schemas/StatusC5aEnum'
-        synchronizable:
-          type: boolean
-          default: true
-        title:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage title
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report for the last failed sync
-        type:
-          type: string
-          default: s3s
-        use_blob_urls:
-          type: boolean
-          description: Interpret objects as BLOBs and generate URLs
-      required:
-      - created_at
-      - id
-      - project
-      - role_arn
-      - type
-      title: LseS3ExportStorage
     PatchedLseS3ExportStorageRequest:
       type: object
       properties:
@@ -581,6 +353,255 @@ components:
 
         * `completed_with_errors` - Completed with errors'
       title: StatusC5aEnum
+    export_storage_s3s_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: export_storage_s3s_validate_Response_200
+    LseS3ExportStorage:
+      type: object
+      properties:
+        aws_access_key_id:
+          type:
+          - string
+          - 'null'
+          description: AWS_ACCESS_KEY_ID
+        aws_secret_access_key:
+          type:
+          - string
+          - 'null'
+          description: AWS_SECRET_ACCESS_KEY
+        aws_session_token:
+          type:
+          - string
+          - 'null'
+          description: AWS_SESSION_TOKEN
+        aws_sse_kms_key_id:
+          type:
+          - string
+          - 'null'
+          description: AWS SSE KMS Key ID
+        bucket:
+          type:
+          - string
+          - 'null'
+          description: S3 bucket name
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        created_at:
+          type: string
+          format: date-time
+          description: Creation time
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        external_id:
+          type:
+          - string
+          - 'null'
+          description: AWS ExternalId
+        id:
+          type: integer
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        legacy_auth:
+          type:
+          - boolean
+          - 'null'
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: S3 bucket prefix
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage regex for filtering objects
+        region_name:
+          type:
+          - string
+          - 'null'
+          description: AWS Region
+        role_arn:
+          type: string
+          description: AWS RoleArn
+        s3_endpoint:
+          type:
+          - string
+          - 'null'
+          description: S3 Endpoint
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          type: boolean
+          default: true
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        type:
+          type: string
+          default: s3s
+        use_blob_urls:
+          type: boolean
+          description: Interpret objects as BLOBs and generate URLs
+      required:
+      - created_at
+      - id
+      - project
+      - role_arn
+      - type
+      title: LseS3ExportStorage
+    LseS3ExportStorageRequest:
+      type: object
+      properties:
+        aws_access_key_id:
+          type:
+          - string
+          - 'null'
+          description: AWS_ACCESS_KEY_ID
+        aws_secret_access_key:
+          type:
+          - string
+          - 'null'
+          description: AWS_SECRET_ACCESS_KEY
+        aws_session_token:
+          type:
+          - string
+          - 'null'
+          description: AWS_SESSION_TOKEN
+        aws_sse_kms_key_id:
+          type:
+          - string
+          - 'null'
+          description: AWS SSE KMS Key ID
+        bucket:
+          type:
+          - string
+          - 'null'
+          description: S3 bucket name
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        external_id:
+          type:
+          - string
+          - 'null'
+          description: AWS ExternalId
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        legacy_auth:
+          type:
+          - boolean
+          - 'null'
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: S3 bucket prefix
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage regex for filtering objects
+        region_name:
+          type:
+          - string
+          - 'null'
+          description: AWS Region
+        role_arn:
+          type: string
+          description: AWS RoleArn
+        s3_endpoint:
+          type:
+          - string
+          - 'null'
+          description: S3 Endpoint
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          type: boolean
+          default: true
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Interpret objects as BLOBs and generate URLs
+      required:
+      - project
+      - role_arn
+      title: LseS3ExportStorageRequest
   securitySchemes:
     Token:
       type: apiKey

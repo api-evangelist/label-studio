@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_projects.subpackage_projects/exports API
+  title: Reference Subpackage Projects.subpackage Projects/exports…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,46 @@ paths:
     get:
       operationId: download-sync
       summary: '[Deprecated] Easy export of tasks and annotations'
-      description: "\n        This endpoint is deprecated in Enterprise. Use the async export API instead:\n        POST /api/projects/{id}/exports/ (see [Create new export](/api#operation/api_projects_exports_create)).\n\n        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.\n\n        <i>Note: if you have a large project it's recommended to use\n        export snapshots, this easy export endpoint might have timeouts.</i><br/><br>\n        Export annotated tasks as a file in a specific format.\n        For example, to export JSON annotations for a project to a file called `annotations.json`,\n        run the following from the command line:\n        ```bash\n        curl -X GET http://localhost:8000/api/projects/{id}/export?exportType=JSON -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        To export all tasks, including skipped tasks and others without annotations, run the following from the command line:\n        ```bash\n        curl -X GET http://localhost:8000/api/projects/{id}/export?exportType=JSON&download_all_tasks=true -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        To export specific tasks with IDs of 123 and 345, run the following from the command line:\n        ```bash\n        curl -X GET 'http://localhost:8000/api/projects/{id}/export?ids[]=123&ids[]=345' -H 'Authorization: Token abc123' --output 'annotations.json'\n        ```\n        "
+      description: 'This endpoint is deprecated in Enterprise. Use the async export API instead:
+
+        POST /api/projects/{id}/exports/ (see Create new export).
+
+
+        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.
+
+
+        Note: if you have a large project it''s recommended to use
+
+        export snapshots, this easy export endpoint might have timeouts.
+
+
+        Export annotated tasks as a file in a specific format.
+
+        For example, to export JSON annotations for a project to a file called `annotations.json`,
+
+        run the following from the command line:
+
+        ```bash
+
+        curl -X GET http://localhost:8000/api/projects/{id}/export?exportType=JSON -H ''Authorization: Token abc123'' --output ''annotations.json''
+
+        ```
+
+        To export all tasks, including skipped tasks and others without annotations, run the following from the command line:
+
+        ```bash
+
+        curl -X GET http://localhost:8000/api/projects/{id}/export?exportType=JSON&download_all_tasks=true -H ''Authorization: Token abc123'' --output ''annotations.json''
+
+        ```
+
+        To export specific tasks with IDs of 123 and 345, run the following from the command line:
+
+        ```bash
+
+        curl -X GET ''http://localhost:8000/api/projects/{id}/export?ids[]=123&ids[]=345'' -H ''Authorization: Token abc123'' --output ''annotations.json''
+
+        ```'
       tags:
       - subpackage_projects.subpackage_projects/exports
       parameters:
@@ -65,7 +104,15 @@ paths:
     get:
       operationId: list-formats
       summary: '[Deprecated] Get export formats'
-      description: "\n        This endpoint is deprecated in Enterprise. Use the async export API instead:\n        POST /api/projects/{{id}}/exports/ (see [Create new export](/api#operation/api_projects_exports_create)).\n\n        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.\n\n        Retrieve the available export formats for the current project by ID."
+      description: 'This endpoint is deprecated in Enterprise. Use the async export API instead:
+
+        POST /api/projects/{{id}}/exports/ (see Create new export).
+
+
+        In Label Studio Enterprise, this endpoint will always return a 404 Not Found response with instructions to use the async export API.
+
+
+        Retrieve the available export formats for the current project by ID.'
       tags:
       - subpackage_projects.subpackage_projects/exports
       parameters:
@@ -259,7 +306,16 @@ paths:
     get:
       operationId: download
       summary: Download export snapshot as file in specified format
-      description: "\n        Download an export file in the specified format for a specific project. Specify the project ID with the `id`\n        parameter in the path and the ID of the export file you want to download using the `export_pk` parameter\n        in the path.\n\n        Get the `export_pk` from the response of the request to [Create new export](/api#operation/api_projects_exports_create)\n        or after [listing export files](/api#operation/api_projects_exports_list).\n        "
+      description: 'Download an export file in the specified format for a specific project. Specify the project ID with the `id`
+
+        parameter in the path and the ID of the export file you want to download using the `export_pk` parameter
+
+        in the path.
+
+
+        Get the `export_pk` from the response of the request to Create new export
+
+        or after listing export files.'
       tags:
       - subpackage_projects.subpackage_projects/exports
       parameters:
@@ -297,19 +353,22 @@ paths:
                 format: binary
 components:
   schemas:
-    ExportConvertRequest:
-      type: object
-      properties:
-        download_resources:
-          type: boolean
-          description: Download resources in converter.
-        export_type:
-          type: string
-          description: Export file format.
-      required:
-      - export_type
-      title: ExportConvertRequest
-    ReviewedEnum:
+    Status7bfEnum:
+      type: string
+      enum:
+      - created
+      - in_progress
+      - failed
+      - completed
+      description: '* `created` - Created
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed'
+      title: Status7bfEnum
+    SkippedEnum:
       type: string
       enum:
       - only
@@ -319,8 +378,8 @@ components:
         * `exclude` - exclude
 
         * `None` - None'
-      title: ReviewedEnum
-    LseAnnotationFilterOptionsRequest:
+      title: SkippedEnum
+    LseAnnotationFilterOptions:
       type: object
       properties:
         ground_truth:
@@ -351,134 +410,7 @@ components:
           - 'null'
           default: true
           description: Include not skipped and not ground truth annotations
-      title: LseAnnotationFilterOptionsRequest
-    ConvertedFormat:
-      type: object
-      properties:
-        export_type:
-          type: string
-        id:
-          type: integer
-        status:
-          $ref: '#/components/schemas/Status7bfEnum'
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report in case of errors
-      required:
-      - export_type
-      - id
-      title: ConvertedFormat
-    AnnotatedEnum:
-      type: string
-      enum:
-      - only
-      - exclude
-      description: '* `only` - only
-
-        * `exclude` - exclude
-
-        * `None` - None'
-      title: AnnotatedEnum
-    LseTaskFilterOptions:
-      type: object
-      properties:
-        annotated:
-          oneOf:
-          - $ref: '#/components/schemas/AnnotatedEnum'
-          - type: 'null'
-          description: '`only` - include all tasks with at least one not skipped annotation<br>`exclude` - exclude all tasks with at least one not skipped annotation
-
-
-            * `only` - only
-
-            * `exclude` - exclude
-
-            * `None` - None'
-        finished:
-          oneOf:
-          - $ref: '#/components/schemas/FinishedEnum'
-          - type: 'null'
-          description: '`only` - include all finished tasks (is_labeled = true)<br>`exclude` - exclude all finished tasks
-
-
-            * `only` - only
-
-            * `exclude` - exclude
-
-            * `None` - None'
-        only_with_annotations:
-          type: boolean
-          default: false
-        reviewed:
-          oneOf:
-          - $ref: '#/components/schemas/ReviewedEnum'
-          - type: 'null'
-          description: '`only` - include all reviewed tasks<br>`exclude` - exclude all reviewed tasks
-
-
-            * `only` - only
-
-            * `exclude` - exclude
-
-            * `None` - None'
-        skipped:
-          oneOf:
-          - $ref: '#/components/schemas/SkippedEnum'
-          - type: 'null'
-          description: '`only` - include all tasks with skipped annotations<br>`exclude` - exclude all tasks with skipped annotations
-
-
-            * `only` - only
-
-            * `exclude` - exclude
-
-            * `None` - None'
-        view:
-          type: integer
-          description: Apply filters from the view ID (a tab from the Data Manager)
-      title: LseTaskFilterOptions
-    SkippedEnum:
-      type: string
-      enum:
-      - only
-      - exclude
-      description: '* `only` - only
-
-        * `exclude` - exclude
-
-        * `None` - None'
-      title: SkippedEnum
-    projects_exports_convert_Response_200:
-      type: object
-      properties:
-        converted_format:
-          type: integer
-        export_type:
-          type: string
-      title: projects_exports_convert_Response_200
-    SerializationOptions:
-      type: object
-      properties:
-        annotations__completed_by:
-          $ref: '#/components/schemas/SerializationOption'
-          description: JSON dict with parameters
-        drafts:
-          $ref: '#/components/schemas/SerializationOption'
-          description: JSON dict with parameters
-        include_annotation_history:
-          type: boolean
-          default: false
-          description: Include annotation history
-        interpolate_key_frames:
-          type: boolean
-          default: false
-          description: Interpolate video key frames
-        predictions:
-          $ref: '#/components/schemas/SerializationOption'
-          description: JSON dict with parameters
-      title: SerializationOptions
+      title: LseAnnotationFilterOptions
     SerializationOptionRequest:
       type: object
       properties:
@@ -487,34 +419,6 @@ components:
           default: false
           description: Include a full json body or IDs only
       title: SerializationOptionRequest
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
     FinishedEnum:
       type: string
       enum:
@@ -526,59 +430,6 @@ components:
 
         * `None` - None'
       title: FinishedEnum
-    SerializationOption:
-      type: object
-      properties:
-        only_id:
-          type: boolean
-          default: false
-          description: Include a full json body or IDs only
-      title: SerializationOption
-    LseExportCreateRequest:
-      type: object
-      properties:
-        annotation_filter_options:
-          $ref: '#/components/schemas/LseAnnotationFilterOptionsRequest'
-        converted_formats:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConvertedFormatRequest'
-        counters:
-          description: Any type
-        created_by:
-          $ref: '#/components/schemas/UserSimpleRequest'
-        finished_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Complete or fail time
-        md5:
-          type: string
-        serialization_options:
-          $ref: '#/components/schemas/SerializationOptionsRequest'
-        status:
-          $ref: '#/components/schemas/Status7bfEnum'
-        task_filter_options:
-          $ref: '#/components/schemas/LseTaskFilterOptionsRequest'
-        title:
-          type: string
-      title: LseExportCreateRequest
-    Status7bfEnum:
-      type: string
-      enum:
-      - created
-      - in_progress
-      - failed
-      - completed
-      description: '* `created` - Created
-
-        * `in_progress` - In progress
-
-        * `failed` - Failed
-
-        * `completed` - Completed'
-      title: Status7bfEnum
     LseTaskFilterOptionsRequest:
       type: object
       properties:
@@ -637,60 +488,6 @@ components:
           type: integer
           description: Apply filters from the view ID (a tab from the Data Manager)
       title: LseTaskFilterOptionsRequest
-    LseAnnotationFilterOptions:
-      type: object
-      properties:
-        ground_truth:
-          type:
-          - boolean
-          - 'null'
-          description: Include ground truth annotations
-        reviewed:
-          oneOf:
-          - $ref: '#/components/schemas/ReviewedEnum'
-          - type: 'null'
-          description: '`only` - include all tasks with at least one not reviewed annotation<br>`exclude` - exclude with at least one not reviewed annotation
-
-
-            * `only` - only
-
-            * `exclude` - exclude
-
-            * `None` - None'
-        skipped:
-          type:
-          - boolean
-          - 'null'
-          description: Include skipped annotations
-        usual:
-          type:
-          - boolean
-          - 'null'
-          default: true
-          description: Include not skipped and not ground truth annotations
-      title: LseAnnotationFilterOptions
-    UserSimpleRequest:
-      type: object
-      properties:
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimpleRequest
     Export:
       type: object
       properties:
@@ -724,21 +521,6 @@ components:
       - created_at
       - id
       title: Export
-    ConvertedFormatRequest:
-      type: object
-      properties:
-        export_type:
-          type: string
-        status:
-          $ref: '#/components/schemas/Status7bfEnum'
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report in case of errors
-      required:
-      - export_type
-      title: ConvertedFormatRequest
     LseExportCreate:
       type: object
       properties:
@@ -778,6 +560,35 @@ components:
       - created_at
       - id
       title: LseExportCreate
+    SerializationOptions:
+      type: object
+      properties:
+        annotations__completed_by:
+          $ref: '#/components/schemas/SerializationOption'
+          description: JSON dict with parameters
+        drafts:
+          $ref: '#/components/schemas/SerializationOption'
+          description: JSON dict with parameters
+        include_annotation_history:
+          type: boolean
+          default: false
+          description: Include annotation history
+        interpolate_key_frames:
+          type: boolean
+          default: false
+          description: Interpolate video key frames
+        predictions:
+          $ref: '#/components/schemas/SerializationOption'
+          description: JSON dict with parameters
+      title: SerializationOptions
+    SerializationOption:
+      type: object
+      properties:
+        only_id:
+          type: boolean
+          default: false
+          description: Include a full json body or IDs only
+      title: SerializationOption
     SerializationOptionsRequest:
       type: object
       properties:
@@ -799,6 +610,251 @@ components:
           $ref: '#/components/schemas/SerializationOptionRequest'
           description: JSON dict with parameters
       title: SerializationOptionsRequest
+    LseAnnotationFilterOptionsRequest:
+      type: object
+      properties:
+        ground_truth:
+          type:
+          - boolean
+          - 'null'
+          description: Include ground truth annotations
+        reviewed:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewedEnum'
+          - type: 'null'
+          description: '`only` - include all tasks with at least one not reviewed annotation<br>`exclude` - exclude with at least one not reviewed annotation
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        skipped:
+          type:
+          - boolean
+          - 'null'
+          description: Include skipped annotations
+        usual:
+          type:
+          - boolean
+          - 'null'
+          default: true
+          description: Include not skipped and not ground truth annotations
+      title: LseAnnotationFilterOptionsRequest
+    ConvertedFormatRequest:
+      type: object
+      properties:
+        export_type:
+          type: string
+        status:
+          $ref: '#/components/schemas/Status7bfEnum'
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report in case of errors
+      required:
+      - export_type
+      title: ConvertedFormatRequest
+    ConvertedFormat:
+      type: object
+      properties:
+        export_type:
+          type: string
+        id:
+          type: integer
+        status:
+          $ref: '#/components/schemas/Status7bfEnum'
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report in case of errors
+      required:
+      - export_type
+      - id
+      title: ConvertedFormat
+    AnnotatedEnum:
+      type: string
+      enum:
+      - only
+      - exclude
+      description: '* `only` - only
+
+        * `exclude` - exclude
+
+        * `None` - None'
+      title: AnnotatedEnum
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    LseExportCreateRequest:
+      type: object
+      properties:
+        annotation_filter_options:
+          $ref: '#/components/schemas/LseAnnotationFilterOptionsRequest'
+        converted_formats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConvertedFormatRequest'
+        counters:
+          description: Any type
+        created_by:
+          $ref: '#/components/schemas/UserSimpleRequest'
+        finished_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Complete or fail time
+        md5:
+          type: string
+        serialization_options:
+          $ref: '#/components/schemas/SerializationOptionsRequest'
+        status:
+          $ref: '#/components/schemas/Status7bfEnum'
+        task_filter_options:
+          $ref: '#/components/schemas/LseTaskFilterOptionsRequest'
+        title:
+          type: string
+      title: LseExportCreateRequest
+    UserSimpleRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimpleRequest
+    LseTaskFilterOptions:
+      type: object
+      properties:
+        annotated:
+          oneOf:
+          - $ref: '#/components/schemas/AnnotatedEnum'
+          - type: 'null'
+          description: '`only` - include all tasks with at least one not skipped annotation<br>`exclude` - exclude all tasks with at least one not skipped annotation
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        finished:
+          oneOf:
+          - $ref: '#/components/schemas/FinishedEnum'
+          - type: 'null'
+          description: '`only` - include all finished tasks (is_labeled = true)<br>`exclude` - exclude all finished tasks
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        only_with_annotations:
+          type: boolean
+          default: false
+        reviewed:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewedEnum'
+          - type: 'null'
+          description: '`only` - include all reviewed tasks<br>`exclude` - exclude all reviewed tasks
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        skipped:
+          oneOf:
+          - $ref: '#/components/schemas/SkippedEnum'
+          - type: 'null'
+          description: '`only` - include all tasks with skipped annotations<br>`exclude` - exclude all tasks with skipped annotations
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        view:
+          type: integer
+          description: Apply filters from the view ID (a tab from the Data Manager)
+      title: LseTaskFilterOptions
+    projects_exports_convert_Response_200:
+      type: object
+      properties:
+        converted_format:
+          type: integer
+        export_type:
+          type: string
+      title: projects_exports_convert_Response_200
+    ReviewedEnum:
+      type: string
+      enum:
+      - only
+      - exclude
+      description: '* `only` - only
+
+        * `exclude` - exclude
+
+        * `None` - None'
+      title: ReviewedEnum
+    ExportConvertRequest:
+      type: object
+      properties:
+        download_resources:
+          type: boolean
+          description: Download resources in converter.
+        export_type:
+          type: string
+          description: Export file format.
+      required:
+      - export_type
+      title: ExportConvertRequest
   securitySchemes:
     Token:
       type: apiKey

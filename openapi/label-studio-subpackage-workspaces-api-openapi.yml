@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_workspaces API
+  title: Reference Subpackage Workspaces API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List workspaces
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all workspaces for your organization. Workspaces in Label Studio let you organize your projects and users into separate spaces. This is useful for managing different teams, departments, or projects within your organization. For more information, see the [Workspaces documentation](https://docs.humansignal.com/workspaces)."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        List all workspaces for your organization. Workspaces in Label Studio let you organize your projects and users into separate spaces. This is useful for managing different teams, departments, or projects within your organization. For more information, see the Workspaces documentation.'
       tags:
       - subpackage_workspaces
       parameters:
@@ -57,7 +60,10 @@ paths:
     post:
       operationId: create
       summary: ✨ Create workspace
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new workspace. Workspaces in Label Studio let you organize your projects and users into separate spaces. This is useful for managing different teams, departments, or projects within your organization. For more information, see the [Workspaces documentation](https://docs.humansignal.com/workspaces)."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create a new workspace. Workspaces in Label Studio let you organize your projects and users into separate spaces. This is useful for managing different teams, departments, or projects within your organization. For more information, see the Workspaces documentation.'
       tags:
       - subpackage_workspaces
       parameters:
@@ -83,7 +89,10 @@ paths:
     get:
       operationId: get
       summary: ✨ Get workspace
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve details for a specific workspace by ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve details for a specific workspace by ID.'
       tags:
       - subpackage_workspaces
       parameters:
@@ -108,7 +117,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Delete workspace
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific workspace by ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Delete a specific workspace by ID.'
       tags:
       - subpackage_workspaces
       parameters:
@@ -129,7 +141,10 @@ paths:
     patch:
       operationId: update
       summary: ✨ Update workspace
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate settings for a specific workspace by ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Update settings for a specific workspace by ID.'
       tags:
       - subpackage_workspaces
       parameters:
@@ -158,38 +173,6 @@ paths:
               $ref: '#/components/schemas/PatchedWorkspaceRequest'
 components:
   schemas:
-    WorkspaceRequest:
-      type: object
-      properties:
-        color:
-          type:
-          - string
-          - 'null'
-          description: Color
-        description:
-          type:
-          - string
-          - 'null'
-          description: Workspace description
-        is_archived:
-          type: boolean
-          description: Workspace is archived
-        is_personal:
-          type: boolean
-          description: Workspace is a personal user workspace
-        title:
-          type: string
-          description: Workspace Name
-      required:
-      - title
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: WorkspaceRequest
     PatchedWorkspaceRequest:
       type: object
       properties:
@@ -269,6 +252,38 @@ components:
 
         values with complex, nested serializations'
       title: Workspace
+    WorkspaceRequest:
+      type: object
+      properties:
+        color:
+          type:
+          - string
+          - 'null'
+          description: Color
+        description:
+          type:
+          - string
+          - 'null'
+          description: Workspace description
+        is_archived:
+          type: boolean
+          description: Workspace is archived
+        is_personal:
+          type: boolean
+          description: Workspace is a personal user workspace
+        title:
+          type: string
+          description: Workspace Name
+      required:
+      - title
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: WorkspaceRequest
   securitySchemes:
     Token:
       type: apiKey

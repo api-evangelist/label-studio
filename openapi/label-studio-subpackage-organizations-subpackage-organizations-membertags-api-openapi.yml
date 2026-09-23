@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_organizations.subpackage_organizations/memberTags API
+  title: Reference Subpackage Organizations.subpackage…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List organization member tags
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a list of all member tags for a specific organization."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve a list of all member tags for a specific organization.'
       tags:
       - subpackage_organizations.subpackage_organizations/memberTags
       parameters:
@@ -61,7 +64,10 @@ paths:
     post:
       operationId: create
       summary: ✨ Create organization member tag
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new member tag for a specific organization."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create a new member tag for a specific organization.'
       tags:
       - subpackage_organizations.subpackage_organizations/memberTags
       parameters:
@@ -105,7 +111,10 @@ paths:
     post:
       operationId: assign
       summary: ✨ Bulk assign tags to organization members
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nAssign tags to multiple organization members in bulk."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Assign tags to multiple organization members in bulk.'
       tags:
       - subpackage_organizations.subpackage_organizations/memberTags
       parameters:
@@ -199,7 +208,19 @@ paths:
     post:
       operationId: import
       summary: ✨ Import member tags from CSV
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpload a CSV file to bulk import member tags and assign them to organization members.\n\nThe CSV file must contain `email` and `tags` columns. The `tags` column should contain comma-separated tag labels (quoted if they contain commas). Tags that do not exist will be created.\n\nOptionally, you can specify `bulk_tags` as a comma-separated list of tags to apply to all users in the CSV file.\n\nThe import runs asynchronously. Use the returned import job ID to check the status."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Upload a CSV file to bulk import member tags and assign them to organization members.
+
+
+        The CSV file must contain `email` and `tags` columns. The `tags` column should contain comma-separated tag labels (quoted if they contain commas). Tags that do not exist will be created.
+
+
+        Optionally, you can specify `bulk_tags` as a comma-separated list of tags to apply to all users in the CSV file.
+
+
+        The import runs asynchronously. Use the returned import job ID to check the status.'
       tags:
       - subpackage_organizations.subpackage_organizations/memberTags
       parameters:
@@ -243,7 +264,13 @@ paths:
     get:
       operationId: get-import
       summary: ✨ Get member tag import status
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the status and results of a member tag import job.\n\nThe response includes the current status (created, in_progress, completed, failed), timestamps, and counts of tags created, assignments made, and users skipped."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve the status and results of a member tag import job.
+
+
+        The response includes the current status (created, in_progress, completed, failed), timestamps, and counts of tags created, assignments made, and users skipped.'
       tags:
       - subpackage_organizations.subpackage_organizations/memberTags
       parameters:
@@ -288,7 +315,10 @@ paths:
     get:
       operationId: get
       summary: ✨ Get organization member tag
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve details of a specific member tag."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve details of a specific member tag.'
       tags:
       - subpackage_organizations.subpackage_organizations/memberTags
       parameters:
@@ -326,7 +356,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Delete organization member tag
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a member tag from the organization."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Delete a member tag from the organization.'
       tags:
       - subpackage_organizations.subpackage_organizations/memberTags
       parameters:
@@ -366,7 +399,10 @@ paths:
     patch:
       operationId: update
       summary: ✨ Update organization member tag
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nPartially update an existing member tag."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Partially update an existing member tag.'
       tags:
       - subpackage_organizations.subpackage_organizations/memberTags
       parameters:
@@ -420,6 +456,82 @@ paths:
               $ref: '#/components/schemas/PatchedOrganizationMemberTagRequest'
 components:
   schemas:
+    OrganizationMemberTagImportCreateRequest:
+      type: object
+      properties:
+        bulk_tags:
+          type: string
+        file:
+          type: string
+          format: binary
+      required:
+      - bulk_tags
+      - file
+      title: OrganizationMemberTagImportCreateRequest
+    OrganizationMemberTagImportStatusStatusEnum:
+      type: string
+      enum:
+      - created
+      - in_progress
+      - completed
+      - failed
+      description: '* `created` - Created
+
+        * `in_progress` - In Progress
+
+        * `completed` - Completed
+
+        * `failed` - Failed'
+      title: OrganizationMemberTagImportStatusStatusEnum
+    PaginatedOrganizationMemberTagList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationMemberTag'
+      required:
+      - count
+      - results
+      title: PaginatedOrganizationMemberTagList
+    OrganizationMemberTagImportStatus:
+      type: object
+      properties:
+        assignments_created:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        finished_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        id:
+          type: integer
+        status:
+          $ref: '#/components/schemas/OrganizationMemberTagImportStatusStatusEnum'
+        tags_created:
+          type: integer
+        users_skipped:
+          description: Any type
+      required:
+      - created_at
+      - id
+      description: Serializer for the status of a member tag import job.
+      title: OrganizationMemberTagImportStatus
     OrganizationMemberTag:
       type: object
       properties:
@@ -449,13 +561,12 @@ components:
       - organization
       - updated_at
       title: OrganizationMemberTag
-    PatchedOrganizationMemberTagRequest:
+    organizations_member_tags_assign_Response_200:
       type: object
       properties:
-        label:
-          type: string
-          description: Label
-      title: PatchedOrganizationMemberTagRequest
+        assigned:
+          type: integer
+      title: organizations_member_tags_assign_Response_200
     organizations_member_tags_import_Response_201:
       type: object
       properties:
@@ -463,35 +574,41 @@ components:
           type: integer
           description: The ID of the created import job
       title: organizations_member_tags_import_Response_201
-    organizations_member_tags_assign_Response_200:
+    PatchedOrganizationMemberTagRequest:
       type: object
       properties:
-        assigned:
-          type: integer
-      title: organizations_member_tags_assign_Response_200
-    PaginatedOrganizationMemberTagList:
+        label:
+          type: string
+          description: Label
+      title: PatchedOrganizationMemberTagRequest
+    UserSimple:
       type: object
       properties:
-        count:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
           type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrganizationMemberTag'
+        last_name:
+          type: string
+        username:
+          type: string
       required:
-      - count
-      - results
-      title: PaginatedOrganizationMemberTagList
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
     OrganizationMemberTagRequest:
       type: object
       properties:
@@ -529,87 +646,6 @@ components:
       required:
       - all
       title: BulkOrganizationMemberTagAssignmentRequest
-    OrganizationMemberTagImportCreateRequest:
-      type: object
-      properties:
-        bulk_tags:
-          type: string
-        file:
-          type: string
-          format: binary
-      required:
-      - bulk_tags
-      - file
-      title: OrganizationMemberTagImportCreateRequest
-    OrganizationMemberTagImportStatusStatusEnum:
-      type: string
-      enum:
-      - created
-      - in_progress
-      - completed
-      - failed
-      description: '* `created` - Created
-
-        * `in_progress` - In Progress
-
-        * `completed` - Completed
-
-        * `failed` - Failed'
-      title: OrganizationMemberTagImportStatusStatusEnum
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
-    OrganizationMemberTagImportStatus:
-      type: object
-      properties:
-        assignments_created:
-          type: integer
-        created_at:
-          type: string
-          format: date-time
-        finished_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        id:
-          type: integer
-        status:
-          $ref: '#/components/schemas/OrganizationMemberTagImportStatusStatusEnum'
-        tags_created:
-          type: integer
-        users_skipped:
-          description: Any type
-      required:
-      - created_at
-      - id
-      description: Serializer for the status of a member tag import job.
-      title: OrganizationMemberTagImportStatus
   securitySchemes:
     Token:
       type: apiKey

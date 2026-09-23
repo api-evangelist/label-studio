@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_exportStorage.subpackage_exportStorage/local API
+  title: Reference Subpackage Export Storage.subpackage Export…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -261,11 +261,6 @@ paths:
                 $ref: '#/components/schemas/LocalFilesExportStorage'
 components:
   schemas:
-    export_storage_local_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: export_storage_local_validate_Response_200
     LocalFilesExportStorage:
       type: object
       properties:
@@ -367,6 +362,11 @@ components:
 
         * `completed_with_errors` - Completed with errors'
       title: StatusC5aEnum
+    export_storage_local_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: export_storage_local_validate_Response_200
   securitySchemes:
     Token:
       type: apiKey

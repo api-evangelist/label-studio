@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_exportStorage.subpackage_exportStorage/gcsSa API
+  title: Reference Subpackage Export Storage.subpackage Export…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ Get all GCS SA export storages
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a list of all GCS export storage connections set up with SA Impersonation."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get a list of all GCS export storage connections set up with SA Impersonation.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/gcsSa
       parameters:
@@ -45,7 +48,10 @@ paths:
     post:
       operationId: create
       summary: ✨ Create GCS export storage with SA Impersonation
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a GCS export storage connection with SA Impersonation to store annotations."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create a GCS export storage connection with SA Impersonation to store annotations.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/gcsSa
       parameters:
@@ -71,7 +77,10 @@ paths:
     post:
       operationId: validate
       summary: ✨ Validate GCS SA export storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nValidate a specific GCS export storage connection set up with SA Impersonation."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Validate a specific GCS export storage connection set up with SA Impersonation.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/gcsSa
       parameters:
@@ -97,7 +106,10 @@ paths:
     get:
       operationId: get
       summary: ✨ Get GCS SA export storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet a specific GCS export storage connection set up with SA Impersonation."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get a specific GCS export storage connection set up with SA Impersonation.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/gcsSa
       parameters:
@@ -122,7 +134,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Delete GCS SA export storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a specific GCS export storage connection set up with SA Impersonation."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Delete a specific GCS export storage connection set up with SA Impersonation.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/gcsSa
       parameters:
@@ -143,7 +158,10 @@ paths:
     patch:
       operationId: update
       summary: ✨ Update GCS SA export storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific GCS export storage connection set up with SA Impersonation."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Update a specific GCS export storage connection set up with SA Impersonation.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/gcsSa
       parameters:
@@ -174,7 +192,10 @@ paths:
     post:
       operationId: sync
       summary: ✨ Sync GCS SA export storage
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nSync annotations to a GCS SA export storage."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Sync annotations to a GCS SA export storage.'
       tags:
       - subpackage_exportStorage.subpackage_exportStorage/gcsSa
       parameters:
@@ -293,6 +314,113 @@ components:
       - project
       - type
       title: GCSSAExportStorage
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
+    PatchedGCSSAExportStorageRequest:
+      type: object
+      properties:
+        bucket:
+          type:
+          - string
+          - 'null'
+          description: GCS bucket name
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        google_project_id:
+          type:
+          - string
+          - 'null'
+          description: Google project ID
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: GCS bucket prefix
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage regex for filtering objects
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          type: boolean
+          default: true
+        target_service_account_email:
+          type:
+          - string
+          - 'null'
+          description: Service account email to impersonate for GCS access
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Interpret objects as BLOBs and generate URLs
+      title: PatchedGCSSAExportStorageRequest
+    export_storage_gcs_sa_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: export_storage_gcs_sa_validate_Response_200
     GCSSAExportStorageRequest:
       type: object
       properties:
@@ -376,113 +504,6 @@ components:
       required:
       - project
       title: GCSSAExportStorageRequest
-    export_storage_gcs_sa_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: export_storage_gcs_sa_validate_Response_200
-    PatchedGCSSAExportStorageRequest:
-      type: object
-      properties:
-        bucket:
-          type:
-          - string
-          - 'null'
-          description: GCS bucket name
-        can_delete_objects:
-          type:
-          - boolean
-          - 'null'
-          description: Deletion from storage enabled
-        description:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage description
-        google_project_id:
-          type:
-          - string
-          - 'null'
-          description: Google project ID
-        last_sync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last sync finished time
-        last_sync_count:
-          type:
-          - integer
-          - 'null'
-          description: Count of tasks synced last time
-        last_sync_job:
-          type:
-          - string
-          - 'null'
-          description: Last sync job ID
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta and debug information about storage processes
-        prefix:
-          type:
-          - string
-          - 'null'
-          description: GCS bucket prefix
-        project:
-          type: integer
-          description: A unique integer value identifying this project.
-        regex_filter:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage regex for filtering objects
-        status:
-          $ref: '#/components/schemas/StatusC5aEnum'
-        synchronizable:
-          type: boolean
-          default: true
-        target_service_account_email:
-          type:
-          - string
-          - 'null'
-          description: Service account email to impersonate for GCS access
-        title:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage title
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report for the last failed sync
-        use_blob_urls:
-          type: boolean
-          description: Interpret objects as BLOBs and generate URLs
-      title: PatchedGCSSAExportStorageRequest
-    StatusC5aEnum:
-      type: string
-      enum:
-      - initialized
-      - queued
-      - in_progress
-      - failed
-      - completed
-      - completed_with_errors
-      description: '* `initialized` - Initialized
-
-        * `queued` - Queued
-
-        * `in_progress` - In progress
-
-        * `failed` - Failed
-
-        * `completed` - Completed
-
-        * `completed_with_errors` - Completed with errors'
-      title: StatusC5aEnum
   securitySchemes:
     Token:
       type: apiKey

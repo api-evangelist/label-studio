@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_sessionPolicy API
+  title: Reference Subpackage Session Policy API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -55,16 +55,6 @@ paths:
               $ref: '#/components/schemas/PatchedSessionTimeoutPolicyRequest'
 components:
   schemas:
-    PatchedSessionTimeoutPolicyRequest:
-      type: object
-      properties:
-        max_session_age:
-          type: integer
-          description: Number of minutes that a session can be active before needing to re-login
-        max_time_between_activity:
-          type: integer
-          description: Number of minutes that a session stays active without any activity
-      title: PatchedSessionTimeoutPolicyRequest
     SessionTimeoutPolicy:
       type: object
       properties:
@@ -84,6 +74,16 @@ components:
       - created_at
       - updated_at
       title: SessionTimeoutPolicy
+    PatchedSessionTimeoutPolicyRequest:
+      type: object
+      properties:
+        max_session_age:
+          type: integer
+          description: Number of minutes that a session can be active before needing to re-login
+        max_time_between_activity:
+          type: integer
+          description: Number of minutes that a session stays active without any activity
+      title: PatchedSessionTimeoutPolicyRequest
   securitySchemes:
     Token:
       type: apiKey

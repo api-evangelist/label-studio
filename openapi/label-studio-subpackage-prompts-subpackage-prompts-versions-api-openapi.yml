@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_prompts.subpackage_prompts/versions API
+  title: Reference Subpackage Prompts.subpackage Prompts/versions API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: get-default-version-name
       summary: ✨ Get default prompt version name
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet default prompt version name"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get default prompt version name'
       tags:
       - subpackage_prompts.subpackage_prompts/versions
       parameters:
@@ -37,7 +40,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List prompt versions
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all versions of a prompt."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        List all versions of a prompt.'
       tags:
       - subpackage_prompts.subpackage_prompts/versions
       parameters:
@@ -70,7 +76,10 @@ paths:
     post:
       operationId: create
       summary: ✨ Create prompt version
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new version of a prompt."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create a new version of a prompt.'
       tags:
       - subpackage_prompts.subpackage_prompts/versions
       parameters:
@@ -101,7 +110,10 @@ paths:
     get:
       operationId: get
       summary: ✨ Get prompt version
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a specific prompt of a model."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve a specific prompt of a model.'
       tags:
       - subpackage_prompts.subpackage_prompts/versions
       parameters:
@@ -131,7 +143,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Delete prompt version
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a prompt version by ID"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Delete a prompt version by ID'
       tags:
       - subpackage_prompts.subpackage_prompts/versions
       parameters:
@@ -157,7 +172,10 @@ paths:
     patch:
       operationId: update
       summary: ✨ Update prompt version
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific prompt version by ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Update a specific prompt version by ID.'
       tags:
       - subpackage_prompts.subpackage_prompts/versions
       parameters:
@@ -193,7 +211,10 @@ paths:
     get:
       operationId: cost-estimate
       summary: ✨ Get cost estimate for running a prompt version on a particular project/subset
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet an estimate of the cost for making an inference run on the selected Prompt Version and Project/ProjectSubset"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get an estimate of the cost for making an inference run on the selected Prompt Version and Project/ProjectSubset'
       tags:
       - subpackage_prompts.subpackage_prompts/versions
       parameters:
@@ -224,7 +245,10 @@ paths:
     get:
       operationId: get-refined-prompt
       summary: ✨ Get refined prompt
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet the refined prompt based on the `refinement_job_id`."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get the refined prompt based on the `refinement_job_id`.'
       tags:
       - subpackage_prompts.subpackage_prompts/versions
       parameters:
@@ -260,7 +284,10 @@ paths:
     post:
       operationId: refine-prompt
       summary: ✨ Refine a prompt version
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRefine a prompt version using a teacher model and save the refined prompt as a new version."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Refine a prompt version using a teacher model and save the refined prompt as a new version.'
       tags:
       - subpackage_prompts.subpackage_prompts/versions
       parameters:
@@ -300,6 +327,40 @@ paths:
               $ref: '#/components/schemas/RefinePromptRequestRequest'
 components:
   schemas:
+    InferenceRunCostEstimate:
+      type: object
+      properties:
+        completion_cost_usd:
+          type:
+          - string
+          - 'null'
+          description: Cost of the completion (in USD)
+        error_message:
+          type:
+          - string
+          - 'null'
+          description: Error message details
+        error_type:
+          type:
+          - string
+          - 'null'
+          description: Type of error (e.g. "Timeout", "Rate Limit", etc)
+        is_error:
+          type:
+          - boolean
+          - 'null'
+          description: Whether an error occurred or not
+        prompt_cost_usd:
+          type:
+          - string
+          - 'null'
+          description: Cost of the prompt (in USD)
+        total_cost_usd:
+          type:
+          - string
+          - 'null'
+          description: Total cost of the inference (in USD)
+      title: InferenceRunCostEstimate
     ThirdPartyModelVersionRequest:
       type: object
       properties:
@@ -351,6 +412,120 @@ components:
       - provider_model_id
       - title
       title: ThirdPartyModelVersionRequest
+    RefinePromptRequestRequest:
+      type: object
+      properties:
+        project_id:
+          type: integer
+          description: Project ID to target the refined prompt for
+        teacher_model_name:
+          type: string
+          description: Name of the model to use to refine the prompt
+        teacher_model_provider_connection_id:
+          type: integer
+          description: Model Provider Connection ID to use to refine the prompt
+      required:
+      - project_id
+      - teacher_model_name
+      - teacher_model_provider_connection_id
+      title: RefinePromptRequestRequest
+    PatchedThirdPartyModelVersionRequest:
+      type: object
+      properties:
+        max_few_shot_examples:
+          type:
+          - integer
+          - 'null'
+          description: Max number of few-shot examples to include in prompts. 0 = disabled.
+        model_provider_connection:
+          type:
+          - integer
+          - 'null'
+        organization:
+          type:
+          - integer
+          - 'null'
+        parent_model:
+          type: integer
+          description: Parent model interface ID
+        prompt:
+          type: string
+          description: Prompt to execute
+        provider:
+          $ref: '#/components/schemas/ProviderEnum'
+          description: 'The model provider to use e.g. OpenAI
+
+
+            * `OpenAI` - OpenAI
+
+            * `AzureOpenAI` - AzureOpenAI
+
+            * `AzureAIFoundry` - AzureAIFoundry
+
+            * `VertexAI` - VertexAI
+
+            * `Gemini` - Gemini
+
+            * `Anthropic` - Anthropic
+
+            * `Custom` - Custom'
+        provider_model_id:
+          type: string
+          description: The model ID to use within the given provider, e.g. gpt-3.5
+        title:
+          type: string
+          description: Model name
+      title: PatchedThirdPartyModelVersionRequest
+    prompts_versions_get_default_version_name_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: prompts_versions_get_default_version_name_Response_200
+    RefinedPromptResponse:
+      type: object
+      properties:
+        previous_version:
+          oneOf:
+          - $ref: '#/components/schemas/ThirdPartyModelVersion'
+          - type: 'null'
+          description: Previous version of the prompt
+        prompt:
+          type: string
+          description: The refined prompt text
+        reasoning:
+          type:
+          - string
+          - 'null'
+          description: Reasoning behind the refinement
+        refinement_job_id:
+          type:
+          - string
+          - 'null'
+          description: Unique identifier for the refinement job
+        refinement_status:
+          type:
+          - string
+          - 'null'
+          description: Status of the refinement job
+        title:
+          type:
+          - string
+          - 'null'
+          description: Title of the refined prompt
+        total_cost:
+          type:
+          - string
+          - 'null'
+          description: Total cost of the refinement job (in USD)
+      required:
+      - previous_version
+      - prompt
+      - reasoning
+      - refinement_job_id
+      - refinement_status
+      - title
+      - total_cost
+      title: RefinedPromptResponse
     ProviderEnum:
       type: string
       enum:
@@ -375,6 +550,34 @@ components:
 
         * `Custom` - Custom'
       title: ProviderEnum
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
     ThirdPartyModelVersion:
       type: object
       properties:
@@ -447,182 +650,6 @@ components:
       - title
       - updated_at
       title: ThirdPartyModelVersion
-    RefinedPromptResponse:
-      type: object
-      properties:
-        previous_version:
-          oneOf:
-          - $ref: '#/components/schemas/ThirdPartyModelVersion'
-          - type: 'null'
-          description: Previous version of the prompt
-        prompt:
-          type: string
-          description: The refined prompt text
-        reasoning:
-          type:
-          - string
-          - 'null'
-          description: Reasoning behind the refinement
-        refinement_job_id:
-          type:
-          - string
-          - 'null'
-          description: Unique identifier for the refinement job
-        refinement_status:
-          type:
-          - string
-          - 'null'
-          description: Status of the refinement job
-        title:
-          type:
-          - string
-          - 'null'
-          description: Title of the refined prompt
-        total_cost:
-          type:
-          - string
-          - 'null'
-          description: Total cost of the refinement job (in USD)
-      required:
-      - previous_version
-      - prompt
-      - reasoning
-      - refinement_job_id
-      - refinement_status
-      - title
-      - total_cost
-      title: RefinedPromptResponse
-    RefinePromptRequestRequest:
-      type: object
-      properties:
-        project_id:
-          type: integer
-          description: Project ID to target the refined prompt for
-        teacher_model_name:
-          type: string
-          description: Name of the model to use to refine the prompt
-        teacher_model_provider_connection_id:
-          type: integer
-          description: Model Provider Connection ID to use to refine the prompt
-      required:
-      - project_id
-      - teacher_model_name
-      - teacher_model_provider_connection_id
-      title: RefinePromptRequestRequest
-    prompts_versions_get_default_version_name_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: prompts_versions_get_default_version_name_Response_200
-    PatchedThirdPartyModelVersionRequest:
-      type: object
-      properties:
-        max_few_shot_examples:
-          type:
-          - integer
-          - 'null'
-          description: Max number of few-shot examples to include in prompts. 0 = disabled.
-        model_provider_connection:
-          type:
-          - integer
-          - 'null'
-        organization:
-          type:
-          - integer
-          - 'null'
-        parent_model:
-          type: integer
-          description: Parent model interface ID
-        prompt:
-          type: string
-          description: Prompt to execute
-        provider:
-          $ref: '#/components/schemas/ProviderEnum'
-          description: 'The model provider to use e.g. OpenAI
-
-
-            * `OpenAI` - OpenAI
-
-            * `AzureOpenAI` - AzureOpenAI
-
-            * `AzureAIFoundry` - AzureAIFoundry
-
-            * `VertexAI` - VertexAI
-
-            * `Gemini` - Gemini
-
-            * `Anthropic` - Anthropic
-
-            * `Custom` - Custom'
-        provider_model_id:
-          type: string
-          description: The model ID to use within the given provider, e.g. gpt-3.5
-        title:
-          type: string
-          description: Model name
-      title: PatchedThirdPartyModelVersionRequest
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
-    InferenceRunCostEstimate:
-      type: object
-      properties:
-        completion_cost_usd:
-          type:
-          - string
-          - 'null'
-          description: Cost of the completion (in USD)
-        error_message:
-          type:
-          - string
-          - 'null'
-          description: Error message details
-        error_type:
-          type:
-          - string
-          - 'null'
-          description: Type of error (e.g. "Timeout", "Rate Limit", etc)
-        is_error:
-          type:
-          - boolean
-          - 'null'
-          description: Whether an error occurred or not
-        prompt_cost_usd:
-          type:
-          - string
-          - 'null'
-          description: Cost of the prompt (in USD)
-        total_cost_usd:
-          type:
-          - string
-          - 'null'
-          description: Total cost of the inference (in USD)
-      title: InferenceRunCostEstimate
   securitySchemes:
     Token:
       type: apiKey

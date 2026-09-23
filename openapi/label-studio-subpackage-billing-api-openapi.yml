@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_billing API
+  title: Reference Subpackage Billing API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: info
       summary: ✨ Get billing info
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve billing checks and feature flags for the active organization."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve billing checks and feature flags for the active organization.'
       tags:
       - subpackage_billing
       parameters:
@@ -105,6 +108,57 @@ components:
       - trial_days
       - users
       title: BillingChecks
+    CountLimit:
+      type: object
+      properties:
+        count:
+          type: integer
+        limit:
+          type: integer
+        reached:
+          type: boolean
+        total:
+          type: integer
+      required:
+      - count
+      - limit
+      - reached
+      title: CountLimit
+    BillingInfoResponse:
+      type: object
+      properties:
+        billing_checks:
+          $ref: '#/components/schemas/BillingChecks'
+        billing_flags:
+          $ref: '#/components/schemas/BillingFlags'
+      required:
+      - billing_checks
+      - billing_flags
+      title: BillingInfoResponse
+    PromptsStatusEnum:
+      type: string
+      enum:
+      - Enabled
+      - Cloud license per organization disabled
+      - On-premise global license disabled
+      - Expired
+      - Adala not connected
+      - Disabled for this organization [FF]
+      - unknown
+      description: '* `Enabled` - Enabled
+
+        * `Cloud license per organization disabled` - Cloud license per organization disabled
+
+        * `On-premise global license disabled` - On-premise global license disabled
+
+        * `Expired` - Expired
+
+        * `Adala not connected` - Adala not connected
+
+        * `Disabled for this organization [FF]` - Disabled for this organization [FF]
+
+        * `unknown` - unknown'
+      title: PromptsStatusEnum
     BillingFlags:
       type: object
       properties:
@@ -200,57 +254,6 @@ components:
       - storage_persistence
       - white_label_id
       title: BillingFlags
-    BillingInfoResponse:
-      type: object
-      properties:
-        billing_checks:
-          $ref: '#/components/schemas/BillingChecks'
-        billing_flags:
-          $ref: '#/components/schemas/BillingFlags'
-      required:
-      - billing_checks
-      - billing_flags
-      title: BillingInfoResponse
-    CountLimit:
-      type: object
-      properties:
-        count:
-          type: integer
-        limit:
-          type: integer
-        reached:
-          type: boolean
-        total:
-          type: integer
-      required:
-      - count
-      - limit
-      - reached
-      title: CountLimit
-    PromptsStatusEnum:
-      type: string
-      enum:
-      - Enabled
-      - Cloud license per organization disabled
-      - On-premise global license disabled
-      - Expired
-      - Adala not connected
-      - Disabled for this organization [FF]
-      - unknown
-      description: '* `Enabled` - Enabled
-
-        * `Cloud license per organization disabled` - Cloud license per organization disabled
-
-        * `On-premise global license disabled` - On-premise global license disabled
-
-        * `Expired` - Expired
-
-        * `Adala not connected` - Adala not connected
-
-        * `Disabled for this organization [FF]` - Disabled for this organization [FF]
-
-        * `unknown` - unknown'
-      title: PromptsStatusEnum
   securitySchemes:
     Token:
       type: apiKey

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_organizations API
+  title: Reference Subpackage Organizations API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -32,7 +32,7 @@ paths:
     get:
       operationId: list
       summary: List your organizations
-      description: "\n        Return a list of the organizations you've created or that you have access to.\n        "
+      description: Return a list of the organizations you've created or that you have access to.
       tags:
       - subpackage_organizations
       parameters:
@@ -86,7 +86,10 @@ paths:
     patch:
       operationId: update
       summary: ✨ Update organization
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate organization details including title, embed domains, and Plugins settings."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Update organization details including title, embed domains, and Plugins settings.'
       tags:
       - subpackage_organizations
       parameters:
@@ -135,7 +138,10 @@ paths:
     patch:
       operationId: update-default-role
       summary: ✨ Update default role
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate the default role for members of a specific organization."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Update the default role for members of a specific organization.'
       tags:
       - subpackage_organizations
       parameters:
@@ -164,6 +170,14 @@ paths:
               $ref: '#/components/schemas/PatchedDefaultRoleRequest'
 components:
   schemas:
+    OrganizationInvite:
+      type: object
+      properties:
+        invite_url:
+          type: string
+        token:
+          type: string
+      title: OrganizationInvite
     PatchedLseOrganizationSerializerUpdateRequest:
       type: object
       properties:
@@ -218,6 +232,113 @@ components:
 
         which fields should be displayed.'
       title: PatchedLseOrganizationSerializerUpdateRequest
+    OrganizationBilling:
+      type: object
+      properties:
+        enforce_session_concurrency:
+          type: string
+        manual_role_management:
+          type: string
+        manual_workspace_management:
+          type: string
+        max_parallel_sessions:
+          type: string
+        session_concurrency_window_seconds:
+          type: string
+      required:
+      - enforce_session_concurrency
+      - manual_role_management
+      - manual_workspace_management
+      - max_parallel_sessions
+      - session_concurrency_window_seconds
+      title: OrganizationBilling
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
+    LseOrganization:
+      type: object
+      properties:
+        billing:
+          $ref: '#/components/schemas/OrganizationBilling'
+        created_at:
+          type: string
+          format: date-time
+        custom_scripts_enabled:
+          type: string
+        default_role:
+          $ref: '#/components/schemas/Role9e7Enum'
+          description: 'Default membership role for invited users
+
+
+            * `OW` - Owner
+
+            * `AD` - Administrator
+
+            * `MA` - Manager
+
+            * `RE` - Reviewer
+
+            * `AN` - Annotator
+
+            * `DI` - Deactivated
+
+            * `NO` - Not Activated'
+        email_notification_settings:
+          type: string
+        embed_domains:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: 'List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.'
+        embed_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Embed settings for this organization
+        external_id:
+          type:
+          - string
+          - 'null'
+          description: External ID to uniquely identify this organization
+        id:
+          type: integer
+        react_code_settings:
+          type: string
+        title:
+          type: string
+        token:
+          type: string
+      required:
+      - billing
+      - created_at
+      - custom_scripts_enabled
+      - email_notification_settings
+      - id
+      - react_code_settings
+      - title
+      - token
+      title: LseOrganization
     PatchedDefaultRoleRequest:
       type: object
       properties:
@@ -309,61 +430,6 @@ components:
           format: date-time
           description: Set to current time to prevent creating or editing annotations in quick view.
       title: PatchedDefaultRoleRequest
-    OrganizationInvite:
-      type: object
-      properties:
-        invite_url:
-          type: string
-        token:
-          type: string
-      title: OrganizationInvite
-    OrganizationId:
-      type: object
-      properties:
-        contact_info:
-          type:
-          - string
-          - 'null'
-          format: email
-        created_at:
-          type: string
-          format: date-time
-        id:
-          type: integer
-        title:
-          type: string
-      required:
-      - created_at
-      - id
-      - title
-      description: 'A serializer mixin that takes an additional `fields` argument that controls
-
-        which fields should be displayed.'
-      title: OrganizationId
-    Role9e7Enum:
-      type: string
-      enum:
-      - OW
-      - AD
-      - MA
-      - RE
-      - AN
-      - DI
-      - 'NO'
-      description: '* `OW` - Owner
-
-        * `AD` - Administrator
-
-        * `MA` - Manager
-
-        * `RE` - Reviewer
-
-        * `AN` - Annotator
-
-        * `DI` - Deactivated
-
-        * `NO` - Not Activated'
-      title: Role9e7Enum
     DefaultRole:
       type: object
       properties:
@@ -457,89 +523,29 @@ components:
       required:
       - organization
       title: DefaultRole
-    OrganizationBilling:
+    OrganizationId:
       type: object
       properties:
-        enforce_session_concurrency:
-          type: string
-        manual_role_management:
-          type: string
-        manual_workspace_management:
-          type: string
-        max_parallel_sessions:
-          type: string
-        session_concurrency_window_seconds:
-          type: string
-      required:
-      - enforce_session_concurrency
-      - manual_role_management
-      - manual_workspace_management
-      - max_parallel_sessions
-      - session_concurrency_window_seconds
-      title: OrganizationBilling
-    LseOrganization:
-      type: object
-      properties:
-        billing:
-          $ref: '#/components/schemas/OrganizationBilling'
-        created_at:
-          type: string
-          format: date-time
-        custom_scripts_enabled:
-          type: string
-        default_role:
-          $ref: '#/components/schemas/Role9e7Enum'
-          description: 'Default membership role for invited users
-
-
-            * `OW` - Owner
-
-            * `AD` - Administrator
-
-            * `MA` - Manager
-
-            * `RE` - Reviewer
-
-            * `AN` - Annotator
-
-            * `DI` - Deactivated
-
-            * `NO` - Not Activated'
-        email_notification_settings:
-          type: string
-        embed_domains:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: 'List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.'
-        embed_settings:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Embed settings for this organization
-        external_id:
+        contact_info:
           type:
           - string
           - 'null'
-          description: External ID to uniquely identify this organization
+          format: email
+        created_at:
+          type: string
+          format: date-time
         id:
           type: integer
-        react_code_settings:
-          type: string
         title:
           type: string
-        token:
-          type: string
       required:
-      - billing
       - created_at
-      - custom_scripts_enabled
-      - email_notification_settings
       - id
-      - react_code_settings
       - title
-      - token
-      title: LseOrganization
+      description: 'A serializer mixin that takes an additional `fields` argument that controls
+
+        which fields should be displayed.'
+      title: OrganizationId
   securitySchemes:
     Token:
       type: apiKey

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_states API
+  title: Reference Subpackage States API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     post:
       operationId: trigger-backfill
       summary: ✨ Trigger state backfill for organization
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nTrigger state backfill for the authenticated user's active organization. Creates initial state records for entities without states. Requires administrator or owner role and both FSM feature flags (fflag_feat_fit_568_finite_state_management and fflag_feat_fit_710_fsm_state_fields)."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Trigger state backfill for the authenticated user''s active organization. Creates initial state records for entities without states. Requires administrator or owner role and both FSM feature flags (fflag_feat_fit_568_finite_state_management and fflag_feat_fit_710_fsm_state_fields).'
       tags:
       - subpackage_states
       parameters:
@@ -55,7 +58,10 @@ paths:
     delete:
       operationId: cancel-backfill
       summary: ✨ Cancel state backfill jobs
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCancel state backfill jobs for the authenticated user's active organization. Can cancel a specific job by job_id, all jobs for a specific project by project_id, or all backfill jobs for the entire organization if neither is provided."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Cancel state backfill jobs for the authenticated user''s active organization. Can cancel a specific job by job_id, all jobs for a specific project by project_id, or all backfill jobs for the entire organization if neither is provided.'
       tags:
       - subpackage_states
       parameters:
@@ -100,7 +106,10 @@ paths:
     get:
       operationId: list-backfills
       summary: ✨ List state backfill jobs
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the latest 10 state backfill jobs for the authenticated user's active organization. Shows job history with status, progress, and timing information. Requires administrator or owner role and both FSM feature flags (fflag_feat_fit_568_finite_state_management and fflag_feat_fit_710_fsm_state_fields)."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve the latest 10 state backfill jobs for the authenticated user''s active organization. Shows job history with status, progress, and timing information. Requires administrator or owner role and both FSM feature flags (fflag_feat_fit_568_finite_state_management and fflag_feat_fit_710_fsm_state_fields).'
       tags:
       - subpackage_states
       parameters:
@@ -139,7 +148,10 @@ paths:
     get:
       operationId: get-backfill-status
       summary: ✨ Get state backfill status
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the status of a state backfill job for the authenticated user's active organization. By default returns the aggregated org status, or specify job_id or project_id to get explicit job statuses. Shows progress, completion time, and any errors. Requires administrator or owner role and both FSM feature flags (fflag_feat_fit_568_finite_state_management and fflag_feat_fit_710_fsm_state_fields)."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve the status of a state backfill job for the authenticated user''s active organization. By default returns the aggregated org status, or specify job_id or project_id to get explicit job statuses. Shows progress, completion time, and any errors. Requires administrator or owner role and both FSM feature flags (fflag_feat_fit_568_finite_state_management and fflag_feat_fit_710_fsm_state_fields).'
       tags:
       - subpackage_states
       parameters:
@@ -184,7 +196,10 @@ paths:
     get:
       operationId: state-history
       summary: ✨ Get entity state history
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet the state history of an entity"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get the state history of an entity'
       tags:
       - subpackage_states
       parameters:
@@ -270,7 +285,10 @@ paths:
     post:
       operationId: execute-transition
       summary: ✨ Execute manual state transition
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nExecute a registered manual transition for an entity."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Execute a registered manual transition for an entity.'
       tags:
       - subpackage_states
       parameters:
@@ -304,85 +322,19 @@ paths:
               $ref: '#/components/schemas/FSMTransitionExecuteRequestRequest'
 components:
   schemas:
-    StateBackfillStatusResponse:
+    StateBackfillCancelResponse:
       type: object
       properties:
-        completed_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        created_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        error_message:
-          type:
-          - string
-          - 'null'
-        job_id:
+        cancelled_count:
           type: integer
-          description: Job ID (if fetching a specific job)
-        org_status:
-          $ref: '#/components/schemas/StateBackfillOrgStatus'
-          description: Aggregated organization status
-        progress:
-          $ref: '#/components/schemas/StateBackfillProgress'
-        rq_job_id:
-          type:
-          - string
-          - 'null'
-        rq_job_info:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            description: Any type
-        started_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        status:
+          description: Number of jobs successfully cancelled
+        message:
           type: string
-        triggered_by:
-          $ref: '#/components/schemas/StateTriggeredBy'
-      title: StateBackfillStatusResponse
-    StateBackfillJobItem:
-      type: object
-      properties:
-        job_id:
-          type: integer
-          description: Database ID of the backfill job
-        project_id:
-          type: integer
-          description: Project ID being backfilled
-        rq_job_id:
-          type:
-          - string
-          - 'null'
-          description: Redis queue job ID
+          description: Cancellation status message
       required:
-      - job_id
-      - project_id
-      title: StateBackfillJobItem
-    StateBackfillProgress:
-      type: object
-      properties:
-        failed_projects:
-          type: integer
-          description: Projects that failed
-        successful_projects:
-          type: integer
-          description: Projects completed successfully
-        total_entities_processed:
-          type: integer
-          description: Total entities processed so far
-        total_projects:
-          type: integer
-          description: Total projects involved
-      title: StateBackfillProgress
+      - cancelled_count
+      - message
+      title: StateBackfillCancelResponse
     FSMTransitionExecuteResponse:
       type: object
       properties:
@@ -402,6 +354,87 @@ components:
       - success
       description: Response serializer for manual FSM transition execution.
       title: FSMTransitionExecuteResponse
+    StateBackfillProgress:
+      type: object
+      properties:
+        failed_projects:
+          type: integer
+          description: Projects that failed
+        successful_projects:
+          type: integer
+          description: Projects completed successfully
+        total_entities_processed:
+          type: integer
+          description: Total entities processed so far
+        total_projects:
+          type: integer
+          description: Total projects involved
+      title: StateBackfillProgress
+    StateTriggeredBy:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type:
+          - string
+          - 'null'
+        id:
+          type: integer
+        last_name:
+          type:
+          - string
+          - 'null'
+      required:
+      - email
+      - id
+      title: StateTriggeredBy
+    StateBackfillJobItem:
+      type: object
+      properties:
+        job_id:
+          type: integer
+          description: Database ID of the backfill job
+        project_id:
+          type: integer
+          description: Project ID being backfilled
+        rq_job_id:
+          type:
+          - string
+          - 'null'
+          description: Redis queue job ID
+      required:
+      - job_id
+      - project_id
+      title: StateBackfillJobItem
+    TriggeredBy:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        id:
+          type: integer
+      required:
+      - id
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: TriggeredBy
+    StateBackfillJobListResponse:
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateBackfillJobItemResponse'
+      required:
+      - jobs
+      title: StateBackfillJobListResponse
     StateBackfillOrgStatus:
       type: object
       properties:
@@ -441,71 +474,6 @@ components:
       - transition_name
       description: Request body serializer for executing a manual FSM transition.
       title: FSMTransitionExecuteRequestRequest
-    StateTriggeredBy:
-      type: object
-      properties:
-        email:
-          type: string
-        first_name:
-          type:
-          - string
-          - 'null'
-        id:
-          type: integer
-        last_name:
-          type:
-          - string
-          - 'null'
-      required:
-      - email
-      - id
-      title: StateTriggeredBy
-    PaginatedStateModelList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateModel'
-      required:
-      - count
-      - results
-      title: PaginatedStateModelList
-    StateBackfillJobListResponse:
-      type: object
-      properties:
-        jobs:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateBackfillJobItemResponse'
-      required:
-      - jobs
-      title: StateBackfillJobListResponse
-    StateBackfillCancelResponse:
-      type: object
-      properties:
-        cancelled_count:
-          type: integer
-          description: Number of jobs successfully cancelled
-        message:
-          type: string
-          description: Cancellation status message
-      required:
-      - cancelled_count
-      - message
-      title: StateBackfillCancelResponse
     StateBackfillResponse:
       type: object
       properties:
@@ -532,6 +500,47 @@ components:
       - organization_id
       - projects_skipped
       title: StateBackfillResponse
+    StateBackfillJobItemResponse:
+      type: object
+      properties:
+        completed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        error_message:
+          type:
+          - string
+          - 'null'
+        job_id:
+          type: integer
+        progress_data:
+          oneOf:
+          - $ref: '#/components/schemas/StateBackfillProgress'
+          - type: 'null'
+        rq_job_id:
+          type:
+          - string
+          - 'null'
+        started_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        status:
+          type: string
+        triggered_by:
+          oneOf:
+          - $ref: '#/components/schemas/StateTriggeredBy'
+          - type: 'null'
+      required:
+      - created_at
+      - job_id
+      - status
+      title: StateBackfillJobItemResponse
     StateModel:
       type: object
       properties:
@@ -577,7 +586,30 @@ components:
 
         Works with any concrete state model that inherits from BaseState.'
       title: StateModel
-    StateBackfillJobItemResponse:
+    PaginatedStateModelList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateModel'
+      required:
+      - count
+      - results
+      title: PaginatedStateModelList
+    StateBackfillStatusResponse:
       type: object
       properties:
         completed_at:
@@ -586,7 +618,9 @@ components:
           - 'null'
           format: date-time
         created_at:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
         error_message:
           type:
@@ -594,14 +628,22 @@ components:
           - 'null'
         job_id:
           type: integer
-        progress_data:
-          oneOf:
-          - $ref: '#/components/schemas/StateBackfillProgress'
-          - type: 'null'
+          description: Job ID (if fetching a specific job)
+        org_status:
+          $ref: '#/components/schemas/StateBackfillOrgStatus'
+          description: Aggregated organization status
+        progress:
+          $ref: '#/components/schemas/StateBackfillProgress'
         rq_job_id:
           type:
           - string
           - 'null'
+        rq_job_info:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            description: Any type
         started_at:
           type:
           - string
@@ -610,32 +652,8 @@ components:
         status:
           type: string
         triggered_by:
-          oneOf:
-          - $ref: '#/components/schemas/StateTriggeredBy'
-          - type: 'null'
-      required:
-      - created_at
-      - job_id
-      - status
-      title: StateBackfillJobItemResponse
-    TriggeredBy:
-      type: object
-      properties:
-        email:
-          type: string
-          format: email
-        id:
-          type: integer
-      required:
-      - id
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: TriggeredBy
+          $ref: '#/components/schemas/StateTriggeredBy'
+      title: StateBackfillStatusResponse
   securitySchemes:
     Token:
       type: apiKey

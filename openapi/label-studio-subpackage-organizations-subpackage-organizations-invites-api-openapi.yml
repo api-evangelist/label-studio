@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_organizations.subpackage_organizations/invites API
+  title: Reference Subpackage Organizations.subpackage…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -38,7 +38,10 @@ paths:
     post:
       operationId: revoke-invite
       summary: ✨ Revoke invite
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRevoke invite to organization"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Revoke invite to organization'
       tags:
       - subpackage_organizations.subpackage_organizations/invites
       parameters:
@@ -64,7 +67,10 @@ paths:
     post:
       operationId: send-email
       summary: ✨ Send email with invite
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nSend email with invite to organization"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Send email with invite to organization'
       tags:
       - subpackage_organizations.subpackage_organizations/invites
       parameters:
@@ -94,11 +100,24 @@ paths:
               $ref: '#/components/schemas/SendInviteRequest'
 components:
   schemas:
+    organizations_invites_send_email_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: organizations_invites_send_email_Response_200
     organizations_invites_revoke_invite_Response_200:
       type: object
       properties: {}
       description: Empty response body
       title: organizations_invites_revoke_invite_Response_200
+    OrganizationInvite:
+      type: object
+      properties:
+        invite_url:
+          type: string
+        token:
+          type: string
+      title: OrganizationInvite
     RevokeInviteRequest:
       type: object
       properties:
@@ -108,14 +127,30 @@ components:
       required:
       - email
       title: RevokeInviteRequest
-    OrganizationInvite:
-      type: object
-      properties:
-        invite_url:
-          type: string
-        token:
-          type: string
-      title: OrganizationInvite
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
     SendInviteRequest:
       type: object
       properties:
@@ -156,35 +191,6 @@ components:
       - emails
       - role
       title: SendInviteRequest
-    organizations_invites_send_email_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: organizations_invites_send_email_Response_200
-    Role9e7Enum:
-      type: string
-      enum:
-      - OW
-      - AD
-      - MA
-      - RE
-      - AN
-      - DI
-      - 'NO'
-      description: '* `OW` - Owner
-
-        * `AD` - Administrator
-
-        * `MA` - Manager
-
-        * `RE` - Reviewer
-
-        * `AN` - Annotator
-
-        * `DI` - Deactivated
-
-        * `NO` - Not Activated'
-      title: Role9e7Enum
   securitySchemes:
     Token:
       type: apiKey

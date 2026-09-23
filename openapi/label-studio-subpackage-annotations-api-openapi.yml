@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_annotations API
+  title: Reference Subpackage Annotations API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -216,7 +216,32 @@ paths:
     post:
       operationId: create
       summary: Create annotation
-      description: "\n        Add annotations to a task like an annotator does. The content of the result field depends on your\n        labeling configuration. For example, send the following data as part of your POST\n        request to send an empty annotation with the ID of the user who completed the task:\n\n        ```json\n        {\n        \"result\": {},\n        \"was_cancelled\": true,\n        \"ground_truth\": true,\n        \"lead_time\": 0,\n        \"task\": 0\n        \"completed_by\": 123\n        }\n        ```\n        "
+      description: 'Add annotations to a task like an annotator does. The content of the result field depends on your
+
+        labeling configuration. For example, send the following data as part of your POST
+
+        request to send an empty annotation with the ID of the user who completed the task:
+
+
+        ```json
+
+        {
+
+        "result": {},
+
+        "was_cancelled": true,
+
+        "ground_truth": true,
+
+        "lead_time": 0,
+
+        "task": 0
+
+        "completed_by": 123
+
+        }
+
+        ```'
       tags:
       - subpackage_annotations
       parameters:
@@ -274,6 +299,53 @@ paths:
                   description: User skipped the task
 components:
   schemas:
+    ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Annotation ID
+      required:
+      - id
+      title: ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems
+    LastActionEnum:
+      type: string
+      enum:
+      - prediction
+      - propagated_annotation
+      - imported
+      - submitted
+      - updated
+      - skipped
+      - accepted
+      - rejected
+      - fixed_and_accepted
+      - deleted_review
+      description: '* `prediction` - Created from prediction
+
+        * `propagated_annotation` - Created from another annotation
+
+        * `imported` - Imported
+
+        * `submitted` - Submitted
+
+        * `updated` - Updated
+
+        * `skipped` - Skipped
+
+        * `accepted` - Accepted
+
+        * `rejected` - Rejected
+
+        * `fixed_and_accepted` - Fixed and accepted
+
+        * `deleted_review` - Deleted review'
+      title: LastActionEnum
+    AnnotationResultItems:
+      type: object
+      properties: {}
+      description: List of annotated regions for the task
+      title: AnnotationResultItems
     Annotation:
       type: object
       properties:
@@ -403,46 +475,6 @@ components:
 
         if present, preventing N+1 queries. Use .with_state() on your queryset.'
       title: Annotation
-    LastActionEnum:
-      type: string
-      enum:
-      - prediction
-      - propagated_annotation
-      - imported
-      - submitted
-      - updated
-      - skipped
-      - accepted
-      - rejected
-      - fixed_and_accepted
-      - deleted_review
-      description: '* `prediction` - Created from prediction
-
-        * `propagated_annotation` - Created from another annotation
-
-        * `imported` - Imported
-
-        * `submitted` - Submitted
-
-        * `updated` - Updated
-
-        * `skipped` - Skipped
-
-        * `accepted` - Accepted
-
-        * `rejected` - Rejected
-
-        * `fixed_and_accepted` - Fixed and accepted
-
-        * `deleted_review` - Deleted review'
-      title: LastActionEnum
-    annotations_delete_bulk_Response_200:
-      type: object
-      properties:
-        deleted_count:
-          type: integer
-          description: Number of annotations deleted
-      title: annotations_delete_bulk_Response_200
     AnnotationBulkDeleteRequest:
       type: object
       properties:
@@ -458,39 +490,11 @@ components:
       - project
       description: Serializer for bulk annotation deletion by IDs.
       title: AnnotationBulkDeleteRequest
-    ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Annotation ID
-      required:
-      - id
-      title: ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems
-    ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems:
+    AnnotationBulkSerializerWithSelectedItemsRequestResultItems:
       type: object
       properties: {}
-      title: ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems
-    ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems:
-      type: object
-      properties: {}
-      title: ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems
-    SelectedItemsRequest:
-      type: object
-      properties:
-        all:
-          type: boolean
-        excluded:
-          type: array
-          items:
-            type: integer
-        included:
-          type: array
-          items:
-            type: integer
-      required:
-      - all
-      title: SelectedItemsRequest
+      description: List of annotated regions for the task
+      title: AnnotationBulkSerializerWithSelectedItemsRequestResultItems
     AnnotationBulkSerializerWithSelectedItemsRequest:
       type: object
       properties:
@@ -603,16 +607,37 @@ components:
 
         if present, preventing N+1 queries. Use .with_state() on your queryset.'
       title: AnnotationBulkSerializerWithSelectedItemsRequest
-    AnnotationBulkSerializerWithSelectedItemsRequestResultItems:
+    ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems:
       type: object
       properties: {}
-      description: List of annotated regions for the task
-      title: AnnotationBulkSerializerWithSelectedItemsRequestResultItems
-    AnnotationResultItems:
+      title: ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems
+    ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems:
       type: object
       properties: {}
-      description: List of annotated regions for the task
-      title: AnnotationResultItems
+      title: ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems
+    annotations_delete_bulk_Response_200:
+      type: object
+      properties:
+        deleted_count:
+          type: integer
+          description: Number of annotations deleted
+      title: annotations_delete_bulk_Response_200
+    SelectedItemsRequest:
+      type: object
+      properties:
+        all:
+          type: boolean
+        excluded:
+          type: array
+          items:
+            type: integer
+        included:
+          type: array
+          items:
+            type: integer
+      required:
+      - all
+      title: SelectedItemsRequest
   securitySchemes:
     Token:
       type: apiKey

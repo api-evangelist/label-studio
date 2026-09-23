@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_annotationHistory API
+  title: Reference Subpackage Annotation History API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List all annotation history items for annotation
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList annotation history items for an annotation. Annotation history logs all actions performed with annotations, such as: imports, submits, updates, reviews, and more. Users can view annotation history items in the Annotation History panel during labeling."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        List annotation history items for an annotation. Annotation history logs all actions performed with annotations, such as: imports, submits, updates, reviews, and more. Users can view annotation history items in the Annotation History panel during labeling.'
       tags:
       - subpackage_annotationHistory
       parameters:
@@ -45,7 +48,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Delete annotation history items
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete all annotation history items for a specific annotation, task or project. This method is available only for users with administrator roles."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Delete all annotation history items for a specific annotation, task or project. This method is available only for users with administrator roles.'
       tags:
       - subpackage_annotationHistory
       parameters:
@@ -84,7 +90,10 @@ paths:
     get:
       operationId: retrieve
       summary: ✨ Retrieve a single annotation history item (full result for hydration)
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nGet one annotation history item by ID with full result. Used when FIT-720 lazy load is on and the user clicks a stubbed history item to hydrate it."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Get one annotation history item by ID with full result. Used when FIT-720 lazy load is on and the user clicks a stubbed history item to hydrate it.'
       tags:
       - subpackage_annotationHistory
       parameters:
@@ -110,7 +119,10 @@ paths:
     get:
       operationId: list-for-project
       summary: ✨ List annotation history items for project
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all annotation history items for the project with pagination."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        List all annotation history items for the project with pagination.'
       tags:
       - subpackage_annotationHistory
       parameters:
@@ -146,6 +158,62 @@ paths:
                 $ref: '#/components/schemas/PaginatedAnnotationHistoryList'
 components:
   schemas:
+    ActionEnum:
+      type: string
+      enum:
+      - prediction
+      - propagated_annotation
+      - imported
+      - submitted
+      - updated
+      - skipped
+      - accepted
+      - rejected
+      - fixed_and_accepted
+      - deleted_review
+      description: '* `prediction` - Created from prediction
+
+        * `propagated_annotation` - Created from another annotation
+
+        * `imported` - Imported
+
+        * `submitted` - Submitted
+
+        * `updated` - Updated
+
+        * `skipped` - Skipped
+
+        * `accepted` - Accepted
+
+        * `rejected` - Rejected
+
+        * `fixed_and_accepted` - Fixed and accepted
+
+        * `deleted_review` - Deleted review'
+      title: ActionEnum
+    PaginatedAnnotationHistoryList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationHistory'
+      required:
+      - count
+      - results
+      title: PaginatedAnnotationHistoryList
     AnnotationHistory:
       type: object
       properties:
@@ -231,39 +299,6 @@ components:
 
         values with complex, nested serializations'
       title: AnnotationHistory
-    ActionEnum:
-      type: string
-      enum:
-      - prediction
-      - propagated_annotation
-      - imported
-      - submitted
-      - updated
-      - skipped
-      - accepted
-      - rejected
-      - fixed_and_accepted
-      - deleted_review
-      description: '* `prediction` - Created from prediction
-
-        * `propagated_annotation` - Created from another annotation
-
-        * `imported` - Imported
-
-        * `submitted` - Submitted
-
-        * `updated` - Updated
-
-        * `skipped` - Skipped
-
-        * `accepted` - Accepted
-
-        * `rejected` - Rejected
-
-        * `fixed_and_accepted` - Fixed and accepted
-
-        * `deleted_review` - Deleted review'
-      title: ActionEnum
     annotation_history_delete_Response_200:
       type: object
       properties:
@@ -271,29 +306,6 @@ components:
           type: integer
           description: Number of removed items
       title: annotation_history_delete_Response_200
-    PaginatedAnnotationHistoryList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnnotationHistory'
-      required:
-      - count
-      - results
-      title: PaginatedAnnotationHistoryList
   securitySchemes:
     Token:
       type: apiKey

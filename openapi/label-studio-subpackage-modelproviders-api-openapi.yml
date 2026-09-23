@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_modelProviders API
+  title: Reference Subpackage Model Providers API
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List model provider connections
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all model provider connections."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        List all model provider connections.'
       tags:
       - subpackage_modelProviders
       parameters:
@@ -39,7 +42,10 @@ paths:
     post:
       operationId: create
       summary: ✨ Create model provider connection
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new model provider connection."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create a new model provider connection.'
       tags:
       - subpackage_modelProviders
       parameters:
@@ -65,7 +71,10 @@ paths:
     get:
       operationId: list-model-provider-choices
       summary: ✨ List model provider choices
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all possible model provider choices"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        List all possible model provider choices'
       tags:
       - subpackage_modelProviders
       parameters:
@@ -86,7 +95,10 @@ paths:
     get:
       operationId: get
       summary: ✨ Get model provider connection
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve a specific model provider connection."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve a specific model provider connection.'
       tags:
       - subpackage_modelProviders
       parameters:
@@ -111,7 +123,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Delete model provider connection
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete a model provider connection by ID"
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Delete a model provider connection by ID'
       tags:
       - subpackage_modelProviders
       parameters:
@@ -132,7 +147,10 @@ paths:
     patch:
       operationId: update
       summary: ✨ Update model provider connection
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nUpdate a specific model provider connection by ID."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Update a specific model provider connection by ID.'
       tags:
       - subpackage_modelProviders
       parameters:
@@ -161,101 +179,6 @@ paths:
               $ref: '#/components/schemas/PatchedModelProviderConnectionRequest'
 components:
   schemas:
-    PatchedModelProviderConnectionRequest:
-      type: object
-      properties:
-        api_key:
-          type:
-          - string
-          - 'null'
-          description: Model provider API key
-        auth_token:
-          type:
-          - string
-          - 'null'
-          description: Model provider Auth token
-        budget_alert_threshold:
-          type:
-          - number
-          - 'null'
-          format: double
-          description: Budget alert threshold for the given provider connection
-        cached_available_models:
-          type:
-          - string
-          - 'null'
-          description: List of available models from the provider
-        deployment_name:
-          type:
-          - string
-          - 'null'
-          description: Azure OpenAI deployment name
-        endpoint:
-          type:
-          - string
-          - 'null'
-          description: Azure OpenAI endpoint
-        google_application_credentials:
-          type:
-          - string
-          - 'null'
-          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
-        google_location:
-          type:
-          - string
-          - 'null'
-          description: Google project location
-        google_project_id:
-          type:
-          - string
-          - 'null'
-          description: Google project ID
-        is_internal:
-          type:
-          - boolean
-          - 'null'
-          description: Whether the model provider connection is internal, not visible to the user
-        provider:
-          $ref: '#/components/schemas/ProviderEnum'
-        scope:
-          $ref: '#/components/schemas/ScopeEnum'
-      title: PatchedModelProviderConnectionRequest
-    ScopeEnum:
-      type: string
-      enum:
-      - Organization
-      - User
-      - Model
-      description: '* `Organization` - Organization
-
-        * `User` - User
-
-        * `Model` - Model'
-      title: ScopeEnum
-    ProviderEnum:
-      type: string
-      enum:
-      - OpenAI
-      - AzureOpenAI
-      - AzureAIFoundry
-      - VertexAI
-      - Gemini
-      - Anthropic
-      - Custom
-      description: '* `OpenAI` - OpenAI
-
-        * `AzureOpenAI` - AzureOpenAI
-
-        * `AzureAIFoundry` - AzureAIFoundry
-
-        * `VertexAI` - VertexAI
-
-        * `Gemini` - Gemini
-
-        * `Anthropic` - Anthropic
-
-        * `Custom` - Custom'
-      title: ProviderEnum
     ModelProviderConnection:
       type: object
       properties:
@@ -356,6 +279,110 @@ components:
       - organization
       - updated_at
       title: ModelProviderConnection
+    PatchedModelProviderConnectionRequest:
+      type: object
+      properties:
+        api_key:
+          type:
+          - string
+          - 'null'
+          description: Model provider API key
+        auth_token:
+          type:
+          - string
+          - 'null'
+          description: Model provider Auth token
+        budget_alert_threshold:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Budget alert threshold for the given provider connection
+        cached_available_models:
+          type:
+          - string
+          - 'null'
+          description: List of available models from the provider
+        deployment_name:
+          type:
+          - string
+          - 'null'
+          description: Azure OpenAI deployment name
+        endpoint:
+          type:
+          - string
+          - 'null'
+          description: Azure OpenAI endpoint
+        google_application_credentials:
+          type:
+          - string
+          - 'null'
+          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
+        google_location:
+          type:
+          - string
+          - 'null'
+          description: Google project location
+        google_project_id:
+          type:
+          - string
+          - 'null'
+          description: Google project ID
+        is_internal:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the model provider connection is internal, not visible to the user
+        provider:
+          $ref: '#/components/schemas/ProviderEnum'
+        scope:
+          $ref: '#/components/schemas/ScopeEnum'
+      title: PatchedModelProviderConnectionRequest
+    BudgetResetPeriodEnum:
+      type: string
+      enum:
+      - Monthly
+      - Yearly
+      description: '* `Monthly` - Monthly
+
+        * `Yearly` - Yearly'
+      title: BudgetResetPeriodEnum
+    ProviderEnum:
+      type: string
+      enum:
+      - OpenAI
+      - AzureOpenAI
+      - AzureAIFoundry
+      - VertexAI
+      - Gemini
+      - Anthropic
+      - Custom
+      description: '* `OpenAI` - OpenAI
+
+        * `AzureOpenAI` - AzureOpenAI
+
+        * `AzureAIFoundry` - AzureAIFoundry
+
+        * `VertexAI` - VertexAI
+
+        * `Gemini` - Gemini
+
+        * `Anthropic` - Anthropic
+
+        * `Custom` - Custom'
+      title: ProviderEnum
+    ScopeEnum:
+      type: string
+      enum:
+      - Organization
+      - User
+      - Model
+      description: '* `Organization` - Organization
+
+        * `User` - User
+
+        * `Model` - Model'
+      title: ScopeEnum
     ModelProviderConnectionRequest:
       type: object
       properties:
@@ -415,15 +442,6 @@ components:
         scope:
           $ref: '#/components/schemas/ScopeEnum'
       title: ModelProviderConnectionRequest
-    BudgetResetPeriodEnum:
-      type: string
-      enum:
-      - Monthly
-      - Yearly
-      description: '* `Monthly` - Monthly
-
-        * `Yearly` - Yearly'
-      title: BudgetResetPeriodEnum
     UserSimple:
       type: object
       properties:

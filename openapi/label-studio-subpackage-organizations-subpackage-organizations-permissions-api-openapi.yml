@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_organizations.subpackage_organizations/permissions API
+  title: Reference Subpackage Organizations.subpackage…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -11,7 +11,10 @@ paths:
     get:
       operationId: list
       summary: ✨ List organization permission overrides
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nList all organization-level permission overrides for a given organization."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        List all organization-level permission overrides for a given organization.'
       tags:
       - subpackage_organizations.subpackage_organizations/permissions
       parameters:
@@ -44,7 +47,10 @@ paths:
     post:
       operationId: create
       summary: ✨ Create organization permission override
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nCreate a new organization-level permission override for a given organization."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Create a new organization-level permission override for a given organization.'
       tags:
       - subpackage_organizations.subpackage_organizations/permissions
       parameters:
@@ -87,7 +93,10 @@ paths:
     get:
       operationId: get-options
       summary: ✨ Get configurable permissions options
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the list of configurable permission options (label, tooltip, default role and allowed roles)."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve the list of configurable permission options (label, tooltip, default role and allowed roles).'
       tags:
       - subpackage_organizations.subpackage_organizations/permissions
       parameters:
@@ -121,7 +130,10 @@ paths:
     get:
       operationId: get
       summary: ✨ Retrieve organization permission override
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nRetrieve the organization-level permission override for a given permission key."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Retrieve the organization-level permission override for a given permission key.'
       tags:
       - subpackage_organizations.subpackage_organizations/permissions
       parameters:
@@ -163,7 +175,10 @@ paths:
     put:
       operationId: replace
       summary: ✨ Replace organization permission override
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nReplace the organization-level permission override for a given permission key."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Replace the organization-level permission override for a given permission key.'
       tags:
       - subpackage_organizations.subpackage_organizations/permissions
       parameters:
@@ -218,7 +233,10 @@ paths:
     delete:
       operationId: delete
       summary: ✨ Delete organization permission override
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nDelete the organization-level permission override for a given permission key."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Delete the organization-level permission override for a given permission key.'
       tags:
       - subpackage_organizations.subpackage_organizations/permissions
       parameters:
@@ -256,7 +274,10 @@ paths:
     patch:
       operationId: update
       summary: ✨ Update organization permission override
-      description: "<Card href=\"https://humansignal.com/goenterprise\">\n        <img style=\"pointer-events: none; margin-left: 0px; margin-right: 0px;\" src=\"https://docs.humansignal.com/images/badge.svg\" alt=\"Label Studio Enterprise badge\"/>\n        <p style=\"margin-top: 10px; font-size: 14px;\">\n            This endpoint is not available in Label Studio Community Edition. [Learn more about Label Studio Enterprise](https://humansignal.com/goenterprise)\n        </p>\n    </Card>\nPartially update the organization-level permission override for a given permission key."
+      description: 'This endpoint is not available in Label Studio Community Edition. Learn more about Label Studio Enterprise
+
+
+        Partially update the organization-level permission override for a given permission key.'
       tags:
       - subpackage_organizations.subpackage_organizations/permissions
       parameters:
@@ -319,30 +340,6 @@ components:
       - DI
       - 'NO'
       title: Default165Enum
-    OrganizationPermissionRequest:
-      type: object
-      properties:
-        permission:
-          type: string
-        roles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Role9e7Enum'
-          description: Organization roles
-      required:
-      - permission
-      title: OrganizationPermissionRequest
-    PatchedOrganizationPermissionRequest:
-      type: object
-      properties:
-        permission:
-          type: string
-        roles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Role9e7Enum'
-          description: Organization roles
-      title: PatchedOrganizationPermissionRequest
     OrganizationPermission:
       type: object
       properties:
@@ -398,30 +395,17 @@ components:
       - DI
       - 'NO'
       title: Options165Enum
-    Role9e7Enum:
-      type: string
-      enum:
-      - OW
-      - AD
-      - MA
-      - RE
-      - AN
-      - DI
-      - 'NO'
-      description: '* `OW` - Owner
-
-        * `AD` - Administrator
-
-        * `MA` - Manager
-
-        * `RE` - Reviewer
-
-        * `AN` - Annotator
-
-        * `DI` - Deactivated
-
-        * `NO` - Not Activated'
-      title: Role9e7Enum
+    PatchedOrganizationPermissionRequest:
+      type: object
+      properties:
+        permission:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role9e7Enum'
+          description: Organization roles
+      title: PatchedOrganizationPermissionRequest
     ConfigurablePermissionOption:
       type: object
       properties:
@@ -446,6 +430,43 @@ components:
       - options
       - permission
       title: ConfigurablePermissionOption
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
+    OrganizationPermissionRequest:
+      type: object
+      properties:
+        permission:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role9e7Enum'
+          description: Organization roles
+      required:
+      - permission
+      title: OrganizationPermissionRequest
   securitySchemes:
     Token:
       type: apiKey

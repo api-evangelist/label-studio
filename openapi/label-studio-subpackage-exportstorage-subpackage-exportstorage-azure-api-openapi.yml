@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: API Reference subpackage_actions subpackage_exportStorage.subpackage_exportStorage/azure API
+  title: Reference Subpackage Export Storage.subpackage Export…
   version: 1.0.0
 servers:
 - url: http://localhost:8000
@@ -284,6 +284,27 @@ components:
       properties: {}
       description: Empty response body
       title: export_storage_azure_validate_Response_200
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
     AzureBlobExportStorage:
       type: object
       properties:
@@ -379,27 +400,6 @@ components:
       - project
       - type
       title: AzureBlobExportStorage
-    StatusC5aEnum:
-      type: string
-      enum:
-      - initialized
-      - queued
-      - in_progress
-      - failed
-      - completed
-      - completed_with_errors
-      description: '* `initialized` - Initialized
-
-        * `queued` - Queued
-
-        * `in_progress` - In progress
-
-        * `failed` - Failed
-
-        * `completed` - Completed
-
-        * `completed_with_errors` - Completed with errors'
-      title: StatusC5aEnum
   securitySchemes:
     Token:
       type: apiKey
