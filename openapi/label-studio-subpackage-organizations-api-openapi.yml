@@ -170,68 +170,6 @@ paths:
               $ref: '#/components/schemas/PatchedDefaultRoleRequest'
 components:
   schemas:
-    OrganizationInvite:
-      type: object
-      properties:
-        invite_url:
-          type: string
-        token:
-          type: string
-      title: OrganizationInvite
-    PatchedLseOrganizationSerializerUpdateRequest:
-      type: object
-      properties:
-        contact_info:
-          type:
-          - string
-          - 'null'
-          format: email
-        created_by:
-          type:
-          - integer
-          - 'null'
-        custom_scripts_enabled:
-          type:
-          - boolean
-          - 'null'
-          description: Plugins
-        email_notification_settings:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Email Notification Settings
-        embed_domains:
-          type:
-          - array
-          - 'null'
-          items:
-            type: object
-            additionalProperties:
-              type: string
-          description: Supported domains
-        embed_settings:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Public Verification Key and Public Verification Algorithms configuration
-        react_code_settings:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: ReactCode settings
-        title:
-          type:
-          - string
-          - 'null'
-          description: Organization name
-        token:
-          type:
-          - string
-          - 'null'
-      description: 'A serializer mixin that takes an additional `fields` argument that controls
-
-        which fields should be displayed.'
-      title: PatchedLseOrganizationSerializerUpdateRequest
     OrganizationBilling:
       type: object
       properties:
@@ -252,30 +190,6 @@ components:
       - max_parallel_sessions
       - session_concurrency_window_seconds
       title: OrganizationBilling
-    Role9e7Enum:
-      type: string
-      enum:
-      - OW
-      - AD
-      - MA
-      - RE
-      - AN
-      - DI
-      - 'NO'
-      description: '* `OW` - Owner
-
-        * `AD` - Administrator
-
-        * `MA` - Manager
-
-        * `RE` - Reviewer
-
-        * `AN` - Annotator
-
-        * `DI` - Deactivated
-
-        * `NO` - Not Activated'
-      title: Role9e7Enum
     LseOrganization:
       type: object
       properties:
@@ -430,6 +344,68 @@ components:
           format: date-time
           description: Set to current time to prevent creating or editing annotations in quick view.
       title: PatchedDefaultRoleRequest
+    OrganizationInvite:
+      type: object
+      properties:
+        invite_url:
+          type: string
+        token:
+          type: string
+      title: OrganizationInvite
+    PatchedLseOrganizationSerializerUpdateRequest:
+      type: object
+      properties:
+        contact_info:
+          type:
+          - string
+          - 'null'
+          format: email
+        created_by:
+          type:
+          - integer
+          - 'null'
+        custom_scripts_enabled:
+          type:
+          - boolean
+          - 'null'
+          description: Plugins
+        email_notification_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Email Notification Settings
+        embed_domains:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            additionalProperties:
+              type: string
+          description: Supported domains
+        embed_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Public Verification Key and Public Verification Algorithms configuration
+        react_code_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: ReactCode settings
+        title:
+          type:
+          - string
+          - 'null'
+          description: Organization name
+        token:
+          type:
+          - string
+          - 'null'
+      description: 'A serializer mixin that takes an additional `fields` argument that controls
+
+        which fields should be displayed.'
+      title: PatchedLseOrganizationSerializerUpdateRequest
     DefaultRole:
       type: object
       properties:
@@ -523,6 +499,30 @@ components:
       required:
       - organization
       title: DefaultRole
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
     OrganizationId:
       type: object
       properties:

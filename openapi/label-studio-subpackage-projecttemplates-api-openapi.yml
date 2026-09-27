@@ -202,211 +202,15 @@ paths:
               - workspace_id
 components:
   schemas:
-    ProjectTemplate:
-      type: object
-      properties:
-        assignment_settings:
-          description: general dict serialized assignment settings
-        created_at:
-          type: string
-          format: date-time
-        created_by:
-          type:
-          - integer
-          - 'null'
-        custom_script:
-          type:
-          - string
-          - 'null'
-          description: custom script (Plugin) for projects created from this template
-        description:
-          type:
-          - string
-          - 'null'
-        id:
-          type: integer
-        name:
-          type: string
-        organization:
-          type:
-          - integer
-          - 'null'
-        project_settings:
-          description: general dict serialized project settings
-        require_comment_on_skip:
-          type: boolean
-          description: flag to require comment on skip
-        review_settings:
-          description: general dict serialized review settings
-        show_unused_data_columns_to_annotators:
-          type:
-          - boolean
-          - 'null'
-        tags:
-          description: Any type
-        updated_at:
-          type: string
-          format: date-time
-      required:
-      - created_at
-      - id
-      - name
-      - updated_at
-      title: ProjectTemplate
-    PatchedProjectTemplateRequest:
-      type: object
-      properties:
-        assignment_settings:
-          description: general dict serialized assignment settings
-        created_by:
-          type:
-          - integer
-          - 'null'
-        custom_script:
-          type:
-          - string
-          - 'null'
-          description: custom script (Plugin) for projects created from this template
-        description:
-          type:
-          - string
-          - 'null'
-        name:
-          type: string
-        organization:
-          type:
-          - integer
-          - 'null'
-        project_id:
-          type: integer
-        project_settings:
-          description: general dict serialized project settings
-        require_comment_on_skip:
-          type: boolean
-          description: flag to require comment on skip
-        review_settings:
-          description: general dict serialized review settings
-        show_unused_data_columns_to_annotators:
-          type:
-          - boolean
-          - 'null'
-        tags:
-          description: Any type
-      title: PatchedProjectTemplateRequest
-    SkipQueueEnum:
+    AgreementMethodologyEnum:
       type: string
       enum:
-      - REQUEUE_FOR_ME
-      - REQUEUE_FOR_OTHERS
-      - IGNORE_SKIPPED
-      description: '* `REQUEUE_FOR_ME` - Requeue for me
+      - consensus
+      - pairwise
+      description: '* `consensus` - Consensus
 
-        * `REQUEUE_FOR_OTHERS` - Requeue for others
-
-        * `IGNORE_SKIPPED` - Ignore skipped'
-      title: SkipQueueEnum
-    ReviewSettings:
-      type: object
-      properties:
-        anonymize_annotations:
-          type: boolean
-          description: Hide annotator names from annotations while review
-        id:
-          type: integer
-        instruction:
-          type:
-          - string
-          - 'null'
-          description: Instructions
-        only_finished_tasks:
-          type: boolean
-          description: Show only finished tasks in the review stream
-        project:
-          type:
-          - integer
-          - 'null'
-        requeue_rejected_tasks_mode:
-          oneOf:
-          - $ref: '#/components/schemas/RequeueRejectedTasksModeEnum'
-          - type: 'null'
-          description: 'Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue
-
-
-            * `requeue` - Requeue
-
-            * `remove` - Remove
-
-            * `flexible` - Flexible'
-        requeue_rejected_tasks_to_annotator:
-          type: boolean
-        require_comment_on_reject:
-          type: boolean
-          description: Reviewers must leave a comment on reject
-        review_criteria:
-          oneOf:
-          - $ref: '#/components/schemas/ReviewCriteriaEnum'
-          - type: 'null'
-          description: 'Task is reviewed after at least one accepted annotation / Task is reviewed when all annotations are reviewed
-
-
-            * `all` - Task is reviewed if all annotations are reviewed
-
-            * `one` - Task is reviewed if at least one annotation is reviewed'
-        review_only_manual_assignments:
-          type: boolean
-          description: Show only manually assigned tasks in the review stream
-        review_task_limit_percent:
-          type:
-          - string
-          - 'null'
-          format: decimal
-          description: Task limit (%)
-        sampling:
-          oneOf:
-          - $ref: '#/components/schemas/ReviewSettingsSamplingEnum'
-          - type: 'null'
-          description: 'By Task ID / Random
-
-
-            * `task_id` - By Task ID
-
-            * `random` - Random'
-        show_agreement_to_reviewers:
-          type: boolean
-          description: Show agreement to reviewers in the Data Manager
-        show_data_manager_to_reviewers:
-          type: boolean
-          description: Show the Data Manager to reviewers
-        show_instruction:
-          type: boolean
-          description: Show before reviewing
-        show_unused_data_columns_to_reviewers:
-          type:
-          - boolean
-          - 'null'
-          description: Show unused task data columns to reviewers in the Data Manager
-      required:
-      - id
-      - requeue_rejected_tasks_to_annotator
-      title: ReviewSettings
-    ReviewCriteriaEnum:
-      type: string
-      enum:
-      - all
-      - one
-      description: '* `all` - Task is reviewed if all annotations are reviewed
-
-        * `one` - Task is reviewed if at least one annotation is reviewed'
-      title: ReviewCriteriaEnum
-    LabelStreamTaskDistributionEnum:
-      type: string
-      enum:
-      - auto_distribution
-      - assigned_only
-      description: '* `auto_distribution` - Label Stream distributes tasks automatically to annotators
-
-        * `assigned_only` - Label Stream shows tasks only to assigned users'
-      title: LabelStreamTaskDistributionEnum
+        * `pairwise` - Pairwise Averaging'
+      title: AgreementMethodologyEnum
     AssignmentSettings:
       type: object
       properties:
@@ -429,30 +233,6 @@ components:
       required:
       - id
       title: AssignmentSettings
-    SamplingDe5Enum:
-      type: string
-      enum:
-      - Sequential sampling
-      - Uniform sampling
-      - Uncertainty sampling
-      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
-
-        * `Uniform sampling` - Tasks are chosen randomly
-
-        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
-      title: SamplingDe5Enum
-    RequeueRejectedTasksModeEnum:
-      type: string
-      enum:
-      - requeue
-      - remove
-      - flexible
-      description: '* `requeue` - Requeue
-
-        * `remove` - Remove
-
-        * `flexible` - Flexible'
-      title: RequeueRejectedTasksModeEnum
     ProjectTemplateRequest:
       type: object
       properties:
@@ -496,15 +276,46 @@ components:
       - name
       - project_id
       title: ProjectTemplateRequest
-    AgreementMethodologyEnum:
-      type: string
-      enum:
-      - consensus
-      - pairwise
-      description: '* `consensus` - Consensus
-
-        * `pairwise` - Pairwise Averaging'
-      title: AgreementMethodologyEnum
+    PatchedProjectTemplateRequest:
+      type: object
+      properties:
+        assignment_settings:
+          description: general dict serialized assignment settings
+        created_by:
+          type:
+          - integer
+          - 'null'
+        custom_script:
+          type:
+          - string
+          - 'null'
+          description: custom script (Plugin) for projects created from this template
+        description:
+          type:
+          - string
+          - 'null'
+        name:
+          type: string
+        organization:
+          type:
+          - integer
+          - 'null'
+        project_id:
+          type: integer
+        project_settings:
+          description: general dict serialized project settings
+        require_comment_on_skip:
+          type: boolean
+          description: flag to require comment on skip
+        review_settings:
+          description: general dict serialized review settings
+        show_unused_data_columns_to_annotators:
+          type:
+          - boolean
+          - 'null'
+        tags:
+          description: Any type
+      title: PatchedProjectTemplateRequest
     LseProject:
       type: object
       properties:
@@ -842,6 +653,180 @@ components:
 
         make sure, that you use correct one(Project.objects.with_counts())'
       title: LseProject
+    ReviewSettings:
+      type: object
+      properties:
+        anonymize_annotations:
+          type: boolean
+          description: Hide annotator names from annotations while review
+        id:
+          type: integer
+        instruction:
+          type:
+          - string
+          - 'null'
+          description: Instructions
+        only_finished_tasks:
+          type: boolean
+          description: Show only finished tasks in the review stream
+        project:
+          type:
+          - integer
+          - 'null'
+        requeue_rejected_tasks_mode:
+          oneOf:
+          - $ref: '#/components/schemas/RequeueRejectedTasksModeEnum'
+          - type: 'null'
+          description: 'Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue
+
+
+            * `requeue` - Requeue
+
+            * `remove` - Remove
+
+            * `flexible` - Flexible'
+        requeue_rejected_tasks_to_annotator:
+          type: boolean
+        require_comment_on_reject:
+          type: boolean
+          description: Reviewers must leave a comment on reject
+        review_criteria:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewCriteriaEnum'
+          - type: 'null'
+          description: 'Task is reviewed after at least one accepted annotation / Task is reviewed when all annotations are reviewed
+
+
+            * `all` - Task is reviewed if all annotations are reviewed
+
+            * `one` - Task is reviewed if at least one annotation is reviewed'
+        review_only_manual_assignments:
+          type: boolean
+          description: Show only manually assigned tasks in the review stream
+        review_task_limit_percent:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Task limit (%)
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewSettingsSamplingEnum'
+          - type: 'null'
+          description: 'By Task ID / Random
+
+
+            * `task_id` - By Task ID
+
+            * `random` - Random'
+        show_agreement_to_reviewers:
+          type: boolean
+          description: Show agreement to reviewers in the Data Manager
+        show_data_manager_to_reviewers:
+          type: boolean
+          description: Show the Data Manager to reviewers
+        show_instruction:
+          type: boolean
+          description: Show before reviewing
+        show_unused_data_columns_to_reviewers:
+          type:
+          - boolean
+          - 'null'
+          description: Show unused task data columns to reviewers in the Data Manager
+      required:
+      - id
+      - requeue_rejected_tasks_to_annotator
+      title: ReviewSettings
+    ReviewSettingsSamplingEnum:
+      type: string
+      enum:
+      - task_id
+      - random
+      description: '* `task_id` - By Task ID
+
+        * `random` - Random'
+      title: ReviewSettingsSamplingEnum
+    SkipQueueEnum:
+      type: string
+      enum:
+      - REQUEUE_FOR_ME
+      - REQUEUE_FOR_OTHERS
+      - IGNORE_SKIPPED
+      description: '* `REQUEUE_FOR_ME` - Requeue for me
+
+        * `REQUEUE_FOR_OTHERS` - Requeue for others
+
+        * `IGNORE_SKIPPED` - Ignore skipped'
+      title: SkipQueueEnum
+    ReviewCriteriaEnum:
+      type: string
+      enum:
+      - all
+      - one
+      description: '* `all` - Task is reviewed if all annotations are reviewed
+
+        * `one` - Task is reviewed if at least one annotation is reviewed'
+      title: ReviewCriteriaEnum
+    LabelStreamTaskDistributionEnum:
+      type: string
+      enum:
+      - auto_distribution
+      - assigned_only
+      description: '* `auto_distribution` - Label Stream distributes tasks automatically to annotators
+
+        * `assigned_only` - Label Stream shows tasks only to assigned users'
+      title: LabelStreamTaskDistributionEnum
+    ProjectTemplate:
+      type: object
+      properties:
+        assignment_settings:
+          description: general dict serialized assignment settings
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          type:
+          - integer
+          - 'null'
+        custom_script:
+          type:
+          - string
+          - 'null'
+          description: custom script (Plugin) for projects created from this template
+        description:
+          type:
+          - string
+          - 'null'
+        id:
+          type: integer
+        name:
+          type: string
+        organization:
+          type:
+          - integer
+          - 'null'
+        project_settings:
+          description: general dict serialized project settings
+        require_comment_on_skip:
+          type: boolean
+          description: flag to require comment on skip
+        review_settings:
+          description: general dict serialized review settings
+        show_unused_data_columns_to_annotators:
+          type:
+          - boolean
+          - 'null'
+        tags:
+          description: Any type
+        updated_at:
+          type: string
+          format: date-time
+      required:
+      - created_at
+      - id
+      - name
+      - updated_at
+      title: ProjectTemplate
     UserSimple:
       type: object
       properties:
@@ -870,15 +855,6 @@ components:
 
         values with complex, nested serializations'
       title: UserSimple
-    ReviewSettingsSamplingEnum:
-      type: string
-      enum:
-      - task_id
-      - random
-      description: '* `task_id` - By Task ID
-
-        * `random` - Random'
-      title: ReviewSettingsSamplingEnum
     ControlTagWeight:
       type: object
       properties:
@@ -903,6 +879,30 @@ components:
 
         Structure: {"overall": 0.5, "type": "Choices", "labels": {"cat": 1.0, "dog": 0.0}}'
       title: ControlTagWeight
+    RequeueRejectedTasksModeEnum:
+      type: string
+      enum:
+      - requeue
+      - remove
+      - flexible
+      description: '* `requeue` - Requeue
+
+        * `remove` - Remove
+
+        * `flexible` - Flexible'
+      title: RequeueRejectedTasksModeEnum
+    SamplingDe5Enum:
+      type: string
+      enum:
+      - Sequential sampling
+      - Uniform sampling
+      - Uncertainty sampling
+      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
+
+        * `Uniform sampling` - Tasks are chosen randomly
+
+        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
+      title: SamplingDe5Enum
   securitySchemes:
     Token:
       type: apiKey

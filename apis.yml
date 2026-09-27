@@ -36,8 +36,8 @@ tags:
   - Annotation
   - Data Labeling
   - LLM
-  - Machine-Learning
-  - Open-Source
+  - Machine Learning
+  - Open Source
 tags_raw:
   - AI
   - Annotation
@@ -46,6 +46,8 @@ tags_raw:
   - LLM
   - Machine Learning
   - Open Source
+  - Machine-Learning
+  - Open-Source
 created: '2025-02-08'
 modified: '2026-05-19'
 position: Consuming
@@ -57,7 +59,7 @@ description: >-
   storage, webhooks, prompts, and review workflows.
 apis:
 - aid: label-studio:label-studio-subpackage-actions-api
-  name: Label Studio subpackage_actions API
+  name: Label Studio Subpackage Actions API
   description: The subpackage_actions API from Label Studio — 1 operation(s) for subpackage_actions.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -76,7 +78,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-activitylogs-api
-  name: Label Studio subpackage_activityLogs API
+  name: Label Studio Subpackage Activity Logs API
   description: >-
     The subpackage_activityLogs API from Label Studio — 1 operation(s) for subpackage_activitylogs.
   humanURL: https://labelstud.io/
@@ -95,7 +97,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-annotationhistory-api
-  name: Label Studio subpackage_annotationHistory API
+  name: Label Studio Subpackage Annotation History API
   description: >-
     The subpackage_annotationHistory API from Label Studio — 3 operation(s) for subpackage_annotationhistory.
   humanURL: https://labelstud.io/
@@ -114,7 +116,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-annotationreviews-api
-  name: Label Studio subpackage_annotationReviews API
+  name: Label Studio Subpackage Annotation Reviews API
   description: >-
     The subpackage_annotationReviews API from Label Studio — 2 operation(s) for subpackage_annotationreviews.
   humanURL: https://labelstud.io/
@@ -133,7 +135,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-annotations-api
-  name: Label Studio subpackage_annotations API
+  name: Label Studio Subpackage Annotations API
   description: >-
     The subpackage_annotations API from Label Studio — 4 operation(s) for subpackage_annotations.
   humanURL: https://labelstud.io/
@@ -153,7 +155,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-billing-api
-  name: Label Studio subpackage_billing API
+  name: Label Studio Subpackage Billing API
   description: The subpackage_billing API from Label Studio — 1 operation(s) for subpackage_billing.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -172,7 +174,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-comments-api
-  name: Label Studio subpackage_comments API
+  name: Label Studio Subpackage Comments API
   description: The subpackage_comments API from Label Studio — 3 operation(s) for subpackage_comments.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -191,7 +193,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-dimensions-api
-  name: Label Studio subpackage_dimensions API
+  name: Label Studio Subpackage Dimensions API
   description: >-
     The subpackage_dimensions API from Label Studio — 5 operation(s) for subpackage_dimensions.
   humanURL: https://labelstud.io/
@@ -211,7 +213,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-exportstorage-api
-  name: Label Studio subpackage_exportStorage API
+  name: Label Studio Subpackage Export Storage API
   description: >-
     The subpackage_exportStorage API from Label Studio — 1 operation(s) for subpackage_exportstorage.
   humanURL: https://labelstud.io/
@@ -230,7 +232,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-azure-api
-  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/azure API
+  name: Label Studio Subpackage Export Storage.subpackage Export Storage/azure API
   description: >-
     The subpackage_exportStorage.subpackage_exportStorage/azure API from Label Studio — 4 operation(s)
     for subpackage_exportstorage.subpackage_exportstorage/azure.
@@ -251,7 +253,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-azurespi-api
-  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/azureSpi API
+  name: Label Studio Subpackage Export Storage.subpackage Export Storage/azure Spi API
   description: >-
     The subpackage_exportStorage.subpackage_exportStorage/azureSpi API from Label Studio — 4 operation(s)
     for subpackage_exportstorage.subpackage_exportstorage/azurespi.
@@ -273,7 +275,7 @@ apis:
     url: https://labelstud.io/community
 - aid: >-
     label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-databricks-api
-  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/databricks API
+  name: Label Studio Subpackage Export Storage.subpackage Export Storage/databricks API
   description: >-
     The subpackage_exportStorage.subpackage_exportStorage/databricks API from Label Studio — 4 operation(s)
     for subpackage_exportstorage.subpackage_exportstorage/databricks.
@@ -294,7 +296,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-gcs-api
-  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/gcs API
+  name: Label Studio Subpackage Export Storage.subpackage Export Storage/gcs API
   description: >-
     The subpackage_exportStorage.subpackage_exportStorage/gcs API from Label Studio — 4 operation(s) for
     subpackage_exportstorage.subpackage_exportstorage/gcs.
@@ -315,7 +317,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-gcssa-api
-  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/gcsSa API
+  name: Label Studio Subpackage Export Storage.subpackage Export Storage/gcs Sa API
   description: >-
     The subpackage_exportStorage.subpackage_exportStorage/gcsSa API from Label Studio — 4 operation(s)
     for subpackage_exportstorage.subpackage_exportstorage/gcssa.
@@ -336,7 +338,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-gcswif-api
-  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/gcswif API
+  name: Label Studio Subpackage Export Storage.subpackage Export Storage/gcswif API
   description: >-
     The subpackage_exportStorage.subpackage_exportStorage/gcswif API from Label Studio — 4 operation(s)
     for subpackage_exportstorage.subpackage_exportstorage/gcswif.
@@ -357,7 +359,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-local-api
-  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/local API
+  name: Label Studio Subpackage Export Storage.subpackage Export Storage/local API
   description: >-
     The subpackage_exportStorage.subpackage_exportStorage/local API from Label Studio — 4 operation(s)
     for subpackage_exportstorage.subpackage_exportstorage/local.
@@ -378,7 +380,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-redis-api
-  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/redis API
+  name: Label Studio Subpackage Export Storage.subpackage Export Storage/redis API
   description: >-
     The subpackage_exportStorage.subpackage_exportStorage/redis API from Label Studio — 4 operation(s)
     for subpackage_exportstorage.subpackage_exportstorage/redis.
@@ -399,7 +401,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-s3-api
-  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/s3 API
+  name: Label Studio Subpackage Export Storage.subpackage Export Storage/s3 API
   description: >-
     The subpackage_exportStorage.subpackage_exportStorage/s3 API from Label Studio — 4 operation(s) for
     subpackage_exportstorage.subpackage_exportstorage/s3.
@@ -420,7 +422,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-exportstorage-subpackage-exportstorage-s3s-api
-  name: Label Studio subpackage_exportStorage.subpackage_exportStorage/s3S API
+  name: Label Studio Subpackage Export Storage.subpackage Export Storage/s3 S API
   description: >-
     The subpackage_exportStorage.subpackage_exportStorage/s3S API from Label Studio — 4 operation(s) for
     subpackage_exportstorage.subpackage_exportstorage/s3s.
@@ -441,7 +443,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-files-api
-  name: Label Studio subpackage_files API
+  name: Label Studio Subpackage Files API
   description: The subpackage_files API from Label Studio — 3 operation(s) for subpackage_files.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -460,7 +462,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-importstorage-api
-  name: Label Studio subpackage_importStorage API
+  name: Label Studio Subpackage Import Storage API
   description: >-
     The subpackage_importStorage API from Label Studio — 1 operation(s) for subpackage_importstorage.
   humanURL: https://labelstud.io/
@@ -479,7 +481,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-azure-api
-  name: Label Studio subpackage_importStorage.subpackage_importStorage/azure API
+  name: Label Studio Subpackage Import Storage.subpackage Import Storage/azure API
   description: >-
     The subpackage_importStorage.subpackage_importStorage/azure API from Label Studio — 4 operation(s)
     for subpackage_importstorage.subpackage_importstorage/azure.
@@ -500,7 +502,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-azurespi-api
-  name: Label Studio subpackage_importStorage.subpackage_importStorage/azureSpi API
+  name: Label Studio Subpackage Import Storage.subpackage Import Storage/azure Spi API
   description: >-
     The subpackage_importStorage.subpackage_importStorage/azureSpi API from Label Studio — 4 operation(s)
     for subpackage_importstorage.subpackage_importstorage/azurespi.
@@ -522,7 +524,7 @@ apis:
     url: https://labelstud.io/community
 - aid: >-
     label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-databricks-api
-  name: Label Studio subpackage_importStorage.subpackage_importStorage/databricks API
+  name: Label Studio Subpackage Import Storage.subpackage Import Storage/databricks API
   description: >-
     The subpackage_importStorage.subpackage_importStorage/databricks API from Label Studio — 4 operation(s)
     for subpackage_importstorage.subpackage_importstorage/databricks.
@@ -543,7 +545,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-gcs-api
-  name: Label Studio subpackage_importStorage.subpackage_importStorage/gcs API
+  name: Label Studio Subpackage Import Storage.subpackage Import Storage/gcs API
   description: >-
     The subpackage_importStorage.subpackage_importStorage/gcs API from Label Studio — 4 operation(s) for
     subpackage_importstorage.subpackage_importstorage/gcs.
@@ -564,7 +566,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-gcssa-api
-  name: Label Studio subpackage_importStorage.subpackage_importStorage/gcsSa API
+  name: Label Studio Subpackage Import Storage.subpackage Import Storage/gcs Sa API
   description: >-
     The subpackage_importStorage.subpackage_importStorage/gcsSa API from Label Studio — 4 operation(s)
     for subpackage_importstorage.subpackage_importstorage/gcssa.
@@ -585,7 +587,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-gcswif-api
-  name: Label Studio subpackage_importStorage.subpackage_importStorage/gcswif API
+  name: Label Studio Subpackage Import Storage.subpackage Import Storage/gcswif API
   description: >-
     The subpackage_importStorage.subpackage_importStorage/gcswif API from Label Studio — 4 operation(s)
     for subpackage_importstorage.subpackage_importstorage/gcswif.
@@ -606,7 +608,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-local-api
-  name: Label Studio subpackage_importStorage.subpackage_importStorage/local API
+  name: Label Studio Subpackage Import Storage.subpackage Import Storage/local API
   description: >-
     The subpackage_importStorage.subpackage_importStorage/local API from Label Studio — 4 operation(s)
     for subpackage_importstorage.subpackage_importstorage/local.
@@ -627,7 +629,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-redis-api
-  name: Label Studio subpackage_importStorage.subpackage_importStorage/redis API
+  name: Label Studio Subpackage Import Storage.subpackage Import Storage/redis API
   description: >-
     The subpackage_importStorage.subpackage_importStorage/redis API from Label Studio — 4 operation(s)
     for subpackage_importstorage.subpackage_importstorage/redis.
@@ -648,7 +650,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-s3-api
-  name: Label Studio subpackage_importStorage.subpackage_importStorage/s3 API
+  name: Label Studio Subpackage Import Storage.subpackage Import Storage/s3 API
   description: >-
     The subpackage_importStorage.subpackage_importStorage/s3 API from Label Studio — 4 operation(s) for
     subpackage_importstorage.subpackage_importstorage/s3.
@@ -669,7 +671,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-importstorage-subpackage-importstorage-s3s-api
-  name: Label Studio subpackage_importStorage.subpackage_importStorage/s3S API
+  name: Label Studio Subpackage Import Storage.subpackage Import Storage/s3 S API
   description: >-
     The subpackage_importStorage.subpackage_importStorage/s3S API from Label Studio — 4 operation(s) for
     subpackage_importstorage.subpackage_importstorage/s3s.
@@ -690,7 +692,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-jwtsettings-api
-  name: Label Studio subpackage_jwtSettings API
+  name: Label Studio Subpackage JWT Settings API
   description: >-
     The subpackage_jwtSettings API from Label Studio — 1 operation(s) for subpackage_jwtsettings.
   humanURL: https://labelstud.io/
@@ -709,7 +711,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-ml-api
-  name: Label Studio subpackage_ml API
+  name: Label Studio Subpackage Ml API
   description: The subpackage_ml API from Label Studio — 6 operation(s) for subpackage_ml.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -728,7 +730,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-modelproviders-api
-  name: Label Studio subpackage_modelProviders API
+  name: Label Studio Subpackage Model Providers API
   description: >-
     The subpackage_modelProviders API from Label Studio — 3 operation(s) for subpackage_modelproviders.
   humanURL: https://labelstud.io/
@@ -747,7 +749,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-organizations-api
-  name: Label Studio subpackage_organizations API
+  name: Label Studio Subpackage Organizations API
   description: >-
     The subpackage_organizations API from Label Studio — 4 operation(s) for subpackage_organizations.
   humanURL: https://labelstud.io/
@@ -767,7 +769,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-organizations-subpackage-organizations-invites-api
-  name: Label Studio subpackage_organizations.subpackage_organizations/invites API
+  name: Label Studio Subpackage Organizations.subpackage Organizations/invites API
   description: >-
     The subpackage_organizations.subpackage_organizations/invites API from Label Studio — 3 operation(s)
     for subpackage_organizations.subpackage_organizations/invites.
@@ -788,7 +790,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-organizations-subpackage-organizations-members-api
-  name: Label Studio subpackage_organizations.subpackage_organizations/members API
+  name: Label Studio Subpackage Organizations.subpackage Organizations/members API
   description: >-
     The subpackage_organizations.subpackage_organizations/members API from Label Studio — 2 operation(s)
     for subpackage_organizations.subpackage_organizations/members.
@@ -810,7 +812,7 @@ apis:
     url: https://labelstud.io/community
 - aid: >-
     label-studio:label-studio-subpackage-organizations-subpackage-organizations-membertags-api
-  name: Label Studio subpackage_organizations.subpackage_organizations/memberTags API
+  name: Label Studio Subpackage Organizations.subpackage Organizations/member Tags API
   description: >-
     The subpackage_organizations.subpackage_organizations/memberTags API from Label Studio — 5 operation(s)
     for subpackage_organizations.subpackage_organizations/membertags.
@@ -857,7 +859,7 @@ apis:
     url: https://labelstud.io/community
 - aid: >-
     label-studio:label-studio-subpackage-organizations-subpackage-organizations-permissions-api
-  name: Label Studio subpackage_organizations.subpackage_organizations/permissions API
+  name: Label Studio Subpackage Organizations.subpackage Organizations/permissions API
   description: >-
     The subpackage_organizations.subpackage_organizations/permissions API from Label Studio — 3 operation(s)
     for subpackage_organizations.subpackage_organizations/permissions.
@@ -879,7 +881,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-predictions-api
-  name: Label Studio subpackage_predictions API
+  name: Label Studio Subpackage Predictions API
   description: >-
     The subpackage_predictions API from Label Studio — 2 operation(s) for subpackage_predictions.
   humanURL: https://labelstud.io/
@@ -899,7 +901,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-projects-api
-  name: Label Studio subpackage_projects API
+  name: Label Studio Subpackage Projects API
   description: The subpackage_projects API from Label Studio — 8 operation(s) for subpackage_projects.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -918,7 +920,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-projects-subpackage-projects-assignments-api
-  name: Label Studio subpackage_projects.subpackage_projects/assignments API
+  name: Label Studio Subpackage Projects.subpackage Projects/assignments API
   description: >-
     The subpackage_projects.subpackage_projects/assignments API from Label Studio — 2 operation(s) for
     subpackage_projects.subpackage_projects/assignments.
@@ -938,7 +940,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-projects-subpackage-projects-exports-api
-  name: Label Studio subpackage_projects.subpackage_projects/exports API
+  name: Label Studio Subpackage Projects.subpackage Projects/exports API
   description: >-
     The subpackage_projects.subpackage_projects/exports API from Label Studio — 6 operation(s) for subpackage_projects.subpackage_projects/exports.
   humanURL: https://labelstud.io/
@@ -957,7 +959,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-projects-subpackage-projects-members-api
-  name: Label Studio subpackage_projects.subpackage_projects/members API
+  name: Label Studio Subpackage Projects.subpackage Projects/members API
   description: >-
     The subpackage_projects.subpackage_projects/members API from Label Studio — 1 operation(s) for subpackage_projects.subpackage_projects/members.
   humanURL: https://labelstud.io/
@@ -1025,7 +1027,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-projects-subpackage-projects-metrics-api
-  name: Label Studio subpackage_projects.subpackage_projects/metrics API
+  name: Label Studio Subpackage Projects.subpackage Projects/metrics API
   description: >-
     The subpackage_projects.subpackage_projects/metrics API from Label Studio — 1 operation(s) for subpackage_projects.subpackage_projects/metrics.
   humanURL: https://labelstud.io/
@@ -1068,7 +1070,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-projects-subpackage-projects-pauses-api
-  name: Label Studio subpackage_projects.subpackage_projects/pauses API
+  name: Label Studio Subpackage Projects.subpackage Projects/pauses API
   description: >-
     The subpackage_projects.subpackage_projects/pauses API from Label Studio — 2 operation(s) for subpackage_projects.subpackage_projects/pauses.
   humanURL: https://labelstud.io/
@@ -1087,7 +1089,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-projects-subpackage-projects-reviewroutingrules-api
-  name: Label Studio subpackage_projects.subpackage_projects/reviewRoutingRules API
+  name: Label Studio Subpackage Projects.subpackage Projects/review Routing Rules API
   description: >-
     The subpackage_projects.subpackage_projects/reviewRoutingRules API from Label Studio — 2 operation(s)
     for subpackage_projects.subpackage_projects/reviewroutingrules.
@@ -1108,7 +1110,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-projects-subpackage-projects-roles-api
-  name: Label Studio subpackage_projects.subpackage_projects/roles API
+  name: Label Studio Subpackage Projects.subpackage Projects/roles API
   description: >-
     The subpackage_projects.subpackage_projects/roles API from Label Studio — 3 operation(s) for subpackage_projects.subpackage_projects/roles.
   humanURL: https://labelstud.io/
@@ -1127,7 +1129,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-projects-subpackage-projects-stats-api
-  name: Label Studio subpackage_projects.subpackage_projects/stats API
+  name: Label Studio Subpackage Projects.subpackage Projects/stats API
   description: >-
     The subpackage_projects.subpackage_projects/stats API from Label Studio — 20 operation(s) for subpackage_projects.subpackage_projects/stats.
   humanURL: https://labelstud.io/
@@ -1146,7 +1148,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-projecttemplates-api
-  name: Label Studio subpackage_projectTemplates API
+  name: Label Studio Subpackage Project Templates API
   description: >-
     The subpackage_projectTemplates API from Label Studio — 3 operation(s) for subpackage_projecttemplates.
   humanURL: https://labelstud.io/
@@ -1165,7 +1167,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-prompts-api
-  name: Label Studio subpackage_prompts API
+  name: Label Studio Subpackage Prompts API
   description: The subpackage_prompts API from Label Studio — 7 operation(s) for subpackage_prompts.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -1184,7 +1186,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-prompts-subpackage-prompts-indicators-api
-  name: Label Studio subpackage_prompts.subpackage_prompts/indicators API
+  name: Label Studio Subpackage Prompts.subpackage Prompts/indicators API
   description: >-
     The subpackage_prompts.subpackage_prompts/indicators API from Label Studio — 2 operation(s) for subpackage_prompts.subpackage_prompts/indicators.
   humanURL: https://labelstud.io/
@@ -1203,7 +1205,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-prompts-subpackage-prompts-runs-api
-  name: Label Studio subpackage_prompts.subpackage_prompts/runs API
+  name: Label Studio Subpackage Prompts.subpackage Prompts/runs API
   description: >-
     The subpackage_prompts.subpackage_prompts/runs API from Label Studio — 2 operation(s) for subpackage_prompts.subpackage_prompts/runs.
   humanURL: https://labelstud.io/
@@ -1222,7 +1224,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-prompts-subpackage-prompts-versions-api
-  name: Label Studio subpackage_prompts.subpackage_prompts/versions API
+  name: Label Studio Subpackage Prompts.subpackage Prompts/versions API
   description: >-
     The subpackage_prompts.subpackage_prompts/versions API from Label Studio — 5 operation(s) for subpackage_prompts.subpackage_prompts/versions.
   humanURL: https://labelstud.io/
@@ -1241,7 +1243,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-sessionpolicy-api
-  name: Label Studio subpackage_sessionPolicy API
+  name: Label Studio Subpackage Session Policy API
   description: >-
     The subpackage_sessionPolicy API from Label Studio — 1 operation(s) for subpackage_sessionpolicy.
   humanURL: https://labelstud.io/
@@ -1260,7 +1262,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-sso-subpackage-sso-saml-api
-  name: Label Studio subpackage_sso.subpackage_sso/saml API
+  name: Label Studio Subpackage Sso.subpackage Sso/saml API
   description: >-
     The subpackage_sso.subpackage_sso/saml API from Label Studio — 2 operation(s) for subpackage_sso.subpackage_sso/saml.
   humanURL: https://labelstud.io/
@@ -1279,7 +1281,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-sso-subpackage-sso-scim-api
-  name: Label Studio subpackage_sso.subpackage_sso/scim API
+  name: Label Studio Subpackage Sso.subpackage Sso/scim API
   description: >-
     The subpackage_sso.subpackage_sso/scim API from Label Studio — 1 operation(s) for subpackage_sso.subpackage_sso/scim.
   humanURL: https://labelstud.io/
@@ -1298,7 +1300,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-states-api
-  name: Label Studio subpackage_states API
+  name: Label Studio Subpackage States API
   description: The subpackage_states API from Label Studio — 5 operation(s) for subpackage_states.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -1317,7 +1319,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-tasks-api
-  name: Label Studio subpackage_tasks API
+  name: Label Studio Subpackage Tasks API
   description: The subpackage_tasks API from Label Studio — 5 operation(s) for subpackage_tasks.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -1336,7 +1338,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-tasks-subpackage-tasks-agreementmatrix-api
-  name: Label Studio subpackage_tasks.subpackage_tasks/agreementMatrix API
+  name: Label Studio Subpackage Tasks.subpackage Tasks/agreement Matrix API
   description: >-
     The subpackage_tasks.subpackage_tasks/agreementMatrix API from Label Studio — 1 operation(s) for subpackage_tasks.subpackage_tasks/agreementmatrix.
   humanURL: https://labelstud.io/
@@ -1355,7 +1357,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-tokens-api
-  name: Label Studio subpackage_tokens API
+  name: Label Studio Subpackage Tokens API
   description: The subpackage_tokens API from Label Studio — 4 operation(s) for subpackage_tokens.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -1374,7 +1376,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-users-api
-  name: Label Studio subpackage_users API
+  name: Label Studio Subpackage Users API
   description: The subpackage_users API from Label Studio — 7 operation(s) for subpackage_users.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -1393,7 +1395,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-versions-api
-  name: Label Studio subpackage_versions API
+  name: Label Studio Subpackage Versions API
   description: The subpackage_versions API from Label Studio — 1 operation(s) for subpackage_versions.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -1412,7 +1414,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-views-api
-  name: Label Studio subpackage_views API
+  name: Label Studio Subpackage Views API
   description: The subpackage_views API from Label Studio — 4 operation(s) for subpackage_views.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -1431,7 +1433,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-webhooks-api
-  name: Label Studio subpackage_webhooks API
+  name: Label Studio Subpackage Webhooks API
   description: The subpackage_webhooks API from Label Studio — 3 operation(s) for subpackage_webhooks.
   humanURL: https://labelstud.io/
   baseURL: https://app.humansignal.com/api
@@ -1450,7 +1452,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-workspaces-api
-  name: Label Studio subpackage_workspaces API
+  name: Label Studio Subpackage Workspaces API
   description: >-
     The subpackage_workspaces API from Label Studio — 2 operation(s) for subpackage_workspaces.
   humanURL: https://labelstud.io/
@@ -1470,7 +1472,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-workspaces-subpackage-workspaces-members-api
-  name: Label Studio subpackage_workspaces.subpackage_workspaces/members API
+  name: Label Studio Subpackage Workspaces.subpackage Workspaces/members API
   description: >-
     The subpackage_workspaces.subpackage_workspaces/members API from Label Studio — 1 operation(s) for
     subpackage_workspaces.subpackage_workspaces/members.
@@ -1540,7 +1542,7 @@ apis:
   - type: Community
     url: https://labelstud.io/community
 - aid: label-studio:label-studio-subpackage-workspaces-subpackage-workspaces-projects-api
-  name: Label Studio subpackage_workspaces.subpackage_workspaces/projects API
+  name: Label Studio Subpackage Workspaces.subpackage Workspaces/projects API
   description: >-
     The subpackage_workspaces.subpackage_workspaces/projects API from Label Studio — 1 operation(s) for
     subpackage_workspaces.subpackage_workspaces/projects.

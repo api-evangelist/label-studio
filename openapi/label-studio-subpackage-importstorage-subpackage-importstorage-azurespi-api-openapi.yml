@@ -219,238 +219,6 @@ paths:
                 $ref: '#/components/schemas/AzureServicePrincipalImportStorage'
 components:
   schemas:
-    AzureServicePrincipalImportStorageRequest:
-      type: object
-      properties:
-        account_name:
-          type:
-          - string
-          - 'null'
-          description: Azure Blob account name
-        client_id:
-          type:
-          - string
-          - 'null'
-          description: Azure Blob Service Principal Client ID
-        client_secret:
-          type:
-          - string
-          - 'null'
-          description: Azure Blob Service Principal Client Secret
-        container:
-          type:
-          - string
-          - 'null'
-          description: Azure blob container
-        description:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage description
-        last_sync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last sync finished time
-        last_sync_count:
-          type:
-          - integer
-          - 'null'
-          description: Count of tasks synced last time
-        last_sync_job:
-          type:
-          - string
-          - 'null'
-          description: Last sync job ID
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta and debug information about storage processes
-        prefix:
-          type:
-          - string
-          - 'null'
-          description: Azure blob prefix name
-        presign:
-          type: boolean
-          default: true
-        presign_ttl:
-          type: integer
-          description: Presigned URLs TTL (in minutes)
-        project:
-          type: integer
-          description: A unique integer value identifying this project.
-        recursive_scan:
-          type:
-          - boolean
-          - 'null'
-          description: Perform recursive scan
-        regex_filter:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage regex for filtering objects
-        status:
-          $ref: '#/components/schemas/StatusC5aEnum'
-        synchronizable:
-          type: boolean
-          default: true
-        tenant_id:
-          type:
-          - string
-          - 'null'
-          description: Azure Tenant ID
-        title:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage title
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report for the last failed sync
-        use_blob_urls:
-          type: boolean
-          description: Interpret objects as BLOBs and generate URLs
-        user_delegation_key:
-          type:
-          - string
-          - 'null'
-          description: User Delegation Key (Backend)
-      required:
-      - project
-      title: AzureServicePrincipalImportStorageRequest
-    import_storage_azure_spi_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: import_storage_azure_spi_validate_Response_200
-    StatusC5aEnum:
-      type: string
-      enum:
-      - initialized
-      - queued
-      - in_progress
-      - failed
-      - completed
-      - completed_with_errors
-      description: '* `initialized` - Initialized
-
-        * `queued` - Queued
-
-        * `in_progress` - In progress
-
-        * `failed` - Failed
-
-        * `completed` - Completed
-
-        * `completed_with_errors` - Completed with errors'
-      title: StatusC5aEnum
-    PatchedAzureServicePrincipalImportStorageRequest:
-      type: object
-      properties:
-        account_name:
-          type:
-          - string
-          - 'null'
-          description: Azure Blob account name
-        client_id:
-          type:
-          - string
-          - 'null'
-          description: Azure Blob Service Principal Client ID
-        client_secret:
-          type:
-          - string
-          - 'null'
-          description: Azure Blob Service Principal Client Secret
-        container:
-          type:
-          - string
-          - 'null'
-          description: Azure blob container
-        description:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage description
-        last_sync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last sync finished time
-        last_sync_count:
-          type:
-          - integer
-          - 'null'
-          description: Count of tasks synced last time
-        last_sync_job:
-          type:
-          - string
-          - 'null'
-          description: Last sync job ID
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta and debug information about storage processes
-        prefix:
-          type:
-          - string
-          - 'null'
-          description: Azure blob prefix name
-        presign:
-          type: boolean
-          default: true
-        presign_ttl:
-          type: integer
-          description: Presigned URLs TTL (in minutes)
-        project:
-          type: integer
-          description: A unique integer value identifying this project.
-        recursive_scan:
-          type:
-          - boolean
-          - 'null'
-          description: Perform recursive scan
-        regex_filter:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage regex for filtering objects
-        status:
-          $ref: '#/components/schemas/StatusC5aEnum'
-        synchronizable:
-          type: boolean
-          default: true
-        tenant_id:
-          type:
-          - string
-          - 'null'
-          description: Azure Tenant ID
-        title:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage title
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report for the last failed sync
-        use_blob_urls:
-          type: boolean
-          description: Interpret objects as BLOBs and generate URLs
-        user_delegation_key:
-          type:
-          - string
-          - 'null'
-          description: User Delegation Key (Backend)
-      title: PatchedAzureServicePrincipalImportStorageRequest
     AzureServicePrincipalImportStorage:
       type: object
       properties:
@@ -567,6 +335,238 @@ components:
       - project
       - type
       title: AzureServicePrincipalImportStorage
+    PatchedAzureServicePrincipalImportStorageRequest:
+      type: object
+      properties:
+        account_name:
+          type:
+          - string
+          - 'null'
+          description: Azure Blob account name
+        client_id:
+          type:
+          - string
+          - 'null'
+          description: Azure Blob Service Principal Client ID
+        client_secret:
+          type:
+          - string
+          - 'null'
+          description: Azure Blob Service Principal Client Secret
+        container:
+          type:
+          - string
+          - 'null'
+          description: Azure blob container
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: Azure blob prefix name
+        presign:
+          type: boolean
+          default: true
+        presign_ttl:
+          type: integer
+          description: Presigned URLs TTL (in minutes)
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        recursive_scan:
+          type:
+          - boolean
+          - 'null'
+          description: Perform recursive scan
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage regex for filtering objects
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          type: boolean
+          default: true
+        tenant_id:
+          type:
+          - string
+          - 'null'
+          description: Azure Tenant ID
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Interpret objects as BLOBs and generate URLs
+        user_delegation_key:
+          type:
+          - string
+          - 'null'
+          description: User Delegation Key (Backend)
+      title: PatchedAzureServicePrincipalImportStorageRequest
+    AzureServicePrincipalImportStorageRequest:
+      type: object
+      properties:
+        account_name:
+          type:
+          - string
+          - 'null'
+          description: Azure Blob account name
+        client_id:
+          type:
+          - string
+          - 'null'
+          description: Azure Blob Service Principal Client ID
+        client_secret:
+          type:
+          - string
+          - 'null'
+          description: Azure Blob Service Principal Client Secret
+        container:
+          type:
+          - string
+          - 'null'
+          description: Azure blob container
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: Azure blob prefix name
+        presign:
+          type: boolean
+          default: true
+        presign_ttl:
+          type: integer
+          description: Presigned URLs TTL (in minutes)
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        recursive_scan:
+          type:
+          - boolean
+          - 'null'
+          description: Perform recursive scan
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage regex for filtering objects
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          type: boolean
+          default: true
+        tenant_id:
+          type:
+          - string
+          - 'null'
+          description: Azure Tenant ID
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Interpret objects as BLOBs and generate URLs
+        user_delegation_key:
+          type:
+          - string
+          - 'null'
+          description: User Delegation Key (Backend)
+      required:
+      - project
+      title: AzureServicePrincipalImportStorageRequest
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
+    import_storage_azure_spi_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: import_storage_azure_spi_validate_Response_200
   securitySchemes:
     Token:
       type: apiKey

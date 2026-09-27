@@ -140,6 +140,44 @@ paths:
               $ref: '#/components/schemas/LSAPITokenRotateRequest'
 components:
   schemas:
+    LSAPITokenRotateRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+      title: LSAPITokenRotateRequest
+    TokenRefreshRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+      title: TokenRefreshRequest
+    LSAPITokenBlacklistRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+      title: LSAPITokenBlacklistRequest
+    LSEAPITokenCreate:
+      type: object
+      properties:
+        created_at:
+          type: string
+        expires_at:
+          type: string
+        token:
+          type: string
+      required:
+      - created_at
+      - expires_at
+      - token
+      title: LSEAPITokenCreate
     TokenRefreshResponse:
       type: object
       properties:
@@ -162,28 +200,6 @@ components:
       - expires_at
       - token
       title: LSEAPITokenList
-    LSAPITokenRotateRequest:
-      type: object
-      properties:
-        refresh:
-          type: string
-      required:
-      - refresh
-      title: LSAPITokenRotateRequest
-    LSEAPITokenCreate:
-      type: object
-      properties:
-        created_at:
-          type: string
-        expires_at:
-          type: string
-        token:
-          type: string
-      required:
-      - created_at
-      - expires_at
-      - token
-      title: LSEAPITokenCreate
     TokenRotateResponse:
       type: object
       properties:
@@ -192,22 +208,6 @@ components:
       required:
       - refresh
       title: TokenRotateResponse
-    LSAPITokenBlacklistRequest:
-      type: object
-      properties:
-        refresh:
-          type: string
-      required:
-      - refresh
-      title: LSAPITokenBlacklistRequest
-    TokenRefreshRequest:
-      type: object
-      properties:
-        refresh:
-          type: string
-      required:
-      - refresh
-      title: TokenRefreshRequest
   securitySchemes:
     Token:
       type: apiKey

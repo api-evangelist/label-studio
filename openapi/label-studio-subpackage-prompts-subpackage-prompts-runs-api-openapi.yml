@@ -146,74 +146,6 @@ paths:
                 $ref: '#/components/schemas/CancelModelRunResponse'
 components:
   schemas:
-    ModelRunRequest:
-      type: object
-      properties:
-        filters_json:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: DM filter group for Filtered subset. Stored for display/re-run purposes.
-        job_id:
-          type:
-          - string
-          - 'null'
-          description: Job ID for inference job for a ModelRun e.g. Adala job ID
-        only_missing_predictions:
-          type: boolean
-          default: false
-          description: When true, only tasks without successful predictions for this prompt version are submitted for inference.
-        organization:
-          type:
-          - integer
-          - 'null'
-        predictions_updated_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        project:
-          type: integer
-        project_subset:
-          $ref: '#/components/schemas/ProjectSubsetEnum'
-        sample_subset_size:
-          type:
-          - integer
-          - 'null'
-          description: Custom sample size for Sample subset. Uses PROMPTER_SAMPLE_SUBSET_SIZE if not set.
-        total_correct_predictions:
-          type:
-          - integer
-          - 'null'
-        total_predictions:
-          type:
-          - integer
-          - 'null'
-        total_tasks:
-          type:
-          - integer
-          - 'null'
-      required:
-      - project
-      title: ModelRunRequest
-    ModelRunStatusEnum:
-      type: string
-      enum:
-      - Pending
-      - InProgress
-      - Completed
-      - Failed
-      - Canceled
-      description: '* `Pending` - Pending
-
-        * `InProgress` - InProgress
-
-        * `Completed` - Completed
-
-        * `Failed` - Failed
-
-        * `Canceled` - Canceled'
-      title: ModelRunStatusEnum
     ModelRun:
       type: object
       properties:
@@ -299,6 +231,97 @@ components:
       - task_ids
       - triggered_at
       title: ModelRun
+    ModelRunStatusEnum:
+      type: string
+      enum:
+      - Pending
+      - InProgress
+      - Completed
+      - Failed
+      - Canceled
+      description: '* `Pending` - Pending
+
+        * `InProgress` - InProgress
+
+        * `Completed` - Completed
+
+        * `Failed` - Failed
+
+        * `Canceled` - Canceled'
+      title: ModelRunStatusEnum
+    ProjectSubsetEnum:
+      type: string
+      enum:
+      - All
+      - HasGT
+      - Sample
+      - Custom
+      description: '* `All` - All
+
+        * `HasGT` - HasGT
+
+        * `Sample` - Sample
+
+        * `Custom` - Custom'
+      title: ProjectSubsetEnum
+    ModelRunRequest:
+      type: object
+      properties:
+        filters_json:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: DM filter group for Filtered subset. Stored for display/re-run purposes.
+        job_id:
+          type:
+          - string
+          - 'null'
+          description: Job ID for inference job for a ModelRun e.g. Adala job ID
+        only_missing_predictions:
+          type: boolean
+          default: false
+          description: When true, only tasks without successful predictions for this prompt version are submitted for inference.
+        organization:
+          type:
+          - integer
+          - 'null'
+        predictions_updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        project:
+          type: integer
+        project_subset:
+          $ref: '#/components/schemas/ProjectSubsetEnum'
+        sample_subset_size:
+          type:
+          - integer
+          - 'null'
+          description: Custom sample size for Sample subset. Uses PROMPTER_SAMPLE_SUBSET_SIZE if not set.
+        total_correct_predictions:
+          type:
+          - integer
+          - 'null'
+        total_predictions:
+          type:
+          - integer
+          - 'null'
+        total_tasks:
+          type:
+          - integer
+          - 'null'
+      required:
+      - project
+      title: ModelRunRequest
+    CancelModelRunResponse:
+      type: object
+      properties:
+        detail:
+          type: string
+      required:
+      - detail
+      title: CancelModelRunResponse
     UserSimple:
       type: object
       properties:
@@ -327,14 +350,6 @@ components:
 
         values with complex, nested serializations'
       title: UserSimple
-    CancelModelRunResponse:
-      type: object
-      properties:
-        detail:
-          type: string
-      required:
-      - detail
-      title: CancelModelRunResponse
     ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset:
       type: string
       enum:
@@ -342,21 +357,6 @@ components:
       - HasGT
       - Sample
       title: ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset
-    ProjectSubsetEnum:
-      type: string
-      enum:
-      - All
-      - HasGT
-      - Sample
-      - Custom
-      description: '* `All` - All
-
-        * `HasGT` - HasGT
-
-        * `Sample` - Sample
-
-        * `Custom` - Custom'
-      title: ProjectSubsetEnum
   securitySchemes:
     Token:
       type: apiKey

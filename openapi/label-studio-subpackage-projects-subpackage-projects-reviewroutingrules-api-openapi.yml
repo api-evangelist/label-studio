@@ -82,6 +82,24 @@ paths:
               $ref: '#/components/schemas/ReviewRoutingRulesReplaceRequest'
 components:
   schemas:
+    OperatorEnum:
+      type: string
+      enum:
+      - lt
+      - lte
+      - gt
+      - gte
+      - eq
+      description: '* `lt` - <
+
+        * `lte` - <=
+
+        * `gt` - >
+
+        * `gte` - >=
+
+        * `eq` - ='
+      title: OperatorEnum
     ReviewRoutingRuleRequestRequest:
       type: object
       properties:
@@ -119,24 +137,6 @@ components:
       required:
       - rules
       title: ReviewRoutingRulesReplaceRequest
-    OperatorEnum:
-      type: string
-      enum:
-      - lt
-      - lte
-      - gt
-      - gte
-      - eq
-      description: '* `lt` - <
-
-        * `lte` - <=
-
-        * `gt` - >
-
-        * `gte` - >=
-
-        * `eq` - ='
-      title: OperatorEnum
     ReviewRoutingRule:
       type: object
       properties:

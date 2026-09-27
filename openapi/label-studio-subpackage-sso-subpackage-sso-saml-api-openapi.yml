@@ -109,14 +109,6 @@ paths:
               $ref: '#/components/schemas/ValidateSamlMetadataUrlRequestRequest'
 components:
   schemas:
-    ValidateSamlMetadataUrlResponse:
-      type: object
-      properties:
-        valid:
-          type: boolean
-      required:
-      - valid
-      title: ValidateSamlMetadataUrlResponse
     SamlSettingsUpdateRequest:
       type: object
       properties:
@@ -180,6 +172,38 @@ components:
           description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
       description: Serializer for updating SAML settings (POST requests).
       title: SamlSettingsUpdateRequest
+    ProjectGroup:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group name
+        project_id:
+          type: integer
+          description: Project ID
+        role:
+          $ref: '#/components/schemas/ProjectGroupRoleEnum'
+          description: 'Project role (Inherit, Annotator, Reviewer)
+
+
+            * `Inherit` - Inherit
+
+            * `Annotator` - Annotator
+
+            * `Reviewer` - Reviewer'
+      required:
+      - group
+      - project_id
+      - role
+      title: ProjectGroup
+    ValidateSamlMetadataUrlResponse:
+      type: object
+      properties:
+        valid:
+          type: boolean
+      required:
+      - valid
+      title: ValidateSamlMetadataUrlResponse
     SamlSettingsUpdate:
       type: object
       properties:
@@ -243,30 +267,18 @@ components:
           description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
       description: Serializer for updating SAML settings (POST requests).
       title: SamlSettingsUpdate
-    ProjectGroup:
-      type: object
-      properties:
-        group:
-          type: string
-          description: Group name
-        project_id:
-          type: integer
-          description: Project ID
-        role:
-          $ref: '#/components/schemas/ProjectGroupRoleEnum'
-          description: 'Project role (Inherit, Annotator, Reviewer)
+    ProjectGroupRoleEnum:
+      type: string
+      enum:
+      - Inherit
+      - Annotator
+      - Reviewer
+      description: '* `Inherit` - Inherit
 
+        * `Annotator` - Annotator
 
-            * `Inherit` - Inherit
-
-            * `Annotator` - Annotator
-
-            * `Reviewer` - Reviewer'
-      required:
-      - group
-      - project_id
-      - role
-      title: ProjectGroup
+        * `Reviewer` - Reviewer'
+      title: ProjectGroupRoleEnum
     ValidateSamlMetadataUrlRequestRequest:
       type: object
       properties:
@@ -300,18 +312,6 @@ components:
       - project_id
       - role
       title: ProjectGroupRequest
-    ProjectGroupRoleEnum:
-      type: string
-      enum:
-      - Inherit
-      - Annotator
-      - Reviewer
-      description: '* `Inherit` - Inherit
-
-        * `Annotator` - Annotator
-
-        * `Reviewer` - Reviewer'
-      title: ProjectGroupRoleEnum
     SamlSettings:
       type: object
       properties:

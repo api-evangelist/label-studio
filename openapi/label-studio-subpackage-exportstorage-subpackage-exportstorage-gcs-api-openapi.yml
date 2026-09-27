@@ -374,11 +374,6 @@ components:
       - project
       - type
       title: GCSExportStorage
-    export_storage_gcs_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: export_storage_gcs_validate_Response_200
     StatusC5aEnum:
       type: string
       enum:
@@ -400,6 +395,11 @@ components:
 
         * `completed_with_errors` - Completed with errors'
       title: StatusC5aEnum
+    export_storage_gcs_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: export_storage_gcs_validate_Response_200
   securitySchemes:
     Token:
       type: apiKey

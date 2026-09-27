@@ -103,12 +103,6 @@ paths:
                 description: Any type
 components:
   schemas:
-    organizations_member_tags_bulk_post_Response_201:
-      type: object
-      properties:
-        created:
-          type: integer
-      title: organizations_member_tags_bulk_post_Response_201
     organizations_member_tags_bulk_delete_Response_200:
       type: object
       properties:
@@ -127,6 +121,12 @@ components:
       - labels
       description: Serializer for bulk create of organization member tags.
       title: OrganizationMemberTagBulkCreateRequest
+    organizations_member_tags_bulk_post_Response_201:
+      type: object
+      properties:
+        created:
+          type: integer
+      title: organizations_member_tags_bulk_post_Response_201
   securitySchemes:
     Token:
       type: apiKey

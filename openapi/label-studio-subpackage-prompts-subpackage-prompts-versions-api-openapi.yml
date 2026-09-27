@@ -327,40 +327,73 @@ paths:
               $ref: '#/components/schemas/RefinePromptRequestRequest'
 components:
   schemas:
-    InferenceRunCostEstimate:
+    RefinedPromptResponse:
       type: object
       properties:
-        completion_cost_usd:
+        previous_version:
+          oneOf:
+          - $ref: '#/components/schemas/ThirdPartyModelVersion'
+          - type: 'null'
+          description: Previous version of the prompt
+        prompt:
+          type: string
+          description: The refined prompt text
+        reasoning:
           type:
           - string
           - 'null'
-          description: Cost of the completion (in USD)
-        error_message:
+          description: Reasoning behind the refinement
+        refinement_job_id:
           type:
           - string
           - 'null'
-          description: Error message details
-        error_type:
+          description: Unique identifier for the refinement job
+        refinement_status:
           type:
           - string
           - 'null'
-          description: Type of error (e.g. "Timeout", "Rate Limit", etc)
-        is_error:
-          type:
-          - boolean
-          - 'null'
-          description: Whether an error occurred or not
-        prompt_cost_usd:
+          description: Status of the refinement job
+        title:
           type:
           - string
           - 'null'
-          description: Cost of the prompt (in USD)
-        total_cost_usd:
+          description: Title of the refined prompt
+        total_cost:
           type:
           - string
           - 'null'
-          description: Total cost of the inference (in USD)
-      title: InferenceRunCostEstimate
+          description: Total cost of the refinement job (in USD)
+      required:
+      - previous_version
+      - prompt
+      - reasoning
+      - refinement_job_id
+      - refinement_status
+      - title
+      - total_cost
+      title: RefinedPromptResponse
+    RefinePromptRequestRequest:
+      type: object
+      properties:
+        project_id:
+          type: integer
+          description: Project ID to target the refined prompt for
+        teacher_model_name:
+          type: string
+          description: Name of the model to use to refine the prompt
+        teacher_model_provider_connection_id:
+          type: integer
+          description: Model Provider Connection ID to use to refine the prompt
+      required:
+      - project_id
+      - teacher_model_name
+      - teacher_model_provider_connection_id
+      title: RefinePromptRequestRequest
+    prompts_versions_get_default_version_name_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: prompts_versions_get_default_version_name_Response_200
     ThirdPartyModelVersionRequest:
       type: object
       properties:
@@ -412,23 +445,6 @@ components:
       - provider_model_id
       - title
       title: ThirdPartyModelVersionRequest
-    RefinePromptRequestRequest:
-      type: object
-      properties:
-        project_id:
-          type: integer
-          description: Project ID to target the refined prompt for
-        teacher_model_name:
-          type: string
-          description: Name of the model to use to refine the prompt
-        teacher_model_provider_connection_id:
-          type: integer
-          description: Model Provider Connection ID to use to refine the prompt
-      required:
-      - project_id
-      - teacher_model_name
-      - teacher_model_provider_connection_id
-      title: RefinePromptRequestRequest
     PatchedThirdPartyModelVersionRequest:
       type: object
       properties:
@@ -476,108 +492,6 @@ components:
           type: string
           description: Model name
       title: PatchedThirdPartyModelVersionRequest
-    prompts_versions_get_default_version_name_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: prompts_versions_get_default_version_name_Response_200
-    RefinedPromptResponse:
-      type: object
-      properties:
-        previous_version:
-          oneOf:
-          - $ref: '#/components/schemas/ThirdPartyModelVersion'
-          - type: 'null'
-          description: Previous version of the prompt
-        prompt:
-          type: string
-          description: The refined prompt text
-        reasoning:
-          type:
-          - string
-          - 'null'
-          description: Reasoning behind the refinement
-        refinement_job_id:
-          type:
-          - string
-          - 'null'
-          description: Unique identifier for the refinement job
-        refinement_status:
-          type:
-          - string
-          - 'null'
-          description: Status of the refinement job
-        title:
-          type:
-          - string
-          - 'null'
-          description: Title of the refined prompt
-        total_cost:
-          type:
-          - string
-          - 'null'
-          description: Total cost of the refinement job (in USD)
-      required:
-      - previous_version
-      - prompt
-      - reasoning
-      - refinement_job_id
-      - refinement_status
-      - title
-      - total_cost
-      title: RefinedPromptResponse
-    ProviderEnum:
-      type: string
-      enum:
-      - OpenAI
-      - AzureOpenAI
-      - AzureAIFoundry
-      - VertexAI
-      - Gemini
-      - Anthropic
-      - Custom
-      description: '* `OpenAI` - OpenAI
-
-        * `AzureOpenAI` - AzureOpenAI
-
-        * `AzureAIFoundry` - AzureAIFoundry
-
-        * `VertexAI` - VertexAI
-
-        * `Gemini` - Gemini
-
-        * `Anthropic` - Anthropic
-
-        * `Custom` - Custom'
-      title: ProviderEnum
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
     ThirdPartyModelVersion:
       type: object
       properties:
@@ -650,6 +564,92 @@ components:
       - title
       - updated_at
       title: ThirdPartyModelVersion
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    InferenceRunCostEstimate:
+      type: object
+      properties:
+        completion_cost_usd:
+          type:
+          - string
+          - 'null'
+          description: Cost of the completion (in USD)
+        error_message:
+          type:
+          - string
+          - 'null'
+          description: Error message details
+        error_type:
+          type:
+          - string
+          - 'null'
+          description: Type of error (e.g. "Timeout", "Rate Limit", etc)
+        is_error:
+          type:
+          - boolean
+          - 'null'
+          description: Whether an error occurred or not
+        prompt_cost_usd:
+          type:
+          - string
+          - 'null'
+          description: Cost of the prompt (in USD)
+        total_cost_usd:
+          type:
+          - string
+          - 'null'
+          description: Total cost of the inference (in USD)
+      title: InferenceRunCostEstimate
+    ProviderEnum:
+      type: string
+      enum:
+      - OpenAI
+      - AzureOpenAI
+      - AzureAIFoundry
+      - VertexAI
+      - Gemini
+      - Anthropic
+      - Custom
+      description: '* `OpenAI` - OpenAI
+
+        * `AzureOpenAI` - AzureOpenAI
+
+        * `AzureAIFoundry` - AzureAIFoundry
+
+        * `VertexAI` - VertexAI
+
+        * `Gemini` - Gemini
+
+        * `Anthropic` - Anthropic
+
+        * `Custom` - Custom'
+      title: ProviderEnum
   securitySchemes:
     Token:
       type: apiKey

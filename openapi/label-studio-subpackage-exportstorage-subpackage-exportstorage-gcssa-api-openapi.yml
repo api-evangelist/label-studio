@@ -314,27 +314,6 @@ components:
       - project
       - type
       title: GCSSAExportStorage
-    StatusC5aEnum:
-      type: string
-      enum:
-      - initialized
-      - queued
-      - in_progress
-      - failed
-      - completed
-      - completed_with_errors
-      description: '* `initialized` - Initialized
-
-        * `queued` - Queued
-
-        * `in_progress` - In progress
-
-        * `failed` - Failed
-
-        * `completed` - Completed
-
-        * `completed_with_errors` - Completed with errors'
-      title: StatusC5aEnum
     PatchedGCSSAExportStorageRequest:
       type: object
       properties:
@@ -416,6 +395,27 @@ components:
           type: boolean
           description: Interpret objects as BLOBs and generate URLs
       title: PatchedGCSSAExportStorageRequest
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
     export_storage_gcs_sa_validate_Response_200:
       type: object
       properties: {}

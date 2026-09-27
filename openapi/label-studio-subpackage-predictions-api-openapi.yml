@@ -181,6 +181,19 @@ paths:
                   description: Task ID for which the prediction is created
 components:
   schemas:
+    ApiPredictionsIdPatchRequestBodyContentApplicationJsonSchemaResultItems:
+      type: object
+      properties: {}
+      title: ApiPredictionsIdPatchRequestBodyContentApplicationJsonSchemaResultItems
+    PredictionResultItems:
+      type: object
+      properties: {}
+      description: List of predicted regions for the task
+      title: PredictionResultItems
+    ApiPredictionsPostRequestBodyContentApplicationJsonSchemaResultItems:
+      type: object
+      properties: {}
+      title: ApiPredictionsPostRequestBodyContentApplicationJsonSchemaResultItems
     Prediction:
       type: object
       properties:
@@ -248,19 +261,6 @@ components:
       - task
       - updated_at
       title: Prediction
-    PredictionResultItems:
-      type: object
-      properties: {}
-      description: List of predicted regions for the task
-      title: PredictionResultItems
-    ApiPredictionsPostRequestBodyContentApplicationJsonSchemaResultItems:
-      type: object
-      properties: {}
-      title: ApiPredictionsPostRequestBodyContentApplicationJsonSchemaResultItems
-    ApiPredictionsIdPatchRequestBodyContentApplicationJsonSchemaResultItems:
-      type: object
-      properties: {}
-      title: ApiPredictionsIdPatchRequestBodyContentApplicationJsonSchemaResultItems
   securitySchemes:
     Token:
       type: apiKey

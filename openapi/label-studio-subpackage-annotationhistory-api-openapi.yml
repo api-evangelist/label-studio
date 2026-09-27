@@ -158,6 +158,36 @@ paths:
                 $ref: '#/components/schemas/PaginatedAnnotationHistoryList'
 components:
   schemas:
+    PaginatedAnnotationHistoryList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationHistory'
+      required:
+      - count
+      - results
+      title: PaginatedAnnotationHistoryList
+    annotation_history_delete_Response_200:
+      type: object
+      properties:
+        removed:
+          type: integer
+          description: Number of removed items
+      title: annotation_history_delete_Response_200
     ActionEnum:
       type: string
       enum:
@@ -191,29 +221,6 @@ components:
 
         * `deleted_review` - Deleted review'
       title: ActionEnum
-    PaginatedAnnotationHistoryList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnnotationHistory'
-      required:
-      - count
-      - results
-      title: PaginatedAnnotationHistoryList
     AnnotationHistory:
       type: object
       properties:
@@ -299,13 +306,6 @@ components:
 
         values with complex, nested serializations'
       title: AnnotationHistory
-    annotation_history_delete_Response_200:
-      type: object
-      properties:
-        removed:
-          type: integer
-          description: Number of removed items
-      title: annotation_history_delete_Response_200
   securitySchemes:
     Token:
       type: apiKey

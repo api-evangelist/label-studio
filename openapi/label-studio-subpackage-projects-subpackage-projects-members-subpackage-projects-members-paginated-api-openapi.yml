@@ -170,6 +170,30 @@ paths:
                 $ref: '#/components/schemas/PaginatedPaginatedProjectMemberList'
 components:
   schemas:
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
     PaginatedProjectMember:
       type: object
       properties:
@@ -256,17 +280,6 @@ components:
 
         values with complex, nested serializations'
       title: PaginatedProjectMember
-    SimpleOrganizationMemberTag:
-      type: object
-      properties:
-        id:
-          type: integer
-        label:
-          type: string
-      required:
-      - id
-      - label
-      title: SimpleOrganizationMemberTag
     OnboardingStateEnum:
       type: string
       enum:
@@ -288,30 +301,6 @@ components:
 
         * `complete` - Complete'
       title: OnboardingStateEnum
-    TrialRoleEnum:
-      type: string
-      enum:
-      - annotator
-      - annotator_team_manager
-      - business_analyst
-      - business_or_data_team_leadership
-      - data_engineer_platform_engineer
-      - data_scientist
-      - other
-      description: '* `annotator` - Annotator
-
-        * `annotator_team_manager` - Annotator Team Manager
-
-        * `business_analyst` - Business Analyst
-
-        * `business_or_data_team_leadership` - Business Or Data Team Leadership
-
-        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
-
-        * `data_scientist` - Data Scientist
-
-        * `other` - Other'
-      title: TrialRoleEnum
     OrganizationMembership:
       type: object
       properties:
@@ -327,6 +316,40 @@ components:
       - organization_id
       - role
       title: OrganizationMembership
+    PaginatedPaginatedProjectMemberList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaginatedProjectMember'
+      required:
+      - count
+      - results
+      title: PaginatedPaginatedProjectMemberList
+    SimpleOrganizationMemberTag:
+      type: object
+      properties:
+        id:
+          type: integer
+        label:
+          type: string
+      required:
+      - id
+      - label
+      title: SimpleOrganizationMemberTag
     LseFields:
       type: object
       properties:
@@ -397,29 +420,6 @@ components:
       - invite_expired
       - invite_expired_at
       title: LseFields
-    PaginatedPaginatedProjectMemberList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PaginatedProjectMember'
-      required:
-      - count
-      - results
-      title: PaginatedPaginatedProjectMemberList
   securitySchemes:
     Token:
       type: apiKey

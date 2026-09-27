@@ -322,293 +322,6 @@ paths:
               $ref: '#/components/schemas/FSMTransitionExecuteRequestRequest'
 components:
   schemas:
-    StateBackfillCancelResponse:
-      type: object
-      properties:
-        cancelled_count:
-          type: integer
-          description: Number of jobs successfully cancelled
-        message:
-          type: string
-          description: Cancellation status message
-      required:
-      - cancelled_count
-      - message
-      title: StateBackfillCancelResponse
-    FSMTransitionExecuteResponse:
-      type: object
-      properties:
-        new_state:
-          type:
-          - string
-          - 'null'
-        state_record:
-          oneOf:
-          - $ref: '#/components/schemas/StateModel'
-          - type: 'null'
-        success:
-          type: boolean
-      required:
-      - new_state
-      - state_record
-      - success
-      description: Response serializer for manual FSM transition execution.
-      title: FSMTransitionExecuteResponse
-    StateBackfillProgress:
-      type: object
-      properties:
-        failed_projects:
-          type: integer
-          description: Projects that failed
-        successful_projects:
-          type: integer
-          description: Projects completed successfully
-        total_entities_processed:
-          type: integer
-          description: Total entities processed so far
-        total_projects:
-          type: integer
-          description: Total projects involved
-      title: StateBackfillProgress
-    StateTriggeredBy:
-      type: object
-      properties:
-        email:
-          type: string
-        first_name:
-          type:
-          - string
-          - 'null'
-        id:
-          type: integer
-        last_name:
-          type:
-          - string
-          - 'null'
-      required:
-      - email
-      - id
-      title: StateTriggeredBy
-    StateBackfillJobItem:
-      type: object
-      properties:
-        job_id:
-          type: integer
-          description: Database ID of the backfill job
-        project_id:
-          type: integer
-          description: Project ID being backfilled
-        rq_job_id:
-          type:
-          - string
-          - 'null'
-          description: Redis queue job ID
-      required:
-      - job_id
-      - project_id
-      title: StateBackfillJobItem
-    TriggeredBy:
-      type: object
-      properties:
-        email:
-          type: string
-          format: email
-        id:
-          type: integer
-      required:
-      - id
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: TriggeredBy
-    StateBackfillJobListResponse:
-      type: object
-      properties:
-        jobs:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateBackfillJobItemResponse'
-      required:
-      - jobs
-      title: StateBackfillJobListResponse
-    StateBackfillOrgStatus:
-      type: object
-      properties:
-        completed_projects:
-          type: integer
-        failed_projects:
-          type: integer
-        pending_projects:
-          type: integer
-        running_projects:
-          type: integer
-        total_entities_processed:
-          type: integer
-        total_projects:
-          type: integer
-          description: Total projects in organization
-      required:
-      - completed_projects
-      - failed_projects
-      - pending_projects
-      - running_projects
-      - total_entities_processed
-      - total_projects
-      title: StateBackfillOrgStatus
-    FSMTransitionExecuteRequestRequest:
-      type: object
-      properties:
-        transition_data:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            description: Any type
-        transition_name:
-          type: string
-      required:
-      - transition_name
-      description: Request body serializer for executing a manual FSM transition.
-      title: FSMTransitionExecuteRequestRequest
-    StateBackfillResponse:
-      type: object
-      properties:
-        jobs:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateBackfillJobItem'
-        jobs_queued:
-          type: integer
-          description: Number of jobs queued
-        message:
-          type: string
-          description: Status message
-        organization_id:
-          type: integer
-          description: Organization ID
-        projects_skipped:
-          type: integer
-          description: Number of projects skipped because they are already completed
-      required:
-      - jobs
-      - jobs_queued
-      - message
-      - organization_id
-      - projects_skipped
-      title: StateBackfillResponse
-    StateBackfillJobItemResponse:
-      type: object
-      properties:
-        completed_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        created_at:
-          type: string
-          format: date-time
-        error_message:
-          type:
-          - string
-          - 'null'
-        job_id:
-          type: integer
-        progress_data:
-          oneOf:
-          - $ref: '#/components/schemas/StateBackfillProgress'
-          - type: 'null'
-        rq_job_id:
-          type:
-          - string
-          - 'null'
-        started_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        status:
-          type: string
-        triggered_by:
-          oneOf:
-          - $ref: '#/components/schemas/StateTriggeredBy'
-          - type: 'null'
-      required:
-      - created_at
-      - job_id
-      - status
-      title: StateBackfillJobItemResponse
-    StateModel:
-      type: object
-      properties:
-        context_data:
-          description: Any type
-        created_at:
-          type: string
-          format: date-time
-        id:
-          type: string
-          format: uuid
-        previous_state:
-          type:
-          - string
-          - 'null'
-        reason:
-          type:
-          - string
-          - 'null'
-        state:
-          type: string
-        transition_name:
-          type:
-          - string
-          - 'null'
-        triggered_by:
-          oneOf:
-          - $ref: '#/components/schemas/TriggeredBy'
-          - type: 'null'
-      required:
-      - context_data
-      - created_at
-      - id
-      - previous_state
-      - reason
-      - state
-      - transition_name
-      - triggered_by
-      description: 'Serializer for FSM state models.
-
-
-        Uses Serializer instead of ModelSerializer because BaseState is abstract.
-
-        Works with any concrete state model that inherits from BaseState.'
-      title: StateModel
-    PaginatedStateModelList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/StateModel'
-      required:
-      - count
-      - results
-      title: PaginatedStateModelList
     StateBackfillStatusResponse:
       type: object
       properties:
@@ -654,6 +367,293 @@ components:
         triggered_by:
           $ref: '#/components/schemas/StateTriggeredBy'
       title: StateBackfillStatusResponse
+    PaginatedStateModelList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateModel'
+      required:
+      - count
+      - results
+      title: PaginatedStateModelList
+    StateBackfillJobListResponse:
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateBackfillJobItemResponse'
+      required:
+      - jobs
+      title: StateBackfillJobListResponse
+    StateBackfillCancelResponse:
+      type: object
+      properties:
+        cancelled_count:
+          type: integer
+          description: Number of jobs successfully cancelled
+        message:
+          type: string
+          description: Cancellation status message
+      required:
+      - cancelled_count
+      - message
+      title: StateBackfillCancelResponse
+    StateBackfillResponse:
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            $ref: '#/components/schemas/StateBackfillJobItem'
+        jobs_queued:
+          type: integer
+          description: Number of jobs queued
+        message:
+          type: string
+          description: Status message
+        organization_id:
+          type: integer
+          description: Organization ID
+        projects_skipped:
+          type: integer
+          description: Number of projects skipped because they are already completed
+      required:
+      - jobs
+      - jobs_queued
+      - message
+      - organization_id
+      - projects_skipped
+      title: StateBackfillResponse
+    StateBackfillProgress:
+      type: object
+      properties:
+        failed_projects:
+          type: integer
+          description: Projects that failed
+        successful_projects:
+          type: integer
+          description: Projects completed successfully
+        total_entities_processed:
+          type: integer
+          description: Total entities processed so far
+        total_projects:
+          type: integer
+          description: Total projects involved
+      title: StateBackfillProgress
+    FSMTransitionExecuteRequestRequest:
+      type: object
+      properties:
+        transition_data:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            description: Any type
+        transition_name:
+          type: string
+      required:
+      - transition_name
+      description: Request body serializer for executing a manual FSM transition.
+      title: FSMTransitionExecuteRequestRequest
+    StateBackfillJobItemResponse:
+      type: object
+      properties:
+        completed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        error_message:
+          type:
+          - string
+          - 'null'
+        job_id:
+          type: integer
+        progress_data:
+          oneOf:
+          - $ref: '#/components/schemas/StateBackfillProgress'
+          - type: 'null'
+        rq_job_id:
+          type:
+          - string
+          - 'null'
+        started_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        status:
+          type: string
+        triggered_by:
+          oneOf:
+          - $ref: '#/components/schemas/StateTriggeredBy'
+          - type: 'null'
+      required:
+      - created_at
+      - job_id
+      - status
+      title: StateBackfillJobItemResponse
+    StateTriggeredBy:
+      type: object
+      properties:
+        email:
+          type: string
+        first_name:
+          type:
+          - string
+          - 'null'
+        id:
+          type: integer
+        last_name:
+          type:
+          - string
+          - 'null'
+      required:
+      - email
+      - id
+      title: StateTriggeredBy
+    StateBackfillOrgStatus:
+      type: object
+      properties:
+        completed_projects:
+          type: integer
+        failed_projects:
+          type: integer
+        pending_projects:
+          type: integer
+        running_projects:
+          type: integer
+        total_entities_processed:
+          type: integer
+        total_projects:
+          type: integer
+          description: Total projects in organization
+      required:
+      - completed_projects
+      - failed_projects
+      - pending_projects
+      - running_projects
+      - total_entities_processed
+      - total_projects
+      title: StateBackfillOrgStatus
+    StateModel:
+      type: object
+      properties:
+        context_data:
+          description: Any type
+        created_at:
+          type: string
+          format: date-time
+        id:
+          type: string
+          format: uuid
+        previous_state:
+          type:
+          - string
+          - 'null'
+        reason:
+          type:
+          - string
+          - 'null'
+        state:
+          type: string
+        transition_name:
+          type:
+          - string
+          - 'null'
+        triggered_by:
+          oneOf:
+          - $ref: '#/components/schemas/TriggeredBy'
+          - type: 'null'
+      required:
+      - context_data
+      - created_at
+      - id
+      - previous_state
+      - reason
+      - state
+      - transition_name
+      - triggered_by
+      description: 'Serializer for FSM state models.
+
+
+        Uses Serializer instead of ModelSerializer because BaseState is abstract.
+
+        Works with any concrete state model that inherits from BaseState.'
+      title: StateModel
+    StateBackfillJobItem:
+      type: object
+      properties:
+        job_id:
+          type: integer
+          description: Database ID of the backfill job
+        project_id:
+          type: integer
+          description: Project ID being backfilled
+        rq_job_id:
+          type:
+          - string
+          - 'null'
+          description: Redis queue job ID
+      required:
+      - job_id
+      - project_id
+      title: StateBackfillJobItem
+    TriggeredBy:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        id:
+          type: integer
+      required:
+      - id
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: TriggeredBy
+    FSMTransitionExecuteResponse:
+      type: object
+      properties:
+        new_state:
+          type:
+          - string
+          - 'null'
+        state_record:
+          oneOf:
+          - $ref: '#/components/schemas/StateModel'
+          - type: 'null'
+        success:
+          type: boolean
+      required:
+      - new_state
+      - state_record
+      - success
+      description: Response serializer for manual FSM transition execution.
+      title: FSMTransitionExecuteResponse
   securitySchemes:
     Token:
       type: apiKey

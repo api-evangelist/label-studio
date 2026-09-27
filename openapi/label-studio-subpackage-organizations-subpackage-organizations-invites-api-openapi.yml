@@ -100,16 +100,6 @@ paths:
               $ref: '#/components/schemas/SendInviteRequest'
 components:
   schemas:
-    organizations_invites_send_email_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: organizations_invites_send_email_Response_200
-    organizations_invites_revoke_invite_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: organizations_invites_revoke_invite_Response_200
     OrganizationInvite:
       type: object
       properties:
@@ -118,6 +108,11 @@ components:
         token:
           type: string
       title: OrganizationInvite
+    organizations_invites_revoke_invite_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: organizations_invites_revoke_invite_Response_200
     RevokeInviteRequest:
       type: object
       properties:
@@ -127,30 +122,11 @@ components:
       required:
       - email
       title: RevokeInviteRequest
-    Role9e7Enum:
-      type: string
-      enum:
-      - OW
-      - AD
-      - MA
-      - RE
-      - AN
-      - DI
-      - 'NO'
-      description: '* `OW` - Owner
-
-        * `AD` - Administrator
-
-        * `MA` - Manager
-
-        * `RE` - Reviewer
-
-        * `AN` - Annotator
-
-        * `DI` - Deactivated
-
-        * `NO` - Not Activated'
-      title: Role9e7Enum
+    organizations_invites_send_email_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: organizations_invites_send_email_Response_200
     SendInviteRequest:
       type: object
       properties:
@@ -191,6 +167,30 @@ components:
       - emails
       - role
       title: SendInviteRequest
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
   securitySchemes:
     Token:
       type: apiKey

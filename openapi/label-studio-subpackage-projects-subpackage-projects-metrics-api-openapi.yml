@@ -71,6 +71,24 @@ paths:
               $ref: '#/components/schemas/MetricParamUpdateRequest'
 components:
   schemas:
+    MetricParamUpdateRequest:
+      type: object
+      properties:
+        additional_params:
+          type:
+          - object
+          - 'null'
+          additionalProperties:
+            description: Any type
+          description: Agreement metric parameters
+        agreement_threshold:
+          type: integer
+        max_additional_annotators_assignable:
+          type: integer
+        metric_name:
+          type: string
+          description: Agreement metric
+      title: MetricParamUpdateRequest
     MetricParam:
       type: object
       properties:
@@ -96,24 +114,6 @@ components:
       - agreement_threshold
       - allowed
       title: MetricParam
-    MetricParamUpdateRequest:
-      type: object
-      properties:
-        additional_params:
-          type:
-          - object
-          - 'null'
-          additionalProperties:
-            description: Any type
-          description: Agreement metric parameters
-        agreement_threshold:
-          type: integer
-        max_additional_annotators_assignable:
-          type: integer
-        metric_name:
-          type: string
-          description: Agreement metric
-      title: MetricParamUpdateRequest
   securitySchemes:
     Token:
       type: apiKey

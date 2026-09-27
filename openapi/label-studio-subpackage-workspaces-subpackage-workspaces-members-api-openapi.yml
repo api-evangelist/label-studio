@@ -103,6 +103,42 @@ paths:
           description: Successful response
 components:
   schemas:
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
+    WorkspaceMemberCreateRequest:
+      type: object
+      properties:
+        user:
+          type: integer
+          description: User ID
+        workspace:
+          type: integer
+          description: Workspace ID
+      required:
+      - user
+      title: WorkspaceMemberCreateRequest
     OnboardingStateEnum:
       type: string
       enum:
@@ -124,6 +160,21 @@ components:
 
         * `complete` - Complete'
       title: OnboardingStateEnum
+    OrganizationMembership:
+      type: object
+      properties:
+        active:
+          type: string
+        organization_id:
+          type: integer
+          description: Organization ID
+        role:
+          type: string
+      required:
+      - active
+      - organization_id
+      - role
+      title: OrganizationMembership
     WorkspaceMemberList:
       type: object
       properties:
@@ -135,6 +186,18 @@ components:
       required:
       - user
       title: WorkspaceMemberList
+    WorkspaceMemberCreate:
+      type: object
+      properties:
+        user:
+          type: integer
+          description: User ID
+        workspace:
+          type: integer
+          description: Workspace ID
+      required:
+      - user
+      title: WorkspaceMemberCreate
     LseUser:
       type: object
       properties:
@@ -207,57 +270,6 @@ components:
 
         values with complex, nested serializations'
       title: LseUser
-    WorkspaceMemberCreate:
-      type: object
-      properties:
-        user:
-          type: integer
-          description: User ID
-        workspace:
-          type: integer
-          description: Workspace ID
-      required:
-      - user
-      title: WorkspaceMemberCreate
-    TrialRoleEnum:
-      type: string
-      enum:
-      - annotator
-      - annotator_team_manager
-      - business_analyst
-      - business_or_data_team_leadership
-      - data_engineer_platform_engineer
-      - data_scientist
-      - other
-      description: '* `annotator` - Annotator
-
-        * `annotator_team_manager` - Annotator Team Manager
-
-        * `business_analyst` - Business Analyst
-
-        * `business_or_data_team_leadership` - Business Or Data Team Leadership
-
-        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
-
-        * `data_scientist` - Data Scientist
-
-        * `other` - Other'
-      title: TrialRoleEnum
-    OrganizationMembership:
-      type: object
-      properties:
-        active:
-          type: string
-        organization_id:
-          type: integer
-          description: Organization ID
-        role:
-          type: string
-      required:
-      - active
-      - organization_id
-      - role
-      title: OrganizationMembership
     LseFields:
       type: object
       properties:
@@ -328,18 +340,6 @@ components:
       - invite_expired
       - invite_expired_at
       title: LseFields
-    WorkspaceMemberCreateRequest:
-      type: object
-      properties:
-        user:
-          type: integer
-          description: User ID
-        workspace:
-          type: integer
-          description: Workspace ID
-      required:
-      - user
-      title: WorkspaceMemberCreateRequest
   securitySchemes:
     Token:
       type: apiKey

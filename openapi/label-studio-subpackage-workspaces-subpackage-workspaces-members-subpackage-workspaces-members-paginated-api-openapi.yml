@@ -62,6 +62,30 @@ paths:
                 $ref: '#/components/schemas/PaginatedLseUserList'
 components:
   schemas:
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
     OnboardingStateEnum:
       type: string
       enum:
@@ -83,6 +107,44 @@ components:
 
         * `complete` - Complete'
       title: OnboardingStateEnum
+    OrganizationMembership:
+      type: object
+      properties:
+        active:
+          type: string
+        organization_id:
+          type: integer
+          description: Organization ID
+        role:
+          type: string
+      required:
+      - active
+      - organization_id
+      - role
+      title: OrganizationMembership
+    PaginatedLseUserList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LseUser'
+      required:
+      - count
+      - results
+      title: PaginatedLseUserList
     LseUser:
       type: object
       properties:
@@ -155,68 +217,6 @@ components:
 
         values with complex, nested serializations'
       title: LseUser
-    PaginatedLseUserList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/LseUser'
-      required:
-      - count
-      - results
-      title: PaginatedLseUserList
-    TrialRoleEnum:
-      type: string
-      enum:
-      - annotator
-      - annotator_team_manager
-      - business_analyst
-      - business_or_data_team_leadership
-      - data_engineer_platform_engineer
-      - data_scientist
-      - other
-      description: '* `annotator` - Annotator
-
-        * `annotator_team_manager` - Annotator Team Manager
-
-        * `business_analyst` - Business Analyst
-
-        * `business_or_data_team_leadership` - Business Or Data Team Leadership
-
-        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
-
-        * `data_scientist` - Data Scientist
-
-        * `other` - Other'
-      title: TrialRoleEnum
-    OrganizationMembership:
-      type: object
-      properties:
-        active:
-          type: string
-        organization_id:
-          type: integer
-          description: Organization ID
-        role:
-          type: string
-      required:
-      - active
-      - organization_id
-      - role
-      title: OrganizationMembership
     LseFields:
       type: object
       properties:

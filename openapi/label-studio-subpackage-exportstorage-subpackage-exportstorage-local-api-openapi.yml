@@ -261,6 +261,11 @@ paths:
                 $ref: '#/components/schemas/LocalFilesExportStorage'
 components:
   schemas:
+    export_storage_local_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: export_storage_local_validate_Response_200
     LocalFilesExportStorage:
       type: object
       properties:
@@ -362,11 +367,6 @@ components:
 
         * `completed_with_errors` - Completed with errors'
       title: StatusC5aEnum
-    export_storage_local_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: export_storage_local_validate_Response_200
   securitySchemes:
     Token:
       type: apiKey

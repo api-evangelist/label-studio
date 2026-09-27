@@ -161,18 +161,6 @@ paths:
                 $ref: '#/components/schemas/projects_members_bulk_delete_Response_200'
 components:
   schemas:
-    projects_members_bulk_delete_Response_200:
-      type: object
-      properties:
-        unassignments:
-          type: integer
-      title: projects_members_bulk_delete_Response_200
-    projects_members_bulk_post_Response_200:
-      type: object
-      properties:
-        assignments:
-          type: integer
-      title: projects_members_bulk_post_Response_200
     ProjectMemberBulkAssignRolesRequest:
       type: object
       properties:
@@ -225,6 +213,18 @@ components:
       required:
       - all
       title: ProjectMemberBulkAssignRequest
+    projects_members_bulk_delete_Response_200:
+      type: object
+      properties:
+        unassignments:
+          type: integer
+      title: projects_members_bulk_delete_Response_200
+    projects_members_bulk_post_Response_200:
+      type: object
+      properties:
+        assignments:
+          type: integer
+      title: projects_members_bulk_post_Response_200
     Role9e7Enum:
       type: string
       enum:

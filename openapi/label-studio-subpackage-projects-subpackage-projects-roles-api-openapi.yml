@@ -133,6 +133,23 @@ paths:
                   $ref: '#/components/schemas/ProjectRole'
 components:
   schemas:
+    ProjectRole:
+      type: object
+      properties:
+        id:
+          type: integer
+        project:
+          type: integer
+        role:
+          $ref: '#/components/schemas/Role9e7Enum'
+        user:
+          type: integer
+      required:
+      - id
+      - project
+      - role
+      - user
+      title: ProjectRole
     Role9e7Enum:
       type: string
       enum:
@@ -157,23 +174,6 @@ components:
 
         * `NO` - Not Activated'
       title: Role9e7Enum
-    ProjectRole:
-      type: object
-      properties:
-        id:
-          type: integer
-        project:
-          type: integer
-        role:
-          $ref: '#/components/schemas/Role9e7Enum'
-        user:
-          type: integer
-      required:
-      - id
-      - project
-      - role
-      - user
-      title: ProjectRole
     ProjectRoleRequest:
       type: object
       properties:
