@@ -161,34 +161,6 @@ paths:
                 $ref: '#/components/schemas/projects_members_bulk_delete_Response_200'
 components:
   schemas:
-    ProjectMemberBulkAssignRolesRequest:
-      type: object
-      properties:
-        role:
-          $ref: '#/components/schemas/Role9e7Enum'
-          description: 'Role
-
-
-            * `OW` - Owner
-
-            * `AD` - Administrator
-
-            * `MA` - Manager
-
-            * `RE` - Reviewer
-
-            * `AN` - Annotator
-
-            * `DI` - Deactivated
-
-            * `NO` - Not Activated'
-        user_id:
-          type: integer
-          description: User ID
-      required:
-      - role
-      - user_id
-      title: ProjectMemberBulkAssignRolesRequest
     ProjectMemberBulkAssignRequest:
       type: object
       properties:
@@ -225,6 +197,34 @@ components:
         assignments:
           type: integer
       title: projects_members_bulk_post_Response_200
+    ProjectMemberBulkAssignRolesRequest:
+      type: object
+      properties:
+        role:
+          $ref: '#/components/schemas/Role9e7Enum'
+          description: 'Role
+
+
+            * `OW` - Owner
+
+            * `AD` - Administrator
+
+            * `MA` - Manager
+
+            * `RE` - Reviewer
+
+            * `AN` - Annotator
+
+            * `DI` - Deactivated
+
+            * `NO` - Not Activated'
+        user_id:
+          type: integer
+          description: User ID
+      required:
+      - role
+      - user_id
+      title: ProjectMemberBulkAssignRolesRequest
     Role9e7Enum:
       type: string
       enum:

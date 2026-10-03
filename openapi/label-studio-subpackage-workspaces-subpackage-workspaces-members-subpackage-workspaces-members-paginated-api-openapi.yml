@@ -62,6 +62,135 @@ paths:
                 $ref: '#/components/schemas/PaginatedLseUserList'
 components:
   schemas:
+    OnboardingStateEnum:
+      type: string
+      enum:
+      - not_started
+      - signup
+      - trial_signup
+      - first_tutorial
+      - in_app_guidance
+      - complete
+      description: '* `not_started` - Not Started
+
+        * `signup` - Signup
+
+        * `trial_signup` - Trial Signup
+
+        * `first_tutorial` - First Tutorial
+
+        * `in_app_guidance` - In App Guidance
+
+        * `complete` - Complete'
+      title: OnboardingStateEnum
+    PaginatedLseUserList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/LseUser'
+      required:
+      - count
+      - results
+      title: PaginatedLseUserList
+    OrganizationMembership:
+      type: object
+      properties:
+        active:
+          type: string
+        organization_id:
+          type: integer
+          description: Organization ID
+        role:
+          type: string
+      required:
+      - active
+      - organization_id
+      - role
+      title: OrganizationMembership
+    LseFields:
+      type: object
+      properties:
+        email_notification_settings:
+          type: string
+        invite_activated:
+          type:
+          - boolean
+          - 'null'
+        invite_expired:
+          type: string
+        invite_expired_at:
+          type: string
+        invited_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        invited_by:
+          type:
+          - integer
+          - 'null'
+        onboarding_state:
+          oneOf:
+          - $ref: '#/components/schemas/OnboardingStateEnum'
+          - type: 'null'
+          description: 'The current stage of user onboarding
+
+
+            * `not_started` - Not Started
+
+            * `signup` - Signup
+
+            * `trial_signup` - Trial Signup
+
+            * `first_tutorial` - First Tutorial
+
+            * `in_app_guidance` - In App Guidance
+
+            * `complete` - Complete'
+        social_auth_finished:
+          type:
+          - boolean
+          - 'null'
+          description: Is user finished social authentication
+        trial_company:
+          type:
+          - string
+          - 'null'
+        trial_experience_labeling:
+          type:
+          - string
+          - 'null'
+        trial_license_enterprise:
+          type:
+          - boolean
+          - 'null'
+        trial_models_in_production:
+          type:
+          - string
+          - 'null'
+        trial_role:
+          oneOf:
+          - $ref: '#/components/schemas/TrialRoleEnum'
+          - type: 'null'
+      required:
+      - email_notification_settings
+      - invite_expired
+      - invite_expired_at
+      title: LseFields
     TrialRoleEnum:
       type: string
       enum:
@@ -86,65 +215,6 @@ components:
 
         * `other` - Other'
       title: TrialRoleEnum
-    OnboardingStateEnum:
-      type: string
-      enum:
-      - not_started
-      - signup
-      - trial_signup
-      - first_tutorial
-      - in_app_guidance
-      - complete
-      description: '* `not_started` - Not Started
-
-        * `signup` - Signup
-
-        * `trial_signup` - Trial Signup
-
-        * `first_tutorial` - First Tutorial
-
-        * `in_app_guidance` - In App Guidance
-
-        * `complete` - Complete'
-      title: OnboardingStateEnum
-    OrganizationMembership:
-      type: object
-      properties:
-        active:
-          type: string
-        organization_id:
-          type: integer
-          description: Organization ID
-        role:
-          type: string
-      required:
-      - active
-      - organization_id
-      - role
-      title: OrganizationMembership
-    PaginatedLseUserList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/LseUser'
-      required:
-      - count
-      - results
-      title: PaginatedLseUserList
     LseUser:
       type: object
       properties:
@@ -217,76 +287,6 @@ components:
 
         values with complex, nested serializations'
       title: LseUser
-    LseFields:
-      type: object
-      properties:
-        email_notification_settings:
-          type: string
-        invite_activated:
-          type:
-          - boolean
-          - 'null'
-        invite_expired:
-          type: string
-        invite_expired_at:
-          type: string
-        invited_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        invited_by:
-          type:
-          - integer
-          - 'null'
-        onboarding_state:
-          oneOf:
-          - $ref: '#/components/schemas/OnboardingStateEnum'
-          - type: 'null'
-          description: 'The current stage of user onboarding
-
-
-            * `not_started` - Not Started
-
-            * `signup` - Signup
-
-            * `trial_signup` - Trial Signup
-
-            * `first_tutorial` - First Tutorial
-
-            * `in_app_guidance` - In App Guidance
-
-            * `complete` - Complete'
-        social_auth_finished:
-          type:
-          - boolean
-          - 'null'
-          description: Is user finished social authentication
-        trial_company:
-          type:
-          - string
-          - 'null'
-        trial_experience_labeling:
-          type:
-          - string
-          - 'null'
-        trial_license_enterprise:
-          type:
-          - boolean
-          - 'null'
-        trial_models_in_production:
-          type:
-          - string
-          - 'null'
-        trial_role:
-          oneOf:
-          - $ref: '#/components/schemas/TrialRoleEnum'
-          - type: 'null'
-      required:
-      - email_notification_settings
-      - invite_expired
-      - invite_expired_at
-      title: LseFields
   securitySchemes:
     Token:
       type: apiKey

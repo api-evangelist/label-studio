@@ -103,11 +103,6 @@ paths:
           description: Successful response
 components:
   schemas:
-    workspaces_projects_add_Response_201:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: workspaces_projects_add_Response_201
     SkipQueueEnum:
       type: string
       enum:
@@ -120,6 +115,20 @@ components:
 
         * `IGNORE_SKIPPED` - Ignore skipped'
       title: SkipQueueEnum
+    WorkspaceProjectsRequest:
+      type: object
+      properties:
+        project:
+          type: integer
+          description: Project ID
+      required:
+      - project
+      title: WorkspaceProjectsRequest
+    workspaces_projects_add_Response_201:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: workspaces_projects_add_Response_201
     UserSimple:
       type: object
       properties:
@@ -148,6 +157,18 @@ components:
 
         values with complex, nested serializations'
       title: UserSimple
+    SamplingDe5Enum:
+      type: string
+      enum:
+      - Sequential sampling
+      - Uniform sampling
+      - Uncertainty sampling
+      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
+
+        * `Uniform sampling` - Tasks are chosen randomly
+
+        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
+      title: SamplingDe5Enum
     ControlTagWeight:
       type: object
       properties:
@@ -172,27 +193,6 @@ components:
 
         Structure: {"overall": 0.5, "type": "Choices", "labels": {"cat": 1.0, "dog": 0.0}}'
       title: ControlTagWeight
-    WorkspaceProjectsRequest:
-      type: object
-      properties:
-        project:
-          type: integer
-          description: Project ID
-      required:
-      - project
-      title: WorkspaceProjectsRequest
-    SamplingDe5Enum:
-      type: string
-      enum:
-      - Sequential sampling
-      - Uniform sampling
-      - Uncertainty sampling
-      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
-
-        * `Uniform sampling` - Tasks are chosen randomly
-
-        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
-      title: SamplingDe5Enum
     Project:
       type: object
       properties:

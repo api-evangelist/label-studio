@@ -107,12 +107,6 @@ components:
         unassignments:
           type: integer
       title: workspaces_members_bulk_delete_Response_200
-    workspaces_members_bulk_post_Response_200:
-      type: object
-      properties:
-        assignments:
-          type: integer
-      title: workspaces_members_bulk_post_Response_200
     WorkspaceMemberBulkAssignRequest:
       type: object
       properties:
@@ -132,6 +126,12 @@ components:
       required:
       - all
       title: WorkspaceMemberBulkAssignRequest
+    workspaces_members_bulk_post_Response_200:
+      type: object
+      properties:
+        assignments:
+          type: integer
+      title: workspaces_members_bulk_post_Response_200
   securitySchemes:
     Token:
       type: apiKey

@@ -219,11 +219,149 @@ paths:
                 $ref: '#/components/schemas/LseS3ImportStorage'
 components:
   schemas:
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
     import_storage_s3s_validate_Response_200:
       type: object
       properties: {}
       description: Empty response body
       title: import_storage_s3s_validate_Response_200
+    PatchedLseS3ImportStorageRequest:
+      type: object
+      properties:
+        aws_access_key_id:
+          type:
+          - string
+          - 'null'
+          description: AWS_ACCESS_KEY_ID
+        aws_secret_access_key:
+          type:
+          - string
+          - 'null'
+          description: AWS_SECRET_ACCESS_KEY
+        aws_session_token:
+          type:
+          - string
+          - 'null'
+          description: AWS_SESSION_TOKEN
+        aws_sse_kms_key_id:
+          type:
+          - string
+          - 'null'
+          description: AWS SSE KMS Key ID
+        bucket:
+          type:
+          - string
+          - 'null'
+          description: S3 bucket name
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        external_id:
+          type:
+          - string
+          - 'null'
+          description: AWS ExternalId
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        legacy_auth:
+          type:
+          - boolean
+          - 'null'
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: S3 bucket prefix
+        presign:
+          type: boolean
+          default: true
+        presign_ttl:
+          type: integer
+          description: Presigned URLs TTL (in minutes)
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        recursive_scan:
+          type: boolean
+          description: Perform recursive scan over the bucket content
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage regex for filtering objects
+        region_name:
+          type:
+          - string
+          - 'null'
+          description: AWS Region
+        role_arn:
+          type: string
+          description: AWS RoleArn
+        s3_endpoint:
+          type:
+          - string
+          - 'null'
+          description: S3 Endpoint
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          type: boolean
+          default: true
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Interpret objects as BLOBs and generate URLs
+      title: PatchedLseS3ImportStorageRequest
     LseS3ImportStorage:
       type: object
       properties:
@@ -356,123 +494,6 @@ components:
       - role_arn
       - type
       title: LseS3ImportStorage
-    PatchedLseS3ImportStorageRequest:
-      type: object
-      properties:
-        aws_access_key_id:
-          type:
-          - string
-          - 'null'
-          description: AWS_ACCESS_KEY_ID
-        aws_secret_access_key:
-          type:
-          - string
-          - 'null'
-          description: AWS_SECRET_ACCESS_KEY
-        aws_session_token:
-          type:
-          - string
-          - 'null'
-          description: AWS_SESSION_TOKEN
-        aws_sse_kms_key_id:
-          type:
-          - string
-          - 'null'
-          description: AWS SSE KMS Key ID
-        bucket:
-          type:
-          - string
-          - 'null'
-          description: S3 bucket name
-        description:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage description
-        external_id:
-          type:
-          - string
-          - 'null'
-          description: AWS ExternalId
-        last_sync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last sync finished time
-        last_sync_count:
-          type:
-          - integer
-          - 'null'
-          description: Count of tasks synced last time
-        last_sync_job:
-          type:
-          - string
-          - 'null'
-          description: Last sync job ID
-        legacy_auth:
-          type:
-          - boolean
-          - 'null'
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta and debug information about storage processes
-        prefix:
-          type:
-          - string
-          - 'null'
-          description: S3 bucket prefix
-        presign:
-          type: boolean
-          default: true
-        presign_ttl:
-          type: integer
-          description: Presigned URLs TTL (in minutes)
-        project:
-          type: integer
-          description: A unique integer value identifying this project.
-        recursive_scan:
-          type: boolean
-          description: Perform recursive scan over the bucket content
-        regex_filter:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage regex for filtering objects
-        region_name:
-          type:
-          - string
-          - 'null'
-          description: AWS Region
-        role_arn:
-          type: string
-          description: AWS RoleArn
-        s3_endpoint:
-          type:
-          - string
-          - 'null'
-          description: S3 Endpoint
-        status:
-          $ref: '#/components/schemas/StatusC5aEnum'
-        synchronizable:
-          type: boolean
-          default: true
-        title:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage title
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report for the last failed sync
-        use_blob_urls:
-          type: boolean
-          description: Interpret objects as BLOBs and generate URLs
-      title: PatchedLseS3ImportStorageRequest
     LseS3ImportStorageRequest:
       type: object
       properties:
@@ -593,27 +614,6 @@ components:
       - project
       - role_arn
       title: LseS3ImportStorageRequest
-    StatusC5aEnum:
-      type: string
-      enum:
-      - initialized
-      - queued
-      - in_progress
-      - failed
-      - completed
-      - completed_with_errors
-      description: '* `initialized` - Initialized
-
-        * `queued` - Queued
-
-        * `in_progress` - In progress
-
-        * `failed` - Failed
-
-        * `completed` - Completed
-
-        * `completed_with_errors` - Completed with errors'
-      title: StatusC5aEnum
   securitySchemes:
     Token:
       type: apiKey

@@ -397,6 +397,516 @@ paths:
               $ref: '#/components/schemas/PatchedModelInterfaceRequest'
 components:
   schemas:
+    AgreementMethodologyEnum:
+      type: string
+      enum:
+      - consensus
+      - pairwise
+      description: '* `consensus` - Consensus
+
+        * `pairwise` - Pairwise Averaging'
+      title: AgreementMethodologyEnum
+    LabelStreamTaskDistributionEnum:
+      type: string
+      enum:
+      - auto_distribution
+      - assigned_only
+      description: '* `auto_distribution` - Label Stream distributes tasks automatically to annotators
+
+        * `assigned_only` - Label Stream shows tasks only to assigned users'
+      title: LabelStreamTaskDistributionEnum
+    BatchPredictionsRequestRequest:
+      type: object
+      properties:
+        job_id:
+          type: string
+        modelrun_id:
+          type: integer
+        results:
+          type: array
+          items:
+            description: Any type
+      required:
+      - modelrun_id
+      - results
+      title: BatchPredictionsRequestRequest
+    RequeueRejectedTasksModeEnum:
+      type: string
+      enum:
+      - requeue
+      - remove
+      - flexible
+      description: '* `requeue` - Requeue
+
+        * `remove` - Remove
+
+        * `flexible` - Flexible'
+      title: RequeueRejectedTasksModeEnum
+    ModelInterface:
+      type: object
+      properties:
+        associated_projects:
+          type: array
+          items:
+            type: integer
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+          description: User who created Dataset
+        description:
+          type:
+          - string
+          - 'null'
+          description: Model description
+        id:
+          type: integer
+        input_fields:
+          description: Any type
+        organization:
+          type:
+          - integer
+          - 'null'
+        output_classes:
+          description: Any type
+        skill_name:
+          $ref: '#/components/schemas/SkillNameEnum'
+        title:
+          type: string
+          description: Model name
+        updated_at:
+          type: string
+          format: date-time
+      required:
+      - created_at
+      - id
+      - title
+      - updated_at
+      title: ModelInterface
+    ReviewSettings:
+      type: object
+      properties:
+        anonymize_annotations:
+          type: boolean
+          description: Hide annotator names from annotations while review
+        id:
+          type: integer
+        instruction:
+          type:
+          - string
+          - 'null'
+          description: Instructions
+        only_finished_tasks:
+          type: boolean
+          description: Show only finished tasks in the review stream
+        project:
+          type:
+          - integer
+          - 'null'
+        requeue_rejected_tasks_mode:
+          oneOf:
+          - $ref: '#/components/schemas/RequeueRejectedTasksModeEnum'
+          - type: 'null'
+          description: 'Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue
+
+
+            * `requeue` - Requeue
+
+            * `remove` - Remove
+
+            * `flexible` - Flexible'
+        requeue_rejected_tasks_to_annotator:
+          type: boolean
+        require_comment_on_reject:
+          type: boolean
+          description: Reviewers must leave a comment on reject
+        review_criteria:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewCriteriaEnum'
+          - type: 'null'
+          description: 'Task is reviewed after at least one accepted annotation / Task is reviewed when all annotations are reviewed
+
+
+            * `all` - Task is reviewed if all annotations are reviewed
+
+            * `one` - Task is reviewed if at least one annotation is reviewed'
+        review_only_manual_assignments:
+          type: boolean
+          description: Show only manually assigned tasks in the review stream
+        review_task_limit_percent:
+          type:
+          - string
+          - 'null'
+          format: decimal
+          description: Task limit (%)
+        sampling:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewSettingsSamplingEnum'
+          - type: 'null'
+          description: 'By Task ID / Random
+
+
+            * `task_id` - By Task ID
+
+            * `random` - Random'
+        show_agreement_to_reviewers:
+          type: boolean
+          description: Show agreement to reviewers in the Data Manager
+        show_data_manager_to_reviewers:
+          type: boolean
+          description: Show the Data Manager to reviewers
+        show_instruction:
+          type: boolean
+          description: Show before reviewing
+        show_unused_data_columns_to_reviewers:
+          type:
+          - boolean
+          - 'null'
+          description: Show unused task data columns to reviewers in the Data Manager
+      required:
+      - id
+      - requeue_rejected_tasks_to_annotator
+      title: ReviewSettings
+    SkipQueueEnum:
+      type: string
+      enum:
+      - REQUEUE_FOR_ME
+      - REQUEUE_FOR_OTHERS
+      - IGNORE_SKIPPED
+      description: '* `REQUEUE_FOR_ME` - Requeue for me
+
+        * `REQUEUE_FOR_OTHERS` - Requeue for others
+
+        * `IGNORE_SKIPPED` - Ignore skipped'
+      title: SkipQueueEnum
+    ModelInterfaceSerializerGET:
+      type: object
+      properties:
+        associated_projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssociatedProject'
+        best_score:
+          type:
+          - number
+          - 'null'
+          format: double
+        created_at:
+          type: string
+          format: date-time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+          description: User who created Dataset
+        description:
+          type:
+          - string
+          - 'null'
+          description: Model description
+        id:
+          type: integer
+        input_fields:
+          description: Any type
+        organization:
+          type:
+          - integer
+          - 'null'
+        output_classes:
+          description: Any type
+        runs_count:
+          type: integer
+          default: 0
+        skill_name:
+          $ref: '#/components/schemas/SkillNameEnum'
+        title:
+          type: string
+          description: Model name
+        updated_at:
+          type: string
+          format: date-time
+        versions_count:
+          type: integer
+          default: 0
+      required:
+      - best_score
+      - created_at
+      - id
+      - runs_count
+      - title
+      - updated_at
+      - versions_count
+      title: ModelInterfaceSerializerGET
+    ModelInterfaceRequest:
+      type: object
+      properties:
+        associated_projects:
+          type: array
+          items:
+            type: integer
+        created_by:
+          $ref: '#/components/schemas/UserSimpleRequest'
+          description: User who created Dataset
+        description:
+          type:
+          - string
+          - 'null'
+          description: Model description
+        input_fields:
+          description: Any type
+        organization:
+          type:
+          - integer
+          - 'null'
+        output_classes:
+          description: Any type
+        skill_name:
+          $ref: '#/components/schemas/SkillNameEnum'
+        title:
+          type: string
+          description: Model name
+      required:
+      - title
+      title: ModelInterfaceRequest
+    ReviewSettingsSamplingEnum:
+      type: string
+      enum:
+      - task_id
+      - random
+      description: '* `task_id` - By Task ID
+
+        * `random` - Random'
+      title: ReviewSettingsSamplingEnum
+    ProjectSubsetTasksResponse:
+      type: object
+      properties:
+        next_cursor:
+          type:
+          - string
+          - 'null'
+        previous_cursor:
+          type:
+          - string
+          - 'null'
+        task_count:
+          type: integer
+          description: Present only when include_total=true
+        task_result_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectSubsetTaskItem'
+      required:
+      - task_result_list
+      title: ProjectSubsetTasksResponse
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    SkillNameEnum:
+      type: string
+      enum:
+      - TextClassification
+      - NamedEntityRecognition
+      description: '* `TextClassification` - TextClassification
+
+        * `NamedEntityRecognition` - NamedEntityRecognition'
+      title: SkillNameEnum
+    ApiPromptsCompatibleProjectsGetParametersProjectType:
+      type: string
+      enum:
+      - NamedEntityRecognition
+      - TextClassification
+      default: TextClassification
+      title: ApiPromptsCompatibleProjectsGetParametersProjectType
+    BlueprintList:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        description:
+          type:
+          - string
+          - 'null'
+          description: Project description
+        id:
+          type: integer
+        share_id:
+          type: string
+        short_url:
+          type: string
+        task_count:
+          type: string
+        title:
+          type:
+          - string
+          - 'null'
+          description: Blueprint name. Must be between 3 and 50 characters long.
+      required:
+      - created_at
+      - id
+      - share_id
+      - short_url
+      - task_count
+      title: BlueprintList
+    UserSimpleRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimpleRequest
+    PaginatedAllRolesProjectListList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AllRolesProjectList'
+      required:
+      - count
+      - results
+      title: PaginatedAllRolesProjectListList
+    PatchedModelInterfaceRequest:
+      type: object
+      properties:
+        associated_projects:
+          type: array
+          items:
+            type: integer
+        created_by:
+          $ref: '#/components/schemas/UserSimpleRequest'
+          description: User who created Dataset
+        description:
+          type:
+          - string
+          - 'null'
+          description: Model description
+        input_fields:
+          description: Any type
+        organization:
+          type:
+          - integer
+          - 'null'
+        output_classes:
+          description: Any type
+        skill_name:
+          $ref: '#/components/schemas/SkillNameEnum'
+        title:
+          type: string
+          description: Model name
+      title: PatchedModelInterfaceRequest
+    ReviewCriteriaEnum:
+      type: string
+      enum:
+      - all
+      - one
+      description: '* `all` - Task is reviewed if all annotations are reviewed
+
+        * `one` - Task is reviewed if at least one annotation is reviewed'
+      title: ReviewCriteriaEnum
+    AssociatedProject:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type:
+          - string
+          - 'null'
+          description: Project name. Must be between 3 and 50 characters long.
+      required:
+      - id
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: AssociatedProject
+    ProjectSubsetItem:
+      type: object
+      properties:
+        columns_schema:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Any type
+        count:
+          type: integer
+        subset:
+          type: string
+      required:
+      - count
+      - subset
+      title: ProjectSubsetItem
+    BatchFailedPredictionsRequestRequest:
+      type: object
+      properties:
+        failed_predictions:
+          type: array
+          items:
+            description: Any type
+        job_id:
+          type: string
+        modelrun_id:
+          type: integer
+      required:
+      - failed_predictions
+      - modelrun_id
+      title: BatchFailedPredictionsRequestRequest
     AllRolesProjectList:
       type: object
       properties:
@@ -744,266 +1254,6 @@ components:
 
         make sure, that you use correct one(Project.objects.with_counts())'
       title: AllRolesProjectList
-    ReviewSettingsSamplingEnum:
-      type: string
-      enum:
-      - task_id
-      - random
-      description: '* `task_id` - By Task ID
-
-        * `random` - Random'
-      title: ReviewSettingsSamplingEnum
-    SkipQueueEnum:
-      type: string
-      enum:
-      - REQUEUE_FOR_ME
-      - REQUEUE_FOR_OTHERS
-      - IGNORE_SKIPPED
-      description: '* `REQUEUE_FOR_ME` - Requeue for me
-
-        * `REQUEUE_FOR_OTHERS` - Requeue for others
-
-        * `IGNORE_SKIPPED` - Ignore skipped'
-      title: SkipQueueEnum
-    ReviewCriteriaEnum:
-      type: string
-      enum:
-      - all
-      - one
-      description: '* `all` - Task is reviewed if all annotations are reviewed
-
-        * `one` - Task is reviewed if at least one annotation is reviewed'
-      title: ReviewCriteriaEnum
-    BatchPredictionsRequestRequest:
-      type: object
-      properties:
-        job_id:
-          type: string
-        modelrun_id:
-          type: integer
-        results:
-          type: array
-          items:
-            description: Any type
-      required:
-      - modelrun_id
-      - results
-      title: BatchPredictionsRequestRequest
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
-    BatchFailedPredictions:
-      type: object
-      properties:
-        failed_predictions:
-          type: array
-          items:
-            description: Any type
-        job_id:
-          type: string
-      required:
-      - failed_predictions
-      - job_id
-      title: BatchFailedPredictions
-    PaginatedProjectSubsetTasksResponseList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectSubsetTasksResponse'
-      required:
-      - count
-      - results
-      title: PaginatedProjectSubsetTasksResponseList
-    BatchPredictions:
-      type: object
-      properties:
-        job_id:
-          type: string
-        results:
-          type: array
-          items:
-            description: Any type
-      required:
-      - job_id
-      - results
-      title: BatchPredictions
-    AgreementMethodologyEnum:
-      type: string
-      enum:
-      - consensus
-      - pairwise
-      description: '* `consensus` - Consensus
-
-        * `pairwise` - Pairwise Averaging'
-      title: AgreementMethodologyEnum
-    PaginatedModelInterfaceSerializerGETList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelInterfaceSerializerGET'
-      required:
-      - count
-      - results
-      title: PaginatedModelInterfaceSerializerGETList
-    AssignmentSettings:
-      type: object
-      properties:
-        id:
-          type: integer
-        label_stream_task_distribution:
-          oneOf:
-          - $ref: '#/components/schemas/LabelStreamTaskDistributionEnum'
-          - type: 'null'
-          description: 'Automatic / Manual
-
-
-            * `auto_distribution` - Label Stream distributes tasks automatically to annotators
-
-            * `assigned_only` - Label Stream shows tasks only to assigned users'
-        project:
-          type:
-          - integer
-          - 'null'
-      required:
-      - id
-      title: AssignmentSettings
-    ReviewSettings:
-      type: object
-      properties:
-        anonymize_annotations:
-          type: boolean
-          description: Hide annotator names from annotations while review
-        id:
-          type: integer
-        instruction:
-          type:
-          - string
-          - 'null'
-          description: Instructions
-        only_finished_tasks:
-          type: boolean
-          description: Show only finished tasks in the review stream
-        project:
-          type:
-          - integer
-          - 'null'
-        requeue_rejected_tasks_mode:
-          oneOf:
-          - $ref: '#/components/schemas/RequeueRejectedTasksModeEnum'
-          - type: 'null'
-          description: 'Remove rejected annotations from labeling queue / Requeue rejected annotations back to annotators / Allow reviewer to decide: Remove or Requeue
-
-
-            * `requeue` - Requeue
-
-            * `remove` - Remove
-
-            * `flexible` - Flexible'
-        requeue_rejected_tasks_to_annotator:
-          type: boolean
-        require_comment_on_reject:
-          type: boolean
-          description: Reviewers must leave a comment on reject
-        review_criteria:
-          oneOf:
-          - $ref: '#/components/schemas/ReviewCriteriaEnum'
-          - type: 'null'
-          description: 'Task is reviewed after at least one accepted annotation / Task is reviewed when all annotations are reviewed
-
-
-            * `all` - Task is reviewed if all annotations are reviewed
-
-            * `one` - Task is reviewed if at least one annotation is reviewed'
-        review_only_manual_assignments:
-          type: boolean
-          description: Show only manually assigned tasks in the review stream
-        review_task_limit_percent:
-          type:
-          - string
-          - 'null'
-          format: decimal
-          description: Task limit (%)
-        sampling:
-          oneOf:
-          - $ref: '#/components/schemas/ReviewSettingsSamplingEnum'
-          - type: 'null'
-          description: 'By Task ID / Random
-
-
-            * `task_id` - By Task ID
-
-            * `random` - Random'
-        show_agreement_to_reviewers:
-          type: boolean
-          description: Show agreement to reviewers in the Data Manager
-        show_data_manager_to_reviewers:
-          type: boolean
-          description: Show the Data Manager to reviewers
-        show_instruction:
-          type: boolean
-          description: Show before reviewing
-        show_unused_data_columns_to_reviewers:
-          type:
-          - boolean
-          - 'null'
-          description: Show unused task data columns to reviewers in the Data Manager
-      required:
-      - id
-      - requeue_rejected_tasks_to_annotator
-      title: ReviewSettings
     ProjectSubsetTaskItem:
       type: object
       properties:
@@ -1033,108 +1283,29 @@ components:
       required:
       - data
       title: ProjectSubsetTaskItem
-    ProjectSubsetItem:
+    AssignmentSettings:
       type: object
       properties:
-        columns_schema:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Any type
-        count:
-          type: integer
-        subset:
-          type: string
-      required:
-      - count
-      - subset
-      title: ProjectSubsetItem
-    ProjectSubsetTasksResponse:
-      type: object
-      properties:
-        next_cursor:
-          type:
-          - string
-          - 'null'
-        previous_cursor:
-          type:
-          - string
-          - 'null'
-        task_count:
-          type: integer
-          description: Present only when include_total=true
-        task_result_list:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectSubsetTaskItem'
-      required:
-      - task_result_list
-      title: ProjectSubsetTasksResponse
-    ModelInterfaceSerializerGET:
-      type: object
-      properties:
-        associated_projects:
-          type: array
-          items:
-            $ref: '#/components/schemas/AssociatedProject'
-        best_score:
-          type:
-          - number
-          - 'null'
-          format: double
-        created_at:
-          type: string
-          format: date-time
-        created_by:
-          $ref: '#/components/schemas/UserSimple'
-          description: User who created Dataset
-        description:
-          type:
-          - string
-          - 'null'
-          description: Model description
         id:
           type: integer
-        input_fields:
-          description: Any type
-        organization:
+        label_stream_task_distribution:
+          oneOf:
+          - $ref: '#/components/schemas/LabelStreamTaskDistributionEnum'
+          - type: 'null'
+          description: 'Automatic / Manual
+
+
+            * `auto_distribution` - Label Stream distributes tasks automatically to annotators
+
+            * `assigned_only` - Label Stream shows tasks only to assigned users'
+        project:
           type:
           - integer
           - 'null'
-        output_classes:
-          description: Any type
-        runs_count:
-          type: integer
-          default: 0
-        skill_name:
-          $ref: '#/components/schemas/SkillNameEnum'
-        title:
-          type: string
-          description: Model name
-        updated_at:
-          type: string
-          format: date-time
-        versions_count:
-          type: integer
-          default: 0
       required:
-      - best_score
-      - created_at
       - id
-      - runs_count
-      - title
-      - updated_at
-      - versions_count
-      title: ModelInterfaceSerializerGET
-    ApiPromptsCompatibleProjectsGetParametersProjectType:
-      type: string
-      enum:
-      - NamedEntityRecognition
-      - TextClassification
-      default: TextClassification
-      title: ApiPromptsCompatibleProjectsGetParametersProjectType
-    PaginatedAllRolesProjectListList:
+      title: AssignmentSettings
+    PaginatedModelInterfaceSerializerGETList:
       type: object
       properties:
         count:
@@ -1152,94 +1323,34 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/AllRolesProjectList'
+            $ref: '#/components/schemas/ModelInterfaceSerializerGET'
       required:
       - count
       - results
-      title: PaginatedAllRolesProjectListList
-    LabelStreamTaskDistributionEnum:
-      type: string
-      enum:
-      - auto_distribution
-      - assigned_only
-      description: '* `auto_distribution` - Label Stream distributes tasks automatically to annotators
-
-        * `assigned_only` - Label Stream shows tasks only to assigned users'
-      title: LabelStreamTaskDistributionEnum
-    ModelInterfaceRequest:
+      title: PaginatedModelInterfaceSerializerGETList
+    PaginatedProjectSubsetTasksResponseList:
       type: object
       properties:
-        associated_projects:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
           type: array
           items:
-            type: integer
-        created_by:
-          $ref: '#/components/schemas/UserSimpleRequest'
-          description: User who created Dataset
-        description:
-          type:
-          - string
-          - 'null'
-          description: Model description
-        input_fields:
-          description: Any type
-        organization:
-          type:
-          - integer
-          - 'null'
-        output_classes:
-          description: Any type
-        skill_name:
-          $ref: '#/components/schemas/SkillNameEnum'
-        title:
-          type: string
-          description: Model name
+            $ref: '#/components/schemas/ProjectSubsetTasksResponse'
       required:
-      - title
-      title: ModelInterfaceRequest
-    BlueprintList:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-        description:
-          type:
-          - string
-          - 'null'
-          description: Project description
-        id:
-          type: integer
-        share_id:
-          type: string
-        short_url:
-          type: string
-        task_count:
-          type: string
-        title:
-          type:
-          - string
-          - 'null'
-          description: Blueprint name. Must be between 3 and 50 characters long.
-      required:
-      - created_at
-      - id
-      - share_id
-      - short_url
-      - task_count
-      title: BlueprintList
-    RequeueRejectedTasksModeEnum:
-      type: string
-      enum:
-      - requeue
-      - remove
-      - flexible
-      description: '* `requeue` - Requeue
-
-        * `remove` - Remove
-
-        * `flexible` - Flexible'
-      title: RequeueRejectedTasksModeEnum
+      - count
+      - results
+      title: PaginatedProjectSubsetTasksResponseList
     SamplingDe5Enum:
       type: string
       enum:
@@ -1252,121 +1363,6 @@ components:
 
         * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
       title: SamplingDe5Enum
-    PatchedModelInterfaceRequest:
-      type: object
-      properties:
-        associated_projects:
-          type: array
-          items:
-            type: integer
-        created_by:
-          $ref: '#/components/schemas/UserSimpleRequest'
-          description: User who created Dataset
-        description:
-          type:
-          - string
-          - 'null'
-          description: Model description
-        input_fields:
-          description: Any type
-        organization:
-          type:
-          - integer
-          - 'null'
-        output_classes:
-          description: Any type
-        skill_name:
-          $ref: '#/components/schemas/SkillNameEnum'
-        title:
-          type: string
-          description: Model name
-      title: PatchedModelInterfaceRequest
-    SkillNameEnum:
-      type: string
-      enum:
-      - TextClassification
-      - NamedEntityRecognition
-      description: '* `TextClassification` - TextClassification
-
-        * `NamedEntityRecognition` - NamedEntityRecognition'
-      title: SkillNameEnum
-    ModelInterface:
-      type: object
-      properties:
-        associated_projects:
-          type: array
-          items:
-            type: integer
-        created_at:
-          type: string
-          format: date-time
-        created_by:
-          $ref: '#/components/schemas/UserSimple'
-          description: User who created Dataset
-        description:
-          type:
-          - string
-          - 'null'
-          description: Model description
-        id:
-          type: integer
-        input_fields:
-          description: Any type
-        organization:
-          type:
-          - integer
-          - 'null'
-        output_classes:
-          description: Any type
-        skill_name:
-          $ref: '#/components/schemas/SkillNameEnum'
-        title:
-          type: string
-          description: Model name
-        updated_at:
-          type: string
-          format: date-time
-      required:
-      - created_at
-      - id
-      - title
-      - updated_at
-      title: ModelInterface
-    AssociatedProject:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type:
-          - string
-          - 'null'
-          description: Project name. Must be between 3 and 50 characters long.
-      required:
-      - id
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: AssociatedProject
-    BatchFailedPredictionsRequestRequest:
-      type: object
-      properties:
-        failed_predictions:
-          type: array
-          items:
-            description: Any type
-        job_id:
-          type: string
-        modelrun_id:
-          type: integer
-      required:
-      - failed_predictions
-      - modelrun_id
-      title: BatchFailedPredictionsRequestRequest
     ControlTagWeight:
       type: object
       properties:
@@ -1391,28 +1387,32 @@ components:
 
         Structure: {"overall": 0.5, "type": "Choices", "labels": {"cat": 1.0, "dog": 0.0}}'
       title: ControlTagWeight
-    UserSimpleRequest:
+    BatchFailedPredictions:
       type: object
       properties:
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        last_name:
-          type: string
-        username:
+        failed_predictions:
+          type: array
+          items:
+            description: Any type
+        job_id:
           type: string
       required:
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimpleRequest
+      - failed_predictions
+      - job_id
+      title: BatchFailedPredictions
+    BatchPredictions:
+      type: object
+      properties:
+        job_id:
+          type: string
+        results:
+          type: array
+          items:
+            description: Any type
+      required:
+      - job_id
+      - results
+      title: BatchPredictions
   securitySchemes:
     Token:
       type: apiKey

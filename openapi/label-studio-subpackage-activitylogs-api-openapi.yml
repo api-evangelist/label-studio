@@ -101,23 +101,6 @@ paths:
                 description: Any type
 components:
   schemas:
-    ActivityLogResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ActivityLog'
-        recordsFiltered:
-          type: integer
-        recordsTotal:
-          type: integer
-      required:
-      - data
-      - recordsFiltered
-      - recordsTotal
-      description: Serializer for ActivityLogAPI response.
-      title: ActivityLogResponse
     ApiActivityLogsGetParametersMethod:
       type: string
       enum:
@@ -192,6 +175,23 @@ components:
       - response_code
       - user_id
       title: ActivityLog
+    ActivityLogResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActivityLog'
+        recordsFiltered:
+          type: integer
+        recordsTotal:
+          type: integer
+      required:
+      - data
+      - recordsFiltered
+      - recordsTotal
+      description: Serializer for ActivityLogAPI response.
+      title: ActivityLogResponse
   securitySchemes:
     Token:
       type: apiKey

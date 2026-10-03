@@ -456,6 +456,60 @@ paths:
               $ref: '#/components/schemas/PatchedOrganizationMemberTagRequest'
 components:
   schemas:
+    BulkOrganizationMemberTagAssignmentRequest:
+      type: object
+      properties:
+        all:
+          type: boolean
+          description: If true, assign tags to all organization members. If false, assign tags to the provided users.
+        excluded:
+          type: array
+          items:
+            type: integer
+          description: List of user IDs to exclude from the assignment.
+        included:
+          type: array
+          items:
+            type: integer
+          description: List of user IDs to include in the assignment.
+        overwrite:
+          type: boolean
+          default: false
+          description: If true, replace all existing tag assignments for each user with the provided ones. If false, only add new assignments.
+        tags:
+          type: array
+          items:
+            type: integer
+          description: List of tag IDs to assign.
+      required:
+      - all
+      title: BulkOrganizationMemberTagAssignmentRequest
+    OrganizationMemberTagImportStatus:
+      type: object
+      properties:
+        assignments_created:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        finished_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        id:
+          type: integer
+        status:
+          $ref: '#/components/schemas/OrganizationMemberTagImportStatusStatusEnum'
+        tags_created:
+          type: integer
+        users_skipped:
+          description: Any type
+      required:
+      - created_at
+      - id
+      description: Serializer for the status of a member tag import job.
+      title: OrganizationMemberTagImportStatus
     PaginatedOrganizationMemberTagList:
       type: object
       properties:
@@ -479,12 +533,90 @@ components:
       - count
       - results
       title: PaginatedOrganizationMemberTagList
+    PatchedOrganizationMemberTagRequest:
+      type: object
+      properties:
+        label:
+          type: string
+          description: Label
+      title: PatchedOrganizationMemberTagRequest
+    OrganizationMemberTagRequest:
+      type: object
+      properties:
+        label:
+          type: string
+          description: Label
+      required:
+      - label
+      title: OrganizationMemberTagRequest
+    OrganizationMemberTagImportStatusStatusEnum:
+      type: string
+      enum:
+      - created
+      - in_progress
+      - completed
+      - failed
+      description: '* `created` - Created
+
+        * `in_progress` - In Progress
+
+        * `completed` - Completed
+
+        * `failed` - Failed'
+      title: OrganizationMemberTagImportStatusStatusEnum
     organizations_member_tags_assign_Response_200:
       type: object
       properties:
         assigned:
           type: integer
       title: organizations_member_tags_assign_Response_200
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    organizations_member_tags_import_Response_201:
+      type: object
+      properties:
+        import:
+          type: integer
+          description: The ID of the created import job
+      title: organizations_member_tags_import_Response_201
+    OrganizationMemberTagImportCreateRequest:
+      type: object
+      properties:
+        bulk_tags:
+          type: string
+        file:
+          type: string
+          format: binary
+      required:
+      - bulk_tags
+      - file
+      title: OrganizationMemberTagImportCreateRequest
     OrganizationMemberTag:
       type: object
       properties:
@@ -514,138 +646,6 @@ components:
       - organization
       - updated_at
       title: OrganizationMemberTag
-    OrganizationMemberTagImportStatusStatusEnum:
-      type: string
-      enum:
-      - created
-      - in_progress
-      - completed
-      - failed
-      description: '* `created` - Created
-
-        * `in_progress` - In Progress
-
-        * `completed` - Completed
-
-        * `failed` - Failed'
-      title: OrganizationMemberTagImportStatusStatusEnum
-    OrganizationMemberTagImportCreateRequest:
-      type: object
-      properties:
-        bulk_tags:
-          type: string
-        file:
-          type: string
-          format: binary
-      required:
-      - bulk_tags
-      - file
-      title: OrganizationMemberTagImportCreateRequest
-    BulkOrganizationMemberTagAssignmentRequest:
-      type: object
-      properties:
-        all:
-          type: boolean
-          description: If true, assign tags to all organization members. If false, assign tags to the provided users.
-        excluded:
-          type: array
-          items:
-            type: integer
-          description: List of user IDs to exclude from the assignment.
-        included:
-          type: array
-          items:
-            type: integer
-          description: List of user IDs to include in the assignment.
-        overwrite:
-          type: boolean
-          default: false
-          description: If true, replace all existing tag assignments for each user with the provided ones. If false, only add new assignments.
-        tags:
-          type: array
-          items:
-            type: integer
-          description: List of tag IDs to assign.
-      required:
-      - all
-      title: BulkOrganizationMemberTagAssignmentRequest
-    PatchedOrganizationMemberTagRequest:
-      type: object
-      properties:
-        label:
-          type: string
-          description: Label
-      title: PatchedOrganizationMemberTagRequest
-    OrganizationMemberTagRequest:
-      type: object
-      properties:
-        label:
-          type: string
-          description: Label
-      required:
-      - label
-      title: OrganizationMemberTagRequest
-    organizations_member_tags_import_Response_201:
-      type: object
-      properties:
-        import:
-          type: integer
-          description: The ID of the created import job
-      title: organizations_member_tags_import_Response_201
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
-    OrganizationMemberTagImportStatus:
-      type: object
-      properties:
-        assignments_created:
-          type: integer
-        created_at:
-          type: string
-          format: date-time
-        finished_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        id:
-          type: integer
-        status:
-          $ref: '#/components/schemas/OrganizationMemberTagImportStatusStatusEnum'
-        tags_created:
-          type: integer
-        users_skipped:
-          description: Any type
-      required:
-      - created_at
-      - id
-      description: Serializer for the status of a member tag import job.
-      title: OrganizationMemberTagImportStatus
   securitySchemes:
     Token:
       type: apiKey

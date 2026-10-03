@@ -140,14 +140,6 @@ paths:
               $ref: '#/components/schemas/LSAPITokenRotateRequest'
 components:
   schemas:
-    LSAPITokenRotateRequest:
-      type: object
-      properties:
-        refresh:
-          type: string
-      required:
-      - refresh
-      title: LSAPITokenRotateRequest
     TokenRefreshRequest:
       type: object
       properties:
@@ -156,14 +148,6 @@ components:
       required:
       - refresh
       title: TokenRefreshRequest
-    LSAPITokenBlacklistRequest:
-      type: object
-      properties:
-        refresh:
-          type: string
-      required:
-      - refresh
-      title: LSAPITokenBlacklistRequest
     LSEAPITokenCreate:
       type: object
       properties:
@@ -178,14 +162,14 @@ components:
       - expires_at
       - token
       title: LSEAPITokenCreate
-    TokenRefreshResponse:
+    LSAPITokenBlacklistRequest:
       type: object
       properties:
-        access:
+        refresh:
           type: string
       required:
-      - access
-      title: TokenRefreshResponse
+      - refresh
+      title: LSAPITokenBlacklistRequest
     LSEAPITokenList:
       type: object
       properties:
@@ -208,6 +192,22 @@ components:
       required:
       - refresh
       title: TokenRotateResponse
+    TokenRefreshResponse:
+      type: object
+      properties:
+        access:
+          type: string
+      required:
+      - access
+      title: TokenRefreshResponse
+    LSAPITokenRotateRequest:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+      title: LSAPITokenRotateRequest
   securitySchemes:
     Token:
       type: apiKey

@@ -211,24 +211,6 @@ paths:
               $ref: '#/components/schemas/PatchedPauseRequest'
 components:
   schemas:
-    ReasonEnum:
-      type: string
-      enum:
-      - MANUAL
-      - BEHAVIOR_BASED
-      - ANNOTATOR_EVALUATION
-      - ANNOTATION_LIMIT
-      - CUSTOM_SCRIPT
-      description: '* `MANUAL` - Manual
-
-        * `BEHAVIOR_BASED` - Behavior-based
-
-        * `ANNOTATOR_EVALUATION` - Annotator evaluation
-
-        * `ANNOTATION_LIMIT` - Annotation limit
-
-        * `CUSTOM_SCRIPT` - Custom script'
-      title: ReasonEnum
     PauseRequest:
       type: object
       properties:
@@ -334,6 +316,24 @@ components:
 
         values with complex, nested serializations'
       title: Pause
+    ReasonEnum:
+      type: string
+      enum:
+      - MANUAL
+      - BEHAVIOR_BASED
+      - ANNOTATOR_EVALUATION
+      - ANNOTATION_LIMIT
+      - CUSTOM_SCRIPT
+      description: '* `MANUAL` - Manual
+
+        * `BEHAVIOR_BASED` - Behavior-based
+
+        * `ANNOTATOR_EVALUATION` - Annotator evaluation
+
+        * `ANNOTATION_LIMIT` - Annotation limit
+
+        * `CUSTOM_SCRIPT` - Custom script'
+      title: ReasonEnum
     UserSimple:
       type: object
       properties:

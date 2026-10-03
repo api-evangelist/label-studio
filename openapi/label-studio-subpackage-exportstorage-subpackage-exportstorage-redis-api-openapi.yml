@@ -288,11 +288,6 @@ paths:
                 $ref: '#/components/schemas/RedisExportStorage'
 components:
   schemas:
-    export_storage_redis_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: export_storage_redis_validate_Response_200
     StatusC5aEnum:
       type: string
       enum:
@@ -412,6 +407,11 @@ components:
       - project
       - type
       title: RedisExportStorage
+    export_storage_redis_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: export_storage_redis_validate_Response_200
   securitySchemes:
     Token:
       type: apiKey

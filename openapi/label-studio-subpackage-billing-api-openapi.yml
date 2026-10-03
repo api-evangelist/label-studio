@@ -33,81 +33,6 @@ paths:
                 $ref: '#/components/schemas/BillingInfoResponse'
 components:
   schemas:
-    BillingChecks:
-      type: object
-      properties:
-        export_storages:
-          $ref: '#/components/schemas/CountLimit'
-        import_storages:
-          $ref: '#/components/schemas/CountLimit'
-        is_license_expired:
-          type: boolean
-        is_license_warning:
-          type: boolean
-        is_prompts_expire:
-          type: boolean
-        is_prompts_warning:
-          type: boolean
-        license_expires:
-          type:
-          - string
-          - 'null'
-          format: date
-        license_issued:
-          type:
-          - string
-          - 'null'
-          format: date
-        license_warning:
-          type:
-          - string
-          - 'null'
-          format: date
-        organization_is_active:
-          type: boolean
-        projects:
-          $ref: '#/components/schemas/CountLimit'
-        prompts_api_keys_enabled:
-          type: boolean
-        prompts_enabled:
-          type: boolean
-        prompts_expire:
-          type:
-          - string
-          - 'null'
-        prompts_status:
-          $ref: '#/components/schemas/PromptsStatusEnum'
-        prompts_warning:
-          type:
-          - string
-          - 'null'
-        results:
-          $ref: '#/components/schemas/CountLimit'
-        trial_days:
-          type: integer
-        users:
-          $ref: '#/components/schemas/CountLimit'
-      required:
-      - export_storages
-      - import_storages
-      - is_license_expired
-      - is_license_warning
-      - is_prompts_expire
-      - is_prompts_warning
-      - license_expires
-      - license_issued
-      - license_warning
-      - organization_is_active
-      - projects
-      - prompts_api_keys_enabled
-      - prompts_enabled
-      - prompts_expire
-      - prompts_status
-      - prompts_warning
-      - results
-      - trial_days
-      - users
-      title: BillingChecks
     CountLimit:
       type: object
       properties:
@@ -124,17 +49,6 @@ components:
       - limit
       - reached
       title: CountLimit
-    BillingInfoResponse:
-      type: object
-      properties:
-        billing_checks:
-          $ref: '#/components/schemas/BillingChecks'
-        billing_flags:
-          $ref: '#/components/schemas/BillingFlags'
-      required:
-      - billing_checks
-      - billing_flags
-      title: BillingInfoResponse
     PromptsStatusEnum:
       type: string
       enum:
@@ -159,6 +73,17 @@ components:
 
         * `unknown` - unknown'
       title: PromptsStatusEnum
+    BillingInfoResponse:
+      type: object
+      properties:
+        billing_checks:
+          $ref: '#/components/schemas/BillingChecks'
+        billing_flags:
+          $ref: '#/components/schemas/BillingFlags'
+      required:
+      - billing_checks
+      - billing_flags
+      title: BillingInfoResponse
     BillingFlags:
       type: object
       properties:
@@ -254,6 +179,81 @@ components:
       - storage_persistence
       - white_label_id
       title: BillingFlags
+    BillingChecks:
+      type: object
+      properties:
+        export_storages:
+          $ref: '#/components/schemas/CountLimit'
+        import_storages:
+          $ref: '#/components/schemas/CountLimit'
+        is_license_expired:
+          type: boolean
+        is_license_warning:
+          type: boolean
+        is_prompts_expire:
+          type: boolean
+        is_prompts_warning:
+          type: boolean
+        license_expires:
+          type:
+          - string
+          - 'null'
+          format: date
+        license_issued:
+          type:
+          - string
+          - 'null'
+          format: date
+        license_warning:
+          type:
+          - string
+          - 'null'
+          format: date
+        organization_is_active:
+          type: boolean
+        projects:
+          $ref: '#/components/schemas/CountLimit'
+        prompts_api_keys_enabled:
+          type: boolean
+        prompts_enabled:
+          type: boolean
+        prompts_expire:
+          type:
+          - string
+          - 'null'
+        prompts_status:
+          $ref: '#/components/schemas/PromptsStatusEnum'
+        prompts_warning:
+          type:
+          - string
+          - 'null'
+        results:
+          $ref: '#/components/schemas/CountLimit'
+        trial_days:
+          type: integer
+        users:
+          $ref: '#/components/schemas/CountLimit'
+      required:
+      - export_storages
+      - import_storages
+      - is_license_expired
+      - is_license_warning
+      - is_prompts_expire
+      - is_prompts_warning
+      - license_expires
+      - license_issued
+      - license_warning
+      - organization_is_active
+      - projects
+      - prompts_api_keys_enabled
+      - prompts_enabled
+      - prompts_expire
+      - prompts_status
+      - prompts_warning
+      - results
+      - trial_days
+      - users
+      title: BillingChecks
   securitySchemes:
     Token:
       type: apiKey

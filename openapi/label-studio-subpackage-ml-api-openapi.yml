@@ -385,16 +385,6 @@ paths:
                 $ref: '#/components/schemas/ml_list_model_versions_Response_200'
 components:
   schemas:
-    ml_predict_all_tasks_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: ml_predict_all_tasks_Response_200
-    ml_predict_interactive_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: ml_predict_interactive_Response_200
     MLBackend:
       type: object
       properties:
@@ -469,55 +459,11 @@ components:
       - url
       description: Serializer for MLBackend model.
       title: MLBackend
-    ApiMlPostRequestBodyContentApplicationJsonSchemaAuthMethod:
-      type: string
-      enum:
-      - NONE
-      - BASIC_AUTH
-      description: Auth method
-      title: ApiMlPostRequestBodyContentApplicationJsonSchemaAuthMethod
-    AuthMethodEnum:
-      type: string
-      enum:
-      - NONE
-      - BASIC_AUTH
-      description: '* `NONE` - None
-
-        * `BASIC_AUTH` - Basic Auth'
-      title: AuthMethodEnum
-    ml_list_model_versions_Response_200:
-      type: object
-      properties:
-        message:
-          type: string
-        versions:
-          type: array
-          items:
-            type: string
-      title: ml_list_model_versions_Response_200
-    StateEnum:
-      type: string
-      enum:
-      - CO
-      - DI
-      - ER
-      - TR
-      - PR
-      description: '* `CO` - Connected
-
-        * `DI` - Disconnected
-
-        * `ER` - Error
-
-        * `TR` - Training
-
-        * `PR` - Predicting'
-      title: StateEnum
-    ml_train_Response_200:
+    ApiMlIdPatchRequestBodyContentApplicationJsonSchemaExtraParams:
       type: object
       properties: {}
-      description: Empty response body
-      title: ml_train_Response_200
+      description: Extra parameters
+      title: ApiMlIdPatchRequestBodyContentApplicationJsonSchemaExtraParams
     ApiMlIdPatchRequestBodyContentApplicationJsonSchemaAuthMethod:
       type: string
       enum:
@@ -540,16 +486,70 @@ components:
       - task
       description: Serializer for ML interactive annotating request.
       title: MLInteractiveAnnotatingRequestRequest
+    ml_train_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: ml_train_Response_200
+    ApiMlPostRequestBodyContentApplicationJsonSchemaAuthMethod:
+      type: string
+      enum:
+      - NONE
+      - BASIC_AUTH
+      description: Auth method
+      title: ApiMlPostRequestBodyContentApplicationJsonSchemaAuthMethod
+    ml_predict_interactive_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: ml_predict_interactive_Response_200
+    ml_predict_all_tasks_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: ml_predict_all_tasks_Response_200
     ApiMlPostRequestBodyContentApplicationJsonSchemaExtraParams:
       type: object
       properties: {}
       description: Extra parameters
       title: ApiMlPostRequestBodyContentApplicationJsonSchemaExtraParams
-    ApiMlIdPatchRequestBodyContentApplicationJsonSchemaExtraParams:
+    AuthMethodEnum:
+      type: string
+      enum:
+      - NONE
+      - BASIC_AUTH
+      description: '* `NONE` - None
+
+        * `BASIC_AUTH` - Basic Auth'
+      title: AuthMethodEnum
+    StateEnum:
+      type: string
+      enum:
+      - CO
+      - DI
+      - ER
+      - TR
+      - PR
+      description: '* `CO` - Connected
+
+        * `DI` - Disconnected
+
+        * `ER` - Error
+
+        * `TR` - Training
+
+        * `PR` - Predicting'
+      title: StateEnum
+    ml_list_model_versions_Response_200:
       type: object
-      properties: {}
-      description: Extra parameters
-      title: ApiMlIdPatchRequestBodyContentApplicationJsonSchemaExtraParams
+      properties:
+        message:
+          type: string
+        versions:
+          type: array
+          items:
+            type: string
+      title: ml_list_model_versions_Response_200
   securitySchemes:
     Token:
       type: apiKey

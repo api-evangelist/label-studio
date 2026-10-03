@@ -219,6 +219,27 @@ paths:
                 $ref: '#/components/schemas/GCSWIFExportStorage'
 components:
   schemas:
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
     GCSWIFExportStorageRequest:
       type: object
       properties:
@@ -322,6 +343,112 @@ components:
       required:
       - project
       title: GCSWIFExportStorageRequest
+    PatchedGCSWIFExportStorageRequest:
+      type: object
+      properties:
+        bucket:
+          type:
+          - string
+          - 'null'
+          description: GCS bucket name
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        google_application_credentials:
+          type:
+          - string
+          - 'null'
+          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
+        google_project_id:
+          type:
+          - string
+          - 'null'
+          description: Google project ID
+        google_project_number:
+          type:
+          - string
+          - 'null'
+          description: Google project number
+        google_service_account_email:
+          type:
+          - string
+          - 'null'
+          description: Google service account email
+        google_wif_pool_id:
+          type:
+          - string
+          - 'null'
+          description: Google WIF pool ID
+        google_wif_provider_id:
+          type:
+          - string
+          - 'null'
+          description: Google WIF provider ID
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: GCS bucket prefix
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage regex for filtering objects
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        synchronizable:
+          type: boolean
+          default: true
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Interpret objects as BLOBs and generate URLs
+      title: PatchedGCSWIFExportStorageRequest
+    export_storage_gcswif_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: export_storage_gcswif_validate_Response_200
     GCSWIFExportStorage:
       type: object
       properties:
@@ -437,133 +564,6 @@ components:
       - project
       - type
       title: GCSWIFExportStorage
-    StatusC5aEnum:
-      type: string
-      enum:
-      - initialized
-      - queued
-      - in_progress
-      - failed
-      - completed
-      - completed_with_errors
-      description: '* `initialized` - Initialized
-
-        * `queued` - Queued
-
-        * `in_progress` - In progress
-
-        * `failed` - Failed
-
-        * `completed` - Completed
-
-        * `completed_with_errors` - Completed with errors'
-      title: StatusC5aEnum
-    export_storage_gcswif_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: export_storage_gcswif_validate_Response_200
-    PatchedGCSWIFExportStorageRequest:
-      type: object
-      properties:
-        bucket:
-          type:
-          - string
-          - 'null'
-          description: GCS bucket name
-        can_delete_objects:
-          type:
-          - boolean
-          - 'null'
-          description: Deletion from storage enabled
-        description:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage description
-        google_application_credentials:
-          type:
-          - string
-          - 'null'
-          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
-        google_project_id:
-          type:
-          - string
-          - 'null'
-          description: Google project ID
-        google_project_number:
-          type:
-          - string
-          - 'null'
-          description: Google project number
-        google_service_account_email:
-          type:
-          - string
-          - 'null'
-          description: Google service account email
-        google_wif_pool_id:
-          type:
-          - string
-          - 'null'
-          description: Google WIF pool ID
-        google_wif_provider_id:
-          type:
-          - string
-          - 'null'
-          description: Google WIF provider ID
-        last_sync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last sync finished time
-        last_sync_count:
-          type:
-          - integer
-          - 'null'
-          description: Count of tasks synced last time
-        last_sync_job:
-          type:
-          - string
-          - 'null'
-          description: Last sync job ID
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta and debug information about storage processes
-        prefix:
-          type:
-          - string
-          - 'null'
-          description: GCS bucket prefix
-        project:
-          type: integer
-          description: A unique integer value identifying this project.
-        regex_filter:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage regex for filtering objects
-        status:
-          $ref: '#/components/schemas/StatusC5aEnum'
-        synchronizable:
-          type: boolean
-          default: true
-        title:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage title
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report for the last failed sync
-        use_blob_urls:
-          type: boolean
-          description: Interpret objects as BLOBs and generate URLs
-      title: PatchedGCSWIFExportStorageRequest
   securitySchemes:
     Token:
       type: apiKey

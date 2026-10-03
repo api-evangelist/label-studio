@@ -202,6 +202,18 @@ paths:
               - workspace_id
 components:
   schemas:
+    SkipQueueEnum:
+      type: string
+      enum:
+      - REQUEUE_FOR_ME
+      - REQUEUE_FOR_OTHERS
+      - IGNORE_SKIPPED
+      description: '* `REQUEUE_FOR_ME` - Requeue for me
+
+        * `REQUEUE_FOR_OTHERS` - Requeue for others
+
+        * `IGNORE_SKIPPED` - Ignore skipped'
+      title: SkipQueueEnum
     AgreementMethodologyEnum:
       type: string
       enum:
@@ -211,28 +223,96 @@ components:
 
         * `pairwise` - Pairwise Averaging'
       title: AgreementMethodologyEnum
-    AssignmentSettings:
+    LabelStreamTaskDistributionEnum:
+      type: string
+      enum:
+      - auto_distribution
+      - assigned_only
+      description: '* `auto_distribution` - Label Stream distributes tasks automatically to annotators
+
+        * `assigned_only` - Label Stream shows tasks only to assigned users'
+      title: LabelStreamTaskDistributionEnum
+    RequeueRejectedTasksModeEnum:
+      type: string
+      enum:
+      - requeue
+      - remove
+      - flexible
+      description: '* `requeue` - Requeue
+
+        * `remove` - Remove
+
+        * `flexible` - Flexible'
+      title: RequeueRejectedTasksModeEnum
+    ProjectTemplate:
       type: object
       properties:
-        id:
-          type: integer
-        label_stream_task_distribution:
-          oneOf:
-          - $ref: '#/components/schemas/LabelStreamTaskDistributionEnum'
-          - type: 'null'
-          description: 'Automatic / Manual
-
-
-            * `auto_distribution` - Label Stream distributes tasks automatically to annotators
-
-            * `assigned_only` - Label Stream shows tasks only to assigned users'
-        project:
+        assignment_settings:
+          description: general dict serialized assignment settings
+        created_at:
+          type: string
+          format: date-time
+        created_by:
           type:
           - integer
           - 'null'
+        custom_script:
+          type:
+          - string
+          - 'null'
+          description: custom script (Plugin) for projects created from this template
+        description:
+          type:
+          - string
+          - 'null'
+        id:
+          type: integer
+        name:
+          type: string
+        organization:
+          type:
+          - integer
+          - 'null'
+        project_settings:
+          description: general dict serialized project settings
+        require_comment_on_skip:
+          type: boolean
+          description: flag to require comment on skip
+        review_settings:
+          description: general dict serialized review settings
+        show_unused_data_columns_to_annotators:
+          type:
+          - boolean
+          - 'null'
+        tags:
+          description: Any type
+        updated_at:
+          type: string
+          format: date-time
       required:
+      - created_at
       - id
-      title: AssignmentSettings
+      - name
+      - updated_at
+      title: ProjectTemplate
+    ReviewCriteriaEnum:
+      type: string
+      enum:
+      - all
+      - one
+      description: '* `all` - Task is reviewed if all annotations are reviewed
+
+        * `one` - Task is reviewed if at least one annotation is reviewed'
+      title: ReviewCriteriaEnum
+    ReviewSettingsSamplingEnum:
+      type: string
+      enum:
+      - task_id
+      - random
+      description: '* `task_id` - By Task ID
+
+        * `random` - Random'
+      title: ReviewSettingsSamplingEnum
     ProjectTemplateRequest:
       type: object
       properties:
@@ -276,46 +356,6 @@ components:
       - name
       - project_id
       title: ProjectTemplateRequest
-    PatchedProjectTemplateRequest:
-      type: object
-      properties:
-        assignment_settings:
-          description: general dict serialized assignment settings
-        created_by:
-          type:
-          - integer
-          - 'null'
-        custom_script:
-          type:
-          - string
-          - 'null'
-          description: custom script (Plugin) for projects created from this template
-        description:
-          type:
-          - string
-          - 'null'
-        name:
-          type: string
-        organization:
-          type:
-          - integer
-          - 'null'
-        project_id:
-          type: integer
-        project_settings:
-          description: general dict serialized project settings
-        require_comment_on_skip:
-          type: boolean
-          description: flag to require comment on skip
-        review_settings:
-          description: general dict serialized review settings
-        show_unused_data_columns_to_annotators:
-          type:
-          - boolean
-          - 'null'
-        tags:
-          description: Any type
-      title: PatchedProjectTemplateRequest
     LseProject:
       type: object
       properties:
@@ -653,6 +693,56 @@ components:
 
         make sure, that you use correct one(Project.objects.with_counts())'
       title: LseProject
+    AssignmentSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+        label_stream_task_distribution:
+          oneOf:
+          - $ref: '#/components/schemas/LabelStreamTaskDistributionEnum'
+          - type: 'null'
+          description: 'Automatic / Manual
+
+
+            * `auto_distribution` - Label Stream distributes tasks automatically to annotators
+
+            * `assigned_only` - Label Stream shows tasks only to assigned users'
+        project:
+          type:
+          - integer
+          - 'null'
+      required:
+      - id
+      title: AssignmentSettings
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
     ReviewSettings:
       type: object
       properties:
@@ -737,124 +827,18 @@ components:
       - id
       - requeue_rejected_tasks_to_annotator
       title: ReviewSettings
-    ReviewSettingsSamplingEnum:
+    SamplingDe5Enum:
       type: string
       enum:
-      - task_id
-      - random
-      description: '* `task_id` - By Task ID
+      - Sequential sampling
+      - Uniform sampling
+      - Uncertainty sampling
+      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
 
-        * `random` - Random'
-      title: ReviewSettingsSamplingEnum
-    SkipQueueEnum:
-      type: string
-      enum:
-      - REQUEUE_FOR_ME
-      - REQUEUE_FOR_OTHERS
-      - IGNORE_SKIPPED
-      description: '* `REQUEUE_FOR_ME` - Requeue for me
+        * `Uniform sampling` - Tasks are chosen randomly
 
-        * `REQUEUE_FOR_OTHERS` - Requeue for others
-
-        * `IGNORE_SKIPPED` - Ignore skipped'
-      title: SkipQueueEnum
-    ReviewCriteriaEnum:
-      type: string
-      enum:
-      - all
-      - one
-      description: '* `all` - Task is reviewed if all annotations are reviewed
-
-        * `one` - Task is reviewed if at least one annotation is reviewed'
-      title: ReviewCriteriaEnum
-    LabelStreamTaskDistributionEnum:
-      type: string
-      enum:
-      - auto_distribution
-      - assigned_only
-      description: '* `auto_distribution` - Label Stream distributes tasks automatically to annotators
-
-        * `assigned_only` - Label Stream shows tasks only to assigned users'
-      title: LabelStreamTaskDistributionEnum
-    ProjectTemplate:
-      type: object
-      properties:
-        assignment_settings:
-          description: general dict serialized assignment settings
-        created_at:
-          type: string
-          format: date-time
-        created_by:
-          type:
-          - integer
-          - 'null'
-        custom_script:
-          type:
-          - string
-          - 'null'
-          description: custom script (Plugin) for projects created from this template
-        description:
-          type:
-          - string
-          - 'null'
-        id:
-          type: integer
-        name:
-          type: string
-        organization:
-          type:
-          - integer
-          - 'null'
-        project_settings:
-          description: general dict serialized project settings
-        require_comment_on_skip:
-          type: boolean
-          description: flag to require comment on skip
-        review_settings:
-          description: general dict serialized review settings
-        show_unused_data_columns_to_annotators:
-          type:
-          - boolean
-          - 'null'
-        tags:
-          description: Any type
-        updated_at:
-          type: string
-          format: date-time
-      required:
-      - created_at
-      - id
-      - name
-      - updated_at
-      title: ProjectTemplate
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
+        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
+      title: SamplingDe5Enum
     ControlTagWeight:
       type: object
       properties:
@@ -879,30 +863,46 @@ components:
 
         Structure: {"overall": 0.5, "type": "Choices", "labels": {"cat": 1.0, "dog": 0.0}}'
       title: ControlTagWeight
-    RequeueRejectedTasksModeEnum:
-      type: string
-      enum:
-      - requeue
-      - remove
-      - flexible
-      description: '* `requeue` - Requeue
-
-        * `remove` - Remove
-
-        * `flexible` - Flexible'
-      title: RequeueRejectedTasksModeEnum
-    SamplingDe5Enum:
-      type: string
-      enum:
-      - Sequential sampling
-      - Uniform sampling
-      - Uncertainty sampling
-      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
-
-        * `Uniform sampling` - Tasks are chosen randomly
-
-        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
-      title: SamplingDe5Enum
+    PatchedProjectTemplateRequest:
+      type: object
+      properties:
+        assignment_settings:
+          description: general dict serialized assignment settings
+        created_by:
+          type:
+          - integer
+          - 'null'
+        custom_script:
+          type:
+          - string
+          - 'null'
+          description: custom script (Plugin) for projects created from this template
+        description:
+          type:
+          - string
+          - 'null'
+        name:
+          type: string
+        organization:
+          type:
+          - integer
+          - 'null'
+        project_id:
+          type: integer
+        project_settings:
+          description: general dict serialized project settings
+        require_comment_on_skip:
+          type: boolean
+          description: flag to require comment on skip
+        review_settings:
+          description: general dict serialized review settings
+        show_unused_data_columns_to_annotators:
+          type:
+          - boolean
+          - 'null'
+        tags:
+          description: Any type
+      title: PatchedProjectTemplateRequest
   securitySchemes:
     Token:
       type: apiKey

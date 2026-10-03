@@ -444,24 +444,82 @@ paths:
               $ref: '#/components/schemas/TaskEventRequest'
 components:
   schemas:
-    LseTaskSerializerForAnnotatorsDraftsItems:
+    LseTaskSerializerForReviewersUpdatedByItems:
+      type: object
+      properties: {}
+      title: LseTaskSerializerForReviewersUpdatedByItems
+    ApiTasksGetParametersFields:
+      type: string
+      enum:
+      - all
+      - task_only
+      title: ApiTasksGetParametersFields
+    LseTaskSerializerForAnnotators:
       type: object
       properties:
+        annotations:
+          type: string
+        annotations_results:
+          type: string
+        cancelled_annotations:
+          type: integer
+        comment_count:
+          type: string
+        comments:
+          type: string
         created_at:
           type: string
           format: date-time
-        result:
+          description: Time a task was created
+        data:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
+        draft_exists:
+          type: boolean
+        drafts:
           type: array
           items:
-            $ref: '#/components/schemas/LseTaskSerializerForAnnotatorsDraftsItemsResultItems'
-        updated_at:
+            $ref: '#/components/schemas/LseTaskSerializerForAnnotatorsDraftsItems'
+          description: Drafts for this task
+        id:
+          type: integer
+        predictions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LseTaskSerializerForAnnotatorsPredictionsItems'
+          description: Predictions for this task
+        predictions_results:
           type: string
-          format: date-time
-      title: LseTaskSerializerForAnnotatorsDraftsItems
-    LseTaskSerializerForReviewersAnnotatorsItems:
-      type: object
-      properties: {}
-      title: LseTaskSerializerForReviewersAnnotatorsItems
+        predictions_score:
+          type: number
+          format: double
+        reviews_rejected:
+          type: integer
+        state:
+          type: string
+        total_annotations:
+          type: integer
+        total_predictions:
+          type: integer
+        unresolved_comment_count:
+          type: string
+      required:
+      - annotations
+      - annotations_results
+      - comment_count
+      - comments
+      - created_at
+      - data
+      - drafts
+      - id
+      - predictions
+      - predictions_results
+      - state
+      - unresolved_comment_count
+      description: Data Manager Task Serializer with FSM state support.
+      title: LseTaskSerializerForAnnotators
     Status7bfEnum:
       type: string
       enum:
@@ -477,10 +535,18 @@ components:
 
         * `completed` - Completed'
       title: Status7bfEnum
-    LseTaskAnnotatorsItems:
+    LseTaskPredictionsItemsModel:
       type: object
       properties: {}
-      title: LseTaskAnnotatorsItems
+      title: LseTaskPredictionsItemsModel
+    LseTaskSerializerForAnnotatorsPredictionsItemsResultItems:
+      type: object
+      properties: {}
+      title: LseTaskSerializerForAnnotatorsPredictionsItemsResultItems
+    LseTaskSerializerForAnnotatorsPredictionsItemsModelRun:
+      type: object
+      properties: {}
+      title: LseTaskSerializerForAnnotatorsPredictionsItemsModelRun
     LseTaskSerializerForReviewers:
       type: object
       properties:
@@ -665,6 +731,16 @@ components:
       - updated_by
       description: Data Manager Task Serializer with FSM state support.
       title: LseTaskSerializerForReviewers
+    RoleBasedTask:
+      oneOf:
+      - $ref: '#/components/schemas/LseTask'
+      - $ref: '#/components/schemas/LseTaskSerializerForReviewers'
+      - $ref: '#/components/schemas/LseTaskSerializerForAnnotators'
+      title: RoleBasedTask
+    LseTaskPredictionsItemsModelRun:
+      type: object
+      properties: {}
+      title: LseTaskPredictionsItemsModelRun
     LseTaskDraftsItems:
       type: object
       properties:
@@ -679,10 +755,327 @@ components:
           type: string
           format: date-time
       title: LseTaskDraftsItems
+    PatchedLseTaskRequest:
+      type: object
+      properties:
+        allow_skip:
+          type:
+          - boolean
+          - 'null'
+          description: Whether this task can be skipped. Set to False to make task unskippable.
+        avg_lead_time:
+          type: number
+          format: double
+        cancelled_annotations:
+          type: integer
+        comment_count:
+          type: integer
+          description: Number of comments in the task including all annotations
+        completed_at:
+          type: string
+          format: date-time
+        data:
+          type: object
+          additionalProperties:
+            description: Any type
+          description: User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
+        draft_exists:
+          type: boolean
+        ground_truth:
+          type: boolean
+        inner_id:
+          type: integer
+        is_labeled:
+          type: boolean
+          description: True if the number of annotations for this task is greater than or equal to the number of maximum_completions for the project
+        last_comment_updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: When the last comment was updated
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta is user imported (uploaded) data and can be useful as input for an ML Backend for embeddings, advanced vectors, and other info. It is passed to ML during training/predicting steps.
+        overlap:
+          type: integer
+          description: Number of distinct annotators that processed the current task
+        precomputed_agreement:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Average agreement score for the task
+        predictions_score:
+          type: number
+          format: double
+        project:
+          type:
+          - integer
+          - 'null'
+          description: Project ID for this task
+        reviewed:
+          type: boolean
+        reviews_accepted:
+          type: integer
+        reviews_rejected:
+          type: integer
+        total_annotations:
+          type: integer
+        total_predictions:
+          type: integer
+        unresolved_comment_count:
+          type: integer
+          description: Number of unresolved comments in the task including all annotations
+      description: Data Manager Task Serializer with FSM state support.
+      title: PatchedLseTaskRequest
+    TaskEventRequest:
+      type: object
+      properties:
+        annotation:
+          type:
+          - integer
+          - 'null'
+          description: Annotation ID associated with this event
+        annotation_draft_id:
+          type:
+          - integer
+          - 'null'
+          description: Draft annotation ID associated with this event
+        event_key:
+          type: string
+          description: Event type identifier (e.g., "annotation_loaded", "region_finished_drawing")
+        event_time:
+          type: string
+          format: date-time
+          description: Timestamp when the event occurred (frontend time)
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Additional event metadata (region data, hotkey info, etc.)
+        review:
+          type:
+          - integer
+          - 'null'
+          description: Review ID associated with this event
+      required:
+      - event_key
+      - event_time
+      description: 'Serializer for TaskEvent model to handle event creation from frontend.
+
+
+        This serializer validates and processes task events sent from the labeling interface,
+
+        ensuring proper data format and automatically setting required relationships.'
+      title: TaskEventRequest
+    TaskEvent:
+      type: object
+      properties:
+        actor:
+          type: integer
+        annotation:
+          type:
+          - integer
+          - 'null'
+          description: Annotation ID associated with this event
+        annotation_draft_id:
+          type:
+          - integer
+          - 'null'
+          description: Draft annotation ID associated with this event
+        created_at:
+          type: string
+          format: date-time
+        event_key:
+          type: string
+          description: Event type identifier (e.g., "annotation_loaded", "region_finished_drawing")
+        event_time:
+          type: string
+          format: date-time
+          description: Timestamp when the event occurred (frontend time)
+        id:
+          type: integer
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Additional event metadata (region data, hotkey info, etc.)
+        organization:
+          type: integer
+        project:
+          type: integer
+        review:
+          type:
+          - integer
+          - 'null'
+          description: Review ID associated with this event
+        task:
+          type: integer
+          description: Task this event is associated with
+      required:
+      - actor
+      - created_at
+      - event_key
+      - event_time
+      - id
+      - organization
+      - project
+      - task
+      description: 'Serializer for TaskEvent model to handle event creation from frontend.
+
+
+        This serializer validates and processes task events sent from the labeling interface,
+
+        ensuring proper data format and automatically setting required relationships.'
+      title: TaskEvent
+    LseTaskSerializerForReviewersPredictionsItems:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        model:
+          $ref: '#/components/schemas/LseTaskSerializerForReviewersPredictionsItemsModel'
+        model_run:
+          $ref: '#/components/schemas/LseTaskSerializerForReviewersPredictionsItemsModelRun'
+        model_version:
+          type: string
+        project:
+          type: integer
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/LseTaskSerializerForReviewersPredictionsItemsResultItems'
+        score:
+          type: number
+          format: double
+        task:
+          type: integer
+        updated_at:
+          type: string
+          format: date-time
+      title: LseTaskSerializerForReviewersPredictionsItems
+    LseTaskSerializerForAnnotatorsDraftsItemsResultItems:
+      type: object
+      properties: {}
+      title: LseTaskSerializerForAnnotatorsDraftsItemsResultItems
+    LseTaskUpdatedByItems:
+      type: object
+      properties: {}
+      title: LseTaskUpdatedByItems
+    LseTaskAnnotatorsItems:
+      type: object
+      properties: {}
+      title: LseTaskAnnotatorsItems
+    LseTaskSerializerForAnnotatorsPredictionsItems:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        model:
+          $ref: '#/components/schemas/LseTaskSerializerForAnnotatorsPredictionsItemsModel'
+        model_run:
+          $ref: '#/components/schemas/LseTaskSerializerForAnnotatorsPredictionsItemsModelRun'
+        model_version:
+          type: string
+        project:
+          type: integer
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/LseTaskSerializerForAnnotatorsPredictionsItemsResultItems'
+        score:
+          type: number
+          format: double
+        task:
+          type: integer
+        updated_at:
+          type: string
+          format: date-time
+      title: LseTaskSerializerForAnnotatorsPredictionsItems
     LseTaskSerializerForReviewersPredictionsItemsResultItems:
       type: object
       properties: {}
       title: LseTaskSerializerForReviewersPredictionsItemsResultItems
+    LseTaskSerializerForAnnotatorsDraftsItems:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/LseTaskSerializerForAnnotatorsDraftsItemsResultItems'
+        updated_at:
+          type: string
+          format: date-time
+      title: LseTaskSerializerForAnnotatorsDraftsItems
+    LseTaskPredictionsItems:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        model:
+          $ref: '#/components/schemas/LseTaskPredictionsItemsModel'
+        model_run:
+          $ref: '#/components/schemas/LseTaskPredictionsItemsModelRun'
+        model_version:
+          type: string
+        project:
+          type: integer
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/LseTaskPredictionsItemsResultItems'
+        score:
+          type: number
+          format: double
+        task:
+          type: integer
+        updated_at:
+          type: string
+          format: date-time
+      title: LseTaskPredictionsItems
+    LseTaskSerializerForAnnotatorsPredictionsItemsModel:
+      type: object
+      properties: {}
+      title: LseTaskSerializerForAnnotatorsPredictionsItemsModel
+    LseTaskSerializerForReviewersDraftsItemsResultItems:
+      type: object
+      properties: {}
+      title: LseTaskSerializerForReviewersDraftsItemsResultItems
+    LseTaskDraftsItemsResultItems:
+      type: object
+      properties: {}
+      title: LseTaskDraftsItemsResultItems
+    LseTaskSerializerForReviewersAnnotatorsItems:
+      type: object
+      properties: {}
+      title: LseTaskSerializerForReviewersAnnotatorsItems
+    LseTaskSerializerForReviewersDraftsItems:
+      type: object
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/LseTaskSerializerForReviewersDraftsItemsResultItems'
+        updated_at:
+          type: string
+          format: date-time
+      title: LseTaskSerializerForReviewersDraftsItems
+    LseTaskPredictionsItemsResultItems:
+      type: object
+      properties: {}
+      title: LseTaskPredictionsItemsResultItems
     LseTask:
       type: object
       properties:
@@ -942,26 +1335,6 @@ components:
       - data
       description: Task Serializer with project scheme configs validation
       title: LseTaskRequest
-    LseTaskSerializerForReviewersDraftsItemsResultItems:
-      type: object
-      properties: {}
-      title: LseTaskSerializerForReviewersDraftsItemsResultItems
-    LseTaskSerializerForReviewersPredictionsItemsModelRun:
-      type: object
-      properties: {}
-      title: LseTaskSerializerForReviewersPredictionsItemsModelRun
-    LseTaskPredictionsItemsModelRun:
-      type: object
-      properties: {}
-      title: LseTaskPredictionsItemsModelRun
-    LseTaskDraftsItemsResultItems:
-      type: object
-      properties: {}
-      title: LseTaskDraftsItemsResultItems
-    LseTaskSerializerForAnnotatorsDraftsItemsResultItems:
-      type: object
-      properties: {}
-      title: LseTaskSerializerForAnnotatorsDraftsItemsResultItems
     PaginatedRoleBasedTaskList:
       type: object
       properties:
@@ -984,160 +1357,10 @@ components:
       - total_annotations
       - total_predictions
       title: PaginatedRoleBasedTaskList
-    ApiTasksGetParametersFields:
-      type: string
-      enum:
-      - all
-      - task_only
-      title: ApiTasksGetParametersFields
-    LseTaskSerializerForAnnotatorsPredictionsItemsResultItems:
-      type: object
-      properties: {}
-      title: LseTaskSerializerForAnnotatorsPredictionsItemsResultItems
-    LseTaskSerializerForAnnotators:
-      type: object
-      properties:
-        annotations:
-          type: string
-        annotations_results:
-          type: string
-        cancelled_annotations:
-          type: integer
-        comment_count:
-          type: string
-        comments:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-          description: Time a task was created
-        data:
-          type: object
-          additionalProperties:
-            description: Any type
-          description: User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
-        draft_exists:
-          type: boolean
-        drafts:
-          type: array
-          items:
-            $ref: '#/components/schemas/LseTaskSerializerForAnnotatorsDraftsItems'
-          description: Drafts for this task
-        id:
-          type: integer
-        predictions:
-          type: array
-          items:
-            $ref: '#/components/schemas/LseTaskSerializerForAnnotatorsPredictionsItems'
-          description: Predictions for this task
-        predictions_results:
-          type: string
-        predictions_score:
-          type: number
-          format: double
-        reviews_rejected:
-          type: integer
-        state:
-          type: string
-        total_annotations:
-          type: integer
-        total_predictions:
-          type: integer
-        unresolved_comment_count:
-          type: string
-      required:
-      - annotations
-      - annotations_results
-      - comment_count
-      - comments
-      - created_at
-      - data
-      - drafts
-      - id
-      - predictions
-      - predictions_results
-      - state
-      - unresolved_comment_count
-      description: Data Manager Task Serializer with FSM state support.
-      title: LseTaskSerializerForAnnotators
-    LseTaskSerializerForAnnotatorsPredictionsItemsModelRun:
-      type: object
-      properties: {}
-      title: LseTaskSerializerForAnnotatorsPredictionsItemsModelRun
-    LseTaskPredictionsItemsModel:
-      type: object
-      properties: {}
-      title: LseTaskPredictionsItemsModel
-    LseTaskSerializerForAnnotatorsPredictionsItems:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-        model:
-          $ref: '#/components/schemas/LseTaskSerializerForAnnotatorsPredictionsItemsModel'
-        model_run:
-          $ref: '#/components/schemas/LseTaskSerializerForAnnotatorsPredictionsItemsModelRun'
-        model_version:
-          type: string
-        project:
-          type: integer
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/LseTaskSerializerForAnnotatorsPredictionsItemsResultItems'
-        score:
-          type: number
-          format: double
-        task:
-          type: integer
-        updated_at:
-          type: string
-          format: date-time
-      title: LseTaskSerializerForAnnotatorsPredictionsItems
     LseTaskSerializerForReviewersPredictionsItemsModel:
       type: object
       properties: {}
       title: LseTaskSerializerForReviewersPredictionsItemsModel
-    LseTaskSerializerForReviewersPredictionsItems:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-        model:
-          $ref: '#/components/schemas/LseTaskSerializerForReviewersPredictionsItemsModel'
-        model_run:
-          $ref: '#/components/schemas/LseTaskSerializerForReviewersPredictionsItemsModelRun'
-        model_version:
-          type: string
-        project:
-          type: integer
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/LseTaskSerializerForReviewersPredictionsItemsResultItems'
-        score:
-          type: number
-          format: double
-        task:
-          type: integer
-        updated_at:
-          type: string
-          format: date-time
-      title: LseTaskSerializerForReviewersPredictionsItems
-    LseTaskPredictionsItemsResultItems:
-      type: object
-      properties: {}
-      title: LseTaskPredictionsItemsResultItems
-    LseTaskUpdatedByItems:
-      type: object
-      properties: {}
-      title: LseTaskUpdatedByItems
-    LseTaskSerializerForReviewersUpdatedByItems:
-      type: object
-      properties: {}
-      title: LseTaskSerializerForReviewersUpdatedByItems
     ProjectImport:
       type: object
       properties:
@@ -1210,233 +1433,10 @@ components:
       - id
       - updated_at
       title: ProjectImport
-    TaskEventRequest:
-      type: object
-      properties:
-        annotation:
-          type:
-          - integer
-          - 'null'
-          description: Annotation ID associated with this event
-        annotation_draft_id:
-          type:
-          - integer
-          - 'null'
-          description: Draft annotation ID associated with this event
-        event_key:
-          type: string
-          description: Event type identifier (e.g., "annotation_loaded", "region_finished_drawing")
-        event_time:
-          type: string
-          format: date-time
-          description: Timestamp when the event occurred (frontend time)
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Additional event metadata (region data, hotkey info, etc.)
-        review:
-          type:
-          - integer
-          - 'null'
-          description: Review ID associated with this event
-      required:
-      - event_key
-      - event_time
-      description: 'Serializer for TaskEvent model to handle event creation from frontend.
-
-
-        This serializer validates and processes task events sent from the labeling interface,
-
-        ensuring proper data format and automatically setting required relationships.'
-      title: TaskEventRequest
-    TaskEvent:
-      type: object
-      properties:
-        actor:
-          type: integer
-        annotation:
-          type:
-          - integer
-          - 'null'
-          description: Annotation ID associated with this event
-        annotation_draft_id:
-          type:
-          - integer
-          - 'null'
-          description: Draft annotation ID associated with this event
-        created_at:
-          type: string
-          format: date-time
-        event_key:
-          type: string
-          description: Event type identifier (e.g., "annotation_loaded", "region_finished_drawing")
-        event_time:
-          type: string
-          format: date-time
-          description: Timestamp when the event occurred (frontend time)
-        id:
-          type: integer
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Additional event metadata (region data, hotkey info, etc.)
-        organization:
-          type: integer
-        project:
-          type: integer
-        review:
-          type:
-          - integer
-          - 'null'
-          description: Review ID associated with this event
-        task:
-          type: integer
-          description: Task this event is associated with
-      required:
-      - actor
-      - created_at
-      - event_key
-      - event_time
-      - id
-      - organization
-      - project
-      - task
-      description: 'Serializer for TaskEvent model to handle event creation from frontend.
-
-
-        This serializer validates and processes task events sent from the labeling interface,
-
-        ensuring proper data format and automatically setting required relationships.'
-      title: TaskEvent
-    RoleBasedTask:
-      oneOf:
-      - $ref: '#/components/schemas/LseTask'
-      - $ref: '#/components/schemas/LseTaskSerializerForReviewers'
-      - $ref: '#/components/schemas/LseTaskSerializerForAnnotators'
-      title: RoleBasedTask
-    LseTaskSerializerForReviewersDraftsItems:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/LseTaskSerializerForReviewersDraftsItemsResultItems'
-        updated_at:
-          type: string
-          format: date-time
-      title: LseTaskSerializerForReviewersDraftsItems
-    PatchedLseTaskRequest:
-      type: object
-      properties:
-        allow_skip:
-          type:
-          - boolean
-          - 'null'
-          description: Whether this task can be skipped. Set to False to make task unskippable.
-        avg_lead_time:
-          type: number
-          format: double
-        cancelled_annotations:
-          type: integer
-        comment_count:
-          type: integer
-          description: Number of comments in the task including all annotations
-        completed_at:
-          type: string
-          format: date-time
-        data:
-          type: object
-          additionalProperties:
-            description: Any type
-          description: User imported or uploaded data for a task. Data is formatted according to the project label config. You can find examples of data for your project on the Import page in the Label Studio Data Manager UI.
-        draft_exists:
-          type: boolean
-        ground_truth:
-          type: boolean
-        inner_id:
-          type: integer
-        is_labeled:
-          type: boolean
-          description: True if the number of annotations for this task is greater than or equal to the number of maximum_completions for the project
-        last_comment_updated_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: When the last comment was updated
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta is user imported (uploaded) data and can be useful as input for an ML Backend for embeddings, advanced vectors, and other info. It is passed to ML during training/predicting steps.
-        overlap:
-          type: integer
-          description: Number of distinct annotators that processed the current task
-        precomputed_agreement:
-          type:
-          - number
-          - 'null'
-          format: double
-          description: Average agreement score for the task
-        predictions_score:
-          type: number
-          format: double
-        project:
-          type:
-          - integer
-          - 'null'
-          description: Project ID for this task
-        reviewed:
-          type: boolean
-        reviews_accepted:
-          type: integer
-        reviews_rejected:
-          type: integer
-        total_annotations:
-          type: integer
-        total_predictions:
-          type: integer
-        unresolved_comment_count:
-          type: integer
-          description: Number of unresolved comments in the task including all annotations
-      description: Data Manager Task Serializer with FSM state support.
-      title: PatchedLseTaskRequest
-    LseTaskSerializerForAnnotatorsPredictionsItemsModel:
+    LseTaskSerializerForReviewersPredictionsItemsModelRun:
       type: object
       properties: {}
-      title: LseTaskSerializerForAnnotatorsPredictionsItemsModel
-    LseTaskPredictionsItems:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-        model:
-          $ref: '#/components/schemas/LseTaskPredictionsItemsModel'
-        model_run:
-          $ref: '#/components/schemas/LseTaskPredictionsItemsModelRun'
-        model_version:
-          type: string
-        project:
-          type: integer
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/LseTaskPredictionsItemsResultItems'
-        score:
-          type: number
-          format: double
-        task:
-          type: integer
-        updated_at:
-          type: string
-          format: date-time
-      title: LseTaskPredictionsItems
+      title: LseTaskSerializerForReviewersPredictionsItemsModelRun
   securitySchemes:
     Token:
       type: apiKey

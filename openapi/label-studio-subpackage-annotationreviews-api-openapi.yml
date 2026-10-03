@@ -218,6 +218,52 @@ components:
 
         - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
       title: PatchedAnnotationReviewRequest
+    AnnotationReviewRequest:
+      type: object
+      properties:
+        accepted:
+          type: boolean
+          description: Accepted or rejected (if false) flag
+        annotation:
+          type: integer
+          description: Corresponding annotation
+        comment:
+          type:
+          - string
+          - 'null'
+        last_annotation_history:
+          type:
+          - integer
+          - 'null'
+        remove_from_queue:
+          type:
+          - boolean
+          - 'null'
+        result:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+        started_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+      required:
+      - annotation
+      description: 'AnnotationReview Serializer with FSM state support.
+
+
+        Note: The ''state'' field will be populated from the queryset annotation
+
+        if present, preventing N+1 queries. Use .with_state() on your queryset.
+
+
+        The state field display is controlled by both:
+
+        - fflag_feat_fit_568_finite_state_management (FSM background calculations)
+
+        - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
+      title: AnnotationReviewRequest
     AnnotationReview:
       type: object
       properties:
@@ -287,52 +333,6 @@ components:
 
         - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
       title: AnnotationReview
-    AnnotationReviewRequest:
-      type: object
-      properties:
-        accepted:
-          type: boolean
-          description: Accepted or rejected (if false) flag
-        annotation:
-          type: integer
-          description: Corresponding annotation
-        comment:
-          type:
-          - string
-          - 'null'
-        last_annotation_history:
-          type:
-          - integer
-          - 'null'
-        remove_from_queue:
-          type:
-          - boolean
-          - 'null'
-        result:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-        started_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-      required:
-      - annotation
-      description: 'AnnotationReview Serializer with FSM state support.
-
-
-        Note: The ''state'' field will be populated from the queryset annotation
-
-        if present, preventing N+1 queries. Use .with_state() on your queryset.
-
-
-        The state field display is controlled by both:
-
-        - fflag_feat_fit_568_finite_state_management (FSM background calculations)
-
-        - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
-      title: AnnotationReviewRequest
   securitySchemes:
     Token:
       type: apiKey

@@ -82,51 +82,6 @@ paths:
               $ref: '#/components/schemas/ReviewRoutingRulesReplaceRequest'
 components:
   schemas:
-    OperatorEnum:
-      type: string
-      enum:
-      - lt
-      - lte
-      - gt
-      - gte
-      - eq
-      description: '* `lt` - <
-
-        * `lte` - <=
-
-        * `gt` - >
-
-        * `gte` - >=
-
-        * `eq` - ='
-      title: OperatorEnum
-    ReviewRoutingRuleRequestRequest:
-      type: object
-      properties:
-        agreement_threshold:
-          type:
-          - string
-          - 'null'
-          format: decimal
-        dimension:
-          type:
-          - integer
-          - 'null'
-        id:
-          type: integer
-        operator:
-          oneOf:
-          - $ref: '#/components/schemas/OperatorEnum'
-          - type: 'null'
-        sample_rate:
-          type: string
-          format: decimal
-      required:
-      - agreement_threshold
-      - dimension
-      - operator
-      - sample_rate
-      title: ReviewRoutingRuleRequestRequest
     ReviewRoutingRulesReplaceRequest:
       type: object
       properties:
@@ -189,6 +144,51 @@ components:
       - order
       - updated_at
       title: ReviewRoutingRule
+    OperatorEnum:
+      type: string
+      enum:
+      - lt
+      - lte
+      - gt
+      - gte
+      - eq
+      description: '* `lt` - <
+
+        * `lte` - <=
+
+        * `gt` - >
+
+        * `gte` - >=
+
+        * `eq` - ='
+      title: OperatorEnum
+    ReviewRoutingRuleRequestRequest:
+      type: object
+      properties:
+        agreement_threshold:
+          type:
+          - string
+          - 'null'
+          format: decimal
+        dimension:
+          type:
+          - integer
+          - 'null'
+        id:
+          type: integer
+        operator:
+          oneOf:
+          - $ref: '#/components/schemas/OperatorEnum'
+          - type: 'null'
+        sample_rate:
+          type: string
+          format: decimal
+      required:
+      - agreement_threshold
+      - dimension
+      - operator
+      - sample_rate
+      title: ReviewRoutingRuleRequestRequest
   securitySchemes:
     Token:
       type: apiKey

@@ -262,114 +262,6 @@ paths:
               $ref: '#/components/schemas/PatchedCommentRequest'
 components:
   schemas:
-    TrialRoleEnum:
-      type: string
-      enum:
-      - annotator
-      - annotator_team_manager
-      - business_analyst
-      - business_or_data_team_leadership
-      - data_engineer_platform_engineer
-      - data_scientist
-      - other
-      description: '* `annotator` - Annotator
-
-        * `annotator_team_manager` - Annotator Team Manager
-
-        * `business_analyst` - Business Analyst
-
-        * `business_or_data_team_leadership` - Business Or Data Team Leadership
-
-        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
-
-        * `data_scientist` - Data Scientist
-
-        * `other` - Other'
-      title: TrialRoleEnum
-    MaybeExpandedComment:
-      oneOf:
-      - $ref: '#/components/schemas/Comment'
-      - $ref: '#/components/schemas/CommentSerializerWithExpandedUser'
-      title: MaybeExpandedComment
-    OnboardingStateEnum:
-      type: string
-      enum:
-      - not_started
-      - signup
-      - trial_signup
-      - first_tutorial
-      - in_app_guidance
-      - complete
-      description: '* `not_started` - Not Started
-
-        * `signup` - Signup
-
-        * `trial_signup` - Trial Signup
-
-        * `first_tutorial` - First Tutorial
-
-        * `in_app_guidance` - In App Guidance
-
-        * `complete` - Complete'
-      title: OnboardingStateEnum
-    OrganizationMembership:
-      type: object
-      properties:
-        active:
-          type: string
-        organization_id:
-          type: integer
-          description: Organization ID
-        role:
-          type: string
-      required:
-      - active
-      - organization_id
-      - role
-      title: OrganizationMembership
-    PatchedCommentRequest:
-      type: object
-      properties:
-        annotation:
-          type:
-          - integer
-          - 'null'
-        classifications:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Classifications applied by a reviewer or annotator
-        draft:
-          type:
-          - integer
-          - 'null'
-        is_resolved:
-          type: boolean
-          description: True if the comment is resolved
-        region_ref:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Set if this comment is related to a specific part of the annotation. Normally contains region ID and control name.
-        text:
-          type:
-          - string
-          - 'null'
-          description: Reviewer or annotator comment
-      description: 'Comment Serializer with FSM state support.
-
-
-        Note: The ''state'' field will be populated from the queryset annotation
-
-        if present, preventing N+1 queries. Use .with_state() on your queryset.
-
-
-        The state field display is controlled by both:
-
-        - fflag_feat_fit_568_finite_state_management (FSM background calculations)
-
-        - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
-      title: PatchedCommentRequest
     CommentSerializerWithExpandedUser:
       type: object
       properties:
@@ -450,78 +342,6 @@ components:
 
         - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
       title: CommentSerializerWithExpandedUser
-    LseUser:
-      type: object
-      properties:
-        active_organization:
-          type:
-          - integer
-          - 'null'
-        active_organization_meta:
-          type: string
-        allow_newsletters:
-          type:
-          - boolean
-          - 'null'
-          description: Allow sending newsletters to user
-        avatar:
-          type: string
-        custom_hotkeys:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Custom keyboard shortcuts configuration for the user interface
-        date_joined:
-          type: string
-          format: date-time
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        initials:
-          type: string
-          default: '?'
-        last_activity:
-          type: string
-          format: date-time
-        last_name:
-          type: string
-        lse_fields:
-          $ref: '#/components/schemas/LseFields'
-        org_membership:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrganizationMembership'
-        organization_membership:
-          $ref: '#/components/schemas/OrganizationMembership'
-        pause:
-          type: string
-        phone:
-          type: string
-        username:
-          type: string
-      required:
-      - active_organization_meta
-      - avatar
-      - id
-      - initials
-      - last_activity
-      - lse_fields
-      - org_membership
-      - organization_membership
-      - pause
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: LseUser
     Comment:
       type: object
       properties:
@@ -603,7 +423,12 @@ components:
 
         - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
       title: Comment
-    CommentRequest:
+    MaybeExpandedComment:
+      oneOf:
+      - $ref: '#/components/schemas/Comment'
+      - $ref: '#/components/schemas/CommentSerializerWithExpandedUser'
+      title: MaybeExpandedComment
+    PatchedCommentRequest:
       type: object
       properties:
         annotation:
@@ -645,7 +470,43 @@ components:
         - fflag_feat_fit_568_finite_state_management (FSM background calculations)
 
         - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
-      title: CommentRequest
+      title: PatchedCommentRequest
+    OnboardingStateEnum:
+      type: string
+      enum:
+      - not_started
+      - signup
+      - trial_signup
+      - first_tutorial
+      - in_app_guidance
+      - complete
+      description: '* `not_started` - Not Started
+
+        * `signup` - Signup
+
+        * `trial_signup` - Trial Signup
+
+        * `first_tutorial` - First Tutorial
+
+        * `in_app_guidance` - In App Guidance
+
+        * `complete` - Complete'
+      title: OnboardingStateEnum
+    OrganizationMembership:
+      type: object
+      properties:
+        active:
+          type: string
+        organization_id:
+          type: integer
+          description: Organization ID
+        role:
+          type: string
+      required:
+      - active
+      - organization_id
+      - role
+      title: OrganizationMembership
     LseFields:
       type: object
       properties:
@@ -716,6 +577,145 @@ components:
       - invite_expired
       - invite_expired_at
       title: LseFields
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
+    CommentRequest:
+      type: object
+      properties:
+        annotation:
+          type:
+          - integer
+          - 'null'
+        classifications:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Classifications applied by a reviewer or annotator
+        draft:
+          type:
+          - integer
+          - 'null'
+        is_resolved:
+          type: boolean
+          description: True if the comment is resolved
+        region_ref:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Set if this comment is related to a specific part of the annotation. Normally contains region ID and control name.
+        text:
+          type:
+          - string
+          - 'null'
+          description: Reviewer or annotator comment
+      description: 'Comment Serializer with FSM state support.
+
+
+        Note: The ''state'' field will be populated from the queryset annotation
+
+        if present, preventing N+1 queries. Use .with_state() on your queryset.
+
+
+        The state field display is controlled by both:
+
+        - fflag_feat_fit_568_finite_state_management (FSM background calculations)
+
+        - fflag_feat_fit_710_fsm_state_fields (state field display in APIs)'
+      title: CommentRequest
+    LseUser:
+      type: object
+      properties:
+        active_organization:
+          type:
+          - integer
+          - 'null'
+        active_organization_meta:
+          type: string
+        allow_newsletters:
+          type:
+          - boolean
+          - 'null'
+          description: Allow sending newsletters to user
+        avatar:
+          type: string
+        custom_hotkeys:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Custom keyboard shortcuts configuration for the user interface
+        date_joined:
+          type: string
+          format: date-time
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        initials:
+          type: string
+          default: '?'
+        last_activity:
+          type: string
+          format: date-time
+        last_name:
+          type: string
+        lse_fields:
+          $ref: '#/components/schemas/LseFields'
+        org_membership:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationMembership'
+        organization_membership:
+          $ref: '#/components/schemas/OrganizationMembership'
+        pause:
+          type: string
+        phone:
+          type: string
+        username:
+          type: string
+      required:
+      - active_organization_meta
+      - avatar
+      - id
+      - initials
+      - last_activity
+      - lse_fields
+      - org_membership
+      - organization_membership
+      - pause
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: LseUser
   securitySchemes:
     Token:
       type: apiKey

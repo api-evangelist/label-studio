@@ -299,118 +299,57 @@ paths:
                   description: User skipped the task
 components:
   schemas:
-    AnnotationBulkSerializerWithSelectedItemsRequest:
+    ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems:
+      type: object
+      properties: {}
+      title: ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems
+    LastActionEnum:
+      type: string
+      enum:
+      - prediction
+      - propagated_annotation
+      - imported
+      - submitted
+      - updated
+      - skipped
+      - accepted
+      - rejected
+      - fixed_and_accepted
+      - deleted_review
+      description: '* `prediction` - Created from prediction
+
+        * `propagated_annotation` - Created from another annotation
+
+        * `imported` - Imported
+
+        * `submitted` - Submitted
+
+        * `updated` - Updated
+
+        * `skipped` - Skipped
+
+        * `accepted` - Accepted
+
+        * `rejected` - Rejected
+
+        * `fixed_and_accepted` - Fixed and accepted
+
+        * `deleted_review` - Deleted review'
+      title: LastActionEnum
+    ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems:
       type: object
       properties:
-        bulk_created:
-          type:
-          - boolean
-          - 'null'
-          description: Annotation was created in bulk mode
-        completed_by:
+        id:
           type: integer
-        draft_created_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Draft creation time
-        ground_truth:
-          type: boolean
-          description: This annotation is a Ground Truth (ground_truth)
-        import_id:
-          type:
-          - integer
-          - 'null'
-          format: int64
-          description: Original annotation ID that was at the import step or NULL if this annotation wasn't imported
-        last_action:
-          oneOf:
-          - $ref: '#/components/schemas/LastActionEnum'
-          - type: 'null'
-          description: 'Action which was performed in the last annotation history item
-
-
-            * `prediction` - Created from prediction
-
-            * `propagated_annotation` - Created from another annotation
-
-            * `imported` - Imported
-
-            * `submitted` - Submitted
-
-            * `updated` - Updated
-
-            * `skipped` - Skipped
-
-            * `accepted` - Accepted
-
-            * `rejected` - Rejected
-
-            * `fixed_and_accepted` - Fixed and accepted
-
-            * `deleted_review` - Deleted review'
-        last_created_by:
-          type:
-          - integer
-          - 'null'
-          description: User who created the last annotation history item
-        lead_time:
-          type:
-          - number
-          - 'null'
-          format: double
-          description: How much time it took to annotate the task
-        parent_annotation:
-          type:
-          - integer
-          - 'null'
-          description: Points to the parent annotation from which this annotation was created
-        parent_prediction:
-          type:
-          - integer
-          - 'null'
-          description: Points to the prediction from which this annotation was created
-        project:
-          type:
-          - integer
-          - 'null'
-          description: Project ID for this annotation
-        result:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnnotationBulkSerializerWithSelectedItemsRequestResultItems'
-          description: List of annotation results for the task
-        selected_items:
-          oneOf:
-          - $ref: '#/components/schemas/SelectedItemsRequest'
-          - type: 'null'
-        task:
-          type:
-          - integer
-          - 'null'
-          description: Corresponding task for this annotation
-        tasks:
-          type: array
-          items:
-            type: integer
-        unique_id:
-          type: string
-        updated_by:
-          type:
-          - integer
-          - 'null'
-          description: Last user who updated this annotation
-        was_cancelled:
-          type: boolean
-          description: User skipped the task
-      description: 'Annotation Serializer with FSM state support.
-
-
-        Note: The ''state'' field will be populated from the queryset annotation
-
-        if present, preventing N+1 queries. Use .with_state() on your queryset.'
-      title: AnnotationBulkSerializerWithSelectedItemsRequest
+          description: Annotation ID
+      required:
+      - id
+      title: ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems
+    AnnotationResultItems:
+      type: object
+      properties: {}
+      description: List of annotated regions for the task
+      title: AnnotationResultItems
     Annotation:
       type: object
       properties:
@@ -540,6 +479,140 @@ components:
 
         if present, preventing N+1 queries. Use .with_state() on your queryset.'
       title: Annotation
+    annotations_delete_bulk_Response_200:
+      type: object
+      properties:
+        deleted_count:
+          type: integer
+          description: Number of annotations deleted
+      title: annotations_delete_bulk_Response_200
+    AnnotationBulkDeleteRequest:
+      type: object
+      properties:
+        ids:
+          type: array
+          items:
+            type: integer
+          description: List of annotation IDs to delete
+        project:
+          type: integer
+      required:
+      - ids
+      - project
+      description: Serializer for bulk annotation deletion by IDs.
+      title: AnnotationBulkDeleteRequest
+    AnnotationBulkSerializerWithSelectedItemsRequest:
+      type: object
+      properties:
+        bulk_created:
+          type:
+          - boolean
+          - 'null'
+          description: Annotation was created in bulk mode
+        completed_by:
+          type: integer
+        draft_created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Draft creation time
+        ground_truth:
+          type: boolean
+          description: This annotation is a Ground Truth (ground_truth)
+        import_id:
+          type:
+          - integer
+          - 'null'
+          format: int64
+          description: Original annotation ID that was at the import step or NULL if this annotation wasn't imported
+        last_action:
+          oneOf:
+          - $ref: '#/components/schemas/LastActionEnum'
+          - type: 'null'
+          description: 'Action which was performed in the last annotation history item
+
+
+            * `prediction` - Created from prediction
+
+            * `propagated_annotation` - Created from another annotation
+
+            * `imported` - Imported
+
+            * `submitted` - Submitted
+
+            * `updated` - Updated
+
+            * `skipped` - Skipped
+
+            * `accepted` - Accepted
+
+            * `rejected` - Rejected
+
+            * `fixed_and_accepted` - Fixed and accepted
+
+            * `deleted_review` - Deleted review'
+        last_created_by:
+          type:
+          - integer
+          - 'null'
+          description: User who created the last annotation history item
+        lead_time:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: How much time it took to annotate the task
+        parent_annotation:
+          type:
+          - integer
+          - 'null'
+          description: Points to the parent annotation from which this annotation was created
+        parent_prediction:
+          type:
+          - integer
+          - 'null'
+          description: Points to the prediction from which this annotation was created
+        project:
+          type:
+          - integer
+          - 'null'
+          description: Project ID for this annotation
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationBulkSerializerWithSelectedItemsRequestResultItems'
+          description: List of annotation results for the task
+        selected_items:
+          oneOf:
+          - $ref: '#/components/schemas/SelectedItemsRequest'
+          - type: 'null'
+        task:
+          type:
+          - integer
+          - 'null'
+          description: Corresponding task for this annotation
+        tasks:
+          type: array
+          items:
+            type: integer
+        unique_id:
+          type: string
+        updated_by:
+          type:
+          - integer
+          - 'null'
+          description: Last user who updated this annotation
+        was_cancelled:
+          type: boolean
+          description: User skipped the task
+      description: 'Annotation Serializer with FSM state support.
+
+
+        Note: The ''state'' field will be populated from the queryset annotation
+
+        if present, preventing N+1 queries. Use .with_state() on your queryset.'
+      title: AnnotationBulkSerializerWithSelectedItemsRequest
     SelectedItemsRequest:
       type: object
       properties:
@@ -556,88 +629,15 @@ components:
       required:
       - all
       title: SelectedItemsRequest
-    ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems:
-      type: object
-      properties: {}
-      title: ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems
-    annotations_delete_bulk_Response_200:
-      type: object
-      properties:
-        deleted_count:
-          type: integer
-          description: Number of annotations deleted
-      title: annotations_delete_bulk_Response_200
-    AnnotationResultItems:
-      type: object
-      properties: {}
-      description: List of annotated regions for the task
-      title: AnnotationResultItems
-    ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems:
-      type: object
-      properties: {}
-      title: ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems
-    ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Annotation ID
-      required:
-      - id
-      title: ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems
-    LastActionEnum:
-      type: string
-      enum:
-      - prediction
-      - propagated_annotation
-      - imported
-      - submitted
-      - updated
-      - skipped
-      - accepted
-      - rejected
-      - fixed_and_accepted
-      - deleted_review
-      description: '* `prediction` - Created from prediction
-
-        * `propagated_annotation` - Created from another annotation
-
-        * `imported` - Imported
-
-        * `submitted` - Submitted
-
-        * `updated` - Updated
-
-        * `skipped` - Skipped
-
-        * `accepted` - Accepted
-
-        * `rejected` - Rejected
-
-        * `fixed_and_accepted` - Fixed and accepted
-
-        * `deleted_review` - Deleted review'
-      title: LastActionEnum
-    AnnotationBulkDeleteRequest:
-      type: object
-      properties:
-        ids:
-          type: array
-          items:
-            type: integer
-          description: List of annotation IDs to delete
-        project:
-          type: integer
-      required:
-      - ids
-      - project
-      description: Serializer for bulk annotation deletion by IDs.
-      title: AnnotationBulkDeleteRequest
     AnnotationBulkSerializerWithSelectedItemsRequestResultItems:
       type: object
       properties: {}
       description: List of annotated regions for the task
       title: AnnotationBulkSerializerWithSelectedItemsRequestResultItems
+    ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems:
+      type: object
+      properties: {}
+      title: ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems
   securitySchemes:
     Token:
       type: apiKey

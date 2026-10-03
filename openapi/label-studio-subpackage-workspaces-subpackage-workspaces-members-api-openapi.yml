@@ -103,42 +103,17 @@ paths:
           description: Successful response
 components:
   schemas:
-    TrialRoleEnum:
-      type: string
-      enum:
-      - annotator
-      - annotator_team_manager
-      - business_analyst
-      - business_or_data_team_leadership
-      - data_engineer_platform_engineer
-      - data_scientist
-      - other
-      description: '* `annotator` - Annotator
-
-        * `annotator_team_manager` - Annotator Team Manager
-
-        * `business_analyst` - Business Analyst
-
-        * `business_or_data_team_leadership` - Business Or Data Team Leadership
-
-        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
-
-        * `data_scientist` - Data Scientist
-
-        * `other` - Other'
-      title: TrialRoleEnum
-    WorkspaceMemberCreateRequest:
+    WorkspaceMemberList:
       type: object
       properties:
         user:
-          type: integer
-          description: User ID
+          $ref: '#/components/schemas/LseUser'
         workspace:
           type: integer
           description: Workspace ID
       required:
       - user
-      title: WorkspaceMemberCreateRequest
+      title: WorkspaceMemberList
     OnboardingStateEnum:
       type: string
       enum:
@@ -175,17 +150,112 @@ components:
       - organization_id
       - role
       title: OrganizationMembership
-    WorkspaceMemberList:
+    LseFields:
+      type: object
+      properties:
+        email_notification_settings:
+          type: string
+        invite_activated:
+          type:
+          - boolean
+          - 'null'
+        invite_expired:
+          type: string
+        invite_expired_at:
+          type: string
+        invited_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        invited_by:
+          type:
+          - integer
+          - 'null'
+        onboarding_state:
+          oneOf:
+          - $ref: '#/components/schemas/OnboardingStateEnum'
+          - type: 'null'
+          description: 'The current stage of user onboarding
+
+
+            * `not_started` - Not Started
+
+            * `signup` - Signup
+
+            * `trial_signup` - Trial Signup
+
+            * `first_tutorial` - First Tutorial
+
+            * `in_app_guidance` - In App Guidance
+
+            * `complete` - Complete'
+        social_auth_finished:
+          type:
+          - boolean
+          - 'null'
+          description: Is user finished social authentication
+        trial_company:
+          type:
+          - string
+          - 'null'
+        trial_experience_labeling:
+          type:
+          - string
+          - 'null'
+        trial_license_enterprise:
+          type:
+          - boolean
+          - 'null'
+        trial_models_in_production:
+          type:
+          - string
+          - 'null'
+        trial_role:
+          oneOf:
+          - $ref: '#/components/schemas/TrialRoleEnum'
+          - type: 'null'
+      required:
+      - email_notification_settings
+      - invite_expired
+      - invite_expired_at
+      title: LseFields
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
+    WorkspaceMemberCreateRequest:
       type: object
       properties:
         user:
-          $ref: '#/components/schemas/LseUser'
+          type: integer
+          description: User ID
         workspace:
           type: integer
           description: Workspace ID
       required:
       - user
-      title: WorkspaceMemberList
+      title: WorkspaceMemberCreateRequest
     WorkspaceMemberCreate:
       type: object
       properties:
@@ -270,76 +340,6 @@ components:
 
         values with complex, nested serializations'
       title: LseUser
-    LseFields:
-      type: object
-      properties:
-        email_notification_settings:
-          type: string
-        invite_activated:
-          type:
-          - boolean
-          - 'null'
-        invite_expired:
-          type: string
-        invite_expired_at:
-          type: string
-        invited_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        invited_by:
-          type:
-          - integer
-          - 'null'
-        onboarding_state:
-          oneOf:
-          - $ref: '#/components/schemas/OnboardingStateEnum'
-          - type: 'null'
-          description: 'The current stage of user onboarding
-
-
-            * `not_started` - Not Started
-
-            * `signup` - Signup
-
-            * `trial_signup` - Trial Signup
-
-            * `first_tutorial` - First Tutorial
-
-            * `in_app_guidance` - In App Guidance
-
-            * `complete` - Complete'
-        social_auth_finished:
-          type:
-          - boolean
-          - 'null'
-          description: Is user finished social authentication
-        trial_company:
-          type:
-          - string
-          - 'null'
-        trial_experience_labeling:
-          type:
-          - string
-          - 'null'
-        trial_license_enterprise:
-          type:
-          - boolean
-          - 'null'
-        trial_models_in_production:
-          type:
-          - string
-          - 'null'
-        trial_role:
-          oneOf:
-          - $ref: '#/components/schemas/TrialRoleEnum'
-          - type: 'null'
-      required:
-      - email_notification_settings
-      - invite_expired
-      - invite_expired_at
-      title: LseFields
   securitySchemes:
     Token:
       type: apiKey

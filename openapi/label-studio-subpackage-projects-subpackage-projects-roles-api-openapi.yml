@@ -150,6 +150,20 @@ components:
       - role
       - user
       title: ProjectRole
+    ProjectRoleRequest:
+      type: object
+      properties:
+        project:
+          type: integer
+        role:
+          $ref: '#/components/schemas/Role9e7Enum'
+        user:
+          type: integer
+      required:
+      - project
+      - role
+      - user
+      title: ProjectRoleRequest
     Role9e7Enum:
       type: string
       enum:
@@ -174,20 +188,6 @@ components:
 
         * `NO` - Not Activated'
       title: Role9e7Enum
-    ProjectRoleRequest:
-      type: object
-      properties:
-        project:
-          type: integer
-        role:
-          $ref: '#/components/schemas/Role9e7Enum'
-        user:
-          type: integer
-      required:
-      - project
-      - role
-      - user
-      title: ProjectRoleRequest
   securitySchemes:
     Token:
       type: apiKey

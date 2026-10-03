@@ -57,17 +57,6 @@ paths:
                 $ref: '#/components/schemas/TaskAgreementMatrixResponse'
 components:
   schemas:
-    AgreementSelectionGroupRequest:
-      type: object
-      properties:
-        all:
-          type: boolean
-          default: false
-        ids:
-          type: array
-          items:
-            type: string
-      title: AgreementSelectionGroupRequest
     AgreementSelectionRequest:
       type: object
       properties:
@@ -79,6 +68,17 @@ components:
         models:
           $ref: '#/components/schemas/AgreementSelectionGroupRequest'
       title: AgreementSelectionRequest
+    AgreementSelectionGroupRequest:
+      type: object
+      properties:
+        all:
+          type: boolean
+          default: false
+        ids:
+          type: array
+          items:
+            type: string
+      title: AgreementSelectionGroupRequest
     TaskAgreementMatrixResponse:
       type: object
       properties:

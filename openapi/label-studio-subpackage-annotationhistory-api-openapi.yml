@@ -158,29 +158,6 @@ paths:
                 $ref: '#/components/schemas/PaginatedAnnotationHistoryList'
 components:
   schemas:
-    PaginatedAnnotationHistoryList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnnotationHistory'
-      required:
-      - count
-      - results
-      title: PaginatedAnnotationHistoryList
     annotation_history_delete_Response_200:
       type: object
       properties:
@@ -221,6 +198,29 @@ components:
 
         * `deleted_review` - Deleted review'
       title: ActionEnum
+    PaginatedAnnotationHistoryList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnnotationHistory'
+      required:
+      - count
+      - results
+      title: PaginatedAnnotationHistoryList
     AnnotationHistory:
       type: object
       properties:

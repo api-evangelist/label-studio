@@ -109,69 +109,6 @@ paths:
               $ref: '#/components/schemas/ValidateSamlMetadataUrlRequestRequest'
 components:
   schemas:
-    SamlSettingsUpdateRequest:
-      type: object
-      properties:
-        domain:
-          type: string
-          description: 'Organization web domain or domains; use comma separated list with no spaces for multiple. Example:<br><br>labelstud.io,humansignal.com<br><br>IMPORTANT: DO NOT PUT COMMON DOMAINS LIKE GMAIL.COM, YAHOO.COM, ETC. IN THIS FIELD'
-        idp_provider:
-          type:
-          - string
-          - 'null'
-          description: Identity Provider preset key (e.g. okta, azure, google, custom)
-        manual_role_management:
-          type:
-          - boolean
-          - 'null'
-          description: Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
-        mapping_email:
-          type:
-          - string
-          - 'null'
-          description: 'Mapping attributes: user email from SAML request'
-        mapping_first_name:
-          type:
-          - string
-          - 'null'
-          description: 'Mapping attributes: user first name from SAML request'
-        mapping_groups:
-          type:
-          - string
-          - 'null'
-          description: 'Mapping attributes: groups attribute for user mapping to workspaces and roles'
-        mapping_last_name:
-          type:
-          - string
-          - 'null'
-          description: 'Mapping attributes: user last name from SAML request'
-        metadata_url:
-          type: string
-          description: URL SAML metadata from IdP
-        metadata_xml:
-          type: string
-          description: Metadata XML file
-        projects_groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectGroupRequest'
-          description: Projects to Groups Mapping. List of objects with project_id, group, role.
-        roles_groups:
-          type: array
-          items:
-            type: array
-            items:
-              type: string
-          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
-        workspaces_groups:
-          type: array
-          items:
-            type: array
-            items:
-              type: string
-          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
-      description: Serializer for updating SAML settings (POST requests).
-      title: SamlSettingsUpdateRequest
     ProjectGroup:
       type: object
       properties:
@@ -267,51 +204,6 @@ components:
           description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
       description: Serializer for updating SAML settings (POST requests).
       title: SamlSettingsUpdate
-    ProjectGroupRoleEnum:
-      type: string
-      enum:
-      - Inherit
-      - Annotator
-      - Reviewer
-      description: '* `Inherit` - Inherit
-
-        * `Annotator` - Annotator
-
-        * `Reviewer` - Reviewer'
-      title: ProjectGroupRoleEnum
-    ValidateSamlMetadataUrlRequestRequest:
-      type: object
-      properties:
-        metadata_url:
-          type: string
-          format: uri
-      required:
-      - metadata_url
-      title: ValidateSamlMetadataUrlRequestRequest
-    ProjectGroupRequest:
-      type: object
-      properties:
-        group:
-          type: string
-          description: Group name
-        project_id:
-          type: integer
-          description: Project ID
-        role:
-          $ref: '#/components/schemas/ProjectGroupRoleEnum'
-          description: 'Project role (Inherit, Annotator, Reviewer)
-
-
-            * `Inherit` - Inherit
-
-            * `Annotator` - Annotator
-
-            * `Reviewer` - Reviewer'
-      required:
-      - group
-      - project_id
-      - role
-      title: ProjectGroupRequest
     SamlSettings:
       type: object
       properties:
@@ -412,6 +304,114 @@ components:
 
         that are needed for IdP configuration.'
       title: SamlSettings
+    ProjectGroupRequest:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group name
+        project_id:
+          type: integer
+          description: Project ID
+        role:
+          $ref: '#/components/schemas/ProjectGroupRoleEnum'
+          description: 'Project role (Inherit, Annotator, Reviewer)
+
+
+            * `Inherit` - Inherit
+
+            * `Annotator` - Annotator
+
+            * `Reviewer` - Reviewer'
+      required:
+      - group
+      - project_id
+      - role
+      title: ProjectGroupRequest
+    ValidateSamlMetadataUrlRequestRequest:
+      type: object
+      properties:
+        metadata_url:
+          type: string
+          format: uri
+      required:
+      - metadata_url
+      title: ValidateSamlMetadataUrlRequestRequest
+    SamlSettingsUpdateRequest:
+      type: object
+      properties:
+        domain:
+          type: string
+          description: 'Organization web domain or domains; use comma separated list with no spaces for multiple. Example:<br><br>labelstud.io,humansignal.com<br><br>IMPORTANT: DO NOT PUT COMMON DOMAINS LIKE GMAIL.COM, YAHOO.COM, ETC. IN THIS FIELD'
+        idp_provider:
+          type:
+          - string
+          - 'null'
+          description: Identity Provider preset key (e.g. okta, azure, google, custom)
+        manual_role_management:
+          type:
+          - boolean
+          - 'null'
+          description: Allow manually assigning organization roles instead of IdP-managed groups. None = use billing default.
+        mapping_email:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: user email from SAML request'
+        mapping_first_name:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: user first name from SAML request'
+        mapping_groups:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: groups attribute for user mapping to workspaces and roles'
+        mapping_last_name:
+          type:
+          - string
+          - 'null'
+          description: 'Mapping attributes: user last name from SAML request'
+        metadata_url:
+          type: string
+          description: URL SAML metadata from IdP
+        metadata_xml:
+          type: string
+          description: Metadata XML file
+        projects_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectGroupRequest'
+          description: Projects to Groups Mapping. List of objects with project_id, group, role.
+        roles_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
+        workspaces_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
+      description: Serializer for updating SAML settings (POST requests).
+      title: SamlSettingsUpdateRequest
+    ProjectGroupRoleEnum:
+      type: string
+      enum:
+      - Inherit
+      - Annotator
+      - Reviewer
+      description: '* `Inherit` - Inherit
+
+        * `Annotator` - Annotator
+
+        * `Reviewer` - Reviewer'
+      title: ProjectGroupRoleEnum
   securitySchemes:
     Token:
       type: apiKey

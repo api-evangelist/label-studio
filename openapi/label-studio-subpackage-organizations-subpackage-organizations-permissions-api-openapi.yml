@@ -340,18 +340,31 @@ components:
       - DI
       - 'NO'
       title: Options165Enum
-    Default165Enum:
-      type: string
-      enum:
-      - OW
-      - AD
-      - MA
-      - RE
-      - AN
-      - DI
-      - 'NO'
-      title: Default165Enum
-    PatchedOrganizationPermissionRequest:
+    ConfigurablePermissionOption:
+      type: object
+      properties:
+        default:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role9e7Enum'
+        group:
+          type: string
+        label:
+          type: string
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role9e7Enum'
+        permission:
+          type: string
+        tooltip:
+          type: string
+      required:
+      - default
+      - options
+      - permission
+      title: ConfigurablePermissionOption
+    OrganizationPermissionRequest:
       type: object
       properties:
         permission:
@@ -361,7 +374,9 @@ components:
           items:
             $ref: '#/components/schemas/Role9e7Enum'
           description: Organization roles
-      title: PatchedOrganizationPermissionRequest
+      required:
+      - permission
+      title: OrganizationPermissionRequest
     OrganizationPermission:
       type: object
       properties:
@@ -406,6 +421,28 @@ components:
       - permission
       - tooltip
       title: OrganizationPermission
+    PatchedOrganizationPermissionRequest:
+      type: object
+      properties:
+        permission:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role9e7Enum'
+          description: Organization roles
+      title: PatchedOrganizationPermissionRequest
+    Default165Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      title: Default165Enum
     Role9e7Enum:
       type: string
       enum:
@@ -430,43 +467,6 @@ components:
 
         * `NO` - Not Activated'
       title: Role9e7Enum
-    OrganizationPermissionRequest:
-      type: object
-      properties:
-        permission:
-          type: string
-        roles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Role9e7Enum'
-          description: Organization roles
-      required:
-      - permission
-      title: OrganizationPermissionRequest
-    ConfigurablePermissionOption:
-      type: object
-      properties:
-        default:
-          type: array
-          items:
-            $ref: '#/components/schemas/Role9e7Enum'
-        group:
-          type: string
-        label:
-          type: string
-        options:
-          type: array
-          items:
-            $ref: '#/components/schemas/Role9e7Enum'
-        permission:
-          type: string
-        tooltip:
-          type: string
-      required:
-      - default
-      - options
-      - permission
-      title: ConfigurablePermissionOption
   securitySchemes:
     Token:
       type: apiKey

@@ -173,68 +173,6 @@ paths:
               $ref: '#/components/schemas/PatchedWorkspaceRequest'
 components:
   schemas:
-    PatchedWorkspaceRequest:
-      type: object
-      properties:
-        color:
-          type:
-          - string
-          - 'null'
-          description: Color
-        description:
-          type:
-          - string
-          - 'null'
-          description: Workspace description
-        is_archived:
-          type: boolean
-          description: Workspace is archived
-        is_personal:
-          type: boolean
-          description: Workspace is a personal user workspace
-        title:
-          type: string
-          description: Workspace Name
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: PatchedWorkspaceRequest
-    WorkspaceRequest:
-      type: object
-      properties:
-        color:
-          type:
-          - string
-          - 'null'
-          description: Color
-        description:
-          type:
-          - string
-          - 'null'
-          description: Workspace description
-        is_archived:
-          type: boolean
-          description: Workspace is archived
-        is_personal:
-          type: boolean
-          description: Workspace is a personal user workspace
-        title:
-          type: string
-          description: Workspace Name
-      required:
-      - title
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: WorkspaceRequest
     Workspace:
       type: object
       properties:
@@ -284,6 +222,68 @@ components:
 
         values with complex, nested serializations'
       title: Workspace
+    WorkspaceRequest:
+      type: object
+      properties:
+        color:
+          type:
+          - string
+          - 'null'
+          description: Color
+        description:
+          type:
+          - string
+          - 'null'
+          description: Workspace description
+        is_archived:
+          type: boolean
+          description: Workspace is archived
+        is_personal:
+          type: boolean
+          description: Workspace is a personal user workspace
+        title:
+          type: string
+          description: Workspace Name
+      required:
+      - title
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: WorkspaceRequest
+    PatchedWorkspaceRequest:
+      type: object
+      properties:
+        color:
+          type:
+          - string
+          - 'null'
+          description: Color
+        description:
+          type:
+          - string
+          - 'null'
+          description: Workspace description
+        is_archived:
+          type: boolean
+          description: Workspace is archived
+        is_personal:
+          type: boolean
+          description: Workspace is a personal user workspace
+        title:
+          type: string
+          description: Workspace Name
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: PatchedWorkspaceRequest
   securitySchemes:
     Token:
       type: apiKey

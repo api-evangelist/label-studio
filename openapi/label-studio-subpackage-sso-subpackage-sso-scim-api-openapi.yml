@@ -61,6 +61,54 @@ paths:
               $ref: '#/components/schemas/ScimSettingsUpdateRequest'
 components:
   schemas:
+    ProjectGroup:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group name
+        project_id:
+          type: integer
+          description: Project ID
+        role:
+          $ref: '#/components/schemas/ProjectGroupRoleEnum'
+          description: 'Project role (Inherit, Annotator, Reviewer)
+
+
+            * `Inherit` - Inherit
+
+            * `Annotator` - Annotator
+
+            * `Reviewer` - Reviewer'
+      required:
+      - group
+      - project_id
+      - role
+      title: ProjectGroup
+    ProjectGroupRequest:
+      type: object
+      properties:
+        group:
+          type: string
+          description: Group name
+        project_id:
+          type: integer
+          description: Project ID
+        role:
+          $ref: '#/components/schemas/ProjectGroupRoleEnum'
+          description: 'Project role (Inherit, Annotator, Reviewer)
+
+
+            * `Inherit` - Inherit
+
+            * `Annotator` - Annotator
+
+            * `Reviewer` - Reviewer'
+      required:
+      - group
+      - project_id
+      - role
+      title: ProjectGroupRequest
     ScimSettings:
       type: object
       properties:
@@ -136,30 +184,6 @@ components:
               type: string
           description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
       title: ScimSettingsUpdateRequest
-    ProjectGroup:
-      type: object
-      properties:
-        group:
-          type: string
-          description: Group name
-        project_id:
-          type: integer
-          description: Project ID
-        role:
-          $ref: '#/components/schemas/ProjectGroupRoleEnum'
-          description: 'Project role (Inherit, Annotator, Reviewer)
-
-
-            * `Inherit` - Inherit
-
-            * `Annotator` - Annotator
-
-            * `Reviewer` - Reviewer'
-      required:
-      - group
-      - project_id
-      - role
-      title: ProjectGroup
     ProjectGroupRoleEnum:
       type: string
       enum:
@@ -172,30 +196,6 @@ components:
 
         * `Reviewer` - Reviewer'
       title: ProjectGroupRoleEnum
-    ProjectGroupRequest:
-      type: object
-      properties:
-        group:
-          type: string
-          description: Group name
-        project_id:
-          type: integer
-          description: Project ID
-        role:
-          $ref: '#/components/schemas/ProjectGroupRoleEnum'
-          description: 'Project role (Inherit, Annotator, Reviewer)
-
-
-            * `Inherit` - Inherit
-
-            * `Annotator` - Annotator
-
-            * `Reviewer` - Reviewer'
-      required:
-      - group
-      - project_id
-      - role
-      title: ProjectGroupRequest
   securitySchemes:
     Token:
       type: apiKey

@@ -353,60 +353,14 @@ paths:
                 format: binary
 components:
   schemas:
-    Status7bfEnum:
-      type: string
-      enum:
-      - created
-      - in_progress
-      - failed
-      - completed
-      description: '* `created` - Created
-
-        * `in_progress` - In progress
-
-        * `failed` - Failed
-
-        * `completed` - Completed'
-      title: Status7bfEnum
-    ConvertedFormat:
+    SerializationOptionRequest:
       type: object
       properties:
-        export_type:
-          type: string
-        id:
-          type: integer
-        status:
-          $ref: '#/components/schemas/Status7bfEnum'
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report in case of errors
-      required:
-      - export_type
-      - id
-      title: ConvertedFormat
-    SerializationOptionsRequest:
-      type: object
-      properties:
-        annotations__completed_by:
-          $ref: '#/components/schemas/SerializationOptionRequest'
-          description: JSON dict with parameters
-        drafts:
-          $ref: '#/components/schemas/SerializationOptionRequest'
-          description: JSON dict with parameters
-        include_annotation_history:
+        only_id:
           type: boolean
           default: false
-          description: Include annotation history
-        interpolate_key_frames:
-          type: boolean
-          default: false
-          description: Interpolate video key frames
-        predictions:
-          $ref: '#/components/schemas/SerializationOptionRequest'
-          description: JSON dict with parameters
-      title: SerializationOptionsRequest
+          description: Include a full json body or IDs only
+      title: SerializationOptionRequest
     SerializationOptions:
       type: object
       properties:
@@ -428,6 +382,74 @@ components:
           $ref: '#/components/schemas/SerializationOption'
           description: JSON dict with parameters
       title: SerializationOptions
+    ConvertedFormatRequest:
+      type: object
+      properties:
+        export_type:
+          type: string
+        status:
+          $ref: '#/components/schemas/Status7bfEnum'
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report in case of errors
+      required:
+      - export_type
+      title: ConvertedFormatRequest
+    Status7bfEnum:
+      type: string
+      enum:
+      - created
+      - in_progress
+      - failed
+      - completed
+      description: '* `created` - Created
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed'
+      title: Status7bfEnum
+    LseExportCreateRequest:
+      type: object
+      properties:
+        annotation_filter_options:
+          $ref: '#/components/schemas/LseAnnotationFilterOptionsRequest'
+        converted_formats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConvertedFormatRequest'
+        counters:
+          description: Any type
+        created_by:
+          $ref: '#/components/schemas/UserSimpleRequest'
+        finished_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Complete or fail time
+        md5:
+          type: string
+        serialization_options:
+          $ref: '#/components/schemas/SerializationOptionsRequest'
+        status:
+          $ref: '#/components/schemas/Status7bfEnum'
+        task_filter_options:
+          $ref: '#/components/schemas/LseTaskFilterOptionsRequest'
+        title:
+          type: string
+      title: LseExportCreateRequest
+    SerializationOption:
+      type: object
+      properties:
+        only_id:
+          type: boolean
+          default: false
+          description: Include a full json body or IDs only
+      title: SerializationOption
     UserSimple:
       type: object
       properties:
@@ -456,64 +478,18 @@ components:
 
         values with complex, nested serializations'
       title: UserSimple
-    LseTaskFilterOptions:
+    ExportConvertRequest:
       type: object
       properties:
-        annotated:
-          oneOf:
-          - $ref: '#/components/schemas/AnnotatedEnum'
-          - type: 'null'
-          description: '`only` - include all tasks with at least one not skipped annotation<br>`exclude` - exclude all tasks with at least one not skipped annotation
-
-
-            * `only` - only
-
-            * `exclude` - exclude
-
-            * `None` - None'
-        finished:
-          oneOf:
-          - $ref: '#/components/schemas/FinishedEnum'
-          - type: 'null'
-          description: '`only` - include all finished tasks (is_labeled = true)<br>`exclude` - exclude all finished tasks
-
-
-            * `only` - only
-
-            * `exclude` - exclude
-
-            * `None` - None'
-        only_with_annotations:
+        download_resources:
           type: boolean
-          default: false
-        reviewed:
-          oneOf:
-          - $ref: '#/components/schemas/ReviewedEnum'
-          - type: 'null'
-          description: '`only` - include all reviewed tasks<br>`exclude` - exclude all reviewed tasks
-
-
-            * `only` - only
-
-            * `exclude` - exclude
-
-            * `None` - None'
-        skipped:
-          oneOf:
-          - $ref: '#/components/schemas/SkippedEnum'
-          - type: 'null'
-          description: '`only` - include all tasks with skipped annotations<br>`exclude` - exclude all tasks with skipped annotations
-
-
-            * `only` - only
-
-            * `exclude` - exclude
-
-            * `None` - None'
-        view:
-          type: integer
-          description: Apply filters from the view ID (a tab from the Data Manager)
-      title: LseTaskFilterOptions
+          description: Download resources in converter.
+        export_type:
+          type: string
+          description: Export file format.
+      required:
+      - export_type
+      title: ExportConvertRequest
     LseTaskFilterOptionsRequest:
       type: object
       properties:
@@ -572,11 +548,13 @@ components:
           type: integer
           description: Apply filters from the view ID (a tab from the Data Manager)
       title: LseTaskFilterOptionsRequest
-    ConvertedFormatRequest:
+    ConvertedFormat:
       type: object
       properties:
         export_type:
           type: string
+        id:
+          type: integer
         status:
           $ref: '#/components/schemas/Status7bfEnum'
         traceback:
@@ -586,8 +564,53 @@ components:
           description: Traceback report in case of errors
       required:
       - export_type
-      title: ConvertedFormatRequest
-    LseAnnotationFilterOptionsRequest:
+      - id
+      title: ConvertedFormat
+    ReviewedEnum:
+      type: string
+      enum:
+      - only
+      - exclude
+      description: '* `only` - only
+
+        * `exclude` - exclude
+
+        * `None` - None'
+      title: ReviewedEnum
+    UserSimpleRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimpleRequest
+    FinishedEnum:
+      type: string
+      enum:
+      - only
+      - exclude
+      description: '* `only` - only
+
+        * `exclude` - exclude
+
+        * `None` - None'
+      title: FinishedEnum
+    LseAnnotationFilterOptions:
       type: object
       properties:
         ground_truth:
@@ -618,7 +641,7 @@ components:
           - 'null'
           default: true
           description: Include not skipped and not ground truth annotations
-      title: LseAnnotationFilterOptionsRequest
+      title: LseAnnotationFilterOptions
     AnnotatedEnum:
       type: string
       enum:
@@ -630,96 +653,6 @@ components:
 
         * `None` - None'
       title: AnnotatedEnum
-    Export:
-      type: object
-      properties:
-        converted_formats:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConvertedFormat'
-        counters:
-          description: Any type
-        created_at:
-          type: string
-          format: date-time
-          description: Creation time
-        created_by:
-          $ref: '#/components/schemas/UserSimple'
-        finished_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Complete or fail time
-        id:
-          type: integer
-        md5:
-          type: string
-        status:
-          $ref: '#/components/schemas/Status7bfEnum'
-        title:
-          type: string
-      required:
-      - created_at
-      - id
-      title: Export
-    projects_exports_convert_Response_200:
-      type: object
-      properties:
-        converted_format:
-          type: integer
-        export_type:
-          type: string
-      title: projects_exports_convert_Response_200
-    SerializationOptionRequest:
-      type: object
-      properties:
-        only_id:
-          type: boolean
-          default: false
-          description: Include a full json body or IDs only
-      title: SerializationOptionRequest
-    FinishedEnum:
-      type: string
-      enum:
-      - only
-      - exclude
-      description: '* `only` - only
-
-        * `exclude` - exclude
-
-        * `None` - None'
-      title: FinishedEnum
-    LseExportCreateRequest:
-      type: object
-      properties:
-        annotation_filter_options:
-          $ref: '#/components/schemas/LseAnnotationFilterOptionsRequest'
-        converted_formats:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConvertedFormatRequest'
-        counters:
-          description: Any type
-        created_by:
-          $ref: '#/components/schemas/UserSimpleRequest'
-        finished_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Complete or fail time
-        md5:
-          type: string
-        serialization_options:
-          $ref: '#/components/schemas/SerializationOptionsRequest'
-        status:
-          $ref: '#/components/schemas/Status7bfEnum'
-        task_filter_options:
-          $ref: '#/components/schemas/LseTaskFilterOptionsRequest'
-        title:
-          type: string
-      title: LseExportCreateRequest
     LseExportCreate:
       type: object
       properties:
@@ -759,29 +692,86 @@ components:
       - created_at
       - id
       title: LseExportCreate
-    ReviewedEnum:
-      type: string
-      enum:
-      - only
-      - exclude
-      description: '* `only` - only
+    SerializationOptionsRequest:
+      type: object
+      properties:
+        annotations__completed_by:
+          $ref: '#/components/schemas/SerializationOptionRequest'
+          description: JSON dict with parameters
+        drafts:
+          $ref: '#/components/schemas/SerializationOptionRequest'
+          description: JSON dict with parameters
+        include_annotation_history:
+          type: boolean
+          default: false
+          description: Include annotation history
+        interpolate_key_frames:
+          type: boolean
+          default: false
+          description: Interpolate video key frames
+        predictions:
+          $ref: '#/components/schemas/SerializationOptionRequest'
+          description: JSON dict with parameters
+      title: SerializationOptionsRequest
+    LseTaskFilterOptions:
+      type: object
+      properties:
+        annotated:
+          oneOf:
+          - $ref: '#/components/schemas/AnnotatedEnum'
+          - type: 'null'
+          description: '`only` - include all tasks with at least one not skipped annotation<br>`exclude` - exclude all tasks with at least one not skipped annotation
 
-        * `exclude` - exclude
 
-        * `None` - None'
-      title: ReviewedEnum
-    SkippedEnum:
-      type: string
-      enum:
-      - only
-      - exclude
-      description: '* `only` - only
+            * `only` - only
 
-        * `exclude` - exclude
+            * `exclude` - exclude
 
-        * `None` - None'
-      title: SkippedEnum
-    LseAnnotationFilterOptions:
+            * `None` - None'
+        finished:
+          oneOf:
+          - $ref: '#/components/schemas/FinishedEnum'
+          - type: 'null'
+          description: '`only` - include all finished tasks (is_labeled = true)<br>`exclude` - exclude all finished tasks
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        only_with_annotations:
+          type: boolean
+          default: false
+        reviewed:
+          oneOf:
+          - $ref: '#/components/schemas/ReviewedEnum'
+          - type: 'null'
+          description: '`only` - include all reviewed tasks<br>`exclude` - exclude all reviewed tasks
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        skipped:
+          oneOf:
+          - $ref: '#/components/schemas/SkippedEnum'
+          - type: 'null'
+          description: '`only` - include all tasks with skipped annotations<br>`exclude` - exclude all tasks with skipped annotations
+
+
+            * `only` - only
+
+            * `exclude` - exclude
+
+            * `None` - None'
+        view:
+          type: integer
+          description: Apply filters from the view ID (a tab from the Data Manager)
+      title: LseTaskFilterOptions
+    LseAnnotationFilterOptionsRequest:
       type: object
       properties:
         ground_truth:
@@ -812,49 +802,59 @@ components:
           - 'null'
           default: true
           description: Include not skipped and not ground truth annotations
-      title: LseAnnotationFilterOptions
-    ExportConvertRequest:
+      title: LseAnnotationFilterOptionsRequest
+    projects_exports_convert_Response_200:
       type: object
       properties:
-        download_resources:
-          type: boolean
-          description: Download resources in converter.
+        converted_format:
+          type: integer
         export_type:
           type: string
-          description: Export file format.
-      required:
-      - export_type
-      title: ExportConvertRequest
-    SerializationOption:
+      title: projects_exports_convert_Response_200
+    SkippedEnum:
+      type: string
+      enum:
+      - only
+      - exclude
+      description: '* `only` - only
+
+        * `exclude` - exclude
+
+        * `None` - None'
+      title: SkippedEnum
+    Export:
       type: object
       properties:
-        only_id:
-          type: boolean
-          default: false
-          description: Include a full json body or IDs only
-      title: SerializationOption
-    UserSimpleRequest:
-      type: object
-      properties:
-        email:
+        converted_formats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConvertedFormat'
+        counters:
+          description: Any type
+        created_at:
           type: string
-          format: email
-        first_name:
+          format: date-time
+          description: Creation time
+        created_by:
+          $ref: '#/components/schemas/UserSimple'
+        finished_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Complete or fail time
+        id:
+          type: integer
+        md5:
           type: string
-        last_name:
-          type: string
-        username:
+        status:
+          $ref: '#/components/schemas/Status7bfEnum'
+        title:
           type: string
       required:
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimpleRequest
+      - created_at
+      - id
+      title: Export
   securitySchemes:
     Token:
       type: apiKey

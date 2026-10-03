@@ -219,135 +219,6 @@ paths:
                 $ref: '#/components/schemas/DatabricksImportStorage'
 components:
   schemas:
-    DatabricksImportStorage:
-      type: object
-      properties:
-        auth_type:
-          $ref: '#/components/schemas/AuthTypeEnum'
-          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
-
-
-            * `pat` - Personal Access Token
-
-            * `dbx_sp` - Databricks Service Principal
-
-            * `azure_ad_sp` - Azure AD Service Principal'
-        catalog:
-          type: string
-          description: UC catalog name
-        client_id:
-          type: string
-          description: Service principal client/application ID (required for SP modes)
-        created_at:
-          type: string
-          format: date-time
-          description: Creation time
-        description:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage description
-        host:
-          type: string
-          description: Databricks workspace base URL (https://...)
-        id:
-          type: integer
-        last_sync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last sync finished time
-        last_sync_count:
-          type:
-          - integer
-          - 'null'
-          description: Count of tasks synced last time
-        last_sync_job:
-          type:
-          - string
-          - 'null'
-          description: Last sync job ID
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta and debug information about storage processes
-        prefix:
-          type:
-          - string
-          - 'null'
-          description: Path under the volume
-        presign:
-          type: boolean
-          description: Presign not supported; always proxied
-        presign_ttl:
-          type: integer
-          description: Unused for Databricks; kept for compatibility
-        project:
-          type: integer
-          description: A unique integer value identifying this project.
-        recursive_scan:
-          type: boolean
-          description: Perform recursive scan
-        regex_filter:
-          type:
-          - string
-          - 'null'
-          description: Regex for filtering objects
-        request_timeout_s:
-          type: integer
-        schema:
-          type: string
-          description: UC schema name
-        status:
-          $ref: '#/components/schemas/StatusC5aEnum'
-        stream_chunk_bytes:
-          type: integer
-        synchronizable:
-          type: boolean
-          default: true
-        tenant_id:
-          type: string
-          description: Azure AD tenant ID (required for Azure AD SP mode)
-        title:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage title
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report for the last failed sync
-        type:
-          type: string
-          default: databricks
-        use_blob_urls:
-          type: boolean
-          description: Generate blob URLs in tasks
-        verify_tls:
-          type: boolean
-          description: Verify TLS certificates
-        volume:
-          type: string
-          description: UC volume name
-      required:
-      - catalog
-      - created_at
-      - host
-      - id
-      - project
-      - schema
-      - type
-      - volume
-      description: Serializer for Databricks import storage with multi-auth support.
-      title: DatabricksImportStorage
-    import_storage_databricks_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: import_storage_databricks_validate_Response_200
     StatusC5aEnum:
       type: string
       enum:
@@ -493,6 +364,130 @@ components:
 
         * `azure_ad_sp` - Azure AD Service Principal'
       title: AuthTypeEnum
+    DatabricksImportStorage:
+      type: object
+      properties:
+        auth_type:
+          $ref: '#/components/schemas/AuthTypeEnum'
+          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
+
+
+            * `pat` - Personal Access Token
+
+            * `dbx_sp` - Databricks Service Principal
+
+            * `azure_ad_sp` - Azure AD Service Principal'
+        catalog:
+          type: string
+          description: UC catalog name
+        client_id:
+          type: string
+          description: Service principal client/application ID (required for SP modes)
+        created_at:
+          type: string
+          format: date-time
+          description: Creation time
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        host:
+          type: string
+          description: Databricks workspace base URL (https://...)
+        id:
+          type: integer
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: Path under the volume
+        presign:
+          type: boolean
+          description: Presign not supported; always proxied
+        presign_ttl:
+          type: integer
+          description: Unused for Databricks; kept for compatibility
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        recursive_scan:
+          type: boolean
+          description: Perform recursive scan
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Regex for filtering objects
+        request_timeout_s:
+          type: integer
+        schema:
+          type: string
+          description: UC schema name
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        stream_chunk_bytes:
+          type: integer
+        synchronizable:
+          type: boolean
+          default: true
+        tenant_id:
+          type: string
+          description: Azure AD tenant ID (required for Azure AD SP mode)
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        type:
+          type: string
+          default: databricks
+        use_blob_urls:
+          type: boolean
+          description: Generate blob URLs in tasks
+        verify_tls:
+          type: boolean
+          description: Verify TLS certificates
+        volume:
+          type: string
+          description: UC volume name
+      required:
+      - catalog
+      - created_at
+      - host
+      - id
+      - project
+      - schema
+      - type
+      - volume
+      description: Serializer for Databricks import storage with multi-auth support.
+      title: DatabricksImportStorage
     DatabricksImportStorageRequest:
       type: object
       properties:
@@ -611,6 +606,11 @@ components:
       - volume
       description: Serializer for Databricks import storage with multi-auth support.
       title: DatabricksImportStorageRequest
+    import_storage_databricks_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: import_storage_databricks_validate_Response_200
   securitySchemes:
     Token:
       type: apiKey

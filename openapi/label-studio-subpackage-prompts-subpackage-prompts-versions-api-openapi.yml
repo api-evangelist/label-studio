@@ -327,124 +327,6 @@ paths:
               $ref: '#/components/schemas/RefinePromptRequestRequest'
 components:
   schemas:
-    RefinedPromptResponse:
-      type: object
-      properties:
-        previous_version:
-          oneOf:
-          - $ref: '#/components/schemas/ThirdPartyModelVersion'
-          - type: 'null'
-          description: Previous version of the prompt
-        prompt:
-          type: string
-          description: The refined prompt text
-        reasoning:
-          type:
-          - string
-          - 'null'
-          description: Reasoning behind the refinement
-        refinement_job_id:
-          type:
-          - string
-          - 'null'
-          description: Unique identifier for the refinement job
-        refinement_status:
-          type:
-          - string
-          - 'null'
-          description: Status of the refinement job
-        title:
-          type:
-          - string
-          - 'null'
-          description: Title of the refined prompt
-        total_cost:
-          type:
-          - string
-          - 'null'
-          description: Total cost of the refinement job (in USD)
-      required:
-      - previous_version
-      - prompt
-      - reasoning
-      - refinement_job_id
-      - refinement_status
-      - title
-      - total_cost
-      title: RefinedPromptResponse
-    RefinePromptRequestRequest:
-      type: object
-      properties:
-        project_id:
-          type: integer
-          description: Project ID to target the refined prompt for
-        teacher_model_name:
-          type: string
-          description: Name of the model to use to refine the prompt
-        teacher_model_provider_connection_id:
-          type: integer
-          description: Model Provider Connection ID to use to refine the prompt
-      required:
-      - project_id
-      - teacher_model_name
-      - teacher_model_provider_connection_id
-      title: RefinePromptRequestRequest
-    prompts_versions_get_default_version_name_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: prompts_versions_get_default_version_name_Response_200
-    ThirdPartyModelVersionRequest:
-      type: object
-      properties:
-        max_few_shot_examples:
-          type:
-          - integer
-          - 'null'
-          description: Max number of few-shot examples to include in prompts. 0 = disabled.
-        model_provider_connection:
-          type:
-          - integer
-          - 'null'
-        organization:
-          type:
-          - integer
-          - 'null'
-        parent_model:
-          type: integer
-          description: Parent model interface ID
-        prompt:
-          type: string
-          description: Prompt to execute
-        provider:
-          $ref: '#/components/schemas/ProviderEnum'
-          description: 'The model provider to use e.g. OpenAI
-
-
-            * `OpenAI` - OpenAI
-
-            * `AzureOpenAI` - AzureOpenAI
-
-            * `AzureAIFoundry` - AzureAIFoundry
-
-            * `VertexAI` - VertexAI
-
-            * `Gemini` - Gemini
-
-            * `Anthropic` - Anthropic
-
-            * `Custom` - Custom'
-        provider_model_id:
-          type: string
-          description: The model ID to use within the given provider, e.g. gpt-3.5
-        title:
-          type: string
-          description: Model name
-      required:
-      - prompt
-      - provider_model_id
-      - title
-      title: ThirdPartyModelVersionRequest
     PatchedThirdPartyModelVersionRequest:
       type: object
       properties:
@@ -492,6 +374,40 @@ components:
           type: string
           description: Model name
       title: PatchedThirdPartyModelVersionRequest
+    InferenceRunCostEstimate:
+      type: object
+      properties:
+        completion_cost_usd:
+          type:
+          - string
+          - 'null'
+          description: Cost of the completion (in USD)
+        error_message:
+          type:
+          - string
+          - 'null'
+          description: Error message details
+        error_type:
+          type:
+          - string
+          - 'null'
+          description: Type of error (e.g. "Timeout", "Rate Limit", etc)
+        is_error:
+          type:
+          - boolean
+          - 'null'
+          description: Whether an error occurred or not
+        prompt_cost_usd:
+          type:
+          - string
+          - 'null'
+          description: Cost of the prompt (in USD)
+        total_cost_usd:
+          type:
+          - string
+          - 'null'
+          description: Total cost of the inference (in USD)
+      title: InferenceRunCostEstimate
     ThirdPartyModelVersion:
       type: object
       properties:
@@ -564,6 +480,75 @@ components:
       - title
       - updated_at
       title: ThirdPartyModelVersion
+    RefinedPromptResponse:
+      type: object
+      properties:
+        previous_version:
+          oneOf:
+          - $ref: '#/components/schemas/ThirdPartyModelVersion'
+          - type: 'null'
+          description: Previous version of the prompt
+        prompt:
+          type: string
+          description: The refined prompt text
+        reasoning:
+          type:
+          - string
+          - 'null'
+          description: Reasoning behind the refinement
+        refinement_job_id:
+          type:
+          - string
+          - 'null'
+          description: Unique identifier for the refinement job
+        refinement_status:
+          type:
+          - string
+          - 'null'
+          description: Status of the refinement job
+        title:
+          type:
+          - string
+          - 'null'
+          description: Title of the refined prompt
+        total_cost:
+          type:
+          - string
+          - 'null'
+          description: Total cost of the refinement job (in USD)
+      required:
+      - previous_version
+      - prompt
+      - reasoning
+      - refinement_job_id
+      - refinement_status
+      - title
+      - total_cost
+      title: RefinedPromptResponse
+    ProviderEnum:
+      type: string
+      enum:
+      - OpenAI
+      - AzureOpenAI
+      - AzureAIFoundry
+      - VertexAI
+      - Gemini
+      - Anthropic
+      - Custom
+      description: '* `OpenAI` - OpenAI
+
+        * `AzureOpenAI` - AzureOpenAI
+
+        * `AzureAIFoundry` - AzureAIFoundry
+
+        * `VertexAI` - VertexAI
+
+        * `Gemini` - Gemini
+
+        * `Anthropic` - Anthropic
+
+        * `Custom` - Custom'
+      title: ProviderEnum
     UserSimple:
       type: object
       properties:
@@ -592,64 +577,79 @@ components:
 
         values with complex, nested serializations'
       title: UserSimple
-    InferenceRunCostEstimate:
+    ThirdPartyModelVersionRequest:
       type: object
       properties:
-        completion_cost_usd:
+        max_few_shot_examples:
           type:
-          - string
+          - integer
           - 'null'
-          description: Cost of the completion (in USD)
-        error_message:
+          description: Max number of few-shot examples to include in prompts. 0 = disabled.
+        model_provider_connection:
           type:
-          - string
+          - integer
           - 'null'
-          description: Error message details
-        error_type:
+        organization:
           type:
-          - string
+          - integer
           - 'null'
-          description: Type of error (e.g. "Timeout", "Rate Limit", etc)
-        is_error:
-          type:
-          - boolean
-          - 'null'
-          description: Whether an error occurred or not
-        prompt_cost_usd:
-          type:
-          - string
-          - 'null'
-          description: Cost of the prompt (in USD)
-        total_cost_usd:
-          type:
-          - string
-          - 'null'
-          description: Total cost of the inference (in USD)
-      title: InferenceRunCostEstimate
-    ProviderEnum:
-      type: string
-      enum:
-      - OpenAI
-      - AzureOpenAI
-      - AzureAIFoundry
-      - VertexAI
-      - Gemini
-      - Anthropic
-      - Custom
-      description: '* `OpenAI` - OpenAI
+        parent_model:
+          type: integer
+          description: Parent model interface ID
+        prompt:
+          type: string
+          description: Prompt to execute
+        provider:
+          $ref: '#/components/schemas/ProviderEnum'
+          description: 'The model provider to use e.g. OpenAI
 
-        * `AzureOpenAI` - AzureOpenAI
 
-        * `AzureAIFoundry` - AzureAIFoundry
+            * `OpenAI` - OpenAI
 
-        * `VertexAI` - VertexAI
+            * `AzureOpenAI` - AzureOpenAI
 
-        * `Gemini` - Gemini
+            * `AzureAIFoundry` - AzureAIFoundry
 
-        * `Anthropic` - Anthropic
+            * `VertexAI` - VertexAI
 
-        * `Custom` - Custom'
-      title: ProviderEnum
+            * `Gemini` - Gemini
+
+            * `Anthropic` - Anthropic
+
+            * `Custom` - Custom'
+        provider_model_id:
+          type: string
+          description: The model ID to use within the given provider, e.g. gpt-3.5
+        title:
+          type: string
+          description: Model name
+      required:
+      - prompt
+      - provider_model_id
+      - title
+      title: ThirdPartyModelVersionRequest
+    prompts_versions_get_default_version_name_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: prompts_versions_get_default_version_name_Response_200
+    RefinePromptRequestRequest:
+      type: object
+      properties:
+        project_id:
+          type: integer
+          description: Project ID to target the refined prompt for
+        teacher_model_name:
+          type: string
+          description: Name of the model to use to refine the prompt
+        teacher_model_provider_connection_id:
+          type: integer
+          description: Model Provider Connection ID to use to refine the prompt
+      required:
+      - project_id
+      - teacher_model_name
+      - teacher_model_provider_connection_id
+      title: RefinePromptRequestRequest
   securitySchemes:
     Token:
       type: apiKey

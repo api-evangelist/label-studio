@@ -146,6 +146,31 @@ paths:
                 $ref: '#/components/schemas/CancelModelRunResponse'
 components:
   schemas:
+    ModelRunStatusEnum:
+      type: string
+      enum:
+      - Pending
+      - InProgress
+      - Completed
+      - Failed
+      - Canceled
+      description: '* `Pending` - Pending
+
+        * `InProgress` - InProgress
+
+        * `Completed` - Completed
+
+        * `Failed` - Failed
+
+        * `Canceled` - Canceled'
+      title: ModelRunStatusEnum
+    ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset:
+      type: string
+      enum:
+      - All
+      - HasGT
+      - Sample
+      title: ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset
     ModelRun:
       type: object
       properties:
@@ -231,24 +256,6 @@ components:
       - task_ids
       - triggered_at
       title: ModelRun
-    ModelRunStatusEnum:
-      type: string
-      enum:
-      - Pending
-      - InProgress
-      - Completed
-      - Failed
-      - Canceled
-      description: '* `Pending` - Pending
-
-        * `InProgress` - InProgress
-
-        * `Completed` - Completed
-
-        * `Failed` - Failed
-
-        * `Canceled` - Canceled'
-      title: ModelRunStatusEnum
     ProjectSubsetEnum:
       type: string
       enum:
@@ -264,6 +271,42 @@ components:
 
         * `Custom` - Custom'
       title: ProjectSubsetEnum
+    CancelModelRunResponse:
+      type: object
+      properties:
+        detail:
+          type: string
+      required:
+      - detail
+      title: CancelModelRunResponse
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
     ModelRunRequest:
       type: object
       properties:
@@ -314,49 +357,6 @@ components:
       required:
       - project
       title: ModelRunRequest
-    CancelModelRunResponse:
-      type: object
-      properties:
-        detail:
-          type: string
-      required:
-      - detail
-      title: CancelModelRunResponse
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
-    ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset:
-      type: string
-      enum:
-      - All
-      - HasGT
-      - Sample
-      title: ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset
   securitySchemes:
     Token:
       type: apiKey

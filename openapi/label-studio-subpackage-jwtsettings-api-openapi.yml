@@ -55,20 +55,6 @@ paths:
               $ref: '#/components/schemas/LSEJWTSettingsRequest'
 components:
   schemas:
-    LSEJWTSettings:
-      type: object
-      properties:
-        api_token_ttl_days:
-          type: integer
-        api_tokens_enabled:
-          type: boolean
-          description: Enable JWT API token authentication for this organization
-        legacy_api_tokens_enabled:
-          type: boolean
-          description: Enable legacy API token authentication for this organization
-      required:
-      - api_token_ttl_days
-      title: LSEJWTSettings
     LSEJWTSettingsRequest:
       type: object
       properties:
@@ -83,6 +69,20 @@ components:
       required:
       - api_token_ttl_days
       title: LSEJWTSettingsRequest
+    LSEJWTSettings:
+      type: object
+      properties:
+        api_token_ttl_days:
+          type: integer
+        api_tokens_enabled:
+          type: boolean
+          description: Enable JWT API token authentication for this organization
+        legacy_api_tokens_enabled:
+          type: boolean
+          description: Enable legacy API token authentication for this organization
+      required:
+      - api_token_ttl_days
+      title: LSEJWTSettings
   securitySchemes:
     Token:
       type: apiKey

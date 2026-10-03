@@ -802,37 +802,25 @@ paths:
                 $ref: '#/components/schemas/projects_stats_user_ground_truth_agreement_Response_200'
 components:
   schemas:
-    projects_stats_user_ground_truth_agreement_Response_200:
+    LabelDistributionCountsResponse:
       type: object
       properties:
-        agreement:
-          $ref: '#/components/schemas/ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement'
-      title: projects_stats_user_ground_truth_agreement_Response_200
-    ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement:
-      oneOf:
-      - type: number
-        format: double
-      - type: object
-        additionalProperties:
-          type: number
-          format: double
-      title: ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement
-    LabelDistributionStructureResponse:
-      type: object
-      properties:
-        choice_keys:
+        next_offset:
+          type:
+          - integer
+          - 'null'
+          description: Next offset for pagination when using limit/offset mode; null when there are no more results or when filtering by explicit `choice_keys`.
+        results:
           type: array
           items:
-            type: string
-          description: All project choice keys in stable order, joined with "___PIPE___" when passed as query param.
-        dimensions:
-          type: array
-          items:
-            $ref: '#/components/schemas/LabelDistributionStructureDimension'
+            $ref: '#/components/schemas/LabelDistributionCountsRow'
+        totals:
+          $ref: '#/components/schemas/LabelDistributionCountsTotals'
       required:
-      - choice_keys
-      - dimensions
-      title: LabelDistributionStructureResponse
+      - next_offset
+      - results
+      - totals
+      title: LabelDistributionCountsResponse
     projects_stats_users_ground_truth_agreement_Response_200:
       type: object
       properties:
@@ -842,16 +830,15 @@ components:
             $ref: '#/components/schemas/ApiProjectsIdStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement'
           description: Dictionary mapping user IDs to their ground truth agreement scores
       title: projects_stats_users_ground_truth_agreement_Response_200
-    ProjectsStatsTotalAgreementResponse2001:
+    projects_stats_agreement_annotator_Response_200:
       type: object
       properties:
-        total_agreement:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-      title: ProjectsStatsTotalAgreementResponse2001
-    ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement:
+        Agreement_per_annotator:
+          type: number
+          format: double
+          description: Agreement score for the annotator (0-1)
+      title: projects_stats_agreement_annotator_Response_200
+    ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore:
       oneOf:
       - type: number
         format: double
@@ -859,7 +846,53 @@ components:
         additionalProperties:
           type: number
           format: double
-      title: ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement
+      title: ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore
+    projects_stats_model_version_prediction_agreement_Response_200:
+      type: object
+      properties:
+        average_prediction_agreement_per_model:
+          type:
+          - number
+          - 'null'
+          format: double
+      title: projects_stats_model_version_prediction_agreement_Response_200
+    ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems:
+      type: object
+      properties:
+        mean_time:
+          type: number
+          format: double
+          description: Average lead time for the user
+        median_time:
+          type: number
+          format: double
+          description: Median lead time for the user
+        sum_lead_time:
+          type: number
+          format: double
+          description: Total lead time for the user
+        user_id:
+          type: integer
+          description: User ID
+      title: ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems
+    projects_stats_iaa_Response_200:
+      type: object
+      properties:
+        IAA:
+          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaIaa'
+          description: Inter-Annotator Agreement matrix - 2D array when per_label=false, object with label keys when per_label=true
+        common_tasks:
+          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaCommonTasks'
+          description: Common tasks matrix - 2D array when per_label=false, object with label keys when per_label=true
+        std:
+          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd'
+          description: Standard deviation - number when per_label=false, object with label keys when per_label=true
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems'
+          description: List of users in the matrix
+      title: projects_stats_iaa_Response_200
     ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaCommonTasks:
       oneOf:
       - type: array
@@ -896,11 +929,46 @@ components:
               format: double
       description: Inter-Annotator Agreement matrix - 2D array when per_label=false, object with label keys when per_label=true
       title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaIaa
-    projects_stats_total_agreement_Response_200:
+    ProjectsStatsTotalAgreementResponse2001:
+      type: object
+      properties:
+        total_agreement:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+      title: ProjectsStatsTotalAgreementResponse2001
+    ProjectsStatsTotalAgreementResponse2000:
+      type: object
+      properties:
+        total_agreement:
+          type: number
+          format: double
+      title: ProjectsStatsTotalAgreementResponse2000
+    projects_stats_users_prediction_agreement_Response_200:
+      type: object
+      properties:
+        agreement:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement'
+          description: Dictionary mapping user IDs to their prediction agreement scores
+      title: projects_stats_users_prediction_agreement_Response_200
+    ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement:
       oneOf:
-      - $ref: '#/components/schemas/ProjectsStatsTotalAgreementResponse2000'
-      - $ref: '#/components/schemas/ProjectsStatsTotalAgreementResponse2001'
-      title: projects_stats_total_agreement_Response_200
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement
+    projects_stats_user_prediction_agreement_Response_200:
+      type: object
+      properties:
+        average_prediction_agreement_per_user:
+          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkPredictionGetResponsesContentApplicationJsonSchemaAveragePredictionAgreementPerUser'
+      title: projects_stats_user_prediction_agreement_Response_200
     ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd:
       oneOf:
       - type: number
@@ -911,49 +979,26 @@ components:
           format: double
       description: Standard deviation - number when per_label=false, object with label keys when per_label=true
       title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd
-    projects_stats_model_version_prediction_agreement_Response_200:
+    projects_stats_member_performance_rows_Response_200:
       type: object
       properties:
-        average_prediction_agreement_per_model:
-          type:
-          - number
-          - 'null'
-          format: double
-      title: projects_stats_model_version_prediction_agreement_Response_200
-    projects_stats_users_prediction_agreement_Response_200:
-      type: object
-      properties:
-        agreement:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement'
-          description: Dictionary mapping user IDs to their prediction agreement scores
-      title: projects_stats_users_prediction_agreement_Response_200
-    projects_stats_model_version_ground_truth_agreement_Response_200:
-      type: object
-      properties:
-        agreement:
-          type:
-          - number
-          - 'null'
-          format: double
-      title: projects_stats_model_version_ground_truth_agreement_Response_200
-    projects_stats_lead_time_Response_200:
-      type: object
-      properties:
-        lead_time_stats:
+        count:
+          type: integer
+        page:
+          type: integer
+        page_size:
+          type: integer
+        results:
           type: array
           items:
-            $ref: '#/components/schemas/ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems'
-          description: Lead time statistics including mean, median, and distribution
-      title: projects_stats_lead_time_Response_200
-    projects_stats_data_filters_Response_200:
-      type: object
-      properties:
-        user_filters:
-          $ref: '#/components/schemas/ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFilters'
-          description: Data filter statistics by user and model
-      title: projects_stats_data_filters_Response_200
+            type: object
+            additionalProperties:
+              description: Any type
+        summary:
+          type: object
+          additionalProperties:
+            description: Any type
+      title: projects_stats_member_performance_rows_Response_200
     projects_stats_model_version_annotator_agreement_Response_200:
       type: object
       properties:
@@ -963,113 +1008,6 @@ components:
           - 'null'
           format: double
       title: projects_stats_model_version_annotator_agreement_Response_200
-    projects_stats_agreement_annotators_Response_200:
-      type: object
-      properties:
-        agreement:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-          description: Mapping of annotator ID to their agreement score (0-1) or null if no data
-      required:
-      - agreement
-      title: projects_stats_agreement_annotators_Response_200
-    projects_stats_users_review_score_Response_200:
-      type: object
-      properties:
-        performance_score:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore'
-          description: Performance scores mapped by annotator ID
-        review_score:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore'
-          description: Review scores mapped by annotator ID
-      title: projects_stats_users_review_score_Response_200
-    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems:
-      type: object
-      properties:
-        id:
-          type: string
-          description: User ID or model version identifier (e.g., "model:1.0")
-      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems
-    projects_stats_user_review_score_Response_200:
-      type: object
-      properties:
-        performance_score:
-          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore'
-        review_score:
-          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore'
-      title: projects_stats_user_review_score_Response_200
-    projects_stats_iaa_Response_200:
-      type: object
-      properties:
-        IAA:
-          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaIaa'
-          description: Inter-Annotator Agreement matrix - 2D array when per_label=false, object with label keys when per_label=true
-        common_tasks:
-          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaCommonTasks'
-          description: Common tasks matrix - 2D array when per_label=false, object with label keys when per_label=true
-        std:
-          $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaStd'
-          description: Standard deviation - number when per_label=false, object with label keys when per_label=true
-        users:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems'
-          description: List of users in the matrix
-      title: projects_stats_iaa_Response_200
-    projects_stats_agreement_annotator_Response_200:
-      type: object
-      properties:
-        Agreement_per_annotator:
-          type: number
-          format: double
-          description: Agreement score for the annotator (0-1)
-      title: projects_stats_agreement_annotator_Response_200
-    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations:
-      type: object
-      properties: {}
-      description: Default filter tab for tasks with annotations
-      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations
-    ProjectsStatsTotalAgreementResponse2000:
-      type: object
-      properties:
-        total_agreement:
-          type: number
-          format: double
-      title: ProjectsStatsTotalAgreementResponse2000
-    ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems:
-      type: object
-      properties:
-        mean_time:
-          type: number
-          format: double
-          description: Average lead time for the user
-        median_time:
-          type: number
-          format: double
-          description: Median lead time for the user
-        sum_lead_time:
-          type: number
-          format: double
-          description: Total lead time for the user
-        user_id:
-          type: integer
-          description: User ID
-      title: ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems
-    ApiProjectsIdUserStatsUserPkPredictionGetResponsesContentApplicationJsonSchemaAveragePredictionAgreementPerUser:
-      oneOf:
-      - type: number
-        format: double
-      - type: object
-        additionalProperties:
-          type: number
-          format: double
-      title: ApiProjectsIdUserStatsUserPkPredictionGetResponsesContentApplicationJsonSchemaAveragePredictionAgreementPerUser
     ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFilters:
       type: object
       properties:
@@ -1096,26 +1034,160 @@ components:
           type: integer
           description: Progress percentage (0-100)
       title: projects_stats_finished_tasks_Response_200
-    projects_stats_member_performance_rows_Response_200:
+    projects_stats_user_review_score_Response_200:
       type: object
       properties:
-        count:
-          type: integer
-        page:
-          type: integer
-        page_size:
-          type: integer
-        results:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Any type
-        summary:
+        performance_score:
+          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore'
+        review_score:
+          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore'
+      title: projects_stats_user_review_score_Response_200
+    LabelDistributionCountsTotals:
+      type: object
+      properties:
+        annotation_totals_by_dimension:
           type: object
           additionalProperties:
-            description: Any type
-      title: projects_stats_member_performance_rows_Response_200
+            type: integer
+          description: Total annotation counts keyed by dimension name.
+        prediction_totals_by_dimension:
+          type: object
+          additionalProperties:
+            type: integer
+          description: Total prediction counts keyed by dimension name.
+      title: LabelDistributionCountsTotals
+    ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore
+    ApiProjectsIdUserStatsUserPkPredictionGetResponsesContentApplicationJsonSchemaAveragePredictionAgreementPerUser:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsUserPkPredictionGetResponsesContentApplicationJsonSchemaAveragePredictionAgreementPerUser
+    projects_stats_lead_time_Response_200:
+      type: object
+      properties:
+        lead_time_stats:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiProjectsIdStatsLeadTimeGetResponsesContentApplicationJsonSchemaLeadTimeStatsItems'
+          description: Lead time statistics including mean, median, and distribution
+      title: projects_stats_lead_time_Response_200
+    projects_stats_user_ground_truth_agreement_Response_200:
+      type: object
+      properties:
+        agreement:
+          $ref: '#/components/schemas/ApiProjectsIdUsersUserPkStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement'
+      title: projects_stats_user_ground_truth_agreement_Response_200
+    projects_stats_model_version_ground_truth_agreement_Response_200:
+      type: object
+      properties:
+        agreement:
+          type:
+          - number
+          - 'null'
+          format: double
+      title: projects_stats_model_version_ground_truth_agreement_Response_200
+    projects_stats_agreement_annotators_Response_200:
+      type: object
+      properties:
+        agreement:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+          description: Mapping of annotator ID to their agreement score (0-1) or null if no data
+      required:
+      - agreement
+      title: projects_stats_agreement_annotators_Response_200
+    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems:
+      type: object
+      properties:
+        id:
+          type: string
+          description: User ID or model version identifier (e.g., "model:1.0")
+      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersStatsItems
+    ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems:
+      type: object
+      properties: {}
+      title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems
+    ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsPredictionGetResponsesContentApplicationJsonSchemaAgreement
+    LabelDistributionStructureResponse:
+      type: object
+      properties:
+        choice_keys:
+          type: array
+          items:
+            type: string
+          description: All project choice keys in stable order, joined with "___PIPE___" when passed as query param.
+        dimensions:
+          type: array
+          items:
+            $ref: '#/components/schemas/LabelDistributionStructureDimension'
+      required:
+      - choice_keys
+      - dimensions
+      title: LabelDistributionStructureResponse
+    ApiProjectsIdStatsMemberPerformanceRowsGetParametersTable:
+      type: string
+      enum:
+      - annotations
+      - reviews
+      title: ApiProjectsIdStatsMemberPerformanceRowsGetParametersTable
+    projects_stats_total_agreement_Response_200:
+      oneOf:
+      - $ref: '#/components/schemas/ProjectsStatsTotalAgreementResponse2000'
+      - $ref: '#/components/schemas/ProjectsStatsTotalAgreementResponse2001'
+      title: projects_stats_total_agreement_Response_200
+    projects_stats_data_filters_Response_200:
+      type: object
+      properties:
+        user_filters:
+          $ref: '#/components/schemas/ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFilters'
+          description: Data filter statistics by user and model
+      title: projects_stats_data_filters_Response_200
+    LabelDistributionStructureDimension:
+      type: object
+      properties:
+        choice_keys:
+          type: array
+          items:
+            type: string
+          description: Flat keys in "<from_name>___SEP___<choice>" format for this dimension.
+        choices:
+          type: array
+          items:
+            type: string
+          description: Sorted list of choices observed from config and/or created labels.
+        name:
+          type: string
+          description: Original from_name from labeling config or observed annotation results.
+        type:
+          type: string
+          description: Result item type for this dimension when available.
+      required:
+      - choice_keys
+      - choices
+      - name
+      title: LabelDistributionStructureDimension
     ApiProjectsIdStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement:
       oneOf:
       - type: number
@@ -1125,30 +1197,25 @@ components:
           type: number
           format: double
       title: ApiProjectsIdStatsAgreementGroundtruthGetResponsesContentApplicationJsonSchemaAgreement
+    projects_stats_users_review_score_Response_200:
+      type: object
+      properties:
+        performance_score:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore'
+          description: Performance scores mapped by annotator ID
+        review_score:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore'
+          description: Review scores mapped by annotator ID
+      title: projects_stats_users_review_score_Response_200
     projects_stats_update_stats_Response_200:
       type: object
       properties: {}
       description: Stat recalculation job
       title: projects_stats_update_stats_Response_200
-    ApiProjectsIdStatsMemberPerformanceRowsGetParametersTable:
-      type: string
-      enum:
-      - annotations
-      - reviews
-      title: ApiProjectsIdStatsMemberPerformanceRowsGetParametersTable
-    ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore:
-      oneOf:
-      - type: number
-        format: double
-      - type: object
-        additionalProperties:
-          type: number
-          format: double
-      title: ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore
-    ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems:
-      type: object
-      properties: {}
-      title: ApiProjectsIdStatsIaaGetResponsesContentApplicationJsonSchemaUsersItems
     LabelDistributionCountsRow:
       type: object
       properties:
@@ -1177,26 +1244,20 @@ components:
       - from_predictions_count
       - from_predictions_percent
       title: LabelDistributionCountsRow
-    LabelDistributionCountsTotals:
+    ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore:
+      oneOf:
+      - type: number
+        format: double
+      - type: object
+        additionalProperties:
+          type: number
+          format: double
+      title: ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore
+    ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations:
       type: object
-      properties:
-        annotation_totals_by_dimension:
-          type: object
-          additionalProperties:
-            type: integer
-          description: Total annotation counts keyed by dimension name.
-        prediction_totals_by_dimension:
-          type: object
-          additionalProperties:
-            type: integer
-          description: Total prediction counts keyed by dimension name.
-      title: LabelDistributionCountsTotals
-    projects_stats_user_prediction_agreement_Response_200:
-      type: object
-      properties:
-        average_prediction_agreement_per_user:
-          $ref: '#/components/schemas/ApiProjectsIdUserStatsUserPkPredictionGetResponsesContentApplicationJsonSchemaAveragePredictionAgreementPerUser'
-      title: projects_stats_user_prediction_agreement_Response_200
+      properties: {}
+      description: Default filter tab for tasks with annotations
+      title: ApiProjectsIdStatsDataFilterGetResponsesContentApplicationJsonSchemaUserFiltersTasksWithAnnotations
     ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore:
       oneOf:
       - type: number
@@ -1206,67 +1267,6 @@ components:
           type: number
           format: double
       title: ApiProjectsIdUserStatsReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore
-    LabelDistributionStructureDimension:
-      type: object
-      properties:
-        choice_keys:
-          type: array
-          items:
-            type: string
-          description: Flat keys in "<from_name>___SEP___<choice>" format for this dimension.
-        choices:
-          type: array
-          items:
-            type: string
-          description: Sorted list of choices observed from config and/or created labels.
-        name:
-          type: string
-          description: Original from_name from labeling config or observed annotation results.
-        type:
-          type: string
-          description: Result item type for this dimension when available.
-      required:
-      - choice_keys
-      - choices
-      - name
-      title: LabelDistributionStructureDimension
-    ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore:
-      oneOf:
-      - type: number
-        format: double
-      - type: object
-        additionalProperties:
-          type: number
-          format: double
-      title: ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaReviewScore
-    LabelDistributionCountsResponse:
-      type: object
-      properties:
-        next_offset:
-          type:
-          - integer
-          - 'null'
-          description: Next offset for pagination when using limit/offset mode; null when there are no more results or when filtering by explicit `choice_keys`.
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/LabelDistributionCountsRow'
-        totals:
-          $ref: '#/components/schemas/LabelDistributionCountsTotals'
-      required:
-      - next_offset
-      - results
-      - totals
-      title: LabelDistributionCountsResponse
-    ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore:
-      oneOf:
-      - type: number
-        format: double
-      - type: object
-        additionalProperties:
-          type: number
-          format: double
-      title: ApiProjectsIdUserStatsUserPkReviewScoreGetResponsesContentApplicationJsonSchemaPerformanceScore
   securitySchemes:
     Token:
       type: apiKey

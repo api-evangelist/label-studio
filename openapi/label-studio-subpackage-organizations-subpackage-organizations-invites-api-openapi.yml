@@ -100,33 +100,6 @@ paths:
               $ref: '#/components/schemas/SendInviteRequest'
 components:
   schemas:
-    OrganizationInvite:
-      type: object
-      properties:
-        invite_url:
-          type: string
-        token:
-          type: string
-      title: OrganizationInvite
-    organizations_invites_revoke_invite_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: organizations_invites_revoke_invite_Response_200
-    RevokeInviteRequest:
-      type: object
-      properties:
-        email:
-          type: string
-          description: Email address
-      required:
-      - email
-      title: RevokeInviteRequest
-    organizations_invites_send_email_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: organizations_invites_send_email_Response_200
     SendInviteRequest:
       type: object
       properties:
@@ -167,6 +140,33 @@ components:
       - emails
       - role
       title: SendInviteRequest
+    OrganizationInvite:
+      type: object
+      properties:
+        invite_url:
+          type: string
+        token:
+          type: string
+      title: OrganizationInvite
+    RevokeInviteRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Email address
+      required:
+      - email
+      title: RevokeInviteRequest
+    organizations_invites_send_email_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: organizations_invites_send_email_Response_200
+    organizations_invites_revoke_invite_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: organizations_invites_revoke_invite_Response_200
     Role9e7Enum:
       type: string
       enum:

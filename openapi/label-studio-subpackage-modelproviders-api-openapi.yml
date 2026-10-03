@@ -179,6 +179,26 @@ paths:
               $ref: '#/components/schemas/PatchedModelProviderConnectionRequest'
 components:
   schemas:
+    ScopeEnum:
+      type: string
+      enum:
+      - Organization
+      - User
+      - Model
+      description: '* `Organization` - Organization
+
+        * `User` - User
+
+        * `Model` - Model'
+      title: ScopeEnum
+    model_providers_list_model_provider_choices_Response_200:
+      type: object
+      properties:
+        provider_choices:
+          type: array
+          items:
+            type: string
+      title: model_providers_list_model_provider_choices_Response_200
     ModelProviderConnectionRequest:
       type: object
       properties:
@@ -238,35 +258,6 @@ components:
         scope:
           $ref: '#/components/schemas/ScopeEnum'
       title: ModelProviderConnectionRequest
-    BudgetResetPeriodEnum:
-      type: string
-      enum:
-      - Monthly
-      - Yearly
-      description: '* `Monthly` - Monthly
-
-        * `Yearly` - Yearly'
-      title: BudgetResetPeriodEnum
-    ScopeEnum:
-      type: string
-      enum:
-      - Organization
-      - User
-      - Model
-      description: '* `Organization` - Organization
-
-        * `User` - User
-
-        * `Model` - Model'
-      title: ScopeEnum
-    model_providers_list_model_provider_choices_Response_200:
-      type: object
-      properties:
-        provider_choices:
-          type: array
-          items:
-            type: string
-      title: model_providers_list_model_provider_choices_Response_200
     PatchedModelProviderConnectionRequest:
       type: object
       properties:
@@ -326,6 +317,39 @@ components:
         scope:
           $ref: '#/components/schemas/ScopeEnum'
       title: PatchedModelProviderConnectionRequest
+    BudgetResetPeriodEnum:
+      type: string
+      enum:
+      - Monthly
+      - Yearly
+      description: '* `Monthly` - Monthly
+
+        * `Yearly` - Yearly'
+      title: BudgetResetPeriodEnum
+    ProviderEnum:
+      type: string
+      enum:
+      - OpenAI
+      - AzureOpenAI
+      - AzureAIFoundry
+      - VertexAI
+      - Gemini
+      - Anthropic
+      - Custom
+      description: '* `OpenAI` - OpenAI
+
+        * `AzureOpenAI` - AzureOpenAI
+
+        * `AzureAIFoundry` - AzureAIFoundry
+
+        * `VertexAI` - VertexAI
+
+        * `Gemini` - Gemini
+
+        * `Anthropic` - Anthropic
+
+        * `Custom` - Custom'
+      title: ProviderEnum
     UserSimple:
       type: object
       properties:
@@ -354,30 +378,6 @@ components:
 
         values with complex, nested serializations'
       title: UserSimple
-    ProviderEnum:
-      type: string
-      enum:
-      - OpenAI
-      - AzureOpenAI
-      - AzureAIFoundry
-      - VertexAI
-      - Gemini
-      - Anthropic
-      - Custom
-      description: '* `OpenAI` - OpenAI
-
-        * `AzureOpenAI` - AzureOpenAI
-
-        * `AzureAIFoundry` - AzureAIFoundry
-
-        * `VertexAI` - VertexAI
-
-        * `Gemini` - Gemini
-
-        * `Anthropic` - Anthropic
-
-        * `Custom` - Custom'
-      title: ProviderEnum
     ModelProviderConnection:
       type: object
       properties:

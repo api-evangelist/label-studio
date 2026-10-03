@@ -181,11 +181,13 @@ paths:
                 $ref: '#/components/schemas/files_download_Response_200'
 components:
   schemas:
-    files_download_Response_200:
+    PatchedFileUploadRequest:
       type: object
-      properties: {}
-      description: Empty response body
-      title: files_download_Response_200
+      properties:
+        file:
+          type: string
+          format: binary
+      title: PatchedFileUploadRequest
     FileUpload:
       type: object
       properties:
@@ -202,13 +204,11 @@ components:
       - id
       - size
       title: FileUpload
-    PatchedFileUploadRequest:
+    files_download_Response_200:
       type: object
-      properties:
-        file:
-          type: string
-          format: binary
-      title: PatchedFileUploadRequest
+      properties: {}
+      description: Empty response body
+      title: files_download_Response_200
   securitySchemes:
     Token:
       type: apiKey
