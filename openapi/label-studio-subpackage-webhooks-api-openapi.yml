@@ -164,7 +164,7 @@ paths:
               $ref: '#/components/schemas/PatchedWebhookSerializerForUpdateRequest'
 components:
   schemas:
-    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsDeleted:
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewUpdated:
       type: object
       properties:
         description:
@@ -180,68 +180,7 @@ components:
       - key
       - name
       - organization-only
-      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsDeleted
-    PatchedWebhookSerializerForUpdateRequest:
-      type: object
-      properties:
-        actions:
-          type: array
-          items:
-            $ref: '#/components/schemas/ActionsEnum'
-        headers:
-          description: Key Value Json of headers
-        is_active:
-          type: boolean
-          description: If value is False the webhook is disabled
-        send_for_all_actions:
-          type: boolean
-          description: If value is False - used only for actions from WebhookAction
-        send_payload:
-          type: boolean
-          description: If value is False send only action
-        url:
-          type: string
-          format: uri
-          description: URL of webhook
-      description: 'Serializer class for updating webhooks
-
-
-        Used to forbid updating project field.'
-      title: PatchedWebhookSerializerForUpdateRequest
-    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkDeleted:
-      type: object
-      properties:
-        description:
-          type: string
-        key:
-          type: string
-        name:
-          type: string
-        organization-only:
-          type: boolean
-      required:
-      - description
-      - key
-      - name
-      - organization-only
-      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkDeleted
-    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectUpdated:
-      type: object
-      properties:
-        description:
-          type: string
-        key:
-          type: string
-        name:
-          type: string
-        organization-only:
-          type: boolean
-      required:
-      - description
-      - key
-      - name
-      - organization-only
-      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectUpdated
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewUpdated
     ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsCreated:
       type: object
       properties:
@@ -259,35 +198,74 @@ components:
       - name
       - organization-only
       title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsCreated
-    WebhookRequest:
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkCreated:
       type: object
       properties:
-        actions:
-          type: array
-          items:
-            $ref: '#/components/schemas/ActionsEnum'
-        headers:
-          description: Key Value Json of headers
-        is_active:
-          type: boolean
-          description: If value is False the webhook is disabled
-        project:
-          type:
-          - integer
-          - 'null'
-        send_for_all_actions:
-          type: boolean
-          description: If value is False - used only for actions from WebhookAction
-        send_payload:
-          type: boolean
-          description: If value is False send only action
-        url:
+        description:
           type: string
-          format: uri
-          description: URL of webhook
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
       required:
-      - url
-      title: WebhookRequest
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkCreated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkDeleted:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkDeleted
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectCreated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectCreated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewsDeleted:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewsDeleted
     ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksCreated:
       type: object
       properties:
@@ -305,6 +283,122 @@ components:
       - name
       - organization-only
       title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksCreated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationCreated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationCreated
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectUpdated:
+      type: object
+      properties:
+        description:
+          type: string
+        key:
+          type: string
+        name:
+          type: string
+        organization-only:
+          type: boolean
+      required:
+      - description
+      - key
+      - name
+      - organization-only
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectUpdated
+    webhooks_info_Response_200:
+      type: object
+      properties:
+        ANNOTATIONS_CREATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsCreated'
+        ANNOTATIONS_DELETED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsDeleted'
+        ANNOTATION_CREATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationCreated'
+        ANNOTATION_UPDATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationUpdated'
+        LABEL_LINK_CREATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkCreated'
+        LABEL_LINK_DELETED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkDeleted'
+        LABEL_LINK_UPDATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkUpdated'
+        PROJECT_CREATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectCreated'
+        PROJECT_DELETED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectDeleted'
+        PROJECT_UPDATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectUpdated'
+        REVIEWS_DELETED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewsDeleted'
+        REVIEW_CREATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewCreated'
+        REVIEW_UPDATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewUpdated'
+        TASKS_CREATED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksCreated'
+        TASKS_DELETED:
+          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksDeleted'
+      title: webhooks_info_Response_200
+    ActionsEnum:
+      type: string
+      enum:
+      - PROJECT_CREATED
+      - PROJECT_UPDATED
+      - PROJECT_DELETED
+      - TASKS_CREATED
+      - TASKS_DELETED
+      - ANNOTATION_CREATED
+      - ANNOTATIONS_CREATED
+      - ANNOTATION_UPDATED
+      - ANNOTATIONS_DELETED
+      - LABEL_LINK_CREATED
+      - LABEL_LINK_UPDATED
+      - LABEL_LINK_DELETED
+      - REVIEW_CREATED
+      - REVIEW_UPDATED
+      - REVIEWS_DELETED
+      description: '* `PROJECT_CREATED` - PROJECT_CREATED
+
+        * `PROJECT_UPDATED` - PROJECT_UPDATED
+
+        * `PROJECT_DELETED` - PROJECT_DELETED
+
+        * `TASKS_CREATED` - TASKS_CREATED
+
+        * `TASKS_DELETED` - TASKS_DELETED
+
+        * `ANNOTATION_CREATED` - ANNOTATION_CREATED
+
+        * `ANNOTATIONS_CREATED` - ANNOTATIONS_CREATED
+
+        * `ANNOTATION_UPDATED` - ANNOTATION_UPDATED
+
+        * `ANNOTATIONS_DELETED` - ANNOTATIONS_DELETED
+
+        * `LABEL_LINK_CREATED` - LABEL_LINK_CREATED
+
+        * `LABEL_LINK_UPDATED` - LABEL_LINK_UPDATED
+
+        * `LABEL_LINK_DELETED` - LABEL_LINK_DELETED
+
+        * `REVIEW_CREATED` - REVIEW_CREATED
+
+        * `REVIEW_UPDATED` - REVIEW_UPDATED
+
+        * `REVIEWS_DELETED` - REVIEWS_DELETED'
+      title: ActionsEnum
     Webhook:
       type: object
       properties:
@@ -367,7 +461,7 @@ components:
       - name
       - organization-only
       title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationUpdated
-    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksDeleted:
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsDeleted:
       type: object
       properties:
         description:
@@ -383,109 +477,7 @@ components:
       - key
       - name
       - organization-only
-      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksDeleted
-    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationCreated:
-      type: object
-      properties:
-        description:
-          type: string
-        key:
-          type: string
-        name:
-          type: string
-        organization-only:
-          type: boolean
-      required:
-      - description
-      - key
-      - name
-      - organization-only
-      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationCreated
-    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectCreated:
-      type: object
-      properties:
-        description:
-          type: string
-        key:
-          type: string
-        name:
-          type: string
-        organization-only:
-          type: boolean
-      required:
-      - description
-      - key
-      - name
-      - organization-only
-      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectCreated
-    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewsDeleted:
-      type: object
-      properties:
-        description:
-          type: string
-        key:
-          type: string
-        name:
-          type: string
-        organization-only:
-          type: boolean
-      required:
-      - description
-      - key
-      - name
-      - organization-only
-      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewsDeleted
-    webhooks_info_Response_200:
-      type: object
-      properties:
-        ANNOTATIONS_CREATED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsCreated'
-        ANNOTATIONS_DELETED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsDeleted'
-        ANNOTATION_CREATED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationCreated'
-        ANNOTATION_UPDATED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationUpdated'
-        LABEL_LINK_CREATED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkCreated'
-        LABEL_LINK_DELETED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkDeleted'
-        LABEL_LINK_UPDATED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkUpdated'
-        PROJECT_CREATED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectCreated'
-        PROJECT_DELETED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectDeleted'
-        PROJECT_UPDATED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectUpdated'
-        REVIEWS_DELETED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewsDeleted'
-        REVIEW_CREATED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewCreated'
-        REVIEW_UPDATED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewUpdated'
-        TASKS_CREATED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksCreated'
-        TASKS_DELETED:
-          $ref: '#/components/schemas/ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksDeleted'
-      title: webhooks_info_Response_200
-    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkCreated:
-      type: object
-      properties:
-        description:
-          type: string
-        key:
-          type: string
-        name:
-          type: string
-        organization-only:
-          type: boolean
-      required:
-      - description
-      - key
-      - name
-      - organization-only
-      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkCreated
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaAnnotationsDeleted
     ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaProjectDeleted:
       type: object
       properties:
@@ -520,6 +512,35 @@ components:
       - name
       - organization-only
       title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaLabelLinkUpdated
+    WebhookRequest:
+      type: object
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionsEnum'
+        headers:
+          description: Key Value Json of headers
+        is_active:
+          type: boolean
+          description: If value is False the webhook is disabled
+        project:
+          type:
+          - integer
+          - 'null'
+        send_for_all_actions:
+          type: boolean
+          description: If value is False - used only for actions from WebhookAction
+        send_payload:
+          type: boolean
+          description: If value is False send only action
+        url:
+          type: string
+          format: uri
+          description: URL of webhook
+      required:
+      - url
+      title: WebhookRequest
     WebhookSerializerForUpdate:
       type: object
       properties:
@@ -570,7 +591,34 @@ components:
 
         Used to forbid updating project field.'
       title: WebhookSerializerForUpdate
-    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewUpdated:
+    PatchedWebhookSerializerForUpdateRequest:
+      type: object
+      properties:
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionsEnum'
+        headers:
+          description: Key Value Json of headers
+        is_active:
+          type: boolean
+          description: If value is False the webhook is disabled
+        send_for_all_actions:
+          type: boolean
+          description: If value is False - used only for actions from WebhookAction
+        send_payload:
+          type: boolean
+          description: If value is False send only action
+        url:
+          type: string
+          format: uri
+          description: URL of webhook
+      description: 'Serializer class for updating webhooks
+
+
+        Used to forbid updating project field.'
+      title: PatchedWebhookSerializerForUpdateRequest
+    ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksDeleted:
       type: object
       properties:
         description:
@@ -586,55 +634,7 @@ components:
       - key
       - name
       - organization-only
-      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewUpdated
-    ActionsEnum:
-      type: string
-      enum:
-      - PROJECT_CREATED
-      - PROJECT_UPDATED
-      - PROJECT_DELETED
-      - TASKS_CREATED
-      - TASKS_DELETED
-      - ANNOTATION_CREATED
-      - ANNOTATIONS_CREATED
-      - ANNOTATION_UPDATED
-      - ANNOTATIONS_DELETED
-      - LABEL_LINK_CREATED
-      - LABEL_LINK_UPDATED
-      - LABEL_LINK_DELETED
-      - REVIEW_CREATED
-      - REVIEW_UPDATED
-      - REVIEWS_DELETED
-      description: '* `PROJECT_CREATED` - PROJECT_CREATED
-
-        * `PROJECT_UPDATED` - PROJECT_UPDATED
-
-        * `PROJECT_DELETED` - PROJECT_DELETED
-
-        * `TASKS_CREATED` - TASKS_CREATED
-
-        * `TASKS_DELETED` - TASKS_DELETED
-
-        * `ANNOTATION_CREATED` - ANNOTATION_CREATED
-
-        * `ANNOTATIONS_CREATED` - ANNOTATIONS_CREATED
-
-        * `ANNOTATION_UPDATED` - ANNOTATION_UPDATED
-
-        * `ANNOTATIONS_DELETED` - ANNOTATIONS_DELETED
-
-        * `LABEL_LINK_CREATED` - LABEL_LINK_CREATED
-
-        * `LABEL_LINK_UPDATED` - LABEL_LINK_UPDATED
-
-        * `LABEL_LINK_DELETED` - LABEL_LINK_DELETED
-
-        * `REVIEW_CREATED` - REVIEW_CREATED
-
-        * `REVIEW_UPDATED` - REVIEW_UPDATED
-
-        * `REVIEWS_DELETED` - REVIEWS_DELETED'
-      title: ActionsEnum
+      title: ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaTasksDeleted
     ApiWebhooksInfoGetResponsesContentApplicationJsonSchemaReviewCreated:
       type: object
       properties:

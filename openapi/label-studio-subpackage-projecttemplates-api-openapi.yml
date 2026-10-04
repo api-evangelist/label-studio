@@ -202,48 +202,6 @@ paths:
               - workspace_id
 components:
   schemas:
-    SkipQueueEnum:
-      type: string
-      enum:
-      - REQUEUE_FOR_ME
-      - REQUEUE_FOR_OTHERS
-      - IGNORE_SKIPPED
-      description: '* `REQUEUE_FOR_ME` - Requeue for me
-
-        * `REQUEUE_FOR_OTHERS` - Requeue for others
-
-        * `IGNORE_SKIPPED` - Ignore skipped'
-      title: SkipQueueEnum
-    AgreementMethodologyEnum:
-      type: string
-      enum:
-      - consensus
-      - pairwise
-      description: '* `consensus` - Consensus
-
-        * `pairwise` - Pairwise Averaging'
-      title: AgreementMethodologyEnum
-    LabelStreamTaskDistributionEnum:
-      type: string
-      enum:
-      - auto_distribution
-      - assigned_only
-      description: '* `auto_distribution` - Label Stream distributes tasks automatically to annotators
-
-        * `assigned_only` - Label Stream shows tasks only to assigned users'
-      title: LabelStreamTaskDistributionEnum
-    RequeueRejectedTasksModeEnum:
-      type: string
-      enum:
-      - requeue
-      - remove
-      - flexible
-      description: '* `requeue` - Requeue
-
-        * `remove` - Remove
-
-        * `flexible` - Flexible'
-      title: RequeueRejectedTasksModeEnum
     ProjectTemplate:
       type: object
       properties:
@@ -295,67 +253,15 @@ components:
       - name
       - updated_at
       title: ProjectTemplate
-    ReviewCriteriaEnum:
+    LabelStreamTaskDistributionEnum:
       type: string
       enum:
-      - all
-      - one
-      description: '* `all` - Task is reviewed if all annotations are reviewed
+      - auto_distribution
+      - assigned_only
+      description: '* `auto_distribution` - Label Stream distributes tasks automatically to annotators
 
-        * `one` - Task is reviewed if at least one annotation is reviewed'
-      title: ReviewCriteriaEnum
-    ReviewSettingsSamplingEnum:
-      type: string
-      enum:
-      - task_id
-      - random
-      description: '* `task_id` - By Task ID
-
-        * `random` - Random'
-      title: ReviewSettingsSamplingEnum
-    ProjectTemplateRequest:
-      type: object
-      properties:
-        assignment_settings:
-          description: general dict serialized assignment settings
-        created_by:
-          type:
-          - integer
-          - 'null'
-        custom_script:
-          type:
-          - string
-          - 'null'
-          description: custom script (Plugin) for projects created from this template
-        description:
-          type:
-          - string
-          - 'null'
-        name:
-          type: string
-        organization:
-          type:
-          - integer
-          - 'null'
-        project_id:
-          type: integer
-        project_settings:
-          description: general dict serialized project settings
-        require_comment_on_skip:
-          type: boolean
-          description: flag to require comment on skip
-        review_settings:
-          description: general dict serialized review settings
-        show_unused_data_columns_to_annotators:
-          type:
-          - boolean
-          - 'null'
-        tags:
-          description: Any type
-      required:
-      - name
-      - project_id
-      title: ProjectTemplateRequest
+        * `assigned_only` - Label Stream shows tasks only to assigned users'
+      title: LabelStreamTaskDistributionEnum
     LseProject:
       type: object
       properties:
@@ -693,56 +599,42 @@ components:
 
         make sure, that you use correct one(Project.objects.with_counts())'
       title: LseProject
-    AssignmentSettings:
+    ControlTagWeight:
       type: object
       properties:
-        id:
-          type: integer
-        label_stream_task_distribution:
-          oneOf:
-          - $ref: '#/components/schemas/LabelStreamTaskDistributionEnum'
-          - type: 'null'
-          description: 'Automatic / Manual
-
-
-            * `auto_distribution` - Label Stream distributes tasks automatically to annotators
-
-            * `assigned_only` - Label Stream shows tasks only to assigned users'
-        project:
-          type:
-          - integer
-          - 'null'
+        labels:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+          description: Per-label weights (0.0 to 1.0). Zero excludes the label from agreement.
+        overall:
+          type: number
+          format: double
+          description: Overall weight for this control tag (0.0 to 1.0). Zero excludes the tag from agreement.
+        type:
+          type: string
+          description: Control tag type from the labeling config (e.g. Choices, Labels, TextArea).
       required:
-      - id
-      title: AssignmentSettings
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
+      - overall
+      - type
+      description: 'Weights configuration for a single control tag.
 
-        "fields", "omit" and "expand" in order to
 
-        control which fields are displayed, and whether to replace simple
+        Structure: {"overall": 0.5, "type": "Choices", "labels": {"cat": 1.0, "dog": 0.0}}'
+      title: ControlTagWeight
+    SkipQueueEnum:
+      type: string
+      enum:
+      - REQUEUE_FOR_ME
+      - REQUEUE_FOR_OTHERS
+      - IGNORE_SKIPPED
+      description: '* `REQUEUE_FOR_ME` - Requeue for me
 
-        values with complex, nested serializations'
-      title: UserSimple
+        * `REQUEUE_FOR_OTHERS` - Requeue for others
+
+        * `IGNORE_SKIPPED` - Ignore skipped'
+      title: SkipQueueEnum
     ReviewSettings:
       type: object
       properties:
@@ -827,42 +719,89 @@ components:
       - id
       - requeue_rejected_tasks_to_annotator
       title: ReviewSettings
-    SamplingDe5Enum:
-      type: string
-      enum:
-      - Sequential sampling
-      - Uniform sampling
-      - Uncertainty sampling
-      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
-
-        * `Uniform sampling` - Tasks are chosen randomly
-
-        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
-      title: SamplingDe5Enum
-    ControlTagWeight:
+    AssignmentSettings:
       type: object
       properties:
-        labels:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-          description: Per-label weights (0.0 to 1.0). Zero excludes the label from agreement.
-        overall:
-          type: number
-          format: double
-          description: Overall weight for this control tag (0.0 to 1.0). Zero excludes the tag from agreement.
-        type:
-          type: string
-          description: Control tag type from the labeling config (e.g. Choices, Labels, TextArea).
+        id:
+          type: integer
+        label_stream_task_distribution:
+          oneOf:
+          - $ref: '#/components/schemas/LabelStreamTaskDistributionEnum'
+          - type: 'null'
+          description: 'Automatic / Manual
+
+
+            * `auto_distribution` - Label Stream distributes tasks automatically to annotators
+
+            * `assigned_only` - Label Stream shows tasks only to assigned users'
+        project:
+          type:
+          - integer
+          - 'null'
       required:
-      - overall
-      - type
-      description: 'Weights configuration for a single control tag.
+      - id
+      title: AssignmentSettings
+    AgreementMethodologyEnum:
+      type: string
+      enum:
+      - consensus
+      - pairwise
+      description: '* `consensus` - Consensus
 
+        * `pairwise` - Pairwise Averaging'
+      title: AgreementMethodologyEnum
+    ProjectTemplateRequest:
+      type: object
+      properties:
+        assignment_settings:
+          description: general dict serialized assignment settings
+        created_by:
+          type:
+          - integer
+          - 'null'
+        custom_script:
+          type:
+          - string
+          - 'null'
+          description: custom script (Plugin) for projects created from this template
+        description:
+          type:
+          - string
+          - 'null'
+        name:
+          type: string
+        organization:
+          type:
+          - integer
+          - 'null'
+        project_id:
+          type: integer
+        project_settings:
+          description: general dict serialized project settings
+        require_comment_on_skip:
+          type: boolean
+          description: flag to require comment on skip
+        review_settings:
+          description: general dict serialized review settings
+        show_unused_data_columns_to_annotators:
+          type:
+          - boolean
+          - 'null'
+        tags:
+          description: Any type
+      required:
+      - name
+      - project_id
+      title: ProjectTemplateRequest
+    ReviewCriteriaEnum:
+      type: string
+      enum:
+      - all
+      - one
+      description: '* `all` - Task is reviewed if all annotations are reviewed
 
-        Structure: {"overall": 0.5, "type": "Choices", "labels": {"cat": 1.0, "dog": 0.0}}'
-      title: ControlTagWeight
+        * `one` - Task is reviewed if at least one annotation is reviewed'
+      title: ReviewCriteriaEnum
     PatchedProjectTemplateRequest:
       type: object
       properties:
@@ -903,6 +842,67 @@ components:
         tags:
           description: Any type
       title: PatchedProjectTemplateRequest
+    RequeueRejectedTasksModeEnum:
+      type: string
+      enum:
+      - requeue
+      - remove
+      - flexible
+      description: '* `requeue` - Requeue
+
+        * `remove` - Remove
+
+        * `flexible` - Flexible'
+      title: RequeueRejectedTasksModeEnum
+    ReviewSettingsSamplingEnum:
+      type: string
+      enum:
+      - task_id
+      - random
+      description: '* `task_id` - By Task ID
+
+        * `random` - Random'
+      title: ReviewSettingsSamplingEnum
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    SamplingDe5Enum:
+      type: string
+      enum:
+      - Sequential sampling
+      - Uniform sampling
+      - Uncertainty sampling
+      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
+
+        * `Uniform sampling` - Tasks are chosen randomly
+
+        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
+      title: SamplingDe5Enum
   securitySchemes:
     Token:
       type: apiKey

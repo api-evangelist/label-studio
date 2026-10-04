@@ -299,10 +299,10 @@ paths:
                   description: User skipped the task
 components:
   schemas:
-    ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems:
+    ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems:
       type: object
       properties: {}
-      title: ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems
+      title: ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems
     LastActionEnum:
       type: string
       enum:
@@ -336,15 +336,15 @@ components:
 
         * `deleted_review` - Deleted review'
       title: LastActionEnum
-    ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems:
+    AnnotationBulkSerializerWithSelectedItemsRequestResultItems:
       type: object
-      properties:
-        id:
-          type: integer
-          description: Annotation ID
-      required:
-      - id
-      title: ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems
+      properties: {}
+      description: List of annotated regions for the task
+      title: AnnotationBulkSerializerWithSelectedItemsRequestResultItems
+    ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems:
+      type: object
+      properties: {}
+      title: ApiTasksIdAnnotationsPostRequestBodyContentApplicationJsonSchemaResultItems
     AnnotationResultItems:
       type: object
       properties: {}
@@ -629,15 +629,15 @@ components:
       required:
       - all
       title: SelectedItemsRequest
-    AnnotationBulkSerializerWithSelectedItemsRequestResultItems:
+    ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems:
       type: object
-      properties: {}
-      description: List of annotated regions for the task
-      title: AnnotationBulkSerializerWithSelectedItemsRequestResultItems
-    ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems:
-      type: object
-      properties: {}
-      title: ApiAnnotationsIdPatchRequestBodyContentApplicationJsonSchemaResultItems
+      properties:
+        id:
+          type: integer
+          description: Annotation ID
+      required:
+      - id
+      title: ApiAnnotationsBulkPostResponsesContentApplicationJsonSchemaItems
   securitySchemes:
     Token:
       type: apiKey

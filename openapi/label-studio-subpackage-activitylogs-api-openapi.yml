@@ -101,17 +101,6 @@ paths:
                 description: Any type
 components:
   schemas:
-    ApiActivityLogsGetParametersMethod:
-      type: string
-      enum:
-      - DELETE
-      - GET
-      - PATCH
-      - POST
-      - PUT
-      - all
-      default: all
-      title: ApiActivityLogsGetParametersMethod
     ActivityLog:
       type: object
       properties:
@@ -175,6 +164,17 @@ components:
       - response_code
       - user_id
       title: ActivityLog
+    ApiActivityLogsGetParametersMethod:
+      type: string
+      enum:
+      - DELETE
+      - GET
+      - PATCH
+      - POST
+      - PUT
+      - all
+      default: all
+      title: ApiActivityLogsGetParametersMethod
     ActivityLogResponse:
       type: object
       properties:

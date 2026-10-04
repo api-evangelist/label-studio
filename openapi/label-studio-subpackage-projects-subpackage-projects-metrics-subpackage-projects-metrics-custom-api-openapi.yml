@@ -343,26 +343,10 @@ paths:
               $ref: '#/components/schemas/GCPCustomFunctionUpdateRequest'
 components:
   schemas:
-    AWSCustomFunctionUpdateRequest:
+    projects_metrics_custom_get_function_logs_Response_200:
       type: object
-      properties:
-        code:
-          type: string
-          description: The Python code for the custom metric function.
-        region:
-          type:
-          - string
-          - 'null'
-          description: The AWS region for the Lambda function. Uses default if not provided.
-        role:
-          type:
-          - string
-          - 'null'
-          description: The AWS IAM role ARN for the Lambda function. Uses default if not provided.
-      required:
-      - code
-      description: Serializer for updating AWS Lambda custom metric function.
-      title: AWSCustomFunctionUpdateRequest
+      properties: {}
+      title: projects_metrics_custom_get_function_logs_Response_200
     GCPCustomFunctionUpdateRequest:
       type: object
       properties:
@@ -383,30 +367,86 @@ components:
       - code
       description: Serializer for updating GCP Cloud Function custom metric.
       title: GCPCustomFunctionUpdateRequest
-    projects_metrics_custom_get_function_Response_200:
+    ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
+      type: string
+      enum:
+      - NotDeployed
+      - Active
+      - Pending
+      - Failed
+      - NotFound
+      - Error
+      title: ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
+    CustomFunctionCodeRequestRequest:
       type: object
       properties:
         code:
           type: string
-        status:
-          $ref: '#/components/schemas/ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus'
       required:
       - code
-      - status
-      title: projects_metrics_custom_get_function_Response_200
-    CheckMatchingFunctionRequestRequest:
-      type: object
-      properties:
-        code:
-          type: string
-      required:
-      - code
-      title: CheckMatchingFunctionRequestRequest
+      title: CustomFunctionCodeRequestRequest
     projects_metrics_custom_update_lambda_Response_200:
       type: object
       properties: {}
       description: Empty response body
       title: projects_metrics_custom_update_lambda_Response_200
+    ApiProjectsIdAwsCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
+      type: string
+      enum:
+      - NotDeployed
+      - Active
+      - Pending
+      - Inactive
+      - Failed
+      - NotFound
+      - Error
+      description: Deployment status of the Lambda function.
+      title: ApiProjectsIdAwsCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
+    AWSCustomFunctionUpdateRequest:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The Python code for the custom metric function.
+        region:
+          type:
+          - string
+          - 'null'
+          description: The AWS region for the Lambda function. Uses default if not provided.
+        role:
+          type:
+          - string
+          - 'null'
+          description: The AWS IAM role ARN for the Lambda function. Uses default if not provided.
+      required:
+      - code
+      description: Serializer for updating AWS Lambda custom metric function.
+      title: AWSCustomFunctionUpdateRequest
+    projects_metrics_custom_deploy_function_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: projects_metrics_custom_deploy_function_Response_200
+    ApiProjectsIdGcpCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
+      type: string
+      enum:
+      - NotDeployed
+      - Active
+      - Pending
+      - Failed
+      - NotFound
+      - Error
+      title: ApiProjectsIdGcpCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
+    projects_metrics_custom_logs_Response_200:
+      type: object
+      properties: {}
+      description: List of AWS lambda logs
+      title: projects_metrics_custom_logs_Response_200
+    projects_metrics_custom_check_function_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: projects_metrics_custom_check_function_Response_200
     projects_metrics_custom_update_gcp_function_Response_200:
       type: object
       properties: {}
@@ -423,32 +463,14 @@ components:
       - code
       - status
       title: projects_metrics_custom_get_gcp_function_Response_200
-    ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
-      type: string
-      enum:
-      - NotDeployed
-      - Active
-      - Pending
-      - Failed
-      - NotFound
-      - Error
-      title: ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
-    ApiProjectsIdAwsCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
-      type: string
-      enum:
-      - NotDeployed
-      - Active
-      - Pending
-      - Inactive
-      - Failed
-      - NotFound
-      - Error
-      description: Deployment status of the Lambda function.
-      title: ApiProjectsIdAwsCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
-    projects_metrics_custom_get_function_logs_Response_200:
+    CheckMatchingFunctionRequestRequest:
       type: object
-      properties: {}
-      title: projects_metrics_custom_get_function_logs_Response_200
+      properties:
+        code:
+          type: string
+      required:
+      - code
+      title: CheckMatchingFunctionRequestRequest
     projects_metrics_custom_get_lambda_Response_200:
       type: object
       properties:
@@ -461,39 +483,17 @@ components:
       - code
       - status
       title: projects_metrics_custom_get_lambda_Response_200
-    projects_metrics_custom_deploy_function_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: projects_metrics_custom_deploy_function_Response_200
-    CustomFunctionCodeRequestRequest:
+    projects_metrics_custom_get_function_Response_200:
       type: object
       properties:
         code:
           type: string
+        status:
+          $ref: '#/components/schemas/ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus'
       required:
       - code
-      title: CustomFunctionCodeRequestRequest
-    ApiProjectsIdGcpCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
-      type: string
-      enum:
-      - NotDeployed
-      - Active
-      - Pending
-      - Failed
-      - NotFound
-      - Error
-      title: ApiProjectsIdGcpCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
-    projects_metrics_custom_check_function_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: projects_metrics_custom_check_function_Response_200
-    projects_metrics_custom_logs_Response_200:
-      type: object
-      properties: {}
-      description: List of AWS lambda logs
-      title: projects_metrics_custom_logs_Response_200
+      - status
+      title: projects_metrics_custom_get_function_Response_200
   securitySchemes:
     Token:
       type: apiKey

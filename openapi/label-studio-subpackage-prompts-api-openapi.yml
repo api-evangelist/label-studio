@@ -397,15 +397,73 @@ paths:
               $ref: '#/components/schemas/PatchedModelInterfaceRequest'
 components:
   schemas:
-    AgreementMethodologyEnum:
-      type: string
-      enum:
-      - consensus
-      - pairwise
-      description: '* `consensus` - Consensus
+    ControlTagWeight:
+      type: object
+      properties:
+        labels:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+          description: Per-label weights (0.0 to 1.0). Zero excludes the label from agreement.
+        overall:
+          type: number
+          format: double
+          description: Overall weight for this control tag (0.0 to 1.0). Zero excludes the tag from agreement.
+        type:
+          type: string
+          description: Control tag type from the labeling config (e.g. Choices, Labels, TextArea).
+      required:
+      - overall
+      - type
+      description: 'Weights configuration for a single control tag.
 
-        * `pairwise` - Pairwise Averaging'
-      title: AgreementMethodologyEnum
+
+        Structure: {"overall": 0.5, "type": "Choices", "labels": {"cat": 1.0, "dog": 0.0}}'
+      title: ControlTagWeight
+    BatchFailedPredictionsRequestRequest:
+      type: object
+      properties:
+        failed_predictions:
+          type: array
+          items:
+            description: Any type
+        job_id:
+          type: string
+        modelrun_id:
+          type: integer
+      required:
+      - failed_predictions
+      - modelrun_id
+      title: BatchFailedPredictionsRequestRequest
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
     LabelStreamTaskDistributionEnum:
       type: string
       enum:
@@ -415,33 +473,18 @@ components:
 
         * `assigned_only` - Label Stream shows tasks only to assigned users'
       title: LabelStreamTaskDistributionEnum
-    BatchPredictionsRequestRequest:
-      type: object
-      properties:
-        job_id:
-          type: string
-        modelrun_id:
-          type: integer
-        results:
-          type: array
-          items:
-            description: Any type
-      required:
-      - modelrun_id
-      - results
-      title: BatchPredictionsRequestRequest
-    RequeueRejectedTasksModeEnum:
+    SkipQueueEnum:
       type: string
       enum:
-      - requeue
-      - remove
-      - flexible
-      description: '* `requeue` - Requeue
+      - REQUEUE_FOR_ME
+      - REQUEUE_FOR_OTHERS
+      - IGNORE_SKIPPED
+      description: '* `REQUEUE_FOR_ME` - Requeue for me
 
-        * `remove` - Remove
+        * `REQUEUE_FOR_OTHERS` - Requeue for others
 
-        * `flexible` - Flexible'
-      title: RequeueRejectedTasksModeEnum
+        * `IGNORE_SKIPPED` - Ignore skipped'
+      title: SkipQueueEnum
     ModelInterface:
       type: object
       properties:
@@ -568,18 +611,64 @@ components:
       - id
       - requeue_rejected_tasks_to_annotator
       title: ReviewSettings
-    SkipQueueEnum:
-      type: string
-      enum:
-      - REQUEUE_FOR_ME
-      - REQUEUE_FOR_OTHERS
-      - IGNORE_SKIPPED
-      description: '* `REQUEUE_FOR_ME` - Requeue for me
+    AssignmentSettings:
+      type: object
+      properties:
+        id:
+          type: integer
+        label_stream_task_distribution:
+          oneOf:
+          - $ref: '#/components/schemas/LabelStreamTaskDistributionEnum'
+          - type: 'null'
+          description: 'Automatic / Manual
 
-        * `REQUEUE_FOR_OTHERS` - Requeue for others
 
-        * `IGNORE_SKIPPED` - Ignore skipped'
-      title: SkipQueueEnum
+            * `auto_distribution` - Label Stream distributes tasks automatically to annotators
+
+            * `assigned_only` - Label Stream shows tasks only to assigned users'
+        project:
+          type:
+          - integer
+          - 'null'
+      required:
+      - id
+      title: AssignmentSettings
+    PaginatedProjectSubsetTasksResponseList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectSubsetTasksResponse'
+      required:
+      - count
+      - results
+      title: PaginatedProjectSubsetTasksResponseList
+    BatchPredictions:
+      type: object
+      properties:
+        job_id:
+          type: string
+        results:
+          type: array
+          items:
+            description: Any type
+      required:
+      - job_id
+      - results
+      title: BatchPredictions
     ModelInterfaceSerializerGET:
       type: object
       properties:
@@ -676,6 +765,93 @@ components:
 
         * `random` - Random'
       title: ReviewSettingsSamplingEnum
+    ProjectSubsetTaskItem:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties:
+            description: Any type
+        error:
+          type: object
+          additionalProperties:
+            description: Any type
+        ground_truth:
+          type: object
+          additionalProperties:
+            description: Any type
+        id:
+          type: integer
+        prediction:
+          type: object
+          additionalProperties:
+            description: Any type
+        score:
+          type:
+          - number
+          - 'null'
+          format: double
+      required:
+      - data
+      title: ProjectSubsetTaskItem
+    AgreementMethodologyEnum:
+      type: string
+      enum:
+      - consensus
+      - pairwise
+      description: '* `consensus` - Consensus
+
+        * `pairwise` - Pairwise Averaging'
+      title: AgreementMethodologyEnum
+    ProjectSubsetItem:
+      type: object
+      properties:
+        columns_schema:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              description: Any type
+        count:
+          type: integer
+        subset:
+          type: string
+      required:
+      - count
+      - subset
+      title: ProjectSubsetItem
+    ReviewCriteriaEnum:
+      type: string
+      enum:
+      - all
+      - one
+      description: '* `all` - Task is reviewed if all annotations are reviewed
+
+        * `one` - Task is reviewed if at least one annotation is reviewed'
+      title: ReviewCriteriaEnum
+    PaginatedModelInterfaceSerializerGETList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelInterfaceSerializerGET'
+      required:
+      - count
+      - results
+      title: PaginatedModelInterfaceSerializerGETList
     ProjectSubsetTasksResponse:
       type: object
       properties:
@@ -697,103 +873,6 @@ components:
       required:
       - task_result_list
       title: ProjectSubsetTasksResponse
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
-    SkillNameEnum:
-      type: string
-      enum:
-      - TextClassification
-      - NamedEntityRecognition
-      description: '* `TextClassification` - TextClassification
-
-        * `NamedEntityRecognition` - NamedEntityRecognition'
-      title: SkillNameEnum
-    ApiPromptsCompatibleProjectsGetParametersProjectType:
-      type: string
-      enum:
-      - NamedEntityRecognition
-      - TextClassification
-      default: TextClassification
-      title: ApiPromptsCompatibleProjectsGetParametersProjectType
-    BlueprintList:
-      type: object
-      properties:
-        created_at:
-          type: string
-          format: date-time
-        description:
-          type:
-          - string
-          - 'null'
-          description: Project description
-        id:
-          type: integer
-        share_id:
-          type: string
-        short_url:
-          type: string
-        task_count:
-          type: string
-        title:
-          type:
-          - string
-          - 'null'
-          description: Blueprint name. Must be between 3 and 50 characters long.
-      required:
-      - created_at
-      - id
-      - share_id
-      - short_url
-      - task_count
-      title: BlueprintList
-    UserSimpleRequest:
-      type: object
-      properties:
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimpleRequest
     PaginatedAllRolesProjectListList:
       type: object
       properties:
@@ -817,96 +896,33 @@ components:
       - count
       - results
       title: PaginatedAllRolesProjectListList
-    PatchedModelInterfaceRequest:
+    BatchPredictionsRequestRequest:
       type: object
       properties:
-        associated_projects:
-          type: array
-          items:
-            type: integer
-        created_by:
-          $ref: '#/components/schemas/UserSimpleRequest'
-          description: User who created Dataset
-        description:
-          type:
-          - string
-          - 'null'
-          description: Model description
-        input_fields:
-          description: Any type
-        organization:
-          type:
-          - integer
-          - 'null'
-        output_classes:
-          description: Any type
-        skill_name:
-          $ref: '#/components/schemas/SkillNameEnum'
-        title:
-          type: string
-          description: Model name
-      title: PatchedModelInterfaceRequest
-    ReviewCriteriaEnum:
-      type: string
-      enum:
-      - all
-      - one
-      description: '* `all` - Task is reviewed if all annotations are reviewed
-
-        * `one` - Task is reviewed if at least one annotation is reviewed'
-      title: ReviewCriteriaEnum
-    AssociatedProject:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type:
-          - string
-          - 'null'
-          description: Project name. Must be between 3 and 50 characters long.
-      required:
-      - id
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: AssociatedProject
-    ProjectSubsetItem:
-      type: object
-      properties:
-        columns_schema:
-          type: array
-          items:
-            type: object
-            additionalProperties:
-              description: Any type
-        count:
-          type: integer
-        subset:
-          type: string
-      required:
-      - count
-      - subset
-      title: ProjectSubsetItem
-    BatchFailedPredictionsRequestRequest:
-      type: object
-      properties:
-        failed_predictions:
-          type: array
-          items:
-            description: Any type
         job_id:
           type: string
         modelrun_id:
           type: integer
+        results:
+          type: array
+          items:
+            description: Any type
       required:
-      - failed_predictions
       - modelrun_id
-      title: BatchFailedPredictionsRequestRequest
+      - results
+      title: BatchPredictionsRequestRequest
+    SamplingDe5Enum:
+      type: string
+      enum:
+      - Sequential sampling
+      - Uniform sampling
+      - Uncertainty sampling
+      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
+
+        * `Uniform sampling` - Tasks are chosen randomly
+
+        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
+      title: SamplingDe5Enum
     AllRolesProjectList:
       type: object
       properties:
@@ -1254,139 +1270,44 @@ components:
 
         make sure, that you use correct one(Project.objects.with_counts())'
       title: AllRolesProjectList
-    ProjectSubsetTaskItem:
-      type: object
-      properties:
-        data:
-          type: object
-          additionalProperties:
-            description: Any type
-        error:
-          type: object
-          additionalProperties:
-            description: Any type
-        ground_truth:
-          type: object
-          additionalProperties:
-            description: Any type
-        id:
-          type: integer
-        prediction:
-          type: object
-          additionalProperties:
-            description: Any type
-        score:
-          type:
-          - number
-          - 'null'
-          format: double
-      required:
-      - data
-      title: ProjectSubsetTaskItem
-    AssignmentSettings:
-      type: object
-      properties:
-        id:
-          type: integer
-        label_stream_task_distribution:
-          oneOf:
-          - $ref: '#/components/schemas/LabelStreamTaskDistributionEnum'
-          - type: 'null'
-          description: 'Automatic / Manual
-
-
-            * `auto_distribution` - Label Stream distributes tasks automatically to annotators
-
-            * `assigned_only` - Label Stream shows tasks only to assigned users'
-        project:
-          type:
-          - integer
-          - 'null'
-      required:
-      - id
-      title: AssignmentSettings
-    PaginatedModelInterfaceSerializerGETList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ModelInterfaceSerializerGET'
-      required:
-      - count
-      - results
-      title: PaginatedModelInterfaceSerializerGETList
-    PaginatedProjectSubsetTasksResponseList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectSubsetTasksResponse'
-      required:
-      - count
-      - results
-      title: PaginatedProjectSubsetTasksResponseList
-    SamplingDe5Enum:
+    SkillNameEnum:
       type: string
       enum:
-      - Sequential sampling
-      - Uniform sampling
-      - Uncertainty sampling
-      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
+      - TextClassification
+      - NamedEntityRecognition
+      description: '* `TextClassification` - TextClassification
 
-        * `Uniform sampling` - Tasks are chosen randomly
-
-        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
-      title: SamplingDe5Enum
-    ControlTagWeight:
+        * `NamedEntityRecognition` - NamedEntityRecognition'
+      title: SkillNameEnum
+    ApiPromptsCompatibleProjectsGetParametersProjectType:
+      type: string
+      enum:
+      - NamedEntityRecognition
+      - TextClassification
+      default: TextClassification
+      title: ApiPromptsCompatibleProjectsGetParametersProjectType
+    UserSimpleRequest:
       type: object
       properties:
-        labels:
-          type: object
-          additionalProperties:
-            type: number
-            format: double
-          description: Per-label weights (0.0 to 1.0). Zero excludes the label from agreement.
-        overall:
-          type: number
-          format: double
-          description: Overall weight for this control tag (0.0 to 1.0). Zero excludes the tag from agreement.
-        type:
+        email:
           type: string
-          description: Control tag type from the labeling config (e.g. Choices, Labels, TextArea).
+          format: email
+        first_name:
+          type: string
+        last_name:
+          type: string
+        username:
+          type: string
       required:
-      - overall
-      - type
-      description: 'Weights configuration for a single control tag.
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
 
+        "fields", "omit" and "expand" in order to
 
-        Structure: {"overall": 0.5, "type": "Choices", "labels": {"cat": 1.0, "dog": 0.0}}'
-      title: ControlTagWeight
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimpleRequest
     BatchFailedPredictions:
       type: object
       properties:
@@ -1400,19 +1321,98 @@ components:
       - failed_predictions
       - job_id
       title: BatchFailedPredictions
-    BatchPredictions:
+    BlueprintList:
       type: object
       properties:
-        job_id:
+        created_at:
           type: string
-        results:
+          format: date-time
+        description:
+          type:
+          - string
+          - 'null'
+          description: Project description
+        id:
+          type: integer
+        share_id:
+          type: string
+        short_url:
+          type: string
+        task_count:
+          type: string
+        title:
+          type:
+          - string
+          - 'null'
+          description: Blueprint name. Must be between 3 and 50 characters long.
+      required:
+      - created_at
+      - id
+      - share_id
+      - short_url
+      - task_count
+      title: BlueprintList
+    AssociatedProject:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type:
+          - string
+          - 'null'
+          description: Project name. Must be between 3 and 50 characters long.
+      required:
+      - id
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: AssociatedProject
+    RequeueRejectedTasksModeEnum:
+      type: string
+      enum:
+      - requeue
+      - remove
+      - flexible
+      description: '* `requeue` - Requeue
+
+        * `remove` - Remove
+
+        * `flexible` - Flexible'
+      title: RequeueRejectedTasksModeEnum
+    PatchedModelInterfaceRequest:
+      type: object
+      properties:
+        associated_projects:
           type: array
           items:
-            description: Any type
-      required:
-      - job_id
-      - results
-      title: BatchPredictions
+            type: integer
+        created_by:
+          $ref: '#/components/schemas/UserSimpleRequest'
+          description: User who created Dataset
+        description:
+          type:
+          - string
+          - 'null'
+          description: Model description
+        input_fields:
+          description: Any type
+        organization:
+          type:
+          - integer
+          - 'null'
+        output_classes:
+          description: Any type
+        skill_name:
+          $ref: '#/components/schemas/SkillNameEnum'
+        title:
+          type: string
+          description: Model name
+      title: PatchedModelInterfaceRequest
   securitySchemes:
     Token:
       type: apiKey

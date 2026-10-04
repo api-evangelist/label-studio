@@ -100,6 +100,52 @@ paths:
               $ref: '#/components/schemas/SendInviteRequest'
 components:
   schemas:
+    OrganizationInvite:
+      type: object
+      properties:
+        invite_url:
+          type: string
+        token:
+          type: string
+      title: OrganizationInvite
+    RevokeInviteRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: Email address
+      required:
+      - email
+      title: RevokeInviteRequest
+    organizations_invites_revoke_invite_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: organizations_invites_revoke_invite_Response_200
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
     SendInviteRequest:
       type: object
       properties:
@@ -140,57 +186,11 @@ components:
       - emails
       - role
       title: SendInviteRequest
-    OrganizationInvite:
-      type: object
-      properties:
-        invite_url:
-          type: string
-        token:
-          type: string
-      title: OrganizationInvite
-    RevokeInviteRequest:
-      type: object
-      properties:
-        email:
-          type: string
-          description: Email address
-      required:
-      - email
-      title: RevokeInviteRequest
     organizations_invites_send_email_Response_200:
       type: object
       properties: {}
       description: Empty response body
       title: organizations_invites_send_email_Response_200
-    organizations_invites_revoke_invite_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: organizations_invites_revoke_invite_Response_200
-    Role9e7Enum:
-      type: string
-      enum:
-      - OW
-      - AD
-      - MA
-      - RE
-      - AN
-      - DI
-      - 'NO'
-      description: '* `OW` - Owner
-
-        * `AD` - Administrator
-
-        * `MA` - Manager
-
-        * `RE` - Reviewer
-
-        * `AN` - Annotator
-
-        * `DI` - Deactivated
-
-        * `NO` - Not Activated'
-      title: Role9e7Enum
   securitySchemes:
     Token:
       type: apiKey

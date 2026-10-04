@@ -161,42 +161,30 @@ paths:
                 $ref: '#/components/schemas/projects_members_bulk_delete_Response_200'
 components:
   schemas:
-    ProjectMemberBulkAssignRequest:
-      type: object
-      properties:
-        all:
-          type: boolean
-          description: Apply to all project members
-        excluded:
-          type: array
-          items:
-            type: integer
-          description: Excluded user IDs
-        included:
-          type: array
-          items:
-            type: integer
-          description: Included user IDs
-        roles:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectMemberBulkAssignRolesRequest'
-          description: Member roles
-      required:
-      - all
-      title: ProjectMemberBulkAssignRequest
-    projects_members_bulk_delete_Response_200:
-      type: object
-      properties:
-        unassignments:
-          type: integer
-      title: projects_members_bulk_delete_Response_200
-    projects_members_bulk_post_Response_200:
-      type: object
-      properties:
-        assignments:
-          type: integer
-      title: projects_members_bulk_post_Response_200
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
     ProjectMemberBulkAssignRolesRequest:
       type: object
       properties:
@@ -225,30 +213,42 @@ components:
       - role
       - user_id
       title: ProjectMemberBulkAssignRolesRequest
-    Role9e7Enum:
-      type: string
-      enum:
-      - OW
-      - AD
-      - MA
-      - RE
-      - AN
-      - DI
-      - 'NO'
-      description: '* `OW` - Owner
-
-        * `AD` - Administrator
-
-        * `MA` - Manager
-
-        * `RE` - Reviewer
-
-        * `AN` - Annotator
-
-        * `DI` - Deactivated
-
-        * `NO` - Not Activated'
-      title: Role9e7Enum
+    projects_members_bulk_post_Response_200:
+      type: object
+      properties:
+        assignments:
+          type: integer
+      title: projects_members_bulk_post_Response_200
+    projects_members_bulk_delete_Response_200:
+      type: object
+      properties:
+        unassignments:
+          type: integer
+      title: projects_members_bulk_delete_Response_200
+    ProjectMemberBulkAssignRequest:
+      type: object
+      properties:
+        all:
+          type: boolean
+          description: Apply to all project members
+        excluded:
+          type: array
+          items:
+            type: integer
+          description: Excluded user IDs
+        included:
+          type: array
+          items:
+            type: integer
+          description: Included user IDs
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectMemberBulkAssignRolesRequest'
+          description: Member roles
+      required:
+      - all
+      title: ProjectMemberBulkAssignRequest
   securitySchemes:
     Token:
       type: apiKey

@@ -103,18 +103,6 @@ paths:
           description: Successful response
 components:
   schemas:
-    SkipQueueEnum:
-      type: string
-      enum:
-      - REQUEUE_FOR_ME
-      - REQUEUE_FOR_OTHERS
-      - IGNORE_SKIPPED
-      description: '* `REQUEUE_FOR_ME` - Requeue for me
-
-        * `REQUEUE_FOR_OTHERS` - Requeue for others
-
-        * `IGNORE_SKIPPED` - Ignore skipped'
-      title: SkipQueueEnum
     WorkspaceProjectsRequest:
       type: object
       properties:
@@ -129,46 +117,18 @@ components:
       properties: {}
       description: Empty response body
       title: workspaces_projects_add_Response_201
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
-    SamplingDe5Enum:
+    SkipQueueEnum:
       type: string
       enum:
-      - Sequential sampling
-      - Uniform sampling
-      - Uncertainty sampling
-      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
+      - REQUEUE_FOR_ME
+      - REQUEUE_FOR_OTHERS
+      - IGNORE_SKIPPED
+      description: '* `REQUEUE_FOR_ME` - Requeue for me
 
-        * `Uniform sampling` - Tasks are chosen randomly
+        * `REQUEUE_FOR_OTHERS` - Requeue for others
 
-        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
-      title: SamplingDe5Enum
+        * `IGNORE_SKIPPED` - Ignore skipped'
+      title: SkipQueueEnum
     ControlTagWeight:
       type: object
       properties:
@@ -377,6 +337,46 @@ components:
 
         make sure, that you use correct one(Project.objects.with_counts())'
       title: Project
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    SamplingDe5Enum:
+      type: string
+      enum:
+      - Sequential sampling
+      - Uniform sampling
+      - Uncertainty sampling
+      description: '* `Sequential sampling` - Tasks are ordered by Data manager ordering
+
+        * `Uniform sampling` - Tasks are chosen randomly
+
+        * `Uncertainty sampling` - Tasks are chosen according to model uncertainty scores (active learning mode)'
+      title: SamplingDe5Enum
   securitySchemes:
     Token:
       type: apiKey

@@ -219,6 +219,240 @@ paths:
                 $ref: '#/components/schemas/DatabricksExportStorage'
 components:
   schemas:
+    AuthTypeEnum:
+      type: string
+      enum:
+      - pat
+      - dbx_sp
+      - azure_ad_sp
+      description: '* `pat` - Personal Access Token
+
+        * `dbx_sp` - Databricks Service Principal
+
+        * `azure_ad_sp` - Azure AD Service Principal'
+      title: AuthTypeEnum
+    DatabricksExportStorageRequest:
+      type: object
+      properties:
+        auth_type:
+          $ref: '#/components/schemas/AuthTypeEnum'
+          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
+
+
+            * `pat` - Personal Access Token
+
+            * `dbx_sp` - Databricks Service Principal
+
+            * `azure_ad_sp` - Azure AD Service Principal'
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        catalog:
+          type: string
+          description: UC catalog name
+        client_id:
+          type: string
+          description: Service principal client/application ID (required for SP modes)
+        client_secret:
+          type: string
+          description: Service principal client secret (required for SP modes)
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        host:
+          type: string
+          description: Databricks workspace base URL (https://...)
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: Export path prefix under the volume
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Regex for filtering objects
+        request_timeout_s:
+          type: integer
+        schema:
+          type: string
+          description: UC schema name
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        stream_chunk_bytes:
+          type: integer
+        synchronizable:
+          type: boolean
+          default: true
+        tenant_id:
+          type: string
+          description: Azure AD tenant ID (required for Azure AD SP mode)
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        token:
+          type: string
+          description: Databricks personal access token (required for PAT mode)
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Generate blob URLs in tasks
+        verify_tls:
+          type: boolean
+          description: Verify TLS certificates
+        volume:
+          type: string
+          description: UC volume name
+      required:
+      - catalog
+      - host
+      - project
+      - schema
+      - volume
+      description: Serializer for Databricks export storage with multi-auth support.
+      title: DatabricksExportStorageRequest
+    PatchedDatabricksExportStorageRequest:
+      type: object
+      properties:
+        auth_type:
+          $ref: '#/components/schemas/AuthTypeEnum'
+          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
+
+
+            * `pat` - Personal Access Token
+
+            * `dbx_sp` - Databricks Service Principal
+
+            * `azure_ad_sp` - Azure AD Service Principal'
+        can_delete_objects:
+          type:
+          - boolean
+          - 'null'
+          description: Deletion from storage enabled
+        catalog:
+          type: string
+          description: UC catalog name
+        client_id:
+          type: string
+          description: Service principal client/application ID (required for SP modes)
+        client_secret:
+          type: string
+          description: Service principal client secret (required for SP modes)
+        description:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage description
+        host:
+          type: string
+          description: Databricks workspace base URL (https://...)
+        last_sync:
+          type:
+          - string
+          - 'null'
+          format: date-time
+          description: Last sync finished time
+        last_sync_count:
+          type:
+          - integer
+          - 'null'
+          description: Count of tasks synced last time
+        last_sync_job:
+          type:
+          - string
+          - 'null'
+          description: Last sync job ID
+        meta:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Meta and debug information about storage processes
+        prefix:
+          type:
+          - string
+          - 'null'
+          description: Export path prefix under the volume
+        project:
+          type: integer
+          description: A unique integer value identifying this project.
+        regex_filter:
+          type:
+          - string
+          - 'null'
+          description: Regex for filtering objects
+        request_timeout_s:
+          type: integer
+        schema:
+          type: string
+          description: UC schema name
+        status:
+          $ref: '#/components/schemas/StatusC5aEnum'
+        stream_chunk_bytes:
+          type: integer
+        synchronizable:
+          type: boolean
+          default: true
+        tenant_id:
+          type: string
+          description: Azure AD tenant ID (required for Azure AD SP mode)
+        title:
+          type:
+          - string
+          - 'null'
+          description: Cloud storage title
+        token:
+          type: string
+          description: Databricks personal access token (required for PAT mode)
+        traceback:
+          type:
+          - string
+          - 'null'
+          description: Traceback report for the last failed sync
+        use_blob_urls:
+          type: boolean
+          description: Generate blob URLs in tasks
+        verify_tls:
+          type: boolean
+          description: Verify TLS certificates
+        volume:
+          type: string
+          description: UC volume name
+      description: Serializer for Databricks export storage with multi-auth support.
+      title: PatchedDatabricksExportStorageRequest
     StatusC5aEnum:
       type: string
       enum:
@@ -240,18 +474,6 @@ components:
 
         * `completed_with_errors` - Completed with errors'
       title: StatusC5aEnum
-    AuthTypeEnum:
-      type: string
-      enum:
-      - pat
-      - dbx_sp
-      - azure_ad_sp
-      description: '* `pat` - Personal Access Token
-
-        * `dbx_sp` - Databricks Service Principal
-
-        * `azure_ad_sp` - Azure AD Service Principal'
-      title: AuthTypeEnum
     DatabricksExportStorage:
       type: object
       properties:
@@ -372,233 +594,11 @@ components:
       - volume
       description: Serializer for Databricks export storage with multi-auth support.
       title: DatabricksExportStorage
-    PatchedDatabricksExportStorageRequest:
-      type: object
-      properties:
-        auth_type:
-          $ref: '#/components/schemas/AuthTypeEnum'
-          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
-
-
-            * `pat` - Personal Access Token
-
-            * `dbx_sp` - Databricks Service Principal
-
-            * `azure_ad_sp` - Azure AD Service Principal'
-        can_delete_objects:
-          type:
-          - boolean
-          - 'null'
-          description: Deletion from storage enabled
-        catalog:
-          type: string
-          description: UC catalog name
-        client_id:
-          type: string
-          description: Service principal client/application ID (required for SP modes)
-        client_secret:
-          type: string
-          description: Service principal client secret (required for SP modes)
-        description:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage description
-        host:
-          type: string
-          description: Databricks workspace base URL (https://...)
-        last_sync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last sync finished time
-        last_sync_count:
-          type:
-          - integer
-          - 'null'
-          description: Count of tasks synced last time
-        last_sync_job:
-          type:
-          - string
-          - 'null'
-          description: Last sync job ID
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta and debug information about storage processes
-        prefix:
-          type:
-          - string
-          - 'null'
-          description: Export path prefix under the volume
-        project:
-          type: integer
-          description: A unique integer value identifying this project.
-        regex_filter:
-          type:
-          - string
-          - 'null'
-          description: Regex for filtering objects
-        request_timeout_s:
-          type: integer
-        schema:
-          type: string
-          description: UC schema name
-        status:
-          $ref: '#/components/schemas/StatusC5aEnum'
-        stream_chunk_bytes:
-          type: integer
-        synchronizable:
-          type: boolean
-          default: true
-        tenant_id:
-          type: string
-          description: Azure AD tenant ID (required for Azure AD SP mode)
-        title:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage title
-        token:
-          type: string
-          description: Databricks personal access token (required for PAT mode)
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report for the last failed sync
-        use_blob_urls:
-          type: boolean
-          description: Generate blob URLs in tasks
-        verify_tls:
-          type: boolean
-          description: Verify TLS certificates
-        volume:
-          type: string
-          description: UC volume name
-      description: Serializer for Databricks export storage with multi-auth support.
-      title: PatchedDatabricksExportStorageRequest
     export_storage_databricks_validate_Response_200:
       type: object
       properties: {}
       description: Empty response body
       title: export_storage_databricks_validate_Response_200
-    DatabricksExportStorageRequest:
-      type: object
-      properties:
-        auth_type:
-          $ref: '#/components/schemas/AuthTypeEnum'
-          description: 'Authentication method: PAT, Databricks SP, or Azure AD SP
-
-
-            * `pat` - Personal Access Token
-
-            * `dbx_sp` - Databricks Service Principal
-
-            * `azure_ad_sp` - Azure AD Service Principal'
-        can_delete_objects:
-          type:
-          - boolean
-          - 'null'
-          description: Deletion from storage enabled
-        catalog:
-          type: string
-          description: UC catalog name
-        client_id:
-          type: string
-          description: Service principal client/application ID (required for SP modes)
-        client_secret:
-          type: string
-          description: Service principal client secret (required for SP modes)
-        description:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage description
-        host:
-          type: string
-          description: Databricks workspace base URL (https://...)
-        last_sync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-          description: Last sync finished time
-        last_sync_count:
-          type:
-          - integer
-          - 'null'
-          description: Count of tasks synced last time
-        last_sync_job:
-          type:
-          - string
-          - 'null'
-          description: Last sync job ID
-        meta:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Meta and debug information about storage processes
-        prefix:
-          type:
-          - string
-          - 'null'
-          description: Export path prefix under the volume
-        project:
-          type: integer
-          description: A unique integer value identifying this project.
-        regex_filter:
-          type:
-          - string
-          - 'null'
-          description: Regex for filtering objects
-        request_timeout_s:
-          type: integer
-        schema:
-          type: string
-          description: UC schema name
-        status:
-          $ref: '#/components/schemas/StatusC5aEnum'
-        stream_chunk_bytes:
-          type: integer
-        synchronizable:
-          type: boolean
-          default: true
-        tenant_id:
-          type: string
-          description: Azure AD tenant ID (required for Azure AD SP mode)
-        title:
-          type:
-          - string
-          - 'null'
-          description: Cloud storage title
-        token:
-          type: string
-          description: Databricks personal access token (required for PAT mode)
-        traceback:
-          type:
-          - string
-          - 'null'
-          description: Traceback report for the last failed sync
-        use_blob_urls:
-          type: boolean
-          description: Generate blob URLs in tasks
-        verify_tls:
-          type: boolean
-          description: Verify TLS certificates
-        volume:
-          type: string
-          description: UC volume name
-      required:
-      - catalog
-      - host
-      - project
-      - schema
-      - volume
-      description: Serializer for Databricks export storage with multi-auth support.
-      title: DatabricksExportStorageRequest
   securitySchemes:
     Token:
       type: apiKey

@@ -170,60 +170,14 @@ paths:
               $ref: '#/components/schemas/PatchedDefaultRoleRequest'
 components:
   schemas:
-    PatchedLseOrganizationSerializerUpdateRequest:
+    OrganizationInvite:
       type: object
       properties:
-        contact_info:
-          type:
-          - string
-          - 'null'
-          format: email
-        created_by:
-          type:
-          - integer
-          - 'null'
-        custom_scripts_enabled:
-          type:
-          - boolean
-          - 'null'
-          description: Plugins
-        email_notification_settings:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Email Notification Settings
-        embed_domains:
-          type:
-          - array
-          - 'null'
-          items:
-            type: object
-            additionalProperties:
-              type: string
-          description: Supported domains
-        embed_settings:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Public Verification Key and Public Verification Algorithms configuration
-        react_code_settings:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: ReactCode settings
-        title:
-          type:
-          - string
-          - 'null'
-          description: Organization name
+        invite_url:
+          type: string
         token:
-          type:
-          - string
-          - 'null'
-      description: 'A serializer mixin that takes an additional `fields` argument that controls
-
-        which fields should be displayed.'
-      title: PatchedLseOrganizationSerializerUpdateRequest
+          type: string
+      title: OrganizationInvite
     OrganizationId:
       type: object
       properties:
@@ -247,6 +201,89 @@ components:
 
         which fields should be displayed.'
       title: OrganizationId
+    LseOrganization:
+      type: object
+      properties:
+        billing:
+          $ref: '#/components/schemas/OrganizationBilling'
+        created_at:
+          type: string
+          format: date-time
+        custom_scripts_enabled:
+          type: string
+        default_role:
+          $ref: '#/components/schemas/Role9e7Enum'
+          description: 'Default membership role for invited users
+
+
+            * `OW` - Owner
+
+            * `AD` - Administrator
+
+            * `MA` - Manager
+
+            * `RE` - Reviewer
+
+            * `AN` - Annotator
+
+            * `DI` - Deactivated
+
+            * `NO` - Not Activated'
+        email_notification_settings:
+          type: string
+        embed_domains:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: 'List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.'
+        embed_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Embed settings for this organization
+        external_id:
+          type:
+          - string
+          - 'null'
+          description: External ID to uniquely identify this organization
+        id:
+          type: integer
+        react_code_settings:
+          type: string
+        title:
+          type: string
+        token:
+          type: string
+      required:
+      - billing
+      - created_at
+      - custom_scripts_enabled
+      - email_notification_settings
+      - id
+      - react_code_settings
+      - title
+      - token
+      title: LseOrganization
+    OrganizationBilling:
+      type: object
+      properties:
+        enforce_session_concurrency:
+          type: string
+        manual_role_management:
+          type: string
+        manual_workspace_management:
+          type: string
+        max_parallel_sessions:
+          type: string
+        session_concurrency_window_seconds:
+          type: string
+      required:
+      - enforce_session_concurrency
+      - manual_role_management
+      - manual_workspace_management
+      - max_parallel_sessions
+      - session_concurrency_window_seconds
+      title: OrganizationBilling
     DefaultRole:
       type: object
       properties:
@@ -340,97 +377,84 @@ components:
       required:
       - organization
       title: DefaultRole
-    OrganizationInvite:
+    PatchedLseOrganizationSerializerUpdateRequest:
       type: object
       properties:
-        invite_url:
-          type: string
-        token:
-          type: string
-      title: OrganizationInvite
-    OrganizationBilling:
-      type: object
-      properties:
-        enforce_session_concurrency:
-          type: string
-        manual_role_management:
-          type: string
-        manual_workspace_management:
-          type: string
-        max_parallel_sessions:
-          type: string
-        session_concurrency_window_seconds:
-          type: string
-      required:
-      - enforce_session_concurrency
-      - manual_role_management
-      - manual_workspace_management
-      - max_parallel_sessions
-      - session_concurrency_window_seconds
-      title: OrganizationBilling
-    LseOrganization:
-      type: object
-      properties:
-        billing:
-          $ref: '#/components/schemas/OrganizationBilling'
-        created_at:
-          type: string
-          format: date-time
+        contact_info:
+          type:
+          - string
+          - 'null'
+          format: email
+        created_by:
+          type:
+          - integer
+          - 'null'
         custom_scripts_enabled:
-          type: string
-        default_role:
-          $ref: '#/components/schemas/Role9e7Enum'
-          description: 'Default membership role for invited users
-
-
-            * `OW` - Owner
-
-            * `AD` - Administrator
-
-            * `MA` - Manager
-
-            * `RE` - Reviewer
-
-            * `AN` - Annotator
-
-            * `DI` - Deactivated
-
-            * `NO` - Not Activated'
+          type:
+          - boolean
+          - 'null'
+          description: Plugins
         email_notification_settings:
-          type: string
-        embed_domains:
           oneOf:
           - description: Any type
           - type: 'null'
-          description: 'List of objects: {"domain": "example.com"}. Used for CSP header on /embed routes.'
+          description: Email Notification Settings
+        embed_domains:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            additionalProperties:
+              type: string
+          description: Supported domains
         embed_settings:
           oneOf:
           - description: Any type
           - type: 'null'
-          description: Embed settings for this organization
-        external_id:
+          description: Public Verification Key and Public Verification Algorithms configuration
+        react_code_settings:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: ReactCode settings
+        title:
           type:
           - string
           - 'null'
-          description: External ID to uniquely identify this organization
-        id:
-          type: integer
-        react_code_settings:
-          type: string
-        title:
-          type: string
+          description: Organization name
         token:
-          type: string
-      required:
-      - billing
-      - created_at
-      - custom_scripts_enabled
-      - email_notification_settings
-      - id
-      - react_code_settings
-      - title
-      - token
-      title: LseOrganization
+          type:
+          - string
+          - 'null'
+      description: 'A serializer mixin that takes an additional `fields` argument that controls
+
+        which fields should be displayed.'
+      title: PatchedLseOrganizationSerializerUpdateRequest
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
     PatchedDefaultRoleRequest:
       type: object
       properties:
@@ -522,30 +546,6 @@ components:
           format: date-time
           description: Set to current time to prevent creating or editing annotations in quick view.
       title: PatchedDefaultRoleRequest
-    Role9e7Enum:
-      type: string
-      enum:
-      - OW
-      - AD
-      - MA
-      - RE
-      - AN
-      - DI
-      - 'NO'
-      description: '* `OW` - Owner
-
-        * `AD` - Administrator
-
-        * `MA` - Manager
-
-        * `RE` - Reviewer
-
-        * `AN` - Annotator
-
-        * `DI` - Deactivated
-
-        * `NO` - Not Activated'
-      title: Role9e7Enum
   securitySchemes:
     Token:
       type: apiKey

@@ -74,6 +74,18 @@ paths:
                 $ref: '#/components/schemas/LSEKeyIndicatorValue'
 components:
   schemas:
+    ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues:
+      type: object
+      properties: {}
+      title: ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues
+    ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItems:
+      type: object
+      properties:
+        title:
+          type: string
+        values:
+          $ref: '#/components/schemas/ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues'
+      title: ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItems
     LSEKeyIndicatorValue:
       type: object
       properties:
@@ -90,18 +102,6 @@ components:
       - values
       description: "Key indicator value for Label Studio Enterprise.\n\nAttributes:\n    title: The title for this metric, to be displayed to the user\n    values: Dictionary of key-value pairs for the indicator values"
       title: LSEKeyIndicatorValue
-    ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItems:
-      type: object
-      properties:
-        title:
-          type: string
-        values:
-          $ref: '#/components/schemas/ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues'
-      title: ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItems
-    ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues:
-      type: object
-      properties: {}
-      title: ApiInferenceRunsIdIndicatorsGetResponsesContentApplicationJsonSchemaItemsValues
   securitySchemes:
     Token:
       type: apiKey

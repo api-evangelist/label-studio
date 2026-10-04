@@ -61,6 +61,41 @@ paths:
               $ref: '#/components/schemas/ScimSettingsUpdateRequest'
 components:
   schemas:
+    ScimSettingsUpdateRequest:
+      type: object
+      properties:
+        projects_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectGroupRequest'
+          description: Projects to Groups Mapping. List of objects with project_id, group, role.
+        roles_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
+        workspaces_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
+      title: ScimSettingsUpdateRequest
+    ProjectGroupRoleEnum:
+      type: string
+      enum:
+      - Inherit
+      - Annotator
+      - Reviewer
+      description: '* `Inherit` - Inherit
+
+        * `Annotator` - Annotator
+
+        * `Reviewer` - Reviewer'
+      title: ProjectGroupRoleEnum
     ProjectGroup:
       type: object
       properties:
@@ -109,6 +144,29 @@ components:
       - project_id
       - role
       title: ProjectGroupRequest
+    ScimSettingsUpdate:
+      type: object
+      properties:
+        projects_groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectGroup'
+          description: Projects to Groups Mapping. List of objects with project_id, group, role.
+        roles_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
+        workspaces_groups:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
+      title: ScimSettingsUpdate
     ScimSettings:
       type: object
       properties:
@@ -138,64 +196,6 @@ components:
               type: string
           description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
       title: ScimSettings
-    ScimSettingsUpdate:
-      type: object
-      properties:
-        projects_groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectGroup'
-          description: Projects to Groups Mapping. List of objects with project_id, group, role.
-        roles_groups:
-          type: array
-          items:
-            type: array
-            items:
-              type: string
-          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
-        workspaces_groups:
-          type: array
-          items:
-            type: array
-            items:
-              type: string
-          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
-      title: ScimSettingsUpdate
-    ScimSettingsUpdateRequest:
-      type: object
-      properties:
-        projects_groups:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectGroupRequest'
-          description: Projects to Groups Mapping. List of objects with project_id, group, role.
-        roles_groups:
-          type: array
-          items:
-            type: array
-            items:
-              type: string
-          description: Organization Roles to Groups Mapping. List of [role_name, group_name] pairs.
-        workspaces_groups:
-          type: array
-          items:
-            type: array
-            items:
-              type: string
-          description: Workspaces to Groups Mapping. List of [workspace_title, group_name] pairs.
-      title: ScimSettingsUpdateRequest
-    ProjectGroupRoleEnum:
-      type: string
-      enum:
-      - Inherit
-      - Annotator
-      - Reviewer
-      description: '* `Inherit` - Inherit
-
-        * `Annotator` - Annotator
-
-        * `Reviewer` - Reviewer'
-      title: ProjectGroupRoleEnum
   securitySchemes:
     Token:
       type: apiKey

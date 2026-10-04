@@ -49,30 +49,81 @@ components:
       - limit
       - reached
       title: CountLimit
-    PromptsStatusEnum:
-      type: string
-      enum:
-      - Enabled
-      - Cloud license per organization disabled
-      - On-premise global license disabled
-      - Expired
-      - Adala not connected
-      - Disabled for this organization [FF]
-      - unknown
-      description: '* `Enabled` - Enabled
-
-        * `Cloud license per organization disabled` - Cloud license per organization disabled
-
-        * `On-premise global license disabled` - On-premise global license disabled
-
-        * `Expired` - Expired
-
-        * `Adala not connected` - Adala not connected
-
-        * `Disabled for this organization [FF]` - Disabled for this organization [FF]
-
-        * `unknown` - unknown'
-      title: PromptsStatusEnum
+    BillingChecks:
+      type: object
+      properties:
+        export_storages:
+          $ref: '#/components/schemas/CountLimit'
+        import_storages:
+          $ref: '#/components/schemas/CountLimit'
+        is_license_expired:
+          type: boolean
+        is_license_warning:
+          type: boolean
+        is_prompts_expire:
+          type: boolean
+        is_prompts_warning:
+          type: boolean
+        license_expires:
+          type:
+          - string
+          - 'null'
+          format: date
+        license_issued:
+          type:
+          - string
+          - 'null'
+          format: date
+        license_warning:
+          type:
+          - string
+          - 'null'
+          format: date
+        organization_is_active:
+          type: boolean
+        projects:
+          $ref: '#/components/schemas/CountLimit'
+        prompts_api_keys_enabled:
+          type: boolean
+        prompts_enabled:
+          type: boolean
+        prompts_expire:
+          type:
+          - string
+          - 'null'
+        prompts_status:
+          $ref: '#/components/schemas/PromptsStatusEnum'
+        prompts_warning:
+          type:
+          - string
+          - 'null'
+        results:
+          $ref: '#/components/schemas/CountLimit'
+        trial_days:
+          type: integer
+        users:
+          $ref: '#/components/schemas/CountLimit'
+      required:
+      - export_storages
+      - import_storages
+      - is_license_expired
+      - is_license_warning
+      - is_prompts_expire
+      - is_prompts_warning
+      - license_expires
+      - license_issued
+      - license_warning
+      - organization_is_active
+      - projects
+      - prompts_api_keys_enabled
+      - prompts_enabled
+      - prompts_expire
+      - prompts_status
+      - prompts_warning
+      - results
+      - trial_days
+      - users
+      title: BillingChecks
     BillingInfoResponse:
       type: object
       properties:
@@ -179,81 +230,30 @@ components:
       - storage_persistence
       - white_label_id
       title: BillingFlags
-    BillingChecks:
-      type: object
-      properties:
-        export_storages:
-          $ref: '#/components/schemas/CountLimit'
-        import_storages:
-          $ref: '#/components/schemas/CountLimit'
-        is_license_expired:
-          type: boolean
-        is_license_warning:
-          type: boolean
-        is_prompts_expire:
-          type: boolean
-        is_prompts_warning:
-          type: boolean
-        license_expires:
-          type:
-          - string
-          - 'null'
-          format: date
-        license_issued:
-          type:
-          - string
-          - 'null'
-          format: date
-        license_warning:
-          type:
-          - string
-          - 'null'
-          format: date
-        organization_is_active:
-          type: boolean
-        projects:
-          $ref: '#/components/schemas/CountLimit'
-        prompts_api_keys_enabled:
-          type: boolean
-        prompts_enabled:
-          type: boolean
-        prompts_expire:
-          type:
-          - string
-          - 'null'
-        prompts_status:
-          $ref: '#/components/schemas/PromptsStatusEnum'
-        prompts_warning:
-          type:
-          - string
-          - 'null'
-        results:
-          $ref: '#/components/schemas/CountLimit'
-        trial_days:
-          type: integer
-        users:
-          $ref: '#/components/schemas/CountLimit'
-      required:
-      - export_storages
-      - import_storages
-      - is_license_expired
-      - is_license_warning
-      - is_prompts_expire
-      - is_prompts_warning
-      - license_expires
-      - license_issued
-      - license_warning
-      - organization_is_active
-      - projects
-      - prompts_api_keys_enabled
-      - prompts_enabled
-      - prompts_expire
-      - prompts_status
-      - prompts_warning
-      - results
-      - trial_days
-      - users
-      title: BillingChecks
+    PromptsStatusEnum:
+      type: string
+      enum:
+      - Enabled
+      - Cloud license per organization disabled
+      - On-premise global license disabled
+      - Expired
+      - Adala not connected
+      - Disabled for this organization [FF]
+      - unknown
+      description: '* `Enabled` - Enabled
+
+        * `Cloud license per organization disabled` - Cloud license per organization disabled
+
+        * `On-premise global license disabled` - On-premise global license disabled
+
+        * `Expired` - Expired
+
+        * `Adala not connected` - Adala not connected
+
+        * `Disabled for this organization [FF]` - Disabled for this organization [FF]
+
+        * `unknown` - unknown'
+      title: PromptsStatusEnum
   securitySchemes:
     Token:
       type: apiKey

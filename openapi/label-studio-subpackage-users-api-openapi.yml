@@ -363,6 +363,76 @@ paths:
                   description: Username of the user
 components:
   schemas:
+    LseFields:
+      type: object
+      properties:
+        email_notification_settings:
+          type: string
+        invite_activated:
+          type:
+          - boolean
+          - 'null'
+        invite_expired:
+          type: string
+        invite_expired_at:
+          type: string
+        invited_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        invited_by:
+          type:
+          - integer
+          - 'null'
+        onboarding_state:
+          oneOf:
+          - $ref: '#/components/schemas/OnboardingStateEnum'
+          - type: 'null'
+          description: 'The current stage of user onboarding
+
+
+            * `not_started` - Not Started
+
+            * `signup` - Signup
+
+            * `trial_signup` - Trial Signup
+
+            * `first_tutorial` - First Tutorial
+
+            * `in_app_guidance` - In App Guidance
+
+            * `complete` - Complete'
+        social_auth_finished:
+          type:
+          - boolean
+          - 'null'
+          description: Is user finished social authentication
+        trial_company:
+          type:
+          - string
+          - 'null'
+        trial_experience_labeling:
+          type:
+          - string
+          - 'null'
+        trial_license_enterprise:
+          type:
+          - boolean
+          - 'null'
+        trial_models_in_production:
+          type:
+          - string
+          - 'null'
+        trial_role:
+          oneOf:
+          - $ref: '#/components/schemas/TrialRoleEnum'
+          - type: 'null'
+      required:
+      - email_notification_settings
+      - invite_expired
+      - invite_expired_at
+      title: LseFields
     WhoAmIUser:
       type: object
       properties:
@@ -447,27 +517,35 @@ components:
 
         values with complex, nested serializations'
       title: WhoAmIUser
-    OnboardingStateEnum:
-      type: string
-      enum:
-      - not_started
-      - signup
-      - trial_signup
-      - first_tutorial
-      - in_app_guidance
-      - complete
-      description: '* `not_started` - Not Started
-
-        * `signup` - Signup
-
-        * `trial_signup` - Trial Signup
-
-        * `first_tutorial` - First Tutorial
-
-        * `in_app_guidance` - In App Guidance
-
-        * `complete` - Complete'
-      title: OnboardingStateEnum
+    PatchedHotkeysRequest:
+      type: object
+      properties:
+        custom_hotkeys:
+          type: object
+          additionalProperties:
+            description: Any type
+      title: PatchedHotkeysRequest
+    OrganizationMembership:
+      type: object
+      properties:
+        active:
+          type: string
+        organization_id:
+          type: integer
+          description: Organization ID
+        role:
+          type: string
+      required:
+      - active
+      - organization_id
+      - role
+      title: OrganizationMembership
+    users_get_token_Response_200:
+      type: object
+      properties:
+        detail:
+          type: string
+      title: users_get_token_Response_200
     WhoAmILseFields:
       type: object
       properties:
@@ -543,259 +621,6 @@ components:
       - invite_expired
       - invite_expired_at
       title: WhoAmILseFields
-    users_reset_token_Response_201:
-      type: object
-      properties:
-        token:
-          type: string
-      title: users_reset_token_Response_201
-    OrganizationMembership:
-      type: object
-      properties:
-        active:
-          type: string
-        organization_id:
-          type: integer
-          description: Organization ID
-        role:
-          type: string
-      required:
-      - active
-      - organization_id
-      - role
-      title: OrganizationMembership
-    LseFields:
-      type: object
-      properties:
-        email_notification_settings:
-          type: string
-        invite_activated:
-          type:
-          - boolean
-          - 'null'
-        invite_expired:
-          type: string
-        invite_expired_at:
-          type: string
-        invited_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        invited_by:
-          type:
-          - integer
-          - 'null'
-        onboarding_state:
-          oneOf:
-          - $ref: '#/components/schemas/OnboardingStateEnum'
-          - type: 'null'
-          description: 'The current stage of user onboarding
-
-
-            * `not_started` - Not Started
-
-            * `signup` - Signup
-
-            * `trial_signup` - Trial Signup
-
-            * `first_tutorial` - First Tutorial
-
-            * `in_app_guidance` - In App Guidance
-
-            * `complete` - Complete'
-        social_auth_finished:
-          type:
-          - boolean
-          - 'null'
-          description: Is user finished social authentication
-        trial_company:
-          type:
-          - string
-          - 'null'
-        trial_experience_labeling:
-          type:
-          - string
-          - 'null'
-        trial_license_enterprise:
-          type:
-          - boolean
-          - 'null'
-        trial_models_in_production:
-          type:
-          - string
-          - 'null'
-        trial_role:
-          oneOf:
-          - $ref: '#/components/schemas/TrialRoleEnum'
-          - type: 'null'
-      required:
-      - email_notification_settings
-      - invite_expired
-      - invite_expired_at
-      title: LseFields
-    PatchedLseUserSerializerUpdateRequest:
-      type: object
-      properties:
-        active_organization:
-          type:
-          - integer
-          - 'null'
-        allow_newsletters:
-          type:
-          - boolean
-          - 'null'
-          description: Allow sending newsletters to user
-        custom_hotkeys:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Custom keyboard shortcuts configuration for the user interface
-        date_joined:
-          type: string
-          format: date-time
-        email_notification_settings:
-          description: Any type
-        first_name:
-          type: string
-        is_email_verified:
-          type:
-          - boolean
-          - 'null'
-        last_name:
-          type: string
-        onboarding_state:
-          type:
-          - string
-          - 'null'
-        password:
-          type: string
-        phone:
-          type: string
-        username:
-          type: string
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: PatchedLseUserSerializerUpdateRequest
-    TrialRoleEnum:
-      type: string
-      enum:
-      - annotator
-      - annotator_team_manager
-      - business_analyst
-      - business_or_data_team_leadership
-      - data_engineer_platform_engineer
-      - data_scientist
-      - other
-      description: '* `annotator` - Annotator
-
-        * `annotator_team_manager` - Annotator Team Manager
-
-        * `business_analyst` - Business Analyst
-
-        * `business_or_data_team_leadership` - Business Or Data Team Leadership
-
-        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
-
-        * `data_scientist` - Data Scientist
-
-        * `other` - Other'
-      title: TrialRoleEnum
-    PatchedHotkeysRequest:
-      type: object
-      properties:
-        custom_hotkeys:
-          type: object
-          additionalProperties:
-            description: Any type
-      title: PatchedHotkeysRequest
-    LseUserAPI:
-      type: object
-      properties:
-        active_organization:
-          type:
-          - integer
-          - 'null'
-        active_organization_meta:
-          type: string
-        allow_newsletters:
-          type:
-          - boolean
-          - 'null'
-          description: Allow sending newsletters to user
-        avatar:
-          type: string
-        custom_hotkeys:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Custom keyboard shortcuts configuration for the user interface
-        date_joined:
-          type: string
-          format: date-time
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        initials:
-          type: string
-          default: '?'
-        last_activity:
-          type: string
-          format: date-time
-        last_name:
-          type: string
-        org_membership:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrganizationMembership'
-        organization_membership:
-          $ref: '#/components/schemas/OrganizationMembership'
-        phone:
-          type: string
-        username:
-          type: string
-      required:
-      - active_organization_meta
-      - avatar
-      - id
-      - initials
-      - last_activity
-      - org_membership
-      - organization_membership
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: LseUserAPI
-    Hotkeys:
-      type: object
-      properties:
-        custom_hotkeys:
-          type: object
-          additionalProperties:
-            description: Any type
-      required:
-      - custom_hotkeys
-      title: Hotkeys
-    users_get_token_Response_200:
-      type: object
-      properties:
-        detail:
-          type: string
-      title: users_get_token_Response_200
     LseUser:
       type: object
       properties:
@@ -868,6 +693,181 @@ components:
 
         values with complex, nested serializations'
       title: LseUser
+    LseUserAPI:
+      type: object
+      properties:
+        active_organization:
+          type:
+          - integer
+          - 'null'
+        active_organization_meta:
+          type: string
+        allow_newsletters:
+          type:
+          - boolean
+          - 'null'
+          description: Allow sending newsletters to user
+        avatar:
+          type: string
+        custom_hotkeys:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Custom keyboard shortcuts configuration for the user interface
+        date_joined:
+          type: string
+          format: date-time
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        initials:
+          type: string
+          default: '?'
+        last_activity:
+          type: string
+          format: date-time
+        last_name:
+          type: string
+        org_membership:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationMembership'
+        organization_membership:
+          $ref: '#/components/schemas/OrganizationMembership'
+        phone:
+          type: string
+        username:
+          type: string
+      required:
+      - active_organization_meta
+      - avatar
+      - id
+      - initials
+      - last_activity
+      - org_membership
+      - organization_membership
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: LseUserAPI
+    PatchedLseUserSerializerUpdateRequest:
+      type: object
+      properties:
+        active_organization:
+          type:
+          - integer
+          - 'null'
+        allow_newsletters:
+          type:
+          - boolean
+          - 'null'
+          description: Allow sending newsletters to user
+        custom_hotkeys:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Custom keyboard shortcuts configuration for the user interface
+        date_joined:
+          type: string
+          format: date-time
+        email_notification_settings:
+          description: Any type
+        first_name:
+          type: string
+        is_email_verified:
+          type:
+          - boolean
+          - 'null'
+        last_name:
+          type: string
+        onboarding_state:
+          type:
+          - string
+          - 'null'
+        password:
+          type: string
+        phone:
+          type: string
+        username:
+          type: string
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: PatchedLseUserSerializerUpdateRequest
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
+    OnboardingStateEnum:
+      type: string
+      enum:
+      - not_started
+      - signup
+      - trial_signup
+      - first_tutorial
+      - in_app_guidance
+      - complete
+      description: '* `not_started` - Not Started
+
+        * `signup` - Signup
+
+        * `trial_signup` - Trial Signup
+
+        * `first_tutorial` - First Tutorial
+
+        * `in_app_guidance` - In App Guidance
+
+        * `complete` - Complete'
+      title: OnboardingStateEnum
+    users_reset_token_Response_201:
+      type: object
+      properties:
+        token:
+          type: string
+      title: users_reset_token_Response_201
+    Hotkeys:
+      type: object
+      properties:
+        custom_hotkeys:
+          type: object
+          additionalProperties:
+            description: Any type
+      required:
+      - custom_hotkeys
+      title: Hotkeys
   securitySchemes:
     Token:
       type: apiKey

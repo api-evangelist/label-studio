@@ -165,39 +165,6 @@ components:
           type: integer
           description: Number of removed items
       title: annotation_history_delete_Response_200
-    ActionEnum:
-      type: string
-      enum:
-      - prediction
-      - propagated_annotation
-      - imported
-      - submitted
-      - updated
-      - skipped
-      - accepted
-      - rejected
-      - fixed_and_accepted
-      - deleted_review
-      description: '* `prediction` - Created from prediction
-
-        * `propagated_annotation` - Created from another annotation
-
-        * `imported` - Imported
-
-        * `submitted` - Submitted
-
-        * `updated` - Updated
-
-        * `skipped` - Skipped
-
-        * `accepted` - Accepted
-
-        * `rejected` - Rejected
-
-        * `fixed_and_accepted` - Fixed and accepted
-
-        * `deleted_review` - Deleted review'
-      title: ActionEnum
     PaginatedAnnotationHistoryList:
       type: object
       properties:
@@ -306,6 +273,39 @@ components:
 
         values with complex, nested serializations'
       title: AnnotationHistory
+    ActionEnum:
+      type: string
+      enum:
+      - prediction
+      - propagated_annotation
+      - imported
+      - submitted
+      - updated
+      - skipped
+      - accepted
+      - rejected
+      - fixed_and_accepted
+      - deleted_review
+      description: '* `prediction` - Created from prediction
+
+        * `propagated_annotation` - Created from another annotation
+
+        * `imported` - Imported
+
+        * `submitted` - Submitted
+
+        * `updated` - Updated
+
+        * `skipped` - Skipped
+
+        * `accepted` - Accepted
+
+        * `rejected` - Rejected
+
+        * `fixed_and_accepted` - Fixed and accepted
+
+        * `deleted_review` - Deleted review'
+      title: ActionEnum
   securitySchemes:
     Token:
       type: apiKey

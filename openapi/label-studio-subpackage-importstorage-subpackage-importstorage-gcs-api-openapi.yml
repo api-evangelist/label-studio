@@ -313,27 +313,11 @@ paths:
                 $ref: '#/components/schemas/GCSImportStorage'
 components:
   schemas:
-    StatusC5aEnum:
-      type: string
-      enum:
-      - initialized
-      - queued
-      - in_progress
-      - failed
-      - completed
-      - completed_with_errors
-      description: '* `initialized` - Initialized
-
-        * `queued` - Queued
-
-        * `in_progress` - In progress
-
-        * `failed` - Failed
-
-        * `completed` - Completed
-
-        * `completed_with_errors` - Completed with errors'
-      title: StatusC5aEnum
+    import_storage_gcs_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: import_storage_gcs_validate_Response_200
     GCSImportStorage:
       type: object
       properties:
@@ -435,11 +419,27 @@ components:
       - project
       - type
       title: GCSImportStorage
-    import_storage_gcs_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: import_storage_gcs_validate_Response_200
+    StatusC5aEnum:
+      type: string
+      enum:
+      - initialized
+      - queued
+      - in_progress
+      - failed
+      - completed
+      - completed_with_errors
+      description: '* `initialized` - Initialized
+
+        * `queued` - Queued
+
+        * `in_progress` - In progress
+
+        * `failed` - Failed
+
+        * `completed` - Completed
+
+        * `completed_with_errors` - Completed with errors'
+      title: StatusC5aEnum
   securitySchemes:
     Token:
       type: apiKey

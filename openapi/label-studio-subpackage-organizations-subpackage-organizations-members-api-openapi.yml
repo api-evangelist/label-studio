@@ -260,156 +260,29 @@ paths:
                 description: Any type
 components:
   schemas:
-    LseOrganizationMemberList:
+    PaginatedLseOrganizationMemberListList:
       type: object
       properties:
-        concurrency:
-          type: string
-        contributed_to_projects:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/LseOrganizationMemberListContributedToProjectsItems'
-        created_projects:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/LseOrganizationMemberListCreatedProjectsItems'
-        id:
+        count:
           type: integer
-        organization:
-          type: integer
-          description: Organization ID
-        role:
-          type: string
-        role_source:
-          type: string
-        tags:
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
           type: array
           items:
-            $ref: '#/components/schemas/SimpleOrganizationMemberTag'
-        user:
-          $ref: '#/components/schemas/LseUserOrganizationMemberList'
-        user_type:
-          type: string
+            $ref: '#/components/schemas/LseOrganizationMemberList'
       required:
-      - concurrency
-      - contributed_to_projects
-      - created_projects
-      - id
-      - organization
-      - role
-      - role_source
-      - tags
-      - user
-      - user_type
-      description: 'A serializer mixin that takes an additional `fields` argument that controls
-
-        which fields should be displayed.'
-      title: LseOrganizationMemberList
-    LseOrganizationMemberListContributedToProjectsItems:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-      required:
-      - id
-      - title
-      title: LseOrganizationMemberListContributedToProjectsItems
-    SimpleOrganizationMemberTag:
-      type: object
-      properties:
-        id:
-          type: integer
-        label:
-          type: string
-      required:
-      - id
-      - label
-      title: SimpleOrganizationMemberTag
-    LseOrganizationMemberListCreatedProjectsItems:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-      required:
-      - id
-      - title
-      title: LseOrganizationMemberListCreatedProjectsItems
-    OnboardingStateEnum:
-      type: string
-      enum:
-      - not_started
-      - signup
-      - trial_signup
-      - first_tutorial
-      - in_app_guidance
-      - complete
-      description: '* `not_started` - Not Started
-
-        * `signup` - Signup
-
-        * `trial_signup` - Trial Signup
-
-        * `first_tutorial` - First Tutorial
-
-        * `in_app_guidance` - In App Guidance
-
-        * `complete` - Complete'
-      title: OnboardingStateEnum
-    OrganizationMemberCreatedProjectsItems:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-      required:
-      - id
-      - title
-      title: OrganizationMemberCreatedProjectsItems
-    LseUserOrganizationMemberListCreatedProjectsItems:
-      type: object
-      properties:
-        id:
-          type: integer
-        title:
-          type: string
-      required:
-      - id
-      - title
-      title: LseUserOrganizationMemberListCreatedProjectsItems
-    PatchedOrganizationMemberCreateUpdateRequest:
-      type: object
-      properties:
-        role:
-          $ref: '#/components/schemas/Role9e7Enum'
-          description: 'Organization role
-
-
-            * `OW` - Owner
-
-            * `AD` - Administrator
-
-            * `MA` - Manager
-
-            * `RE` - Reviewer
-
-            * `AN` - Annotator
-
-            * `DI` - Deactivated
-
-            * `NO` - Not Activated'
-        user_id:
-          type: integer
-          description: Member
-      title: PatchedOrganizationMemberCreateUpdateRequest
+      - count
+      - results
+      title: PaginatedLseOrganizationMemberListList
     LseUserOrganizationMemberList:
       type: object
       properties:
@@ -485,29 +358,236 @@ components:
 
         values with complex, nested serializations'
       title: LseUserOrganizationMemberList
-    PaginatedLseOrganizationMemberListList:
+    LseOrganizationMemberList:
       type: object
       properties:
-        count:
+        concurrency:
+          type: string
+        contributed_to_projects:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/LseOrganizationMemberListContributedToProjectsItems'
+        created_projects:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/LseOrganizationMemberListCreatedProjectsItems'
+        id:
           type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
+        organization:
+          type: integer
+          description: Organization ID
+        role:
+          type: string
+        role_source:
+          type: string
+        tags:
           type: array
           items:
-            $ref: '#/components/schemas/LseOrganizationMemberList'
+            $ref: '#/components/schemas/SimpleOrganizationMemberTag'
+        user:
+          $ref: '#/components/schemas/LseUserOrganizationMemberList'
+        user_type:
+          type: string
       required:
-      - count
-      - results
-      title: PaginatedLseOrganizationMemberListList
+      - concurrency
+      - contributed_to_projects
+      - created_projects
+      - id
+      - organization
+      - role
+      - role_source
+      - tags
+      - user
+      - user_type
+      description: 'A serializer mixin that takes an additional `fields` argument that controls
+
+        which fields should be displayed.'
+      title: LseOrganizationMemberList
+    LseOrganizationMemberListCreatedProjectsItems:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+      required:
+      - id
+      - title
+      title: LseOrganizationMemberListCreatedProjectsItems
+    ApiOrganizationsIdMembershipsGetParametersScope:
+      type: string
+      enum:
+      - accessible
+      - all
+      title: ApiOrganizationsIdMembershipsGetParametersScope
+    LseOrganizationMemberListContributedToProjectsItems:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+      required:
+      - id
+      - title
+      title: LseOrganizationMemberListContributedToProjectsItems
+    SimpleOrganizationMemberTag:
+      type: object
+      properties:
+        id:
+          type: integer
+        label:
+          type: string
+      required:
+      - id
+      - label
+      title: SimpleOrganizationMemberTag
+    LseUserOrganizationMemberListContributedToProjectsItems:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+      required:
+      - id
+      - title
+      title: LseUserOrganizationMemberListContributedToProjectsItems
+    Role9e7Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      description: '* `OW` - Owner
+
+        * `AD` - Administrator
+
+        * `MA` - Manager
+
+        * `RE` - Reviewer
+
+        * `AN` - Annotator
+
+        * `DI` - Deactivated
+
+        * `NO` - Not Activated'
+      title: Role9e7Enum
+    LseUserOrganizationMemberListCreatedProjectsItems:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+      required:
+      - id
+      - title
+      title: LseUserOrganizationMemberListCreatedProjectsItems
+    OrganizationMember:
+      type: object
+      properties:
+        annotations_count:
+          type: integer
+        contributed_projects_count:
+          type: integer
+        contributed_to_projects:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/OrganizationMemberContributedToProjectsItems'
+        created_at:
+          type: string
+          format: date-time
+        created_projects:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/OrganizationMemberCreatedProjectsItems'
+        organization:
+          type: integer
+          description: Organization ID
+        user:
+          type: integer
+          description: User ID
+      required:
+      - annotations_count
+      - contributed_projects_count
+      - contributed_to_projects
+      - created_at
+      - created_projects
+      - organization
+      - user
+      description: 'A serializer mixin that takes an additional `fields` argument that controls
+
+        which fields should be displayed.'
+      title: OrganizationMember
+    TrialRoleEnum:
+      type: string
+      enum:
+      - annotator
+      - annotator_team_manager
+      - business_analyst
+      - business_or_data_team_leadership
+      - data_engineer_platform_engineer
+      - data_scientist
+      - other
+      description: '* `annotator` - Annotator
+
+        * `annotator_team_manager` - Annotator Team Manager
+
+        * `business_analyst` - Business Analyst
+
+        * `business_or_data_team_leadership` - Business Or Data Team Leadership
+
+        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
+
+        * `data_scientist` - Data Scientist
+
+        * `other` - Other'
+      title: TrialRoleEnum
+    OrganizationMemberContributedToProjectsItems:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+      required:
+      - id
+      - title
+      title: OrganizationMemberContributedToProjectsItems
+    OnboardingStateEnum:
+      type: string
+      enum:
+      - not_started
+      - signup
+      - trial_signup
+      - first_tutorial
+      - in_app_guidance
+      - complete
+      description: '* `not_started` - Not Started
+
+        * `signup` - Signup
+
+        * `trial_signup` - Trial Signup
+
+        * `first_tutorial` - First Tutorial
+
+        * `in_app_guidance` - In App Guidance
+
+        * `complete` - Complete'
+      title: OnboardingStateEnum
     LseFields:
       type: object
       properties:
@@ -578,71 +658,7 @@ components:
       - invite_expired
       - invite_expired_at
       title: LseFields
-    TrialRoleEnum:
-      type: string
-      enum:
-      - annotator
-      - annotator_team_manager
-      - business_analyst
-      - business_or_data_team_leadership
-      - data_engineer_platform_engineer
-      - data_scientist
-      - other
-      description: '* `annotator` - Annotator
-
-        * `annotator_team_manager` - Annotator Team Manager
-
-        * `business_analyst` - Business Analyst
-
-        * `business_or_data_team_leadership` - Business Or Data Team Leadership
-
-        * `data_engineer_platform_engineer` - Data Engineer Platform Engineer
-
-        * `data_scientist` - Data Scientist
-
-        * `other` - Other'
-      title: TrialRoleEnum
-    OrganizationMember:
-      type: object
-      properties:
-        annotations_count:
-          type: integer
-        contributed_projects_count:
-          type: integer
-        contributed_to_projects:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/OrganizationMemberContributedToProjectsItems'
-        created_at:
-          type: string
-          format: date-time
-        created_projects:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/OrganizationMemberCreatedProjectsItems'
-        organization:
-          type: integer
-          description: Organization ID
-        user:
-          type: integer
-          description: User ID
-      required:
-      - annotations_count
-      - contributed_projects_count
-      - contributed_to_projects
-      - created_at
-      - created_projects
-      - organization
-      - user
-      description: 'A serializer mixin that takes an additional `fields` argument that controls
-
-        which fields should be displayed.'
-      title: OrganizationMember
-    LseUserOrganizationMemberListContributedToProjectsItems:
+    OrganizationMemberCreatedProjectsItems:
       type: object
       properties:
         id:
@@ -652,48 +668,32 @@ components:
       required:
       - id
       - title
-      title: LseUserOrganizationMemberListContributedToProjectsItems
-    ApiOrganizationsIdMembershipsGetParametersScope:
-      type: string
-      enum:
-      - accessible
-      - all
-      title: ApiOrganizationsIdMembershipsGetParametersScope
-    OrganizationMemberContributedToProjectsItems:
+      title: OrganizationMemberCreatedProjectsItems
+    PatchedOrganizationMemberCreateUpdateRequest:
       type: object
       properties:
-        id:
+        role:
+          $ref: '#/components/schemas/Role9e7Enum'
+          description: 'Organization role
+
+
+            * `OW` - Owner
+
+            * `AD` - Administrator
+
+            * `MA` - Manager
+
+            * `RE` - Reviewer
+
+            * `AN` - Annotator
+
+            * `DI` - Deactivated
+
+            * `NO` - Not Activated'
+        user_id:
           type: integer
-        title:
-          type: string
-      required:
-      - id
-      - title
-      title: OrganizationMemberContributedToProjectsItems
-    Role9e7Enum:
-      type: string
-      enum:
-      - OW
-      - AD
-      - MA
-      - RE
-      - AN
-      - DI
-      - 'NO'
-      description: '* `OW` - Owner
-
-        * `AD` - Administrator
-
-        * `MA` - Manager
-
-        * `RE` - Reviewer
-
-        * `AN` - Annotator
-
-        * `DI` - Deactivated
-
-        * `NO` - Not Activated'
-      title: Role9e7Enum
+          description: Member
+      title: PatchedOrganizationMemberCreateUpdateRequest
   securitySchemes:
     Token:
       type: apiKey

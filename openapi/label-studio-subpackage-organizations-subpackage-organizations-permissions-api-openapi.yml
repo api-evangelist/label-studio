@@ -329,17 +329,6 @@ paths:
               $ref: '#/components/schemas/PatchedOrganizationPermissionRequest'
 components:
   schemas:
-    Options165Enum:
-      type: string
-      enum:
-      - OW
-      - AD
-      - MA
-      - RE
-      - AN
-      - DI
-      - 'NO'
-      title: Options165Enum
     ConfigurablePermissionOption:
       type: object
       properties:
@@ -377,50 +366,6 @@ components:
       required:
       - permission
       title: OrganizationPermissionRequest
-    OrganizationPermission:
-      type: object
-      properties:
-        default:
-          type: array
-          items:
-            $ref: '#/components/schemas/Default165Enum'
-        group:
-          type:
-          - string
-          - 'null'
-        id:
-          type: integer
-        label:
-          type:
-          - string
-          - 'null'
-        options:
-          type: array
-          items:
-            $ref: '#/components/schemas/Options165Enum'
-        organization:
-          type: integer
-        permission:
-          type: string
-        roles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Role9e7Enum'
-          description: Organization roles
-        tooltip:
-          type:
-          - string
-          - 'null'
-      required:
-      - default
-      - group
-      - id
-      - label
-      - options
-      - organization
-      - permission
-      - tooltip
-      title: OrganizationPermission
     PatchedOrganizationPermissionRequest:
       type: object
       properties:
@@ -467,6 +412,61 @@ components:
 
         * `NO` - Not Activated'
       title: Role9e7Enum
+    Options165Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      title: Options165Enum
+    OrganizationPermission:
+      type: object
+      properties:
+        default:
+          type: array
+          items:
+            $ref: '#/components/schemas/Default165Enum'
+        group:
+          type:
+          - string
+          - 'null'
+        id:
+          type: integer
+        label:
+          type:
+          - string
+          - 'null'
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Options165Enum'
+        organization:
+          type: integer
+        permission:
+          type: string
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role9e7Enum'
+          description: Organization roles
+        tooltip:
+          type:
+          - string
+          - 'null'
+      required:
+      - default
+      - group
+      - id
+      - label
+      - options
+      - organization
+      - permission
+      - tooltip
+      title: OrganizationPermission
   securitySchemes:
     Token:
       type: apiKey

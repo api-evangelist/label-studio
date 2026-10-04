@@ -191,193 +191,6 @@ components:
 
         * `Model` - Model'
       title: ScopeEnum
-    model_providers_list_model_provider_choices_Response_200:
-      type: object
-      properties:
-        provider_choices:
-          type: array
-          items:
-            type: string
-      title: model_providers_list_model_provider_choices_Response_200
-    ModelProviderConnectionRequest:
-      type: object
-      properties:
-        api_key:
-          type:
-          - string
-          - 'null'
-          description: Model provider API key
-        auth_token:
-          type:
-          - string
-          - 'null'
-          description: Model provider Auth token
-        budget_alert_threshold:
-          type:
-          - number
-          - 'null'
-          format: double
-          description: Budget alert threshold for the given provider connection
-        cached_available_models:
-          type:
-          - string
-          - 'null'
-          description: List of available models from the provider
-        deployment_name:
-          type:
-          - string
-          - 'null'
-          description: Azure OpenAI deployment name
-        endpoint:
-          type:
-          - string
-          - 'null'
-          description: Azure OpenAI endpoint
-        google_application_credentials:
-          type:
-          - string
-          - 'null'
-          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
-        google_location:
-          type:
-          - string
-          - 'null'
-          description: Google project location
-        google_project_id:
-          type:
-          - string
-          - 'null'
-          description: Google project ID
-        is_internal:
-          type:
-          - boolean
-          - 'null'
-          description: Whether the model provider connection is internal, not visible to the user
-        provider:
-          $ref: '#/components/schemas/ProviderEnum'
-        scope:
-          $ref: '#/components/schemas/ScopeEnum'
-      title: ModelProviderConnectionRequest
-    PatchedModelProviderConnectionRequest:
-      type: object
-      properties:
-        api_key:
-          type:
-          - string
-          - 'null'
-          description: Model provider API key
-        auth_token:
-          type:
-          - string
-          - 'null'
-          description: Model provider Auth token
-        budget_alert_threshold:
-          type:
-          - number
-          - 'null'
-          format: double
-          description: Budget alert threshold for the given provider connection
-        cached_available_models:
-          type:
-          - string
-          - 'null'
-          description: List of available models from the provider
-        deployment_name:
-          type:
-          - string
-          - 'null'
-          description: Azure OpenAI deployment name
-        endpoint:
-          type:
-          - string
-          - 'null'
-          description: Azure OpenAI endpoint
-        google_application_credentials:
-          type:
-          - string
-          - 'null'
-          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
-        google_location:
-          type:
-          - string
-          - 'null'
-          description: Google project location
-        google_project_id:
-          type:
-          - string
-          - 'null'
-          description: Google project ID
-        is_internal:
-          type:
-          - boolean
-          - 'null'
-          description: Whether the model provider connection is internal, not visible to the user
-        provider:
-          $ref: '#/components/schemas/ProviderEnum'
-        scope:
-          $ref: '#/components/schemas/ScopeEnum'
-      title: PatchedModelProviderConnectionRequest
-    BudgetResetPeriodEnum:
-      type: string
-      enum:
-      - Monthly
-      - Yearly
-      description: '* `Monthly` - Monthly
-
-        * `Yearly` - Yearly'
-      title: BudgetResetPeriodEnum
-    ProviderEnum:
-      type: string
-      enum:
-      - OpenAI
-      - AzureOpenAI
-      - AzureAIFoundry
-      - VertexAI
-      - Gemini
-      - Anthropic
-      - Custom
-      description: '* `OpenAI` - OpenAI
-
-        * `AzureOpenAI` - AzureOpenAI
-
-        * `AzureAIFoundry` - AzureAIFoundry
-
-        * `VertexAI` - VertexAI
-
-        * `Gemini` - Gemini
-
-        * `Anthropic` - Anthropic
-
-        * `Custom` - Custom'
-      title: ProviderEnum
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
     ModelProviderConnection:
       type: object
       properties:
@@ -478,6 +291,193 @@ components:
       - organization
       - updated_at
       title: ModelProviderConnection
+    ModelProviderConnectionRequest:
+      type: object
+      properties:
+        api_key:
+          type:
+          - string
+          - 'null'
+          description: Model provider API key
+        auth_token:
+          type:
+          - string
+          - 'null'
+          description: Model provider Auth token
+        budget_alert_threshold:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Budget alert threshold for the given provider connection
+        cached_available_models:
+          type:
+          - string
+          - 'null'
+          description: List of available models from the provider
+        deployment_name:
+          type:
+          - string
+          - 'null'
+          description: Azure OpenAI deployment name
+        endpoint:
+          type:
+          - string
+          - 'null'
+          description: Azure OpenAI endpoint
+        google_application_credentials:
+          type:
+          - string
+          - 'null'
+          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
+        google_location:
+          type:
+          - string
+          - 'null'
+          description: Google project location
+        google_project_id:
+          type:
+          - string
+          - 'null'
+          description: Google project ID
+        is_internal:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the model provider connection is internal, not visible to the user
+        provider:
+          $ref: '#/components/schemas/ProviderEnum'
+        scope:
+          $ref: '#/components/schemas/ScopeEnum'
+      title: ModelProviderConnectionRequest
+    BudgetResetPeriodEnum:
+      type: string
+      enum:
+      - Monthly
+      - Yearly
+      description: '* `Monthly` - Monthly
+
+        * `Yearly` - Yearly'
+      title: BudgetResetPeriodEnum
+    PatchedModelProviderConnectionRequest:
+      type: object
+      properties:
+        api_key:
+          type:
+          - string
+          - 'null'
+          description: Model provider API key
+        auth_token:
+          type:
+          - string
+          - 'null'
+          description: Model provider Auth token
+        budget_alert_threshold:
+          type:
+          - number
+          - 'null'
+          format: double
+          description: Budget alert threshold for the given provider connection
+        cached_available_models:
+          type:
+          - string
+          - 'null'
+          description: List of available models from the provider
+        deployment_name:
+          type:
+          - string
+          - 'null'
+          description: Azure OpenAI deployment name
+        endpoint:
+          type:
+          - string
+          - 'null'
+          description: Azure OpenAI endpoint
+        google_application_credentials:
+          type:
+          - string
+          - 'null'
+          description: The content of GOOGLE_APPLICATION_CREDENTIALS json file
+        google_location:
+          type:
+          - string
+          - 'null'
+          description: Google project location
+        google_project_id:
+          type:
+          - string
+          - 'null'
+          description: Google project ID
+        is_internal:
+          type:
+          - boolean
+          - 'null'
+          description: Whether the model provider connection is internal, not visible to the user
+        provider:
+          $ref: '#/components/schemas/ProviderEnum'
+        scope:
+          $ref: '#/components/schemas/ScopeEnum'
+      title: PatchedModelProviderConnectionRequest
+    ProviderEnum:
+      type: string
+      enum:
+      - OpenAI
+      - AzureOpenAI
+      - AzureAIFoundry
+      - VertexAI
+      - Gemini
+      - Anthropic
+      - Custom
+      description: '* `OpenAI` - OpenAI
+
+        * `AzureOpenAI` - AzureOpenAI
+
+        * `AzureAIFoundry` - AzureAIFoundry
+
+        * `VertexAI` - VertexAI
+
+        * `Gemini` - Gemini
+
+        * `Anthropic` - Anthropic
+
+        * `Custom` - Custom'
+      title: ProviderEnum
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
+    model_providers_list_model_provider_choices_Response_200:
+      type: object
+      properties:
+        provider_choices:
+          type: array
+          items:
+            type: string
+      title: model_providers_list_model_provider_choices_Response_200
   securitySchemes:
     Token:
       type: apiKey

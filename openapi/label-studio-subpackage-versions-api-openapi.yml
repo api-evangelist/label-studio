@@ -30,6 +30,15 @@ paths:
                 $ref: '#/components/schemas/VersionResponse'
 components:
   schemas:
+    EditionEnum:
+      type: string
+      enum:
+      - Community
+      - Enterprise
+      description: '* `Community` - Community
+
+        * `Enterprise` - Enterprise'
+      title: EditionEnum
     VersionResponse:
       type: object
       properties:
@@ -69,15 +78,6 @@ components:
       - lsf
       - release
       title: VersionResponse
-    EditionEnum:
-      type: string
-      enum:
-      - Community
-      - Enterprise
-      description: '* `Community` - Community
-
-        * `Enterprise` - Enterprise'
-      title: EditionEnum
   securitySchemes:
     Token:
       type: apiKey

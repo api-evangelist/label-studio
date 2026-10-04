@@ -173,55 +173,6 @@ paths:
               $ref: '#/components/schemas/PatchedWorkspaceRequest'
 components:
   schemas:
-    Workspace:
-      type: object
-      properties:
-        color:
-          type:
-          - string
-          - 'null'
-          description: Color
-        created_by:
-          type: integer
-        created_by_user:
-          type: string
-        description:
-          type:
-          - string
-          - 'null'
-          description: Workspace description
-        id:
-          type: integer
-        is_archived:
-          type: boolean
-          description: Workspace is archived
-        is_personal:
-          type: boolean
-          description: Workspace is a personal user workspace
-        membership:
-          type: string
-        projects_count:
-          type:
-          - integer
-          - 'null'
-        title:
-          type: string
-          description: Workspace Name
-      required:
-      - created_by
-      - created_by_user
-      - id
-      - membership
-      - projects_count
-      - title
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: Workspace
     WorkspaceRequest:
       type: object
       properties:
@@ -284,6 +235,55 @@ components:
 
         values with complex, nested serializations'
       title: PatchedWorkspaceRequest
+    Workspace:
+      type: object
+      properties:
+        color:
+          type:
+          - string
+          - 'null'
+          description: Color
+        created_by:
+          type: integer
+        created_by_user:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+          description: Workspace description
+        id:
+          type: integer
+        is_archived:
+          type: boolean
+          description: Workspace is archived
+        is_personal:
+          type: boolean
+          description: Workspace is a personal user workspace
+        membership:
+          type: string
+        projects_count:
+          type:
+          - integer
+          - 'null'
+        title:
+          type: string
+          description: Workspace Name
+      required:
+      - created_by
+      - created_by_user
+      - id
+      - membership
+      - projects_count
+      - title
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: Workspace
   securitySchemes:
     Token:
       type: apiKey

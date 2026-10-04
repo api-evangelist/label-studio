@@ -211,6 +211,54 @@ paths:
               $ref: '#/components/schemas/PatchedPauseRequest'
 components:
   schemas:
+    ReasonEnum:
+      type: string
+      enum:
+      - MANUAL
+      - BEHAVIOR_BASED
+      - ANNOTATOR_EVALUATION
+      - ANNOTATION_LIMIT
+      - CUSTOM_SCRIPT
+      description: '* `MANUAL` - Manual
+
+        * `BEHAVIOR_BASED` - Behavior-based
+
+        * `ANNOTATOR_EVALUATION` - Annotator evaluation
+
+        * `ANNOTATION_LIMIT` - Annotation limit
+
+        * `CUSTOM_SCRIPT` - Custom script'
+      title: ReasonEnum
+    PatchedPauseRequest:
+      type: object
+      properties:
+        reason:
+          $ref: '#/components/schemas/ReasonEnum'
+          description: 'Reason for pausing
+
+
+            * `MANUAL` - Manual
+
+            * `BEHAVIOR_BASED` - Behavior-based
+
+            * `ANNOTATOR_EVALUATION` - Annotator evaluation
+
+            * `ANNOTATION_LIMIT` - Annotation limit
+
+            * `CUSTOM_SCRIPT` - Custom script'
+        verbose_reason:
+          type:
+          - string
+          - 'null'
+          description: Detailed description of why the project is paused, will be readable by paused annotators
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: PatchedPauseRequest
     PauseRequest:
       type: object
       properties:
@@ -316,24 +364,6 @@ components:
 
         values with complex, nested serializations'
       title: Pause
-    ReasonEnum:
-      type: string
-      enum:
-      - MANUAL
-      - BEHAVIOR_BASED
-      - ANNOTATOR_EVALUATION
-      - ANNOTATION_LIMIT
-      - CUSTOM_SCRIPT
-      description: '* `MANUAL` - Manual
-
-        * `BEHAVIOR_BASED` - Behavior-based
-
-        * `ANNOTATOR_EVALUATION` - Annotator evaluation
-
-        * `ANNOTATION_LIMIT` - Annotation limit
-
-        * `CUSTOM_SCRIPT` - Custom script'
-      title: ReasonEnum
     UserSimple:
       type: object
       properties:
@@ -362,36 +392,6 @@ components:
 
         values with complex, nested serializations'
       title: UserSimple
-    PatchedPauseRequest:
-      type: object
-      properties:
-        reason:
-          $ref: '#/components/schemas/ReasonEnum'
-          description: 'Reason for pausing
-
-
-            * `MANUAL` - Manual
-
-            * `BEHAVIOR_BASED` - Behavior-based
-
-            * `ANNOTATOR_EVALUATION` - Annotator evaluation
-
-            * `ANNOTATION_LIMIT` - Annotation limit
-
-            * `CUSTOM_SCRIPT` - Custom script'
-        verbose_reason:
-          type:
-          - string
-          - 'null'
-          description: Detailed description of why the project is paused, will be readable by paused annotators
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: PatchedPauseRequest
   securitySchemes:
     Token:
       type: apiKey

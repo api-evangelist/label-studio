@@ -456,6 +456,12 @@ paths:
               $ref: '#/components/schemas/PatchedOrganizationMemberTagRequest'
 components:
   schemas:
+    organizations_member_tags_assign_Response_200:
+      type: object
+      properties:
+        assigned:
+          type: integer
+      title: organizations_member_tags_assign_Response_200
     BulkOrganizationMemberTagAssignmentRequest:
       type: object
       properties:
@@ -484,6 +490,21 @@ components:
       required:
       - all
       title: BulkOrganizationMemberTagAssignmentRequest
+    OrganizationMemberTagImportStatusStatusEnum:
+      type: string
+      enum:
+      - created
+      - in_progress
+      - completed
+      - failed
+      description: '* `created` - Created
+
+        * `in_progress` - In Progress
+
+        * `completed` - Completed
+
+        * `failed` - Failed'
+      title: OrganizationMemberTagImportStatusStatusEnum
     OrganizationMemberTagImportStatus:
       type: object
       properties:
@@ -533,71 +554,6 @@ components:
       - count
       - results
       title: PaginatedOrganizationMemberTagList
-    PatchedOrganizationMemberTagRequest:
-      type: object
-      properties:
-        label:
-          type: string
-          description: Label
-      title: PatchedOrganizationMemberTagRequest
-    OrganizationMemberTagRequest:
-      type: object
-      properties:
-        label:
-          type: string
-          description: Label
-      required:
-      - label
-      title: OrganizationMemberTagRequest
-    OrganizationMemberTagImportStatusStatusEnum:
-      type: string
-      enum:
-      - created
-      - in_progress
-      - completed
-      - failed
-      description: '* `created` - Created
-
-        * `in_progress` - In Progress
-
-        * `completed` - Completed
-
-        * `failed` - Failed'
-      title: OrganizationMemberTagImportStatusStatusEnum
-    organizations_member_tags_assign_Response_200:
-      type: object
-      properties:
-        assigned:
-          type: integer
-      title: organizations_member_tags_assign_Response_200
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: UserSimple
     organizations_member_tags_import_Response_201:
       type: object
       properties:
@@ -605,18 +561,6 @@ components:
           type: integer
           description: The ID of the created import job
       title: organizations_member_tags_import_Response_201
-    OrganizationMemberTagImportCreateRequest:
-      type: object
-      properties:
-        bulk_tags:
-          type: string
-        file:
-          type: string
-          format: binary
-      required:
-      - bulk_tags
-      - file
-      title: OrganizationMemberTagImportCreateRequest
     OrganizationMemberTag:
       type: object
       properties:
@@ -646,6 +590,62 @@ components:
       - organization
       - updated_at
       title: OrganizationMemberTag
+    OrganizationMemberTagRequest:
+      type: object
+      properties:
+        label:
+          type: string
+          description: Label
+      required:
+      - label
+      title: OrganizationMemberTagRequest
+    OrganizationMemberTagImportCreateRequest:
+      type: object
+      properties:
+        bulk_tags:
+          type: string
+        file:
+          type: string
+          format: binary
+      required:
+      - bulk_tags
+      - file
+      title: OrganizationMemberTagImportCreateRequest
+    PatchedOrganizationMemberTagRequest:
+      type: object
+      properties:
+        label:
+          type: string
+          description: Label
+      title: PatchedOrganizationMemberTagRequest
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: UserSimple
   securitySchemes:
     Token:
       type: apiKey
