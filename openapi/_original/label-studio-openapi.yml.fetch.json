@@ -1,0 +1,12 @@
+{
+ "url": "https://api.labelstud.io/openapi.json",
+ "requested_url": "https://api.labelstud.io/openapi.json",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 960678,
+ "sha256": "8ff5c38a2c29391b0731d8723a6988177ed63b8a916e53a7eb007a4a900bf055",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.91), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
