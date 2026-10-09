@@ -1,0 +1,35 @@
+# Front Door AI Index — label-studio — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: label-studio
+  lexicon_version: '1.0'
+  probed_at: '2026-09-25'
+  host: labelstud.io
+  final_host: labelstud.io
+  ownership: own
+  owner: label-studio
+  shares_host_with: null
+  inherited_from: null
+  alias_of: null
+  verdict: scored
+  score: 24
+  band: 6
+  band_label: dominant
+  host_score: 24
+  density: 30.57
+  words: 785
+  tiers:
+    agentic: 5
+    core: 19
+    model: 0
+  ambiguous: 3
+  top_terms:
+    AI: 12
+    LLMs: 4
+    ML: 3
+    agent: 3
+    fine-tune: 2
+    RAG: 1
+    agentic: 1
+    chatbot: 1
