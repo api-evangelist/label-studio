@@ -73,14 +73,6 @@ paths:
           description: Successful response
 components:
   schemas:
-    ProjectMember:
-      type: object
-      properties:
-        user:
-          type: integer
-      required:
-      - user
-      title: ProjectMember
     ProjectMemberRequest:
       type: object
       properties:
@@ -89,6 +81,14 @@ components:
       required:
       - user
       title: ProjectMemberRequest
+    ProjectMember:
+      type: object
+      properties:
+        user:
+          type: integer
+      required:
+      - user
+      title: ProjectMember
   securitySchemes:
     Token:
       type: apiKey

@@ -103,12 +103,6 @@ paths:
                 description: Any type
 components:
   schemas:
-    organizations_member_tags_bulk_delete_Response_200:
-      type: object
-      properties:
-        deleted:
-          type: integer
-      title: organizations_member_tags_bulk_delete_Response_200
     OrganizationMemberTagBulkCreateRequest:
       type: object
       properties:
@@ -127,6 +121,12 @@ components:
         created:
           type: integer
       title: organizations_member_tags_bulk_post_Response_201
+    organizations_member_tags_bulk_delete_Response_200:
+      type: object
+      properties:
+        deleted:
+          type: integer
+      title: organizations_member_tags_bulk_delete_Response_200
   securitySchemes:
     Token:
       type: apiKey

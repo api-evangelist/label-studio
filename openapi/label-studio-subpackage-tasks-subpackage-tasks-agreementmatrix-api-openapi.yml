@@ -57,17 +57,17 @@ paths:
                 $ref: '#/components/schemas/TaskAgreementMatrixResponse'
 components:
   schemas:
-    AgreementSelectionGroupRequest:
+    AgreementSelectionRequest:
       type: object
       properties:
-        all:
+        annotators:
+          $ref: '#/components/schemas/AgreementSelectionGroupRequest'
+        ground_truth:
           type: boolean
           default: false
-        ids:
-          type: array
-          items:
-            type: string
-      title: AgreementSelectionGroupRequest
+        models:
+          $ref: '#/components/schemas/AgreementSelectionGroupRequest'
+      title: AgreementSelectionRequest
     TaskAgreementMatrixResponse:
       type: object
       properties:
@@ -90,17 +90,17 @@ components:
       - matrix
       - users
       title: TaskAgreementMatrixResponse
-    AgreementSelectionRequest:
+    AgreementSelectionGroupRequest:
       type: object
       properties:
-        annotators:
-          $ref: '#/components/schemas/AgreementSelectionGroupRequest'
-        ground_truth:
+        all:
           type: boolean
           default: false
-        models:
-          $ref: '#/components/schemas/AgreementSelectionGroupRequest'
-      title: AgreementSelectionRequest
+        ids:
+          type: array
+          items:
+            type: string
+      title: AgreementSelectionGroupRequest
   securitySchemes:
     Token:
       type: apiKey

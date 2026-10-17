@@ -313,11 +313,6 @@ paths:
                 $ref: '#/components/schemas/GCSImportStorage'
 components:
   schemas:
-    import_storage_gcs_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: import_storage_gcs_validate_Response_200
     GCSImportStorage:
       type: object
       properties:
@@ -419,6 +414,11 @@ components:
       - project
       - type
       title: GCSImportStorage
+    import_storage_gcs_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: import_storage_gcs_validate_Response_200
     StatusC5aEnum:
       type: string
       enum:

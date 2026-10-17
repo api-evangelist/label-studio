@@ -291,57 +291,6 @@ paths:
                 $ref: '#/components/schemas/Dimension'
 components:
   schemas:
-    AgreementV2BackfillJobStatusEnum:
-      type: string
-      enum:
-      - PENDING
-      - QUEUED
-      - RUNNING
-      - COMPLETED
-      - FAILED
-      description: '* `PENDING` - Pending
-
-        * `QUEUED` - Queued
-
-        * `RUNNING` - Running
-
-        * `COMPLETED` - Completed
-
-        * `FAILED` - Failed'
-      title: AgreementV2BackfillJobStatusEnum
-    AgreementV2BackfillTriggerRequestRequest:
-      type: object
-      properties:
-        all_projects:
-          type:
-          - boolean
-          - 'null'
-          description: Set to true to trigger a full org backfill (cancels in-flight jobs and queues all remaining projects).
-        num_projects:
-          type:
-          - integer
-          - 'null'
-          description: Queue at most this many projects per call (batched mode).
-        project_id:
-          type:
-          - integer
-          - 'null'
-          description: Backfill a single specific project.
-      description: "Request body for POST /api/dimensions/backfill/\n\nExactly one of the three mode fields must be provided:\n\n- project_id:   backfill a single specific project.\n- num_projects: batched org backfill — queue the next N not-yet-started projects\n                (ascending project ID order), leaving in-flight jobs untouched.\n                Check `projects_remaining` in the response and repeat until it reaches 0.\n- all_projects: full org backfill — cancel all in-flight jobs and queue every\n                remaining non-completed project at once."
-      title: AgreementV2BackfillTriggerRequestRequest
-    AgreementV2BackfillCancelResponse:
-      type: object
-      properties:
-        cancelled_count:
-          type: integer
-          description: Number of jobs successfully cancelled
-        message:
-          type: string
-      required:
-      - cancelled_count
-      - message
-      description: Response from DELETE /api/dimensions/backfill/
-      title: AgreementV2BackfillCancelResponse
     Dimension:
       type: object
       properties:
@@ -410,6 +359,26 @@ components:
 
         The project and created_by fields are set automatically from the request context.'
       title: Dimension
+    AgreementV2BackfillTriggerRequestRequest:
+      type: object
+      properties:
+        all_projects:
+          type:
+          - boolean
+          - 'null'
+          description: Set to true to trigger a full org backfill (cancels in-flight jobs and queues all remaining projects).
+        num_projects:
+          type:
+          - integer
+          - 'null'
+          description: Queue at most this many projects per call (batched mode).
+        project_id:
+          type:
+          - integer
+          - 'null'
+          description: Backfill a single specific project.
+      description: "Request body for POST /api/dimensions/backfill/\n\nExactly one of the three mode fields must be provided:\n\n- project_id:   backfill a single specific project.\n- num_projects: batched org backfill — queue the next N not-yet-started projects\n                (ascending project ID order), leaving in-flight jobs untouched.\n                Check `projects_remaining` in the response and repeat until it reaches 0.\n- all_projects: full org backfill — cancel all in-flight jobs and queue every\n                remaining non-completed project at once."
+      title: AgreementV2BackfillTriggerRequestRequest
     AgreementV2BackfillTriggerResponse:
       type: object
       properties:
@@ -442,6 +411,19 @@ components:
       - projects_skipped
       description: Response from POST /api/dimensions/backfill/
       title: AgreementV2BackfillTriggerResponse
+    AgreementV2BackfillCancelResponse:
+      type: object
+      properties:
+        cancelled_count:
+          type: integer
+          description: Number of jobs successfully cancelled
+        message:
+          type: string
+      required:
+      - cancelled_count
+      - message
+      description: Response from DELETE /api/dimensions/backfill/
+      title: AgreementV2BackfillCancelResponse
     DimensionList:
       type: object
       properties:
@@ -510,6 +492,24 @@ components:
 
         Excludes detailed parameters for performance in list views.'
       title: DimensionList
+    AgreementV2BackfillJobStatusEnum:
+      type: string
+      enum:
+      - PENDING
+      - QUEUED
+      - RUNNING
+      - COMPLETED
+      - FAILED
+      description: '* `PENDING` - Pending
+
+        * `QUEUED` - Queued
+
+        * `RUNNING` - Running
+
+        * `COMPLETED` - Completed
+
+        * `FAILED` - Failed'
+      title: AgreementV2BackfillJobStatusEnum
     AgreementV2BackfillJob:
       type: object
       properties:

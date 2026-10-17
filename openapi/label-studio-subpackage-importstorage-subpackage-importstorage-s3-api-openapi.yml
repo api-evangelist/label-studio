@@ -358,11 +358,6 @@ paths:
                 $ref: '#/components/schemas/S3ImportStorage'
 components:
   schemas:
-    import_storage_s3_validate_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: import_storage_s3_validate_Response_200
     StatusC5aEnum:
       type: string
       enum:
@@ -384,6 +379,11 @@ components:
 
         * `completed_with_errors` - Completed with errors'
       title: StatusC5aEnum
+    import_storage_s3_validate_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: import_storage_s3_validate_Response_200
     S3ImportStorage:
       type: object
       properties:

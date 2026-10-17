@@ -327,62 +327,52 @@ paths:
               $ref: '#/components/schemas/RefinePromptRequestRequest'
 components:
   schemas:
-    ThirdPartyModelVersionRequest:
+    RefinePromptRequestRequest:
       type: object
       properties:
-        max_few_shot_examples:
-          type:
-          - integer
-          - 'null'
-          description: Max number of few-shot examples to include in prompts. 0 = disabled.
-        model_provider_connection:
-          type:
-          - integer
-          - 'null'
-        organization:
-          type:
-          - integer
-          - 'null'
-        parent_model:
+        project_id:
           type: integer
-          description: Parent model interface ID
-        prompt:
+          description: Project ID to target the refined prompt for
+        teacher_model_name:
           type: string
-          description: Prompt to execute
-        provider:
-          $ref: '#/components/schemas/ProviderEnum'
-          description: 'The model provider to use e.g. OpenAI
-
-
-            * `OpenAI` - OpenAI
-
-            * `AzureOpenAI` - AzureOpenAI
-
-            * `AzureAIFoundry` - AzureAIFoundry
-
-            * `VertexAI` - VertexAI
-
-            * `Gemini` - Gemini
-
-            * `Anthropic` - Anthropic
-
-            * `Custom` - Custom'
-        provider_model_id:
-          type: string
-          description: The model ID to use within the given provider, e.g. gpt-3.5
-        title:
-          type: string
-          description: Model name
+          description: Name of the model to use to refine the prompt
+        teacher_model_provider_connection_id:
+          type: integer
+          description: Model Provider Connection ID to use to refine the prompt
       required:
-      - prompt
-      - provider_model_id
-      - title
-      title: ThirdPartyModelVersionRequest
+      - project_id
+      - teacher_model_name
+      - teacher_model_provider_connection_id
+      title: RefinePromptRequestRequest
     prompts_versions_get_default_version_name_Response_200:
       type: object
       properties: {}
       description: Empty response body
       title: prompts_versions_get_default_version_name_Response_200
+    ProviderEnum:
+      type: string
+      enum:
+      - OpenAI
+      - AzureOpenAI
+      - AzureAIFoundry
+      - VertexAI
+      - Gemini
+      - Anthropic
+      - Custom
+      description: '* `OpenAI` - OpenAI
+
+        * `AzureOpenAI` - AzureOpenAI
+
+        * `AzureAIFoundry` - AzureAIFoundry
+
+        * `VertexAI` - VertexAI
+
+        * `Gemini` - Gemini
+
+        * `Anthropic` - Anthropic
+
+        * `Custom` - Custom'
+      title: ProviderEnum
     PatchedThirdPartyModelVersionRequest:
       type: object
       properties:
@@ -464,6 +454,57 @@ components:
           - 'null'
           description: Total cost of the inference (in USD)
       title: InferenceRunCostEstimate
+    ThirdPartyModelVersionRequest:
+      type: object
+      properties:
+        max_few_shot_examples:
+          type:
+          - integer
+          - 'null'
+          description: Max number of few-shot examples to include in prompts. 0 = disabled.
+        model_provider_connection:
+          type:
+          - integer
+          - 'null'
+        organization:
+          type:
+          - integer
+          - 'null'
+        parent_model:
+          type: integer
+          description: Parent model interface ID
+        prompt:
+          type: string
+          description: Prompt to execute
+        provider:
+          $ref: '#/components/schemas/ProviderEnum'
+          description: 'The model provider to use e.g. OpenAI
+
+
+            * `OpenAI` - OpenAI
+
+            * `AzureOpenAI` - AzureOpenAI
+
+            * `AzureAIFoundry` - AzureAIFoundry
+
+            * `VertexAI` - VertexAI
+
+            * `Gemini` - Gemini
+
+            * `Anthropic` - Anthropic
+
+            * `Custom` - Custom'
+        provider_model_id:
+          type: string
+          description: The model ID to use within the given provider, e.g. gpt-3.5
+        title:
+          type: string
+          description: Model name
+      required:
+      - prompt
+      - provider_model_id
+      - title
+      title: ThirdPartyModelVersionRequest
     UserSimple:
       type: object
       properties:
@@ -492,23 +533,6 @@ components:
 
         values with complex, nested serializations'
       title: UserSimple
-    RefinePromptRequestRequest:
-      type: object
-      properties:
-        project_id:
-          type: integer
-          description: Project ID to target the refined prompt for
-        teacher_model_name:
-          type: string
-          description: Name of the model to use to refine the prompt
-        teacher_model_provider_connection_id:
-          type: integer
-          description: Model Provider Connection ID to use to refine the prompt
-      required:
-      - project_id
-      - teacher_model_name
-      - teacher_model_provider_connection_id
-      title: RefinePromptRequestRequest
     ThirdPartyModelVersion:
       type: object
       properties:
@@ -581,30 +605,6 @@ components:
       - title
       - updated_at
       title: ThirdPartyModelVersion
-    ProviderEnum:
-      type: string
-      enum:
-      - OpenAI
-      - AzureOpenAI
-      - AzureAIFoundry
-      - VertexAI
-      - Gemini
-      - Anthropic
-      - Custom
-      description: '* `OpenAI` - OpenAI
-
-        * `AzureOpenAI` - AzureOpenAI
-
-        * `AzureAIFoundry` - AzureAIFoundry
-
-        * `VertexAI` - VertexAI
-
-        * `Gemini` - Gemini
-
-        * `Anthropic` - Anthropic
-
-        * `Custom` - Custom'
-      title: ProviderEnum
     RefinedPromptResponse:
       type: object
       properties:

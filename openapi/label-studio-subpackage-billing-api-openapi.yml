@@ -33,22 +33,6 @@ paths:
                 $ref: '#/components/schemas/BillingInfoResponse'
 components:
   schemas:
-    CountLimit:
-      type: object
-      properties:
-        count:
-          type: integer
-        limit:
-          type: integer
-        reached:
-          type: boolean
-        total:
-          type: integer
-      required:
-      - count
-      - limit
-      - reached
-      title: CountLimit
     BillingChecks:
       type: object
       properties:
@@ -124,17 +108,22 @@ components:
       - trial_days
       - users
       title: BillingChecks
-    BillingInfoResponse:
+    CountLimit:
       type: object
       properties:
-        billing_checks:
-          $ref: '#/components/schemas/BillingChecks'
-        billing_flags:
-          $ref: '#/components/schemas/BillingFlags'
+        count:
+          type: integer
+        limit:
+          type: integer
+        reached:
+          type: boolean
+        total:
+          type: integer
       required:
-      - billing_checks
-      - billing_flags
-      title: BillingInfoResponse
+      - count
+      - limit
+      - reached
+      title: CountLimit
     BillingFlags:
       type: object
       properties:
@@ -254,6 +243,17 @@ components:
 
         * `unknown` - unknown'
       title: PromptsStatusEnum
+    BillingInfoResponse:
+      type: object
+      properties:
+        billing_checks:
+          $ref: '#/components/schemas/BillingChecks'
+        billing_flags:
+          $ref: '#/components/schemas/BillingFlags'
+      required:
+      - billing_checks
+      - billing_flags
+      title: BillingInfoResponse
   securitySchemes:
     Token:
       type: apiKey

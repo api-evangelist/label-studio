@@ -170,29 +170,6 @@ paths:
                 $ref: '#/components/schemas/PaginatedPaginatedProjectMemberList'
 components:
   schemas:
-    PaginatedPaginatedProjectMemberList:
-      type: object
-      properties:
-        count:
-          type: integer
-        next:
-          type:
-          - string
-          - 'null'
-          format: uri
-        previous:
-          type:
-          - string
-          - 'null'
-          format: uri
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/PaginatedProjectMember'
-      required:
-      - count
-      - results
-      title: PaginatedPaginatedProjectMemberList
     OrganizationMembership:
       type: object
       properties:
@@ -243,92 +220,6 @@ components:
 
         * `other` - Other'
       title: TrialRoleEnum
-    PaginatedProjectMember:
-      type: object
-      properties:
-        active_organization:
-          type:
-          - integer
-          - 'null'
-        active_organization_meta:
-          type: string
-        allow_newsletters:
-          type:
-          - boolean
-          - 'null'
-          description: Allow sending newsletters to user
-        avatar:
-          type: string
-        custom_hotkeys:
-          oneOf:
-          - description: Any type
-          - type: 'null'
-          description: Custom keyboard shortcuts configuration for the user interface
-        date_joined:
-          type: string
-          format: date-time
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        implicit_member:
-          type: boolean
-        initials:
-          type: string
-          default: '?'
-        last_activity:
-          type: string
-          format: date-time
-        last_name:
-          type: string
-        lse_fields:
-          $ref: '#/components/schemas/LseFields'
-        org_membership:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrganizationMembership'
-        organization_membership:
-          $ref: '#/components/schemas/OrganizationMembership'
-        pause:
-          type: string
-        phone:
-          type: string
-        project_role:
-          type: string
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/SimpleOrganizationMemberTag'
-        user_type:
-          type: string
-        username:
-          type: string
-      required:
-      - active_organization_meta
-      - avatar
-      - id
-      - implicit_member
-      - initials
-      - last_activity
-      - lse_fields
-      - org_membership
-      - organization_membership
-      - pause
-      - project_role
-      - tags
-      - user_type
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
-
-        "fields", "omit" and "expand" in order to
-
-        control which fields are displayed, and whether to replace simple
-
-        values with complex, nested serializations'
-      title: PaginatedProjectMember
     OnboardingStateEnum:
       type: string
       enum:
@@ -420,6 +311,115 @@ components:
       - invite_expired
       - invite_expired_at
       title: LseFields
+    PaginatedProjectMember:
+      type: object
+      properties:
+        active_organization:
+          type:
+          - integer
+          - 'null'
+        active_organization_meta:
+          type: string
+        allow_newsletters:
+          type:
+          - boolean
+          - 'null'
+          description: Allow sending newsletters to user
+        avatar:
+          type: string
+        custom_hotkeys:
+          oneOf:
+          - description: Any type
+          - type: 'null'
+          description: Custom keyboard shortcuts configuration for the user interface
+        date_joined:
+          type: string
+          format: date-time
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        implicit_member:
+          type: boolean
+        initials:
+          type: string
+          default: '?'
+        last_activity:
+          type: string
+          format: date-time
+        last_name:
+          type: string
+        lse_fields:
+          $ref: '#/components/schemas/LseFields'
+        org_membership:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationMembership'
+        organization_membership:
+          $ref: '#/components/schemas/OrganizationMembership'
+        pause:
+          type: string
+        phone:
+          type: string
+        project_role:
+          type: string
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimpleOrganizationMemberTag'
+        user_type:
+          type: string
+        username:
+          type: string
+      required:
+      - active_organization_meta
+      - avatar
+      - id
+      - implicit_member
+      - initials
+      - last_activity
+      - lse_fields
+      - org_membership
+      - organization_membership
+      - pause
+      - project_role
+      - tags
+      - user_type
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
+
+        "fields", "omit" and "expand" in order to
+
+        control which fields are displayed, and whether to replace simple
+
+        values with complex, nested serializations'
+      title: PaginatedProjectMember
+    PaginatedPaginatedProjectMemberList:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type:
+          - string
+          - 'null'
+          format: uri
+        previous:
+          type:
+          - string
+          - 'null'
+          format: uri
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaginatedProjectMember'
+      required:
+      - count
+      - results
+      title: PaginatedPaginatedProjectMemberList
   securitySchemes:
     Token:
       type: apiKey

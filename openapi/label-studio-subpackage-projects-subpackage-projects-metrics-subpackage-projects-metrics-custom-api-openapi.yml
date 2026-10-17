@@ -343,40 +343,6 @@ paths:
               $ref: '#/components/schemas/GCPCustomFunctionUpdateRequest'
 components:
   schemas:
-    projects_metrics_custom_get_function_logs_Response_200:
-      type: object
-      properties: {}
-      title: projects_metrics_custom_get_function_logs_Response_200
-    GCPCustomFunctionUpdateRequest:
-      type: object
-      properties:
-        code:
-          type: string
-          description: The Python code for the custom metric function.
-        project:
-          type:
-          - string
-          - 'null'
-          description: The GCP project ID. Uses default if not provided.
-        region:
-          type:
-          - string
-          - 'null'
-          description: The GCP region for the Cloud Function. Uses default if not provided.
-      required:
-      - code
-      description: Serializer for updating GCP Cloud Function custom metric.
-      title: GCPCustomFunctionUpdateRequest
-    ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
-      type: string
-      enum:
-      - NotDeployed
-      - Active
-      - Pending
-      - Failed
-      - NotFound
-      - Error
-      title: ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
     CustomFunctionCodeRequestRequest:
       type: object
       properties:
@@ -385,23 +351,6 @@ components:
       required:
       - code
       title: CustomFunctionCodeRequestRequest
-    projects_metrics_custom_update_lambda_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: projects_metrics_custom_update_lambda_Response_200
-    ApiProjectsIdAwsCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
-      type: string
-      enum:
-      - NotDeployed
-      - Active
-      - Pending
-      - Inactive
-      - Failed
-      - NotFound
-      - Error
-      description: Deployment status of the Lambda function.
-      title: ApiProjectsIdAwsCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
     AWSCustomFunctionUpdateRequest:
       type: object
       properties:
@@ -422,12 +371,7 @@ components:
       - code
       description: Serializer for updating AWS Lambda custom metric function.
       title: AWSCustomFunctionUpdateRequest
-    projects_metrics_custom_deploy_function_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: projects_metrics_custom_deploy_function_Response_200
-    ApiProjectsIdGcpCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
+    ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
       type: string
       enum:
       - NotDeployed
@@ -436,22 +380,7 @@ components:
       - Failed
       - NotFound
       - Error
-      title: ApiProjectsIdGcpCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
-    projects_metrics_custom_logs_Response_200:
-      type: object
-      properties: {}
-      description: List of AWS lambda logs
-      title: projects_metrics_custom_logs_Response_200
-    projects_metrics_custom_check_function_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: projects_metrics_custom_check_function_Response_200
-    projects_metrics_custom_update_gcp_function_Response_200:
-      type: object
-      properties: {}
-      description: Empty response body
-      title: projects_metrics_custom_update_gcp_function_Response_200
+      title: ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
     projects_metrics_custom_get_gcp_function_Response_200:
       type: object
       properties:
@@ -471,6 +400,84 @@ components:
       required:
       - code
       title: CheckMatchingFunctionRequestRequest
+    GCPCustomFunctionUpdateRequest:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The Python code for the custom metric function.
+        project:
+          type:
+          - string
+          - 'null'
+          description: The GCP project ID. Uses default if not provided.
+        region:
+          type:
+          - string
+          - 'null'
+          description: The GCP region for the Cloud Function. Uses default if not provided.
+      required:
+      - code
+      description: Serializer for updating GCP Cloud Function custom metric.
+      title: GCPCustomFunctionUpdateRequest
+    projects_metrics_custom_update_lambda_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: projects_metrics_custom_update_lambda_Response_200
+    projects_metrics_custom_logs_Response_200:
+      type: object
+      properties: {}
+      description: List of AWS lambda logs
+      title: projects_metrics_custom_logs_Response_200
+    projects_metrics_custom_deploy_function_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: projects_metrics_custom_deploy_function_Response_200
+    ApiProjectsIdAwsCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
+      type: string
+      enum:
+      - NotDeployed
+      - Active
+      - Pending
+      - Inactive
+      - Failed
+      - NotFound
+      - Error
+      description: Deployment status of the Lambda function.
+      title: ApiProjectsIdAwsCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
+    projects_metrics_custom_get_function_Response_200:
+      type: object
+      properties:
+        code:
+          type: string
+        status:
+          $ref: '#/components/schemas/ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus'
+      required:
+      - code
+      - status
+      title: projects_metrics_custom_get_function_Response_200
+    ApiProjectsIdGcpCustomFunctionGetResponsesContentApplicationJsonSchemaStatus:
+      type: string
+      enum:
+      - NotDeployed
+      - Active
+      - Pending
+      - Failed
+      - NotFound
+      - Error
+      title: ApiProjectsIdGcpCustomFunctionGetResponsesContentApplicationJsonSchemaStatus
+    projects_metrics_custom_check_function_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: projects_metrics_custom_check_function_Response_200
+    projects_metrics_custom_update_gcp_function_Response_200:
+      type: object
+      properties: {}
+      description: Empty response body
+      title: projects_metrics_custom_update_gcp_function_Response_200
     projects_metrics_custom_get_lambda_Response_200:
       type: object
       properties:
@@ -483,17 +490,10 @@ components:
       - code
       - status
       title: projects_metrics_custom_get_lambda_Response_200
-    projects_metrics_custom_get_function_Response_200:
+    projects_metrics_custom_get_function_logs_Response_200:
       type: object
-      properties:
-        code:
-          type: string
-        status:
-          $ref: '#/components/schemas/ApiProjectsIdCustomFunctionGetResponsesContentApplicationJsonSchemaStatus'
-      required:
-      - code
-      - status
-      title: projects_metrics_custom_get_function_Response_200
+      properties: {}
+      title: projects_metrics_custom_get_function_logs_Response_200
   securitySchemes:
     Token:
       type: apiKey

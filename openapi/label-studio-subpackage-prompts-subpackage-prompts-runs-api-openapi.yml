@@ -161,24 +161,49 @@ components:
 
         * `Custom` - Custom'
       title: ProjectSubsetEnum
-    ModelRunStatusEnum:
+    ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset:
       type: string
       enum:
-      - Pending
-      - InProgress
-      - Completed
-      - Failed
-      - Canceled
-      description: '* `Pending` - Pending
+      - All
+      - HasGT
+      - Sample
+      title: ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset
+    CancelModelRunResponse:
+      type: object
+      properties:
+        detail:
+          type: string
+      required:
+      - detail
+      title: CancelModelRunResponse
+    UserSimple:
+      type: object
+      properties:
+        avatar:
+          type: string
+        email:
+          type: string
+          format: email
+        first_name:
+          type: string
+        id:
+          type: integer
+        last_name:
+          type: string
+        username:
+          type: string
+      required:
+      - avatar
+      - id
+      - username
+      description: 'A ModelSerializer that takes additional arguments for
 
-        * `InProgress` - InProgress
+        "fields", "omit" and "expand" in order to
 
-        * `Completed` - Completed
+        control which fields are displayed, and whether to replace simple
 
-        * `Failed` - Failed
-
-        * `Canceled` - Canceled'
-      title: ModelRunStatusEnum
+        values with complex, nested serializations'
+      title: UserSimple
     ModelRunRequest:
       type: object
       properties:
@@ -314,49 +339,24 @@ components:
       - task_ids
       - triggered_at
       title: ModelRun
-    ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset:
+    ModelRunStatusEnum:
       type: string
       enum:
-      - All
-      - HasGT
-      - Sample
-      title: ApiPromptsPromptIdVersionsVersionIdInferenceRunsGetParametersProjectSubset
-    UserSimple:
-      type: object
-      properties:
-        avatar:
-          type: string
-        email:
-          type: string
-          format: email
-        first_name:
-          type: string
-        id:
-          type: integer
-        last_name:
-          type: string
-        username:
-          type: string
-      required:
-      - avatar
-      - id
-      - username
-      description: 'A ModelSerializer that takes additional arguments for
+      - Pending
+      - InProgress
+      - Completed
+      - Failed
+      - Canceled
+      description: '* `Pending` - Pending
 
-        "fields", "omit" and "expand" in order to
+        * `InProgress` - InProgress
 
-        control which fields are displayed, and whether to replace simple
+        * `Completed` - Completed
 
-        values with complex, nested serializations'
-      title: UserSimple
-    CancelModelRunResponse:
-      type: object
-      properties:
-        detail:
-          type: string
-      required:
-      - detail
-      title: CancelModelRunResponse
+        * `Failed` - Failed
+
+        * `Canceled` - Canceled'
+      title: ModelRunStatusEnum
   securitySchemes:
     Token:
       type: apiKey

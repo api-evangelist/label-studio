@@ -329,6 +329,17 @@ paths:
               $ref: '#/components/schemas/PatchedOrganizationPermissionRequest'
 components:
   schemas:
+    Options165Enum:
+      type: string
+      enum:
+      - OW
+      - AD
+      - MA
+      - RE
+      - AN
+      - DI
+      - 'NO'
+      title: Options165Enum
     ConfigurablePermissionOption:
       type: object
       properties:
@@ -377,17 +388,6 @@ components:
             $ref: '#/components/schemas/Role9e7Enum'
           description: Organization roles
       title: PatchedOrganizationPermissionRequest
-    Default165Enum:
-      type: string
-      enum:
-      - OW
-      - AD
-      - MA
-      - RE
-      - AN
-      - DI
-      - 'NO'
-      title: Default165Enum
     Role9e7Enum:
       type: string
       enum:
@@ -412,7 +412,7 @@ components:
 
         * `NO` - Not Activated'
       title: Role9e7Enum
-    Options165Enum:
+    Default165Enum:
       type: string
       enum:
       - OW
@@ -422,7 +422,7 @@ components:
       - AN
       - DI
       - 'NO'
-      title: Options165Enum
+      title: Default165Enum
     OrganizationPermission:
       type: object
       properties:
